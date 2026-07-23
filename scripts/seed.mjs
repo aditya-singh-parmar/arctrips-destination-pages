@@ -104,18 +104,33 @@ const reviews = [
   { id: "r6", author_name: "Amelia C.", author_initial: "A", avatar_color: "#E8F4F0", dated: "Aug 2025", sort_order: 5, is_video: false, is_featured: false, body: "Beautiful, clean, and cozy stay. Everything felt premium and thoughtfully prepared. Highly recommend!" },
 ];
 
-async function upsert(table, rows, onConflict) {
-  const res = await fetch(`${URL}/rest/v1/${table}?on_conflict=${onConflict}`, {
-    method: "POST",
-    headers: { apikey: KEY, Authorization: `Bearer ${KEY}`, "Content-Type": "application/json", Prefer: "resolution=merge-duplicates,return=minimal" },
-    body: JSON.stringify(rows),
-  });
+/** PostgREST bulk insert requires every row to share the same keys. Fill the union;
+ *  array-typed columns (jsonb NOT NULL) default to [], everything else to null. */
+function normalize(rows) {
+  const keys = [...new Set(rows.flatMap((r) => Object.keys(r)))];
+  const isArray = Object.fromEntries(keys.map((k) => [k, rows.some((r) => Array.isArray(r[k]))]));
+  return rows.map((r) => Object.fromEntries(keys.map((k) => [k, r[k] ?? (isArray[k] ? [] : null)])));
+}
+
+const h = { apikey: KEY, Authorization: `Bearer ${KEY}`, "Content-Type": "application/json" };
+
+async function wipe(table) {
+  // delete every row (id is not null, so this matches all)
+  const res = await fetch(`${URL}/rest/v1/${table}?id=not.is.null`, { method: "DELETE", headers: { ...h, Prefer: "return=minimal" } });
+  if (!res.ok) throw new Error(`wipe ${table}: ${res.status} ${await res.text()}`);
+}
+
+async function insert(table, rows) {
+  const stripped = rows.map(({ id, ...rest }) => rest); // let DB generate uuid ids
+  const res = await fetch(`${URL}/rest/v1/${table}`, { method: "POST", headers: { ...h, Prefer: "return=minimal" }, body: JSON.stringify(normalize(stripped)) });
   if (!res.ok) throw new Error(`${table}: ${res.status} ${await res.text()}`);
   console.log(`seeded ${table}: ${rows.length} rows`);
 }
 
-await upsert("destinations", destinations, "slug");
-await upsert("listings", listings, "id");
-await upsert("reviews", reviews, "id");
-await upsert("articles", articles, "slug");
+// children first (FKs), then parents
+for (const t of ["reviews", "articles", "listings", "destinations"]) await wipe(t);
+await insert("destinations", destinations);
+await insert("listings", listings);
+await insert("articles", articles);
+await insert("reviews", reviews);
 console.log("done");
