@@ -184,6 +184,15 @@ export async function getReviews(): Promise<Review[]> {
    then a guide page renders its excerpt + a "full guide coming soon" note. */
 
 export type ThingToDo = { label: string; heroPublicId: string; blurb: string };
+export type ArticleBlock = {
+  type: "h" | "p" | "img" | "list" | "table";
+  text?: string;
+  publicId?: string;
+  w?: number;
+  h?: number;
+  items?: string[];
+  rows?: string[][];
+};
 export type Article = {
   slug: string;
   destinationSlug: string;
@@ -191,6 +200,8 @@ export type Article = {
   category: string;
   heroPublicId: string;
   excerpt: string;
+  /** Rich body ingested from the New Articles corpus; empty until ingested. */
+  body?: ArticleBlock[];
 };
 export type AreaSection = { id: string; label: string };
 export type AreaPage = {
@@ -288,7 +299,7 @@ export async function getArticles(destinationSlug: string): Promise<Article[]> {
   if (s) {
     const { data } = await s.from("articles").select("*").eq("destination_slug", destinationSlug).order("sort_order", { ascending: true });
     if (data && data.length) {
-      return data.map((a) => ({ slug: a.slug, destinationSlug: a.destination_slug, title: a.title, category: a.category ?? "", heroPublicId: a.hero_public_id ?? IMG.coast, excerpt: a.excerpt ?? "" }));
+      return data.map((a) => ({ slug: a.slug, destinationSlug: a.destination_slug, title: a.title, category: a.category ?? "", heroPublicId: a.hero_public_id ?? IMG.coast, excerpt: a.excerpt ?? "", body: a.body ?? [] }));
     }
   }
   return SEED_ARTICLES.filter((a) => a.destinationSlug === destinationSlug);

@@ -28,7 +28,7 @@ Route model:
 
 The real copy and imagery live in **`New Articles - 2026/`** at the repo root — ~74 image-heavy `.docx` guides (Tofino, Ucluelet, Victoria, Whistler, Squamish, Banff, "Agent Trek" city guides, plus activity guides: hikes, kayaking, whale watching, biking, etc.). This folder is **gitignored** (large binaries) and is treated as **read-only reference** — edit the rendered content/Supabase rows, never the docs.
 
-Ingestion (docx → Supabase rows + images → Cloudinary) is a **later task, not yet built**. Until a destination is ingested, its page renders from the placeholder content in `app/lib/content.ts`.
+**Ingestion is built** for the guide/article bodies: `scripts/ingest-articles.mjs` unzips each mapped `.docx`, extracts ordered headings/paragraphs + inline images, uploads the images to Cloudinary (`guides/<slug>/imgN`, signed upload), and PATCHes the `articles` row (`body` jsonb blocks `{type:h|p|img,...}`, `hero_public_id`, `excerpt`). The guide page renders `article.body` when present, else the excerpt + a note. Run order: `npm run seed` (creates rows) **then** `node --env-file=.env.local scripts/ingest-articles.mjs` (fills bodies) — re-running seed wipes ingested bodies, so re-ingest after. Currently mapped: the 6 Tofino + 4 Ucluelet guides. Destination overviews/things/gallery are still seeded content in `content.ts` / `seed.mjs`.
 
 ## Design theme (Figma source of truth)
 
