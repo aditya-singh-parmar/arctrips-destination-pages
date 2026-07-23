@@ -35,7 +35,7 @@ Ingestion (docx → Supabase rows + images → Cloudinary) is a **later task, no
 The committed look is the Arc Trips **"Full system" — Inter** marketplace style (an Airbnb-style stays browse experience), NOT the splash's Hanken editorial variant. Source: the Figma CSS export Sam provided (1440 frame, 1280 content / 80px gutters). Two page types:
 
 1. **Destinations landing page** (`/`, `app/page.tsx`) — nav → hero + search → listing rails (recently viewed, per-destination, holiday) → Explore destinations → Culture of excellence → Real stories (reviews + video card) → How it works → email capture → List-your-accommodation banner → Promise cards → Find-a-stay band → footer. **Built (Phase 1), faithful + responsive.**
-2. **Area/destination pages** (`/destinations/[slug]`) — city/area pages with a **top-menu or sidebar to jump to sections** (things to do, articles, videos), fed by the New Articles corpus. **Phase 2**, pending Sam's "Destination structure page" + Herm's input. Currently a placeholder that lists an area's stays.
+2. **Area/destination pages** (`/destinations/[slug]`, `app/components/area/*`) — city/area pages with a **sticky section jump-menu** (sidebar on desktop, horizontal bar on mobile, scrollspy): Overview · Things to do · Guides & articles · Where to stay · Gallery. Guides link to **article pages** (`/destinations/[slug]/guides/[guide]`) that currently render title/hero/excerpt + a "full guide coming soon" note. **Built as a first cut** (Phase 2); the exact section structure will be refined against Sam's "Destination structure page" + Herm's input, and article bodies come from ingesting the New Articles corpus (not yet built).
 
 ## Stack
 

@@ -16,7 +16,8 @@ create table if not exists public.destinations (
   -- area-page fields (phase 2)
   standfirst     text,
   overview       jsonb not null default '[]'::jsonb,  -- string[] paragraphs
-  gallery        jsonb not null default '[]'::jsonb,  -- { publicId, alt, caption }[]
+  things         jsonb not null default '[]'::jsonb,  -- { label, heroPublicId, blurb }[]
+  gallery        jsonb not null default '[]'::jsonb,  -- { publicId } | string[] (Cloudinary IDs)
   published      boolean not null default true,
   created_at     timestamptz not null default now(),
   updated_at     timestamptz not null default now()
@@ -61,10 +62,28 @@ create table if not exists public.reviews (
   created_at     timestamptz not null default now()
 );
 
+-- ── Articles ("find articles about areas/things to do inside a destination") ──
+create table if not exists public.articles (
+  id                uuid primary key default gen_random_uuid(),
+  slug              text not null unique,
+  destination_slug  text references public.destinations(slug) on delete cascade,
+  title             text not null,
+  category          text,
+  hero_public_id    text,
+  excerpt           text,
+  body              jsonb not null default '[]'::jsonb,   -- string[] paragraphs (from corpus ingestion)
+  sort_order        int not null default 0,
+  published         boolean not null default true,
+  created_at        timestamptz not null default now()
+);
+create index if not exists articles_destination_idx on public.articles (destination_slug);
+
 alter table public.destinations enable row level security;
 alter table public.listings     enable row level security;
 alter table public.reviews      enable row level security;
+alter table public.articles     enable row level security;
 
 create policy "destinations public read" on public.destinations for select using (published = true);
 create policy "listings public read"     on public.listings     for select using (published = true);
 create policy "reviews public read"      on public.reviews      for select using (published = true);
+create policy "articles public read"     on public.articles     for select using (published = true);

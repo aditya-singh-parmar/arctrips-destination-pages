@@ -27,14 +27,54 @@ const IMG = {
   founding: "arc-trips/founding-key",
   beach: "james-wheeler-YZfDg2L0lUs-unsplash_ino74q",
   surf: "nicoline-mann-bIIK4mvsDZc-unsplash_vcyrwx",
+  kayak: "condor-wei-TiLEEXohfsY-unsplash_v7ja5f",
+  seaplane: "thomas-lipke-M12HGHNVJ2s-unsplash_nttcvc",
 };
 
+const tofinoOverview = [
+  "Tofino sits at the western edge of Vancouver Island, where the rainforest meets long stretches of open Pacific beach. It draws surfers, storm-watchers, and travelers looking for quiet time close to the water.",
+  "Plan around the tides and the seasons. Summer brings calm mornings and warm evenings on the sand, while winter delivers dramatic storm-watching and empty beaches. Whatever the season, the pace here rewards staying a few nights rather than passing through.",
+];
+const uclueletOverview = [
+  "Ucluelet sits at the tip of the peninsula south of Tofino, wrapped by the Wild Pacific Trail. It keeps a working-harbour character and tends to feel calmer than its better-known neighbour.",
+  "It makes a natural base for whale watching, wildlife tours, and long coastal walks, with easy access to Pacific Rim National Park just up the road.",
+];
+
 const destinations = [
-  { slug: "tofino", name: "Tofino", region: "British Columbia", hero_public_id: IMG.coast, listing_count: 134, coming_soon: false, sort_order: 0 },
-  { slug: "ucluelet", name: "Ucluelet", region: "British Columbia", hero_public_id: IMG.aerial, listing_count: 158, coming_soon: false, sort_order: 1 },
+  { slug: "tofino", name: "Tofino", region: "British Columbia", hero_public_id: IMG.coast, listing_count: 134, coming_soon: false, sort_order: 0,
+    standfirst: "Storm-swept beaches, old-growth rainforest, and the best surf on the Pacific coast.", overview: tofinoOverview,
+    things: [
+      { label: "Beaches", heroPublicId: IMG.coast, blurb: "Long Beach, Cox Bay, Chesterman." },
+      { label: "Surfing", heroPublicId: IMG.surf, blurb: "Canada's surf capital." },
+      { label: "Kayaking", heroPublicId: IMG.kayak, blurb: "Paddle Clayoquot Sound." },
+      { label: "Wildlife tours", heroPublicId: IMG.seaplane, blurb: "Whales, bears, seabirds." },
+    ],
+    gallery: [IMG.coast, IMG.aerial, IMG.surf, IMG.kayak, IMG.dayhike, IMG.beach] },
+  { slug: "ucluelet", name: "Ucluelet", region: "British Columbia", hero_public_id: IMG.aerial, listing_count: 158, coming_soon: false, sort_order: 1,
+    standfirst: "Tofino's quieter neighbour, wrapped by the Wild Pacific Trail.", overview: uclueletOverview,
+    things: [
+      { label: "Wild Pacific Trail", heroPublicId: IMG.dayhike, blurb: "The coastal walk people return for." },
+      { label: "Kayaking", heroPublicId: IMG.kayak, blurb: "Sheltered launches and open water." },
+      { label: "Wildlife watching", heroPublicId: IMG.beach, blurb: "Whales, sea lions, seabirds." },
+      { label: "Restaurants", heroPublicId: IMG.gallery1, blurb: "Chowder and fresh catch." },
+    ],
+    gallery: [IMG.aerial, IMG.coast, IMG.beach, IMG.dayhike, IMG.gallery2, IMG.kayak] },
   { slug: "toronto", name: "Toronto", region: "Ontario", hero_public_id: IMG.beach, listing_count: 0, coming_soon: false, sort_order: 2 },
   { slug: "montreal", name: "Montreal", region: "Quebec", hero_public_id: IMG.surf, listing_count: 0, coming_soon: true, sort_order: 3 },
   { slug: "edmonton", name: "Edmonton", region: "Alberta", hero_public_id: IMG.cabinExterior, listing_count: 0, coming_soon: true, sort_order: 4 },
+];
+
+const articles = [
+  { slug: "tofino-beaches", destination_slug: "tofino", title: "The Best Beaches in Tofino", category: "Beaches", hero_public_id: IMG.coast, excerpt: "Long Beach, Cox Bay, Chesterman: where to find surf, sand, and sunset walks.", sort_order: 0 },
+  { slug: "tofino-surfing", destination_slug: "tofino", title: "Surfing in Tofino", category: "Surfing", hero_public_id: IMG.surf, excerpt: "Canada's surf capital: breaks, seasons, and where to rent a board.", sort_order: 1 },
+  { slug: "tofino-kayaking", destination_slug: "tofino", title: "Kayaking in Tofino", category: "On the water", hero_public_id: IMG.kayak, excerpt: "Paddle Clayoquot Sound past islands, inlets, and old-growth shoreline.", sort_order: 2 },
+  { slug: "tofino-storm-watching", destination_slug: "tofino", title: "Storm Watching in Tofino", category: "Seasonal", hero_public_id: IMG.aerial, excerpt: "Why winter is the dramatic season on the exposed Pacific coast.", sort_order: 3 },
+  { slug: "tofino-wildlife-tours", destination_slug: "tofino", title: "Wildlife Tours in Tofino", category: "Wildlife", hero_public_id: IMG.seaplane, excerpt: "Whales, bears, and seabirds: the tours worth booking.", sort_order: 4 },
+  { slug: "tofino-restaurants", destination_slug: "tofino", title: "Where to Eat in Tofino", category: "Food & drink", hero_public_id: IMG.connection, excerpt: "From fish tacos to tasting menus, the town's essential tables.", sort_order: 5 },
+  { slug: "ucluelet-hiking", destination_slug: "ucluelet", title: "Ucluelet Hiking Guide", category: "Trails", hero_public_id: IMG.dayhike, excerpt: "The Wild Pacific Trail and the routes that make Ucluelet worth the drive.", sort_order: 0 },
+  { slug: "ucluelet-kayaking", destination_slug: "ucluelet", title: "Kayaking in Ucluelet", category: "On the water", hero_public_id: IMG.kayak, excerpt: "Sheltered launches and open-water paddles from the harbour town.", sort_order: 1 },
+  { slug: "ucluelet-wildlife-watching", destination_slug: "ucluelet", title: "Wildlife Watching in Ucluelet", category: "Wildlife", hero_public_id: IMG.beach, excerpt: "Grey whales on migration, sea lions, and the spring seabird return.", sort_order: 2 },
+  { slug: "ucluelet-restaurants", destination_slug: "ucluelet", title: "Ucluelet Restaurants", category: "Food & drink", hero_public_id: IMG.gallery1, excerpt: "Chowder, fresh catch, and the town's easy-going local rooms.", sort_order: 3 },
 ];
 
 const CARD = [IMG.cabinExterior, IMG.curatedCabin, IMG.cabinInterior, IMG.gallery1, IMG.gallery2, IMG.dayhike, IMG.connection, IMG.founding, IMG.coast];
@@ -77,4 +117,5 @@ async function upsert(table, rows, onConflict) {
 await upsert("destinations", destinations, "slug");
 await upsert("listings", listings, "id");
 await upsert("reviews", reviews, "id");
+await upsert("articles", articles, "slug");
 console.log("done");
