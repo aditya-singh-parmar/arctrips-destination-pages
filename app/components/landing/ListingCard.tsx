@@ -7,7 +7,7 @@ import { IconLocation, IconBed, IconRooms, IconBath, IconStar, IconHeart } from 
 export function ListingCard({ listing, variant = "default" }: { listing: Listing; variant?: "default" | "holiday" }) {
   const holiday = variant === "holiday";
   return (
-    <article className="card">
+    <article className={holiday ? "card card--holiday" : "card"}>
       <div className="card__media">
         <Image
           src={cld(listing.heroPublicId, { w: 832, h: 500, fit: "fill" })}

@@ -1,4 +1,4 @@
-/* Satoshi (ARCTRIPS wordmark only) — Fontshare. Must precede the Tailwind import. */
+/* Satoshi (ARCTRIPS wordmark only), Fontshare. Must precede the Tailwind import. */
 @import url("https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap");
 @import "tailwindcss";
 
@@ -8,7 +8,7 @@
   --font-satoshi: "Satoshi", var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, "SF Mono", monospace;
 
-  /* ── Arc Trips Design System — Primary (Azure) ── */
+  /* ── Arc Trips Design System, Primary (Azure) ── */
   --color-primary-100: #EAF2FB;
   --color-primary-200: #D4E4F6;
   --color-primary-250: #BED7F1;

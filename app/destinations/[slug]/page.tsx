@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const area = await getAreaPage(slug);
   return area
-    ? { title: `${area.name} — Arc Trips`, description: area.standfirst }
+    ? { title: `${area.name} | Arc Trips`, description: area.standfirst }
     : { title: "Arc Trips" };
 }
 

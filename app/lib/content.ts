@@ -303,3 +303,10 @@ export async function getAllAreaSlugs(): Promise<string[]> {
   const dests = await getDestinations();
   return dests.filter((d) => !d.comingSoon).map((d) => d.slug);
 }
+
+/** Slugs that actually have a navigable area page (rich content), so links never 404. */
+export async function getNavigableSlugs(): Promise<string[]> {
+  const slugs = await getAllAreaSlugs();
+  const checked = await Promise.all(slugs.map(async (s) => ((await getAreaPage(s)) ? s : null)));
+  return checked.filter((s): s is string => Boolean(s));
+}

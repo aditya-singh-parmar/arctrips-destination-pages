@@ -1,5 +1,5 @@
 /* ────────────────────────────────────────────────────────────────────────
-   Arc Trips — Destination Pages design system (marketplace / "Full system")
+   Arc Trips, Destination Pages design system (marketplace / "Full system")
 
    Faithful to the Figma spec: 1440 frame, 1280 content (80px gutters),
    Inter type ramp, Arc Trips tokens. Built as flowing/responsive layout that
@@ -74,7 +74,7 @@ button { font-family: inherit; cursor: pointer; }
 
 /* ── Layout ── */
 .container { max-width: calc(var(--content) + 2 * 80px); margin-inline: auto; padding-inline: var(--gutter); }
-.section { padding-block: 40px; }
+.section { padding-block: 32px; }
 
 /* ── Buttons ── */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 8px; border: 1px solid transparent; padding: 10px 20px; font-size: 16px; line-height: 24px; font-weight: 500; }
@@ -92,7 +92,7 @@ button { font-family: inherit; cursor: pointer; }
 .arrow:disabled { opacity: .5; cursor: default; }
 
 /* ── Top navigation ── */
-.nav { position: sticky; top: 0; z-index: 50; background: #fff; }
+.nav { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid var(--n-100); }
 .nav__inner { display: flex; align-items: center; gap: 24px; height: 80px; }
 .nav__logo { font-family: var(--font-satoshi); font-weight: 700; font-size: 16px; letter-spacing: .02em; color: #000; text-transform: uppercase; }
 .nav__links { display: flex; align-items: center; gap: 8px; margin-inline: auto; }
@@ -104,7 +104,7 @@ button { font-family: inherit; cursor: pointer; }
 
 /* ── Hero + search ── */
 .hero { position: relative; }
-.hero__media { position: relative; height: 261px; border-radius: 8px; overflow: hidden; }
+.hero__media { position: relative; height: 420px; border-radius: 8px; overflow: hidden; background: var(--n-100); }
 .hero__media img { width: 100%; height: 100%; object-fit: cover; }
 .hero__scrim { position: absolute; inset: 0; background: linear-gradient(270deg, rgba(7,62,128,0) 0%, #000 118%); }
 .hero__title { position: absolute; inset: 0; display: grid; place-items: center; color: #fff; text-align: center; padding: 0 24px; }
@@ -125,17 +125,28 @@ button { font-family: inherit; cursor: pointer; }
 .rowhead { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 24px; }
 .rowhead__arrows { display: flex; gap: 12px; flex: none; }
 
-/* ── Horizontal scroller ── */
-.scroller { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(300px, 1fr); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 4px; }
+/* ── Horizontal scroller ──
+   Fixed flex-basis (not grid `fr`/`auto-fit`) so card width stays the same
+   ~416px regardless of how many cards are in a given row: an `fr` column in
+   an overflow-x:auto grid divides by child count, so rows with a different
+   number of cards previously rendered at different widths. */
+.scroller { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 4px; }
 .scroller::-webkit-scrollbar { display: none; }
-.scroller > * { scroll-snap-align: start; }
+.scroller > * { flex: 0 0 auto; width: calc((100% - 32px) / 3); scroll-snap-align: start; }
+@media (max-width: 980px) { .scroller > * { width: calc((100% - 16px) / 2); } }
+@media (max-width: 640px) { .scroller > * { width: 85vw; } }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 @media (max-width: 980px) { .grid-3 { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) { .grid-3 { grid-template-columns: 1fr; } }
 
-/* ── Accommodation card ── */
-.card { position: relative; border: 1px solid var(--n-100); border-radius: 8px; background: #fff; overflow: hidden; display: flex; flex-direction: column; }
-.card__media { position: relative; aspect-ratio: 416 / 250; }
+/* ── Accommodation card ──
+   No explicit height: every row (.scroller flex / .grid-3 grid) stretches
+   siblings to match the tallest via default cross-axis stretch, and the
+   2-line title reserve + bottom-pinned footer keep 1-line and 2-line
+   listings visually identical, so a row of cards always lines up evenly. */
+.card { position: relative; border: 1px solid var(--n-100); border-radius: 8px; background: #fff; overflow: hidden; display: flex; flex-direction: column; height: 100%; transition: box-shadow .2s ease, border-color .2s ease; }
+.card:hover { box-shadow: 0 8px 24px rgba(24,26,30,0.08); border-color: var(--n-200); }
+.card__media { position: relative; aspect-ratio: 416 / 250; background: var(--n-100); }
 .card__media img { width: 100%; height: 100%; object-fit: cover; }
 .card__heart { position: absolute; top: 16px; right: 16px; width: 32px; height: 32px; display: grid; place-items: center; }
 .card__heart svg { fill: rgba(26,79,126,0.6); stroke: #fff; stroke-width: 1.5; }
@@ -148,14 +159,20 @@ button { font-family: inherit; cursor: pointer; }
 .card__foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 6px; }
 .card__price { text-align: right; }
 .card__note { color: var(--n-700); text-align: right; max-width: 120px; }
-.rating { display: inline-flex; align-items: center; gap: 4px; background: var(--emerald-600); color: #fff; border-radius: 100px; padding: 4px 8px; }
+.rating { display: inline-flex; align-items: center; gap: 4px; background: var(--emerald-600); color: #fff; border-radius: 100px; padding: 4px 8px; flex: none; }
 .viewall { display: flex; justify-content: center; margin-top: 24px; }
+
+/* Compact "holiday" variant: taller image, no price row, so the footer sits
+   right under the specs instead of being pinned to a phantom bottom edge. */
+.card--holiday .card__media { aspect-ratio: 416 / 256; }
+.card--holiday .card__body { flex: 0 1 auto; }
+.card--holiday .card__foot { margin-top: 4px; padding-top: 0; }
 
 /* ── Explore destinations ── */
 .dests { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
 @media (max-width: 980px) { .dests { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 620px) { .dests { grid-template-columns: repeat(2, 1fr); } }
-.dest__media { aspect-ratio: 206 / 176; border-radius: 8px; overflow: hidden; background: #D9D9D9; }
+.dest__media { aspect-ratio: 206 / 176; border-radius: 8px; overflow: hidden; background: var(--n-100); }
 .dest__media img { width: 100%; height: 100%; object-fit: cover; }
 .dest__name { margin-top: 12px; color: var(--n-900); }
 .dest__meta { margin-top: 4px; color: var(--n-500); }
@@ -169,7 +186,7 @@ button { font-family: inherit; cursor: pointer; }
 .feat__icon { width: 40px; height: 40px; flex: none; border-radius: 8px; background: var(--a-300); display: grid; place-items: center; color: var(--n-900); }
 .feat__title { color: var(--n-900); }
 .feat__text { color: var(--n-800); }
-.panel__media { border-radius: 8px; overflow: hidden; box-shadow: 0px 4px 8.6px 3px rgba(0,0,0,0.09); aspect-ratio: 456 / 424; }
+.panel__media { border-radius: 8px; overflow: hidden; box-shadow: 0px 4px 8.6px 3px rgba(0,0,0,0.09); aspect-ratio: 456 / 424; background: var(--n-100); }
 .panel__media img { width: 100%; height: 100%; object-fit: cover; }
 @media (max-width: 900px) { .panel { grid-template-columns: 1fr; padding: 32px; gap: 32px; } }
 
@@ -185,7 +202,7 @@ button { font-family: inherit; cursor: pointer; }
 .review__name { color: var(--n-900); }
 .review__date { color: var(--n-600); }
 .review__text { color: var(--n-800); }
-.review--media { padding: 0; overflow: hidden; position: relative; min-height: 370px; display: flex; align-items: flex-end; }
+.review--media { padding: 0; overflow: hidden; position: relative; min-height: 370px; display: flex; align-items: flex-end; background: var(--n-100); }
 .review--media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .review--media .review__overlay { position: relative; z-index: 2; padding: 24px; color: #fff; background: linear-gradient(180deg, rgba(39,39,39,0) 40%, #272727 100%); width: 100%; }
 .review__play { position: absolute; top: 40%; left: 50%; transform: translate(-50%,-50%); z-index: 2; width: 80px; height: 80px; border-radius: 9999px; background: rgba(24,26,30,.5); display: grid; place-items: center; }
@@ -227,7 +244,7 @@ button { font-family: inherit; cursor: pointer; }
 .cta-band { background: var(--a-800); border-radius: 8px; padding: 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; color: #fff; }
 
 /* ── Area / destination page ── */
-.area-hero { position: relative; min-height: 420px; display: flex; align-items: flex-end; border-radius: 8px; overflow: hidden; }
+.area-hero { position: relative; min-height: 420px; display: flex; align-items: flex-end; border-radius: 8px; overflow: hidden; background: var(--n-100); }
 .area-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .area-hero__scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,28,48,.15), rgba(8,28,48,.20) 45%, rgba(8,28,48,.72)); }
 .area-hero__inner { position: relative; z-index: 2; color: #fff; padding: 40px; }
@@ -240,7 +257,7 @@ button { font-family: inherit; cursor: pointer; }
 .area-nav a { display: block; padding: 8px 16px; color: var(--n-600); font-weight: 500; border-left: 2px solid transparent; margin-left: -1px; }
 .area-nav a:hover { color: var(--n-900); }
 .area-nav a[data-active="true"] { color: var(--a-800); border-left-color: var(--a-800); }
-.area-section { scroll-margin-top: 96px; padding-block: 24px; }
+.area-section { scroll-margin-top: 96px; padding-block: 32px; }
 .area-section + .area-section { border-top: 1px solid var(--n-100); }
 .area-section h2 { margin-bottom: 16px; }
 .area-prose p { color: var(--n-700); margin: 0 0 16px; }
@@ -258,7 +275,7 @@ button { font-family: inherit; cursor: pointer; }
 
 .things { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 @media (max-width: 900px) { .things { grid-template-columns: repeat(2, 1fr); } }
-.thing { border-radius: 8px; overflow: hidden; position: relative; aspect-ratio: 1 / 1; display: flex; align-items: flex-end; }
+.thing { border-radius: 8px; overflow: hidden; position: relative; aspect-ratio: 1 / 1; display: flex; align-items: flex-end; background: var(--n-100); }
 .thing img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .thing__scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(24,26,30,0) 40%, rgba(24,26,30,.78)); }
 .thing__label { position: relative; z-index: 2; color: #fff; padding: 12px 14px; }
@@ -267,7 +284,7 @@ button { font-family: inherit; cursor: pointer; }
 @media (max-width: 900px) { .guides { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .guides { grid-template-columns: 1fr; } }
 .guide { border: 1px solid var(--n-100); border-radius: 8px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
-.guide__media { aspect-ratio: 16 / 10; }
+.guide__media { aspect-ratio: 16 / 10; background: var(--n-100); }
 .guide__media img { width: 100%; height: 100%; object-fit: cover; }
 .guide__body { padding: 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .guide__cat { color: var(--azure); text-transform: uppercase; letter-spacing: .08em; }
@@ -277,11 +294,43 @@ button { font-family: inherit; cursor: pointer; }
 
 .area-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 @media (max-width: 700px) { .area-gallery { grid-template-columns: repeat(2, 1fr); } }
-.area-gallery img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 6px; }
+.area-gallery img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 6px; background: var(--n-100); }
+
+/* ── Destinations landing (/destinations) ── */
+.dest-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+@media (max-width: 900px) { .dest-cards { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .dest-cards { grid-template-columns: 1fr; } }
+.dcard { position: relative; border-radius: 8px; overflow: hidden; aspect-ratio: 3 / 2.3; display: flex; align-items: flex-end; background: var(--n-100); }
+.dcard img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+.dcard:hover img { transform: scale(1.04); }
+.dcard__scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,28,48,0) 42%, rgba(8,28,48,.74)); }
+.dcard__body { position: relative; z-index: 2; padding: 20px; color: #fff; }
+.dcard__name { color: #fff; }
+.dcard__meta { color: #EAF2FB; margin-top: 4px; }
+.dcard__badge { position: absolute; top: 12px; left: 12px; z-index: 2; background: #fff; color: var(--n-800); border-radius: 9999px; padding: 4px 12px; }
+.dcard--soon { cursor: default; }
+.dcard--soon img { filter: saturate(.7) brightness(.9); }
+
+/* ── Guide page: sidebar of other guides + article ── */
+.guide-layout { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 48px; align-items: start; }
+.guide-side { position: sticky; top: 96px; }
+.guide-side__back { display: inline-flex; align-items: center; gap: 8px; color: var(--n-900); font-weight: 700; font-size: 18px; }
+.guide-side__label { color: var(--n-500); text-transform: uppercase; letter-spacing: .08em; margin: 12px 0; }
+.guide-side ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.guide-side a { display: block; padding: 8px 12px; border-radius: 8px; color: var(--n-700); font-weight: 500; line-height: 1.35; }
+.guide-side a:hover { background: var(--n-50); color: var(--n-900); }
+.guide-side a[data-active="true"] { background: var(--a-100); color: var(--a-800); }
+.guide-side__cat { display: block; font-size: 12px; color: var(--n-500); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 2px; }
+.guide-side a[data-active="true"] .guide-side__cat { color: var(--a-500); }
+@media (max-width: 860px) {
+  .guide-layout { grid-template-columns: 1fr; gap: 32px; }
+  .guide-side { position: static; order: 2; border-top: 1px solid var(--n-100); padding-top: 24px; }
+}
 
 /* article page */
 .article { max-width: 760px; margin-inline: auto; }
-.article__hero { aspect-ratio: 16/7; border-radius: 8px; overflow: hidden; margin-bottom: 24px; }
+.article--wide { max-width: 760px; margin-inline: 0; }
+.article__hero { aspect-ratio: 16/7; border-radius: 8px; overflow: hidden; margin-bottom: 24px; background: var(--n-100); }
 .article__hero img { width: 100%; height: 100%; object-fit: cover; }
 .article__cat { color: var(--azure); text-transform: uppercase; letter-spacing: .08em; }
 .article__body p { color: var(--n-700); margin: 16px 0; }
@@ -289,7 +338,7 @@ button { font-family: inherit; cursor: pointer; }
 .article__back { color: var(--azure); font-weight: 500; }
 
 /* ── Footer ── */
-.footer { background: var(--n-50); margin-top: 40px; }
+.footer { background: var(--n-50); margin-top: 24px; }
 .footer__inner { padding: 40px 0 24px; }
 .footer__logo { font-family: var(--font-satoshi); font-weight: 700; font-size: 16px; color: #000; text-transform: uppercase; margin-bottom: 40px; }
 .footer__cols { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; }

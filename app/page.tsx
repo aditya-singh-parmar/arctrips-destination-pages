@@ -1,4 +1,4 @@
-import { getDestinations, getListings, getReviews } from "@/app/lib/content";
+import { getDestinations, getListings, getReviews, getNavigableSlugs } from "@/app/lib/content";
 import { TopNav } from "@/app/components/landing/TopNav";
 import { Hero } from "@/app/components/landing/Hero";
 import { ScrollRow } from "@/app/components/landing/ScrollRow";
@@ -13,13 +13,14 @@ import { PromiseCards } from "@/app/components/landing/PromiseCards";
 import { Footer } from "@/app/components/landing/Footer";
 
 export default async function HomePage() {
-  const [destinations, recentlyViewed, tofino, ucluelet, holiday, reviews] = await Promise.all([
+  const [destinations, recentlyViewed, tofino, ucluelet, holiday, reviews, navigable] = await Promise.all([
     getDestinations(),
     getListings(),
     getListings({ destinationSlug: "tofino" }),
     getListings({ destinationSlug: "ucluelet" }),
     getListings({ holiday: true }),
     getReviews(),
+    getNavigableSlugs(),
   ]);
 
   return (
@@ -31,7 +32,7 @@ export default async function HomePage() {
         {recentlyViewed.slice(0, 6).map((l) => <ListingCard key={l.id} listing={l} />)}
       </ScrollRow>
 
-      <ExploreDestinations destinations={destinations} />
+      <ExploreDestinations destinations={destinations} navigable={navigable} />
 
       <ScrollRow title="Our most viewed listings in Tofino" arrowsLeft viewAll="View all listings in Tofino">
         {tofino.map((l) => <ListingCard key={l.id} listing={l} />)}

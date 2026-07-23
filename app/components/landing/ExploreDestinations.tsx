@@ -4,7 +4,7 @@ import { cld } from "@/app/lib/cloudinary";
 import type { Destination } from "@/app/lib/content";
 import { IconArrow } from "@/app/components/ui/Icons";
 
-export function ExploreDestinations({ destinations }: { destinations: Destination[] }) {
+export function ExploreDestinations({ destinations, navigable = [] }: { destinations: Destination[]; navigable?: string[] }) {
   return (
     <section className="container section">
       <div className="rowhead">
@@ -15,23 +15,31 @@ export function ExploreDestinations({ destinations }: { destinations: Destinatio
         </div>
       </div>
       <div className="dests">
-        {destinations.map((d) => (
-          <Link key={d.slug} href={d.comingSoon ? "/" : `/destinations/${d.slug}`}>
-            <div className="dest__media">
-              <Image
-                src={cld(d.heroPublicId, { w: 412, h: 352, fit: "fill" })}
-                alt={d.name}
-                width={412}
-                height={352}
-                sizes="(max-width: 620px) 50vw, 20vw"
-              />
-            </div>
-            <p className="dest__name t-bold-16">{d.name}</p>
-            <p className="dest__meta t-med-12">
-              {d.comingSoon ? "(Coming soon)" : `${d.listingCount} listings`}
-            </p>
-          </Link>
-        ))}
+        {destinations.map((d) => {
+          const ready = navigable.includes(d.slug);
+          const inner = (
+            <>
+              <div className="dest__media">
+                <Image
+                  src={cld(d.heroPublicId, { w: 412, h: 352, fit: "fill" })}
+                  alt={d.name}
+                  width={412}
+                  height={352}
+                  sizes="(max-width: 620px) 50vw, 20vw"
+                />
+              </div>
+              <p className="dest__name t-bold-16">{d.name}</p>
+              <p className="dest__meta t-med-12">
+                {d.comingSoon ? "(Coming soon)" : `${d.listingCount} listings`}
+              </p>
+            </>
+          );
+          return ready ? (
+            <Link key={d.slug} href={`/destinations/${d.slug}`}>{inner}</Link>
+          ) : (
+            <div key={d.slug}>{inner}</div>
+          );
+        })}
       </div>
     </section>
   );

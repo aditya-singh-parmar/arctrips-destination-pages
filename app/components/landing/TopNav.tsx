@@ -1,13 +1,15 @@
 import Link from "next/link";
 
-export function TopNav() {
+/** `active` highlights the current top-level section. */
+export function TopNav({ active = "accommodations" }: { active?: "accommodations" | "destinations" }) {
   return (
     <nav className="nav">
       <div className="container nav__inner">
         <Link href="/" className="nav__logo">ARCTRIPS</Link>
         <div className="nav__links">
           <Link href="/" className="nav__link">Home</Link>
-          <Link href="/" className="nav__link" data-active="true">Accommodations</Link>
+          <Link href="/" className="nav__link" data-active={active === "accommodations"}>Accommodations</Link>
+          <Link href="/destinations" className="nav__link" data-active={active === "destinations"}>Destinations</Link>
         </div>
         <div className="nav__right">
           <Link href="/" className="nav__list">List with us</Link>
