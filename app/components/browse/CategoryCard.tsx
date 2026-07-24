@@ -5,22 +5,34 @@ import { cld, placeholder } from "@/app/lib/cloudinary";
 export type CategoryCardCategory = { slug: string; name: string; blurb?: string; heroPublicId?: string };
 
 /**
- * Rail card for a "things to do" category, one of three booking states.
- * `citySlug` isn't in the plan's literal prop list but is required to build
- * the link (`/{citySlug}/{category.slug}`), added as the obvious minimal
- * extension, documented here per the brief.
+ * Rail card for a "things to do" category. `citySlug` isn't in the plan's
+ * literal prop list but is required to build the link
+ * (`/{citySlug}/{category.slug}`), added as the obvious minimal extension.
+ *
+ * `state` grew a fourth value, `"open"`, beyond the plan's literal
+ * `"live"|"sister"|"soon"`: real experience inventory is placeholder data
+ * (spec section 9), so most Tofino/Ucluelet categories (beaches, surfing,
+ * hiking, restaurants, storm-watching) have zero experience rows and no
+ * mapped product line at all. Labelling those "live" would fabricate a
+ * "0 to book" badge; `"open"` renders no badge and no price, just the
+ * category name and its meta line, the category-level analogue of a
+ * `PlaceCard` place with `experienceCount === 0` ("Free to visit" rather
+ * than a dead button, spec section 5's rule extended one level up).
+ * `bookableCount` (renamed from the plan's `placeCount`, which the mockup
+ * actually uses as the bookable count shown in the "N to book" badge, not
+ * the total place count) is only rendered when `state === "live"`.
  */
 export function CategoryCard({
   category,
   citySlug,
-  placeCount,
+  bookableCount,
   state,
   priceFrom,
 }: {
   category: CategoryCardCategory;
   citySlug: string;
-  placeCount: number;
-  state: "live" | "sister" | "soon";
+  bookableCount: number;
+  state: "live" | "sister" | "soon" | "open";
   priceFrom?: number;
 }) {
   return (
@@ -33,7 +45,7 @@ export function CategoryCard({
           height={260}
           sizes="172px"
         />
-        {state === "live" && <span className="pcard__badge">{placeCount} to book</span>}
+        {state === "live" && <span className="pcard__badge">{bookableCount} to book</span>}
         {state === "sister" && <span className="pcard__badge" data-state="sister">ARCTRIPS FISHING</span>}
         {state === "soon" && <span className="pcard__badge" data-state="soon">COMING SOON</span>}
       </div>
@@ -42,7 +54,7 @@ export function CategoryCard({
       {state === "soon" ? (
         <p className="pcard__price" data-state="soon">Notify me &rarr;</p>
       ) : (
-        priceFrom !== undefined && (
+        state !== "open" && priceFrom !== undefined && (
           <p className="pcard__price">
             from ${priceFrom}
           </p>

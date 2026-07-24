@@ -408,7 +408,7 @@ button { font-family: inherit; cursor: pointer; }
 .crumb__sep { color: var(--n-200); padding: 0 6px; }
 
 /* ── Sticky tab bar (replaces the sidebar) ── */
-.tabbar { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 2px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid var(--n-100); background: rgba(255,255,255,.98); }
+.tabbar { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 2px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid var(--n-100); background: rgba(255,255,255,.98); padding-inline: var(--gutter); }
 .tabbar::-webkit-scrollbar { display: none; }
 .tabbar__link { flex: none; font-size: 13px; font-weight: 500; color: var(--n-600); padding: 12px; white-space: nowrap; border-bottom: 2.5px solid transparent; }
 .tabbar__link:hover { color: var(--navy); }
@@ -474,10 +474,14 @@ button { font-family: inherit; cursor: pointer; }
 details[open] > .faq__q::after { transform: rotate(180deg); }
 .faq__a { padding: 0 0 13px; font-size: 11.5px; color: var(--n-600); line-height: 1.7; max-width: 76ch; }
 
-/* ── CTA block: exactly one .btn--primary per page lives here ── */
+/* ── CTA block ──
+   Deliberately never .btn--primary: the tab bar already owns that slot on
+   every page this renders on (see CtaBlock.tsx). Base style is .btn--outline;
+   the sister-brand modifier fills it solid so ArcTrips Fishing hand-offs
+   still read as a strong, distinct action, not a lesser one. */
 .cta { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
 .cta__button { width: auto; }
-.cta--sister .cta__button { background: var(--a-800); border-color: var(--a-800); }
+.cta--sister .cta__button { background: var(--a-800); border-color: var(--a-800); color: var(--white); }
 .cta__badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--a-800); background: var(--a-100); padding: 4px 9px; border-radius: 9999px; }
 .cta__offer { font-size: 12px; color: var(--n-600); }
 /* nested amber capture surface for the coming-soon notify block */
@@ -505,3 +509,46 @@ details[open] > .faq__q::after { transform: rotate(180deg); }
   .dockbar .btn { width: 100%; }
   .has-dockbar { padding-bottom: 72px; }
 }
+
+/* ────────────────────────────────────────────────────────────────────────
+   v1.1 tree pages: city hero, reading-page contents rail, good-for chips.
+   Tasks 9-11. Same token set as the block above, no new hex.
+   ──────────────────────────────────────────────────────────────────────── */
+
+/* ── City / place hero ── */
+.chero { position: relative; border-radius: 8px; overflow: hidden; min-height: 320px; background: var(--n-100); }
+.chero__media { position: absolute; inset: 0; }
+.chero__media img { width: 100%; height: 100%; object-fit: cover; }
+.chero__scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,51,86,.06) 40%, rgba(11,51,86,.78)); }
+.chero__text { position: absolute; left: 24px; bottom: 20px; z-index: 2; color: var(--white); }
+.chero__text h1 { margin: 0 0 4px; color: var(--white); }
+.chero__sub { color: var(--a-100); font-size: 14px; }
+.chero__count { position: absolute; right: 24px; top: 18px; z-index: 2; background: rgba(11,51,86,.72); color: var(--white); font-size: 12px; padding: 6px 12px; border-radius: 9999px; }
+.chero__summary { position: absolute; right: 24px; bottom: 20px; z-index: 2; background: rgba(255,255,255,.95); color: var(--navy); font-size: 12px; font-weight: 700; padding: 8px 14px; border-radius: 9999px; }
+.chero--sm { min-height: 220px; }
+
+/* ── Reading page: main column + desktop-only "On this page" rail ──
+   Not the rejected sidebar (that was a persistent, site-wide jump menu).
+   This is per-page, disappears below 900px, and a place/article page's
+   only navigation besides the tab bar / breadcrumb above it. */
+.readlayout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 48px; align-items: start; }
+.toc { position: sticky; top: 96px; display: none; }
+@media (min-width: 900px) { .toc { display: block; } }
+.toc__label { color: var(--n-500); text-transform: uppercase; letter-spacing: .1em; font-size: 11px; font-weight: 700; margin: 0 0 10px; }
+.toc__list { display: grid; gap: 2px; }
+.toc__list a { display: block; padding: 6px 0 6px 12px; color: var(--n-600); font-size: 13px; border-left: 2px solid transparent; }
+.toc__list a:hover { color: var(--n-900); border-left-color: var(--n-200); }
+@media (max-width: 899px) { .readlayout { grid-template-columns: 1fr; } }
+
+/* ── Good-for tags / good-to-know note ── */
+.goodfor { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+.goodfor span { font-size: 12px; padding: 6px 13px; border-radius: 9999px; border: 1px solid var(--n-200); color: var(--n-700); background: var(--white); }
+
+/* ── City / category intro paragraph ── */
+.cityintro { font-size: 15px; color: var(--n-700); line-height: 1.75; max-width: 78ch; margin: 16px 0 4px; }
+.cityintro b { color: var(--navy); }
+
+/* ── Wrapping card grid (category index pages, category page place grid) ──
+   .pcard is sized for a 172px rail slot via `.rail__track > *`; outside a
+   rail it needs its own sizing, hence this auto-fill grid. */
+.pcardgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(172px, 1fr)); gap: 16px; margin-top: 16px; }
