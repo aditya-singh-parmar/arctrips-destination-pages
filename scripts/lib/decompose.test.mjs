@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { classify, slugify } from "./decompose.mjs";
+import { classify, slugify, normalizeCopy } from "./decompose.mjs";
 
 const blocks = [
   { style: "Heading1", text: "Best Beaches in Tofino" },
@@ -77,5 +77,29 @@ describe("slugify", () => {
   });
   it("strips punctuation and lowercases", () => {
     expect(slugify("St. John's Bay")).toBe("st-johns-bay");
+  });
+});
+
+describe("normalizeCopy", () => {
+  it("replaces a mid-word em dash with a comma", () => {
+    expect(normalizeCopy("distance from wildlife—never crowd them")).toBe("distance from wildlife, never crowd them");
+  });
+  it("replaces a spaced em dash with a comma", () => {
+    expect(normalizeCopy("Tofino — wide and wild")).toBe("Tofino, wide and wild");
+  });
+  it("turns number ranges into 'to'", () => {
+    expect(normalizeCopy("open 9—5 daily")).toBe("open 9 to 5 daily");
+  });
+  it("leaves plain hyphens alone", () => {
+    expect(normalizeCopy("storm-watching in Tofino")).toBe("storm-watching in Tofino");
+  });
+  it("is applied by classify to place body copy", () => {
+    const b = [
+      { style: "Heading2", text: "Beaches" },
+      { style: "Heading3", text: "Cox Bay" },
+      { style: "Body", text: "Powerful waves—beginners should go with a school." },
+    ];
+    const r = classify(b, { placeHeadings: ["Beaches"] });
+    expect(r.places[0].body[0].text).toBe("Powerful waves, beginners should go with a school.");
   });
 });

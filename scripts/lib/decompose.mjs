@@ -34,6 +34,21 @@ export function slugify(text) {
     .replace(/^-+|-+$/g, "");
 }
 
+/**
+ * Hard rule: no em dashes in rendered copy (CLAUDE.md). The corpus contains
+ * them, so strip at ingest rather than in the rows, otherwise a re-ingest
+ * reintroduces them. Number ranges become "to", everything else a comma.
+ * Plain hyphens are left alone.
+ */
+export function normalizeCopy(text) {
+  if (text == null) return text;
+  return String(text)
+    .replace(/(\d)\s*[—–]\s*(\d)/g, "$1 to $2")
+    .replace(/\s*[—–]\s*/g, ", ")
+    .replace(/,\s*,/g, ",")
+    .replace(/\s+,/g, ",");
+}
+
 function newPlace(name) {
   return { name, slug: slugify(name), body: [], goodFor: [], goodToKnow: undefined, collectingGoodFor: false };
 }
@@ -67,7 +82,9 @@ function addBodyLine(place, text) {
   place.body.push({ type: "p", text });
 }
 
-export function classify(blocks, opts) {
+export function classify(rawBlocks, opts) {
+  // Strip em dashes once, at the door, so every downstream branch is clean.
+  const blocks = (rawBlocks ?? []).map((b) => ({ ...b, text: normalizeCopy(b.text) }));
   const placeHeadings = new Set(opts?.placeHeadings ?? []);
   const intro = [];
   const places = [];
