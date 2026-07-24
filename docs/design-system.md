@@ -134,10 +134,10 @@ matter is not. Real property photography replaces these, not a CSS change.
 
 The CTA is derived from `app/lib/cta.ts`, never hardcoded. Three visual states:
 
-- **Live on Arc Trips** — emerald badge, azure primary button.
-- **Live, sister brand** — navy button, ArcTrips Fishing wordmark, states the hand-off,
+- **Live on Arc Trips**: emerald badge, azure primary button.
+- **Live, sister brand**: navy button, ArcTrips Fishing wordmark, states the hand-off,
   opens in a new tab.
-- **Coming soon** — amber panel with an email capture, and the primary button falls
+- **Coming soon**: amber panel with an email capture, and the primary button falls
   through to stays. A coming-soon category still sells something.
 
 **No page dead-ends.** If a category has no live product line, the rail lists real stays
