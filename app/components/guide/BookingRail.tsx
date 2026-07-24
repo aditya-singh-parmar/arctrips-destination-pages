@@ -59,7 +59,7 @@ export function BookingRail({
         {tours.map((e) => (
           <div className="opt" key={e.id}>
             {e.heroPublicId && (
-              <Image src={cld(e.heroPublicId, { w: 150, fit: "limit" })} alt="" width={52} height={42} />
+              <Image src={cld(e.heroPublicId, { w: 128, h: 128, fit: "fill" })} alt="" width={64} height={64} />
             )}
             <div>
               <b>{e.title}</b>
@@ -71,7 +71,7 @@ export function BookingRail({
 
         {stays.map((l) => (
           <Link className="opt" key={l.id} href={`/${citySlug}#stays`}>
-            <Image src={cld(l.heroPublicId, { w: 150, fit: "limit" })} alt="" width={52} height={42} />
+            <Image src={cld(l.heroPublicId, { w: 128, h: 128, fit: "fill" })} alt="" width={64} height={64} />
             <div>
               <b>{l.title}</b>
               <span>{l.beds} beds, {l.baths} baths</span>
