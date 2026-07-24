@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   getCity,
@@ -113,13 +114,13 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
             </div>
             <div className="pcardgrid">
               {planning.map((a) => (
-                <div className="pcard" key={a.slug}>
+                <Link className="pcard" key={a.slug} href={`/guides/${a.slug}`}>
                   <div className="pcard__media">
                     <Image src={a.heroPublicId ? cld(a.heroPublicId, { w: 380, h: 260, fit: "fill" }) : placeholder(380, 260)} alt={a.title} width={380} height={260} sizes="172px" />
                   </div>
                   <h4 className="pcard__title">{a.title}</h4>
                   {a.excerpt && <p className="pcard__meta">{a.excerpt}</p>}
-                </div>
+                </Link>
               ))}
             </div>
             <div className="softnote" style={{ marginTop: 18 }}>

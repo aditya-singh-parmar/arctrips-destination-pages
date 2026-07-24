@@ -377,6 +377,36 @@ export async function getArticle(destinationSlug: string, articleSlug: string): 
   return all.find((a) => a.slug === articleSlug) ?? null;
 }
 
+/**
+ * Standalone article by slug, for `/guides/[slug]`. These are the planning
+ * pieces and cross-cutting reads (whale festival, best time to stay,
+ * campgrounds), several of which span both towns, so they are not scoped to
+ * a city. Excludes the `-faq` carrier rows, which have no body of their own.
+ */
+export async function getArticleBySlug(slug: string): Promise<Article | null> {
+  if (slug.endsWith("-faq")) return null;
+  const s = getServerSupabase();
+  if (s) {
+    const { data } = await s.from("articles").select("*").eq("slug", slug).maybeSingle();
+    if (data) return mapArticleRow(data);
+  }
+  return SEED_ARTICLES.find((a) => a.slug === slug) ?? null;
+}
+
+/** Slugs with a real body, so `/guides/[slug]` never prerenders an empty page. */
+export async function getAllArticleSlugs(): Promise<string[]> {
+  const s = getServerSupabase();
+  if (s) {
+    const { data } = await s.from("articles").select("slug,body");
+    if (data?.length) {
+      return data
+        .filter((a) => !a.slug.endsWith("-faq") && (a.body?.length ?? 0) > 0)
+        .map((a) => a.slug);
+    }
+  }
+  return SEED_ARTICLES.map((a) => a.slug);
+}
+
 export async function getAllAreaSlugs(): Promise<string[]> {
   const dests = await getDestinations();
   return dests.filter((d) => !d.comingSoon).map((d) => d.slug);
