@@ -959,6 +959,10 @@ export type Guide = {
   /** Sections within the guide (spec/beaches has 13, hiking 18); several categories
       (surfing, whale-watching, birding, fishing) have none and are intro-only. */
   places: Place[];
+  /** Real ingested photography for this city+category. The guide body is pure
+   *  text (no img blocks survived the ingest), so these are interleaved into
+   *  it at render time. 284 photos exist across Tofino and Ucluelet. */
+  photos: Photo[];
   faqs: Faq[];
   /** Other `articles` rows sharing this category (excluding the `-faq` carrier and empty bodies). */
   related: Article[];
@@ -977,10 +981,11 @@ export async function getGuide(citySlug: string, categorySlug: string): Promise<
   const [city, cityCategory] = await Promise.all([getCity(citySlug), getCityCategory(citySlug, categorySlug)]);
   if (!city || !cityCategory) return null;
 
-  const [places, experiences, articlesForCategory] = await Promise.all([
+  const [places, experiences, articlesForCategory, photos] = await Promise.all([
     getPlaces(citySlug, categorySlug),
     getExperiences(citySlug, { categorySlug }),
     getArticlesForCity(citySlug, categorySlug),
+    getPhotos(citySlug, { categorySlug }),
   ]);
 
   const faqArticle = articlesForCategory.find((a) => a.slug.endsWith("-faq"));
@@ -995,6 +1000,7 @@ export async function getGuide(citySlug: string, categorySlug: string): Promise<
     heroPublicId: cityCategory.heroPublicId,
     intro: cityCategory.intro,
     places,
+    photos,
     faqs: faqArticle?.faqs ?? [],
     related,
     experiences,

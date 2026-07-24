@@ -10,6 +10,8 @@ import { Breadcrumb } from "@/app/components/nav/Breadcrumb";
 import { ArticleBlocks } from "@/app/components/browse/ArticleBlocks";
 import { FaqList } from "@/app/components/browse/FaqList";
 import { BookingRail } from "@/app/components/guide/BookingRail";
+import { GuideBody, splitSections } from "@/app/components/guide/GuideBody";
+import { CategoryCard } from "@/app/components/browse/CategoryCard";
 
 export async function generateStaticParams() {
   const destinations = await getDestinations();
@@ -65,9 +67,17 @@ export default async function GuidePage({ params }: { params: Promise<{ city: st
   const guide = await getGuide(citySlug, categorySlug);
   if (!guide) notFound();
 
-  const listings = await getListings({ destinationSlug: citySlug });
+  const [listings, siblings] = await Promise.all([
+    getListings({ destinationSlug: citySlug }),
+    getGuidesForCity(citySlug),
+  ]);
+  const others = siblings.filter((g) => g.categorySlug !== categorySlug);
   const stayFrom = listings.length ? Math.min(...listings.map((l) => l.pricePerNight)) : undefined;
   const standfirst = lead(guide.intro);
+  // Long guides had no way to move around inside them: 28 headings, no contents.
+  const contents = splitSections(bodyBlocks(guide.intro))
+    .filter((sec) => sec.heading?.text)
+    .map((sec) => ({ index: sec.index, text: sec.heading!.text as string }));
 
   return (
     <>
@@ -96,10 +106,10 @@ export default async function GuidePage({ params }: { params: Promise<{ city: st
 
         <div className="guidelayout">
           <article>
-            <ArticleBlocks blocks={bodyBlocks(guide.intro)} />
+            <GuideBody blocks={bodyBlocks(guide.intro)} photos={guide.photos} />
 
             {guide.places.length > 0 && (
-              <div className="guide-places">
+              <div className="guide-places" id="places">
                 {guide.places.map((p) => (
                   <section className="guide-place" id={p.slug} key={p.id}>
                     <h2 className="ar-h2">{p.name}</h2>
@@ -117,7 +127,7 @@ export default async function GuidePage({ params }: { params: Promise<{ city: st
             )}
 
             {guide.faqs.length > 0 && (
-              <div style={{ marginTop: 28 }}>
+              <div style={{ marginTop: 28 }} id="faq">
                 <h2 className="t-bold-20" style={{ marginBottom: 10 }}>Common questions</h2>
                 <FaqList faqs={guide.faqs} />
               </div>
@@ -147,8 +157,44 @@ export default async function GuidePage({ params }: { params: Promise<{ city: st
                 </div>
               </div>
             )}
+            {others.length > 0 && (
+              <div className="keepgoing">
+                <div className="rail__head">
+                  <div>
+                    <h2>More things to do in {guide.cityName}</h2>
+                    <p>{others.length} more guides, each with what you can book inside it.</p>
+                  </div>
+                  <Link className="viewall" href={`/${citySlug}`}>All of {guide.cityName}</Link>
+                </div>
+                <div className="pcardgrid">
+                  {others.slice(0, 4).map((g) => (
+                    <CategoryCard
+                      key={g.categorySlug}
+                      category={{ slug: g.categorySlug, name: g.name, blurb: g.placeCount ? `${g.placeCount} places` : undefined, heroPublicId: g.heroPublicId }}
+                      citySlug={citySlug}
+                      bookableCount={g.bookableCount}
+                      state={g.state}
+                      priceFrom={g.priceFrom}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
           </article>
 
+          <div className="guiderail-stack">
+            {contents.length > 2 && (
+              <nav className="toc" aria-label="On this page">
+                <p className="toc__label">On this page</p>
+                <ol>
+                  {contents.map((c) => (
+                    <li key={c.index}><a href={`#s-${c.index}`}>{c.text}</a></li>
+                  ))}
+                  {guide.places.length > 0 && <li><a href="#places">The {guide.categoryName.toLowerCase()}</a></li>}
+                  {guide.faqs.length > 0 && <li><a href="#faq">Common questions</a></li>}
+                </ol>
+              </nav>
+            )}
           <BookingRail
             cta={guide.cta}
             experiences={guide.experiences}
@@ -158,6 +204,7 @@ export default async function GuidePage({ params }: { params: Promise<{ city: st
             stayFrom={stayFrom}
             listings={listings}
           />
+          </div>
         </div>
       </div>
       <Footer />
