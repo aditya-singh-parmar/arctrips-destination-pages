@@ -877,8 +877,11 @@ export async function getGuidesForCity(citySlug: string): Promise<GuideSummary[]
 
   const summaries = await Promise.all(
     categories.map(async (c): Promise<GuideSummary | null> => {
-      const hasBookableProductLine = (CATEGORY_PRODUCTS[c.categorySlug] ?? []).length > 0;
-      if (c.intro.length <= 1 && !hasBookableProductLine) return null;
+      // A guide with no real body is a thin page whichever way you look at
+      // it, so it never reaches the grid. Being bookable does not rescue it:
+      // the booking surfaces on the destination page instead (see the sell
+      // band on app/[city]/page.tsx), which is where the money belongs anyway.
+      if (c.intro.length <= 1) return null;
 
       const [places, experiences] = await Promise.all([
         getPlaces(citySlug, c.categorySlug),

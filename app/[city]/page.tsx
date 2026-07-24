@@ -16,6 +16,7 @@ import { Breadcrumb } from "@/app/components/nav/Breadcrumb";
 import { CategoryCard } from "@/app/components/browse/CategoryCard";
 import { Rail } from "@/app/components/browse/Rail";
 import { ListingCard } from "@/app/components/landing/ListingCard";
+import { SellTile } from "@/app/components/sell/SellTile";
 
 export async function generateStaticParams() {
   const destinations = await getDestinations();
@@ -47,6 +48,19 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
     getListings({ destinationSlug: citySlug }),
   ]);
 
+  // The destination page had no booking surface at all: you could only buy
+  // once you were inside a guide. This is the page's one primary CTA, and it
+  // falls back to stays so it can never render empty, the same no-dead-end
+  // rule the guide CTA resolver follows.
+  const bookable = guides.filter((g) => g.state === "live" || g.state === "sister");
+  const stayFrom = listings.length ? Math.min(...listings.map((l) => l.pricePerNight)) : undefined;
+  const sellBlurb = bookable.length
+    ? bookable.map((g) => `${g.name}${g.priceFrom ? ` from $${g.priceFrom}` : ""}`).join(", ")
+    : `Cabins, cottages and lodges${stayFrom ? `, from $${stayFrom} a night` : ""}.`;
+  const sellHeadline = bookable.length
+    ? `${bookable.length} thing${bookable.length === 1 ? "" : "s"} you can book in ${city.name} today`
+    : `${city.listingCount} places to stay in ${city.name}`;
+
   return (
     <>
       <TopNav active="destinations" />
@@ -67,6 +81,8 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
 
         <p className="cityintro">{city.overview[0]}</p>
         {city.overview.slice(1).map((p, i) => <p className="cityintro" key={i}>{p}</p>)}
+
+        <SellTile headline={sellHeadline} blurb={sellBlurb} ctaLabel="Book dates" href={`/${citySlug}#stays`} />
 
         <div className="rail__head" style={{ marginTop: 24 }}>
           <div>
