@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Arc Trips — three structures</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0E1116;--pan:#161B22;--ink:#E6EAF0;--ink2:#8B95A5;--line:rgba(230,234,240,.1);--az:#5394D3;--em:#56AC93;--am:#E8A33D}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+em,i{font-style:normal;font-weight:600}
+header{padding:32px 30px 20px;border-bottom:1px solid var(--line)}
+h1{font-size:22px;font-weight:800;letter-spacing:-.03em}
+header p{color:var(--ink2);font-size:14px;margin-top:9px;max-width:104ch;line-height:1.65}
+header b{color:var(--ink)}
+.locked{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.lock{font-size:11.5px;padding:6px 12px;border-radius:999px;background:rgba(86,172,147,.12);
+  border:1px solid rgba(86,172,147,.3);color:var(--em)}
+.bar{display:flex;gap:9px;align-items:center;padding:14px 30px;border-bottom:1px solid var(--line);
+  position:sticky;top:0;background:rgba(14,17,22,.94);backdrop-filter:blur(14px);z-index:10;flex-wrap:wrap}
+.bar b{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2);margin-right:4px}
+button{background:rgba(230,234,240,.06);border:1px solid var(--line);color:var(--ink);border-radius:999px;
+  padding:8px 16px;font-size:13px;font-weight:500;cursor:pointer;font-family:inherit}
+button:hover{background:rgba(230,234,240,.12)}
+button.on{background:var(--ink);color:var(--bg);border-color:var(--ink);font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
+@media(max-width:1300px){.grid{grid-template-columns:1fr}}
+.pane{background:var(--bg);display:flex;flex-direction:column}
+.head{padding:18px 20px;border-bottom:1px solid var(--line);background:var(--pan)}
+.head .t{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.head h2{font-size:16px;font-weight:700;letter-spacing:-.02em}
+.head a{color:var(--az);font-size:12px;text-decoration:none;white-space:nowrap}
+.head .d{color:var(--ink2);font-size:12.5px;margin-top:8px;line-height:1.6}
+.pc{margin-top:12px;display:grid;gap:5px}
+.pc div{font-size:12px;display:flex;gap:8px;align-items:flex-start;line-height:1.45}
+.pc .y{color:var(--em);flex:none;width:12px} .pc .n{color:var(--am);flex:none;width:12px}
+.frame{position:relative;height:78vh;background:#fff}
+iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.note{padding:24px 30px 70px;color:var(--ink2);font-size:13.5px;line-height:1.75;max-width:110ch}
+.note b{color:var(--ink)} .note ul{margin:10px 0 18px 18px} .note li{margin-bottom:8px}
+</style></head><body>
+
+<header>
+  <h1>Three structures, one theme</h1>
+  <p>Same content, same components, same colours and type as the app today. <b>Only the structure changes.</b> Each pane stacks the home page, the destination page (where the three genuinely differ), and the article page (identical in all three). Scroll any pane, or open one full screen.</p>
+  <div class="locked">
+    <span class="lock">Locked: destination-first spine</span>
+    <span class="lock">Locked: persistent booking rail in articles</span>
+    <span class="lock">Locked: no region tier</span>
+    <span class="lock">Locked: things to do are articles</span>
+  </div>
+</header>
+
+<div class="bar">
+  <b>Jump to</b>
+  <button class="on" onclick="j('',this)">Home</button>
+  <button onclick="j('#dest',this)">Destination page</button>
+  <button onclick="j('#art',this)">Article</button>
+</div>
+
+<div class="grid">
+  <div class="pane">
+    <div class="head">
+      <div class="t"><h2>S1. Flat</h2><a href="s1-flat.html" target="_blank">Open &rarr;</a></div>
+      <p class="d">One destination page, one undivided grid of all 13 guides, then stays.</p>
+      <div class="pc">
+        <div><span class="y">+</span> Nothing to learn, nothing to explain</div>
+        <div><span class="y">+</span> Fastest to build, closest to what exists</div>
+        <div><span class="n">-</span> Planning pieces sit in the sell row and dilute it</div>
+        <div><span class="n">-</span> Falls apart at 20 guides, which Victoria will have</div>
+      </div>
+    </div>
+    <div class="frame"><iframe id="f0" src="s1-flat.html"></iframe></div>
+  </div>
+
+  <div class="pane">
+    <div class="head">
+      <div class="t"><h2>S2. Grouped by intent</h2><a href="s2-grouped.html" target="_blank">Open &rarr;</a></div>
+      <p class="d">Four labelled groups plus a sticky jump bar. Groups are labels, never pages, so no extra click.</p>
+      <div class="pc">
+        <div><span class="y">+</span> Planning pieces get their own home, sell rows stay clean</div>
+        <div><span class="y">+</span> Scales to 20 guides without becoming a wall</div>
+        <div><span class="y">+</span> Bookable guides cluster at the top under On the water</div>
+        <div><span class="n">-</span> One more concept to name and keep consistent</div>
+      </div>
+    </div>
+    <div class="frame"><iframe id="f1" src="s2-grouped.html"></iframe></div>
+  </div>
+
+  <div class="pane">
+    <div class="head">
+      <div class="t"><h2>S3. Trip-shaped</h2><a href="s3-trip.html" target="_blank">Open &rarr;</a></div>
+      <p class="d">Four questions in the order people ask them: when to go, what to do, where to sleep, getting around.</p>
+      <div class="pc">
+        <div><span class="y">+</span> Reads as advice rather than a directory</div>
+        <div><span class="y">+</span> Answers the question before showing the cards</div>
+        <div><span class="y">+</span> Stays connect to what you said you came to do</div>
+        <div><span class="n">-</span> The sell sits at step 2, below a planning question</div>
+      </div>
+    </div>
+    <div class="frame"><iframe id="f2" src="s3-trip.html"></iframe></div>
+  </div>
+</div>
+
+<div class="note">
+  <p><b>What is gone from the structure you rejected.</b></p>
+  <ul>
+    <li><b>The region tier.</b> Home goes straight to Tofino. No Vancouver Island page holding two cards.</li>
+    <li><b>The category layer.</b> There is no /tofino/beaches index sitting between the destination and the guide. It held nothing and cost a click.</li>
+    <li><b>Place pages.</b> Long Beach is a section inside the beaches guide, not thirteen thin pages.</li>
+    <li><b>The things-to-do / guides / gallery split.</b> They were three doors to the same content. Now there is one list of guides.</li>
+  </ul>
+  <p><b>Depth went from five levels to two.</b> Home to Tofino to the whale watching guide, and the booking is on that page. Previously: home, destinations, region, city, things-to-do, category, place.</p>
+  <p style="margin-top:16px"><b>My recommendation is S2.</b> S1 is what you have already seen fail once the list grows, and Victoria will land with roughly twenty guides. S3 is the most interesting and the best fit for a travel brand, but it pushes the bookable guides below a planning question, which works against the sales-driven goal. S2 keeps the sell at the top, gives the planning pieces somewhere to live, and costs one label that never becomes a page. If you like S3's framing, the compromise is S2's grouping with step 1 collapsed into a single answer line above the groups.</p>
+</div>
+
+<script>
+const f=[0,1,2].map(i=>document.getElementById('f'+i));
+const s=['s1-flat.html','s2-grouped.html','s3-trip.html'];
+const anchors={'':'', '#dest':'#dest', '#art':'#art'};
+function j(h,btn){
+  [...document.querySelectorAll('.bar button')].forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  f.forEach((fr,i)=>{
+    const d=fr.contentDocument;
+    if(!d){fr.src=s[i];return}
+    const annos=[...d.querySelectorAll('.anno')];
+    let y=0;
+    if(h==='#dest'&&annos[1])y=annos[1].offsetTop;
+    if(h==='#art'&&annos[2])y=annos[2].offsetTop;
+    fr.contentWindow.scrollTo({top:y,behavior:'smooth'});
+  });
+}
+</script>
+</body></html>

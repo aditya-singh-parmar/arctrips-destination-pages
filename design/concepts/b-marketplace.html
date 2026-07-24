@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concept B — Soft Structuralism</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F8FA; --card:#FFFFFF; --ink:#0B1220; --ink-2:#48505E; --ink-3:#8B93A1;
+  --azure:#2874BA; --azure-d:#1F5C93; --emerald:#2F7D64; --navy:#0B3356;
+  --amber:#B54708; --amber-bg:#FFF8EB;
+  --hair:rgba(11,18,32,.07);
+  --soft:0 1px 2px rgba(11,18,32,.04),0 8px 24px -8px rgba(11,18,32,.08),0 32px 64px -32px rgba(11,18,32,.16);
+  --ease:cubic-bezier(.32,.72,0,1);
+  --f:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--f);-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  font-feature-settings:"cv02","cv03","cv04","ss01"}
+em,i{font-style:normal;font-weight:600}
+img{display:block;max-width:100%}
+.wrap{max-width:1280px;margin:0 auto;padding:0 44px}
+@media(max-width:768px){.wrap{padding:0 20px}}
+
+.nav{position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:50;width:max-content;max-width:calc(100% - 32px)}
+.nav-in{display:flex;align-items:center;gap:8px;padding:8px 8px 8px 20px;border-radius:999px;
+  background:rgba(255,255,255,.78);backdrop-filter:blur(24px) saturate(1.6);
+  box-shadow:var(--soft);border:1px solid rgba(255,255,255,.8)}
+.wm{font-weight:800;letter-spacing:.18em;font-size:11px;margin-right:14px}
+.nav a{font-size:13.5px;color:var(--ink-2);text-decoration:none;padding:8px 13px;border-radius:999px;
+  font-weight:500;transition:background .5s var(--ease),color .5s var(--ease)}
+.nav a:hover{background:rgba(11,18,32,.045);color:var(--ink)}
+.nav a.on{background:var(--ink);color:#fff}
+.cta{display:inline-flex;align-items:center;gap:9px;background:var(--azure);color:#fff;border-radius:999px;
+  padding:9px 9px 9px 20px;font-size:13.5px;font-weight:600;text-decoration:none;
+  box-shadow:0 6px 18px -6px rgba(40,116,186,.6);transition:transform .5s var(--ease)}
+.cta:hover{transform:scale(1.02)} .cta:active{transform:scale(.98)}
+.cta .knob{width:26px;height:26px;border-radius:999px;background:rgba(255,255,255,.2);display:grid;place-items:center;
+  font-size:12px;transition:transform .5s var(--ease)}
+.cta:hover .knob{transform:translate(3px,-1px) scale(1.06)}
+@media(max-width:860px){.nav .hide-m{display:none}}
+
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(11,18,32,.045);border-radius:999px;
+  padding:7px 15px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--ink-2)}
+.eyebrow.g{background:rgba(47,125,100,.1);color:var(--emerald)}
+.eyebrow.a{background:var(--amber-bg);color:var(--amber)}
+
+/* HERO: double bezel over photo */
+.hero{padding:132px 0 0}
+.hero-shell{background:rgba(11,18,32,.04);border:1px solid var(--hair);border-radius:40px;padding:10px}
+.hero-core{position:relative;border-radius:31px;overflow:hidden;min-height:74vh;display:flex;align-items:flex-end;
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.4)}
+.hero-core>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-core:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,18,32,.1) 30%,rgba(11,18,32,.72))}
+.hero-txt{position:relative;padding:48px;width:100%}
+@media(max-width:768px){.hero-txt{padding:26px}}
+.hero h1{font-size:clamp(56px,9vw,124px);font-weight:800;letter-spacing:-.045em;line-height:.9;color:#fff;margin:18px 0 0}
+.hero .sub{color:rgba(255,255,255,.86);font-size:clamp(15px,1.5vw,19px);max-width:48ch;margin-top:20px;line-height:1.6;font-weight:400}
+.hero .eyebrow{background:rgba(255,255,255,.16);color:#fff;backdrop-filter:blur(10px)}
+.statbar{display:flex;gap:10px;margin-top:32px;flex-wrap:wrap}
+.stat{background:rgba(255,255,255,.14);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.2);
+  border-radius:16px;padding:12px 18px;color:#fff}
+.stat b{display:block;font-size:20px;font-weight:700;letter-spacing:-.02em}
+.stat span{font-size:11.5px;color:rgba(255,255,255,.7)}
+
+.sec{padding:112px 0}
+@media(max-width:768px){.sec{padding:64px 0}}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:36px;margin-bottom:40px;flex-wrap:wrap}
+.sh h2{font-size:clamp(34px,4.6vw,54px);font-weight:800;letter-spacing:-.04em;line-height:1.02;margin-top:16px}
+.sh p{color:var(--ink-3);font-size:15.5px;margin-top:12px;max-width:46ch;line-height:1.6}
+.seeall{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--hair);
+  border-radius:999px;padding:11px 11px 11px 20px;font-size:13.5px;font-weight:600;text-decoration:none;color:var(--ink);
+  box-shadow:var(--soft);transition:transform .5s var(--ease)}
+.seeall:hover{transform:translateX(3px)}
+.seeall .knob{width:26px;height:26px;border-radius:999px;background:rgba(11,18,32,.05);display:grid;place-items:center;font-size:12px}
+
+/* BENTO */
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+@media(max-width:900px){.bento{grid-template-columns:1fr;gap:16px}.bento>*{grid-column:1/-1 !important;grid-row:auto !important}}
+.tile{position:relative;border-radius:26px;overflow:hidden;background:var(--card);box-shadow:var(--soft);
+  text-decoration:none;color:inherit;display:block;transition:transform .7s var(--ease),box-shadow .7s var(--ease);min-height:190px}
+.tile:hover{transform:translateY(-6px);box-shadow:0 2px 4px rgba(11,18,32,.05),0 18px 40px -12px rgba(11,18,32,.14),0 48px 90px -40px rgba(11,18,32,.24)}
+.tile>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.tile:hover>img{transform:scale(1.06)}
+.tile .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,18,32,0) 34%,rgba(11,18,32,.8))}
+.tile .body{position:relative;padding:22px;height:100%;display:flex;flex-direction:column;justify-content:flex-end;color:#fff}
+.tile h3{font-size:23px;font-weight:700;letter-spacing:-.025em;line-height:1.12}
+.tile .meta{font-size:12.5px;color:rgba(255,255,255,.72);margin-top:6px}
+.tile .tag{position:absolute;top:16px;left:16px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);
+  border-radius:999px;padding:6px 13px;font-size:11px;font-weight:700;color:var(--emerald)}
+.tile .tag.soon{color:var(--amber)} .tile .tag.sis{color:var(--azure-d)}
+.tile.big{grid-column:span 6;grid-row:span 2;min-height:420px}
+.tile.big h3{font-size:34px;letter-spacing:-.035em}
+.tile.med{grid-column:span 6;min-height:200px}
+.tile.sm{grid-column:span 4;min-height:200px}
+.tile.qtr{grid-column:span 3;min-height:190px}
+
+/* stays */
+.stays{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:1000px){.stays{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.stays{grid-template-columns:1fr}}
+.sc{background:var(--card);border-radius:24px;padding:9px;box-shadow:var(--soft);text-decoration:none;color:inherit;
+  display:block;transition:transform .7s var(--ease)}
+.sc:hover{transform:translateY(-5px)}
+.sc .im{border-radius:17px;overflow:hidden;aspect-ratio:4/3;position:relative}
+.sc .im img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.sc:hover .im img{transform:scale(1.05)}
+.sc .b{padding:15px 11px 9px}
+.sc h4{font-size:15.5px;font-weight:600;letter-spacing:-.015em;line-height:1.3}
+.sc .m{font-size:13px;color:var(--ink-3);margin-top:5px}
+.sc .p{display:flex;align-items:baseline;gap:5px;margin-top:12px}
+.sc .p b{font-size:17px;font-weight:700;letter-spacing:-.02em}
+.sc .p span{font-size:12.5px;color:var(--ink-3)}
+
+/* destinations status */
+.dests{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:860px){.dests{grid-template-columns:repeat(2,1fr)}}
+.dc{background:var(--card);border-radius:22px;padding:9px;box-shadow:var(--soft);text-decoration:none;color:inherit;display:block}
+.dc .im{border-radius:15px;overflow:hidden;aspect-ratio:3/2;position:relative}
+.dc .im img{width:100%;height:100%;object-fit:cover}
+.dc.off .im img{filter:grayscale(1);opacity:.5}
+.dc .b{padding:14px 11px 8px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.dc b{font-size:16px;font-weight:700;letter-spacing:-.02em}
+.dc .s{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--emerald)}
+.dc.off .s{color:var(--ink-3)}
+
+/* ARTICLE */
+.marker{background:var(--ink);color:#fff;padding:18px 0}
+.marker .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.marker b{font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.marker span{font-size:12.5px;color:rgba(255,255,255,.55)}
+
+.ahero{padding:44px 0 0}
+.ahero-core{position:relative;border-radius:31px;overflow:hidden;min-height:56vh;display:flex;align-items:flex-end}
+.ahero-core>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ahero-core:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,18,32,.15) 30%,rgba(11,18,32,.78))}
+.ahero h1{position:relative;font-size:clamp(38px,5.6vw,74px);font-weight:800;letter-spacing:-.04em;line-height:1.0;color:#fff;max-width:18ch;margin-top:16px}
+.ahero .byl{position:relative;display:flex;gap:16px;flex-wrap:wrap;color:rgba(255,255,255,.7);font-size:13px;margin-top:20px}
+
+.alay{display:grid;grid-template-columns:minmax(0,1fr) 372px;gap:56px;padding:64px 0 0;align-items:start}
+@media(max-width:1080px){.alay{grid-template-columns:1fr;gap:32px}}
+.prose{max-width:70ch}
+.lede{font-size:22px;line-height:1.55;color:var(--ink);font-weight:500;letter-spacing:-.015em;margin-bottom:30px}
+.prose p{font-size:17.5px;line-height:1.75;color:var(--ink-2);margin-bottom:22px}
+.prose h2{font-size:30px;font-weight:800;letter-spacing:-.03em;margin:48px 0 18px;line-height:1.15}
+.prose h3{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin:36px 0 14px;font-weight:700}
+.prose ul{list-style:none;margin:0 0 24px}
+.prose li{font-size:16.5px;line-height:1.7;color:var(--ink-2);padding-left:24px;position:relative;margin-bottom:10px}
+.prose li:before{content:"";position:absolute;left:2px;top:11px;width:8px;height:8px;border-radius:99px;background:rgba(40,116,186,.28)}
+.pfig{margin:38px 0}
+.pfig .im{border-radius:22px;overflow:hidden;aspect-ratio:16/9;box-shadow:var(--soft)}
+.pfig .im img{width:100%;height:100%;object-fit:cover}
+.pfig figcaption{font-size:13px;color:var(--ink-3);margin-top:12px}
+
+/* STICKY BUY RAIL */
+.rail{position:sticky;top:96px}
+.buy{background:var(--card);border-radius:28px;padding:10px;box-shadow:var(--soft)}
+.buy-core{background:linear-gradient(170deg,#0F2E4E,#0B3356);border-radius:19px;padding:24px;color:#fff}
+.buy h4{font-size:21px;font-weight:700;letter-spacing:-.025em;margin:14px 0 6px}
+.buy .s{font-size:13.5px;color:rgba(255,255,255,.62);line-height:1.55}
+.buy .eyebrow{background:rgba(255,255,255,.14);color:#fff}
+.opt{display:flex;gap:11px;align-items:center;padding:13px 0;border-top:1px solid rgba(255,255,255,.12);cursor:pointer}
+.opt .im{width:52px;height:42px;border-radius:11px;overflow:hidden;flex:none}
+.opt .im img{width:100%;height:100%;object-fit:cover}
+.opt b{display:block;font-size:14px;font-weight:600;line-height:1.25}
+.opt span{display:block;font-size:11.5px;color:rgba(255,255,255,.55);margin-top:3px}
+.opt .pr{margin-left:auto;font-size:15px;font-weight:700;white-space:nowrap}
+.buybtn{display:flex;align-items:center;justify-content:center;gap:9px;background:#fff;color:var(--navy);
+  border-radius:999px;padding:15px;font-size:15px;font-weight:700;margin-top:20px;text-decoration:none;
+  transition:transform .5s var(--ease)}
+.buybtn:hover{transform:scale(1.015)} .buybtn:active{transform:scale(.985)}
+.fine{font-size:11.5px;color:rgba(255,255,255,.45);text-align:center;margin-top:12px;line-height:1.5}
+.notify{background:var(--amber-bg);border:1px solid #FEDF89;border-radius:22px;padding:20px;margin-top:16px}
+.notify b{display:block;font-size:15px;font-weight:700;color:var(--amber);letter-spacing:-.01em}
+.notify p{font-size:13px;color:var(--ink-2);margin:6px 0 13px;line-height:1.55}
+.nf{display:flex;gap:7px;background:#fff;border:1px solid var(--hair);border-radius:999px;padding:5px 5px 5px 15px}
+.nf input{border:0;outline:none;font-family:var(--f);font-size:13px;flex:1;min-width:0;color:var(--ink)}
+.nf .go{background:var(--amber);color:#fff;border-radius:999px;padding:9px 15px;font-size:12.5px;font-weight:700;white-space:nowrap}
+
+/* inline mid-article buy strip */
+.strip{background:var(--card);border-radius:26px;padding:9px;box-shadow:var(--soft);margin:40px 0}
+.strip-core{background:linear-gradient(100deg,rgba(40,116,186,.07),rgba(47,125,100,.07));border-radius:18px;
+  padding:26px;display:flex;gap:22px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.strip b{font-size:19px;font-weight:700;letter-spacing:-.025em;display:block}
+.strip p{font-size:14px;color:var(--ink-2);margin-top:5px}
+
+.faq details{background:var(--card);border-radius:20px;box-shadow:var(--soft);margin-bottom:12px;overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:20px 24px;font-size:16.5px;font-weight:600;letter-spacing:-.015em;
+  display:flex;justify-content:space-between;gap:18px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";color:var(--ink-3);font-weight:400;font-size:21px;transition:transform .5s var(--ease)}
+.faq details[open] summary:after{transform:rotate(45deg)}
+.faq .a{padding:0 24px 22px;font-size:15.5px;line-height:1.7;color:var(--ink-2);max-width:66ch}
+
+.foot{background:var(--ink);color:rgba(255,255,255,.55);padding:72px 0;margin-top:100px}
+.foot .wrap{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:flex-end}
+.foot .wm{color:#fff}
+.foot p{font-size:13.5px;max-width:36ch;margin-top:12px;line-height:1.6}
+
+.rv{opacity:0;transform:translateY(44px);filter:blur(5px);
+  transition:opacity .85s var(--ease),transform .85s var(--ease),filter .85s var(--ease)}
+.rv.in{opacity:1;transform:none;filter:none}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="nav-in">
+  <span class="wm">ARCTRIPS</span>
+  <a class="on" href="#">Tofino</a>
+  <a class="hide-m" href="#">Ucluelet</a>
+  <a class="hide-m" href="#article">Things to do</a>
+  <a class="hide-m" href="#">Stays</a>
+  <a class="cta" href="#buy">Book <span class="knob">&rarr;</span></a>
+</div></nav>
+
+<!-- ============ DESTINATION ============ -->
+<header class="hero"><div class="wrap">
+  <div class="hero-shell"><div class="hero-core">
+    <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto:best,w_2000/guides/tofino/beaches/long-beach-1" alt="">
+    <div class="hero-txt">
+      <span class="eyebrow">Vancouver Island</span>
+      <h1>Tofino</h1>
+      <p class="sub">Nine things worth doing, written properly, with the trips you can book for each one sitting inside the guide.</p>
+      <div class="statbar">
+        <div class="stat"><b>9</b><span>things to do</span></div>
+        <div class="stat"><b>134</b><span>places to stay</span></div>
+        <div class="stat"><b>$189</b><span>whale tours from</span></div>
+        <div class="stat"><b>Mar to May</b><span>grey whale season</span></div>
+      </div>
+    </div>
+  </div></div>
+</div></header>
+
+<section class="sec"><div class="wrap">
+  <div class="sh rv">
+    <div><span class="eyebrow">Things to do</span><h2>Guides that sell<br>what they describe.</h2>
+      <p>Each one is an article. Where there is something to book, it is in the article, at the point you would want it.</p></div>
+    <a class="seeall" href="#">All 9 guides <span class="knob">&rarr;</span></a>
+  </div>
+
+  <div class="bento">
+    <a class="tile big rv" href="#article">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_1200/guides/tofino/whale-watching/_category-2" alt="">
+      <span class="tag">3 tours from $149</span><span class="scrim"></span>
+      <div class="body"><h3>Whale watching in Tofino</h3>
+        <span class="meta">Twenty thousand greys pass here every March. Most people miss them by two weeks.</span></div></a>
+
+    <a class="tile med rv" href="#">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_900/guides/tofino/surfing/_category-1" alt="">
+      <span class="tag">Lessons from $119</span><span class="scrim"></span>
+      <div class="body"><h3>Learning to surf</h3><span class="meta">Six breaks, and which one to start on</span></div></a>
+
+    <a class="tile med rv" href="#">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_900/guides/tofino/beaches/chesterman-beach-1" alt="">
+      <span class="scrim"></span>
+      <div class="body"><h3>The thirteen beaches</h3><span class="meta">What each one is actually good for</span></div></a>
+
+    <a class="tile sm rv" href="#">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_700/guides/tofino/storm-watching/_category-1" alt="">
+      <span class="scrim"></span>
+      <div class="body"><h3>Storm season</h3><span class="meta">November to February</span></div></a>
+
+    <a class="tile sm rv" href="#">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_700/guides/tofino/kayaking/_category-1" alt="">
+      <span class="tag soon">Tours coming soon</span><span class="scrim"></span>
+      <div class="body"><h3>Paddling the Sound</h3><span class="meta">18 launches and routes</span></div></a>
+
+    <a class="tile sm rv" href="#">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_700/guides/tofino/restaurants/tacofino-original-truck-1" alt="">
+      <span class="scrim"></span>
+      <div class="body"><h3>Where to eat</h3><span class="meta">18 rooms, trucks and counters</span></div></a>
+
+    <a class="tile qtr rv" href="#">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_600/guides/tofino/hiking/tonquin-trail-1" alt="">
+      <span class="scrim"></span><div class="body"><h3 style="font-size:19px">Trails</h3></div></a>
+    <a class="tile qtr rv" href="#">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_600/guides/tofino/birding/_category-2" alt="">
+      <span class="scrim"></span><div class="body"><h3 style="font-size:19px">Birding</h3></div></a>
+    <a class="tile qtr rv" href="#">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_600/guides/tofino/camping/_category-1" alt="">
+      <span class="scrim"></span><div class="body"><h3 style="font-size:19px">Camping</h3></div></a>
+    <a class="tile qtr rv" href="#">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_600/guides/tofino/whale-watching/_category-3" alt="">
+      <span class="tag sis">ARCTRIPS FISHING</span><span class="scrim"></span>
+      <div class="body"><h3 style="font-size:19px">Fishing</h3><span class="meta">from $189</span></div></a>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="sh rv">
+    <div><span class="eyebrow">Where to stay</span><h2>134 places,<br>none of them generic.</h2></div>
+    <a class="seeall" href="#">See all stays <span class="knob">&rarr;</span></a>
+  </div>
+  <div class="stays">
+    <a class="sc rv" href="#"><div class="im"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_700/guides/tofino/beaches/chesterman-beach-1" alt=""></div>
+      <div class="b"><h4>Chesterman Beach House</h4><p class="m">Sleeps 6, on the sand</p><div class="p"><b>$540</b><span>per night</span></div></div></a>
+    <a class="sc rv" href="#"><div class="im"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_700/guides/tofino/camping/_category-1" alt=""></div>
+      <div class="b"><h4>Rainforest Cabin</h4><p class="m">Sleeps 4, wood stove</p><div class="p"><b>$290</b><span>per night</span></div></div></a>
+    <a class="sc rv" href="#"><div class="im"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_700/guides/tofino/beaches/cox-bay-1" alt=""></div>
+      <div class="b"><h4>Cox Bay Lodge</h4><p class="m">Sleeps 8, storm season rates</p><div class="p"><b>$420</b><span>per night</span></div></div></a>
+    <a class="sc rv" href="#"><div class="im"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_700/guides/tofino/storm-watching/_category-2" alt=""></div>
+      <div class="b"><h4>The Point Cottage</h4><p class="m">Sleeps 2, west facing</p><div class="p"><b>$365</b><span>per night</span></div></div></a>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="sh rv"><div><span class="eyebrow">Destinations</span><h2>Two towns live.<br>More on the way.</h2></div></div>
+  <div class="dests rv">
+    <a class="dc" href="#"><div class="im"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_500/guides/tofino/beaches/long-beach-1" alt=""></div>
+      <div class="b"><b>Tofino</b><span class="s">Live</span></div></a>
+    <a class="dc" href="#"><div class="im"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_500/guides/ucluelet/hiking/wild-pacific-trail-1" alt=""></div>
+      <div class="b"><b>Ucluelet</b><span class="s">Live</span></div></a>
+    <span class="dc off"><div class="im"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_500/guides/tofino/hiking/tonquin-trail-1" alt=""></div>
+      <div class="b"><b>Victoria</b><span class="s">Soon</span></div></span>
+    <span class="dc off"><div class="im"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_500/guides/tofino/kayaking/_category-2" alt=""></div>
+      <div class="b"><b>Whistler</b><span class="s">Soon</span></div></span>
+  </div>
+</div></section>
+
+<!-- ============ ARTICLE ============ -->
+<div class="marker" id="article"><div class="wrap">
+  <b>Article template</b><span>Commerce sits in a sticky rail beside the reading column, plus one inline strip</span>
+</div></div>
+
+<article>
+  <div class="ahero"><div class="wrap"><div class="ahero-core">
+    <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto:best,w_2000/guides/tofino/whale-watching/_category-1" alt="">
+    <div class="hero-txt">
+      <span class="eyebrow" style="background:rgba(255,255,255,.16);color:#fff">Tofino &nbsp;/&nbsp; Things to do</span>
+      <h1>Whale watching in Tofino</h1>
+      <div class="byl"><span>Arc Trips editors</span><span>Updated March 2026</span><span>8 min read</span></div>
+    </div>
+  </div></div></div>
+
+  <div class="wrap"><div class="alay">
+    <div class="prose">
+      <p class="lede">Somewhere around the middle of March, roughly twenty thousand grey whales pass the mouth of Clayoquot Sound on their way north. Most people miss them by two weeks.</p>
+      <p>The migration is the loud part of the season, but it is not the whole of it. A group of resident greys peels off and stays through summer, feeding in the shallows off Cow Bay. Humpbacks arrive in June and stay until the light goes. Orcas turn up unannounced.</p>
+
+      <h2>When to come</h2>
+      <p>March to May is the migration. Boats run daily, sightings are close to guaranteed, and the weather is doing whatever it likes. June to September brings calmer water, resident greys and humpbacks. October onward the tours thin out and storm season takes over.</p>
+      <h3>What you will see, by month</h3>
+      <ul>
+        <li>March to April, grey whales heading north, often several at once</li>
+        <li>May, the tail of the migration plus the first residents settling in</li>
+        <li>June to September, humpbacks offshore and resident greys close in</li>
+        <li>Year round, sea lions, harbour seals and bald eagles on the way out</li>
+      </ul>
+
+      <figure class="pfig rv"><div class="im">
+        <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_1200/guides/tofino/whale-watching/_category-4" alt=""></div>
+        <figcaption>A grey surfacing off Cow Bay. Residents stay through summer rather than continuing north.</figcaption></figure>
+
+      <h2>Where they actually are</h2>
+      <p>The boats head for the same handful of places. Cow Bay on the west side of Flores Island is the reliable one for residents. In migration season the skippers push further out toward the open coast, which is why the ride gets rougher and the trip gets longer.</p>
+      <p>You do not need a boat to see one. From shore, the best odds are the headland at Cox Bay, the rocks at the end of Chesterman, and the lookout on the Wild Pacific Trail across the water in Ucluelet.</p>
+
+      <div class="strip rv"><div class="strip-core">
+        <div><b>Staying the night after?</b><p>21 places within ten minutes of the harbour, from $290.</p></div>
+        <a class="seeall" href="#">See stays <span class="knob">&rarr;</span></a>
+      </div></div>
+
+      <h2>Doing it properly</h2>
+      <p>Dress for one season colder than the forecast. The open water off Tofino is reliably ten degrees meaner than the harbour, and a zodiac at speed removes any warmth you were holding on to.</p>
+      <ul>
+        <li>Book the first sailing of the day, the water is flattest before eleven</li>
+        <li>Take the covered boat in March, take the zodiac in July</li>
+        <li>Keep your distance from wildlife, never crowd a surfacing animal</li>
+        <li>Seasickness tablets work, but only if taken an hour before</li>
+      </ul>
+
+      <h2>Common questions</h2>
+      <div class="faq">
+        <details open><summary>What is the best month for whale watching in Tofino?</summary>
+          <div class="a">Mid March to early May for the migration, when sightings are close to guaranteed. July and August are better if you want calm water and humpbacks.</div></details>
+        <details><summary>Can you see whales from shore?</summary>
+          <div class="a">Yes, with patience. The headland at Cox Bay and the end of Chesterman Beach are the two best vantage points from land.</div></details>
+        <details><summary>Are tours suitable for children?</summary>
+          <div class="a">Covered vessels take children from about five. Zodiacs are usually eight and up, and they are a rough ride in migration season.</div></details>
+      </div>
+    </div>
+
+    <aside class="rail" id="buy">
+      <div class="buy"><div class="buy-core">
+        <span class="eyebrow">Book this</span>
+        <h4>Whale watching tours</h4>
+        <p class="s">Three boats from Tofino harbour. Small boats get closer, covered boats stay warmer.</p>
+        <div style="margin-top:16px">
+          <div class="opt"><div class="im"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_200/guides/tofino/whale-watching/_category-3" alt=""></div>
+            <div><b>Zodiac</b><span>2.5 hrs, 12 people</span></div><span class="pr">$189</span></div>
+          <div class="opt"><div class="im"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_200/guides/tofino/whale-watching/_category-4" alt=""></div>
+            <div><b>Covered vessel</b><span>3 hrs, heated cabin</span></div><span class="pr">$149</span></div>
+          <div class="opt"><div class="im"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_200/guides/ucluelet/whale-watching/_category-1" alt=""></div>
+            <div><b>Whales and bears</b><span>6 hrs, full day</span></div><span class="pr">$310</span></div>
+        </div>
+        <a class="buybtn" href="#">Check dates <span style="font-size:13px">&rarr;</span></a>
+        <p class="fine">Free cancellation up to 48 hours. No whales, you go again free.</p>
+      </div></div>
+
+      <div class="notify">
+        <b>Arc Trips tours, coming 2027</b>
+        <p>We are bringing our own boats to Tofino. Be first to hear.</p>
+        <div class="nf"><input placeholder="you@email.com"><span class="go">Notify me</span></div>
+      </div>
+    </aside>
+  </div></div>
+</article>
+
+<footer class="foot"><div class="wrap">
+  <div><span class="wm">ARCTRIPS</span><p>Guides to the places we know well, and the trips worth booking while you are there.</p></div>
+  <span style="font-size:12.5px">Concept B, Soft Structuralism</span>
+</div></footer>
+
+<script>
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%5)*60+'ms';io.observe(el)});
+</script>
+</body>
+</html>

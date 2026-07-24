@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concept C — Immersive Cinematic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#07090C; --void-2:#0D1116; --mist:#F2F5F7; --mist-2:rgba(242,245,247,.62); --mist-3:rgba(242,245,247,.38);
+  --azure:#4A9BE0; --emerald:#4FBF9A; --amber:#E8A33D;
+  --hair:rgba(242,245,247,.10);
+  --disp:'Space Grotesk',system-ui,sans-serif; --body:'Plus Jakarta Sans',system-ui,sans-serif;
+  --ease:cubic-bezier(.32,.72,0,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--void);color:var(--mist);font-family:var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+em,i{font-style:normal;font-weight:600}
+img{display:block;max-width:100%}
+.orb{position:fixed;border-radius:999px;filter:blur(120px);pointer-events:none;z-index:0;opacity:.5}
+.orb-1{width:620px;height:620px;background:rgba(74,155,224,.24);top:-180px;left:-160px}
+.orb-2{width:520px;height:520px;background:rgba(79,191,154,.16);bottom:-160px;right:-140px}
+.wrap{max-width:1300px;margin:0 auto;padding:0 48px;position:relative;z-index:2}
+@media(max-width:768px){.wrap{padding:0 20px}}
+
+.nav{position:fixed;top:24px;left:50%;transform:translateX(-50%);z-index:60;width:max-content;max-width:calc(100% - 36px)}
+.nav-in{display:flex;align-items:center;gap:6px;padding:7px 7px 7px 20px;border-radius:999px;
+  background:rgba(13,17,22,.6);backdrop-filter:blur(28px) saturate(1.6);border:1px solid var(--hair);
+  box-shadow:inset 0 1px 0 rgba(242,245,247,.08),0 20px 50px -20px rgba(0,0,0,.9)}
+.wm{font-family:var(--disp);font-weight:700;letter-spacing:.2em;font-size:11px;margin-right:14px}
+.nav a{font-size:13px;color:var(--mist-2);text-decoration:none;padding:8px 13px;border-radius:999px;
+  transition:color .5s var(--ease),background .5s var(--ease)}
+.nav a:hover{color:var(--mist);background:rgba(242,245,247,.06)}
+.go{display:inline-flex;align-items:center;gap:9px;background:var(--mist);color:var(--void);border-radius:999px;
+  padding:8px 8px 8px 19px;font-size:13px;font-weight:600;text-decoration:none;transition:transform .5s var(--ease)}
+.go:hover{transform:scale(1.03)} .go:active{transform:scale(.97)}
+.go .knob{width:26px;height:26px;border-radius:999px;background:rgba(7,9,12,.1);display:grid;place-items:center;
+  font-size:12px;transition:transform .5s var(--ease)}
+.go:hover .knob{transform:translate(3px,-1px) scale(1.07)}
+@media(max-width:900px){.nav .hide-m{display:none}}
+
+.eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--hair);border-radius:999px;
+  padding:7px 16px;font-family:var(--disp);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mist-2)}
+.eyebrow .d{width:5px;height:5px;border-radius:99px;background:var(--emerald);box-shadow:0 0 10px var(--emerald)}
+
+/* CHAPTER HERO */
+.chap{position:relative;min-height:100dvh;display:flex;align-items:center;overflow:hidden}
+.chap-bg{position:absolute;inset:0}
+.chap-bg img{width:100%;height:100%;object-fit:cover;opacity:.72}
+.chap-bg:after{content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 90% at 20% 40%,rgba(7,9,12,.35),rgba(7,9,12,.94) 72%)}
+.chap h1{font-family:var(--disp);font-weight:300;font-size:clamp(74px,15vw,230px);line-height:.82;
+  letter-spacing:-.055em;margin:22px 0 0}
+.chap .sub{color:var(--mist-2);font-size:clamp(16px,1.6vw,20px);max-width:44ch;margin-top:30px;line-height:1.65;font-weight:300}
+.chap .row{display:flex;gap:14px;margin-top:40px;flex-wrap:wrap;align-items:center}
+.ghost{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--hair);border-radius:999px;
+  padding:13px 22px;font-size:13.5px;color:var(--mist);text-decoration:none;
+  background:rgba(242,245,247,.03);backdrop-filter:blur(10px);transition:background .5s var(--ease)}
+.ghost:hover{background:rgba(242,245,247,.09)}
+.scrollcue{position:absolute;bottom:38px;left:50%;transform:translateX(-50%);font-family:var(--disp);
+  font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--mist-3);z-index:3}
+
+.sec{padding:150px 0;position:relative;z-index:2}
+@media(max-width:768px){.sec{padding:80px 0}}
+.sh h2{font-family:var(--disp);font-weight:300;font-size:clamp(40px,6vw,84px);line-height:.98;letter-spacing:-.045em;margin-top:20px}
+.sh p{color:var(--mist-3);font-size:16px;max-width:48ch;margin-top:20px;line-height:1.7;font-weight:300}
+
+/* Z-AXIS CASCADE of guide cards */
+.cascade{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:80px}
+.gcard{position:relative;border-radius:30px;overflow:hidden;text-decoration:none;color:inherit;display:block;
+  border:1px solid var(--hair);background:var(--void-2);
+  transition:transform .8s var(--ease),box-shadow .8s var(--ease)}
+.gcard img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:.82;transition:transform 1.3s var(--ease),opacity .8s var(--ease)}
+.gcard:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,12,.1) 30%,rgba(7,9,12,.9))}
+.gcard:hover{transform:translateY(-10px);box-shadow:0 50px 90px -40px rgba(0,0,0,.95)}
+.gcard:hover img{transform:scale(1.07);opacity:1}
+.gcard .in{position:relative;z-index:2;padding:30px;min-height:100%;display:flex;flex-direction:column;justify-content:flex-end}
+.gcard h3{font-family:var(--disp);font-weight:400;font-size:30px;line-height:1.06;letter-spacing:-.035em}
+.gcard p{color:var(--mist-3);font-size:14px;margin-top:10px;line-height:1.6;font-weight:300;max-width:36ch}
+.gcard .price{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-family:var(--disp);
+  font-size:13px;color:var(--emerald);letter-spacing:.02em}
+.gcard .price.soon{color:var(--amber)}
+.gcard .price.none{color:var(--mist-3)}
+.c-a{grid-column:span 7;min-height:520px}
+.c-b{grid-column:span 5;min-height:520px;transform:translateY(56px)}
+.c-c{grid-column:span 4;min-height:400px}
+.c-d{grid-column:span 4;min-height:400px;transform:translateY(40px)}
+.c-e{grid-column:span 4;min-height:400px;transform:translateY(80px)}
+.c-b:hover,.c-d:hover,.c-e:hover{transform:translateY(-10px)}
+@media(max-width:900px){
+  .cascade{grid-template-columns:1fr;gap:18px;margin-top:44px}
+  .c-a,.c-b,.c-c,.c-d,.c-e{grid-column:1/-1;min-height:340px;transform:none !important}
+}
+
+/* full-bleed statement */
+.statement{position:relative;min-height:80vh;display:flex;align-items:center;overflow:hidden}
+.statement img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}
+.statement:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,9,12,.94),rgba(7,9,12,.35))}
+.statement q{font-family:var(--disp);font-weight:300;font-size:clamp(30px,4.6vw,66px);line-height:1.08;
+  letter-spacing:-.04em;max-width:19ch;quotes:none;display:block;position:relative;z-index:2}
+
+/* stays as glass over dark */
+.stays{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:60px}
+@media(max-width:900px){.stays{grid-template-columns:1fr}}
+.st{border:1px solid var(--hair);border-radius:28px;padding:8px;background:rgba(242,245,247,.035);
+  text-decoration:none;color:inherit;display:block;transition:background .7s var(--ease),transform .7s var(--ease)}
+.st:hover{background:rgba(242,245,247,.075);transform:translateY(-6px)}
+.st .im{border-radius:21px;overflow:hidden;aspect-ratio:4/3}
+.st .im img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.st:hover .im img{transform:scale(1.06)}
+.st .b{padding:20px 14px 12px;display:flex;justify-content:space-between;align-items:flex-start;gap:14px}
+.st h4{font-family:var(--disp);font-weight:400;font-size:20px;letter-spacing:-.02em;line-height:1.2}
+.st .m{color:var(--mist-3);font-size:13px;margin-top:7px;font-weight:300}
+.st .pr{font-family:var(--disp);font-size:17px;white-space:nowrap}
+
+/* ARTICLE */
+.marker{background:var(--mist);color:var(--void);padding:18px 0;position:relative;z-index:3}
+.marker .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.marker b{font-family:var(--disp);font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.marker span{font-size:12.5px;color:rgba(7,9,12,.55)}
+
+.ahero{position:relative;min-height:92vh;display:flex;align-items:flex-end;overflow:hidden;padding-bottom:70px}
+.ahero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.78}
+.ahero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,12,.5) 0%,rgba(7,9,12,.1) 34%,rgba(7,9,12,.96))}
+.ahero h1{font-family:var(--disp);font-weight:300;font-size:clamp(44px,7.4vw,108px);line-height:.94;
+  letter-spacing:-.05em;max-width:15ch;margin-top:24px}
+.byl{display:flex;gap:22px;flex-wrap:wrap;color:var(--mist-3);font-size:13px;margin-top:28px}
+
+.art{display:grid;grid-template-columns:1fr minmax(0,680px) 1fr;position:relative;z-index:2;padding-top:110px}
+.art>*{grid-column:2}
+@media(max-width:1024px){.art{grid-template-columns:1fr;padding:64px 22px 0}.art>*{grid-column:1}}
+.lede{font-family:var(--disp);font-weight:300;font-size:clamp(24px,2.6vw,34px);line-height:1.34;
+  letter-spacing:-.025em;margin-bottom:44px;color:var(--mist)}
+.art p{font-size:18px;line-height:1.8;color:var(--mist-2);margin-bottom:26px;font-weight:300}
+.art h2{font-family:var(--disp);font-weight:400;font-size:clamp(30px,3.4vw,44px);line-height:1.08;
+  letter-spacing:-.035em;margin:66px 0 24px}
+.art h3{font-family:var(--disp);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--mist-3);margin:48px 0 18px}
+.art ul{list-style:none;margin:0 0 26px}
+.art li{font-size:17px;line-height:1.72;color:var(--mist-2);padding-left:28px;position:relative;margin-bottom:13px;font-weight:300}
+.art li:before{content:"";position:absolute;left:2px;top:12px;width:11px;height:1px;background:var(--azure)}
+.bleed{grid-column:1/-1;margin:80px 0;position:relative}
+.bleed img{width:100%;height:64vh;object-fit:cover}
+.bleed figcaption{max-width:1300px;margin:16px auto 0;padding:0 48px;font-size:13px;color:var(--mist-3)}
+@media(max-width:1024px){.bleed{margin:48px -22px}.bleed figcaption{padding:0 22px}}
+
+/* GLASS COMMERCE over imagery */
+.buy{grid-column:1/-1;position:relative;margin:90px 0;min-height:640px;display:flex;align-items:center;overflow:hidden}
+.buy>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}
+.buy:after{content:"";position:absolute;inset:0;background:radial-gradient(90% 80% at 70% 50%,rgba(7,9,12,.4),rgba(7,9,12,.92))}
+.buy-in{position:relative;z-index:2;max-width:1300px;margin:0 auto;padding:0 48px;width:100%}
+@media(max-width:768px){.buy-in{padding:0 20px}.buy{margin:56px 0;min-height:0;padding:64px 0}}
+.buy h4{font-family:var(--disp);font-weight:300;font-size:clamp(34px,4.6vw,64px);line-height:1;
+  letter-spacing:-.045em;margin:22px 0 14px}
+.buy .s{color:var(--mist-2);font-size:16px;max-width:50ch;line-height:1.65;font-weight:300}
+.tours{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+@media(max-width:900px){.tours{grid-template-columns:1fr}}
+.tour{border:1px solid var(--hair);border-radius:26px;padding:8px;background:rgba(13,17,22,.55);
+  backdrop-filter:blur(24px) saturate(1.4);transition:transform .7s var(--ease),border-color .7s var(--ease)}
+.tour:hover{transform:translateY(-7px);border-color:rgba(242,245,247,.24)}
+.tour .im{border-radius:19px;overflow:hidden;aspect-ratio:16/10}
+.tour .im img{width:100%;height:100%;object-fit:cover}
+.tour .b{padding:18px 12px 10px}
+.tour b{font-family:var(--disp);font-weight:500;font-size:17px;letter-spacing:-.02em;display:block}
+.tour span{display:block;font-size:13px;color:var(--mist-3);margin-top:8px;font-weight:300}
+.tour .pr{font-family:var(--disp);font-size:20px;margin-top:18px;display:flex;align-items:baseline;gap:7px}
+.tour .pr i{font-style:normal;font-size:12px;color:var(--mist-3)}
+.buyrow{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-top:40px;flex-wrap:wrap}
+.buyrow .fine{color:var(--mist-3);font-size:13px;max-width:44ch;line-height:1.6}
+.go-lg{padding:15px 15px 15px 30px;font-size:16px}
+.go-lg .knob{width:34px;height:34px}
+
+/* soft notify */
+.notify{grid-column:1/-1;max-width:1300px;margin:0 auto 40px;padding:0 48px;width:100%}
+@media(max-width:768px){.notify{padding:0 20px}}
+.notify-in{border:1px solid rgba(232,163,61,.28);background:rgba(232,163,61,.06);border-radius:30px;padding:38px;
+  display:flex;gap:32px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.notify h5{font-family:var(--disp);font-weight:400;font-size:26px;letter-spacing:-.025em;color:var(--amber)}
+.notify p{color:var(--mist-2);font-size:15px;margin-top:8px;max-width:44ch;font-weight:300;line-height:1.6}
+.field{display:flex;gap:8px;border:1px solid var(--hair);border-radius:999px;padding:6px 6px 6px 20px;
+  background:rgba(7,9,12,.5);min-width:320px}
+.field input{border:0;background:transparent;outline:none;color:var(--mist);font-family:var(--body);font-size:14px;flex:1;min-width:0}
+.field input::placeholder{color:var(--mist-3)}
+.field .b{background:var(--amber);color:var(--void);border-radius:999px;padding:11px 20px;font-size:13px;font-weight:700;white-space:nowrap}
+
+.faq details{border-bottom:1px solid var(--hair)}
+.faq summary{list-style:none;cursor:pointer;padding:28px 0;font-family:var(--disp);font-weight:400;font-size:22px;
+  letter-spacing:-.025em;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";color:var(--mist-3);font-weight:300;font-size:24px;transition:transform .5s var(--ease)}
+.faq details[open] summary:after{transform:rotate(45deg)}
+.faq .a{padding:0 0 28px;font-size:16.5px;line-height:1.75;color:var(--mist-2);max-width:64ch;font-weight:300}
+
+.foot{border-top:1px solid var(--hair);padding:80px 0;margin-top:130px;position:relative;z-index:2}
+.foot .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-end}
+.foot p{color:var(--mist-3);font-size:13.5px;max-width:34ch;margin-top:14px;line-height:1.6;font-weight:300}
+
+.rv{opacity:0;transform:translateY(52px);filter:blur(8px);
+  transition:opacity 1s var(--ease),transform 1s var(--ease),filter 1s var(--ease)}
+.rv.in{opacity:1;transform:none;filter:none}
+.c-b.rv.in{transform:translateY(56px)} .c-d.rv.in{transform:translateY(40px)} .c-e.rv.in{transform:translateY(80px)}
+@media(max-width:900px){.c-b.rv.in,.c-d.rv.in,.c-e.rv.in{transform:none}}
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div><div class="orb orb-2"></div>
+
+<nav class="nav"><div class="nav-in">
+  <span class="wm">ARCTRIPS</span>
+  <a href="#" class="hide-m">Tofino</a>
+  <a href="#" class="hide-m">Ucluelet</a>
+  <a href="#article" class="hide-m">Things to do</a>
+  <a class="go" href="#buy">Book <span class="knob">&rarr;</span></a>
+</div></nav>
+
+<!-- ============ DESTINATION ============ -->
+<header class="chap">
+  <div class="chap-bg"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto:best,w_2000/guides/tofino/storm-watching/_category-2" alt=""></div>
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Live now &nbsp;/&nbsp; Vancouver Island</span>
+    <h1>Tofino</h1>
+    <p class="sub">Where the rainforest runs out of land. Nine things worth doing, and the trips you can book for each, inside the guide that describes them.</p>
+    <div class="row">
+      <a class="go go-lg" href="#article">Start with the whales <span class="knob">&rarr;</span></a>
+      <a class="ghost" href="#">134 places to stay</a>
+    </div>
+  </div>
+  <span class="scrollcue">Scroll</span>
+</header>
+
+<section class="sec"><div class="wrap">
+  <div class="sh rv">
+    <span class="eyebrow">Things to do</span>
+    <h2>Nine guides.<br>Each one sells<br>what it describes.</h2>
+    <p>No category pages, no directories. A thing to do is an article, and the boat you would book is inside it.</p>
+  </div>
+
+  <div class="cascade">
+    <a class="gcard c-a rv" href="#article">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_1200/guides/tofino/whale-watching/_category-2" alt="">
+      <div class="in"><h3>Whale watching<br>in Tofino</h3>
+        <p>Twenty thousand greys pass here every March. Most people miss them by two weeks.</p>
+        <span class="price">3 tours from $149 &rarr;</span></div></a>
+
+    <a class="gcard c-b rv" href="#">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_900/guides/tofino/surfing/_category-2" alt="">
+      <div class="in"><h3>Learning<br>to surf</h3>
+        <p>Six breaks, and the one to start on.</p>
+        <span class="price">Lessons from $119 &rarr;</span></div></a>
+
+    <a class="gcard c-c rv" href="#">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_800/guides/tofino/beaches/long-beach-1" alt="">
+      <div class="in"><h3>Thirteen<br>beaches</h3>
+        <span class="price none">Free to visit</span></div></a>
+
+    <a class="gcard c-d rv" href="#">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_800/guides/tofino/kayaking/_category-2" alt="">
+      <div class="in"><h3>Paddling<br>the Sound</h3>
+        <span class="price soon">Tours coming soon</span></div></a>
+
+    <a class="gcard c-e rv" href="#">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_800/guides/tofino/restaurants/the-pointe-restaurant-1" alt="">
+      <div class="in"><h3>Where<br>to eat</h3>
+        <span class="price none">18 rooms and trucks</span></div></a>
+  </div>
+</div></section>
+
+<section class="statement">
+  <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_2000/guides/tofino/beaches/cox-bay-1" alt="">
+  <div class="wrap"><q>The water is cold all year. Nobody comes here to swim, and that is rather the point.</q></div>
+</section>
+
+<section class="sec"><div class="wrap">
+  <div class="sh rv"><span class="eyebrow">Where to stay</span><h2>Sleep close<br>to the water.</h2></div>
+  <div class="stays">
+    <a class="st rv" href="#"><div class="im"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_800/guides/tofino/beaches/chesterman-beach-1" alt=""></div>
+      <div class="b"><div><h4>Chesterman Beach House</h4><p class="m">Sleeps 6, on the sand</p></div><span class="pr">$540</span></div></a>
+    <a class="st rv" href="#"><div class="im"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_800/guides/tofino/camping/_category-1" alt=""></div>
+      <div class="b"><div><h4>Rainforest Cabin</h4><p class="m">Sleeps 4, wood stove</p></div><span class="pr">$290</span></div></a>
+    <a class="st rv" href="#"><div class="im"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_800/guides/tofino/hiking/tonquin-trail-1" alt=""></div>
+      <div class="b"><div><h4>Tonquin Studio</h4><p class="m">Sleeps 2, trail at the door</p></div><span class="pr">$365</span></div></a>
+  </div>
+</div></section>
+
+<!-- ============ ARTICLE ============ -->
+<div class="marker" id="article"><div class="wrap">
+  <b>Article template</b><span>Commerce is a full-bleed cinematic break in the middle of the read</span>
+</div></div>
+
+<article>
+  <div class="ahero">
+    <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto:best,w_2000/guides/tofino/whale-watching/_category-4" alt="">
+    <div class="wrap" style="position:relative;z-index:2">
+      <span class="eyebrow">Tofino &nbsp;/&nbsp; Things to do</span>
+      <h1>Whale watching in Tofino</h1>
+      <div class="byl"><span>Arc Trips editors</span><span>Updated March 2026</span><span>8 min read</span></div>
+    </div>
+  </div>
+
+  <div class="art">
+    <p class="lede">Somewhere around the middle of March, roughly twenty thousand grey whales pass the mouth of Clayoquot Sound on their way north. Most people miss them by two weeks.</p>
+    <p>The migration is the loud part of the season, but it is not the whole of it. A group of resident greys peels off and stays through summer, feeding in the shallows off Cow Bay. Humpbacks arrive in June and stay until the light goes. Orcas turn up unannounced.</p>
+
+    <h2>When to come</h2>
+    <p>March to May is the migration. Boats run daily, sightings are close to guaranteed, and the weather is doing whatever it likes. June to September brings calmer water, resident greys and humpbacks. October onward the tours thin out and storm season takes over.</p>
+    <h3>What you will see, by month</h3>
+    <ul>
+      <li>March to April, grey whales heading north, often several at once</li>
+      <li>May, the tail of the migration plus the first residents settling in</li>
+      <li>June to September, humpbacks offshore and resident greys close in</li>
+      <li>Year round, sea lions, harbour seals and bald eagles on the way out</li>
+    </ul>
+  </div>
+
+  <!-- COMMERCE as a cinematic full-bleed break -->
+  <div class="buy" id="buy">
+    <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto:best,w_2000/guides/tofino/whale-watching/_category-3" alt="">
+    <div class="buy-in">
+      <span class="eyebrow"><span class="d"></span> Book this</span>
+      <h4>Get on the water</h4>
+      <p class="s">Three boats leave Tofino harbour daily through the season. Small boats get closer, covered boats stay warmer.</p>
+      <div class="tours">
+        <div class="tour"><div class="im"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_500/guides/tofino/whale-watching/_category-1" alt=""></div>
+          <div class="b"><b>Zodiac</b><span>2.5 hours, 12 people, open boat and the fastest way out to them</span>
+            <div class="pr">$189 <i>per person</i></div></div></div>
+        <div class="tour"><div class="im"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_500/guides/tofino/whale-watching/_category-4" alt=""></div>
+          <div class="b"><b>Covered vessel</b><span>3 hours, 24 people, heated cabin, the sane choice in April</span>
+            <div class="pr">$149 <i>per person</i></div></div></div>
+        <div class="tour"><div class="im"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,w_500/guides/ucluelet/whale-watching/_category-1" alt=""></div>
+          <div class="b"><b>Whales and bears</b><span>6 hours, full day, includes the Clayoquot inlet</span>
+            <div class="pr">$310 <i>per person</i></div></div></div>
+      </div>
+      <div class="buyrow">
+        <span class="fine">Free cancellation up to 48 hours. Sightings guarantee: no whales, you go again free.</span>
+        <a class="go go-lg" href="#">Check dates <span class="knob">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="art" style="padding-top:0">
+    <h2>Where they actually are</h2>
+    <p>The boats head for the same handful of places. Cow Bay on the west side of Flores Island is the reliable one for residents. In migration season the skippers push further out toward the open coast, which is why the ride gets rougher and the trip gets longer.</p>
+    <p>You do not need a boat to see one. From shore, the best odds are the headland at Cox Bay, the rocks at the end of Chesterman, and the lookout on the Wild Pacific Trail across the water in Ucluelet.</p>
+  </div>
+
+  <figure class="bleed rv">
+    <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto:best,w_2000/guides/ucluelet/whale-watching/_category-1" alt="">
+    <figcaption>Looking out from the Wild Pacific Trail in Ucluelet, across the water from Tofino.</figcaption>
+  </figure>
+
+  <div class="art" style="padding-top:0">
+    <h2>Doing it properly</h2>
+    <p>Dress for one season colder than the forecast. The open water off Tofino is reliably ten degrees meaner than the harbour, and a zodiac at speed removes any warmth you were holding on to.</p>
+    <ul>
+      <li>Book the first sailing of the day, the water is flattest before eleven</li>
+      <li>Take the covered boat in March, take the zodiac in July</li>
+      <li>Keep your distance from wildlife, never crowd a surfacing animal</li>
+      <li>Seasickness tablets work, but only if taken an hour before</li>
+    </ul>
+  </div>
+
+  <div class="notify">
+    <div class="notify-in">
+      <div><h5>Arc Trips tours, coming 2027</h5>
+        <p>We are bringing our own boats to Tofino. Be first to hear when they open.</p></div>
+      <div class="field"><input placeholder="you@email.com"><span class="b">Notify me</span></div>
+    </div>
+  </div>
+
+  <div class="art" style="padding-top:0">
+    <h2>Common questions</h2>
+    <div class="faq">
+      <details open><summary>What is the best month for whale watching in Tofino?</summary>
+        <div class="a">Mid March to early May for the migration, when sightings are close to guaranteed. July and August are better if you want calm water and humpbacks.</div></details>
+      <details><summary>Can you see whales from shore?</summary>
+        <div class="a">Yes, with patience. The headland at Cox Bay and the end of Chesterman Beach are the two best vantage points from land.</div></details>
+      <details><summary>Are the tours suitable for children?</summary>
+        <div class="a">Covered vessels take children from about five. Zodiacs are usually eight and up, and they are a rough ride in migration season.</div></details>
+    </div>
+  </div>
+</article>
+
+<footer class="foot"><div class="wrap">
+  <div><span class="wm">ARCTRIPS</span><p>Guides to the places we know well, and the trips worth booking while you are there.</p></div>
+  <span style="color:var(--mist-3);font-size:12.5px">Concept C, Immersive Cinematic</span>
+</div></footer>
+
+<script>
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*80+'ms';io.observe(el)});
+</script>
+</body>
+</html>

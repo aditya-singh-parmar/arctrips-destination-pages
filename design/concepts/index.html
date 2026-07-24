@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arc Trips — three concepts</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0E1116;--pan:#161B22;--ink:#E6EAF0;--ink2:#8B95A5;--line:rgba(230,234,240,.1);--az:#4A9BE0;--em:#4FBF9A;--am:#E8A33D}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+em,i{font-style:normal;font-weight:600}
+header{padding:34px 30px 22px;border-bottom:1px solid var(--line)}
+h1{font-size:22px;font-weight:800;letter-spacing:-.03em}
+header p{color:var(--ink2);font-size:14px;margin-top:8px;max-width:96ch;line-height:1.6}
+.bar{display:flex;gap:10px;align-items:center;padding:16px 30px;border-bottom:1px solid var(--line);
+  position:sticky;top:0;background:rgba(14,17,22,.92);backdrop-filter:blur(16px);z-index:10;flex-wrap:wrap}
+.bar b{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2);margin-right:6px}
+button{background:rgba(230,234,240,.06);border:1px solid var(--line);color:var(--ink);border-radius:999px;
+  padding:9px 17px;font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;transition:all .3s cubic-bezier(.32,.72,0,1)}
+button:hover{background:rgba(230,234,240,.12)}
+button.on{background:var(--ink);color:var(--bg);border-color:var(--ink);font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);min-height:calc(100vh - 190px)}
+@media(max-width:1200px){.grid{grid-template-columns:1fr}}
+.pane{background:var(--bg);display:flex;flex-direction:column;min-height:0}
+.head{padding:18px 20px;border-bottom:1px solid var(--line);background:var(--pan)}
+.head .t{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.head h2{font-size:16px;font-weight:700;letter-spacing:-.02em}
+.head a{color:var(--az);font-size:12px;text-decoration:none;white-space:nowrap}
+.head a:hover{text-decoration:underline}
+.head .d{color:var(--ink2);font-size:12.5px;margin-top:7px;line-height:1.55}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:11px}
+.tag{font-size:10px;padding:4px 9px;border-radius:999px;border:1px solid var(--line);color:var(--ink2)}
+.tag.ok{color:var(--em);border-color:rgba(79,191,154,.3);background:rgba(79,191,154,.08)}
+.tag.warn{color:var(--am);border-color:rgba(232,163,61,.3);background:rgba(232,163,61,.08)}
+.frame{flex:1;position:relative;overflow:hidden;background:#000;min-height:70vh}
+iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.note{padding:20px 30px 60px;color:var(--ink2);font-size:13px;line-height:1.7;max-width:112ch}
+.note b{color:var(--ink)}
+.note ul{margin:10px 0 0 18px}
+.note li{margin-bottom:7px}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Three concepts, same content</h1>
+  <p>Every pane shows the same two templates stacked: the <b>Tofino destination page</b>, then the <b>whale watching article</b> with the booking module inside it. Real ingested Tofino photography throughout, hand-written content, nothing wired to the database. Scroll any pane, or open one full screen.</p>
+</header>
+
+<div class="bar">
+  <b>Jump to</b>
+  <button class="on" onclick="jump('',this)">Destination page</button>
+  <button onclick="jump('#article',this)">Article template</button>
+  <button onclick="jump('#buy',this)">The booking module</button>
+  <span style="flex:1"></span>
+  <b>Width</b>
+  <button onclick="setW('100%',this)" class="on">Fit</button>
+  <button onclick="setW('1440px',this)">1440</button>
+  <button onclick="setW('420px',this)">Mobile</button>
+</div>
+
+<div class="grid">
+  <div class="pane">
+    <div class="head">
+      <div class="t"><h2>A. Editorial Luxury</h2><a href="a-editorial.html" target="_blank">Open &rarr;</a></div>
+      <p class="d">Warm paper, film grain, Fraunces serif at display size. Reads like a travel magazine that happens to sell trips. Booking is a dark editorial insert.</p>
+      <div class="tags"><span class="tag warn">Breaks Inter rule</span><span class="tag">Serif display</span><span class="tag">Slowest to scan</span><span class="tag ok">Most distinctive</span></div>
+    </div>
+    <div class="frame"><iframe id="f0" src="a-editorial.html"></iframe></div>
+  </div>
+
+  <div class="pane">
+    <div class="head">
+      <div class="t"><h2>B. Soft Structuralism</h2><a href="b-marketplace.html" target="_blank">Open &rarr;</a></div>
+      <p class="d">White, huge Inter, bento grid, very soft shadows. Booking is a sticky rail beside the reading column. The commercially safest of the three.</p>
+      <div class="tags"><span class="tag ok">Brand compliant</span><span class="tag ok">Strongest commerce</span><span class="tag">Familiar</span><span class="tag warn">Least distinctive</span></div>
+    </div>
+    <div class="frame"><iframe id="f1" src="b-marketplace.html"></iframe></div>
+  </div>
+
+  <div class="pane">
+    <div class="head">
+      <div class="t"><h2>C. Immersive Cinematic</h2><a href="c-immersive.html" target="_blank">Open &rarr;</a></div>
+      <p class="d">Near black, full-bleed photography, Space Grotesk, cards cascading on the z-axis. Booking is a cinematic break in the middle of the read.</p>
+      <div class="tags"><span class="tag warn">Breaks Inter rule</span><span class="tag warn">Dark theme</span><span class="tag ok">Best photography</span><span class="tag">Boldest</span></div>
+    </div>
+    <div class="frame"><iframe id="f2" src="c-immersive.html"></iframe></div>
+  </div>
+</div>
+
+<div class="note">
+  <p><b>What changed from the version you rejected.</b></p>
+  <ul>
+    <li>The region tier is gone. Destinations are Tofino and Ucluelet, with the rest shown as coming soon.</li>
+    <li>Things to do are articles. There are no category pages, no place pages, no directory layer. You buy the thing inside the article that describes it.</li>
+    <li>Real Tofino photography from the corpus, not the recycled stock that made the last build look dead.</li>
+    <li>Type scale roughly tripled at the top end, section padding roughly doubled, and no listing card repeats another.</li>
+  </ul>
+  <p style="margin-top:16px"><b>The one rule I broke, deliberately, in A and C.</b> CLAUDE.md says Inter everywhere. Concept B honours that. A and C use a display face because uniform Inter at moderate size is a real contributor to the blandness. Pick B if the rule stands, or tell me to relax it. No italics anywhere in any of the three, that rule I kept.</p>
+</div>
+
+<script>
+const frames=[0,1,2].map(i=>document.getElementById('f'+i));
+const src=['a-editorial.html','b-marketplace.html','c-immersive.html'];
+function jump(hash,btn){
+  document.querySelectorAll('.bar button').forEach(b=>{if(b.parentNode===btn.parentNode&&b.textContent.match(/Destination|Article|booking/))b.classList.remove('on')});
+  btn.classList.add('on');
+  frames.forEach((f,i)=>{f.src=src[i]+hash});
+}
+function setW(w,btn){
+  [...document.querySelectorAll('.bar button')].filter(b=>['Fit','1440','Mobile'].includes(b.textContent)).forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  frames.forEach(f=>{f.style.width=w;f.style.margin=w==='100%'?'0':'0 auto';f.style.left=w==='100%'?'0':'50%';
+    f.style.transform=w==='100%'?'none':'translateX(-50%)'});
+}
+</script>
+</body>
+</html>
