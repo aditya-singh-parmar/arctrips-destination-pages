@@ -349,6 +349,28 @@ export async function getArticlesForCity(citySlug: string, categorySlug?: string
   return out;
 }
 
+/**
+ * Region-level articles ("How to Choose a Vacation Rental on Vancouver
+ * Island"): `region_slug` set, `city_slugs` empty. Added for Task 12 (region
+ * pages), same Supabase-then-SEED fallback shape as `getArticlesForCity`
+ * above; there is no SEED equivalent yet since no region-level article
+ * existed before the v1.1 corpus ingest, so the fallback is an empty list.
+ */
+export async function getArticlesForRegion(regionSlug: string): Promise<Article[]> {
+  const s = getServerSupabase();
+  if (s) {
+    const { data, error } = await s
+      .from("articles")
+      .select("*")
+      .eq("region_slug", regionSlug)
+      .order("sort_order", { ascending: true });
+    if (!error && data) {
+      return data.map(mapArticleRow);
+    }
+  }
+  return [];
+}
+
 export async function getArticle(destinationSlug: string, articleSlug: string): Promise<Article | null> {
   const all = await getArticles(destinationSlug);
   return all.find((a) => a.slug === articleSlug) ?? null;
