@@ -28,14 +28,26 @@ Route model:
 
 The real copy and imagery live in **`New Articles - 2026/`** at the repo root — ~74 image-heavy `.docx` guides (Tofino, Ucluelet, Victoria, Whistler, Squamish, Banff, "Agent Trek" city guides, plus activity guides: hikes, kayaking, whale watching, biking, etc.). This folder is **gitignored** (large binaries) and is treated as **read-only reference** — edit the rendered content/Supabase rows, never the docs.
 
-**Ingestion is built** for the guide/article bodies: `scripts/ingest-articles.mjs` unzips each mapped `.docx`, extracts ordered headings/paragraphs + inline images, uploads the images to Cloudinary (`guides/<slug>/imgN`, signed upload), and PATCHes the `articles` row (`body` jsonb blocks `{type:h|p|img,...}`, `hero_public_id`, `excerpt`). The guide page renders `article.body` when present, else the excerpt + a note. Run order: `npm run seed` (creates rows) **then** `node --env-file=.env.local scripts/ingest-articles.mjs` (fills bodies) — re-running seed wipes ingested bodies, so re-ingest after. Currently mapped: the 6 Tofino + 4 Ucluelet guides. Destination overviews/things/gallery are still seeded content in `content.ts` / `seed.mjs`.
+**Ingestion is a decomposer, not a copier.** The docs are already shaped like the tree: `Tofino - Beaches.docx` is not an article about beaches, it **is** the Beaches category page, where H1 is the category, H2s are its sections, and each H3 under a place-listing H2 is one beach with its own copy, "good for" bullets, "Good to know" note, and two to three embedded images.
+
+`scripts/ingest-articles.mjs` (driver) plus `scripts/lib/decompose.mjs` (pure classifier, unit-tested) therefore split **one `.docx` into a category intro + N place pages + place-tagged photos + FAQs**. Because each embedded image sits directly under its place's H3, `photos.place_slug` is populated automatically, which is what lets the gallery say "Long Beach".
+
+**Critical:** `placeHeadings` is an explicit per-doc whitelist of which H2s yield places. Without it the "Frequently Asked Questions" H3s become place pages titled "Can you swim in Tofino?". When mapping a new doc, open it and read its real H2 list; never guess. Docs that are not category-shaped (Whale Festival, Best Time to Stay, Campgrounds) stay whole as `articles`, and `articles.city_slugs` is an array because several span two towns.
+
+Run order: `npm run seed` (creates rows) **then** `node --env-file=.env.local scripts/ingest-articles.mjs` — re-running seed wipes ingested content, so re-ingest after. Currently ingested: Tofino + Ucluelet (127 places, 284 photos, 13 categories). The other 23 cities are a data job, no new components needed.
 
 ## Design theme (Figma source of truth)
 
 The committed look is the Arc Trips **"Full system" — Inter** marketplace style (an Airbnb-style stays browse experience), NOT the splash's Hanken editorial variant. Source: the Figma CSS export Sam provided (1440 frame, 1280 content / 80px gutters). Two page types:
 
 1. **Destinations landing page** (`/`, `app/page.tsx`) — nav → hero + search → listing rails (recently viewed, per-destination, holiday) → Explore destinations → Culture of excellence → Real stories (reviews + video card) → How it works → email capture → List-your-accommodation banner → Promise cards → Find-a-stay band → footer. **Built (Phase 1), faithful + responsive.**
-2. **Area/destination pages** (`/destinations/[slug]`, `app/components/area/*`) — city/area pages with a **sticky section jump-menu** (sidebar on desktop, horizontal bar on mobile, scrollspy): Overview · Things to do · Guides & articles · Where to stay · Gallery. Guides link to **article pages** (`/destinations/[slug]/guides/[guide]`) that currently render title/hero/excerpt + a "full guide coming soon" note. **Built as a first cut** (Phase 2); the exact section structure will be refined against Sam's "Destination structure page" + Herm's input, and article bodies come from ingesting the New Articles corpus (not yet built).
+2. **Destination tree pages** (`/[city]`, `/[city]/[category]`, `/[city]/[category]/[slug]`, `/destinations/[region]`) — **v1.1, built.** Source of truth: `docs/superpowers/specs/2026-07-24-destination-pages-v1.1-design.md`. Read that before changing structure or navigation.
+
+   Model is **Region → City → Category → Place/Article**, where the **Category is the canonical node**. "Things to do", "Guides & articles" and "Gallery" are three entry points that filter one finite 22-category taxonomy (`app/lib/taxonomy.ts`), not three parallel content branches, so a subject has exactly one URL.
+
+   Navigation is the **TripAdvisor destination-page idiom**: a **sticky horizontal tab bar** (`app/components/nav/TabBar.tsx`) plus horizontal **rails** and filter **chips**. There is deliberately **no sidebar**: a persistent left sidebar was built, reviewed against TripAdvisor's Tofino page, and rejected by the owner as hard to navigate. The **breadcrumb is a plain non-interactive trail**; dropdown segments were also built and rejected, because the control moved horizontally with URL depth. Destination switching belongs in the top-nav search, never the breadcrumb. Do not reintroduce either pattern.
+
+   Every page carries a booking path via the **CTA engine** (`app/lib/cta.ts`), which derives the button from `product_lines` rows: Stays is live on Arc Trips, fishing charters hand off to the ArcTrips Fishing sister brand, and whale watching / kayaking / hot springs are coming soon. A coming-soon category captures an email **and** falls through to stays, so no page dead-ends. The **one `.btn--primary` per screen** rule is carried by the tab bar (desktop) and `DockBar` (mobile, mutually exclusive by breakpoint); `CtaBlock` is therefore `.btn--outline`.
 
 ## Stack
 
@@ -86,15 +98,23 @@ Hard rules (carried from sibling projects, non-negotiable):
 ## Key files
 
 - `app/globals.css` — Tailwind v4 `@theme` brand tokens (color ramps, fonts, radius/shadow).
-- `app/theme.css` — starter destination-page component classes + hard-rule enforcement (`em,i` reset). Replace section styles here when Figma lands.
-- `app/layout.tsx` — root layout, Hanken Grotesk font wiring, metadata.
-- `app/page.tsx` — destinations index.
-- `app/destinations/[slug]/page.tsx` — the destination page template (`generateStaticParams` + `generateMetadata`).
-- `app/components/destination/*` — `DestinationHero`, `Overview`, `Gallery`, `StaysList`, `Footer`.
-- `app/lib/content.ts` — `Destination` type + `getDestination` / `getAllDestinations` with Supabase→placeholder fallback. Placeholder content (Tofino, Ucluelet) lives here.
+- `app/theme.css` — all component classes + hard-rule enforcement (`em,i` reset). v1.1 blocks: `.tabbar`, `.rail`, `.chiprow`, `.pcard`, `.cta--live/--sister/--soon`, `.dockbar`, `.toc`.
+- `app/layout.tsx` — root layout, Inter font wiring, metadata.
+- `app/page.tsx` — marketplace landing page.
+- `app/[city]/layout.tsx` — shared TopNav + TabBar + DockBar + Footer for every page in a city.
+- `app/[city]/page.tsx` — city page (hero, chips, rails, theme grids, FAQ).
+- `app/[city]/[category]/page.tsx` — category page. `app/[city]/[category]/[slug]/page.tsx` resolves **place first, then article**: they share one slug namespace, uniqueness enforced in the DB.
+- `app/[city]/{things-to-do,guides,gallery}/page.tsx` — one shared `CategoryIndex` with a `mode` prop.
+- `app/destinations/page.tsx` (regions) and `app/destinations/[region]/page.tsx` (cross-city corpus content).
+- `app/lib/taxonomy.ts` — the finite 22-category list, themes, product lines, `THEME_GRID_THRESHOLD`.
+- `app/lib/cta.ts` — pure CTA resolver. Unit-tested. Never hardcode a booking button; render what this returns.
+- `app/lib/content.ts` — types + reads for region/city/category/place/photo/experience, all Supabase→SEED fallback so pages render without Supabase.
 - `app/lib/supabase.ts` — `getServerSupabase()` (anon, read-only) + `getServiceSupabase()` (service role, ingestion only).
 - `app/lib/cloudinary.ts` — `cld()` URL builder + `IMG` public-ID map.
-- `supabase/migrations/0001_destinations.sql` — `destinations` table + RLS (public read of `published` rows; writes via service role).
+- `supabase/migrations/0001_destinations.sql` — `destinations` (the city table) + RLS.
+- `supabase/migrations/0002_tree.sql` — regions, categories, city_categories, places, photos, product_lines, category_products, experiences, notify_signups. **Additive only**: the Supabase instance is shared with the sibling Website-Builder project, so never drop or rename anything here.
+
+Tests run with `npm test` (vitest). Only pure logic is tested: `app/lib/cta.test.ts` and `scripts/lib/decompose.test.mjs`. Pages are verified with `npm run build` and by loading them.
 
 ## Token discipline (browser & subagents)
 
