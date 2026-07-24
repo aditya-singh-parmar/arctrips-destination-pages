@@ -1,5 +1,6 @@
 import { getServerSupabase } from "./supabase";
 import { IMG } from "./cloudinary";
+import { CATEGORY_BY_SLUG } from "./taxonomy";
 
 /* ── Content model ──────────────────────────────────────────────────────────
    Read from Supabase when configured/seeded; otherwise from the SEED data
@@ -193,6 +194,8 @@ export type ArticleBlock = {
   items?: string[];
   rows?: string[][];
 };
+export type Faq = { q: string; a: string };
+
 export type Article = {
   slug: string;
   destinationSlug: string;
@@ -202,6 +205,11 @@ export type Article = {
   excerpt: string;
   /** Rich body ingested from the New Articles corpus; empty until ingested. */
   body?: ArticleBlock[];
+  /** v1.1 tree: an article can span multiple cities and hangs off one category. */
+  citySlugs?: string[];
+  regionSlug?: string;
+  categorySlug?: string;
+  faqs?: Faq[];
 };
 export type AreaSection = { id: string; label: string };
 export type AreaPage = {
@@ -294,15 +302,51 @@ export async function getAreaPage(slug: string): Promise<AreaPage | null> {
   return seed ? { ...seed, sections: AREA_SECTIONS } : null;
 }
 
+/** Shared row → Article mapping for both the legacy single-city read and the v1.1 tree read. */
+function mapArticleRow(a: {
+  slug: string; destination_slug?: string | null; title: string; category?: string | null;
+  hero_public_id?: string | null; excerpt?: string | null; body?: ArticleBlock[] | null;
+  city_slugs?: string[] | null; region_slug?: string | null; category_slug?: string | null; faqs?: Faq[] | null;
+}): Article {
+  return {
+    slug: a.slug, destinationSlug: a.destination_slug ?? "", title: a.title, category: a.category ?? "",
+    heroPublicId: a.hero_public_id ?? IMG.coast, excerpt: a.excerpt ?? "", body: a.body ?? [],
+    citySlugs: a.city_slugs ?? undefined, regionSlug: a.region_slug ?? undefined,
+    categorySlug: a.category_slug ?? undefined, faqs: a.faqs ?? undefined,
+  };
+}
+
 export async function getArticles(destinationSlug: string): Promise<Article[]> {
   const s = getServerSupabase();
   if (s) {
     const { data } = await s.from("articles").select("*").eq("destination_slug", destinationSlug).order("sort_order", { ascending: true });
     if (data && data.length) {
-      return data.map((a) => ({ slug: a.slug, destinationSlug: a.destination_slug, title: a.title, category: a.category ?? "", heroPublicId: a.hero_public_id ?? IMG.coast, excerpt: a.excerpt ?? "", body: a.body ?? [] }));
+      return data.map(mapArticleRow);
     }
   }
   return SEED_ARTICLES.filter((a) => a.destinationSlug === destinationSlug);
+}
+
+/**
+ * v1.1 tree read: matches on the `city_slugs` array rather than `destination_slug`,
+ * because some articles (Whale Festival, Best Time to Stay, Campgrounds) span two
+ * towns. Optionally narrows to one category.
+ */
+export async function getArticlesForCity(citySlug: string, categorySlug?: string): Promise<Article[]> {
+  const s = getServerSupabase();
+  if (s) {
+    let q = s.from("articles").select("*").contains("city_slugs", [citySlug]);
+    if (categorySlug) q = q.eq("category_slug", categorySlug);
+    const { data, error } = await q.order("sort_order", { ascending: true });
+    if (!error && data && data.length) {
+      return data.map(mapArticleRow);
+    }
+  }
+  let out = SEED_ARTICLES.filter(
+    (a) => a.destinationSlug === citySlug || (a.citySlugs ?? []).includes(citySlug),
+  );
+  if (categorySlug) out = out.filter((a) => a.categorySlug === categorySlug);
+  return out;
 }
 
 export async function getArticle(destinationSlug: string, articleSlug: string): Promise<Article | null> {
@@ -320,4 +364,456 @@ export async function getNavigableSlugs(): Promise<string[]> {
   const slugs = await getAllAreaSlugs();
   const checked = await Promise.all(slugs.map(async (s) => ((await getAreaPage(s)) ? s : null)));
   return checked.filter((s): s is string => Boolean(s));
+}
+
+/* ── v1.1 tree: Region > City > Category > Place ────────────────────────────
+   Reads for docs/superpowers/specs/2026-07-24-destination-pages-v1.1-design.md
+   section 4. Same Supabase → SEED fallback pattern as the reads above. Keep
+   these types in sync with supabase/migrations/0002_tree.sql. */
+
+export type Region = {
+  slug: string;
+  name: string;
+  heroPublicId: string;
+  blurb: string;
+  sortOrder: number;
+};
+
+export type City = {
+  slug: string;
+  name: string;
+  regionSlug: string | null;
+  heroPublicId: string;
+  standfirst: string;
+  overview: string[];
+  listingCount: number;
+  comingSoon: boolean;
+};
+
+/** The per-city category page body. A category exists for a city only if it has a row here. */
+export type CityCategory = {
+  citySlug: string;
+  categorySlug: string;
+  intro: ArticleBlock[];
+  heroPublicId?: string;
+  sortOrder: number;
+};
+
+export type Place = {
+  id: string;
+  slug: string;
+  citySlug: string;
+  categorySlug: string;
+  name: string;
+  blurb: string;
+  body: ArticleBlock[];
+  goodFor: string[];
+  goodToKnow?: string;
+  heroPublicId?: string;
+  lat?: number;
+  lng?: number;
+  sortOrder: number;
+};
+
+export type Photo = {
+  id: string;
+  publicId: string;
+  citySlug?: string;
+  categorySlug?: string;
+  /** Matches places.slug within the city+category. What lets the gallery say "Long Beach". */
+  placeSlug?: string;
+  caption?: string;
+  sourceUrl?: string;
+  sortOrder: number;
+};
+
+export type Experience = {
+  id: string;
+  slug: string;
+  productLineSlug: string;
+  citySlug?: string;
+  categorySlug?: string;
+  placeSlug?: string;
+  title: string;
+  duration?: string;
+  priceFrom?: number;
+  currency: string;
+  heroPublicId?: string;
+  bookUrl?: string;
+  sortOrder: number;
+};
+
+/* ── SEED: v1.1 tree ──────────────────────────────────────────────────────── */
+
+export const SEED_REGIONS: Region[] = [
+  { slug: "vancouver-island", name: "Vancouver Island", heroPublicId: IMG.coast,
+    blurb: "Rainforest, surf beaches, and whale-watching water on Canada's Pacific coast.", sortOrder: 0 },
+];
+
+function cityCategory(citySlug: string, categorySlug: string, intro: string, heroPublicId: string): CityCategory {
+  return {
+    citySlug, categorySlug,
+    intro: [{ type: "p", text: intro }],
+    heroPublicId,
+    sortOrder: CATEGORY_BY_SLUG.get(categorySlug)?.sortOrder ?? 999,
+  };
+}
+
+/** Tofino: 9 categories. Ucluelet: 6. Per spec section 8. */
+export const SEED_CITY_CATEGORIES: CityCategory[] = [
+  cityCategory("tofino", "beaches", "Thirteen beaches ring Tofino and the Long Beach unit of Pacific Rim National Park, from the surf breaks at Cox Bay to the sheltered sand at Tinwis Beach.", IMG.coast),
+  cityCategory("tofino", "surfing", "Tofino is Canada's surf capital: warm-enough water, consistent swell, and a handful of breaks that suit everyone from first lesson to storm-season regulars.", IMG.surf),
+  cityCategory("tofino", "kayaking", "Clayoquot Sound's islands and inlets make for some of the calmest, most scenic paddling on the coast, from a short harbour tour to a multi-day trip.", IMG.kayak),
+  cityCategory("tofino", "fishing", "Salmon and halibut charters run out of Tofino harbour most of the year, with guides who know the banks and the tides.", IMG.seaplane),
+  cityCategory("tofino", "whale-watching", "Grey whales pass close to shore on their spring migration, and resident humpbacks feed in the Sound through summer and fall.", IMG.aerial),
+  cityCategory("tofino", "birding", "Tofino sits on the Pacific Flyway, and the mudflats and shoreline around the harbour draw serious birders every spring and fall.", IMG.beach),
+  cityCategory("tofino", "storm-watching", "Winter turns Tofino into Canada's storm-watching capital: floor-to-ceiling windows, driftwood-strewn beaches, and Pacific swell hitting the headlands.", IMG.aerial),
+  cityCategory("tofino", "hiking", "Short boardwalk loops through old-growth rainforest sit minutes from the beaches, with longer trail options toward Pacific Rim National Park.", IMG.dayhike),
+  cityCategory("tofino", "restaurants", "From fish-and-chips shacks to tasting menus built around the day's catch, Tofino punches well above its size for a town this small.", IMG.connection),
+
+  cityCategory("ucluelet", "hiking", "The Wild Pacific Trail is the reason people plan a trip around Ucluelet: a rugged, well-built coastal path in a handful of connected loops.", IMG.dayhike),
+  cityCategory("ucluelet", "kayaking", "Sheltered launches inside the harbour give way to open-water paddling toward the Broken Group Islands, all a short drive from town.", IMG.kayak),
+  cityCategory("ucluelet", "whale-watching", "Ucluelet's harbour puts boats closer to the migration route than most launch points on the west coast, with grey whales passing from March.", IMG.aerial),
+  cityCategory("ucluelet", "birding", "The Wild Pacific Trail headlands are a reliable seabird lookout, and the harbour draws waders and migrating shorebirds through the shoulder seasons.", IMG.beach),
+  cityCategory("ucluelet", "restaurants", "A working-harbour town with a chowder-and-fresh-catch food scene that has quietly caught up to its more famous neighbour.", IMG.gallery1),
+  cityCategory("ucluelet", "fishing", "Charters run from Ucluelet's harbour for salmon and halibut, with easier water access than the open beaches further up the coast.", IMG.seaplane),
+];
+
+/** The 13 Tofino beaches from `Tofino - Beaches.docx`, verified against the corpus. */
+export const SEED_PLACES: Place[] = [
+  {
+    id: "seed-chesterman-beach", slug: "chesterman-beach", citySlug: "tofino", categorySlug: "beaches",
+    name: "Chesterman Beach",
+    blurb: "One of the most loved beaches in Tofino: long, sandy, and easy to enjoy close to town.",
+    body: [
+      { type: "p", text: "Chesterman Beach is one of the most loved beaches in Tofino. It is long, sandy, and easy to enjoy. It is close to town and popular with walkers, surfers, families, and photographers." },
+      { type: "p", text: "Chesterman is split into North Chesterman and South Chesterman. At low tide, you can walk across the sandspit, also called a tombolo, toward Frank Island. This is one of the most scenic beach walks in Tofino." },
+    ],
+    goodFor: ["Long beach walks", "Beginner surf lessons", "Sunset photos", "Sandcastles"],
+    heroPublicId: IMG.coast, sortOrder: 10,
+  },
+  {
+    id: "seed-cox-bay", slug: "cox-bay", citySlug: "tofino", categorySlug: "beaches",
+    name: "Cox Bay",
+    blurb: "Wide, open, and facing the Pacific: one of the best beaches in Tofino for surfing.",
+    body: [
+      { type: "p", text: "Cox Bay is one of the best beaches in Tofino for surfing. It is wide, open, and faces the Pacific Ocean. Because of this, it often gets strong and steady waves." },
+      { type: "p", text: "Many surfers love Cox Bay. It is also a beautiful place to watch the waves from shore. On clear evenings, it can be a great sunset beach." },
+      { type: "p", text: "Cox Bay is also known for the short Cox Bay lookout hike. The trail can be muddy and steep, but the view over the beach is one of the most popular photo spots near Tofino." },
+    ],
+    goodFor: ["Surfing", "Watching surfers", "Sunsets", "Storm watching"],
+    heroPublicId: IMG.surf, sortOrder: 20,
+  },
+  {
+    id: "seed-long-beach", slug: "long-beach", citySlug: "tofino", categorySlug: "beaches",
+    name: "Long Beach",
+    blurb: "One of the most famous beaches on Vancouver Island, inside Pacific Rim National Park Reserve.",
+    body: [
+      { type: "p", text: "Long Beach is one of the most famous beaches on Vancouver Island. It is part of Pacific Rim National Park Reserve, between Tofino and Ucluelet." },
+      { type: "p", text: "As the name says, Long Beach is very long. It gives you that classic west coast feeling: open sand, big sky, rolling waves, and rainforest behind you." },
+      { type: "p", text: "Long Beach is a great place for walking, surfing, watching waves, and taking photos. It also has nearby trails and visitor areas in the national park." },
+    ],
+    goodFor: ["Long walks", "Big beach views", "Surfing", "Photography"],
+    heroPublicId: IMG.beach, sortOrder: 30,
+  },
+  {
+    id: "seed-tinwis-beach-formerly-mackenzie-beach", slug: "tinwis-beach-formerly-mackenzie-beach", citySlug: "tofino", categorySlug: "beaches",
+    name: "Tinwis Beach, formerly Mackenzie Beach",
+    blurb: "A calmer, more sheltered beach near Tofino, popular with families.",
+    body: [
+      { type: "p", text: "Tinwis Beach, formerly known as Mackenzie Beach, is a calmer and more sheltered beach near Tofino. It does not face the open ocean as directly as Cox Bay or Long Beach, so the water is often gentler." },
+      { type: "p", text: "This makes it a favorite for families, relaxed beach time, and people who want a softer beach experience. It is also a good place to enjoy tide pools and coastal views when conditions are safe." },
+    ],
+    goodFor: ["Families", "Calmer beach days", "Paddleboarding in gentle conditions", "Tide pools"],
+    heroPublicId: IMG.beach, sortOrder: 40,
+  },
+  {
+    id: "seed-tonquin-beach", slug: "tonquin-beach", citySlug: "tofino", categorySlug: "beaches",
+    name: "Tonquin Beach",
+    blurb: "A small, quiet beach close to the village, reached by a short forest trail.",
+    body: [
+      { type: "p", text: "Tonquin Beach is a smaller beach close to the village of Tofino. You reach it by walking a short forest trail. It feels quieter and more hidden than the big surf beaches." },
+      { type: "p", text: "Tonquin Beach is not as wide as Chesterman or Long Beach, but it has a peaceful feel. It is a nice place for a short walk, a picnic, or a quiet sunset." },
+    ],
+    goodFor: ["Short walks", "Quiet beach time", "Picnics", "Sunset views", "Forest-and-beach scenery"],
+    heroPublicId: IMG.coast, sortOrder: 50,
+  },
+  {
+    id: "seed-middle-beach", slug: "middle-beach", citySlug: "tofino", categorySlug: "beaches",
+    name: "Middle Beach",
+    blurb: "A smaller, tucked-away beach area near Chesterman, with rocky edges and forest.",
+    body: [
+      { type: "p", text: "Middle Beach is a smaller beach area near Chesterman Beach. It has a more tucked-away feel, with rocky edges, forest, and ocean views." },
+      { type: "p", text: "It is a nice place if you want something quieter than the larger beaches. It is not always the best place for swimming or surfing, but it can be lovely for photos and peaceful walks." },
+    ],
+    goodFor: ["Quiet views", "Photography", "Short walks", "Relaxing near the ocean"],
+    goodToKnow: "Check tide and wave conditions before walking near rocks.",
+    heroPublicId: IMG.coast, sortOrder: 60,
+  },
+  {
+    id: "seed-rosie-bay", slug: "rosie-bay", citySlug: "tofino", categorySlug: "beaches",
+    name: "Rosie Bay",
+    blurb: "A smaller, quieter beach near Cox Bay with interesting low-tide rocks and pools.",
+    body: [
+      { type: "p", text: "Rosie Bay is a smaller beach near Cox Bay. It is less famous than the main beaches, but it can be a nice stop for people who like quieter places." },
+      { type: "p", text: "At low tide, you may find interesting rocks, sand, and small pools. It is also a scenic area for photos." },
+    ],
+    goodFor: ["Quiet exploring", "Low tide walks", "Photography", "A break from busier beaches"],
+    goodToKnow: "Be careful near rocks and changing tides.",
+    heroPublicId: IMG.coast, sortOrder: 70,
+  },
+  {
+    id: "seed-wickaninnish-beach", slug: "wickaninnish-beach", citySlug: "tofino", categorySlug: "beaches",
+    name: "Wickaninnish Beach",
+    blurb: "One of the best places near Tofino for big ocean views and storm watching, next to the Kwisitis Visitor Centre.",
+    body: [
+      { type: "p", text: "Wickaninnish Beach is in Pacific Rim National Park Reserve, closer to the Ucluelet side of the Long Beach area. It is one of the best places near Tofino for big ocean views and storm watching." },
+      { type: "p", text: "The nearby Kwisitis Visitor Centre makes this beach extra useful for visitors. You can learn about the coast, local wildlife, and the history of the area. There is also a viewing area, which is helpful when the beach feels too rough or windy." },
+    ],
+    goodFor: ["Storm watching", "Big ocean views", "Photography", "Sunset watching", "Learning about the coast", "Visiting the Kwisitis Visitor Centre"],
+    goodToKnow: "This beach can feel very open and exposed. Stay far back from the water during storms and high tide.",
+    heroPublicId: IMG.aerial, sortOrder: 80,
+  },
+  {
+    id: "seed-florencia-bay", slug: "florencia-bay", citySlug: "tofino", categorySlug: "beaches",
+    name: "Florencia Bay",
+    blurb: "A quieter national-park beach known for its sand cliffs and scenic shoreline.",
+    body: [
+      { type: "p", text: "Florencia Bay is also in Pacific Rim National Park Reserve. It is closer to Ucluelet than Tofino, but it is still a great stop on a Tofino beach trip." },
+      { type: "p", text: "Florencia Bay is known for its sand cliffs, quiet feel, and scenic shoreline. To reach the beach, you walk a trail and take a wooden staircase down to the shore." },
+      { type: "p", text: "It feels less busy than Chesterman, Cox Bay, and Long Beach. This makes it a good choice for people who want a slower, quieter beach visit." },
+    ],
+    goodFor: ["Quiet beach walks", "Sand cliff views", "Photography", "Low-tide exploring", "A less crowded beach visit"],
+    goodToKnow: "The stairs and trail can feel longer on the way back up. Wear comfortable shoes and check the tide before walking far.",
+    heroPublicId: IMG.coast, sortOrder: 90,
+  },
+  {
+    id: "seed-combers-beach", slug: "combers-beach", citySlug: "tofino", categorySlug: "beaches",
+    name: "Combers Beach",
+    blurb: "One of the wilder national-park beaches near Tofino, good for a long, quiet walk.",
+    body: [
+      { type: "p", text: "Combers Beach is part of Pacific Rim National Park Reserve. It is not a town beach, but it is one of the wilder beaches near Tofino." },
+      { type: "p", text: "Combers Beach is good for visitors who want a natural, open beach experience. It can feel quieter than Chesterman or Cox Bay. It is a good place for a long walk, but you should check trail access, tide times, and park updates before going." },
+    ],
+    goodFor: ["Long beach walks", "Quiet nature time", "Photography", "Storm watching from a safe distance", "A wilder beach feel"],
+    goodToKnow: "Dog rules and access rules can change in Pacific Rim National Park Reserve. Check current Parks Canada updates before visiting with a dog.",
+    heroPublicId: IMG.coast, sortOrder: 100,
+  },
+  {
+    id: "seed-schooner-cove", slug: "schooner-cove", citySlug: "tofino", categorySlug: "beaches",
+    name: "Schooner Cove",
+    blurb: "A tucked-away, forest-to-beach stop near the Tofino end of Long Beach.",
+    body: [
+      { type: "p", text: "Schooner Cove is also in Pacific Rim National Park Reserve, closer to the Tofino end of the Long Beach area." },
+      { type: "p", text: "It is worth visiting if you like forest-to-beach scenery and quieter places. It has a more tucked-away feeling than the main beaches near town. It is best for people who want a slower nature stop, not a busy beach day." },
+    ],
+    goodFor: ["Forest and beach views", "Quiet exploring", "Nature photos", "Peaceful walks", "A less crowded beach stop"],
+    goodToKnow: "Trail and beach access can change in national park areas. Check current Parks Canada updates before planning your visit.",
+    heroPublicId: IMG.dayhike, sortOrder: 110,
+  },
+  {
+    id: "seed-grice-bay", slug: "grice-bay", citySlug: "tofino", categorySlug: "beaches",
+    name: "Grice Bay",
+    blurb: "A sheltered inlet bay, better for kayaking and birding than surf.",
+    body: [
+      { type: "p", text: "Grice Bay is different from the other beaches on this list. It is not a big open Pacific Ocean surf beach. It is a sheltered bay on the calmer inlet side near Tofino and Pacific Rim National Park Reserve." },
+      { type: "p", text: "This means Grice Bay is not the place to go for surfing, big waves, or classic sandy beach photos. But it is still worth visiting if you like calm water, kayaking, bird watching, and peaceful views." },
+    ],
+    goodFor: ["Kayaking", "Paddle trips", "Bird watching", "Calm water views", "A quiet nature stop"],
+    goodToKnow: "Choose Grice Bay for calm inlet scenery, not for surfing or storm watching.",
+    heroPublicId: IMG.kayak, sortOrder: 120,
+  },
+  {
+    id: "seed-kennedy-lake", slug: "kennedy-lake", citySlug: "tofino", categorySlug: "beaches",
+    name: "Kennedy Lake",
+    blurb: "A large freshwater lake near Tofino and Ucluelet, for calm-water paddling rather than surf.",
+    body: [
+      { type: "p", text: "Kennedy Lake is not a beach in Tofino town, and it is not an open Pacific Ocean beach. It is a large freshwater lake near Tofino and Ucluelet, close to Pacific Rim National Park Reserve." },
+      { type: "p", text: "It is worth adding to a Tofino beach and water guide because it gives visitors a different kind of water experience. Instead of big waves, surf, and storm watching, Kennedy Lake is known for calmer water, forest views, and peaceful lake scenery." },
+    ],
+    goodFor: ["Freshwater lake views", "Kayaking or canoeing", "Paddleboarding in calm conditions", "Quiet nature time", "Photography", "A break from windy ocean beaches"],
+    goodToKnow: "Kennedy Lake is best for calm-water activities, not surfing or storm watching. Conditions can still change, so check the weather and wind before paddling.",
+    heroPublicId: IMG.kayak, sortOrder: 130,
+  },
+];
+
+/** Placeholder rows: the structure is correct from day one, real inventory is out of scope for v1.1 (spec section 9). */
+export const SEED_EXPERIENCES: Experience[] = [
+  { id: "seed-exp-tofino-fishing-1", slug: "tofino-half-day-salmon", productLineSlug: "fishing-charters",
+    citySlug: "tofino", categorySlug: "fishing", title: "Half-day salmon charter", duration: "4 hours",
+    priceFrom: 189, currency: "CAD", heroPublicId: IMG.seaplane, bookUrl: "https://arctripsfishing.com", sortOrder: 0 },
+  { id: "seed-exp-tofino-whale-1", slug: "tofino-grey-whale-tour", productLineSlug: "whale-watching-tours",
+    citySlug: "tofino", categorySlug: "whale-watching", title: "Grey whale watching tour", duration: "3 hours",
+    priceFrom: 129, currency: "CAD", heroPublicId: IMG.aerial, sortOrder: 0 },
+  { id: "seed-exp-tofino-kayak-1", slug: "tofino-clayoquot-kayak-tour", productLineSlug: "kayaking-tours",
+    citySlug: "tofino", categorySlug: "kayaking", title: "Clayoquot Sound guided paddle", duration: "2.5 hours",
+    priceFrom: 99, currency: "CAD", heroPublicId: IMG.kayak, sortOrder: 0 },
+  { id: "seed-exp-ucluelet-fishing-1", slug: "ucluelet-half-day-halibut", productLineSlug: "fishing-charters",
+    citySlug: "ucluelet", categorySlug: "fishing", title: "Half-day halibut charter", duration: "4 hours",
+    priceFrom: 199, currency: "CAD", heroPublicId: IMG.seaplane, bookUrl: "https://arctripsfishing.com", sortOrder: 0 },
+  { id: "seed-exp-ucluelet-whale-1", slug: "ucluelet-grey-whale-tour", productLineSlug: "whale-watching-tours",
+    citySlug: "ucluelet", categorySlug: "whale-watching", title: "Grey whale watching tour", duration: "3 hours",
+    priceFrom: 129, currency: "CAD", heroPublicId: IMG.aerial, sortOrder: 0 },
+  { id: "seed-exp-ucluelet-kayak-1", slug: "ucluelet-barkley-sound-kayak-tour", productLineSlug: "kayaking-tours",
+    citySlug: "ucluelet", categorySlug: "kayaking", title: "Barkley Sound guided paddle", duration: "2.5 hours",
+    priceFrom: 99, currency: "CAD", heroPublicId: IMG.kayak, sortOrder: 0 },
+];
+
+const SEED_CITIES: Record<string, City> = {
+  tofino: {
+    slug: "tofino", name: "Tofino", regionSlug: "vancouver-island", heroPublicId: IMG.coast,
+    standfirst: "Storm-swept beaches, old-growth rainforest, and the best surf on the Pacific coast.",
+    overview: [
+      "Tofino sits at the western edge of Vancouver Island, where the rainforest meets long stretches of open Pacific beach. It draws surfers, storm-watchers, and travelers looking for quiet time close to the water.",
+      "Plan around the tides and the seasons. Summer brings calm mornings and warm evenings on the sand, while winter delivers dramatic storm-watching and empty beaches. Whatever the season, the pace here rewards staying a few nights rather than passing through.",
+    ],
+    listingCount: 134, comingSoon: false,
+  },
+  ucluelet: {
+    slug: "ucluelet", name: "Ucluelet", regionSlug: "vancouver-island", heroPublicId: IMG.aerial,
+    standfirst: "Tofino's quieter neighbour, wrapped by the Wild Pacific Trail.",
+    overview: [
+      "Ucluelet sits at the tip of the peninsula south of Tofino, wrapped by the Wild Pacific Trail. It keeps a working-harbour character and tends to feel calmer than its better-known neighbour.",
+      "It makes a natural base for whale watching, wildlife tours, and long coastal walks, with easy access to Pacific Rim National Park just up the road.",
+    ],
+    listingCount: 158, comingSoon: false,
+  },
+};
+
+/* ── Reads: v1.1 tree (Supabase → seed fallback) ─────────────────────────── */
+
+export async function getRegions(): Promise<Region[]> {
+  const s = getServerSupabase();
+  if (s) {
+    const { data, error } = await s
+      .from("regions")
+      .select("slug,name,hero_public_id,blurb,sort_order")
+      .order("sort_order", { ascending: true });
+    if (!error && data && data.length) {
+      return data.map((r) => ({
+        slug: r.slug, name: r.name, heroPublicId: r.hero_public_id ?? IMG.coast,
+        blurb: r.blurb ?? "", sortOrder: r.sort_order ?? 0,
+      }));
+    }
+  }
+  return SEED_REGIONS;
+}
+
+export async function getCity(slug: string): Promise<City | null> {
+  const s = getServerSupabase();
+  if (s) {
+    const { data } = await s
+      .from("destinations")
+      .select("slug,name,region_slug,hero_public_id,standfirst,overview,listing_count,coming_soon")
+      .eq("slug", slug)
+      .maybeSingle();
+    if (data && data.standfirst) {
+      return {
+        slug: data.slug, name: data.name, regionSlug: data.region_slug ?? null,
+        heroPublicId: data.hero_public_id ?? IMG.coast, standfirst: data.standfirst ?? "",
+        overview: data.overview ?? [], listingCount: data.listing_count ?? 0,
+        comingSoon: data.coming_soon ?? false,
+      };
+    }
+  }
+  return SEED_CITIES[slug] ?? null;
+}
+
+export async function getCityCategories(citySlug: string): Promise<CityCategory[]> {
+  const s = getServerSupabase();
+  if (s) {
+    const { data, error } = await s
+      .from("city_categories")
+      .select("city_slug,category_slug,intro,hero_public_id,sort_order")
+      .eq("city_slug", citySlug)
+      .eq("published", true)
+      .order("sort_order", { ascending: true });
+    if (!error && data && data.length) {
+      return data.map((c) => ({
+        citySlug: c.city_slug, categorySlug: c.category_slug, intro: c.intro ?? [],
+        heroPublicId: c.hero_public_id ?? undefined, sortOrder: c.sort_order ?? 0,
+      }));
+    }
+  }
+  return SEED_CITY_CATEGORIES
+    .filter((c) => c.citySlug === citySlug)
+    .sort((a, b) => a.sortOrder - b.sortOrder);
+}
+
+export async function getCityCategory(citySlug: string, categorySlug: string): Promise<CityCategory | null> {
+  const all = await getCityCategories(citySlug);
+  return all.find((c) => c.categorySlug === categorySlug) ?? null;
+}
+
+export async function getPlaces(citySlug: string, categorySlug?: string): Promise<Place[]> {
+  const s = getServerSupabase();
+  if (s) {
+    let q = s.from("places").select("*").eq("city_slug", citySlug).eq("published", true);
+    if (categorySlug) q = q.eq("category_slug", categorySlug);
+    const { data, error } = await q.order("sort_order", { ascending: true });
+    if (!error && data && data.length) {
+      return data.map((p) => ({
+        id: p.id, slug: p.slug, citySlug: p.city_slug, categorySlug: p.category_slug,
+        name: p.name, blurb: p.blurb ?? "", body: p.body ?? [], goodFor: p.good_for ?? [],
+        goodToKnow: p.good_to_know ?? undefined, heroPublicId: p.hero_public_id ?? undefined,
+        lat: p.lat ?? undefined, lng: p.lng ?? undefined, sortOrder: p.sort_order ?? 0,
+      }));
+    }
+  }
+  let out = SEED_PLACES.filter((p) => p.citySlug === citySlug);
+  if (categorySlug) out = out.filter((p) => p.categorySlug === categorySlug);
+  return out.sort((a, b) => a.sortOrder - b.sortOrder);
+}
+
+export async function getPlace(citySlug: string, categorySlug: string, slug: string): Promise<Place | null> {
+  const all = await getPlaces(citySlug, categorySlug);
+  return all.find((p) => p.slug === slug) ?? null;
+}
+
+export async function getPhotos(
+  citySlug: string,
+  opts?: { categorySlug?: string; placeSlug?: string },
+): Promise<Photo[]> {
+  const s = getServerSupabase();
+  if (s) {
+    let q = s.from("photos").select("*").eq("city_slug", citySlug).eq("published", true);
+    if (opts?.categorySlug) q = q.eq("category_slug", opts.categorySlug);
+    if (opts?.placeSlug) q = q.eq("place_slug", opts.placeSlug);
+    const { data, error } = await q.order("sort_order", { ascending: true });
+    if (!error && data) {
+      return data.map((p) => ({
+        id: p.id, publicId: p.public_id, citySlug: p.city_slug ?? undefined,
+        categorySlug: p.category_slug ?? undefined, placeSlug: p.place_slug ?? undefined,
+        caption: p.caption ?? undefined, sourceUrl: p.source_url ?? undefined, sortOrder: p.sort_order ?? 0,
+      }));
+    }
+  }
+  // No SEED_PHOTOS yet: real corpus photography arrives via the ingest (Task 6), not hand-written here.
+  return [];
+}
+
+export async function getExperiences(
+  citySlug: string,
+  opts?: { categorySlug?: string; placeSlug?: string },
+): Promise<Experience[]> {
+  const s = getServerSupabase();
+  if (s) {
+    let q = s.from("experiences").select("*").eq("city_slug", citySlug).eq("published", true);
+    if (opts?.categorySlug) q = q.eq("category_slug", opts.categorySlug);
+    if (opts?.placeSlug) q = q.eq("place_slug", opts.placeSlug);
+    const { data, error } = await q.order("sort_order", { ascending: true });
+    if (!error && data && data.length) {
+      return data.map((e) => ({
+        id: e.id, slug: e.slug, productLineSlug: e.product_line_slug, citySlug: e.city_slug ?? undefined,
+        categorySlug: e.category_slug ?? undefined, placeSlug: e.place_slug ?? undefined, title: e.title,
+        duration: e.duration ?? undefined, priceFrom: e.price_from != null ? Number(e.price_from) : undefined,
+        currency: e.currency ?? "CAD", heroPublicId: e.hero_public_id ?? undefined,
+        bookUrl: e.book_url ?? undefined, sortOrder: e.sort_order ?? 0,
+      }));
+    }
+  }
+  let out = SEED_EXPERIENCES.filter((e) => e.citySlug === citySlug);
+  if (opts?.categorySlug) out = out.filter((e) => e.categorySlug === opts.categorySlug);
+  if (opts?.placeSlug) out = out.filter((e) => e.placeSlug === opts.placeSlug);
+  return out;
 }
