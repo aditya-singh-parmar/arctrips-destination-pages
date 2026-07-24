@@ -1,157 +1,164 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import {
-  getCity,
-  getCityCategories,
-  getCityCategory,
-  getPlaces,
-  getExperiences,
-  getArticlesForCity,
-  getDestinations,
-  getRegions,
-} from "@/app/lib/content";
-import { resolveCta } from "@/app/lib/cta";
-import { CATEGORY_BY_SLUG } from "@/app/lib/taxonomy";
-import { Breadcrumb } from "@/app/components/nav/Breadcrumb";
-import { ChipRow, type Chip } from "@/app/components/browse/ChipRow";
-import { PlaceCard } from "@/app/components/browse/PlaceCard";
-import { CtaBlock } from "@/app/components/sell/CtaBlock";
-import { ArticleBlocks } from "@/app/components/browse/ArticleBlocks";
-import { Rail } from "@/app/components/browse/Rail";
-import { cld, placeholder } from "@/app/lib/cloudinary";
 import Image from "next/image";
-import Link from "next/link";
-
-/** These three are real routes elsewhere; a stray link to one of them must
-    never fall through to the dynamic `[category]` handler and render an
-    empty/wrong category page. */
-const RESERVED_SLUGS = new Set(["things-to-do", "guides", "gallery"]);
+import { notFound } from "next/navigation";
+import { getGuide, getGuidesForCity, getListings, getDestinations } from "@/app/lib/content";
+import { cld, placeholder } from "@/app/lib/cloudinary";
+import { TopNav } from "@/app/components/landing/TopNav";
+import { Footer } from "@/app/components/landing/Footer";
+import { Breadcrumb } from "@/app/components/nav/Breadcrumb";
+import { ArticleBlocks } from "@/app/components/browse/ArticleBlocks";
+import { FaqList } from "@/app/components/browse/FaqList";
+import { BookingRail } from "@/app/components/guide/BookingRail";
 
 export async function generateStaticParams() {
   const destinations = await getDestinations();
   const nested = await Promise.all(
-    destinations.map(async (d) => (await getCityCategories(d.slug)).map((c) => ({ city: d.slug, category: c.categorySlug }))),
+    destinations.map(async (d) => (await getGuidesForCity(d.slug)).map((g) => ({ city: d.slug, category: g.categorySlug }))),
   );
   return nested.flat();
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ city: string; category: string }> }): Promise<Metadata> {
-  const { city: citySlug, category: categorySlug } = await params;
-  if (RESERVED_SLUGS.has(categorySlug)) return { title: "Arc Trips" };
-  const [city, cityCategory] = await Promise.all([getCity(citySlug), getCityCategory(citySlug, categorySlug)]);
-  const categoryName = CATEGORY_BY_SLUG.get(categorySlug)?.name ?? categorySlug;
-  return city && cityCategory ? { title: `${categoryName} in ${city.name} | Arc Trips` } : { title: "Arc Trips" };
+function leadIndex(intro: { type: string; text?: string }[]): number {
+  return intro.findIndex((b) => b.type === "p" && b.text);
 }
 
-export default async function CategoryPage({ params }: { params: Promise<{ city: string; category: string }> }) {
+function lead(intro: { type: string; text?: string }[]): string | undefined {
+  const i = leadIndex(intro);
+  if (i === -1) return undefined;
+  const p = intro[i].text as string;
+  return p.length > 220 ? `${p.slice(0, 217)}...` : p;
+}
+
+/**
+ * The lead paragraph is promoted into the hero as the standfirst, so it must
+ * not also open the body. Without this every guide repeats its first
+ * paragraph, which is invisible on a 9,000 word guide and is the entire page
+ * on a short one.
+ */
+function bodyBlocks<T extends { type: string; text?: string }>(intro: T[]): T[] {
+  const i = leadIndex(intro);
+  return i === -1 ? intro : intro.filter((_, n) => n !== i);
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ city: string; category: string }> }): Promise<Metadata> {
   const { city: citySlug, category: categorySlug } = await params;
-  if (RESERVED_SLUGS.has(categorySlug)) notFound();
+  const guide = await getGuide(citySlug, categorySlug);
+  if (!guide) return { title: "Arc Trips" };
+  return {
+    title: `${guide.categoryName} in ${guide.cityName} | Arc Trips`,
+    description: lead(guide.intro),
+  };
+}
 
-  const [city, cityCategory, categories] = await Promise.all([
-    getCity(citySlug),
-    getCityCategory(citySlug, categorySlug),
-    getCityCategories(citySlug),
-  ]);
-  if (!city || !cityCategory) notFound();
+/**
+ * S1 guide article (owner-approved 2026-07-24): the article body IS a
+ * `city_categories.intro` row (real sizes, up to 338 blocks for birding).
+ * Places render as sections within the guide, never separate pages
+ * (`/tofino/beaches` renders its 13 beaches inline). Booking is a
+ * persistent rail beside the article on desktop, stacking below on
+ * mobile (`BookingRail`, driven entirely by `resolveCta`). See
+ * design/structure/s1/whale-watching.html.
+ */
+export default async function GuidePage({ params }: { params: Promise<{ city: string; category: string }> }) {
+  const { city: citySlug, category: categorySlug } = await params;
+  const guide = await getGuide(citySlug, categorySlug);
+  if (!guide) notFound();
 
-  const regions = await getRegions();
-  const region = regions.find((r) => r.slug === city.regionSlug);
-  const category = CATEGORY_BY_SLUG.get(categorySlug);
-  const categoryName = category?.name ?? categorySlug;
-
-  const [places, experiences, articles] = await Promise.all([
-    getPlaces(citySlug, categorySlug),
-    getExperiences(citySlug, { categorySlug }),
-    getArticlesForCity(citySlug, categorySlug),
-  ]);
-
-  const cta = resolveCta({ citySlug, cityName: city.name, categorySlug, experiences });
-  const guideArticles = articles.filter((a) => (a.body?.length ?? 0) > 0);
-
-  const categoryChips: Chip[] = categories.map((c) => ({
-    label: CATEGORY_BY_SLUG.get(c.categorySlug)?.name ?? c.categorySlug,
-    href: `/${citySlug}/${c.categorySlug}`,
-    active: c.categorySlug === categorySlug,
-  }));
-
-  // Decorative facet chips: "good for" tags that recur across more than one
-  // place in this category. Not a real filter yet (no query-string wiring
-  // in v1.1), pure wayfinding, matching the mockup's illustrative facets.
-  const facetCounts = new Map<string, number>();
-  for (const p of places) for (const g of p.goodFor) facetCounts.set(g, (facetCounts.get(g) ?? 0) + 1);
-  const facets = Array.from(facetCounts.entries())
-    .filter(([, n]) => n > 1)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 5)
-    .map(([label]) => label);
-  const facetChips: Chip[] = [
-    { label: `All ${places.length}`, active: true },
-    ...facets.map((label) => ({ label })),
-  ];
+  const listings = await getListings({ destinationSlug: citySlug });
+  const stayFrom = listings.length ? Math.min(...listings.map((l) => l.pricePerNight)) : undefined;
+  const standfirst = lead(guide.intro);
 
   return (
     <>
-      <Breadcrumb
-        trail={[
-          ...(region ? [{ href: `/destinations/${region.slug}`, label: region.name }] : []),
-          { href: `/${citySlug}`, label: city.name },
-          { label: categoryName },
-        ]}
-      />
+      <TopNav active="destinations" />
+      <div className="container">
+        <Breadcrumb
+          trail={[
+            { href: "/destinations", label: "Destinations" },
+            { href: `/${citySlug}`, label: guide.cityName },
+            { label: guide.categoryName },
+          ]}
+        />
 
-      <ChipRow items={categoryChips} />
-
-      <h1 className="t-h2" style={{ margin: "6px 0 5px" }}>
-        {cityCategory.intro.find((b) => b.type === "h")?.text ?? `${categoryName} in ${city.name}`}
-      </h1>
-      {cityCategory.intro.filter((b) => b.type !== "h").length > 0 ? (
-        <ArticleBlocks blocks={cityCategory.intro.filter((b) => b.type !== "h")} />
-      ) : null}
-
-      {places.length > 0 && <ChipRow items={facetChips} />}
-
-      {places.length > 0 ? (
-        <div className="pcardgrid">
-          {places.map((p) => {
-            const placeExperiences = experiences.filter((e) => e.placeSlug === p.slug);
-            const priceCandidates = placeExperiences.map((e) => e.priceFrom).filter((n): n is number => n !== undefined);
-            return (
-              <PlaceCard
-                key={p.id}
-                place={p}
-                experienceCount={placeExperiences.length}
-                priceFrom={priceCandidates.length ? Math.min(...priceCandidates) : undefined}
-              />
-            );
-          })}
+        <div className="chero chero--sm">
+          {guide.heroPublicId && (
+            <div className="chero__media">
+              <Image src={cld(guide.heroPublicId, { w: 1600, fit: "limit" })} alt={`${guide.categoryName} in ${guide.cityName}`} fill sizes="100vw" style={{ objectFit: "cover" }} priority />
+            </div>
+          )}
+          <div className="chero__scrim" aria-hidden="true" />
+          <div className="chero__text">
+            <h1 className="t-h1">{guide.categoryName} in {guide.cityName}</h1>
+            {standfirst && <p className="chero__sub" style={{ maxWidth: "56ch" }}>{standfirst}</p>}
+          </div>
         </div>
-      ) : (
-        <p className="cityintro">No individual places are mapped for {categoryName.toLowerCase()} yet, but you can still book the experiences below.</p>
-      )}
 
-      <div style={{ marginTop: 24 }}>
-        <CtaBlock cta={cta} citySlug={citySlug} />
-      </div>
+        <div className="guidelayout">
+          <article>
+            <ArticleBlocks blocks={bodyBlocks(guide.intro)} />
 
-      {guideArticles.length > 0 && (
-        <Rail title={`Guides to ${categoryName.toLowerCase()}`} href={`/${citySlug}/guides`}>
-          {guideArticles.map((a) => (
-            <Link key={a.slug} href={`/${citySlug}/${categorySlug}/${a.slug}`} className="pcard">
-              <div className="pcard__media">
-                <Image
-                  src={a.heroPublicId ? cld(a.heroPublicId, { w: 380, h: 260, fit: "fill" }) : placeholder(380, 260)}
-                  alt={a.title}
-                  width={380}
-                  height={260}
-                  sizes="172px"
-                />
+            {guide.places.length > 0 && (
+              <div className="guide-places">
+                {guide.places.map((p) => (
+                  <section className="guide-place" id={p.slug} key={p.id}>
+                    <h2 className="ar-h2">{p.name}</h2>
+                    {p.blurb && <p className="guide-place__blurb">{p.blurb}</p>}
+                    <ArticleBlocks blocks={p.body} />
+                    {p.goodFor.length > 0 && (
+                      <div className="goodfor">
+                        {p.goodFor.map((g) => <span key={g}>{g}</span>)}
+                      </div>
+                    )}
+                    {p.goodToKnow && <p className="ar-note">{p.goodToKnow}</p>}
+                  </section>
+                ))}
               </div>
-              <h4 className="pcard__title">{a.title}</h4>
-              {a.excerpt && <p className="pcard__meta">{a.excerpt}</p>}
-            </Link>
-          ))}
-        </Rail>
-      )}
+            )}
+
+            {guide.faqs.length > 0 && (
+              <div style={{ marginTop: 28 }}>
+                <h2 className="t-bold-20" style={{ marginBottom: 10 }}>Common questions</h2>
+                <FaqList faqs={guide.faqs} />
+              </div>
+            )}
+
+            {guide.related.length > 0 && (
+              <div style={{ borderTop: "1px solid var(--n-100)", marginTop: 40, paddingTop: 26 }}>
+                <div className="rail__head">
+                  <div><h2>{guide.categoryName} reading</h2></div>
+                </div>
+                <div className="pcardgrid">
+                  {guide.related.map((a) => (
+                    <div className="pcard" key={a.slug}>
+                      <div className="pcard__media">
+                        <Image
+                          src={a.heroPublicId ? cld(a.heroPublicId, { w: 380, h: 260, fit: "fill" }) : placeholder(380, 260)}
+                          alt={a.title}
+                          width={380}
+                          height={260}
+                          sizes="172px"
+                        />
+                      </div>
+                      <h4 className="pcard__title">{a.title}</h4>
+                      {a.excerpt && <p className="pcard__meta">{a.excerpt}</p>}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </article>
+
+          <BookingRail
+            cta={guide.cta}
+            experiences={guide.experiences}
+            citySlug={citySlug}
+            cityName={guide.cityName}
+            stayCount={listings.length}
+            stayFrom={stayFrom}
+          />
+        </div>
+      </div>
+      <Footer />
     </>
   );
 }
