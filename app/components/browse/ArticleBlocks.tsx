@@ -13,7 +13,52 @@ import type { ArticleBlock } from "@/app/lib/content";
  * an "on this page" contents rail can link to `#h-{i}` for the same `i` it
  * finds by filtering `blocks` for `type === "h"` (see place/article page).
  */
-export function ArticleBlocks({ blocks }: { blocks: ArticleBlock[] }) {
+const CELL_SEP = " · ";
+
+/**
+ * The corpus contains real tables ("Kayaking Areas by Difficulty" with
+ * Area/Location/Best For/Difficulty columns), but the docx extraction
+ * flattened each row into a paragraph with middot separators, so they
+ * rendered as a wall of run-on lines. This stitches consecutive
+ * separator-bearing paragraphs back into a table: the first row becomes the
+ * header. Done at render time so it fixes every already-ingested guide
+ * without a re-ingest.
+ *
+ * Deliberately conservative: needs at least 3 columns and 3 consecutive
+ * rows with a consistent column count, so ordinary prose that happens to
+ * contain a middot is never swallowed.
+ */
+function stitchTables(blocks: ArticleBlock[]): ArticleBlock[] {
+  const cols = (b: ArticleBlock) =>
+    b.type === "p" && b.text?.includes(CELL_SEP) ? b.text.split(CELL_SEP).map((c) => c.trim()) : null;
+
+  const out: ArticleBlock[] = [];
+  for (let i = 0; i < blocks.length; i++) {
+    const first = cols(blocks[i]);
+    if (!first || first.length < 3) {
+      out.push(blocks[i]);
+      continue;
+    }
+    const rows = [first];
+    let j = i + 1;
+    while (j < blocks.length) {
+      const next = cols(blocks[j]);
+      if (!next || next.length !== first.length) break;
+      rows.push(next);
+      j++;
+    }
+    if (rows.length >= 3) {
+      out.push({ type: "table", rows });
+      i = j - 1;
+    } else {
+      out.push(blocks[i]);
+    }
+  }
+  return out;
+}
+
+export function ArticleBlocks({ blocks: raw }: { blocks: ArticleBlock[] }) {
+  const blocks = stitchTables(raw);
   // First "p" block gets the lead treatment. Computed up front rather than
   // via a mutable flag inside the render loop (that pattern was carried
   // over from the deleted ArticleBody.tsx and tripped the

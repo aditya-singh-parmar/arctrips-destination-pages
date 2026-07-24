@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getGuide, getGuidesForCity, getListings, getDestinations } from "@/app/lib/content";
 import { cld, placeholder } from "@/app/lib/cloudinary";
@@ -129,7 +130,7 @@ export default async function GuidePage({ params }: { params: Promise<{ city: st
                 </div>
                 <div className="pcardgrid">
                   {guide.related.map((a) => (
-                    <div className="pcard" key={a.slug}>
+                    <Link className="pcard" key={a.slug} href={`/guides/${a.slug}`}>
                       <div className="pcard__media">
                         <Image
                           src={a.heroPublicId ? cld(a.heroPublicId, { w: 380, h: 260, fit: "fill" }) : placeholder(380, 260)}
@@ -141,7 +142,7 @@ export default async function GuidePage({ params }: { params: Promise<{ city: st
                       </div>
                       <h4 className="pcard__title">{a.title}</h4>
                       {a.excerpt && <p className="pcard__meta">{a.excerpt}</p>}
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -155,6 +156,7 @@ export default async function GuidePage({ params }: { params: Promise<{ city: st
             cityName={guide.cityName}
             stayCount={listings.length}
             stayFrom={stayFrom}
+            listings={listings}
           />
         </div>
       </div>

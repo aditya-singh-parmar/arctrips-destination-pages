@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { CtaResult } from "@/app/lib/cta";
-import type { Experience } from "@/app/lib/content";
+import type { Experience, Listing } from "@/app/lib/content";
 import { cld } from "@/app/lib/cloudinary";
 import { NotifyForm } from "@/app/components/sell/NotifyForm";
 
@@ -21,6 +21,7 @@ export function BookingRail({
   cityName,
   stayCount,
   stayFrom,
+  listings = [],
 }: {
   cta: CtaResult;
   experiences: Experience[];
@@ -28,9 +29,18 @@ export function BookingRail({
   cityName: string;
   stayCount?: number;
   stayFrom?: number;
+  /** Real Arc Trips stays, shown when the CTA falls back to stays so the rail
+   *  offers something concrete instead of a bare button. */
+  listings?: Listing[];
 }) {
   const { primary, notify } = cta;
   const href = primary.href ?? (primary.kind === "sister-brand" ? "#" : `/${citySlug}#stays`);
+  // Keep the rows honest against the button: when the resolver falls back to
+  // stays, the rail lists real Arc Trips stays with real nightly prices,
+  // rather than placeholder tour rows for a line that is not live yet.
+  const showStays = primary.kind === "stays";
+  const stays = showStays ? listings.slice(0, 3) : [];
+  const tours = showStays ? [] : experiences;
 
   return (
     <aside className="guiderail">
@@ -38,13 +48,15 @@ export function BookingRail({
         <div className="buy__head">
           <h4>{primary.label}</h4>
           <p>
-            {experiences.length > 0
-              ? `${experiences.length} option${experiences.length === 1 ? "" : "s"} in ${cityName}`
-              : `Free to visit in ${cityName}`}
+            {tours.length > 0
+              ? `${tours.length} option${tours.length === 1 ? "" : "s"} in ${cityName}`
+              : stays.length > 0
+                ? `${stayCount ?? stays.length} stays in ${cityName}${stayFrom ? `, from $${stayFrom} a night` : ""}`
+                : `Free to visit in ${cityName}`}
           </p>
         </div>
 
-        {experiences.map((e) => (
+        {tours.map((e) => (
           <div className="opt" key={e.id}>
             {e.heroPublicId && (
               <Image src={cld(e.heroPublicId, { w: 150, fit: "limit" })} alt="" width={52} height={42} />
@@ -55,6 +67,17 @@ export function BookingRail({
             </div>
             {e.priceFrom !== undefined && <span className="pr">${e.priceFrom}</span>}
           </div>
+        ))}
+
+        {stays.map((l) => (
+          <Link className="opt" key={l.id} href={`/${citySlug}#stays`}>
+            <Image src={cld(l.heroPublicId, { w: 150, fit: "limit" })} alt="" width={52} height={42} />
+            <div>
+              <b>{l.title}</b>
+              <span>{l.beds} beds, {l.baths} baths</span>
+            </div>
+            <span className="pr">${l.pricePerNight}</span>
+          </Link>
         ))}
 
         <div className="buy__foot">
