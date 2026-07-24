@@ -1,6 +1,7 @@
 import { getServerSupabase } from "./supabase";
 import { IMG } from "./cloudinary";
-import { CATEGORY_BY_SLUG } from "./taxonomy";
+import { CATEGORY_BY_SLUG, CATEGORY_PRODUCTS } from "./taxonomy";
+import { resolveCta, type CtaResult } from "./cta";
 
 /* ── Content model ──────────────────────────────────────────────────────────
    Read from Supabase when configured/seeded; otherwise from the SEED data
@@ -838,4 +839,211 @@ export async function getExperiences(
   if (opts?.categorySlug) out = out.filter((e) => e.categorySlug === opts.categorySlug);
   if (opts?.placeSlug) out = out.filter((e) => e.placeSlug === opts.placeSlug);
   return out;
+}
+
+/* ── S1 structure: destination-first spine, guides ARE articles ─────────────
+   Region tier and category-index pages are gone (owner-approved 2026-07-24).
+   A GUIDE is one `city_categories` row; its `intro` IS the full article body.
+   Reads below assemble a guide from intro + places + faqs + related articles,
+   and roll categories up across cities for the things-to-do landing. */
+
+/** Categories whose articles are trip-planning pieces, not "things to do":
+    rendered in their own short row below the flat guide grid, never inside it. */
+const PLANNING_CATEGORY_SLUGS = new Set(["when-to-go", "camping", "events"]);
+
+/** Card summary for the flat `/[city]` grid. Same shape as `CategoryCard`'s
+    props so the existing rail card can be reused without a new component. */
+export type GuideSummary = {
+  categorySlug: string;
+  name: string;
+  heroPublicId?: string;
+  placeCount: number;
+  bookableCount: number;
+  state: "live" | "sister" | "soon" | "open";
+  priceFrom?: number;
+};
+
+/**
+ * The flat destination grid (spec: "ONE FLAT grid of guides, then a short
+ * planning row, then stays"). Omits a guide only when it would ship empty:
+ * a single intro block AND no product line mapped to the category at all
+ * (matches `tofino/fishing`, which has 1 intro block but IS kept because
+ * fishing charters are a real bookable line; a hypothetical thin category
+ * with nothing to book would be dropped instead of rendering a dead card).
+ */
+export async function getGuidesForCity(citySlug: string): Promise<GuideSummary[]> {
+  const [city, categories] = await Promise.all([getCity(citySlug), getCityCategories(citySlug)]);
+  if (!city) return [];
+
+  const summaries = await Promise.all(
+    categories.map(async (c): Promise<GuideSummary | null> => {
+      const hasBookableProductLine = (CATEGORY_PRODUCTS[c.categorySlug] ?? []).length > 0;
+      if (c.intro.length <= 1 && !hasBookableProductLine) return null;
+
+      const [places, experiences] = await Promise.all([
+        getPlaces(citySlug, c.categorySlug),
+        getExperiences(citySlug, { categorySlug: c.categorySlug }),
+      ]);
+      const cta = resolveCta({ citySlug, cityName: city.name, categorySlug: c.categorySlug, experiences });
+      const state: GuideSummary["state"] = cta.notify
+        ? "soon"
+        : cta.primary.kind === "sister-brand"
+          ? "sister"
+          : cta.primary.kind === "tours" && cta.primary.experiences.length > 0
+            ? "live"
+            : "open";
+      const priceCandidates = cta.primary.experiences.map((e) => e.priceFrom).filter((n): n is number => n !== undefined);
+      return {
+        categorySlug: c.categorySlug,
+        name: CATEGORY_BY_SLUG.get(c.categorySlug)?.name ?? c.categorySlug,
+        heroPublicId: c.heroPublicId,
+        placeCount: places.length,
+        bookableCount: cta.primary.experiences.length,
+        state,
+        priceFrom: priceCandidates.length ? Math.min(...priceCandidates) : undefined,
+      };
+    }),
+  );
+  return summaries.filter((s): s is GuideSummary => s !== null);
+}
+
+/** Trip-planning pieces (when to go, camping, events): their own row below the grid. */
+export async function getPlanningPieces(citySlug: string): Promise<Article[]> {
+  const articles = await getArticlesForCity(citySlug);
+  return articles.filter(
+    (a) => a.categorySlug && PLANNING_CATEGORY_SLUGS.has(a.categorySlug) && !a.slug.endsWith("-faq"),
+  );
+}
+
+export type Guide = {
+  citySlug: string;
+  cityName: string;
+  categorySlug: string;
+  categoryName: string;
+  heroPublicId?: string;
+  /** The full article body: a `city_categories.intro` row, real sizes (beaches 29, whale-watching 153, birding 338 blocks). */
+  intro: ArticleBlock[];
+  /** Sections within the guide (spec/beaches has 13, hiking 18); several categories
+      (surfing, whale-watching, birding, fishing) have none and are intro-only. */
+  places: Place[];
+  faqs: Faq[];
+  /** Other `articles` rows sharing this category (excluding the `-faq` carrier and empty bodies). */
+  related: Article[];
+  experiences: Experience[];
+  cta: CtaResult;
+};
+
+/**
+ * Assembles one guide article: intro (the city_categories row), its places
+ * (rendered as sections, never separate pages), FAQ (the `*-faq` articles
+ * row for this category), and related reading (other non-faq, non-empty
+ * articles rows sharing the category, e.g. Ucluelet's four extra whale-
+ * watching pieces).
+ */
+export async function getGuide(citySlug: string, categorySlug: string): Promise<Guide | null> {
+  const [city, cityCategory] = await Promise.all([getCity(citySlug), getCityCategory(citySlug, categorySlug)]);
+  if (!city || !cityCategory) return null;
+
+  const [places, experiences, articlesForCategory] = await Promise.all([
+    getPlaces(citySlug, categorySlug),
+    getExperiences(citySlug, { categorySlug }),
+    getArticlesForCity(citySlug, categorySlug),
+  ]);
+
+  const faqArticle = articlesForCategory.find((a) => a.slug.endsWith("-faq"));
+  const related = articlesForCategory.filter((a) => !a.slug.endsWith("-faq") && (a.body?.length ?? 0) > 0);
+  const cta = resolveCta({ citySlug, cityName: city.name, categorySlug, experiences });
+
+  return {
+    citySlug,
+    cityName: city.name,
+    categorySlug,
+    categoryName: CATEGORY_BY_SLUG.get(categorySlug)?.name ?? categorySlug,
+    heroPublicId: cityCategory.heroPublicId,
+    intro: cityCategory.intro,
+    places,
+    faqs: faqArticle?.faqs ?? [],
+    related,
+    experiences,
+    cta,
+  };
+}
+
+export type CategoryAcrossCities = {
+  categorySlug: string;
+  name: string;
+  heroPublicId?: string;
+  cities: { citySlug: string; cityName: string }[];
+  cta: CtaResult;
+  priceFrom?: number;
+  state: "live" | "sister" | "soon" | "open";
+};
+
+/**
+ * Rolls categories up across every navigable city for the `/things-to-do`
+ * landing (spec: "a category card links straight to the destination's guide,
+ * because with two towns there is nothing in between worth a page"). One
+ * card per unique category slug, chip-listing every city that has a guide
+ * for it; the CTA/price is resolved from the combined experiences of all
+ * those cities since the taxonomy's product-line mapping is city-agnostic.
+ */
+export async function getCategoriesAcrossCities(): Promise<CategoryAcrossCities[]> {
+  const destinations = await getDestinations();
+  const perCity = await Promise.all(
+    destinations.map(async (d) => {
+      const categories = await getCityCategories(d.slug);
+      if (categories.length === 0) return null;
+      const city = await getCity(d.slug);
+      return city ? { city, categories } : null;
+    }),
+  );
+
+  type Entry = { categorySlug: string; heroPublicId?: string; cities: { citySlug: string; cityName: string }[] };
+  const bySlug = new Map<string, Entry>();
+  for (const row of perCity) {
+    if (!row) continue;
+    for (const c of row.categories) {
+      const entry = bySlug.get(c.categorySlug) ?? { categorySlug: c.categorySlug, heroPublicId: c.heroPublicId, cities: [] };
+      entry.cities.push({ citySlug: row.city.slug, cityName: row.city.name });
+      if (!entry.heroPublicId) entry.heroPublicId = c.heroPublicId;
+      bySlug.set(c.categorySlug, entry);
+    }
+  }
+
+  const results = await Promise.all(
+    Array.from(bySlug.values()).map(async (entry): Promise<CategoryAcrossCities> => {
+      const experiencesByCity = await Promise.all(
+        entry.cities.map((c) => getExperiences(c.citySlug, { categorySlug: entry.categorySlug })),
+      );
+      const experiences = experiencesByCity.flat();
+      const firstCity = entry.cities[0];
+      const cta = resolveCta({
+        citySlug: firstCity.citySlug,
+        cityName: firstCity.cityName,
+        categorySlug: entry.categorySlug,
+        experiences,
+      });
+      const state: CategoryAcrossCities["state"] = cta.notify
+        ? "soon"
+        : cta.primary.kind === "sister-brand"
+          ? "sister"
+          : cta.primary.kind === "tours" && cta.primary.experiences.length > 0
+            ? "live"
+            : "open";
+      const priceCandidates = cta.primary.experiences.map((e) => e.priceFrom).filter((n): n is number => n !== undefined);
+      return {
+        categorySlug: entry.categorySlug,
+        name: CATEGORY_BY_SLUG.get(entry.categorySlug)?.name ?? entry.categorySlug,
+        heroPublicId: entry.heroPublicId,
+        cities: entry.cities,
+        cta,
+        priceFrom: priceCandidates.length ? Math.min(...priceCandidates) : undefined,
+        state,
+      };
+    }),
+  );
+
+  return results.sort(
+    (a, b) => (CATEGORY_BY_SLUG.get(a.categorySlug)?.sortOrder ?? 999) - (CATEGORY_BY_SLUG.get(b.categorySlug)?.sortOrder ?? 999),
+  );
 }

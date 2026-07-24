@@ -1,28 +1,20 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   getCity,
-  getCityCategories,
-  getPlaces,
-  getPhotos,
-  getExperiences,
+  getGuidesForCity,
+  getPlanningPieces,
   getListings,
-  getArticlesForCity,
   getDestinations,
-  getRegions,
+  getCityCategories,
 } from "@/app/lib/content";
-import { resolveCta } from "@/app/lib/cta";
-import { CATEGORY_BY_SLUG, THEMES, THEME_GRID_THRESHOLD, PRODUCT_LINES } from "@/app/lib/taxonomy";
-import { cld } from "@/app/lib/cloudinary";
+import { cld, placeholder } from "@/app/lib/cloudinary";
+import { TopNav } from "@/app/components/landing/TopNav";
+import { Footer } from "@/app/components/landing/Footer";
 import { Breadcrumb } from "@/app/components/nav/Breadcrumb";
-import { Rail } from "@/app/components/browse/Rail";
-import { ChipRow, type Chip } from "@/app/components/browse/ChipRow";
 import { CategoryCard } from "@/app/components/browse/CategoryCard";
-import { ThemeGrid, type ThemeGridGroup } from "@/app/components/browse/ThemeGrid";
-import { FaqList } from "@/app/components/browse/FaqList";
-import { SellTile } from "@/app/components/sell/SellTile";
+import { Rail } from "@/app/components/browse/Rail";
 import { ListingCard } from "@/app/components/landing/ListingCard";
 
 export async function generateStaticParams() {
@@ -39,180 +31,99 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
   return city ? { title: `${city.name} | Arc Trips`, description: city.standfirst } : { title: "Arc Trips" };
 }
 
+/**
+ * S1 destination page (owner-approved 2026-07-24): ONE FLAT grid of guides,
+ * then a short planning row, then stays. No region tier, no category-index
+ * split, no grouping inside the grid. See design/structure/s1/tofino.html.
+ */
 export default async function CityPage({ params }: { params: Promise<{ city: string }> }) {
   const { city: citySlug } = await params;
   const city = await getCity(citySlug);
   if (!city) notFound();
-  const categories = await getCityCategories(citySlug);
 
-  const [photos, listings, cityExperiences, articles, regions] = await Promise.all([
-    getPhotos(citySlug),
+  const [guides, planning, listings] = await Promise.all([
+    getGuidesForCity(citySlug),
+    getPlanningPieces(citySlug),
     getListings({ destinationSlug: citySlug }),
-    getExperiences(citySlug),
-    getArticlesForCity(citySlug),
-    getRegions(),
   ]);
-  const region = regions.find((r) => r.slug === city.regionSlug);
-
-  const liveSlugs = new Set(PRODUCT_LINES.filter((p) => p.status === "live").map((p) => p.slug));
-  const tripsToBook = cityExperiences.filter((e) => liveSlugs.has(e.productLineSlug)).length;
-
-  // One resolveCta (+ places/experiences read) per category, reused for the
-  // things-to-do rail cards and to pick the sell tile below.
-  const categoryStats = await Promise.all(
-    categories.map(async (c) => {
-      const [places, experiences] = await Promise.all([
-        getPlaces(citySlug, c.categorySlug),
-        getExperiences(citySlug, { categorySlug: c.categorySlug }),
-      ]);
-      const cta = resolveCta({ citySlug, cityName: city.name, categorySlug: c.categorySlug, experiences });
-      const state: "live" | "sister" | "soon" | "open" = cta.notify
-        ? "soon"
-        : cta.primary.kind === "sister-brand"
-          ? "sister"
-          : cta.primary.kind === "tours" && cta.primary.experiences.length > 0
-            ? "live"
-            : "open";
-      const priceCandidates = cta.primary.experiences.map((e) => e.priceFrom).filter((n): n is number => n !== undefined);
-      return {
-        categorySlug: c.categorySlug,
-        name: CATEGORY_BY_SLUG.get(c.categorySlug)?.name ?? c.categorySlug,
-        heroPublicId: c.heroPublicId,
-        placeCount: places.length,
-        bookableCount: cta.primary.experiences.length,
-        state,
-        priceFrom: priceCandidates.length ? Math.min(...priceCandidates) : undefined,
-        cta,
-      };
-    }),
-  );
-
-  const sellPick = categoryStats.find((s) => s.state === "sister" || s.state === "live");
-  const sellProductLine = sellPick ? PRODUCT_LINES.find((p) => p.slug === sellPick.cta.primary.productLineSlug) : undefined;
-
-  const themeSlugs = Array.from(
-    new Set(categories.map((c) => CATEGORY_BY_SLUG.get(c.categorySlug)?.theme).filter((t): t is (typeof THEMES)[number]["slug"] => Boolean(t))),
-  );
-  const essentialChips: Chip[] = [
-    { label: "Essentials", href: `/${citySlug}/things-to-do`, active: true },
-    ...themeSlugs.map((slug) => ({ label: THEMES.find((t) => t.slug === slug)?.name ?? slug, href: `/${citySlug}/things-to-do` })),
-  ];
-
-  const guideArticles = articles.filter((a) => (a.body?.length ?? 0) > 0);
-  const faqs = articles.flatMap((a) => a.faqs ?? []).slice(0, 6);
-
-  const showThemeGrid = categories.length > THEME_GRID_THRESHOLD;
-  const themeGroups: ThemeGridGroup[] = themeSlugs.map((slug) => {
-    const theme = THEMES.find((t) => t.slug === slug);
-    const inTheme = categoryStats.filter((s) => CATEGORY_BY_SLUG.get(s.categorySlug)?.theme === slug);
-    return {
-      title: theme?.name ?? slug,
-      count: `${inTheme.length} categories`,
-      items: inTheme.slice(0, 5).map((s) => s.name),
-    };
-  });
 
   return (
     <>
-      <Breadcrumb
-        trail={[
-          ...(region ? [{ href: `/destinations/${region.slug}`, label: region.name }] : []),
-          { label: city.name },
-        ]}
-      />
+      <TopNav active="destinations" />
+      <div className="container">
+        <Breadcrumb trail={[{ href: "/destinations", label: "Destinations" }, { label: city.name }]} />
 
-      <div className="chero">
-        <div className="chero__media">
-          <Image src={cld(city.heroPublicId, { w: 1600, fit: "limit" })} alt={city.name} fill priority sizes="100vw" style={{ objectFit: "cover" }} />
+        <div className="chero">
+          <div className="chero__media">
+            <Image src={cld(city.heroPublicId, { w: 1600, fit: "limit" })} alt={city.name} fill priority sizes="100vw" style={{ objectFit: "cover" }} />
+          </div>
+          <div className="chero__scrim" aria-hidden="true" />
+          <div className="chero__text">
+            <h1 className="t-h1">{city.name}</h1>
+            <p className="chero__sub">{city.standfirst}</p>
+          </div>
+          <span className="chero__summary">{city.listingCount} stays</span>
         </div>
-        <div className="chero__scrim" aria-hidden="true" />
-        {photos.length > 0 && <span className="chero__count">{photos.length} photos</span>}
-        <div className="chero__text">
-          <h1 className="t-h1">{city.name}</h1>
-          {region && <p className="chero__sub">{region.name}</p>}
+
+        <p className="cityintro">{city.overview[0]}</p>
+        {city.overview.slice(1).map((p, i) => <p className="cityintro" key={i}>{p}</p>)}
+
+        <div className="rail__head" style={{ marginTop: 24 }}>
+          <div>
+            <h2>Things to do in {city.name}</h2>
+            <p>{guides.length} guide{guides.length === 1 ? "" : "s"}. Each one is an article, and where there is a trip to book it is inside that article.</p>
+          </div>
         </div>
-        <span className="chero__summary">{city.listingCount} stays &middot; {tripsToBook} trips to book</span>
-      </div>
-
-      <p className="cityintro">{city.overview[0]}</p>
-      {city.overview.slice(1).map((p, i) => <p className="cityintro" key={i}>{p}</p>)}
-
-      <div className="rail__head" style={{ marginTop: 24 }}>
-        <div>
-          <h2>Essential {city.name}</h2>
-          <p>Start with what you are in the mood for</p>
-        </div>
-      </div>
-      <ChipRow items={essentialChips} />
-
-      <Rail
-        title="Things to do"
-        subtitle={`${categories.length} categories, ${tripsToBook} trips you can book`}
-        href={`/${citySlug}/things-to-do`}
-      >
-        {categoryStats.map((s) => (
-          <CategoryCard
-            key={s.categorySlug}
-            category={{ slug: s.categorySlug, name: s.name, blurb: s.placeCount ? `${s.placeCount} places` : undefined, heroPublicId: s.heroPublicId }}
-            citySlug={citySlug}
-            bookableCount={s.bookableCount}
-            state={s.state}
-            priceFrom={s.priceFrom}
-          />
-        ))}
-      </Rail>
-
-      {listings.length > 0 && (
-        <div id="stays">
-          <Rail title="Where to stay" subtitle={`${listings.length} cabins, cottages and lodges`} href={`/${citySlug}#stays`}>
-            {listings.slice(0, 8).map((l) => (
-              <ListingCard key={l.id} listing={l} variant="holiday" />
-            ))}
-          </Rail>
-        </div>
-      )}
-
-      {sellPick && sellProductLine && (
-        <SellTile
-          headline={`${sellPick.name} in ${city.name}`}
-          blurb={sellProductLine.blurb}
-          ctaLabel={sellPick.cta.primary.label}
-          href={sellPick.cta.primary.href ?? `/${citySlug}/${sellPick.categorySlug}`}
-          external={sellPick.cta.primary.external}
-        />
-      )}
-
-      {guideArticles.length > 0 && (
-        <Rail title={`Guides to ${city.name}`} subtitle="Written by people who go there" href={`/${citySlug}/guides`}>
-          {guideArticles.map((a) => (
-            <Link key={a.slug} href={`/${citySlug}/${a.categorySlug ?? "guides"}/${a.slug}`} className="pcard">
-              <div className="pcard__media">
-                <Image src={cld(a.heroPublicId, { w: 380, h: 260, fit: "fill" })} alt={a.title} width={380} height={260} sizes="172px" />
-              </div>
-              <h4 className="pcard__title">{a.title}</h4>
-              {a.excerpt && <p className="pcard__meta">{a.excerpt}</p>}
-            </Link>
+        <div className="pcardgrid">
+          {guides.map((g) => (
+            <CategoryCard
+              key={g.categorySlug}
+              category={{ slug: g.categorySlug, name: g.name, blurb: g.placeCount ? `${g.placeCount} places` : undefined, heroPublicId: g.heroPublicId }}
+              citySlug={citySlug}
+              bookableCount={g.bookableCount}
+              state={g.state}
+              priceFrom={g.priceFrom}
+            />
           ))}
-        </Rail>
-      )}
+        </div>
 
-      {showThemeGrid && themeGroups.length > 0 && (
-        <>
-          <div className="rail__head">
-            <div><h2>{city.name} is great for</h2></div>
+        {planning.length > 0 && (
+          <div id="planning" style={{ scrollMarginTop: 96 }}>
+            <div className="rail__head" style={{ marginTop: 32 }}>
+              <div>
+                <h2>Planning your trip</h2>
+                <p>Not things to do, but the questions that decide the trip.</p>
+              </div>
+            </div>
+            <div className="pcardgrid">
+              {planning.map((a) => (
+                <div className="pcard" key={a.slug}>
+                  <div className="pcard__media">
+                    <Image src={a.heroPublicId ? cld(a.heroPublicId, { w: 380, h: 260, fit: "fill" }) : placeholder(380, 260)} alt={a.title} width={380} height={260} sizes="172px" />
+                  </div>
+                  <h4 className="pcard__title">{a.title}</h4>
+                  {a.excerpt && <p className="pcard__meta">{a.excerpt}</p>}
+                </div>
+              ))}
+            </div>
+            <div className="softnote" style={{ marginTop: 18 }}>
+              Planning pieces sit in their own row here rather than inside the things-to-do grid above, so the
+              selling row is not diluted by articles nobody can book.
+            </div>
           </div>
-          <ThemeGrid groups={themeGroups} />
-        </>
-      )}
+        )}
 
-      {faqs.length > 0 && (
-        <>
-          <div className="rail__head">
-            <div><h2>{city.name} travel questions</h2></div>
+        {listings.length > 0 && (
+          <div id="stays" style={{ scrollMarginTop: 96 }}>
+            <Rail title={`Where to stay in ${city.name}`} subtitle={`${listings.length} cabins, cottages and lodges`}>
+              {listings.slice(0, 8).map((l) => (
+                <ListingCard key={l.id} listing={l} variant="holiday" />
+              ))}
+            </Rail>
           </div>
-          <FaqList faqs={faqs} />
-        </>
-      )}
+        )}
+      </div>
+      <Footer />
     </>
   );
 }
