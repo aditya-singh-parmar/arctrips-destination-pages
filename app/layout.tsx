@@ -14,7 +14,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Arc Trips — Find your perfect stay",
+  title: "Arc Trips: Find your perfect stay",
   description:
     "Browse verified stays and destinations across Canada with Arc Trips. Better trips, no guesswork.",
 };
