@@ -35,7 +35,7 @@ export function ExploreDestinations({ destinations, navigable = [] }: { destinat
             </>
           );
           return ready ? (
-            <Link key={d.slug} href={`/destinations/${d.slug}`}>{inner}</Link>
+            <Link key={d.slug} href={`/${d.slug}`}>{inner}</Link>
           ) : (
             <div key={d.slug}>{inner}</div>
           );
