@@ -384,3 +384,124 @@ button { font-family: inherit; cursor: pointer; }
 .footer__rule { border: 0; border-top: .5px solid var(--n-100); margin: 40px 0 16px; }
 .footer__copy { text-align: center; color: var(--n-700); font-size: 14px; }
 @media (max-width: 700px) { .footer__cols { grid-template-columns: 1fr 1fr; } }
+
+/* ────────────────────────────────────────────────────────────────────────
+   v1.1 tree UI: sticky tab bar, rails, chips, cards, CTA states.
+   Faithful to .superpowers/brainstorm/8272-1784880858/content/rails-v4.html
+   (the owner-approved "rebuilt in the TripAdvisor idiom" mockup). New tokens
+   below alias the mockup's palette onto the existing brand vars, following
+   the same "@theme mirror" pattern used at the top of this file.
+   ──────────────────────────────────────────────────────────────────────── */
+
+:root {
+  --navy: #0B3356;
+  --amber: #B54708;
+  --amber-bg: #FFFAEB;
+  --amber-border: #FEDF89;
+}
+
+/* ── Breadcrumb: plain, non-interactive trail ── */
+.crumb { display: flex; align-items: center; flex-wrap: wrap; gap: 2px; font-size: 12px; color: var(--n-500); padding-block: 8px; }
+.crumb a { color: var(--n-500); }
+.crumb a:hover { color: var(--n-700); }
+.crumb b { color: var(--n-700); font-weight: 600; }
+.crumb__sep { color: var(--n-200); padding: 0 6px; }
+
+/* ── Sticky tab bar (replaces the sidebar) ── */
+.tabbar { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 2px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid var(--n-100); background: rgba(255,255,255,.98); }
+.tabbar::-webkit-scrollbar { display: none; }
+.tabbar__link { flex: none; font-size: 13px; font-weight: 500; color: var(--n-600); padding: 12px; white-space: nowrap; border-bottom: 2.5px solid transparent; }
+.tabbar__link:hover { color: var(--navy); }
+.tabbar__link--on { color: var(--navy); font-weight: 700; border-bottom-color: var(--azure); }
+.tabbar__dot { display: inline-block; width: 5px; height: 5px; border-radius: 9999px; margin-left: 4px; vertical-align: middle; background: var(--amber-border); }
+.tabbar__sp { flex: 1 1 auto; }
+.tabbar__book { display: none; flex: none; margin: 5px 0; }
+@media (min-width: 900px) { .tabbar__book { display: inline-flex; } }
+
+/* ── Horizontal rail ── */
+.railwrap { position: relative; }
+.rail__head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin: 22px 0 4px; }
+.rail__head h2 { font-size: 19px; font-weight: 700; letter-spacing: -.02em; color: var(--navy); margin: 0; }
+.rail__head p { font-size: 11.5px; color: var(--n-500); margin: 2px 0 0; }
+.rail__seeall { font-size: 11.5px; color: var(--azure); font-weight: 600; }
+.rail { position: relative; }
+.rail__track { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 4px; scroll-behavior: smooth; }
+.rail__track::-webkit-scrollbar { display: none; }
+.rail__track > * { flex: 0 0 172px; width: 172px; scroll-snap-align: start; }
+.rail__arrow { position: absolute; top: 44px; right: -6px; z-index: 2; }
+
+/* ── Filter chips ── */
+.chiprow { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding-block: 11px; }
+.chiprow::-webkit-scrollbar { display: none; }
+.chip { flex: none; font-size: 12px; padding: 6px 13px; border-radius: 9999px; border: 1px solid var(--n-200); color: var(--n-700); white-space: nowrap; background: var(--white); }
+.chip:hover { border-color: var(--n-400); }
+.chip--on { background: var(--navy); color: var(--white); border-color: var(--navy); font-weight: 600; }
+
+/* ── Place / category card ── */
+.pcard { display: block; width: 100%; }
+.pcard__media { position: relative; border-radius: 11px; overflow: hidden; aspect-ratio: 172 / 118; background: var(--n-100); }
+.pcard__media img { width: 100%; height: 100%; object-fit: cover; }
+.pcard__title { font-size: 13px; color: var(--navy); margin: 8px 0 2px; font-weight: 600; }
+.pcard__meta { font-size: 11px; color: var(--n-500); }
+.pcard__price { font-size: 12px; color: var(--n-900); font-weight: 700; margin-top: 3px; }
+.pcard__price span { font-weight: 400; color: var(--n-500); font-size: 10.5px; }
+.pcard__free { font-size: 11px; color: var(--n-500); font-weight: 500; margin-top: 3px; }
+
+/* state badge, sits top-left over the media */
+.pcard__badge { position: absolute; top: 7px; left: 7px; background: rgba(255,255,255,.95); color: var(--emerald-600); font-size: 9px; font-weight: 700; padding: 3px 8px; border-radius: 9999px; }
+.pcard[data-state="soon"] .pcard__badge,
+.pcard__badge[data-state="soon"] { color: var(--amber); }
+.pcard[data-state="sister"] .pcard__badge,
+.pcard__badge[data-state="sister"] { color: var(--a-800); }
+.pcard[data-state="soon"] .pcard__price,
+.pcard__price[data-state="soon"] { color: var(--amber); font-weight: 600; font-size: 11px; }
+
+/* ── "{City} is great for" theme grid ── */
+.themegrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; }
+@media (max-width: 900px) { .themegrid { grid-template-columns: 1fr; } }
+.themegrid__card { border: 1px solid var(--n-100); border-radius: 12px; padding: 13px; }
+.themegrid__card h4 { font-size: 13.5px; color: var(--navy); margin: 0 0 3px; }
+.themegrid__count { font-size: 10.5px; color: var(--n-500); margin-bottom: 9px; }
+.themegrid__card ol { margin: 0; padding-left: 17px; font-size: 11.5px; color: var(--n-700); line-height: 1.95; }
+.themegrid__more { font-size: 11px; color: var(--azure); font-weight: 600; margin-top: 7px; display: block; }
+
+/* ── FAQ accordion ── */
+.faq { border-top: 1px solid var(--n-100); margin-top: 8px; }
+.faq__item { border-bottom: 1px solid var(--n-100); }
+.faq__q { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 13px 0; font-size: 12.5px; color: var(--navy); font-weight: 600; list-style: none; }
+.faq__q::-webkit-details-marker { display: none; }
+.faq__q::after { content: "\25BE"; color: var(--n-500); font-weight: 400; font-size: 14px; transition: transform .15s ease; }
+details[open] > .faq__q::after { transform: rotate(180deg); }
+.faq__a { padding: 0 0 13px; font-size: 11.5px; color: var(--n-600); line-height: 1.7; max-width: 76ch; }
+
+/* ── CTA block: exactly one .btn--primary per page lives here ── */
+.cta { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+.cta__button { width: auto; }
+.cta--sister .cta__button { background: var(--a-800); border-color: var(--a-800); }
+.cta__badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--a-800); background: var(--a-100); padding: 4px 9px; border-radius: 9999px; }
+.cta__offer { font-size: 12px; color: var(--n-600); }
+/* nested amber capture surface for the coming-soon notify block */
+.cta--soon { background: var(--amber-bg); border: 1px solid var(--amber-border); border-radius: 10px; padding: 14px 16px; }
+.cta--soon .cta__offer { color: var(--amber); font-weight: 600; }
+.cta__notify-form { display: flex; gap: 8px; width: 100%; }
+.cta__notify-input { flex: 1; height: 40px; padding: 0 12px; border: 1px solid var(--amber-border); border-radius: 8px; background: var(--white); color: var(--n-900); font-size: 14px; }
+.cta__notify-error { color: var(--amber); font-size: 12px; margin: 6px 0 0; }
+.btn--amber { background: var(--amber); border-color: var(--amber); color: var(--white); }
+.btn--amber:hover { opacity: .9; }
+
+/* ── Sell tile (sister-brand / live tour banner) ── */
+.selltile { background: linear-gradient(100deg, var(--navy), var(--a-800)); color: var(--white); border-radius: 12px; padding: 15px 17px; display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-block: 16px 0; }
+.selltile__headline { font-size: 14.5px; font-weight: 700; display: block; }
+.selltile__blurb { font-size: 11.5px; opacity: .84; }
+.selltile__go { flex: none; background: var(--white); color: var(--a-800); font-size: 11.5px; font-weight: 700; padding: 9px 17px; border-radius: 7px; white-space: nowrap; }
+
+/* ── Mobile bottom-docked book bar (mockup's .m-cta) ──
+   Desktop keeps the Book button inside .tabbar__book; this is mobile-only,
+   fixed to the viewport bottom, replacing the tab-bar button below 900px. */
+.dockbar { display: none; }
+@media (max-width: 899px) {
+  .tabbar__book { display: none; }
+  .dockbar { display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: var(--white); border-top: 1px solid var(--n-100); padding: 8px var(--gutter); }
+  .dockbar .btn { width: 100%; }
+  .has-dockbar { padding-bottom: 72px; }
+}
