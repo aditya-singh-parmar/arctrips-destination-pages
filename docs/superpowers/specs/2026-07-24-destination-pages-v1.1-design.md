@@ -111,7 +111,9 @@ Approved pattern, from `rails-v4.html`.
 **Global**
 - Top nav: wordmark, destination search field, Stays / Experiences / Guides / Sign in.
 - Breadcrumb: plain non-interactive trail, full depth (Canada › British Columbia › Vancouver Island › Clayoquot Sound › Tofino). No dropdowns.
-- **Sticky tab bar** directly under the breadcrumb. Seven or eight items, same position on every page in the city: Overview, Things to do, Where to stay, Food & drink, Fishing, Whale watching, Guides, Photos. Sticks to the top of the viewport on scroll. Tabs whose product line is not live carry a small amber dot.
+- **Sticky tab bar** directly under the breadcrumb. Same position on every page in the city, sticks to the top of the viewport on scroll. Tabs whose product line is not live carry a small amber dot.
+
+  The bar mixes fixed page types with promoted categories. Composition rule, in order: `Overview`, `Things to do`, `Where to stay`, then **every category that maps to a non-Stays product line** (Fishing, Whale watching, Kayaking, Hot springs), then `Guides`, `Photos`. Cap at 8 items; overflow scrolls horizontally on all breakpoints. Categories are promoted into the bar because they are where the money is, so the rule is deliberate rather than editorial.
 - **The Book button lives in the tab bar**, right-aligned. This is how the CTA stays permanently on screen without a third column or a floating dock.
 - Destination switching happens through the top-nav search, not the breadcrumb. The control must not move position with URL depth.
 
@@ -143,7 +145,9 @@ Run order stays: `npm run seed` creates rows, then the ingest fills bodies. Re-r
 
 ## 8. Category taxonomy
 
-One finite global list. `theme` groups them in the UI and is never a route, so there are no thin theme pages. A city renders category chips directly when it has few categories, and theme grids when content is spread thin across many. This is how the same taxonomy serves both Tofino and Vancouver, and why the top grid and the chips are guaranteed to agree.
+One finite global list. `theme` groups them in the UI and is never a route, so there are no thin theme pages.
+
+**Render rule.** A city renders its categories as chips when it has 10 or fewer, and as theme grids ("{City} is great for") when it has more than 10. Tofino has 9 and Ucluelet has 6, so both ship as chips in v1.1; Vancouver and Victoria will cross the threshold and pick up grids with no code change. This is how the same taxonomy serves both scales, and why the top grid and the chips are guaranteed to agree.
 
 | Theme | Categories |
 |---|---|
