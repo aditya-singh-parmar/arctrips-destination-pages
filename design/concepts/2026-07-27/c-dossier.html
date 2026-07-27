@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Concept C, The Dossier | /destinations</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+/* ── Concept C: The Dossier ───────────────────────────────────────────────
+   Reading first. The index reads as the contents page of a field guide:
+   a numbered, ruled list of destinations set in type, with a sticky rail
+   carrying the library's figures and the month. Photography appears once
+   per destination as a wide plate, not as a card. The most restrained of
+   the three, and the one that scales best to 24 destinations. ──────────── */
+.shell{display:grid;grid-template-columns:1fr 300px;gap:var(--s9);align-items:start}
+@media(max-width:1000px){.shell{grid-template-columns:1fr;gap:var(--s6)}}
+.rail{position:sticky;top:96px}
+@media(max-width:1000px){.rail{position:static}}
+
+.top{padding:var(--s9) 0 var(--s7)}
+.top h1{font-size:clamp(40px,5.4vw,68px);line-height:1.02;max-width:15ch}
+.top p{margin-top:var(--s5)}
+
+.tocline{display:flex;align-items:baseline;gap:var(--s4);padding:12px 0;border-top:1px solid var(--rule);font-size:15px}
+.tocline:first-of-type{border-top:1.5px solid var(--rule-ink)}
+.tocline b{font-variant-numeric:tabular-nums;color:var(--n-400);font-weight:600;font-size:13px;min-width:22px}
+.tocline a{color:var(--navy);font-weight:600;flex:1}
+.tocline span{color:var(--n-500);font-size:13px;font-variant-numeric:tabular-nums}
+
+.dossier{padding-bottom:var(--s8)}
+.item{padding:var(--s8) 0;border-top:1.5px solid var(--rule-ink)}
+.item__no{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--n-400);font-variant-numeric:tabular-nums}
+.item h2{font-size:clamp(34px,4.4vw,54px);line-height:1;margin:10px 0 0}
+.item__where{font-size:14px;color:var(--n-500);margin-top:10px;letter-spacing:.02em}
+.item__lede{font-size:19px;line-height:1.5;color:var(--n-700);max-width:48ch;margin:var(--s5) 0 var(--s6)}
+.plate{margin:var(--s6) 0;border-radius:6px;overflow:hidden}
+.plate img{width:100%;aspect-ratio:21/9;object-fit:cover}
+.plate figcaption{font-size:12.5px;color:var(--n-500);padding-top:10px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:var(--s7)}
+@media(max-width:760px){.cols{grid-template-columns:1fr;gap:var(--s5)}}
+.subhead{font-size:11.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--n-500);padding-bottom:10px;border-bottom:1.5px solid var(--rule-ink);margin-bottom:6px}
+.gline{display:flex;align-items:center;gap:var(--s4);padding:11px 0;border-bottom:1px solid var(--rule)}
+.gline a{font-weight:600;color:var(--navy);font-size:15.5px;flex:1}
+.gline .season{flex:none}
+.gline em{font-style:normal;font-weight:600;font-size:12px;color:var(--emerald-700);white-space:nowrap}
+.gline i.off{font-style:normal;font-size:12px;color:var(--n-400)}
+.act{display:flex;gap:12px;margin-top:var(--s6);flex-wrap:wrap}
+
+.brief{border:1px solid var(--rule);border-radius:6px;padding:var(--s5)}
+.brief h3{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--n-500);margin:0 0 var(--s4);font-weight:700}
+.brief .spec__r:first-child{border-top:0}
+.mo{margin-top:var(--s6)}
+.mo p{font-size:13px;color:var(--n-600);margin:0 0 10px}
+.soon{padding:var(--s6) 0;border-top:1px solid var(--rule);color:var(--n-500);font-size:14.5px}
+.soon b{color:var(--navy)}
+</style>
+</head>
+<body>
+
+<div class="concept-bar"><div class="wrap"><b>Concept C, The Dossier.</b> Reading first, scales to 24 destinations. <a href="index.html">All concepts</a></div></div>
+
+<nav class="nav"><div class="wrap nav__in">
+  <span class="mark">Arctrips</span>
+  <a class="n" href="#">Home</a><a class="n" href="#">Accommodations</a>
+  <a class="n" href="#" aria-current="page">Destinations</a><a class="n" href="#">Things to do</a>
+  <span class="nav__sp"></span><a class="n" href="#">List with us</a><a class="btn btn--ghost" href="#">Log in</a>
+</div></nav>
+
+<div class="wrap">
+<div class="shell">
+  <main>
+    <header class="top">
+      <span class="eyebrow">Arc Trips destinations</span>
+      <h1 style="margin-top:14px">The places we know properly</h1>
+      <p class="lede">A destination goes live here once we have stayed in it, walked it in more than one season, and can answer the awkward questions. Not when someone has written a page about it.</p>
+      <div class="prose" style="margin-top:var(--s6)">
+        <p>Each destination is a set of guides, not a list of things to buy. A guide tells you what a place is actually like, which months are worth the trip, where the specific spots are, and what you can book once you have decided. The booking sits at the end of the guide, where it belongs.</p>
+      </div>
+    </header>
+
+    <section class="dossier">
+      <article class="item">
+        <span class="item__no">01</span>
+        <h2>Tofino</h2>
+        <p class="item__where">Vancouver Island, British Columbia, Canada</p>
+        <p class="item__lede">Storm-swept beaches, old-growth rainforest, and the best surf on the Pacific coast.</p>
+
+        <figure class="plate">
+          <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1600,h_686/arcstudio/jhrn4nwfk4vsnvtqwkvz" alt="Tofino inlet from the air">
+          <figcaption>Clayoquot Sound from the north, looking toward the harbour.</figcaption>
+        </figure>
+
+        <div class="cols">
+          <div>
+            <p class="subhead">Eight guides</p>
+            <div class="gline"><a href="#">Beaches</a><div class="season season--sm" role="img" aria-label="In season May to September"><i>J</i><i>F</i><i>M</i><i>A</i><i data-on>M</i><i data-on>J</i><i data-on data-now>J</i><i data-on>A</i><i data-on>S</i><i>O</i><i>N</i><i>D</i></div><em>Now</em></div>
+            <div class="gline"><a href="#">Whale watching</a><div class="season season--sm" role="img" aria-label="In season March to October"><i>J</i><i>F</i><i data-on>M</i><i data-on>A</i><i data-on>M</i><i data-on>J</i><i data-on data-now>J</i><i data-on>A</i><i data-on>S</i><i data-on>O</i><i>N</i><i>D</i></div><em>Now</em></div>
+            <div class="gline"><a href="#">Kayaking</a><div class="season season--sm" role="img" aria-label="In season May to September"><i>J</i><i>F</i><i>M</i><i>A</i><i data-on>M</i><i data-on>J</i><i data-on data-now>J</i><i data-on>A</i><i data-on>S</i><i>O</i><i>N</i><i>D</i></div><em>Now</em></div>
+            <div class="gline"><a href="#">Hiking and trails</a><div class="season season--sm" role="img" aria-label="In season April to October"><i>J</i><i>F</i><i>M</i><i data-on>A</i><i data-on>M</i><i data-on>J</i><i data-on data-now>J</i><i data-on>A</i><i data-on>S</i><i data-on>O</i><i>N</i><i>D</i></div><em>Now</em></div>
+            <div class="gline"><a href="#">Surfing</a><div class="season season--sm" role="img" aria-label="In season September to April"><i data-on>J</i><i data-on>F</i><i data-on>M</i><i data-on>A</i><i>M</i><i>J</i><i data-now>J</i><i>A</i><i data-on>S</i><i data-on>O</i><i data-on>N</i><i data-on>D</i></div><i class="off">Sep</i></div>
+            <div class="gline"><a href="#">Storm watching</a><div class="season season--sm" role="img" aria-label="In season November to February"><i data-on>J</i><i data-on>F</i><i>M</i><i>A</i><i>M</i><i>J</i><i data-now>J</i><i>A</i><i>S</i><i>O</i><i data-on>N</i><i data-on>D</i></div><i class="off">Nov</i></div>
+          </div>
+          <div>
+            <p class="subhead">The practicals</p>
+            <dl class="spec">
+              <div class="spec__r"><dt class="spec__k">Places documented</dt><dd class="spec__v">73</dd></div>
+              <div class="spec__r"><dt class="spec__k">Stays</dt><dd class="spec__v">134, from $320</dd></div>
+              <div class="spec__r"><dt class="spec__k">Nearest airport</dt><dd class="spec__v">Long Beach, YAZ</dd></div>
+              <div class="spec__r"><dt class="spec__k">Drive from Nanaimo</dt><dd class="spec__v">About 3 hours</dd></div>
+              <div class="spec__r"><dt class="spec__k">Typical stay</dt><dd class="spec__v">3 to 4 nights</dd></div>
+              <div class="spec__r"><dt class="spec__k">Bookable today</dt><dd class="spec__v">Stays, fishing charters</dd></div>
+            </dl>
+          </div>
+        </div>
+        <div class="act"><a class="btn btn--primary" href="#">Open the Tofino guide</a><a class="btn btn--ghost" href="#">Where to stay</a></div>
+      </article>
+
+      <article class="item">
+        <span class="item__no">02</span>
+        <h2>Ucluelet</h2>
+        <p class="item__where">Vancouver Island, British Columbia, Canada</p>
+        <p class="item__lede">Tofino's quieter neighbour, wrapped by the Wild Pacific Trail.</p>
+
+        <figure class="plate">
+          <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1600,h_686/nicoline-mann-bIIK4mvsDZc-unsplash_vcyrwx" alt="The Ucluelet headland">
+          <figcaption>The headland the Wild Pacific Trail runs around, on a clear afternoon.</figcaption>
+        </figure>
+
+        <div class="cols">
+          <div>
+            <p class="subhead">Five guides</p>
+            <div class="gline"><a href="#">Hiking and trails</a><div class="season season--sm" role="img" aria-label="In season April to October"><i>J</i><i>F</i><i>M</i><i data-on>A</i><i data-on>M</i><i data-on>J</i><i data-on data-now>J</i><i data-on>A</i><i data-on>S</i><i data-on>O</i><i>N</i><i>D</i></div><em>Now</em></div>
+            <div class="gline"><a href="#">Whale watching</a><div class="season season--sm" role="img" aria-label="In season March to October"><i>J</i><i>F</i><i data-on>M</i><i data-on>A</i><i data-on>M</i><i data-on>J</i><i data-on data-now>J</i><i data-on>A</i><i data-on>S</i><i data-on>O</i><i>N</i><i>D</i></div><em>Now</em></div>
+            <div class="gline"><a href="#">Kayaking</a><div class="season season--sm" role="img" aria-label="In season May to September"><i>J</i><i>F</i><i>M</i><i>A</i><i data-on>M</i><i data-on>J</i><i data-on data-now>J</i><i data-on>A</i><i data-on>S</i><i>O</i><i>N</i><i>D</i></div><em>Now</em></div>
+            <div class="gline"><a href="#">Birding</a><div class="season season--sm" role="img" aria-label="In season March to May and September to November"><i>J</i><i>F</i><i data-on>M</i><i data-on>A</i><i data-on>M</i><i>J</i><i data-now>J</i><i>A</i><i data-on>S</i><i data-on>O</i><i data-on>N</i><i>D</i></div><i class="off">Sep</i></div>
+            <div class="gline"><a href="#">Restaurants</a><div class="season season--sm" role="img" aria-label="All year"><i data-on>J</i><i data-on>F</i><i data-on>M</i><i data-on>A</i><i data-on>M</i><i data-on>J</i><i data-on data-now>J</i><i data-on>A</i><i data-on>S</i><i data-on>O</i><i data-on>N</i><i data-on>D</i></div><em>All year</em></div>
+          </div>
+          <div>
+            <p class="subhead">The practicals</p>
+            <dl class="spec">
+              <div class="spec__r"><dt class="spec__k">Places documented</dt><dd class="spec__v">54</dd></div>
+              <div class="spec__r"><dt class="spec__k">Stays</dt><dd class="spec__v">158</dd></div>
+              <div class="spec__r"><dt class="spec__k">Nearest airport</dt><dd class="spec__v">Long Beach, YAZ</dd></div>
+              <div class="spec__r"><dt class="spec__k">Drive from Tofino</dt><dd class="spec__v">About 40 minutes</dd></div>
+              <div class="spec__r"><dt class="spec__k">Typical stay</dt><dd class="spec__v">2 to 3 nights</dd></div>
+              <div class="spec__r"><dt class="spec__k">Bookable today</dt><dd class="spec__v">Stays, fishing charters</dd></div>
+            </dl>
+          </div>
+        </div>
+        <div class="act"><a class="btn btn--ghost" href="#">Open the Ucluelet guide</a></div>
+      </article>
+
+      <p class="soon"><b>Not published yet.</b> Toronto, Montreal and Edmonton have content in review. They appear here once we can stand behind them.</p>
+    </section>
+  </main>
+
+  <aside class="rail">
+    <div class="brief">
+      <h3>The library</h3>
+      <dl class="spec">
+        <div class="spec__r"><dt class="spec__k">Destinations</dt><dd class="spec__v">2</dd></div>
+        <div class="spec__r"><dt class="spec__k">Guides</dt><dd class="spec__v">13</dd></div>
+        <div class="spec__r"><dt class="spec__k">Places</dt><dd class="spec__v">127</dd></div>
+        <div class="spec__r"><dt class="spec__k">Stays</dt><dd class="spec__v">292</dd></div>
+      </dl>
+      <div class="mo">
+        <p style="font-weight:600;color:var(--navy)">In season, July</p>
+        <p>Seven of thirteen guides are at their best this month.</p>
+        <p class="legend" style="flex-direction:column;align-items:flex-start;gap:5px">
+          <span><span class="swatch swatch--on"></span>in season</span>
+          <span><span class="swatch"></span>quieter</span>
+        </p>
+      </div>
+    </div>
+
+    <div style="margin-top:var(--s6)">
+      <p class="subhead">Contents</p>
+      <div class="tocline"><b>01</b><a href="#">Tofino</a><span>8 guides</span></div>
+      <div class="tocline"><b>02</b><a href="#">Ucluelet</a><span>5 guides</span></div>
+    </div>
+  </aside>
+</div>
+</div>
+
+<footer class="f"><div class="wrap">Arc Trips, concept only. Content and figures are real, taken from the current database.</div></footer>
+</body>
+</html>

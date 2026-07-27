@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Concept A, The Almanac | /destinations</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+/* ── Concept A: The Almanac ───────────────────────────────────────────────
+   Season first. The page opens on what is worth doing THIS MONTH across
+   every destination, as a ruled ledger rather than a card grid. Photography
+   is small and supporting. The argument: no other travel site can show you
+   this, because no other travel site has the data typed up. ─────────────── */
+.mast{padding:var(--s9) 0 var(--s7);border-bottom:1.5px solid var(--rule-ink)}
+.mast h1{font-size:clamp(46px,6vw,76px);line-height:.98;max-width:14ch}
+.mast__grid{display:grid;grid-template-columns:1.35fr .65fr;gap:var(--s8);align-items:end}
+@media(max-width:900px){.mast__grid{grid-template-columns:1fr;gap:var(--s6)}}
+
+.now{padding:var(--s7) 0 var(--s8)}
+.now__head{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s5);flex-wrap:wrap;margin-bottom:var(--s5)}
+.now h2{font-size:clamp(26px,3vw,34px)}
+
+.ledger{width:100%;border-collapse:collapse}
+.ledger caption{text-align:left;font-size:12px;color:var(--n-500);padding-bottom:var(--s3)}
+.ledger th{
+  text-align:left;font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--n-500);padding:0 0 10px;border-bottom:1.5px solid var(--rule-ink);white-space:nowrap;
+}
+.ledger td{padding:14px 0;border-bottom:1px solid var(--rule);vertical-align:middle}
+.ledger tr:hover td{background:#FBFCFD}
+.l__thumb{width:64px}
+.l__thumb img{width:56px;height:56px;object-fit:cover;border-radius:4px}
+.l__sub{font-size:17px;font-weight:600;color:var(--navy);letter-spacing:-.01em}
+.l__where{font-size:13.5px;color:var(--n-500);margin-top:2px}
+.l__season{width:290px}
+.l__price{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;font-size:14.5px;color:var(--n-700)}
+.l__price b{color:var(--navy);font-weight:600}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border-radius:3px}
+.tag--book{background:#E8F4F0;color:var(--emerald-700)}
+.tag--soon{background:var(--n-100);color:var(--n-600)}
+@media(max-width:900px){.l__season,.l__thumb{display:none}}
+
+.places{padding:var(--s8) 0}
+.entry{display:grid;grid-template-columns:1fr 1.05fr;gap:var(--s7);padding:var(--s7) 0;border-top:1px solid var(--rule)}
+.entry:first-of-type{border-top:1.5px solid var(--rule-ink)}
+@media(max-width:900px){.entry{grid-template-columns:1fr;gap:var(--s5)}}
+.entry__media img{width:100%;aspect-ratio:5/3.4;object-fit:cover;border-radius:6px}
+.entry h3{font-size:34px;line-height:1.05}
+.entry__sub{color:var(--n-700);margin:var(--s3) 0 var(--s5);max-width:46ch}
+.entry__spec{margin-bottom:var(--s5)}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:var(--s5)}
+.chip{font-size:13px;font-weight:500;color:var(--n-700);border:1px solid var(--n-200);border-radius:999px;padding:5px 12px}
+.chip[data-on]{border-color:#A6D5C6;background:#E8F4F0;color:var(--emerald-700);font-weight:600}
+.soonrow{padding:var(--s6) 0;border-top:1px solid var(--rule);display:flex;gap:var(--s5);flex-wrap:wrap;align-items:baseline}
+.soonrow b{color:var(--navy);font-size:16px}
+.soonrow span{color:var(--n-500);font-size:14px}
+</style>
+</head>
+<body>
+
+<div class="concept-bar"><div class="wrap"><b>Concept A, The Almanac.</b> Season first. <a href="index.html">All concepts</a></div></div>
+
+<nav class="nav"><div class="wrap nav__in">
+  <span class="mark">Arctrips</span>
+  <a class="n" href="#">Home</a><a class="n" href="#">Accommodations</a>
+  <a class="n" href="#" aria-current="page">Destinations</a><a class="n" href="#">Things to do</a>
+  <span class="nav__sp"></span><a class="n" href="#">List with us</a><a class="btn btn--ghost" href="#">Log in</a>
+</div></nav>
+
+<header class="mast"><div class="wrap mast__grid">
+  <div>
+    <span class="eyebrow">Arc Trips destinations</span>
+    <h1 style="margin-top:14px">The places we know properly</h1>
+  </div>
+  <div class="prose" style="font-size:16px">
+    <p style="margin:0 0 14px">A destination goes live here once we have stayed in it, walked it in more than one season, and can answer the awkward questions.</p>
+    <dl class="spec">
+      <div class="spec__r"><dt class="spec__k">Destinations</dt><dd class="spec__v">2</dd></div>
+      <div class="spec__r"><dt class="spec__k">Guides</dt><dd class="spec__v">13</dd></div>
+      <div class="spec__r"><dt class="spec__k">Places documented</dt><dd class="spec__v">127</dd></div>
+      <div class="spec__r"><dt class="spec__k">Stays</dt><dd class="spec__v">292</dd></div>
+    </dl>
+  </div>
+</div></header>
+
+<section class="now"><div class="wrap">
+  <div class="now__head">
+    <div>
+      <span class="eyebrow">The almanac</span>
+      <h2 style="margin-top:10px">Worth doing in July</h2>
+    </div>
+    <p class="legend"><span><span class="swatch swatch--on"></span>in season</span><span><span class="swatch"></span>quieter</span><span style="color:var(--navy);font-weight:600">outlined cell is this month</span></p>
+  </div>
+
+  <table class="ledger">
+    <caption>Every subject we cover, ordered by how well July suits it.</caption>
+    <thead><tr><th class="l__thumb"></th><th>Subject</th><th class="l__season">Season</th><th style="text-align:right">Book</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="l__thumb"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_112,h_112/arcstudio/wnrrcrf4lnalgzbjvsz8" alt=""></td>
+        <td><div class="l__sub">Whale watching</div><div class="l__where">Tofino and Ucluelet</div></td>
+        <td class="l__season"><div class="season" role="img" aria-label="In season March to October"><i>J</i><i>F</i><i data-on>M</i><i data-on>A</i><i data-on>M</i><i data-on>J</i><i data-on data-now>J</i><i data-on>A</i><i data-on>S</i><i data-on>O</i><i>N</i><i>D</i></div></td>
+        <td class="l__price"><span class="tag tag--soon">Coming soon</span></td>
+      </tr>
+      <tr>
+        <td class="l__thumb"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_112,h_112/arcstudio/jhrn4nwfk4vsnvtqwkvz" alt=""></td>
+        <td><div class="l__sub">Beaches</div><div class="l__where">Tofino, 13 documented</div></td>
+        <td class="l__season"><div class="season" role="img" aria-label="In season May to September"><i>J</i><i>F</i><i>M</i><i>A</i><i data-on>M</i><i data-on>J</i><i data-on data-now>J</i><i data-on>A</i><i data-on>S</i><i>O</i><i>N</i><i>D</i></div></td>
+        <td class="l__price">Free to visit</td>
+      </tr>
+      <tr>
+        <td class="l__thumb"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_112,h_112/arcstudio/dtz692xbgvvwjopu7vcs" alt=""></td>
+        <td><div class="l__sub">Kayaking and paddling</div><div class="l__where">Tofino and Ucluelet</div></td>
+        <td class="l__season"><div class="season" role="img" aria-label="In season May to September"><i>J</i><i>F</i><i>M</i><i>A</i><i data-on>M</i><i data-on>J</i><i data-on data-now>J</i><i data-on>A</i><i data-on>S</i><i>O</i><i>N</i><i>D</i></div></td>
+        <td class="l__price"><span class="tag tag--soon">Coming soon</span></td>
+      </tr>
+      <tr>
+        <td class="l__thumb"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_112,h_112/andrea-davis-44f42VRbGQg-unsplash_q9h9op" alt=""></td>
+        <td><div class="l__sub">Fishing</div><div class="l__where">Tofino and Ucluelet harbours</div></td>
+        <td class="l__season"><div class="season" role="img" aria-label="In season May to September"><i>J</i><i>F</i><i>M</i><i>A</i><i data-on>M</i><i data-on>J</i><i data-on data-now>J</i><i data-on>A</i><i data-on>S</i><i>O</i><i>N</i><i>D</i></div></td>
+        <td class="l__price"><span class="tag tag--book">Book now</span> <b>from $189</b></td>
+      </tr>
+      <tr>
+        <td class="l__thumb"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_112,h_112/arcstudio/njajgzfo6gdfxbpxmtst" alt=""></td>
+        <td><div class="l__sub">Hiking and trails</div><div class="l__where">Wild Pacific Trail, Ucluelet</div></td>
+        <td class="l__season"><div class="season" role="img" aria-label="In season April to October"><i>J</i><i>F</i><i>M</i><i data-on>A</i><i data-on>M</i><i data-on>J</i><i data-on data-now>J</i><i data-on>A</i><i data-on>S</i><i data-on>O</i><i>N</i><i>D</i></div></td>
+        <td class="l__price">Free to visit</td>
+      </tr>
+      <tr>
+        <td class="l__thumb"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_112,h_112/condor-wei-TiLEEXohfsY-unsplash_v7ja5f" alt=""></td>
+        <td><div class="l__sub">Surfing</div><div class="l__where">Tofino, Canada's surf capital</div></td>
+        <td class="l__season"><div class="season" role="img" aria-label="In season September to April"><i data-on>J</i><i data-on>F</i><i data-on>M</i><i data-on>A</i><i>M</i><i>J</i><i data-now>J</i><i>A</i><i data-on>S</i><i data-on>O</i><i data-on>N</i><i data-on>D</i></div></td>
+        <td class="l__price">Off season now</td>
+      </tr>
+      <tr>
+        <td class="l__thumb"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_112,h_112/thomas-lipke-M12HGHNVJ2s-unsplash_nttcvc" alt=""></td>
+        <td><div class="l__sub">Storm watching</div><div class="l__where">Tofino, Nov to Feb</div></td>
+        <td class="l__season"><div class="season" role="img" aria-label="In season November to February"><i data-on>J</i><i data-on>F</i><i>M</i><i>A</i><i>M</i><i>J</i><i data-now>J</i><i>A</i><i>S</i><i>O</i><i data-on>N</i><i data-on>D</i></div></td>
+        <td class="l__price">Off season now</td>
+      </tr>
+    </tbody>
+  </table>
+</div></section>
+
+<section class="places"><div class="wrap">
+  <span class="eyebrow">The destinations</span>
+  <h2 style="font-size:clamp(26px,3vw,34px);margin:10px 0 var(--s6)">Two towns, forty minutes apart</h2>
+
+  <article class="entry">
+    <div class="entry__media"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_900,h_612/arcstudio/jhrn4nwfk4vsnvtqwkvz" alt="Tofino from the air"></div>
+    <div>
+      <span class="eyebrow">Vancouver Island, British Columbia</span>
+      <h3 style="margin-top:8px">Tofino</h3>
+      <p class="entry__sub">Storm-swept beaches, old-growth rainforest, and the best surf on the Pacific coast.</p>
+      <div class="chips">
+        <span class="chip" data-on>Beaches</span><span class="chip" data-on>Whale watching</span>
+        <span class="chip" data-on>Kayaking</span><span class="chip" data-on>Hiking</span>
+        <span class="chip">Surfing</span><span class="chip">Storm watching</span>
+      </div>
+      <dl class="spec entry__spec">
+        <div class="spec__r"><dt class="spec__k">Guides</dt><dd class="spec__v">8</dd></div>
+        <div class="spec__r"><dt class="spec__k">In season now</dt><dd class="spec__v">4 of 8</dd></div>
+        <div class="spec__r"><dt class="spec__k">Stays</dt><dd class="spec__v">134, from $320 a night</dd></div>
+        <div class="spec__r"><dt class="spec__k">Drive from Nanaimo</dt><dd class="spec__v">About 3 hours</dd></div>
+      </dl>
+      <a class="btn btn--primary" href="#">Open the Tofino guide</a>
+    </div>
+  </article>
+
+  <article class="entry">
+    <div class="entry__media"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_900,h_612/nicoline-mann-bIIK4mvsDZc-unsplash_vcyrwx" alt="Ucluelet coastline"></div>
+    <div>
+      <span class="eyebrow">Vancouver Island, British Columbia</span>
+      <h3 style="margin-top:8px">Ucluelet</h3>
+      <p class="entry__sub">Tofino's quieter neighbour, wrapped by the Wild Pacific Trail.</p>
+      <div class="chips">
+        <span class="chip" data-on>Hiking</span><span class="chip" data-on>Whale watching</span>
+        <span class="chip" data-on>Kayaking</span><span class="chip">Birding</span><span class="chip">Restaurants</span>
+      </div>
+      <dl class="spec entry__spec">
+        <div class="spec__r"><dt class="spec__k">Guides</dt><dd class="spec__v">5</dd></div>
+        <div class="spec__r"><dt class="spec__k">In season now</dt><dd class="spec__v">3 of 5</dd></div>
+        <div class="spec__r"><dt class="spec__k">Stays</dt><dd class="spec__v">158</dd></div>
+        <div class="spec__r"><dt class="spec__k">Drive from Tofino</dt><dd class="spec__v">About 40 minutes</dd></div>
+      </dl>
+      <a class="btn btn--ghost" href="#">Open the Ucluelet guide</a>
+    </div>
+  </article>
+
+  <div class="soonrow">
+    <b>Not published yet</b>
+    <span>Toronto, Montreal and Edmonton have content in review. They will appear here once we can stand behind them.</span>
+  </div>
+</div></section>
+
+<footer class="f"><div class="wrap">Arc Trips, concept only. Content and figures are real, taken from the current database.</div></footer>
+</body>
+</html>

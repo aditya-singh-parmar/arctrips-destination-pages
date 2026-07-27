@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Destination page concepts, 27 July 2026</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+.hd{padding:var(--s9) 0 var(--s6)}
+.hd h1{font-size:clamp(36px,5vw,60px);line-height:1.03;max-width:16ch}
+.set{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--s7);padding-bottom:var(--s8)}
+.c{border-top:1.5px solid var(--rule-ink);padding-top:var(--s5)}
+.c h2{font-size:26px;margin:0 0 4px}
+.c .one{font-size:14px;color:var(--emerald-700);font-weight:600;margin:0 0 var(--s4)}
+.c p{font-size:15px;color:var(--n-700);margin:0 0 var(--s4);max-width:44ch}
+.c dl{margin:0 0 var(--s5)}
+.c .spec__k{font-size:12.5px}.c .spec__v{font-size:14px;font-weight:500;color:var(--n-700)}
+.note{border-top:1px solid var(--rule);padding-top:var(--s5);margin-top:var(--s6);color:var(--n-600);font-size:15px;max-width:var(--measure)}
+.note b{color:var(--navy)}
+.note ul{padding-left:18px;margin:10px 0 0}
+.note li{margin-bottom:7px}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="wrap nav__in"><span class="mark">Arctrips</span><span style="font-size:14px;color:var(--n-500)">Destination page concepts</span></div></nav>
+
+<header class="hd"><div class="wrap">
+  <span class="eyebrow">27 July 2026, for review</span>
+  <h1 style="margin-top:14px">Three directions for /destinations</h1>
+  <p class="lede">Same locked palette, same Inter, same voice. What differs is what the page leads with, and therefore what it argues this product is.</p>
+</div></header>
+
+<section class="wrap set">
+  <article class="c">
+    <h2><a href="a-almanac.html">A. The Almanac</a></h2>
+    <p class="one">Leads with the calendar</p>
+    <p>Opens on a ruled ledger of every subject we cover, ordered by how well this month suits it, with the twelve-cell season strip on every row. Destinations come second.</p>
+    <dl class="spec">
+      <div class="spec__r"><dt class="spec__k">Argument</dt><dd class="spec__v">We know when to go</dd></div>
+      <div class="spec__r"><dt class="spec__k">Strength</dt><dd class="spec__v">Nothing else looks like it</dd></div>
+      <div class="spec__r"><dt class="spec__k">Risk</dt><dd class="spec__v">Dense, low on photography</dd></div>
+      <div class="spec__r"><dt class="spec__k">At 24 towns</dt><dd class="spec__v">Needs filtering</dd></div>
+    </dl>
+    <a class="btn btn--primary" href="a-almanac.html">Open concept A</a>
+  </article>
+
+  <article class="c">
+    <h2><a href="b-atlas.html">B. The Atlas</a></h2>
+    <p class="one">Leads with the geography, then compares</p>
+    <p>A full-bleed coastline carries the title, then the two towns are set against each other on identical rows: guides, seasons, stays, drive times, what is bookable. No favourite.</p>
+    <dl class="spec">
+      <div class="spec__r"><dt class="spec__k">Argument</dt><dd class="spec__v">We help you choose</dd></div>
+      <div class="spec__r"><dt class="spec__k">Strength</dt><dd class="spec__v">Answers the real question</dd></div>
+      <div class="spec__r"><dt class="spec__k">Risk</dt><dd class="spec__v">Comparison suits pairs</dd></div>
+      <div class="spec__r"><dt class="spec__k">At 24 towns</dt><dd class="spec__v">Becomes region-by-region</dd></div>
+    </dl>
+    <a class="btn btn--ghost" href="b-atlas.html">Open concept B</a>
+  </article>
+
+  <article class="c">
+    <h2><a href="c-dossier.html">C. The Dossier</a></h2>
+    <p class="one">Leads with the reading</p>
+    <p>The contents page of a field guide. Numbered entries, a wide plate each, guides listed with inline season strips, practicals as spec rows, and a sticky rail holding the library's figures.</p>
+    <dl class="spec">
+      <div class="spec__r"><dt class="spec__k">Argument</dt><dd class="spec__v">We wrote the book</dd></div>
+      <div class="spec__r"><dt class="spec__k">Strength</dt><dd class="spec__v">Scales furthest</dd></div>
+      <div class="spec__r"><dt class="spec__k">Risk</dt><dd class="spec__v">Quietest of the three</dd></div>
+      <div class="spec__r"><dt class="spec__k">At 24 towns</dt><dd class="spec__v">Works unchanged</dd></div>
+    </dl>
+    <a class="btn btn--ghost" href="c-dossier.html">Open concept C</a>
+  </article>
+</section>
+
+<div class="wrap">
+  <div class="note">
+    <p><b>What is fixed across all three.</b> Azure is action only, Emerald is the season and availability signal only, navy is ink. Inter throughout, Satoshi for the wordmark. No italics, no em dashes, no emoji, one primary button per screen.</p>
+    <p style="margin-top:14px"><b>What is real.</b> Every figure comes from the current database: 13 guides, 127 documented places, 292 stays, Tofino from $320 a night, fishing bookable and whale watching not yet. Month data is the real <code>best_months</code>. The concepts are set in July, so the outlined cell and the "Now" markers move with the calendar.</p>
+    <p style="margin-top:14px"><b>What I would pick, and why.</b> C for the page that ships, because it is the only one that still works at 24 destinations without a rethink, and because the corpus is its real asset. But A owns the strongest single idea in the product, the almanac, and that ledger deserves to exist somewhere even if the index is C. B's comparison table is the answer to the most common question on the site and belongs on a Tofino-versus-Ucluelet page, which the taxonomy already reserves at <code>/destinations/compare/</code>.</p>
+    <p style="margin-top:14px">These are static mockups. Nothing here is wired to the app yet.</p>
+  </div>
+</div>
+
+<footer class="f"><div class="wrap">Arc Trips, concept set of 27 July 2026.</div></footer>
+</body>
+</html>

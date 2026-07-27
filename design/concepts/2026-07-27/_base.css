@@ -1,0 +1,76 @@
+/* Shared shell for the 2026-07-27 destination concepts.
+   Locked: Azure #2874BA action only, Emerald #3A9679 season/availability only,
+   navy #0B3356 ink, the neutral ramp, Inter throughout, Satoshi wordmark only.
+   No italics, no em dashes, no emoji. */
+@import url("https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --azure:#2874BA; --azure-700:#21639E; --navy:#0B3356;
+  --emerald:#3A9679; --emerald-700:#2F7D64;
+  --n-50:#F9F9F9; --n-100:#EBEBEB; --n-200:#D1D3D5; --n-300:#BBBCC3;
+  --n-500:#7F8490; --n-600:#5F616C; --n-700:#474B53; --n-800:#26272E; --n-900:#181A1E;
+  --paper:#FCFCFB; --rule:#E5E6E7; --rule-ink:rgba(11,51,86,.9);
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px; --s8:64px; --s9:96px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --measure:68ch;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--n-800);
+  font-family:Inter,ui-sans-serif,system-ui,sans-serif;
+  font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased;
+}
+em,i{font-style:normal;font-weight:600}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1240px;margin-inline:auto;padding-inline:40px}
+@media(max-width:760px){.wrap{padding-inline:20px}}
+
+/* nav */
+.nav{border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:20}
+.nav__in{display:flex;align-items:center;gap:36px;height:64px}
+.mark{font-family:Satoshi,Inter,sans-serif;font-weight:700;letter-spacing:.03em;text-transform:uppercase;font-size:15px;color:var(--navy)}
+.nav a.n{font-size:14.5px;font-weight:500;color:var(--n-600)}
+.nav a.n[aria-current]{color:var(--navy);font-weight:600}
+.nav__sp{margin-left:auto}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:6px;padding:11px 18px;font-size:14.5px;font-weight:600;transition:background .2s var(--ease),color .2s var(--ease),border-color .2s var(--ease)}
+.btn--primary{background:var(--azure);color:#fff}
+.btn--primary:hover{background:var(--azure-700)}
+.btn--ghost{color:var(--navy);border:1px solid var(--n-200)}
+.btn--ghost:hover{border-color:var(--navy)}
+
+/* type */
+.eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--n-500)}
+h1,h2,h3{color:var(--navy);margin:0;letter-spacing:-.025em;font-weight:700}
+.tnum{font-variant-numeric:tabular-nums}
+.lede{font-size:20px;line-height:1.55;color:var(--n-700);max-width:56ch}
+.prose{max-width:var(--measure);color:var(--n-700)}
+.rule{height:1px;background:var(--rule);border:0;margin:0}
+.rule--ink{height:1.5px;background:var(--rule-ink)}
+
+/* season strip, the signature element */
+.season{display:flex;gap:3px}
+.season i{
+  width:20px;height:22px;border-radius:3px;background:var(--n-100);
+  border:1px solid var(--n-200);display:grid;place-items:center;
+  font-size:9.5px;font-weight:700;color:var(--n-500);font-style:normal;
+}
+.season i[data-on]{background:#E8F4F0;border-color:#A6D5C6;color:var(--emerald-700)}
+.season i[data-now]{outline:1.5px solid var(--navy);outline-offset:1px}
+.season--sm i{width:15px;height:17px;font-size:8.5px;border-radius:2px}
+.legend{font-size:12px;color:var(--n-500);display:flex;gap:14px;align-items:center}
+.swatch{width:11px;height:11px;border-radius:2px;border:1px solid var(--n-200);background:var(--n-100);display:inline-block;vertical-align:-1px;margin-right:5px}
+.swatch--on{background:#E8F4F0;border-color:#A6D5C6}
+
+/* spec rows */
+.spec{margin:0;display:grid}
+.spec__r{display:grid;grid-template-columns:minmax(7rem,32%) 1fr;gap:16px;padding:11px 0;border-top:1px solid var(--rule)}
+.spec__r:last-child{border-bottom:1px solid var(--rule)}
+.spec__k{font-size:13.5px;color:var(--n-500);margin:0}
+.spec__v{font-size:15.5px;font-weight:600;color:var(--navy);margin:0;font-variant-numeric:tabular-nums}
+footer.f{border-top:1px solid var(--rule);margin-top:var(--s9);padding:var(--s7) 0;color:var(--n-500);font-size:13.5px}
+.concept-bar{background:var(--navy);color:#fff;font-size:13px;padding:9px 0}
+.concept-bar a{color:#BED7F1;font-weight:600}
+.concept-bar b{font-weight:700}
