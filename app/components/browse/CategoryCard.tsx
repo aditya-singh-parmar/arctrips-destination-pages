@@ -25,18 +25,25 @@ export type CategoryCardCategory = { slug: string; name: string; blurb?: string;
 export function CategoryCard({
   category,
   citySlug,
+  basePath,
   bookableCount,
   state,
   priceFrom,
 }: {
   category: CategoryCardCategory;
   citySlug: string;
+  /**
+   * Deep-tree base, e.g. `/destinations/canada/bc/vancouver-island/tofino/things-to-do`.
+   * Optional so any call site not yet migrated keeps its flat link.
+   */
+  basePath?: string;
   bookableCount: number;
   state: "live" | "sister" | "soon" | "open";
   priceFrom?: number;
 }) {
+  const href = basePath ? `${basePath}/${category.slug}` : `/${citySlug}/${category.slug}`;
   return (
-    <Link href={`/${citySlug}/${category.slug}`} className="pcard" data-state={state}>
+    <Link href={href} className="pcard" data-state={state}>
       <div className="pcard__media">
         <Image
           src={category.heroPublicId ? cld(category.heroPublicId, { w: 380, h: 260, fit: "fill" }) : placeholder(380, 260)}

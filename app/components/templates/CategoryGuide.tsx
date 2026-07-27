@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getGuide, getGuidesForCity, getListings, getDestinations } from "@/app/lib/content";
+import { getGuide, getGuidesForCity, getListings } from "@/app/lib/content";
 import { cld, placeholder } from "@/app/lib/cloudinary";
+import { geoPath, type GeoNode } from "@/app/lib/geo-types";
 import { TopNav } from "@/app/components/landing/TopNav";
 import { Footer } from "@/app/components/landing/Footer";
 import { Breadcrumb } from "@/app/components/nav/Breadcrumb";
@@ -13,19 +13,13 @@ import { BookingRail } from "@/app/components/guide/BookingRail";
 import { GuideBody, splitSections } from "@/app/components/guide/GuideBody";
 import { CategoryCard } from "@/app/components/browse/CategoryCard";
 
-export async function generateStaticParams() {
-  const destinations = await getDestinations();
-  const nested = await Promise.all(
-    destinations.map(async (d) => (await getGuidesForCity(d.slug)).map((g) => ({ city: d.slug, category: g.categorySlug }))),
-  );
-  return nested.flat();
-}
+type Block = { type: string; text?: string };
 
-function leadIndex(intro: { type: string; text?: string }[]): number {
+function leadIndex(intro: Block[]): number {
   return intro.findIndex((b) => b.type === "p" && b.text);
 }
 
-function lead(intro: { type: string; text?: string }[]): string | undefined {
+export function lead(intro: Block[]): string | undefined {
   const i = leadIndex(intro);
   if (i === -1) return undefined;
   const p = intro[i].text as string;
@@ -38,32 +32,27 @@ function lead(intro: { type: string; text?: string }[]): string | undefined {
  * paragraph, which is invisible on a 9,000 word guide and is the entire page
  * on a short one.
  */
-function bodyBlocks<T extends { type: string; text?: string }>(intro: T[]): T[] {
+function bodyBlocks<T extends Block>(intro: T[]): T[] {
   const i = leadIndex(intro);
   return i === -1 ? intro : intro.filter((_, n) => n !== i);
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ city: string; category: string }> }): Promise<Metadata> {
-  const { city: citySlug, category: categorySlug } = await params;
-  const guide = await getGuide(citySlug, categorySlug);
-  if (!guide) return { title: "Arc Trips" };
-  return {
-    title: `${guide.categoryName} in ${guide.cityName} | Arc Trips`,
-    description: lead(guide.intro),
-  };
-}
-
 /**
- * S1 guide article (owner-approved 2026-07-24): the article body IS a
- * `city_categories.intro` row (real sizes, up to 338 blocks for birding).
- * Places render as sections within the guide, never separate pages
- * (`/tofino/beaches` renders its 13 beaches inline). Booking is a
- * persistent rail beside the article on desktop, stacking below on
- * mobile (`BookingRail`, driven entirely by `resolveCta`). See
- * design/structure/s1/whale-watching.html.
+ * The category guide, moved onto the deep tree from the S1 flat route
+ * (owner-approved 2026-07-24): the article body IS a `city_categories.intro`
+ * row. Places render as sections within the guide, never separate pages.
+ * Booking is a persistent rail beside the article on desktop, stacking below
+ * on mobile (`BookingRail`, driven entirely by `resolveCta`).
  */
-export default async function GuidePage({ params }: { params: Promise<{ city: string; category: string }> }) {
-  const { city: citySlug, category: categorySlug } = await params;
+export async function CategoryGuide({
+  citySlug,
+  categorySlug,
+  trail,
+}: {
+  citySlug: string;
+  categorySlug: string;
+  trail: GeoNode[];
+}) {
   const guide = await getGuide(citySlug, categorySlug);
   if (!guide) notFound();
 
@@ -74,6 +63,7 @@ export default async function GuidePage({ params }: { params: Promise<{ city: st
   const others = siblings.filter((g) => g.categorySlug !== categorySlug);
   const stayFrom = listings.length ? Math.min(...listings.map((l) => l.pricePerNight)) : undefined;
   const standfirst = lead(guide.intro);
+  const base = geoPath(trail);
   // Long guides had no way to move around inside them: 28 headings, no contents.
   const contents = splitSections(bodyBlocks(guide.intro))
     .filter((sec) => sec.heading?.text)
@@ -86,7 +76,11 @@ export default async function GuidePage({ params }: { params: Promise<{ city: st
         <Breadcrumb
           trail={[
             { href: "/destinations", label: "Destinations" },
-            { href: `/${citySlug}`, label: guide.cityName },
+            ...trail.slice(0, -1).map((node, i) => ({
+              href: geoPath(trail.slice(0, i + 1)),
+              label: node.name,
+            })),
+            { href: base, label: guide.cityName },
             { label: guide.categoryName },
           ]}
         />
@@ -164,7 +158,7 @@ export default async function GuidePage({ params }: { params: Promise<{ city: st
                     <h2>More things to do in {guide.cityName}</h2>
                     <p>{others.length} more guides, each with what you can book inside it.</p>
                   </div>
-                  <Link className="viewall" href={`/${citySlug}`}>All of {guide.cityName}</Link>
+                  <Link className="viewall" href={base}>All of {guide.cityName}</Link>
                 </div>
                 <div className="pcardgrid">
                   {others.slice(0, 4).map((g) => (
@@ -172,6 +166,7 @@ export default async function GuidePage({ params }: { params: Promise<{ city: st
                       key={g.categorySlug}
                       category={{ slug: g.categorySlug, name: g.name, blurb: g.placeCount ? `${g.placeCount} places` : undefined, heroPublicId: g.heroPublicId }}
                       citySlug={citySlug}
+                      basePath={`${base}/things-to-do`}
                       bookableCount={g.bookableCount}
                       state={g.state}
                       priceFrom={g.priceFrom}
@@ -195,15 +190,15 @@ export default async function GuidePage({ params }: { params: Promise<{ city: st
                 </ol>
               </nav>
             )}
-          <BookingRail
-            cta={guide.cta}
-            experiences={guide.experiences}
-            citySlug={citySlug}
-            cityName={guide.cityName}
-            stayCount={listings.length}
-            stayFrom={stayFrom}
-            listings={listings}
-          />
+            <BookingRail
+              cta={guide.cta}
+              experiences={guide.experiences}
+              citySlug={citySlug}
+              cityName={guide.cityName}
+              stayCount={listings.length}
+              stayFrom={stayFrom}
+              listings={listings}
+            />
           </div>
         </div>
       </div>

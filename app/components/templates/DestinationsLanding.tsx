@@ -1,31 +1,33 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getDestinations, getCity, getGuidesForCity } from "@/app/lib/content";
+import { pathForTownSlug } from "@/app/lib/geo";
 import { cld } from "@/app/lib/cloudinary";
 import { TopNav } from "@/app/components/landing/TopNav";
 import { Footer } from "@/app/components/landing/Footer";
 
-export const metadata: Metadata = {
-  title: "Destinations | Arc Trips",
-  description: "The places we know properly: where to stay, what to do, and local guides written by people who go there.",
-};
-
 /**
- * S1 destination-first spine, no region tier (owner-approved 2026-07-24).
- * Curated, not an auto-filter: one editors' pick leads, three hand-built
- * collections cut across it, and the plain index sits below. Coming-soon
- * destinations render but never link, so the page grows without ever
- * leading somewhere empty. See design/structure/s1/destinations.html.
+ * Destination-first spine (owner-approved 2026-07-24), now sitting at the root
+ * of the deep tree. Curated, not an auto-filter: one editors' pick leads,
+ * three hand-built collections cut across it, and the plain index sits below.
+ * Coming-soon destinations render but never link, so the page grows without
+ * ever leading somewhere empty.
+ *
+ * Every href resolves through pathForTownSlug, so a town moving between
+ * provinces or gaining a region is a data change, not an edit here.
  */
-export default async function DestinationsPage() {
+export async function DestinationsLanding() {
   const destinations = await getDestinations();
 
   const rows = await Promise.all(
     destinations.map(async (d) => {
       const guides = await getGuidesForCity(d.slug);
-      const city = guides.length > 0 ? await getCity(d.slug) : null;
-      return { destination: d, guideCount: guides.length, city, navigable: guides.length > 0 && city !== null };
+      const navigable = guides.length > 0;
+      const [city, path] = await Promise.all([
+        navigable ? getCity(d.slug) : Promise.resolve(null),
+        pathForTownSlug(d.slug),
+      ]);
+      return { destination: d, guideCount: guides.length, city, path, navigable: navigable && city !== null };
     }),
   );
 
@@ -33,6 +35,7 @@ export default async function DestinationsPage() {
   const comingSoon = rows.filter((r) => !r.navigable);
   const tofino = live.find((r) => r.destination.slug === "tofino");
   const ucluelet = live.find((r) => r.destination.slug === "ucluelet");
+  const tofinoTodo = tofino ? `${tofino.path}/things-to-do` : "/destinations";
 
   return (
     <>
@@ -52,7 +55,7 @@ export default async function DestinationsPage() {
             </div>
 
             <div className="feature">
-              <Link className="feature__media" href={`/${tofino.destination.slug}`}>
+              <Link className="feature__media" href={tofino.path}>
                 <Image src={cld(tofino.city.heroPublicId, { w: 1400, fit: "limit" })} alt={tofino.city.name} fill sizes="(max-width: 900px) 100vw, 60vw" style={{ objectFit: "cover" }} />
                 <span className="feature__scrim" aria-hidden="true" />
                 <div className="feature__cap">
@@ -62,7 +65,7 @@ export default async function DestinationsPage() {
                 </div>
               </Link>
               <div className="feature__side">
-                <Link className="mini" href={`/${tofino.destination.slug}`}>
+                <Link className="mini" href={tofino.path}>
                   <Image src={cld(tofino.city.heroPublicId, { w: 400, fit: "limit" })} alt="" width={130} height={130} style={{ height: "100%" }} />
                   <div className="mini__b">
                     <b>{tofino.city.name}</b>
@@ -70,7 +73,7 @@ export default async function DestinationsPage() {
                   </div>
                 </Link>
                 {ucluelet?.city && (
-                  <Link className="mini" href={`/${ucluelet.destination.slug}`}>
+                  <Link className="mini" href={ucluelet.path}>
                     <Image src={cld(ucluelet.city.heroPublicId, { w: 400, fit: "limit" })} alt="" width={130} height={130} style={{ height: "100%" }} />
                     <div className="mini__b">
                       <b>{ucluelet.city.name}</b>
@@ -100,45 +103,47 @@ export default async function DestinationsPage() {
           </div>
         )}
 
-        <div className="section">
-          <div className="rowhead">
-            <div>
-              <h2 className="t-h2">Pick by what the trip is for</h2>
-              <p className="t-reg-14" style={{ marginTop: 4 }}>
-                Hand-picked by the editors. Every list is a judgement call, not a filter.
-              </p>
+        {tofino && (
+          <div className="section">
+            <div className="rowhead">
+              <div>
+                <h2 className="t-h2">Pick by what the trip is for</h2>
+                <p className="t-reg-14" style={{ marginTop: 4 }}>
+                  Hand-picked by the editors. Every list is a judgement call, not a filter.
+                </p>
+              </div>
+            </div>
+            <div className="collections">
+              <div className="coll">
+                <h4>First time on the coast</h4>
+                <p>You have three days and want the version everyone remembers.</p>
+                <ul>
+                  <li><Link href={tofino.path}><span>Tofino</span><span>3 days</span></Link></li>
+                  <li><Link href={`${tofinoTodo}/whale-watching`}><span>Whale watching</span><span>from $149</span></Link></li>
+                  <li><Link href={`${tofinoTodo}/beaches`}><span>The thirteen beaches</span><span>free</span></Link></li>
+                </ul>
+              </div>
+              <div className="coll">
+                <h4>Going in winter</h4>
+                <p>Half the price, twice the weather, and the beaches to yourself.</p>
+                <ul>
+                  <li><Link href={`${tofinoTodo}/storm-watching`}><span>Storm watching</span><span>Nov to Feb</span></Link></li>
+                  <li><Link href={`${tofino.path}#stays`}><span>Where to stay for storms</span><span>see stays</span></Link></li>
+                  <li><Link href={`${tofino.path}#planning`}><span>Best time to visit</span><span>guide</span></Link></li>
+                </ul>
+              </div>
+              <div className="coll">
+                <h4>Travelling with children</h4>
+                <p>Short walks, calm water, and somewhere to dry everything out.</p>
+                <ul>
+                  <li><Link href={`${tofinoTodo}/beaches`}><span>Tinwis Beach</span><span>sheltered</span></Link></li>
+                  <li><Link href={`${tofinoTodo}/whale-watching`}><span>Covered whale boats</span><span>ages 5+</span></Link></li>
+                  <li><Link href={`${tofino.path}#planning`}><span>Campgrounds</span><span>both towns</span></Link></li>
+                </ul>
+              </div>
             </div>
           </div>
-          <div className="collections">
-            <div className="coll">
-              <h4>First time on the coast</h4>
-              <p>You have three days and want the version everyone remembers.</p>
-              <ul>
-                <li><Link href="/tofino"><span>Tofino</span><span>3 days</span></Link></li>
-                <li><Link href="/tofino/whale-watching"><span>Whale watching</span><span>from $149</span></Link></li>
-                <li><Link href="/tofino/beaches"><span>The thirteen beaches</span><span>free</span></Link></li>
-              </ul>
-            </div>
-            <div className="coll">
-              <h4>Going in winter</h4>
-              <p>Half the price, twice the weather, and the beaches to yourself.</p>
-              <ul>
-                <li><Link href="/tofino/storm-watching"><span>Storm watching</span><span>Nov to Feb</span></Link></li>
-                <li><Link href="/tofino#stays"><span>Where to stay for storms</span><span>see stays</span></Link></li>
-                <li><Link href="/tofino#planning"><span>Best time to visit</span><span>guide</span></Link></li>
-              </ul>
-            </div>
-            <div className="coll">
-              <h4>Travelling with children</h4>
-              <p>Short walks, calm water, and somewhere to dry everything out.</p>
-              <ul>
-                <li><Link href="/tofino/beaches"><span>Tinwis Beach</span><span>sheltered</span></Link></li>
-                <li><Link href="/tofino/whale-watching"><span>Covered whale boats</span><span>ages 5+</span></Link></li>
-                <li><Link href="/tofino#planning"><span>Campgrounds</span><span>both towns</span></Link></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        )}
 
         <div className="section" style={{ paddingTop: 0 }}>
           <div className="rowhead">
@@ -147,7 +152,7 @@ export default async function DestinationsPage() {
           <div className="dest-cards">
             {rows.map((r) =>
               r.navigable && r.city ? (
-                <Link key={r.destination.slug} className="dcard" href={`/${r.destination.slug}`}>
+                <Link key={r.destination.slug} className="dcard" href={r.path}>
                   <Image src={cld(r.city.heroPublicId, { w: 640, h: 512, fit: "fill" })} alt={r.city.name} width={640} height={512} sizes="(max-width: 720px) 50vw, 25vw" />
                   <div className="dcard__scrim" aria-hidden="true" />
                   <div className="dcard__body">
@@ -169,7 +174,7 @@ export default async function DestinationsPage() {
           </div>
           <div className="softnote" style={{ marginTop: 20 }}>
             <b>Structural note.</b> Coming-soon destinations are shown but are not links, so the page grows with the
-            business without ever leading somewhere empty. There is no region page between here and a destination.
+            business without ever leading somewhere empty.
           </div>
         </div>
       </div>

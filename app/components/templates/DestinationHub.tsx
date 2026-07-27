@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -7,10 +6,9 @@ import {
   getGuidesForCity,
   getPlanningPieces,
   getListings,
-  getDestinations,
-  getCityCategories,
 } from "@/app/lib/content";
 import { cld, placeholder } from "@/app/lib/cloudinary";
+import { geoPath, type GeoNode } from "@/app/lib/geo-types";
 import { TopNav } from "@/app/components/landing/TopNav";
 import { Footer } from "@/app/components/landing/Footer";
 import { Breadcrumb } from "@/app/components/nav/Breadcrumb";
@@ -19,27 +17,13 @@ import { Rail } from "@/app/components/browse/Rail";
 import { ListingCard } from "@/app/components/landing/ListingCard";
 import { SellTile } from "@/app/components/sell/SellTile";
 
-export async function generateStaticParams() {
-  const destinations = await getDestinations();
-  const checked = await Promise.all(
-    destinations.map(async (d) => ((await getCityCategories(d.slug)).length > 0 ? d.slug : null)),
-  );
-  return checked.filter((s): s is string => Boolean(s)).map((city) => ({ city }));
-}
-
-export async function generateMetadata({ params }: { params: Promise<{ city: string }> }): Promise<Metadata> {
-  const { city: citySlug } = await params;
-  const city = await getCity(citySlug);
-  return city ? { title: `${city.name} | Arc Trips`, description: city.standfirst } : { title: "Arc Trips" };
-}
-
 /**
- * S1 destination page (owner-approved 2026-07-24): ONE FLAT grid of guides,
- * then a short planning row, then stays. No region tier, no category-index
- * split, no grouping inside the grid. See design/structure/s1/tofino.html.
+ * The destination hub, moved onto the deep tree from the S1 flat route
+ * (owner-approved 2026-07-24): ONE FLAT grid of guides, then a short planning
+ * row, then stays. Rendering is unchanged; only the breadcrumb trail and the
+ * internal hrefs now come from the geographic trail.
  */
-export default async function CityPage({ params }: { params: Promise<{ city: string }> }) {
-  const { city: citySlug } = await params;
+export async function DestinationHub({ citySlug, trail }: { citySlug: string; trail: GeoNode[] }) {
   const city = await getCity(citySlug);
   if (!city) notFound();
 
@@ -48,6 +32,8 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
     getPlanningPieces(citySlug),
     getListings({ destinationSlug: citySlug }),
   ]);
+
+  const base = geoPath(trail);
 
   // The destination page had no booking surface at all: you could only buy
   // once you were inside a guide. This is the page's one primary CTA, and it
@@ -66,7 +52,16 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
     <>
       <TopNav active="destinations" />
       <div className="container">
-        <Breadcrumb trail={[{ href: "/destinations", label: "Destinations" }, { label: city.name }]} />
+        <Breadcrumb
+          trail={[
+            { href: "/destinations", label: "Destinations" },
+            ...trail.slice(0, -1).map((node, i) => ({
+              href: geoPath(trail.slice(0, i + 1)),
+              label: node.name,
+            })),
+            { label: city.name },
+          ]}
+        />
 
         <div className="chero">
           <div className="chero__media">
@@ -83,7 +78,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
         <p className="cityintro">{city.overview[0]}</p>
         {city.overview.slice(1).map((p, i) => <p className="cityintro" key={i}>{p}</p>)}
 
-        <SellTile headline={sellHeadline} blurb={sellBlurb} ctaLabel="Book dates" href={`/${citySlug}#stays`} />
+        <SellTile headline={sellHeadline} blurb={sellBlurb} ctaLabel="Book dates" href={`${base}#stays`} />
 
         <div className="rail__head" style={{ marginTop: 24 }}>
           <div>
@@ -97,6 +92,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
               key={g.categorySlug}
               category={{ slug: g.categorySlug, name: g.name, blurb: g.placeCount ? `${g.placeCount} places` : undefined, heroPublicId: g.heroPublicId }}
               citySlug={citySlug}
+              basePath={`${base}/things-to-do`}
               bookableCount={g.bookableCount}
               state={g.state}
               priceFrom={g.priceFrom}

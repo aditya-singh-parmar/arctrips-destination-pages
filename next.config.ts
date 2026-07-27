@@ -2,24 +2,40 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["192.168.0.3", "localhost"],
+
   /**
-   * The S1 restructure (2026-07-24) removed the region tier, the category
-   * index layer, place pages and the things-to-do/guides/gallery split.
-   * Anything shared before that still needs to land somewhere sensible.
-   * Order matters: the region rule must precede the generic city rule,
-   * otherwise /destinations/vancouver-island rewrites to a city that
-   * does not exist.
+   * Next would answer a trailing slash with a 308. The taxonomy PRD forbids
+   * redirects, so middleware.ts rewrites to the canonical path instead and
+   * this turns the built-in redirect off.
+   */
+  skipTrailingSlashRedirect: true,
+
+  /**
+   * Every rule here covers a URL shipped BEFORE the deep destination tree
+   * existed: the S1 restructure of 2026-07-24 and the tier layout before it.
+   * No URL inside the tree ever redirects; archived places return 410.
+   *
+   * These must all be city-specific. The old generic rules (/:city/:category,
+   * /destinations/:city) would now swallow the tree itself: /destinations/canada/bc
+   * matches /:city/:category/:place and would redirect to /destinations/canada.
    */
   async redirects() {
+    const ISLAND = "/destinations/canada/bc/vancouver-island";
+    const CITIES = ["tofino", "ucluelet"];
     return [
-      { source: "/destinations/vancouver-island", destination: "/destinations", permanent: true },
-      { source: "/destinations/sea-to-sky", destination: "/destinations", permanent: true },
-      { source: "/destinations/:city", destination: "/:city", permanent: true },
-      { source: "/:city/things-to-do", destination: "/:city", permanent: true },
-      { source: "/:city/guides", destination: "/:city", permanent: true },
-      { source: "/:city/gallery", destination: "/:city", permanent: true },
-      // Place pages folded into their guide, e.g. /tofino/beaches/long-beach.
-      { source: "/:city/:category/:place", destination: "/:city/:category", permanent: true },
+      { source: "/destinations/vancouver-island", destination: ISLAND, permanent: true },
+      { source: "/destinations/sea-to-sky", destination: "/destinations/canada/bc/sea-to-sky", permanent: true },
+      { source: "/things-to-do", destination: "/destinations", permanent: true },
+      // Flat S1 city URLs move under the deep tree.
+      ...CITIES.flatMap((city) => [
+        { source: `/${city}`, destination: `${ISLAND}/${city}`, permanent: true },
+        { source: `/${city}/things-to-do`, destination: `${ISLAND}/${city}/things-to-do`, permanent: true },
+        { source: `/${city}/guides`, destination: `${ISLAND}/${city}`, permanent: true },
+        { source: `/${city}/gallery`, destination: `${ISLAND}/${city}`, permanent: true },
+        { source: `/${city}/:category`, destination: `${ISLAND}/${city}/things-to-do/:category`, permanent: true },
+        // Place pages were folded into their guide, e.g. /tofino/beaches/long-beach.
+        { source: `/${city}/:category/:place`, destination: `${ISLAND}/${city}/things-to-do/:category`, permanent: true },
+      ]),
     ];
   },
   images: {
