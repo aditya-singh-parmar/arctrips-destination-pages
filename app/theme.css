@@ -24,6 +24,7 @@
   --a-100: #EAF2FB;
   --a-200: #D4E4F6;
   --a-300: #A9C9EC;
+  --a-400: #7EAFDF;
   --a-500: #5394D3;
   --a-600: #2874BA;
   --a-700: #21639E;
@@ -33,6 +34,7 @@
   --emerald: #3A9679;
   --emerald-100: #E8F4F0;
   --emerald-200: #CFE9E0;
+  --emerald-300: #A6D5C6;
   --emerald-600: #2F7D64;
 
   --n-50: #F9F9F9;
@@ -53,6 +55,7 @@
   --amber: #B54708;
   --amber-bg: #FFFAEB;
   --amber-border: #FEDF89;
+  --danger: #C9372C;
 
   /* ── Semantic aliases. Use these in new work, not the raw ramps. ──
      Contrast checked against white at AA for body-size text. */

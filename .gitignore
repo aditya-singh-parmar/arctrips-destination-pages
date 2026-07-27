@@ -56,3 +56,6 @@ next-env.d.ts
 
 # supabase CLI local link state
 /supabase/.temp/
+
+# ingest upload cache (local only)
+scripts/.cloudinary-cache.json

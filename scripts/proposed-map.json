@@ -316,12 +316,15 @@
  },
  {
   "file": "Nelson.docx",
-  "kind": "hub",
+  "kind": "category",
   "city": "nelson",
+  "cat": "mountain-biking",
   "words": 1774,
   "images": 14,
   "placeLevel": "h3",
-  "placeHeadings": [],
+  "placeHeadings": [
+   "Best for Technical Riders"
+  ],
   "numberedH2": 0,
   "h2count": 6
  },
@@ -567,9 +570,7 @@
   "words": 3083,
   "images": 47,
   "placeLevel": "h3",
-  "placeHeadings": [
-   "Common Seabirds and Coastal Birds in Tofino"
-  ],
+  "placeHeadings": [],
   "numberedH2": 0,
   "h2count": 13
  },
@@ -623,7 +624,6 @@
   "placeLevel": "h3",
   "placeHeadings": [
    "What Whales Can You See in Tofino?",
-   "Other Marine Life You May See",
    "Best Ways to See Wildlife in Tofino"
   ],
   "numberedH2": 0,
@@ -740,9 +740,7 @@
   "words": 3034,
   "images": 39,
   "placeLevel": "h3",
-  "placeHeadings": [
-   "Common Seabirds and Coastal Birds in Ucluelet"
-  ],
+  "placeHeadings": [],
   "numberedH2": 0,
   "h2count": 13
  },
@@ -892,8 +890,9 @@
  },
  {
   "file": "Whistler in Summer.docx",
-  "kind": "hub",
+  "kind": "article",
   "city": "whistler",
+  "cat": null,
   "words": 2756,
   "images": 19,
   "placeLevel": "h3",
@@ -903,8 +902,9 @@
  },
  {
   "file": "Winter in Whistler.docx",
-  "kind": "hub",
+  "kind": "article",
   "city": "whistler",
+  "cat": null,
   "words": 2564,
   "images": 16,
   "placeLevel": "h3",

@@ -10,7 +10,7 @@ import { Footer } from "@/app/components/landing/Footer";
 import { Breadcrumb } from "@/app/components/nav/Breadcrumb";
 import { ArticleBlocks } from "@/app/components/browse/ArticleBlocks";
 import { JsonLd } from "@/app/components/ui/JsonLd";
-import { SectionHead } from "@/app/components/ui/SectionHead";
+import { SearchCard, type SearchItem } from "@/app/components/ui/SearchCard";
 
 const SITE = "https://arctrips.com";
 
@@ -21,28 +21,20 @@ const TIER_LABEL: Record<string, string> = {
 };
 
 /**
- * One template for country, province and region. They differ only in what
+ * One template for country, province and region: they differ only in what
  * their children are called, so they share a body rather than three near
- * identical files. Replaces the Plan 1 workaround where these tiers borrowed
- * the landing page under noindex.
+ * identical files.
  *
- * Shape: a head that is typographic when the tier carries no photograph of
- * its own (a province rarely does), one lead-weighted card grid for the next
- * tier down, and then a ruled index of every town beneath, rather than the
- * second identical card grid this page used to render. Two grids of the same
- * card at the same size is the marketplace look the redesign is escaping,
- * and the second one is a list, so it should read as a list.
+ * Same language as the rest of the experience, the inset banner and the
+ * contained column, with the next tier down as light bordered cards and every
+ * town beneath as a plain index. A tier with nothing published beneath it is
+ * not rendered at all: six empty provinces rendering an identical "nothing
+ * here yet" page is thin content.
  */
 export async function GeoIndex({ node, trail }: { node: GeoNode; trail: GeoNode[] }) {
   const [children, towns] = await Promise.all([getGeoChildLinks(trail), getTownsBeneath(trail)]);
-  // A child with no renderable town beneath it is dropped, so an index never
-  // links to its own 404s and an empty province never renders as a real page.
   const withContent = children.filter((c) => c.townCount > 0);
 
-  // AC 51: a tier with nothing published beneath it is not rendered at all.
-  // Six empty provinces rendering an identical "nothing here yet" page is
-  // thin content. Safe for breadcrumbs: a page only renders when it has a
-  // navigable town beneath it, so no ancestor of a live page can be empty.
   if (withContent.length === 0 && !node.standfirst && node.body.length === 0) notFound();
   const url = `${SITE}${geoPath(trail)}`;
 
@@ -52,7 +44,13 @@ export async function GeoIndex({ node, trail }: { node: GeoNode; trail: GeoNode[
     { label: node.name },
   ];
   const ancestry = trail.slice(0, -1).map((n) => n.name).reverse().join(", ");
-  const townLabel = `${towns.length} destination${towns.length === 1 ? "" : "s"}`;
+  const heroPublicId = node.heroPublicId ?? towns[0]?.node.heroPublicId ?? IMG.coast;
+
+  const searchIndex: SearchItem[] = towns.map(({ node: t, path }) => ({
+    label: t.name,
+    sub: "Destination",
+    href: path,
+  }));
 
   return (
     <>
@@ -67,133 +65,147 @@ export async function GeoIndex({ node, trail }: { node: GeoNode; trail: GeoNode[
         `Destinations in ${node.name}`,
       )} />
 
-      <div className="container">
-        <Breadcrumb trail={crumbs} />
-      </div>
+      <div className="dx">
+        <div className="container">
+          <Breadcrumb trail={crumbs} />
+        </div>
 
-      {node.heroPublicId ? (
-        <header className="dhero dhero--sm">
-          <div className="dhero__media">
-            <Image
-              src={cld(node.heroPublicId, { w: 2000, fit: "limit" })}
-              alt={node.name}
-              fill
-              priority
-              sizes="100vw"
-              style={{ objectFit: "cover" }}
-            />
-          </div>
-          <div className="dhero__scrim" aria-hidden="true" />
-          <div className="dhero__inner container">
-            {ancestry && <p className="t-eyebrow t-eyebrow--invert">{ancestry}</p>}
-            <h1 className="t-h0">{node.name}</h1>
-            {node.standfirst && <p className="dhero__sub">{node.standfirst}</p>}
-            {towns.length > 0 && (
-              <p className="dhero__meta"><span><b>{towns.length}</b> destinations published</span></p>
+        <header className="hero">
+          <div className="container">
+            <div className="hero__b hero__b--sm">
+              <span className="hero__img">
+                <Image
+                  src={cld(heroPublicId, { w: 1800, h: 620, fit: "fill" })}
+                  alt=""
+                  fill
+                  priority
+                  sizes="100vw"
+                  style={{ objectFit: "cover" }}
+                />
+              </span>
+              <div className="hero__t">
+                {ancestry && <span className="hero__pill">{ancestry}</span>}
+                <h1>{node.name}</h1>
+                {node.standfirst && <p>{node.standfirst}</p>}
+                {towns.length > 0 && (
+                  <p className="hero__meta">
+                    <span><b>{towns.length}</b> destinations published</span>
+                    {withContent.length > 0 && (
+                      <span>
+                        <b>{withContent.length}</b> {(TIER_LABEL[node.type] ?? "areas").toLowerCase()}
+                      </span>
+                    )}
+                  </p>
+                )}
+              </div>
+            </div>
+            {searchIndex.length > 0 && (
+              <SearchCard
+                items={searchIndex}
+                placeholder={`Search destinations in ${node.name}`}
+                note={`Searches every destination published in ${node.name}.`}
+              />
             )}
           </div>
         </header>
-      ) : (
-        <div className="container">
-          <header className="geohead">
-            {ancestry && <span className="t-eyebrow">{ancestry}</span>}
-            <h1 className="t-h0">{node.name}</h1>
-            {node.standfirst && <p className="geohead__sub">{node.standfirst}</p>}
-            {towns.length > 0 && (
-              <p className="geohead__meta">
-                <span><b>{towns.length}</b> destinations published</span>
-                <span><b>{withContent.length}</b> {(TIER_LABEL[node.type] ?? "areas").toLowerCase()}</span>
-              </p>
-            )}
-          </header>
-        </div>
-      )}
 
-      <div className="container">
         {node.body.length > 0 && (
-          <section className="section section--tight">
-            <div className="prose">
-              <ArticleBlocks blocks={node.body} />
+          <section className="sec">
+            <div className="container">
+              <div className="col">
+                <ArticleBlocks blocks={node.body} />
+              </div>
             </div>
           </section>
         )}
 
+        {/* Flush only when a body section already opened the rhythm above it,
+            otherwise this would sit tight under the search card. */}
         {withContent.length > 0 ? (
-          <section className="section">
-            <SectionHead
-              ruled
-              eyebrow="Go deeper"
-              title={TIER_LABEL[node.type] ?? "Places"}
-              description={towns.length ? `${townLabel} published in ${node.name}.` : undefined}
-            />
-            <div className="dest-cards dest-cards--lead">
-              {withContent.map(({ node: child, path, townCount }) => (
-                <Link key={child.id} className="dcard" href={path}>
-                  <Image
-                    src={child.heroPublicId
-                      ? cld(child.heroPublicId, { w: 1200, h: 800, fit: "fill" })
-                      : cld(IMG.coast, { w: 1200, h: 800, fit: "fill" })}
-                    alt={child.name}
-                    width={1200}
-                    height={800}
-                    sizes="(max-width: 620px) 100vw, 50vw"
-                  />
-                  <div className="dcard__scrim" aria-hidden="true" />
-                  <div className="dcard__body">
-                    <p className="dcard__name t-bold-20">{child.name}</p>
-                    <p className="dcard__meta t-med-14">
-                      {child.type === "town"
-                        ? "Destination guide"
-                        : `${townCount} destination${townCount === 1 ? "" : "s"}`}
-                    </p>
-                  </div>
-                </Link>
-              ))}
+          <section className={node.body.length > 0 ? "sec sec--flush" : "sec"}>
+            <div className="container">
+              <div className="sechead center">
+                <span className="eyebrow">Go deeper</span>
+                <h2>{TIER_LABEL[node.type] ?? "Places"}.</h2>
+                {towns.length > 0 && (
+                  <p className="sub">
+                    {towns.length} destination{towns.length === 1 ? "" : "s"} published in {node.name}.
+                  </p>
+                )}
+              </div>
+              <div className="dgrid">
+                {withContent.map(({ node: child, path, townCount }) => (
+                  <Link key={child.id} className="dcard" href={path}>
+                    <div className="dcard__m">
+                      <Image
+                        src={cld(child.heroPublicId ?? IMG.coast, { w: 620, h: 465, fit: "fill" })}
+                        alt={child.name}
+                        width={620}
+                        height={465}
+                        sizes="(max-width: 520px) 100vw, (max-width: 980px) 50vw, 270px"
+                      />
+                    </div>
+                    <div className="dcard__b">
+                      <h3>{child.name}</h3>
+                      <p className="dcard__meta">
+                        {child.type === "town"
+                          ? "Destination guide"
+                          : `${townCount} destination${townCount === 1 ? "" : "s"}`}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
           </section>
         ) : (
-          // Never an empty grid: say so plainly and give a way onward.
-          <div className="section">
-            <div className="softnote">
-              Nothing is published in {node.name} yet.{" "}
-              <Link href="/destinations">See every destination</Link>.
+          <section className={node.body.length > 0 ? "sec sec--flush" : "sec"}>
+            <div className="container">
+              <p className="softnote">
+                Nothing is published in {node.name} yet.{" "}
+                <Link href="/destinations">See every destination</Link>.
+              </p>
             </div>
-          </div>
+          </section>
         )}
 
         {node.type !== "region" && towns.length > 0 && (
-          <section className="section section--open">
-            <SectionHead
-              ruled
-              eyebrow="The index"
-              title={`Every destination in ${node.name}`}
-              description="Skip the tiers and go straight to a town."
-            />
-            <div className="idx">
-              {towns.map(({ node: t, path }) => (
-                <Link key={t.id} className="idx__row" href={path}>
-                  <span className="idx__media">
-                    <Image
-                      src={t.heroPublicId
-                        ? cld(t.heroPublicId, { w: 464, h: 348, fit: "fill" })
-                        : cld(IMG.coast, { w: 464, h: 348, fit: "fill" })}
-                      alt=""
-                      width={232}
-                      height={174}
-                      sizes="116px"
-                    />
-                  </span>
-                  <span className="idx__b">
-                    <span className="idx__t">{t.name}</span>
-                    {t.standfirst && <span className="idx__d">{t.standfirst}</span>}
-                  </span>
-                  <span className="idx__v">Destination guide</span>
-                </Link>
-              ))}
+          <section className="sec sec--flush">
+            <div className="container">
+              <div className="panel panel--grey">
+                <div className="sechead center">
+                  <span className="eyebrow">The index</span>
+                  <h2>Every destination in {node.name}.</h2>
+                  <p className="sub">Skip the tiers and go straight to a town.</p>
+                </div>
+                <div className="col">
+                  <div className="idx">
+                    {towns.map(({ node: t, path }) => (
+                      <Link key={t.id} className="idx__row" href={path}>
+                        <span className="idx__media">
+                          <Image
+                            src={cld(t.heroPublicId ?? IMG.coast, { w: 288, h: 216, fit: "fill" })}
+                            alt=""
+                            width={288}
+                            height={216}
+                            sizes="96px"
+                          />
+                        </span>
+                        <span>
+                          <span className="idx__t">{t.name}</span>
+                          {t.standfirst && <span className="idx__d">{t.standfirst}</span>}
+                        </span>
+                        <span className="idx__v">Destination guide</span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
         )}
       </div>
+
       <Footer />
     </>
   );

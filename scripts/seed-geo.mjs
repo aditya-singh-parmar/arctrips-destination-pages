@@ -17,11 +17,40 @@ const sb = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABA
  * fails loudly rather than landing under the wrong province.
  */
 const CITY_GEO = {
-  tofino:   { province: "bc", region: "vancouver-island" },
-  ucluelet: { province: "bc", region: "vancouver-island" },
-  edmonton: { province: "ab", region: null },
-  montreal: { province: "qc", region: null },
-  toronto:  { province: "on", region: null },
+  // Vancouver Island
+  tofino:           { province: "bc", region: "vancouver-island" },
+  ucluelet:         { province: "bc", region: "vancouver-island" },
+  victoria:         { province: "bc", region: "vancouver-island" },
+  nanaimo:          { province: "bc", region: "vancouver-island" },
+  sooke:            { province: "bc", region: "vancouver-island" },
+  sidney:           { province: "bc", region: "vancouver-island" },
+  chemainus:        { province: "bc", region: "vancouver-island" },
+  "shawnigan-lake": { province: "bc", region: "vancouver-island" },
+  "nanoose-bay":    { province: "bc", region: "vancouver-island" },
+  parksville:       { province: "bc", region: "vancouver-island" },
+  "campbell-river": { province: "bc", region: "vancouver-island" },
+  // Sea to Sky corridor
+  squamish:         { province: "bc", region: "sea-to-sky" },
+  whistler:         { province: "bc", region: "sea-to-sky" },
+  // Rest of British Columbia: no region node, the province is the parent.
+  vancouver:        { province: "bc", region: null },
+  nelson:           { province: "bc", region: null },
+  // Alberta
+  banff:            { province: "ab", region: null },
+  jasper:           { province: "ab", region: null },
+  edmonton:         { province: "ab", region: null },
+  // Ontario
+  ottawa:           { province: "on", region: null },
+  "niagara-falls":  { province: "on", region: null },
+  toronto:          { province: "on", region: null },
+  // Quebec
+  montreal:         { province: "qc", region: null },
+  "quebec-city":    { province: "qc", region: null },
+  // Atlantic and prairie
+  halifax:          { province: "ns", region: null },
+  "st-johns":       { province: "nl", region: null },
+  charlottetown:    { province: "pe", region: null },
+  saskatoon:        { province: "sk", region: null },
 };
 
 const PROVINCES = {

@@ -1,242 +1,120 @@
 /**
- * Decomposer driver for the v1.1 tree (spec section 7).
+ * Corpus ingestion: all 73 documents in `New Articles - 2026/`.
  *
- * A corpus category doc (e.g. `Tofino - Beaches.docx`) is not an article, it
- * is the category page: H1 is the category, H2s are its sections, and each
- * H3 under a "listing" H2 is a place. This script unzips each mapped .docx,
- * extracts ordered heading/paragraph/image blocks, runs them through
- * `scripts/lib/decompose.mjs`'s pure classifier, uploads place-tagged images
- * to Cloudinary, and writes city_categories / places / photos rows. Docs
- * that are not category-shaped (Whale Festival, Best Time to Stay,
- * Campgrounds, Whale Tails, How to Choose a Vacation Rental, the three extra
- * Ucluelet whale docs) stay whole as `articles` rows instead.
+ * The map is not derived here. `scripts/proposed-map.json` is the reviewed
+ * source of truth (produced by scripts/propose-map.mjs, then corrected by
+ * hand) and classifies every document as exactly one of five kinds:
  *
- * Prereq: run `npm run seed` first (creates destinations/categories/
- * city_categories/articles rows). Re-running seed wipes ingested content, so
- * re-run this after.
+ *   category   The document IS a city+category page. Decomposed into a
+ *              `city_categories` intro, N `places`, place-tagged `photos`
+ *              and FAQs. `placeLevel` says whether an entry is an H3 under a
+ *              whitelisted H2, or a numbered H2 in its own right.
+ *   hub        The document IS a town's hub page. Its copy becomes
+ *              `destinations.standfirst` / `.overview` and `geo_places.body`.
+ *              It never produces places.
+ *   hub-whole  The 13 "Agent Trek" city guides. Same as hub: the owner
+ *              decided these import whole, with no decomposition, even
+ *              though their numbered H2s look decomposable.
+ *   roundup    A cross-city article scoped to a region, not a city.
+ *   article    A cross-city article scoped to named cities.
+ *
+ * Several documents share a target: three whale-watching docs are all
+ * ucluelet/whale-watching, and Whistler has three hub documents. Targets are
+ * therefore grouped and written once, with every member document's content
+ * merged in file order. Writing them one at a time would leave only the last
+ * document standing, because each write deletes the target's existing rows.
+ *
+ * Prereq: `npm run seed` first (it creates destinations/categories/regions and
+ * wipes ingested content). Then this, then `npm run backfill:categories` and
+ * `npm run seed:facts`.
+ *
  * Run: node --env-file=.env.local scripts/ingest-articles.mjs
+ *      ONLY="Tofino - Beaches.docx"     ingest one document
+ *      SKIP_IMAGES=1                    write rows without touching Cloudinary
  */
-import { execSync } from "node:child_process";
-import { readFileSync, existsSync, mkdtempSync } from "node:fs";
-import { tmpdir } from "node:os";
+import { readFileSync, existsSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import crypto from "node:crypto";
 import { classify, slugify } from "./lib/decompose.mjs";
+import { splitBlurb, sameText, isRestatementOf } from "./lib/clean.mjs";
+import { extractDoc } from "./lib/docx.mjs";
 
 const URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const CLOUD = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "djqswlfat";
 const CK = process.env.CLOUDINARY_API_KEY;
 const CS = process.env.CLOUDINARY_API_SECRET;
-if (!URL || !KEY || !CK || !CS) { console.error("Missing Supabase / Cloudinary env."); process.exit(1); }
+const SKIP_IMAGES = process.env.SKIP_IMAGES === "1";
+if (!URL || !KEY || (!SKIP_IMAGES && (!CK || !CS))) {
+  console.error("Missing Supabase / Cloudinary env.");
+  process.exit(1);
+}
 
 const CORPUS = fileURLToPath(new global.URL("../New Articles - 2026/", import.meta.url));
-const MAX_IMAGES_PER_DOC = 40;
+const MAP_PATH = fileURLToPath(new global.URL("./proposed-map.json", import.meta.url));
+const CACHE_PATH = fileURLToPath(new global.URL("./.cloudinary-cache.json", import.meta.url));
+const UPLOAD_CONCURRENCY = 8;
 
-/* ── Per-doc configuration ────────────────────────────────────────────────
-   v1.1 scope is Tofino and Ucluelet only (spec section 1). placeHeadings is
-   the explicit per-doc whitelist of H2 texts whose H3 children become
-   places; every entry below was verified against the doc's real heading
-   list (see docs/superpowers/plans/2026-07-24-destination-pages-v1.1.md
-   "known risk"). An empty placeHeadings array is a legitimate outcome: the
-   doc's H3s are species/tour-types/seasons rather than places, so its whole
-   body becomes the category's intro instead. */
-const DOC_MAP = [
-  { file: "Tofino - Beaches.docx", citySlug: "tofino", categorySlug: "beaches",
-    placeHeadings: ["Best Beaches in and Around Tofino", "Beaches Near Tofino in Pacific Rim National Park"] },
-  { file: "Tofino - Surfing.docx", citySlug: "tofino", categorySlug: "surfing",
-    placeHeadings: [] }, // beach names are bolded inline text, not H3s; whole doc becomes intro
-  { file: "Tofino - Kayaking.docx", citySlug: "tofino", categorySlug: "kayaking",
-    placeHeadings: [
-      "Easy Kayaking Spots for Beginners", "Easy to Moderate Kayaking Spots",
-      "Moderate to Advanced Kayaking Spots", "Advanced and Expedition Kayaking Spots",
-      "Other Kayaking Areas Worth Knowing",
-    ] },
-  { file: "Tofino - Wildlife tours.docx", citySlug: "tofino", categorySlug: "whale-watching",
-    placeHeadings: [] }, // H3s are whale/animal species and tour types, not places
-  { file: "Tofino - Seabirds.docx", citySlug: "tofino", categorySlug: "birding",
-    placeHeadings: [] }, // H3s are bird species, not places
-  { file: "Tofino - Storm Watching.docx", citySlug: "tofino", categorySlug: "storm-watching",
-    placeHeadings: ["Best Places for Storm Watching in Tofino"] },
-  { file: "Tofino - Trails.docx", citySlug: "tofino", categorySlug: "hiking",
-    placeHeadings: ["Best Trails in Tofino and Nearby"] },
-  { file: "Tofino - Restaurants_.docx", citySlug: "tofino", categorySlug: "restaurants",
-    placeHeadings: [
-      "Best Restaurants in Tofino", "Best Casual Places to Eat in Tofino",
-      "Best Breakfast and Coffee Spots in Tofino", "Best Drinks in Tofino",
-    ] },
-  // Tofino has no fishing doc (spec section 8): the category ships on
-  // experience inventory plus the hand-written intro from scripts/seed.mjs.
+/* ── Per-document overrides ───────────────────────────────────────────────
+   proposed-map.json carries the classification. These are the few things it
+   cannot carry: the stable article slug for a document that already has a
+   seeded row, the region a cross-city roundup belongs to, and a category for
+   the one document that has no natural one. Everything else is derived. */
 
-  { file: "Ucluelet - Hiking Guide.docx", citySlug: "ucluelet", categorySlug: "hiking",
-    placeHeadings: [
-      "Is Hiking in Ucluelet Easy?", "Best Nearby Hikes in Pacific Rim National Park",
-      "Bigger Nearby Adventures",
-    ] },
-  { file: "Ucluelet - Kayaking.docx", citySlug: "ucluelet", categorySlug: "kayaking",
-    placeHeadings: [
-      "Easy Kayaking in Ucluelet", "Easy to Moderate Kayaking Near Ucluelet",
-      "Moderate Kayaking Near Ucluelet", "Advanced Kayaking Near Ucluelet",
-    ] },
-  { file: "Ucluelet - Wildlife watching.docx", citySlug: "ucluelet", categorySlug: "whale-watching",
-    placeHeadings: ["Best Wildlife Watching Spots in Ucluelet"] }, // the species/season/tour-type H2s are excluded on purpose
-  { file: "Ucluelet - Seabirds.docx", citySlug: "ucluelet", categorySlug: "birding",
-    placeHeadings: [] }, // H3s are bird species, not places
-  { file: "Ucluelet - Restaurants.docx", citySlug: "ucluelet", categorySlug: "restaurants",
-    // "Jiggers Fish and Chips" is mis-styled Heading2 in the source doc (should be H3, a
-    // restaurant under "Top Restaurants"); whitelisting it too recovers the ten restaurant
-    // H3s that would otherwise fall under it as an unlisted section.
-    placeHeadings: [
-      "Top Restaurants in Ucluelet", "Jiggers Fish and Chips",
-      "Best Coffee, Breakfast, and Bakery Stops in Ucluelet",
-    ] },
-  // Ucluelet has no fishing doc either: same as Tofino, experiences + hand-written intro.
-];
+/** Region for each roundup. Read off the document's own title, never guessed. */
+const ROUNDUP_REGION = {
+  "Best Beaches on Vancouver Island.docx": "vancouver-island",
+  "Best Day Hikes on Vancouver Island.docx": "vancouver-island",
+  "Best Kayaking Spots on Vancouver Island.docx": "vancouver-island",
+  "Best Overnight Hikes on Vancouver Island.docx": "vancouver-island",
+  "Best Place to See Whales in BC.docx": "bc",
+  "Best Places for Whale Watching on Vancouver Island.docx": "vancouver-island",
+  "Farmers Markets in Vancouver_.docx": "bc",
+  "How to Choose a Vacation Rental on Vancouver Island.docx": "vancouver-island",
+  "Slow Food.docx": "vancouver-island",
+  "Top 20 Ski Mountains in BC.docx": "bc",
+  "Vancouver Island_ Best Mountain Biking Spots.docx": "vancouver-island",
+};
 
-const ARTICLE_MAP = [
-  { file: "Pacific Rim Whale Festival Guide.docx", slug: "pacific-rim-whale-festival-guide",
-    citySlugs: ["tofino", "ucluelet"], categorySlug: "events" },
-  { file: "Best Time to Stay in Ucluelet or Tofino_ Weather, Prices, and What to See.docx",
-    slug: "best-time-to-stay-tofino-ucluelet", citySlugs: ["tofino", "ucluelet"], categorySlug: "when-to-go" },
-  { file: "Tofino & Ucluelet - Campgrounds.docx", slug: "tofino-ucluelet-campgrounds",
-    citySlugs: ["tofino", "ucluelet"], categorySlug: "camping" },
-  { file: "Whale Tails, Blows, and Backs_ What You’re Actually Seeing on the Water.docx",
-    slug: "whale-tails-blows-and-backs", citySlugs: ["tofino", "ucluelet"], categorySlug: "whale-watching" },
-  { file: "How to Choose a Vacation Rental on Vancouver Island.docx", slug: "how-to-choose-a-vacation-rental",
-    citySlugs: [], regionSlug: "vancouver-island", categorySlug: "when-to-go" },
-  { file: "Whale Watching in Ucluelet.docx", slug: "ucluelet-whale-watching-guide",
-    citySlugs: ["ucluelet"], categorySlug: "whale-watching" },
-  { file: "Whale Watching Tours in Ucluelet.docx", slug: "ucluelet-whale-watching-tours",
-    citySlugs: ["ucluelet"], categorySlug: "whale-watching" },
-  { file: "Whales in Ucluelet_ The Spring Migration Explained.docx", slug: "ucluelet-whale-spring-migration",
-    citySlugs: ["ucluelet"], categorySlug: "whale-watching" },
-];
+/** Cities for each cross-city article (kind: "article"). */
+const ARTICLE_CITIES = {
+  "Pacific Rim Whale Festival Guide.docx": ["tofino", "ucluelet"],
+  "Whale Tails, Blows, and Backs_ What You’re Actually Seeing on the Water.docx": ["tofino", "ucluelet"],
+};
 
-/* ── docx extraction: word/document.xml -> ordered {style,text,imageRef} blocks ── */
+/** Slugs already seeded by scripts/seed.mjs, kept so existing URLs do not move. */
+const ARTICLE_SLUG = {
+  "Pacific Rim Whale Festival Guide.docx": "pacific-rim-whale-festival-guide",
+  "Whale Tails, Blows, and Backs_ What You’re Actually Seeing on the Water.docx": "whale-tails-blows-and-backs",
+  "How to Choose a Vacation Rental on Vancouver Island.docx": "how-to-choose-a-vacation-rental",
+};
 
-const unescapeXml = (s) => s
-  .replace(/<[^>]+>/g, "")
-  .replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
-  .replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").trim();
+/** The one document with no category of its own: it is a planning piece. */
+const CATEGORY_FALLBACK = { "How to Choose a Vacation Rental on Vancouver Island.docx": "when-to-go" };
 
-function relsMap(xml) {
-  const m = {};
-  for (const r of xml.matchAll(/<Relationship[^>]*Id="(rId\d+)"[^>]*Target="([^"]+)"/g)) {
-    m[r[1]] = r[2].replace(/^\.\.\//, "").replace(/^\//, "");
-  }
-  return m;
-}
-
-function headingStyle(p) {
-  const m = p.match(/w:pStyle[^>]*w:val="(Heading[1-6]|Title|Subtitle)"/);
-  if (!m) return null;
-  if (m[1] === "Heading1" || m[1] === "Title") return "Heading1";
-  if (m[1] === "Heading2" || m[1] === "Subtitle") return "Heading2";
-  if (m[1] === "Heading3") return "Heading3";
-  return null; // Heading4+ (rare in this corpus): treated as Body
-}
-
-/** Unzips one docx and returns ordered classify()-ready blocks, the extracted
- *  excerpt (from a "Meta Description:" label paragraph, when present), and the
- *  temp dir (needed later to resolve image blocks to real files on disk). */
-function extractDoc(file) {
-  const path = join(CORPUS, file);
-  if (!existsSync(path)) return null;
-  const dir = mkdtempSync(join(tmpdir(), "docx-"));
-  execSync(`unzip -o -q "${path}" "word/document.xml" "word/_rels/document.xml.rels" "word/media/*" -d "${dir}"`, { stdio: "ignore" });
-  const doc = readFileSync(join(dir, "word/document.xml"), "utf8");
-  const rels = existsSync(join(dir, "word/_rels/document.xml.rels")) ? relsMap(readFileSync(join(dir, "word/_rels/document.xml.rels"), "utf8")) : {};
-  const paraText = (p) => unescapeXml([...p.matchAll(/<w:t[^>]*>([\s\S]*?)<\/w:t>/g)].map((m) => m[1]).join(""));
-
-  // Split the body into ordered segments so tables keep their position.
-  const segments = [];
-  const tblRe = /<w:tbl[ >][\s\S]*?<\/w:tbl>/g;
-  let last = 0, tm;
-  while ((tm = tblRe.exec(doc))) {
-    segments.push({ type: "text", xml: doc.slice(last, tm.index) });
-    segments.push({ type: "table", xml: tm[0] });
-    last = tm.index + tm[0].length;
-  }
-  segments.push({ type: "text", xml: doc.slice(last) });
-
-  const blocks = [];
-  let excerpt = "";
-  let awaitingMetaDescription = false;
-
-  for (const seg of segments) {
-    if (seg.type === "table") {
-      const rows = [...seg.xml.matchAll(/<w:tr[ >][\s\S]*?<\/w:tr>/g)].map((tr) =>
-        [...tr[0].matchAll(/<w:tc[ >][\s\S]*?<\/w:tc>/g)]
-          .map((tc) => unescapeXml([...tc[0].matchAll(/<w:t[^>]*>([\s\S]*?)<\/w:t>/g)].map((m) => m[1]).join(" ")))
-          .filter(Boolean)
-          .join(" · "),
-      ).filter(Boolean);
-      for (const row of rows) blocks.push({ style: "Body", text: row });
-      continue;
-    }
-
-    const paras = seg.xml.match(/<w:p[ >][\s\S]*?<\/w:p>/g) || [];
-    for (const p of paras) {
-      const style = headingStyle(p);
-      const text = paraText(p);
-      const embeds = [...p.matchAll(/r:embed="(rId\d+)"/g)].map((m) => m[1]);
-      const imageTargets = embeds
-        .map((rid) => rels[rid])
-        .filter((t) => t && /\.(jpe?g|png|gif)$/i.test(t))
-        .filter((t) => existsSync(join(dir, "word", t)));
-
-      if (!style && /^meta description:?$/i.test(text)) { awaitingMetaDescription = true; continue; }
-      if (!style && awaitingMetaDescription) { if (!excerpt) excerpt = text.slice(0, 220); awaitingMetaDescription = false; continue; }
-
-      if (!text && imageTargets.length === 0) continue;
-
-      if (imageTargets.length) {
-        imageTargets.forEach((target, i) => {
-          blocks.push({ style: style ?? "Body", text: i === 0 ? text : "", imageRef: target });
-        });
-        continue;
-      }
-      if (text) blocks.push({ style: style ?? "Body", text });
-    }
-  }
-
-  return { blocks, excerpt, dir };
-}
-
-/* ── Cloudinary upload ────────────────────────────────────────────────────── */
-
-function sign(params) {
-  const str = Object.keys(params).sort().map((k) => `${k}=${params[k]}`).join("&");
-  return crypto.createHash("sha1").update(str + CS).digest("hex");
-}
-
-async function uploadImage(buf, publicId) {
-  const timestamp = Math.floor(Date.now() / 1000);
-  const toSign = { overwrite: "true", public_id: publicId, timestamp };
-  const form = new FormData();
-  form.append("file", new Blob([buf]));
-  form.append("api_key", CK);
-  form.append("timestamp", String(timestamp));
-  form.append("public_id", publicId);
-  form.append("overwrite", "true");
-  form.append("signature", sign(toSign));
-  const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD}/image/upload`, { method: "POST", body: form });
-  const json = await res.json();
-  if (!res.ok) throw new Error(`cloudinary ${publicId}: ${JSON.stringify(json)}`);
-  return json.public_id;
-}
+/** Where a city has several hub documents, this one supplies the orientation
+ *  prose and the hero. The others are appended to the geo body in file order. */
+const PRIMARY_HUB = {
+  tofino: "Tofino.docx",
+  squamish: "Squamish - Sports Capital.docx",
+  whistler: "Whistler - Agent Trek.docx",
+};
 
 /* ── Supabase REST helpers (service role, bypasses RLS) ──────────────────── */
 
 const h = { apikey: KEY, Authorization: `Bearer ${KEY}`, "Content-Type": "application/json" };
 
-async function del(table, params) {
-  const qs = Object.entries(params).map(([k, v]) => `${k}=eq.${encodeURIComponent(v)}`).join("&");
-  const res = await fetch(`${URL}/rest/v1/${table}?${qs}`, { method: "DELETE", headers: { ...h, Prefer: "return=minimal" } });
-  if (!res.ok) throw new Error(`delete ${table}: ${res.status} ${await res.text()}`);
+async function rest(path, init) {
+  const res = await fetch(`${URL}/rest/v1/${path}`, { ...init, headers: { ...h, ...(init?.headers ?? {}) } });
+  if (!res.ok) throw new Error(`${init?.method ?? "GET"} ${path}: ${res.status} ${await res.text()}`);
+  return res;
 }
 
+const del = (table, filters) =>
+  rest(`${table}?${filters}`, { method: "DELETE", headers: { Prefer: "return=minimal" } });
+
+/** PostgREST bulk insert needs every row to share the same keys. */
 function normalize(rows) {
   if (!rows.length) return rows;
   const keys = [...new Set(rows.flatMap((r) => Object.keys(r)))];
@@ -246,159 +124,397 @@ function normalize(rows) {
 
 async function insertRows(table, rows) {
   if (!rows.length) return;
-  const res = await fetch(`${URL}/rest/v1/${table}`, { method: "POST", headers: { ...h, Prefer: "return=minimal" }, body: JSON.stringify(normalize(rows)) });
-  if (!res.ok) throw new Error(`insert ${table}: ${res.status} ${await res.text()}`);
+  // Chunked: a single 2,000-row photos insert exceeds the request limit.
+  for (let i = 0; i < rows.length; i += 500) {
+    await rest(table, {
+      method: "POST", headers: { Prefer: "return=minimal" },
+      body: JSON.stringify(normalize(rows.slice(i, i + 500))),
+    });
+  }
 }
 
-async function patchCityCategory(citySlug, categorySlug, patch) {
-  const res = await fetch(
-    `${URL}/rest/v1/city_categories?city_slug=eq.${citySlug}&category_slug=eq.${categorySlug}`,
-    { method: "PATCH", headers: { ...h, Prefer: "return=minimal" }, body: JSON.stringify(patch) },
-  );
-  if (!res.ok) throw new Error(`patch city_categories ${citySlug}/${categorySlug}: ${res.status} ${await res.text()}`);
-}
-
-/** Inserts a brand-new article row (used only for the per-category FAQ
- *  companion articles, which scripts/seed.mjs never pre-seeds). `row` must
- *  satisfy every NOT NULL column (title) since this is a real insert. */
-async function upsertArticle(slug, row) {
-  const res = await fetch(`${URL}/rest/v1/articles?on_conflict=slug`, {
+const upsert = (table, onConflict, row) =>
+  rest(`${table}?on_conflict=${onConflict}`, {
     method: "POST",
-    headers: { ...h, Prefer: "resolution=merge-duplicates,return=minimal" },
-    body: JSON.stringify({ slug, ...row }),
+    headers: { Prefer: "resolution=merge-duplicates,return=minimal" },
+    body: JSON.stringify(row),
   });
-  if (!res.ok) throw new Error(`upsert article ${slug}: ${res.status} ${await res.text()}`);
+
+const patch = (table, filters, body) =>
+  rest(`${table}?${filters}`, { method: "PATCH", headers: { Prefer: "return=minimal" }, body: JSON.stringify(body) });
+
+/* ── Cloudinary upload ────────────────────────────────────────────────────── */
+
+const cache = existsSync(CACHE_PATH) ? JSON.parse(readFileSync(CACHE_PATH, "utf8")) : {};
+let cacheDirty = false;
+
+function sign(params) {
+  const str = Object.keys(params).sort().map((k) => `${k}=${params[k]}`).join("&");
+  return crypto.createHash("sha1").update(str + CS).digest("hex");
 }
 
-/** Patches an existing article row by slug (the v1.1 tree/legacy article rows
- *  are always pre-seeded by scripts/seed.mjs, so this is a partial update). */
-async function patchArticle(slug, patch) {
-  const res = await fetch(`${URL}/rest/v1/articles?slug=eq.${slug}`, {
-    method: "PATCH",
-    headers: { ...h, Prefer: "return=minimal" },
-    body: JSON.stringify(patch),
-  });
-  if (!res.ok) throw new Error(`patch article ${slug}: ${res.status} ${await res.text()}`);
+async function uploadImage(buf, publicId) {
+  // Same bytes at the same public id: already there, skip the round trip. This
+  // is what makes a re-run of a 1,800-image corpus finish in seconds.
+  const key = `${publicId}:${crypto.createHash("sha1").update(buf).digest("hex")}`;
+  if (cache[key]) return cache[key];
+
+  const timestamp = Math.floor(Date.now() / 1000);
+  const form = new FormData();
+  form.append("file", new Blob([buf]));
+  form.append("api_key", CK);
+  form.append("timestamp", String(timestamp));
+  form.append("public_id", publicId);
+  form.append("overwrite", "true");
+  form.append("signature", sign({ overwrite: "true", public_id: publicId, timestamp }));
+  const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD}/image/upload`, { method: "POST", body: form });
+  const json = await res.json();
+  if (!res.ok) throw new Error(`cloudinary ${publicId}: ${JSON.stringify(json)}`);
+  cache[key] = json.public_id;
+  cacheDirty = true;
+  return json.public_id;
 }
 
-/* ── Image upload + photos row builder, shared by both doc kinds ─────────── */
+/** Runs `worker` over `items` with a fixed number of workers in flight. */
+async function pool(items, limit, worker) {
+  const out = new Array(items.length);
+  let next = 0;
+  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, async () => {
+    for (;;) {
+      const i = next++;
+      if (i >= items.length) return;
+      out[i] = await worker(items[i], i);
+    }
+  }));
+  return out;
+}
 
 /**
- * Uploads each classified image to Cloudinary at `guides/<folderSlug>/<category>/<place-or-_category>-<n>`
- * and returns photo rows *without* a city_slug — `folderSlug` is only a
- * Cloudinary path segment (it may be a region slug or "misc" for docs with no
- * single city), never trusted as a `destinations.slug` foreign key. Callers
+ * Uploads classified images under `folder` and returns photo rows without a
+ * `city_slug`: `folder` is a Cloudinary path, never a foreign key. Callers
  * attach the real (possibly null, possibly multi-city) city_slug themselves.
+ * A failed upload is reported and dropped, never silently swallowed.
  */
-async function uploadImages(images, dir, folderSlug, categorySlug) {
-  const counters = new Map();
-  const rows = [];
-  let uploaded = 0;
+async function uploadImages(images, folder, categorySlug, counters = new Map()) {
+  const planned = [];
   for (const img of images) {
-    if (uploaded >= MAX_IMAGES_PER_DOC) break;
-    const abs = join(dir, "word", img.ref);
+    const abs = join(img.dir, "word", img.ref);
     if (!existsSync(abs)) continue;
     const key = img.placeSlug ?? "_category";
     const n = (counters.get(key) ?? 0) + 1;
     counters.set(key, n);
-    const publicId = `guides/${folderSlug}/${categorySlug}/${key}-${n}`;
-    try {
-      const uploadedId = await uploadImage(readFileSync(abs), publicId);
-      rows.push({
-        public_id: uploadedId, category_slug: categorySlug,
-        place_slug: img.placeSlug ?? null, source_url: img.sourceUrl ?? null, sort_order: n,
-      });
-      uploaded++;
-    } catch (e) {
-      console.warn(`  image fail ${publicId}: ${e.message}`);
-    }
+    planned.push({ abs, publicId: `${folder}/${key}-${n}`, placeSlug: img.placeSlug ?? null, sourceUrl: img.sourceUrl ?? null, n });
   }
-  return rows;
+  if (SKIP_IMAGES) {
+    return planned.map((p) => ({
+      public_id: p.publicId, category_slug: categorySlug, place_slug: p.placeSlug,
+      source_url: p.sourceUrl, sort_order: p.n,
+    }));
+  }
+
+  const results = await pool(planned, UPLOAD_CONCURRENCY, async (p) => {
+    try {
+      const id = await uploadImage(readFileSync(p.abs), p.publicId);
+      return {
+        public_id: id, category_slug: categorySlug, place_slug: p.placeSlug,
+        source_url: p.sourceUrl, sort_order: p.n,
+      };
+    } catch (e) {
+      imageFailures.push(`${p.publicId}: ${e.message}`);
+      return null;
+    }
+  });
+  return results.filter(Boolean);
 }
 
-/* ── Category doc ingestion ───────────────────────────────────────────────── */
+/* ── Document loading ─────────────────────────────────────────────────────── */
 
-async function ingestCategoryDoc({ file, citySlug, categorySlug, placeHeadings }) {
-  const extracted = extractDoc(file);
-  if (!extracted) { console.warn(`skip ${citySlug}/${categorySlug}: missing ${file}`); return; }
-  const { blocks, dir } = extracted;
-  const result = classify(blocks, { placeHeadings });
+const imageFailures = [];
+const docLog = [];
+const failures = [];
 
-  const uploaded = await uploadImages(result.images, dir, citySlug, categorySlug);
-  const photoRows = uploaded.map((p) => ({ ...p, city_slug: citySlug }));
-  const heroForPlace = (slug) => photoRows.find((p) => p.place_slug === slug)?.public_id;
-  const categoryHero = photoRows.find((p) => p.place_slug === null)?.public_id;
+/** Extracts one document and classifies it, tagging each image with its temp dir. */
+function loadDoc(entry) {
+  const extracted = extractDoc(join(CORPUS, entry.file));
+  if (!extracted) throw new Error(`missing file: ${entry.file}`);
+  const result = classify(extracted.blocks, {
+    placeHeadings: entry.placeHeadings ?? [],
+    placeLevel: entry.placeLevel ?? "h3",
+  });
+  return {
+    ...result,
+    images: result.images.map((i) => ({ ...i, dir: extracted.dir })),
+    excerpt: extracted.excerpt,
+    blockCount: extracted.blocks.length,
+  };
+}
 
-  await del("places", { city_slug: citySlug, category_slug: categorySlug });
-  await del("photos", { city_slug: citySlug, category_slug: categorySlug });
+const firstParagraph = (blocks) => blocks.find((b) => b.type === "p" && b.text?.trim())?.text ?? "";
+const titleOf = (blocks, fallback) => blocks.find((b) => b.type === "h" && b.text?.trim())?.text ?? fallback;
+const fileSlug = (file) => slugify(file.replace(/\.docx$/i, "").replace(/_/g, " "));
 
-  const placeRows = result.places.map((p, i) => ({
-    slug: p.slug, city_slug: citySlug, category_slug: categorySlug, name: p.name,
-    blurb: p.body[0]?.text?.slice(0, 200) ?? "", body: p.body, good_for: p.goodFor,
-    good_to_know: p.goodToKnow ?? null, hero_public_id: heroForPlace(p.slug) ?? null, sort_order: (i + 1) * 10,
-  }));
+/* ── category documents ───────────────────────────────────────────────────── */
+
+async function ingestCategoryGroup(citySlug, categorySlug, entries) {
+  const counters = new Map();
+  const intro = [];
+  const places = [];
+  const faqs = [];
+  const photoRows = [];
+  const seenSlugs = new Set();
+
+  for (const entry of entries) {
+    const doc = loadDoc(entry);
+    intro.push(...doc.intro);
+    faqs.push(...doc.faqs);
+    for (const p of doc.places) {
+      if (seenSlugs.has(p.slug)) continue; // unique (city, category, slug)
+      seenSlugs.add(p.slug);
+      places.push(p);
+    }
+    photoRows.push(...(await uploadImages(doc.images, `guides/${citySlug}/${categorySlug}`, categorySlug, counters))
+      .map((p) => ({ ...p, city_slug: citySlug })));
+    docLog.push(`  ${entry.file}: ${doc.places.length} places, ${doc.images.length} images, ${doc.faqs.length} faqs`);
+  }
+
+  // Only images whose place actually survived may keep their place tag.
+  for (const p of photoRows) if (p.place_slug && !seenSlugs.has(p.place_slug)) p.place_slug = null;
+
+  const heroFor = (slug) => photoRows.find((p) => p.place_slug === slug)?.public_id ?? null;
+  const categoryHero = photoRows.find((p) => p.place_slug === null)?.public_id ?? null;
+
+  await del("places", `city_slug=eq.${citySlug}&category_slug=eq.${categorySlug}`);
+  await del("photos", `city_slug=eq.${citySlug}&category_slug=eq.${categorySlug}`);
+
+  const placeRows = places.map((p, i) => {
+    const { blurb, body } = splitBlurb(p.body);
+    return {
+      slug: p.slug, city_slug: citySlug, category_slug: categorySlug, name: p.name,
+      blurb,
+      // Never print the standfirst twice: any remaining paragraph identical to
+      // the blurb is the same sentence, not a second one.
+      body: body.filter((b) => !(b.type === "p" && sameText(b.text, blurb))),
+      good_for: p.goodFor, good_to_know: p.goodToKnow ?? null,
+      hero_public_id: heroFor(p.slug), sort_order: (i + 1) * 10,
+    };
+  });
 
   await insertRows("places", placeRows);
   await insertRows("photos", photoRows);
-  if (result.intro.length) {
-    await patchCityCategory(citySlug, categorySlug, {
-      intro: result.intro,
-      ...(categoryHero ? { hero_public_id: categoryHero } : {}),
-    });
-  }
-  if (result.faqs.length) {
+
+  await upsert("city_categories", "city_slug,category_slug", {
+    city_slug: citySlug, category_slug: categorySlug, intro,
+    ...(categoryHero ? { hero_public_id: categoryHero } : {}),
+    published: true,
+  });
+
+  if (faqs.length) {
     const catName = categorySlug.replace(/-/g, " ");
-    await upsertArticle(`${citySlug}-${categorySlug}-faq`, {
-      destination_slug: citySlug, city_slugs: [citySlug], category_slug: categorySlug,
-      title: `${catName[0].toUpperCase()}${catName.slice(1)} FAQs`, category: catName,
-      hero_public_id: categoryHero ?? null, excerpt: result.faqs[0]?.q ?? "", body: [], faqs: result.faqs,
-      sort_order: 999,
+    await upsert("articles", "slug", {
+      slug: `${citySlug}-${categorySlug}-faq`, destination_slug: citySlug, city_slugs: [citySlug],
+      category_slug: categorySlug, title: `${catName[0].toUpperCase()}${catName.slice(1)} FAQs`,
+      category: catName, hero_public_id: categoryHero, excerpt: faqs[0]?.q ?? "", body: [],
+      faqs, sort_order: 999,
     });
   }
-  console.log(`ingested ${citySlug}/${categorySlug}: ${placeRows.length} places, ${photoRows.length} photos, ${result.faqs.length} faqs`);
+
+  return `category ${citySlug}/${categorySlug}: ${placeRows.length} places, ${photoRows.length} photos, ${faqs.length} faqs`;
 }
 
-/* ── Whole-article ingestion (docs that are not category-shaped) ─────────── */
+/* ── hub and hub-whole documents ──────────────────────────────────────────── */
 
-async function ingestWholeArticle({ file, slug, citySlugs, categorySlug, regionSlug }) {
-  const extracted = extractDoc(file);
-  if (!extracted) { console.warn(`skip ${slug}: missing ${file}`); return; }
-  const { blocks, excerpt, dir } = extracted;
-  const result = classify(blocks, { placeHeadings: [] }); // whole doc: nothing is a place
+async function ingestHubGroup(citySlug, entries) {
+  const primaryFile = PRIMARY_HUB[citySlug];
+  const ordered = primaryFile
+    ? [...entries].sort((a, b) => (a.file === primaryFile ? -1 : b.file === primaryFile ? 1 : 0))
+    : entries;
 
-  const folderSlug = citySlugs[0] ?? regionSlug ?? "misc";
-  const uploaded = await uploadImages(result.images, dir, folderSlug, categorySlug);
-  const heroPublicId = uploaded[0]?.public_id;
+  const counters = new Map();
+  const body = [];
+  const faqs = [];
+  const photoRows = [];
+  let standfirst = "";
+  let overview = [];
 
-  const patch = {
-    destination_slug: citySlugs[0] ?? null, city_slugs: citySlugs, category_slug: categorySlug,
-    region_slug: regionSlug ?? null, body: result.intro, faqs: result.faqs,
-  };
-  if (excerpt) patch.excerpt = excerpt;
-  if (heroPublicId) patch.hero_public_id = heroPublicId;
-  await patchArticle(slug, patch);
-
-  if (citySlugs.length) {
-    for (const city of citySlugs) await del("photos", { city_slug: city, category_slug: categorySlug });
-  } else {
-    const res = await fetch(`${URL}/rest/v1/photos?city_slug=is.null&category_slug=eq.${categorySlug}`, { method: "DELETE", headers: { ...h, Prefer: "return=minimal" } });
-    if (!res.ok) throw new Error(`delete photos (region-only): ${res.status} ${await res.text()}`);
+  for (const [i, entry] of ordered.entries()) {
+    const doc = loadDoc(entry);
+    body.push(...doc.intro);
+    faqs.push(...doc.faqs);
+    if (i === 0) {
+      standfirst = (doc.excerpt || firstParagraph(doc.intro)).slice(0, 300);
+      // The hero prints the standfirst and the reading column prints the
+      // overview. A document's meta description is usually the opening of its
+      // first paragraph, so keeping both would print the same words twice.
+      overview = orientationProse(doc.intro).filter((p, n) => !(n === 0 && isRestatementOf(p, standfirst)));
+    }
+    photoRows.push(...(await uploadImages(doc.images, `guides/${citySlug}/hub`, null, counters))
+      .map((p) => ({ ...p, city_slug: citySlug, place_slug: null })));
+    docLog.push(`  ${entry.file}: ${doc.intro.length} blocks, ${doc.images.length} images, ${doc.faqs.length} faqs`);
   }
-  // A cross-city article's images get one photos row per city (same public_id,
-  // cheap to duplicate) so they surface in every relevant gallery; a region-only
-  // article (no citySlugs) gets a single city_slug: null row.
-  const photoRows = citySlugs.length
-    ? citySlugs.flatMap((city) => uploaded.map((p) => ({ ...p, city_slug: city })))
-    : uploaded.map((p) => ({ ...p, city_slug: null }));
+
+  const hero = photoRows[0]?.public_id ?? null;
+
+  // The hub's own photos are the ones with no category. Scope the delete to
+  // those so a re-run cannot take a category guide's gallery with it.
+  await del("photos", `city_slug=eq.${citySlug}&category_slug=is.null`);
   await insertRows("photos", photoRows);
 
-  console.log(`ingested article ${slug}: ${result.intro.filter((b) => b.type !== "img").length} blocks, ${photoRows.length} photos, ${result.faqs.length} faqs`);
+  await patch("destinations", `slug=eq.${citySlug}`, {
+    standfirst,
+    ...(overview.length ? { overview } : {}),
+    ...(hero ? { hero_public_id: hero } : {}),
+  });
+
+  // The full document, headings and all, lives on the geo node. `overview` is
+  // only the orientation prose the hub template prints beside the facts rail;
+  // nothing is lost, because `geo_places.body` holds the whole thing.
+  await patch("geo_places", `slug=eq.${citySlug}&type=eq.town`, {
+    body, standfirst, ...(hero ? { hero_public_id: hero } : {}), updated_at: new Date().toISOString(),
+  });
+
+  if (faqs.length) {
+    await upsert("articles", "slug", {
+      slug: `${citySlug}-faq`, destination_slug: citySlug, city_slugs: [citySlug],
+      title: `${citySlug.replace(/-/g, " ").replace(/(^|\s)\S/g, (c) => c.toUpperCase())} FAQs`,
+      category: "Questions", hero_public_id: hero, excerpt: faqs[0]?.q ?? "", body: [],
+      faqs, sort_order: 998,
+    });
+  }
+
+  return `hub ${citySlug}: ${body.length} blocks, ${overview.length} overview paragraphs, ${photoRows.length} photos, ${faqs.length} faqs`;
 }
 
-for (const entry of DOC_MAP) {
-  try { await ingestCategoryDoc(entry); } catch (e) { console.error(`FAIL ${entry.citySlug}/${entry.categorySlug}: ${e.message}`); }
+/**
+ * The paragraphs that answer "what is this place": everything before the
+ * document's first section heading. Falls back to the opening paragraphs when
+ * a document dives straight into sections.
+ */
+function orientationProse(blocks) {
+  const afterTitle = blocks[0]?.type === "h" ? blocks.slice(1) : blocks;
+  const lead = [];
+  for (const b of afterTitle) {
+    if (b.type === "h") break;
+    if (b.type === "p" && !b.table && b.text?.trim()) lead.push(b.text);
+  }
+  if (lead.length >= 2) return lead.slice(0, 8);
+  return afterTitle.filter((b) => b.type === "p" && !b.table && b.text?.trim()).slice(0, 4).map((b) => b.text);
 }
-for (const entry of ARTICLE_MAP) {
-  try { await ingestWholeArticle(entry); } catch (e) { console.error(`FAIL ${entry.slug}: ${e.message}`); }
+
+/* ── roundup and article documents ────────────────────────────────────────── */
+
+async function ingestArticleDoc(entry) {
+  const doc = loadDoc(entry);
+  const slug = ARTICLE_SLUG[entry.file] ?? fileSlug(entry.file);
+  const citySlugs = ARTICLE_CITIES[entry.file] ?? [];
+  const regionSlug = entry.kind === "roundup" ? ROUNDUP_REGION[entry.file] ?? null : null;
+  const categorySlug = entry.cat ?? CATEGORY_FALLBACK[entry.file] ?? null;
+  const title = titleOf(doc.intro, entry.file.replace(/\.docx$/i, ""));
+
+  const folder = `guides/_articles/${slug}`;
+  const uploaded = await uploadImages(doc.images, folder, categorySlug);
+  const hero = uploaded[0]?.public_id ?? null;
+
+  // Scoped by public id prefix: two roundups can share a category, so a
+  // delete keyed on category alone would wipe the other one's photos.
+  await del("photos", `public_id=like.${encodeURIComponent(`${folder}/*`)}`);
+  const photoRows = citySlugs.length
+    ? citySlugs.flatMap((city) => uploaded.map((p) => ({ ...p, city_slug: city, place_slug: null })))
+    : uploaded.map((p) => ({ ...p, city_slug: null, place_slug: null }));
+  await insertRows("photos", photoRows);
+
+  await upsert("articles", "slug", {
+    slug, title,
+    destination_slug: citySlugs[0] ?? null,
+    city_slugs: citySlugs,
+    region_slug: regionSlug,
+    category_slug: categorySlug,
+    category: categorySlug ? categorySlug.replace(/-/g, " ") : null,
+    excerpt: (doc.excerpt || firstParagraph(doc.intro)).slice(0, 300),
+    body: doc.intro,
+    faqs: doc.faqs,
+    hero_public_id: hero,
+    published: true,
+    sort_order: 100,
+  });
+
+  docLog.push(`  ${entry.file}: ${doc.intro.length} blocks, ${doc.images.length} images, ${doc.faqs.length} faqs`);
+  return `${entry.kind} ${slug}: ${doc.intro.length} blocks, ${photoRows.length} photos, ${doc.faqs.length} faqs`;
 }
-console.log("done");
+
+/* ── Run ──────────────────────────────────────────────────────────────────── */
+
+const only = process.env.ONLY;
+const map = JSON.parse(readFileSync(MAP_PATH, "utf8")).filter((e) => !only || e.file === only);
+
+const kinds = map.reduce((a, e) => ({ ...a, [e.kind]: (a[e.kind] ?? 0) + 1 }), {});
+console.log(`corpus map: ${map.length} documents ${JSON.stringify(kinds)}`);
+
+const missing = map.filter((e) => !existsSync(join(CORPUS, e.file)));
+if (missing.length) {
+  console.error(`ABORT: ${missing.length} mapped documents are not on disk:`);
+  for (const m of missing) console.error(`  ${m.file}`);
+  process.exit(1);
+}
+
+/** Groups whose members must be written together, keyed by their target row. */
+function group(entries, keyOf) {
+  const out = new Map();
+  for (const e of entries) {
+    const k = keyOf(e);
+    if (!out.has(k)) out.set(k, []);
+    out.get(k).push(e);
+  }
+  return out;
+}
+
+const processed = new Set();
+
+async function run(label, files, fn) {
+  docLog.push(label);
+  try {
+    const summary = await fn();
+    for (const f of files) processed.add(f);
+    console.log(`OK   ${summary}`);
+  } catch (e) {
+    failures.push({ files, reason: e.message });
+    console.error(`FAIL ${label}: ${e.message}`);
+  }
+}
+
+const categoryDocs = map.filter((e) => e.kind === "category");
+for (const [key, entries] of group(categoryDocs, (e) => `${e.city}/${e.cat}`)) {
+  const [city, cat] = key.split("/");
+  await run(`category ${key} (${entries.length} doc${entries.length > 1 ? "s" : ""})`,
+    entries.map((e) => e.file), () => ingestCategoryGroup(city, cat, entries));
+}
+
+const hubDocs = map.filter((e) => e.kind === "hub" || e.kind === "hub-whole");
+for (const [city, entries] of group(hubDocs, (e) => e.city)) {
+  await run(`hub ${city} (${entries.length} doc${entries.length > 1 ? "s" : ""})`,
+    entries.map((e) => e.file), () => ingestHubGroup(city, entries));
+}
+
+for (const entry of map.filter((e) => e.kind === "roundup" || e.kind === "article")) {
+  await run(`${entry.kind} ${entry.file}`, [entry.file], () => ingestArticleDoc(entry));
+}
+
+if (cacheDirty) writeFileSync(CACHE_PATH, JSON.stringify(cache, null, 0));
+
+console.log("\n── per document ──");
+for (const line of docLog) console.log(line);
+
+const unprocessed = map.filter((e) => !processed.has(e.file));
+console.log(`\n${processed.size}/${map.length} documents ingested.`);
+if (imageFailures.length) {
+  console.log(`\n${imageFailures.length} image uploads failed:`);
+  for (const f of imageFailures.slice(0, 40)) console.log(`  ${f}`);
+}
+if (unprocessed.length) {
+  console.error(`\nFAILED DOCUMENTS (${unprocessed.length}) — these are failures, not skips:`);
+  for (const e of unprocessed) {
+    const why = failures.find((f) => f.files.includes(e.file))?.reason ?? "not reached";
+    console.error(`  ${e.file} [${e.kind}] -> ${why}`);
+  }
+  process.exit(1);
+}
+console.log("done: every mapped document was ingested.");

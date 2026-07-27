@@ -6,29 +6,26 @@ import { geoPath, type GeoNode } from "@/app/lib/geo-types";
 import { cld } from "@/app/lib/cloudinary";
 import { breadcrumbList, itemList } from "@/app/lib/jsonld";
 import { getDestinationCategories } from "@/app/lib/geo";
-import { CATEGORY_BEST_MONTHS, CATEGORY_BY_SLUG, MONTH_NAME, THEMES, seasonalRank } from "@/app/lib/taxonomy";
+import { CATEGORY_BEST_MONTHS, CATEGORY_BY_SLUG, MONTH_NAME, THEMES } from "@/app/lib/taxonomy";
 import { TopNav } from "@/app/components/landing/TopNav";
 import { Footer } from "@/app/components/landing/Footer";
 import { Breadcrumb } from "@/app/components/nav/Breadcrumb";
 import { SeasonLedger, type LedgerEntry } from "@/app/components/browse/SeasonLedger";
+import { rankForMonth, tierForMonth } from "@/app/components/browse/season";
 import { JsonLd } from "@/app/components/ui/JsonLd";
-import { SectionHead } from "@/app/components/ui/SectionHead";
 
 const SITE = "https://arctrips.com";
 
 /**
- * The full category set for a town, so the destination hub can cap its own
+ * The full subject set for a town, so the destination page can cap its own
  * modules without hiding anything and the whole set is crawlable in one hop.
  *
- * Rendered as the almanac grouped by taxonomy theme rather than as a card
- * grid: on this page the reader is comparing subjects against each other, and
- * a table of twelve shared month columns compares, where a wall of equal
- * cards does not. The theme grouping is the finite taxonomy in
- * `app/lib/taxonomy.ts`, so it holds at 4 guides and at 22.
+ * Rendered as the almanac grouped by taxonomy theme rather than as a second
+ * card grid: on this page the reader is comparing subjects against each other,
+ * and a table of twelve shared month columns compares where a wall of equal
+ * cards does not.
  *
- * A town with no categories 404s rather than rendering an empty grid. That is
- * every Agent Trek city, which imports whole and has no category rows at all
- * (spec assumption A6, AC 5 and AC 18).
+ * A town with no subjects 404s rather than rendering an empty grid.
  */
 export async function ThingsToDoIndex({ town, trail }: { town: GeoNode; trail: GeoNode[] }) {
   const [city, guides] = await Promise.all([getCity(town.slug), getGuidesForCity(town.slug)]);
@@ -44,49 +41,36 @@ export async function ThingsToDoIndex({ town, trail }: { town: GeoNode; trail: G
     return row?.bestMonths?.length ? row.bestMonths : CATEGORY_BEST_MONTHS[slug] ?? [];
   };
 
-  const inSeasonNow = guides.filter((g) => monthsFor(g.categorySlug).includes(month));
+  const atBest = guides.filter((g) => tierForMonth(monthsFor(g.categorySlug), month) === "peak");
   const lead = [...guides].sort(
-    (a, b) => seasonalRank(monthsFor(a.categorySlug), month) - seasonalRank(monthsFor(b.categorySlug), month),
+    (a, b) => rankForMonth(monthsFor(a.categorySlug), month) - rankForMonth(monthsFor(b.categorySlug), month),
   )[0];
 
-  // Grouped by the taxonomy theme, ordered by the taxonomy, with the guides
-  // inside each theme ordered by what is in season now.
-  const entries: LedgerEntry[] = THEMES.flatMap((theme) => {
-    const inTheme = guides
+  const toEntry = (g: (typeof guides)[number], group: string): LedgerEntry => ({
+    slug: g.categorySlug,
+    name: g.name,
+    href: `${todo}/${g.categorySlug}`,
+    months: monthsFor(g.categorySlug),
+    heroPublicId: g.heroPublicId,
+    placeCount: g.placeCount,
+    state: g.state,
+    priceFrom: g.priceFrom,
+    group,
+  });
+
+  const entries: LedgerEntry[] = THEMES.flatMap((theme) =>
+    guides
       .filter((g) => CATEGORY_BY_SLUG.get(g.categorySlug)?.theme === theme.slug)
       .sort(
-        (a, b) => seasonalRank(monthsFor(a.categorySlug), month) - seasonalRank(monthsFor(b.categorySlug), month),
-      );
-    return inTheme.map((g) => ({
-      slug: g.categorySlug,
-      name: g.name,
-      href: `${todo}/${g.categorySlug}`,
-      months: monthsFor(g.categorySlug),
-      heroPublicId: g.heroPublicId,
-      placeCount: g.placeCount,
-      state: g.state,
-      priceFrom: g.priceFrom,
-      group: theme.name,
-    }));
-  });
+        (a, b) => rankForMonth(monthsFor(a.categorySlug), month) - rankForMonth(monthsFor(b.categorySlug), month),
+      )
+      .map((g) => toEntry(g, theme.name)),
+  );
   // Anything outside the finite taxonomy still has to render.
   const grouped = new Set(entries.map((e) => e.slug));
   for (const g of guides) {
-    if (grouped.has(g.categorySlug)) continue;
-    entries.push({
-      slug: g.categorySlug,
-      name: g.name,
-      href: `${todo}/${g.categorySlug}`,
-      months: monthsFor(g.categorySlug),
-      heroPublicId: g.heroPublicId,
-      placeCount: g.placeCount,
-      state: g.state,
-      priceFrom: g.priceFrom,
-      group: "More",
-    });
+    if (!grouped.has(g.categorySlug)) entries.push(toEntry(g, "More"));
   }
-
-  const bookable = guides.filter((g) => g.state === "live" || g.state === "sister").length;
 
   return (
     <>
@@ -101,74 +85,85 @@ export async function ThingsToDoIndex({ town, trail }: { town: GeoNode; trail: G
         `Things to do in ${city.name}`,
       )} />
 
-      <div className="container">
-        <Breadcrumb
-          trail={[
-            { href: "/destinations", label: "Destinations" },
-            ...trail.slice(0, -1).map((n, i) => ({ href: geoPath(trail.slice(0, i + 1)), label: n.name })),
-            { href: base, label: city.name },
-            { label: "Things to do" },
-          ]}
-        />
-      </div>
-
-      {/* The lead guide's own photograph, not the town hero: this page is
-          about the subjects, and it should not open on the same picture the
-          destination page already used. */}
-      <header className="dhero dhero--sm">
-        {lead?.heroPublicId && (
-          <div className="dhero__media">
-            <Image
-              src={cld(lead.heroPublicId, { w: 2000, fit: "limit" })}
-              alt=""
-              fill
-              priority
-              sizes="100vw"
-              style={{ objectFit: "cover" }}
-            />
-          </div>
-        )}
-        <div className="dhero__scrim" aria-hidden="true" />
-        <div className="dhero__inner container">
-          <p className="t-eyebrow t-eyebrow--invert">{city.name}</p>
-          <h1 className="t-h0">Things to do</h1>
-          <p className="dhero__meta">
-            <span><b>{guides.length}</b> guides</span>
-            {inSeasonNow.length > 0 && (
-              <span><b>{inSeasonNow.length}</b> in season in {MONTH_NAME[month - 1]}</span>
-            )}
-            {bookable > 0 && <span><b>{bookable}</b> you can book today</span>}
-          </p>
+      <div className="dx">
+        <div className="container">
+          <Breadcrumb
+            trail={[
+              { href: "/destinations", label: "Destinations" },
+              ...trail.slice(0, -1).map((n, i) => ({ href: geoPath(trail.slice(0, i + 1)), label: n.name })),
+              { href: base, label: city.name },
+              { label: "Things to do" },
+            ]}
+          />
         </div>
-      </header>
 
-      <div className="container">
-        <section className="section">
-          <SectionHead
-            ruled
-            eyebrow="The year"
-            title={`Every guide in ${city.name}, by month`}
-            description={`Each one is an article, and where there is a trip to book it sits inside that article. ${MONTH_NAME[month - 1]} is the highlighted column.`}
-            actionHref={base}
-            actionLabel={`All of ${city.name}`}
-          />
-          <SeasonLedger
-            entries={entries}
-            month={month}
-            caption={`Things to do in ${city.name}, grouped by theme, with the months each suits`}
-          />
+        {/* The lead guide's own photograph, not the town hero: this page is
+            about the subjects, and it should not open on the picture the
+            destination page already used. */}
+        <header className="hero">
+          <div className="container">
+            <div className="hero__b hero__b--sm">
+              {lead?.heroPublicId && (
+                <span className="hero__img">
+                  <Image
+                    src={cld(lead.heroPublicId, { w: 1800, h: 620, fit: "fill" })}
+                    alt=""
+                    fill
+                    priority
+                    sizes="100vw"
+                    style={{ objectFit: "cover" }}
+                  />
+                </span>
+              )}
+              <div className="hero__t">
+                <span className="hero__pill">{city.name}</span>
+                <h1>Things to do</h1>
+                <p className="hero__meta">
+                  <span><b>{guides.length}</b> guides</span>
+                  {atBest.length > 0 && (
+                    <span><b>{atBest.length}</b> at their best in {MONTH_NAME[month - 1]}</span>
+                  )}
+                </p>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section className="sec">
+          <div className="container">
+            <div className="panel panel--azure">
+              <div className="sechead center">
+                <span className="eyebrow">The year</span>
+                <h2>Every month is worth something.</h2>
+                <p className="sub">
+                  Every guide in {city.name}, grouped by what it is, and when each one is at its best. The quiet
+                  months are cheaper and emptier, which is why a lot of people pick them.
+                </p>
+              </div>
+              <SeasonLedger
+                entries={entries}
+                month={month}
+                caption={`Things to do in ${city.name}, grouped by theme, with the months each suits`}
+              />
+            </div>
+          </div>
         </section>
 
-        <section className="section section--open">
-          <div className="closing">
-            <p>
-              <b>Somewhere to sleep.</b> Every guide points back to the same set of cabins, cottages and lodges
-              in {city.name}, so nothing here ends without a way to book.
-            </p>
-            <Link className="btn btn--outline" href={`${base}#stays`}>See stays in {city.name}</Link>
+        <section className="sec sec--flush">
+          <div className="container">
+            <div className="closing">
+              <p>
+                <b>Somewhere to sleep.</b> Every guide points back to the same cabins, cottages and lodges in{" "}
+                {city.name}, so nothing here ends without a way to book.
+              </p>
+              <Link className="btn btn--primary" href={`${base}#stays`}>
+                See stays in {city.name}
+              </Link>
+            </div>
           </div>
         </section>
       </div>
+
       <Footer />
     </>
   );

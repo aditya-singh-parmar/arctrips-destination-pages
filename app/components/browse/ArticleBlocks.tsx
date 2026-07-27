@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { cld } from "@/app/lib/cloudinary";
 import type { ArticleBlock } from "@/app/lib/content";
+import { cleanText } from "./text";
 
 /**
  * Renders ingested block content (headings, paragraphs, bullet lists, tables,
@@ -119,7 +120,9 @@ export function ArticleBlocks({ blocks: raw, lead = true }: { blocks: ArticleBlo
       {blocks.map((b, i) => {
         if (b.type === "h") return <h2 key={i} id={`h-${i}`} className="ar-h2">{b.text}</h2>;
         if (b.type === "p") {
-          return <p key={i} className={i === firstParagraphIndex ? "ar-lead" : "ar-p"}>{b.text}</p>;
+          const text = cleanText(b.text);
+          if (!text) return null;
+          return <p key={i} className={i === firstParagraphIndex ? "ar-lead" : "ar-p"}>{text}</p>;
         }
         if (b.type === "list" && b.items?.length) {
           return (

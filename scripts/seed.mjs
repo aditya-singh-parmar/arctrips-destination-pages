@@ -47,6 +47,61 @@ const uclueletOverview = [
   "It makes a natural base for whale watching, wildlife tours, and long coastal walks, with easy access to Pacific Rim National Park just up the road.",
 ];
 
+/* ── Every town the corpus covers ─────────────────────────────────────────
+   One row per city named in scripts/proposed-map.json, so the 73-document
+   ingest has a destination to attach to and `destinations.slug` foreign keys
+   (places, photos, city_categories, experiences) resolve.
+
+   `standfirst` and `overview` here are deliberately plain placeholders: a
+   destination page only renders when `standfirst` is set (app/lib/content.ts
+   getCity falls back to SEED otherwise), so a city must not 404 in the window
+   between seeding and ingest. scripts/ingest-articles.mjs replaces both with
+   the real copy from that town's hub document. Nothing here makes a factual
+   claim that the corpus does not. */
+const CORPUS_CITIES = [
+  // Vancouver Island. Tofino and Ucluelet are declared above with full content.
+  { slug: "victoria",       name: "Victoria",       province: "British Columbia", region_slug: "vancouver-island" },
+  { slug: "nanaimo",        name: "Nanaimo",        province: "British Columbia", region_slug: "vancouver-island" },
+  { slug: "sooke",          name: "Sooke",          province: "British Columbia", region_slug: "vancouver-island" },
+  { slug: "sidney",         name: "Sidney",         province: "British Columbia", region_slug: "vancouver-island" },
+  { slug: "chemainus",      name: "Chemainus",      province: "British Columbia", region_slug: "vancouver-island" },
+  { slug: "shawnigan-lake", name: "Shawnigan Lake", province: "British Columbia", region_slug: "vancouver-island" },
+  { slug: "nanoose-bay",    name: "Nanoose Bay",    province: "British Columbia", region_slug: "vancouver-island" },
+  { slug: "parksville",     name: "Parksville",     province: "British Columbia", region_slug: "vancouver-island" },
+  { slug: "campbell-river", name: "Campbell River", province: "British Columbia", region_slug: "vancouver-island" },
+  // Sea to Sky.
+  { slug: "squamish",       name: "Squamish",       province: "British Columbia", region_slug: "sea-to-sky" },
+  { slug: "whistler",       name: "Whistler",       province: "British Columbia", region_slug: "sea-to-sky" },
+  // Rest of British Columbia.
+  { slug: "vancouver",      name: "Vancouver",      province: "British Columbia", region_slug: "bc" },
+  { slug: "nelson",         name: "Nelson",         province: "British Columbia", region_slug: "bc" },
+  // Alberta.
+  { slug: "banff",          name: "Banff",          province: "Alberta" },
+  { slug: "jasper",         name: "Jasper",         province: "Alberta" },
+  { slug: "edmonton",       name: "Edmonton",       province: "Alberta" },
+  // Ontario.
+  { slug: "ottawa",         name: "Ottawa",         province: "Ontario" },
+  { slug: "niagara-falls",  name: "Niagara Falls",  province: "Ontario" },
+  // Quebec.
+  { slug: "montreal",       name: "Montreal",       province: "Quebec" },
+  { slug: "quebec-city",    name: "Quebec City",    province: "Quebec" },
+  // Atlantic and prairie.
+  { slug: "halifax",        name: "Halifax",        province: "Nova Scotia" },
+  { slug: "st-johns",       name: "St. John's",     province: "Newfoundland and Labrador" },
+  { slug: "charlottetown",  name: "Charlottetown",  province: "Prince Edward Island" },
+  { slug: "saskatoon",      name: "Saskatoon",      province: "Saskatchewan" },
+];
+
+function corpusCities() {
+  return CORPUS_CITIES.map((c, i) => ({
+    slug: c.slug, name: c.name, region: c.province, region_slug: c.region_slug ?? null,
+    hero_public_id: null, listing_count: 0, coming_soon: false, sort_order: 100 + i,
+    standfirst: `Guides, things to do, and places to stay in ${c.name}, ${c.province}.`,
+    overview: [`Arc Trips covers ${c.name} across the guides below. Browse what there is to do, then find a stay.`],
+    things: [], gallery: [],
+  }));
+}
+
 const destinations = [
   { slug: "tofino", name: "Tofino", region: "British Columbia", region_slug: "vancouver-island", hero_public_id: IMG.coast, listing_count: 134, coming_soon: false, sort_order: 0,
     standfirst: "Storm-swept beaches, old-growth rainforest, and the best surf on the Pacific coast.", overview: tofinoOverview,
@@ -67,8 +122,7 @@ const destinations = [
     ],
     gallery: [IMG.aerial, IMG.coast, IMG.beach, IMG.dayhike, IMG.gallery2, IMG.kayak] },
   { slug: "toronto", name: "Toronto", region: "Ontario", hero_public_id: IMG.beach, listing_count: 0, coming_soon: false, sort_order: 2 },
-  { slug: "montreal", name: "Montreal", region: "Quebec", hero_public_id: IMG.surf, listing_count: 0, coming_soon: true, sort_order: 3 },
-  { slug: "edmonton", name: "Edmonton", region: "Alberta", hero_public_id: IMG.cabinExterior, listing_count: 0, coming_soon: true, sort_order: 4 },
+  ...corpusCities(),
 ];
 
 // Legacy single-city articles (Phase 2). city_slugs added so getArticlesForCity
@@ -90,13 +144,14 @@ const legacyArticles = [
 // Placeholder title/excerpt here; scripts/ingest-articles.mjs overwrites title/body/excerpt/faqs on ingest.
 const treeArticles = [
   { slug: "pacific-rim-whale-festival-guide", destination_slug: "tofino", city_slugs: ["tofino", "ucluelet"], category_slug: "events", title: "Pacific Rim Whale Festival Guide", category: "Events & festivals", hero_public_id: IMG.aerial, excerpt: "The spring festival that marks the gray whale migration through Clayoquot Sound.", sort_order: 10 },
-  { slug: "best-time-to-stay-tofino-ucluelet", destination_slug: "tofino", city_slugs: ["tofino", "ucluelet"], category_slug: "when-to-go", title: "Best Time to Stay in Ucluelet or Tofino", category: "When to go", hero_public_id: IMG.coast, excerpt: "Weather, prices, and what to see across the seasons.", sort_order: 11 },
-  { slug: "tofino-ucluelet-campgrounds", destination_slug: "tofino", city_slugs: ["tofino", "ucluelet"], category_slug: "camping", title: "Tofino & Ucluelet Campgrounds", category: "Camping", hero_public_id: IMG.dayhike, excerpt: "Where to pitch a tent between the two towns.", sort_order: 12 },
   { slug: "whale-tails-blows-and-backs", destination_slug: "tofino", city_slugs: ["tofino", "ucluelet"], category_slug: "whale-watching", title: "Whale Tails, Blows, and Backs", category: "Whale watching", hero_public_id: IMG.aerial, excerpt: "What you're actually seeing on the water.", sort_order: 13 },
   { slug: "how-to-choose-a-vacation-rental", destination_slug: null, city_slugs: [], region_slug: "vancouver-island", category_slug: "when-to-go", title: "How to Choose a Vacation Rental on Vancouver Island", category: "When to go", hero_public_id: IMG.cabinExterior, excerpt: "What to check before you book.", sort_order: 14 },
-  { slug: "ucluelet-whale-watching-guide", destination_slug: "ucluelet", city_slugs: ["ucluelet"], category_slug: "whale-watching", title: "Whale Watching in Ucluelet", category: "Whale watching", hero_public_id: IMG.aerial, excerpt: "Best time and what you might see.", sort_order: 15 },
-  { slug: "ucluelet-whale-watching-tours", destination_slug: "ucluelet", city_slugs: ["ucluelet"], category_slug: "whale-watching", title: "Whale Watching Tours in Ucluelet", category: "Whale watching", hero_public_id: IMG.aerial, excerpt: "What to expect, how to choose, and booking tips.", sort_order: 16 },
-  { slug: "ucluelet-whale-spring-migration", destination_slug: "ucluelet", city_slugs: ["ucluelet"], category_slug: "whale-watching", title: "Whales in Ucluelet: The Spring Migration Explained", category: "Whale watching", hero_public_id: IMG.aerial, excerpt: "Why spring is special for gray whales off Ucluelet.", sort_order: 17 },
+  // Five documents that used to be seeded as whole articles are no longer
+  // article-shaped in the reviewed corpus map: Best Time to Stay and the three
+  // Ucluelet whale documents are now city+category content, and Campgrounds is
+  // the tofino/camping category page. Seeding empty rows for them would leave
+  // five bodyless articles in the index, so they are gone from here and
+  // scripts/ingest-articles.mjs writes them to their real homes instead.
 ];
 
 const articles = [...legacyArticles, ...treeArticles];
@@ -130,9 +185,17 @@ const reviews = [
 
 /* ── v1.1 tree seed: duplicated from app/lib/taxonomy.ts, keep in sync ────── */
 
+// `regions` is the v1.1 region table that `destinations.region_slug` and
+// `articles.region_slug` point at. The corpus' cross-city roundups are scoped
+// to one of these two, so both must exist before ingest or the foreign key
+// rejects the row.
 const regions = [
   { slug: "vancouver-island", name: "Vancouver Island", hero_public_id: IMG.coast,
     blurb: "Rainforest, surf beaches, and whale-watching water on Canada's Pacific coast.", sort_order: 0 },
+  { slug: "sea-to-sky", name: "Sea to Sky", hero_public_id: IMG.dayhike,
+    blurb: "The corridor from Squamish to Whistler: granite walls, bike parks, and alpine trails.", sort_order: 10 },
+  { slug: "bc", name: "British Columbia", hero_public_id: IMG.aerial,
+    blurb: "Coast, mountains and interior lakes across Canada's westernmost province.", sort_order: 20 },
 ];
 
 const categories = [

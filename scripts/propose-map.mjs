@@ -9,7 +9,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 const S = JSON.parse(readFileSync(new URL("./corpus-structure.json", import.meta.url), "utf8"));
 
 const NOT_PLACES =
-  /frequently asked|^faq|common questions|final thought|final word|what to (wear|bring|pack|see|expect)|safety|^tips|helpful tips|etiquette|best time|^why |beginners?\b|what makes|how to|vs |compare|\bevents?\b|by season|common (birds|wildlife)|what wildlife|rentals|lessons|costs?$|getting (there|around)|where to stay|packing|types? of|what you might see|seasons?$|wildlife to see|good to know|about /i;
+  /frequently asked|^faq|common questions|final thought|final word|what to (wear|bring|pack|see|expect)|safety|^tips|helpful tips|etiquette|best time|^why |beginners?\b|what makes|how to|vs |compare|\bevents?\b|by season|common (sea)?birds?|coastal birds|(sea)?birds and|species|wildlife you|marine life|what wildlife|rentals|lessons|costs?$|getting (there|around)|where to stay|packing|types? of|what you might see|seasons?$|wildlife to see|good to know|about /i;
 
 const CITY = [
   [/Tofino/i, "tofino"], [/Ucluelet/i, "ucluelet"], [/Victoria/i, "victoria"],
@@ -32,13 +32,26 @@ const CAT = [
   [/Restaurant|Food/i, "restaurants"], [/Market/i, "markets"],
   [/Scenic|Things to See/i, "landmarks"], [/Wildlife/i, "birding"],
 ];
+/**
+ * Documents whose filename does not carry their subject. Every entry here was
+ * read off the document's own H1, never inferred from the title alone.
+ *   Nelson.docx        H1 "Best Mountain Biking in Nelson, BC: Trail Zones..."
+ *   Whistler in Summer / Winter in Whistler are seasonal guides, not hubs, and
+ *   two hubs for one town would collide.
+ */
+const OVERRIDE = {
+  "Nelson.docx":            { kind: "category", city: "nelson", cat: "mountain-biking" },
+  "Whistler in Summer.docx": { kind: "article",  city: "whistler", cat: null },
+  "Winter in Whistler.docx": { kind: "article",  city: "whistler", cat: null },
+};
+
 const pick = (list, s) => (list.find(([re]) => re.test(s)) || [])[1];
 
 const out = [];
 for (const [file, d] of Object.entries(S)) {
   if (d.error) { out.push({ file, error: d.error }); continue; }
-  const city = pick(CITY, file);
-  const cat = pick(CAT, file);
+  let city = pick(CITY, file);
+  let cat = pick(CAT, file);
   // An H2 with children that is not a known non-place section.
   const placeHeadings = Object.entries(d.groups)
     .filter(([h2, kids]) => kids.length >= 2 && !NOT_PLACES.test(h2))
@@ -56,6 +69,8 @@ for (const [file, d] of Object.entries(S)) {
   // "Top 10 Scenic Spots" style docs put each place at H2 with a leading
   // ordinal, so the places live one level up and there is no whitelist.
   const placeLevel = kind === "category" && numberedH2.length >= 5 ? "h2" : "h3";
+  const ov = OVERRIDE[file];
+  if (ov) { kind = ov.kind; city = ov.city; cat = ov.cat; }
   out.push({ file, kind, city, cat, words: d.words, images: d.images, placeLevel,
              placeHeadings: kind === "category" && placeLevel === "h3" ? placeHeadings : [],
              numberedH2: numberedH2.length, h2count: d.h2.length });

@@ -8,10 +8,9 @@ import { breadcrumbList, itemList } from "@/app/lib/jsonld";
 import { TopNav } from "@/app/components/landing/TopNav";
 import { Footer } from "@/app/components/landing/Footer";
 import { Breadcrumb } from "@/app/components/nav/Breadcrumb";
-import { Rail } from "@/app/components/browse/Rail";
-import { ListingCard } from "@/app/components/landing/ListingCard";
+import { StayPicks } from "@/app/components/guide/StayPicks";
+import { trimText } from "@/app/components/browse/text";
 import { JsonLd } from "@/app/components/ui/JsonLd";
-import { SectionHead } from "@/app/components/ui/SectionHead";
 
 const SITE = "https://arctrips.com";
 
@@ -25,15 +24,13 @@ export const TRAVELLER_PROFILES = [
 ];
 
 /**
- * Planning index for a town. Browse the practical pieces, filter by traveller
- * profile through query parameters.
+ * Planning for a town: the practical pieces, filtered by traveller profile
+ * through query parameters.
  *
- * Reading-first, so it opens typographically rather than on a photograph: the
- * destination page and the things-to-do page both open on imagery, and three
- * photographic heroes in a row down one branch of the tree is monotony. The
- * pieces themselves are a ruled index, not a card grid, with a sticky stays
- * rail carrying the page's single primary action, since a guest reading about
- * when to go is exactly the guest who needs somewhere to sleep.
+ * Opens typographically rather than on a photograph. The destination page and
+ * the things-to-do page both open on imagery, and three photographic banners
+ * in a row down one branch is monotony. The pieces are a plain index in the
+ * centred column, because a list should read as a list.
  *
  * A town with no planning pieces 404s rather than rendering empty.
  */
@@ -56,7 +53,6 @@ export async function PlanIndex({
   const base = geoPath(trail);
   const plan = `${base}/plan`;
   const active = TRAVELLER_PROFILES.find((p) => p.slug === profile);
-  const stayFrom = listings.length ? Math.min(...listings.map((l) => l.pricePerNight)) : undefined;
 
   return (
     <>
@@ -71,115 +67,106 @@ export async function PlanIndex({
         `Planning guides for ${city.name}`,
       )} />
 
-      <div className="container">
-        <Breadcrumb
-          trail={[
-            { href: "/destinations", label: "Destinations" },
-            ...trail.slice(0, -1).map((n, i) => ({ href: geoPath(trail.slice(0, i + 1)), label: n.name })),
-            { href: base, label: city.name },
-            { label: "Plan your trip" },
-          ]}
-        />
-
-        <header className="geohead">
-          <span className="t-eyebrow">{city.name}</span>
-          <h1 className="t-h0">Plan your trip</h1>
-          <p className="geohead__sub">
-            Not things to do, but the questions that decide the trip: weather, prices, crowds, and whether the
-            month you were thinking of is a mistake.
-          </p>
-        </header>
-
-        <div className="chiprow section section--dense" role="group" aria-label="Filter by traveller">
-          <Link className={active ? "chip" : "chip chip--on"} href={plan}>Everyone</Link>
-          {TRAVELLER_PROFILES.map((p) => (
-            <Link
-              key={p.slug}
-              className={active?.slug === p.slug ? "chip chip--on" : "chip"}
-              href={`${plan}?for=${p.slug}`}
-            >
-              {p.name}
-            </Link>
-          ))}
+      <div className="dx">
+        <div className="container">
+          <Breadcrumb
+            trail={[
+              { href: "/destinations", label: "Destinations" },
+              ...trail.slice(0, -1).map((n, i) => ({ href: geoPath(trail.slice(0, i + 1)), label: n.name })),
+              { href: base, label: city.name },
+              { label: "Plan your trip" },
+            ]}
+          />
         </div>
 
-        {active && (
-          <p className="softnote">
-            Showing everything, filtered for {active.name.toLowerCase()}. Profile tagging arrives with the
-            corpus import, so this view is not yet narrowed.
-          </p>
-        )}
+        <section className="sec">
+          <div className="container">
+            <div className="sechead center">
+              <span className="eyebrow">{city.name}</span>
+              <h2 style={{ fontSize: "clamp(2rem, 4vw, 2.6rem)" }}>Plan your trip.</h2>
+              <p className="sub">
+                Not things to do, but the questions that decide the trip: weather, prices, crowds, and whether the
+                month you were thinking of is a mistake.
+              </p>
+            </div>
 
-        <section className="section section--flush" style={{ paddingTop: "var(--s-6)" }}>
-          <div className="spread spread--wide">
-            <div className="spread__main">
-              <SectionHead
-                ruled
-                eyebrow={`${planning.length} piece${planning.length === 1 ? "" : "s"}`}
-                title="Before you book anything"
-              />
+            <div className="chiprow" role="group" aria-label="Filter by traveller">
+              <Link className={active ? "chip" : "chip chip--on"} href={plan}>Everyone</Link>
+              {TRAVELLER_PROFILES.map((p) => (
+                <Link
+                  key={p.slug}
+                  className={active?.slug === p.slug ? "chip chip--on" : "chip"}
+                  href={`${plan}?for=${p.slug}`}
+                >
+                  {p.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="sec sec--flush">
+          <div className="container">
+            <div className="col">
+              {active && (
+                <p className="softnote" style={{ marginBottom: 24 }}>
+                  Showing everything, filtered for {active.name.toLowerCase()}. Profile tagging arrives with the
+                  rest of the corpus, so this view is not yet narrowed.
+                </p>
+              )}
               <div className="idx">
                 {planning.map((a) => (
                   <Link className="idx__row" key={a.slug} href={`/guides/${a.slug}`}>
                     <span className="idx__media">
                       <Image
-                        src={a.heroPublicId ? cld(a.heroPublicId, { w: 464, h: 348, fit: "fill" }) : placeholder(464, 348)}
+                        src={a.heroPublicId ? cld(a.heroPublicId, { w: 288, h: 216, fit: "fill" }) : placeholder(288, 216)}
                         alt=""
-                        width={232}
-                        height={174}
-                        sizes="116px"
+                        width={288}
+                        height={216}
+                        sizes="96px"
                       />
                     </span>
-                    <span className="idx__b">
+                    <span>
                       <span className="idx__t">{a.title}</span>
-                      {a.excerpt && <span className="idx__d">{a.excerpt}</span>}
+                      {a.excerpt && <span className="idx__d">{trimText(a.excerpt, 140)}</span>}
                     </span>
                     <span className="idx__v">Read</span>
                   </Link>
                 ))}
               </div>
             </div>
-
-            <aside className="spread__rail brief">
-              <p className="t-eyebrow">While you decide</p>
-              <dl className="spec">
-                <div className="spec__row">
-                  <dt className="spec__k">Stays</dt>
-                  <dd className="spec__v">
-                    {city.listingCount}
-                    {stayFrom !== undefined && <span className="spec__note">From ${stayFrom} a night</span>}
-                  </dd>
-                </div>
-                <div className="spec__row">
-                  <dt className="spec__k">Destination</dt>
-                  <dd className="spec__v"><Link href={base}>{city.name}</Link></dd>
-                </div>
-                <div className="spec__row">
-                  <dt className="spec__k">Things to do</dt>
-                  <dd className="spec__v"><Link href={`${base}/things-to-do`}>All guides</Link></dd>
-                </div>
-              </dl>
-              <Link className="btn btn--primary btn--block" href="#stays">
-                See {city.listingCount} stays
-              </Link>
-              <p className="brief__fine">Real availability and pricing, booked on Arc Trips.</p>
-            </aside>
           </div>
         </section>
 
         {listings.length > 0 && (
-          <section className="section section--open" id="stays" style={{ scrollMarginTop: 96 }}>
-            <Rail
-              title={`Where to stay in ${city.name}`}
-              subtitle={`${city.listingCount} cabins, cottages and lodges${stayFrom ? `, from $${stayFrom} a night` : ""}`}
-            >
-              {listings.slice(0, 8).map((l) => (
-                <ListingCard key={l.id} listing={l} variant="holiday" />
-              ))}
-            </Rail>
+          <section className="sec sec--flush" id="stays" style={{ scrollMarginTop: 88 }}>
+            <div className="container">
+              <StayPicks
+                listings={listings}
+                cityName={city.name}
+                stayCount={city.listingCount}
+                seeAllHref={`${base}#stays`}
+                heading={`While you decide, three places to stay in ${city.name}.`}
+              />
+            </div>
           </section>
         )}
+
+        <section className="sec sec--flush">
+          <div className="container">
+            <div className="closing">
+              <p>
+                <b>Ready to pick a month?</b> The almanac in {city.name} shows every guide against the whole year,
+                so you can see what {city.name} is for in the month you were thinking of.
+              </p>
+              <Link className="btn btn--primary" href={`${base}/things-to-do`}>
+                See the year in {city.name}
+              </Link>
+            </div>
+          </div>
+        </section>
       </div>
+
       <Footer />
     </>
   );
