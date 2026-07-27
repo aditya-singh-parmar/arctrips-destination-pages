@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Destinations, Arc Trips</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════════════════════════════
+   ARC TRIPS, /destinations
+   Structure from the Globe Trekker reference: hero with an offset image
+   collage over a mapped ground, a filtered destination grid, a feature plus
+   list reading block, a voice block, a full-bleed capture band, a real footer.
+   Craft elements carried over from tofino-info in Website-Builder: the
+   nautical chart ground with depth soundings, the hand-drawn underline, the
+   dotted route, the tide strip.
+   Palette and typeface are locked: azure action, emerald season, navy ink,
+   Inter throughout, Satoshi for the wordmark only.
+   ══════════════════════════════════════════════════════════════════════════ */
+:root{
+  --a100:#EAF2FB; --a200:#D4E4F6; --a250:#BED7F1; --a300:#A9C9EC; --a400:#7EAFDF;
+  --azure:#2874BA; --a700:#21639E; --a800:#1A4F7E; --navy:#0B3356;
+  --emerald:#3A9679; --em700:#2F7D64; --em100:#E8F4F0; --em300:#A6D5C6;
+  --paper:#FFFFFF; --n50:#F9F9F9; --n100:#EBEBEB; --n150:#E5E6E7; --n200:#D1D3D5;
+  --n400:#A3A7AD; --n500:#7F8490; --n600:#5F616C; --n700:#474B53; --n800:#26272E; --n900:#181A1E;
+  --wrap:1200px; --gut:clamp(20px,4vw,40px); --pad:clamp(64px,7vw,104px);
+  --ease:cubic-bezier(.16,1,.3,1);
+  --r:14px; --r-sm:9px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-size:17px;line-height:1.65;
+  color:var(--n800);background:var(--paper);-webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;overflow-x:hidden;position:relative;
+}
+em,i{font-style:normal;font-weight:600}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button{font:inherit;cursor:pointer;border:0;background:none}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
+h1,h2,h3,h4{color:var(--navy);letter-spacing:-.028em;font-weight:800;line-height:1.06;text-wrap:balance}
+h1{font-size:clamp(2.7rem,5.6vw,4.4rem)}
+h2{font-size:clamp(1.9rem,3.2vw,2.7rem)}
+h3{font-size:1.22rem;font-weight:700;letter-spacing:-.012em;line-height:1.28}
+.lede{font-size:clamp(1.05rem,1.4vw,1.22rem);line-height:1.6;color:var(--n700);max-width:52ch}
+.label{font-size:.71rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--azure)}
+.label--n{color:var(--n500)}
+.tnum{font-variant-numeric:tabular-nums}
+.sec{padding-block:var(--pad)}
+
+/* ── The chart ground. Depth soundings and contour lines from the real
+      bathymetry idea in tofino-info, in azure tints so it sits under
+      everything without competing. ─────────────────────────────────────── */
+.chart{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5}
+.chart svg{width:100%;height:100%}
+body>*:not(.chart){position:relative;z-index:1}
+
+/* ── nav, with the global search as a real control ──────────────────────── */
+nav.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--n150)}
+.nav-in{display:flex;align-items:center;gap:clamp(16px,2.4vw,34px);height:70px}
+.brand{font-family:Satoshi,Inter,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.045em;font-size:1.02rem;color:var(--navy);flex:none}
+.nav-links{display:flex;gap:clamp(14px,2vw,26px);list-style:none;font-size:.94rem;font-weight:500}
+.nav-links a{color:var(--n600)}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--navy)}
+.nav-links a[aria-current]{font-weight:600}
+.search{
+  margin-left:auto;display:flex;align-items:center;gap:10px;height:42px;
+  border:1px solid var(--n200);border-radius:999px;padding:0 6px 0 16px;min-width:clamp(200px,26vw,340px);
+  background:var(--paper);transition:border-color .2s var(--ease),box-shadow .2s var(--ease);
+}
+.search:focus-within{border-color:var(--azure);box-shadow:0 0 0 3px var(--a100)}
+.search svg{width:17px;height:17px;color:var(--n500);flex:none}
+.search input{flex:1;border:0;outline:0;font-size:.93rem;color:var(--n900);background:none;min-width:0}
+.search input::placeholder{color:var(--n500)}
+.search kbd{
+  font:inherit;font-size:.7rem;font-weight:600;color:var(--n500);border:1px solid var(--n150);
+  border-radius:5px;padding:3px 7px;background:var(--n50);flex:none;
+}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:600;font-size:.93rem;
+  padding:12px 22px;border-radius:999px;transition:background .22s var(--ease),color .22s var(--ease),border-color .22s var(--ease),transform .22s var(--ease)}
+.btn--primary{background:var(--azure);color:#fff}
+.btn--primary:hover{background:var(--a700)}
+.btn--ink{background:var(--navy);color:#fff}
+.btn--ink:hover{background:var(--a800)}
+.btn--ghost{border:1px solid var(--n200);color:var(--navy)}
+.btn--ghost:hover{border-color:var(--navy)}
+.btn--sm{padding:9px 17px;font-size:.87rem}
+@media(max-width:980px){.nav-links{display:none}}
+@media(max-width:620px){.search kbd{display:none}.search{min-width:0}}
+
+/* ── hero ───────────────────────────────────────────────────────────────── */
+.hero{padding-block:clamp(48px,6vw,84px) clamp(36px,5vw,64px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);gap:clamp(28px,5vw,72px);align-items:center}
+@media(max-width:940px){.hero-grid{grid-template-columns:1fr;gap:40px}}
+.hero h1{max-width:13ch}
+/* the hand-drawn underline, straight from tofino-info's marks */
+.mark{position:relative;display:inline-block;color:var(--azure);white-space:nowrap}
+.mark svg{position:absolute;left:-2%;bottom:-.24em;width:104%;height:.34em;color:var(--emerald);overflow:visible}
+.hero .lede{margin-top:22px}
+.hero-cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap;align-items:center}
+.hero-facts{display:flex;gap:clamp(20px,3vw,40px);margin-top:34px;padding-top:22px;border-top:1px solid var(--n150);flex-wrap:wrap}
+.hero-facts div{min-width:74px}
+.hero-facts dt{font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;color:var(--n500);font-weight:700}
+.hero-facts dd{font-size:1.62rem;font-weight:800;color:var(--navy);letter-spacing:-.03em;margin-top:4px;font-variant-numeric:tabular-nums}
+
+/* the offset collage over a mapped ground */
+.collage{position:relative;aspect-ratio:1/.92;min-height:380px}
+.coast{position:absolute;inset:-6% -4%;z-index:0;color:var(--a200);opacity:.85}
+.coast svg{width:100%;height:100%}
+.plate{position:absolute;border-radius:var(--r);overflow:hidden;box-shadow:0 18px 42px -18px rgba(11,51,86,.34),0 2px 8px rgba(11,51,86,.06);background:var(--n100)}
+.plate img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.plate:hover img{transform:scale(1.045)}
+.plate figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 16px 12px;color:#fff;font-size:.8rem;font-weight:600;letter-spacing:.01em;
+  background:linear-gradient(180deg,rgba(11,51,86,0),rgba(11,51,86,.82))}
+.p1{left:0;top:6%;width:47%;height:74%;z-index:2}
+.p2{right:0;top:0;width:44%;height:41%;z-index:1}
+.p3{right:6%;bottom:0;width:47%;height:45%;z-index:3}
+.route{position:absolute;inset:0;z-index:4;pointer-events:none;color:var(--emerald)}
+.route svg{width:100%;height:100%;overflow:visible}
+.dash{stroke-dasharray:5 8;stroke-linecap:round;animation:march 30s linear infinite}
+@keyframes march{to{stroke-dashoffset:-260}}
+.seal{position:absolute;left:47%;top:44%;z-index:5;width:78px;height:78px;color:var(--a400);opacity:.9}
+@media(max-width:940px){.collage{aspect-ratio:1/.78}}
+@media(max-width:560px){.collage{min-height:320px}.seal{display:none}}
+
+/* ── tide strip, carried over from tofino-info ──────────────────────────── */
+.tide{background:var(--n50);border-block:1px solid var(--n150)}
+.tide-in{display:flex;align-items:center;gap:clamp(16px,3vw,38px);padding-block:15px;flex-wrap:wrap}
+.tide-in .label{flex:none}
+.tide-read{display:flex;gap:clamp(14px,2.4vw,30px);flex-wrap:wrap;font-size:.87rem;color:var(--n600)}
+.tide-read b{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+.tide-wave{flex:1;min-width:170px;height:26px;color:var(--a300)}
+.tide-wave svg{width:100%;height:100%}
+
+/* ── section heads ──────────────────────────────────────────────────────── */
+.head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:30px}
+.head p{color:var(--n600);margin-top:9px;max-width:54ch;font-size:.99rem}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:22px 0 26px}
+.tab{font-size:.9rem;font-weight:600;color:var(--n600);padding:8px 15px;border-radius:999px;border:1px solid transparent;transition:all .2s var(--ease)}
+.tab:hover{color:var(--navy)}
+.tab[aria-pressed="true"]{background:var(--navy);color:#fff}
+.tab[data-soon]{color:var(--n400)}
+
+/* ── destination grid ───────────────────────────────────────────────────── */
+.dgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.6vw,20px)}
+@media(max-width:1000px){.dgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.dgrid{grid-template-columns:1fr}}
+.dest{display:block;position:relative}
+.dest__m{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:3/3.9;background:var(--n100);box-shadow:0 14px 30px -18px rgba(11,51,86,.3)}
+.dest__m img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.dest:hover .dest__m img{transform:scale(1.05)}
+.dest__badge{position:absolute;left:12px;top:12px;background:rgba(255,255,255,.94);color:var(--em700);font-size:.68rem;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+.dest__season{position:absolute;left:12px;right:12px;bottom:12px;display:flex;gap:2px}
+.dest__season i{flex:1;height:5px;border-radius:2px;background:rgba(255,255,255,.42);font-style:normal}
+.dest__season i[data-on]{background:var(--em300)}
+.dest__season i[data-now]{outline:1.5px solid #fff;outline-offset:1px}
+.dest h3{margin-top:15px}
+.dest__meta{font-size:.88rem;color:var(--n500);margin-top:4px}
+.dest--soon .dest__m{background:var(--n100)}
+.dest--soon .dest__m img{filter:grayscale(1);opacity:.44}
+.dest--soon h3{color:var(--n500)}
+
+/* ── almanac ledger ─────────────────────────────────────────────────────── */
+.almanac{background:var(--navy);color:#fff;border-radius:clamp(16px,2vw,22px);padding:clamp(28px,4vw,52px);overflow:hidden;position:relative}
+.almanac h2,.almanac h3{color:#fff}
+.almanac .head p{color:rgba(255,255,255,.72)}
+.almanac .label{color:var(--a300)}
+.led{width:100%;border-collapse:collapse}
+.led th{text-align:left;font-size:.68rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.56);
+  padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.2)}
+.led td{padding:15px 0;border-bottom:1px solid rgba(255,255,255,.12);vertical-align:middle}
+.led tr:last-child td{border-bottom:0}
+.led__s{font-size:1.06rem;font-weight:700;color:#fff;letter-spacing:-.015em}
+.led__w{font-size:.83rem;color:rgba(255,255,255,.6);margin-top:2px}
+.mon{display:flex;gap:3px}
+.mon i{width:20px;height:21px;border-radius:3px;display:grid;place-items:center;font-style:normal;font-size:.58rem;font-weight:700;
+  background:rgba(255,255,255,.09);color:rgba(255,255,255,.42)}
+.mon i[data-on]{background:var(--emerald);color:#fff}
+.mon i[data-now]{outline:1.5px solid #fff;outline-offset:1.5px}
+.led__b{text-align:right;white-space:nowrap;font-size:.88rem;color:rgba(255,255,255,.72);font-variant-numeric:tabular-nums}
+.led__b b{color:#fff}
+.pill{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:4px 9px;border-radius:999px}
+.pill--go{background:var(--emerald);color:#fff}
+.pill--soon{background:rgba(255,255,255,.14);color:rgba(255,255,255,.8)}
+.almanac__legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:22px;font-size:.8rem;color:rgba(255,255,255,.6)}
+.sw{width:11px;height:11px;border-radius:3px;display:inline-block;vertical-align:-1px;margin-right:6px;background:rgba(255,255,255,.12)}
+.sw--on{background:var(--emerald)}
+@media(max-width:800px){.led__mon,.led__thumb{display:none}}
+
+/* ── reading block: one feature plus a list ─────────────────────────────── */
+.read{display:grid;grid-template-columns:1.18fr 1fr;gap:clamp(26px,3.4vw,48px)}
+@media(max-width:900px){.read{grid-template-columns:1fr}}
+.feat__m{border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;background:var(--n100)}
+.feat__m img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.feat:hover .feat__m img{transform:scale(1.04)}
+.feat h3{font-size:1.62rem;font-weight:800;margin-top:18px;line-height:1.14}
+.feat p{color:var(--n600);margin-top:10px;font-size:.99rem;max-width:56ch}
+.kmeta{display:flex;gap:10px;align-items:center;font-size:.79rem;color:var(--n500);margin-top:12px;flex-wrap:wrap}
+.kmeta .k{color:var(--azure);font-weight:700;letter-spacing:.09em;text-transform:uppercase;font-size:.68rem}
+.dot{width:3px;height:3px;border-radius:50%;background:var(--n300)}
+.rlist{display:flex;flex-direction:column}
+.ritem{display:grid;grid-template-columns:112px 1fr;gap:16px;padding:18px 0;border-top:1px solid var(--n150);align-items:start}
+.ritem:first-child{border-top:0;padding-top:0}
+.ritem__m{border-radius:var(--r-sm);overflow:hidden;aspect-ratio:4/3;background:var(--n100)}
+.ritem__m img{width:100%;height:100%;object-fit:cover}
+.ritem h4{font-size:1rem;font-weight:700;line-height:1.32;margin-top:5px;color:var(--navy)}
+.ritem:hover h4{color:var(--azure)}
+
+/* ── voice ──────────────────────────────────────────────────────────────── */
+.voice{display:grid;grid-template-columns:1fr 1.04fr;gap:clamp(28px,4vw,60px);align-items:center}
+@media(max-width:900px){.voice{grid-template-columns:1fr}}
+.quote{font-size:clamp(1.24rem,2vw,1.62rem);line-height:1.42;color:var(--navy);font-weight:600;letter-spacing:-.02em;margin-top:20px}
+.who{display:flex;align-items:center;gap:13px;margin-top:24px}
+.who__a{width:46px;height:46px;border-radius:50%;object-fit:cover;flex:none}
+.who b{display:block;color:var(--navy);font-size:.96rem}
+.who span{font-size:.85rem;color:var(--n500)}
+.stars{color:var(--emerald);letter-spacing:.16em;font-size:.82rem;margin-top:14px}
+.vmedia{display:grid;grid-template-columns:1.3fr 1fr;gap:14px}
+.vmedia figure{border-radius:var(--r);overflow:hidden;position:relative;background:var(--n100)}
+.vmedia img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
+.play{position:absolute;inset:0;display:grid;place-items:center}
+.play span{width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,.94);display:grid;place-items:center;box-shadow:0 6px 18px rgba(11,51,86,.24)}
+.play svg{width:17px;height:17px;color:var(--navy);margin-left:2px}
+.vcap{font-size:.82rem;color:var(--n600);margin-top:10px}
+
+/* ── capture band ───────────────────────────────────────────────────────── */
+.band{position:relative;overflow:hidden;border-radius:clamp(16px,2vw,22px);isolation:isolate;min-height:330px;display:flex;align-items:center}
+.band>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.band::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,rgba(11,51,86,.9) 0%,rgba(11,51,86,.72) 46%,rgba(11,51,86,.34) 100%)}
+.band-in{padding:clamp(30px,4vw,54px);max-width:640px}
+.band h2{color:#fff;max-width:17ch}
+.band p{color:rgba(255,255,255,.84);margin-top:13px;font-size:1rem;max-width:46ch}
+.form{display:flex;gap:9px;margin-top:24px;flex-wrap:wrap}
+.form input{flex:1;min-width:210px;height:48px;border-radius:999px;border:0;padding:0 20px;font-size:.95rem;font-family:inherit;color:var(--n900)}
+.form input:focus{outline:2px solid var(--a300);outline-offset:2px}
+.consent{display:flex;gap:9px;align-items:flex-start;margin-top:14px;font-size:.79rem;color:rgba(255,255,255,.74);max-width:46ch}
+.consent input{margin-top:3px;accent-color:var(--emerald)}
+
+/* ── footer ─────────────────────────────────────────────────────────────── */
+footer.f{border-top:1px solid var(--n150);margin-top:var(--pad);padding-block:clamp(44px,5vw,64px) 30px;background:var(--n50)}
+.fgrid{display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:clamp(22px,3vw,40px)}
+@media(max-width:900px){.fgrid{grid-template-columns:repeat(2,1fr)}}
+.fgrid h5{font-size:.71rem;letter-spacing:.14em;text-transform:uppercase;color:var(--n500);font-weight:700;margin-bottom:14px}
+.fgrid ul{list-style:none;display:flex;flex-direction:column;gap:9px;font-size:.9rem;color:var(--n600)}
+.fgrid a:hover{color:var(--azure)}
+.fbrand{font-family:Satoshi,Inter,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.045em;color:var(--navy);font-size:1.02rem}
+.fnote{font-size:.87rem;color:var(--n600);margin-top:13px;max-width:34ch;line-height:1.6}
+.fbase{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-top:clamp(34px,4vw,52px);padding-top:22px;border-top:1px solid var(--n150);font-size:.83rem;color:var(--n500)}
+.cbar{background:var(--navy);color:#fff;font-size:.8rem;padding:9px 0}
+.cbar a{color:var(--a250);font-weight:600}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="cbar"><div class="wrap"><b>Concept D.</b> Globe Trekker structure, tofino-info craft. <a href="index.html">Earlier concepts</a></div></div>
+
+<!-- the chart ground: contours and depth soundings -->
+<div class="chart" aria-hidden="true">
+<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none">
+  <g stroke="var(--a200)" stroke-width="1" opacity=".72">
+    <path d="M-40 250 C160 200 300 300 420 280 C560 258 640 150 800 170 C960 190 1050 300 1200 280 C1330 262 1420 200 1500 220"/>
+    <path d="M-40 300 C170 250 310 350 430 330 C570 308 650 205 810 225 C970 245 1060 350 1210 330 C1340 312 1425 255 1500 275"/>
+    <path d="M-40 355 C180 305 320 402 440 385 C580 365 665 262 820 282 C980 302 1070 402 1220 385 C1350 368 1430 312 1500 332"/>
+    <path d="M-60 620 C140 585 260 660 400 640 C540 620 620 545 760 560 C900 575 1000 655 1140 640 C1280 625 1380 570 1500 590"/>
+    <path d="M-60 672 C150 638 275 712 415 692 C555 672 632 600 772 615 C912 630 1010 706 1150 692 C1290 678 1385 622 1500 642"/>
+    <path d="M-60 726 C160 692 290 764 430 744 C570 724 645 654 785 669 C925 684 1020 758 1160 744 C1300 730 1390 675 1500 695"/>
+  </g>
+  <g fill="var(--azure)" font-family="Inter" font-weight="600" font-size="9" opacity=".26">
+    <text x="200" y="215">14</text><text x="512" y="268">9</text><text x="700" y="163">22</text>
+    <text x="900" y="196">31</text><text x="1140" y="292">17</text><text x="288" y="386">6</text>
+    <text x="620" y="270">11</text><text x="1010" y="360">26</text><text x="120" y="600">19</text>
+    <text x="480" y="646">8</text><text x="700" y="556">24</text><text x="1050" y="662">13</text>
+    <text x="1330" y="586">28</text><text x="352" y="712">5</text><text x="860" y="742">16</text>
+  </g>
+</svg>
+</div>
+
+<nav class="top"><div class="wrap nav-in">
+  <a class="brand" href="#">Arctrips</a>
+  <ul class="nav-links">
+    <li><a href="#">Stays</a></li>
+    <li><a href="#" aria-current="page">Destinations</a></li>
+    <li><a href="#">Things to do</a></li>
+    <li><a href="#">Guides</a></li>
+    <li><a href="#">Fishing</a></li>
+  </ul>
+  <form class="search" role="search" onsubmit="return false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+    <input type="search" placeholder="Search destinations, guides, stays" aria-label="Search everything on Arc Trips">
+    <kbd>/</kbd>
+  </form>
+  <a class="btn btn--ink btn--sm" href="#">Sign in</a>
+</div></nav>
+
+<header class="hero"><div class="wrap hero-grid">
+  <div>
+    <span class="label">Canada, British Columbia</span>
+    <h1 style="margin-top:16px">The coast we know
+      <span class="mark">properly<svg viewBox="0 0 200 12" fill="none" preserveAspectRatio="none"><path d="M2 8.4C38 3.2 92 2.1 132 5.1c22 1.7 44 3.6 66 1.2" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg></span>
+    </h1>
+    <p class="lede">A destination goes live here once we have stayed in it, walked it in more than one season, and can answer the awkward questions. Not when someone has written a page about it.</p>
+    <div class="hero-cta">
+      <a class="btn btn--primary" href="#">Start with Tofino</a>
+      <a class="btn btn--ghost" href="#">Browse every guide</a>
+    </div>
+    <dl class="hero-facts">
+      <div><dt>Destinations</dt><dd>2</dd></div>
+      <div><dt>Guides</dt><dd>13</dd></div>
+      <div><dt>Places</dt><dd>127</dd></div>
+      <div><dt>Stays</dt><dd>292</dd></div>
+    </dl>
+  </div>
+
+  <div class="collage">
+    <div class="coast" aria-hidden="true">
+      <svg viewBox="0 0 520 480" fill="none">
+        <path d="M40 120 C110 92 150 150 210 140 C268 130 300 70 360 88 C420 106 452 168 500 150" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M20 300 C96 268 140 336 205 322 C270 308 306 244 372 262 C438 280 470 344 512 326" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M10 400 C90 372 136 434 204 420 C272 406 312 348 380 366" stroke="currentColor" stroke-width="1.4"/>
+        <circle cx="120" cy="212" r="2.6" fill="currentColor"/><circle cx="392" cy="196" r="2.6" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <figure class="plate p1">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_760,h_1000/arcstudio/jhrn4nwfk4vsnvtqwkvz" alt="Clayoquot Sound from the air above Tofino">
+      <figcaption>Tofino, Clayoquot Sound</figcaption>
+    </figure>
+    <figure class="plate p2">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_640,h_480/nicoline-mann-bIIK4mvsDZc-unsplash_vcyrwx" alt="The Ucluelet headland">
+      <figcaption>Ucluelet</figcaption>
+    </figure>
+    <figure class="plate p3">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_680,h_520/arcstudio/njajgzfo6gdfxbpxmtst" alt="Rainforest boardwalk">
+      <figcaption>Rainforest boardwalks</figcaption>
+    </figure>
+
+    <div class="route" aria-hidden="true">
+      <svg viewBox="0 0 520 480" fill="none">
+        <path class="dash" d="M150 340 C210 392 300 384 352 330" stroke="currentColor" stroke-width="2"/>
+      </svg>
+    </div>
+    <svg class="seal" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+      <circle cx="50" cy="50" r="46" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="50" cy="50" r="38" stroke="currentColor" stroke-width=".8" stroke-dasharray="2 4"/>
+      <path d="M50 20 L56 46 L82 50 L56 54 L50 80 L44 54 L18 50 L44 46 Z" fill="currentColor" opacity=".55"/>
+      <text x="50" y="14" text-anchor="middle" font-size="7" font-weight="700" fill="currentColor" letter-spacing="1.4">N</text>
+    </svg>
+  </div>
+</div></header>
+
+<!-- tide strip, from tofino-info -->
+<div class="tide"><div class="wrap tide-in">
+  <span class="label">Tofino harbour, today</span>
+  <div class="tide-wave" aria-hidden="true">
+    <svg viewBox="0 0 400 26" fill="none" preserveAspectRatio="none">
+      <path d="M0 18 C34 6 62 6 96 18 C130 30 158 30 192 18 C226 6 254 6 288 18 C322 30 350 30 384 18 L400 15" stroke="currentColor" stroke-width="1.6"/>
+    </svg>
+  </div>
+  <p class="tide-read">
+    <span>Low <b>06:14</b>, 0.8 m</span><span>High <b>12:38</b>, 3.1 m</span>
+    <span>Low <b>18:52</b>, 1.2 m</span><span>Sunset <b>21:07</b></span>
+  </p>
+</div></div>
+
+<section class="sec"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">Where we publish</span>
+      <h2 style="margin-top:11px">Every destination</h2>
+      <p>Two towns on the same forty minute road, facing the same ocean, that suit completely different trips.</p>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="#">Explore all destinations</a>
+  </div>
+
+  <div class="tabs" role="group" aria-label="Filter destinations">
+    <button class="tab" aria-pressed="true">All</button>
+    <button class="tab" aria-pressed="false">Vancouver Island</button>
+    <button class="tab" aria-pressed="false">In season now</button>
+    <button class="tab" aria-pressed="false">Bookable today</button>
+    <button class="tab" aria-pressed="false" data-soon>Coming soon</button>
+  </div>
+
+  <div class="dgrid">
+    <a class="dest" href="#">
+      <div class="dest__m">
+        <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_620,h_800/arcstudio/jhrn4nwfk4vsnvtqwkvz" alt="Tofino">
+        <span class="dest__badge">4 in season</span>
+        <div class="dest__season" role="img" aria-label="Best months May to September"><i></i><i></i><i></i><i></i><i data-on></i><i data-on></i><i data-on data-now></i><i data-on></i><i data-on></i><i></i><i></i><i></i></div>
+      </div>
+      <h3>Tofino</h3>
+      <p class="dest__meta tnum">8 guides &middot; 134 stays &middot; from $320</p>
+    </a>
+
+    <a class="dest" href="#">
+      <div class="dest__m">
+        <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_620,h_800/nicoline-mann-bIIK4mvsDZc-unsplash_vcyrwx" alt="Ucluelet">
+        <span class="dest__badge">3 in season</span>
+        <div class="dest__season" role="img" aria-label="Best months April to October"><i></i><i></i><i></i><i data-on></i><i data-on></i><i data-on></i><i data-on data-now></i><i data-on></i><i data-on></i><i data-on></i><i></i><i></i></div>
+      </div>
+      <h3>Ucluelet</h3>
+      <p class="dest__meta tnum">5 guides &middot; 158 stays</p>
+    </a>
+
+    <span class="dest dest--soon">
+      <div class="dest__m"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_620,h_800/thomas-lipke-M12HGHNVJ2s-unsplash_nttcvc" alt=""></div>
+      <h3>Victoria</h3>
+      <p class="dest__meta">In review</p>
+    </span>
+
+    <span class="dest dest--soon">
+      <div class="dest__m"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_620,h_800/condor-wei-TiLEEXohfsY-unsplash_v7ja5f" alt=""></div>
+      <h3>Squamish</h3>
+      <p class="dest__meta">In review</p>
+    </span>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="almanac">
+    <div class="head">
+      <div>
+        <span class="label">The almanac</span>
+        <h2 style="margin-top:11px">Worth doing in July</h2>
+        <p>Every subject we cover, ordered by how well this month suits it. The outlined cell is today.</p>
+      </div>
+      <a class="btn btn--primary btn--sm" href="#">See the full year</a>
+    </div>
+
+    <table class="led">
+      <thead><tr><th>Subject</th><th class="led__mon">Season</th><th style="text-align:right">Book</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="led__s">Whale watching</div><div class="led__w">Tofino and Ucluelet</div></td>
+          <td class="led__mon"><div class="mon" role="img" aria-label="In season March to October"><i>J</i><i>F</i><i data-on>M</i><i data-on>A</i><i data-on>M</i><i data-on>J</i><i data-on data-now>J</i><i data-on>A</i><i data-on>S</i><i data-on>O</i><i>N</i><i>D</i></div></td>
+          <td class="led__b"><span class="pill pill--soon">Coming soon</span></td>
+        </tr>
+        <tr>
+          <td><div class="led__s">Beaches</div><div class="led__w">Tofino, 13 documented</div></td>
+          <td class="led__mon"><div class="mon" role="img" aria-label="In season May to September"><i>J</i><i>F</i><i>M</i><i>A</i><i data-on>M</i><i data-on>J</i><i data-on data-now>J</i><i data-on>A</i><i data-on>S</i><i>O</i><i>N</i><i>D</i></div></td>
+          <td class="led__b">Free to visit</td>
+        </tr>
+        <tr>
+          <td><div class="led__s">Fishing charters</div><div class="led__w">Both harbours</div></td>
+          <td class="led__mon"><div class="mon" role="img" aria-label="In season May to September"><i>J</i><i>F</i><i>M</i><i>A</i><i data-on>M</i><i data-on>J</i><i data-on data-now>J</i><i data-on>A</i><i data-on>S</i><i>O</i><i>N</i><i>D</i></div></td>
+          <td class="led__b"><span class="pill pill--go">Book now</span> <b>from $189</b></td>
+        </tr>
+        <tr>
+          <td><div class="led__s">Kayaking and paddling</div><div class="led__w">Clayoquot Sound</div></td>
+          <td class="led__mon"><div class="mon" role="img" aria-label="In season May to September"><i>J</i><i>F</i><i>M</i><i>A</i><i data-on>M</i><i data-on>J</i><i data-on data-now>J</i><i data-on>A</i><i data-on>S</i><i>O</i><i>N</i><i>D</i></div></td>
+          <td class="led__b"><span class="pill pill--soon">Coming soon</span></td>
+        </tr>
+        <tr>
+          <td><div class="led__s">Storm watching</div><div class="led__w">Tofino, the winter draw</div></td>
+          <td class="led__mon"><div class="mon" role="img" aria-label="In season November to February"><i data-on>J</i><i data-on>F</i><i>M</i><i>A</i><i>M</i><i>J</i><i data-now>J</i><i>A</i><i>S</i><i>O</i><i data-on>N</i><i data-on>D</i></div></td>
+          <td class="led__b">Back in November</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="almanac__legend">
+      <span><span class="sw sw--on"></span>in season</span>
+      <span><span class="sw"></span>quieter</span>
+      <span>Seven of thirteen guides are at their best this month.</span>
+    </p>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">From the guides</span>
+      <h2 style="margin-top:11px">Latest reading</h2>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="#">Read more guides</a>
+  </div>
+
+  <div class="read">
+    <a class="feat" href="#">
+      <div class="feat__m"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1100,h_690/arcstudio/wnrrcrf4lnalgzbjvsz8" alt="A humpback tail off Clayoquot Sound"></div>
+      <div class="kmeta"><span class="k">Whale watching</span><span class="dot"></span><span>Tofino</span><span class="dot"></span><span>14 min read</span></div>
+      <h3>Whale and wildlife watching in Tofino: best time, animals to see, and tour tips</h3>
+      <p>Grey whales pass close to shore from March. Resident humpbacks feed in the Sound through summer and into the fall, and the boats leave from both harbours.</p>
+    </a>
+
+    <div class="rlist">
+      <a class="ritem" href="#">
+        <div class="ritem__m"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_260,h_195/arcstudio/jhrn4nwfk4vsnvtqwkvz" alt=""></div>
+        <div><div class="kmeta" style="margin-top:0"><span class="k">Beaches</span><span class="dot"></span><span>9 min</span></div>
+        <h4>The thirteen beaches of Tofino, ranked by what you actually want</h4></div>
+      </a>
+      <a class="ritem" href="#">
+        <div class="ritem__m"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_260,h_195/arcstudio/njajgzfo6gdfxbpxmtst" alt=""></div>
+        <div><div class="kmeta" style="margin-top:0"><span class="k">Hiking</span><span class="dot"></span><span>11 min</span></div>
+        <h4>The Wild Pacific Trail, loop by loop, and which one to walk first</h4></div>
+      </a>
+      <a class="ritem" href="#">
+        <div class="ritem__m"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_260,h_195/thomas-lipke-M12HGHNVJ2s-unsplash_nttcvc" alt=""></div>
+        <div><div class="kmeta" style="margin-top:0"><span class="k">When to go</span><span class="dot"></span><span>7 min</span></div>
+        <h4>Best time to stay in Ucluelet or Tofino, month by month</h4></div>
+      </a>
+      <a class="ritem" href="#">
+        <div class="ritem__m"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_260,h_195/andrea-davis-44f42VRbGQg-unsplash_q9h9op" alt=""></div>
+        <div><div class="kmeta" style="margin-top:0"><span class="k">Where to stay</span><span class="dot"></span><span>6 min</span></div>
+        <h4>Campgrounds in Tofino and Ucluelet, and when to book them</h4></div>
+      </a>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap voice">
+  <div>
+    <span class="label label--n">Why people trust the guides</span>
+    <p class="stars" aria-label="Five out of five">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+    <p class="quote">We went in February on your advice, which everyone told us was mad. Empty beaches, half the price, and the storms were the whole point. The tide times in the guide were exact.</p>
+    <div class="who">
+      <img class="who__a" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_120,h_120/andrea-davis-44f42VRbGQg-unsplash_q9h9op" alt="">
+      <div><b>Maren H.</b><span>Stayed four nights in Tofino</span></div>
+    </div>
+    <a class="btn btn--ghost btn--sm" style="margin-top:26px" href="#">More from travellers</a>
+  </div>
+  <div>
+    <div class="vmedia">
+      <figure><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_560,h_700/condor-wei-TiLEEXohfsY-unsplash_v7ja5f" alt="Surf at Cox Bay"></figure>
+      <figure>
+        <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_440,h_550/arcstudio/dtz692xbgvvwjopu7vcs" alt="Paddling inside the Sound">
+        <span class="play"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
+      </figure>
+    </div>
+    <p class="vcap">A morning paddle inside Clayoquot Sound, filmed in June.</p>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="band">
+    <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1800,h_760/james-wheeler-YZfDg2L0lUs-unsplash_ino74q" alt="">
+    <div class="band-in">
+      <span class="label" style="color:var(--a300)">One letter a season</span>
+      <h2 style="margin-top:12px">We write when the coast changes</h2>
+      <p>Four letters a year: when the greys arrive, when the surf turns, when the storms start, and when the trails dry out. Nothing else.</p>
+      <form class="form" onsubmit="return false">
+        <input type="email" placeholder="you@example.com" aria-label="Email address">
+        <button class="btn btn--primary" type="submit">Sign me up</button>
+      </form>
+      <label class="consent"><input type="checkbox"> Yes, send me the seasonal letter. You can unsubscribe from any email, and we never pass your address on.</label>
+    </div>
+  </div>
+</div></section>
+
+<footer class="f"><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <span class="fbrand">Arctrips</span>
+      <p class="fnote">Stays and guides on the west coast of Vancouver Island, written by people who go there.</p>
+    </div>
+    <div><h5>Destinations</h5><ul>
+      <li><a href="#">Tofino</a></li><li><a href="#">Ucluelet</a></li>
+      <li><a href="#">Vancouver Island</a></li><li><a href="#">British Columbia</a></li></ul></div>
+    <div><h5>Things to do</h5><ul>
+      <li><a href="#">Whale watching</a></li><li><a href="#">Beaches</a></li>
+      <li><a href="#">Hiking and trails</a></li><li><a href="#">Storm watching</a></li></ul></div>
+    <div><h5>Plan</h5><ul>
+      <li><a href="#">When to go</a></li><li><a href="#">Getting there</a></li>
+      <li><a href="#">Where to stay</a></li><li><a href="#">What to pack</a></li></ul></div>
+    <div><h5>Arc Trips</h5><ul>
+      <li><a href="#">About us</a></li><li><a href="#">List your place</a></li>
+      <li><a href="#">Fishing charters</a></li><li><a href="#">Contact</a></li></ul></div>
+  </div>
+  <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees</span></div>
+</div></footer>
+
+<script>
+  // Focus the global search on "/" the way a real index does.
+  addEventListener("keydown", (e) => {
+    if (e.key === "/" && !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)) {
+      e.preventDefault();
+      document.querySelector(".search input").focus();
+    }
+  });
+  document.querySelectorAll(".tab").forEach((t) => t.addEventListener("click", () => {
+    document.querySelectorAll(".tab").forEach((x) => x.setAttribute("aria-pressed", "false"));
+    t.setAttribute("aria-pressed", "true");
+  }));
+</script>
+</body>
+</html>
