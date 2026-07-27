@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { resolveGuidePath } from "@/app/lib/resolver";
+import { resolveGuidePath, guideBelongsToScope } from "@/app/lib/resolver";
 import { lookupGeoChild } from "@/app/lib/geo";
 import { guidePath } from "@/app/lib/geo-types";
 import { getArticleBySlug } from "@/app/lib/content";
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (r.kind !== "guide") return { title: "Travel guides | Arc Trips" };
 
   const article = await getArticleBySlug(r.slug);
-  if (!article) return { title: "Travel guides | Arc Trips" };
+  if (!article || !guideBelongsToScope(article, r.scope)) return { title: "Travel guides | Arc Trips" };
   return {
     title: `${article.title} | Arc Trips`,
     description: article.excerpt || lead(article.body ?? []),
@@ -36,7 +36,10 @@ export default async function TravelGuidesRoute({ params }: Props) {
 
   if (resolution.kind === "guide") {
     const article = await getArticleBySlug(resolution.slug);
-    if (!article) notFound();
+    // A well-formed URL is not enough: the guide must genuinely live at this
+    // scope, or the same article answers at its town, region and province
+    // URLs at once.
+    if (!article || !guideBelongsToScope(article, resolution.scope)) notFound();
     return <GuideDetail article={article} trail={resolution.trail} />;
   }
 

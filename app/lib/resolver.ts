@@ -72,6 +72,38 @@ export async function resolveDestinationPath(
   return { kind: "geo", node: trail[trail.length - 1], trail };
 }
 
+/** The scope fields a content item carries, as stored on the articles table. */
+export type GuideScopeFields = {
+  destinationSlug?: string;
+  citySlugs?: string[];
+  regionSlug?: string;
+};
+
+/**
+ * Whether a guide genuinely belongs at this scope.
+ *
+ * The path resolver only proves a URL is well formed. Without this check the
+ * same article answers at its town, its region and its province URL, each one
+ * self-canonicalising, which is precisely the duplicate content the taxonomy
+ * forbids. An article has exactly one home; every other scope must 404.
+ */
+export function guideBelongsToScope(article: GuideScopeFields, scope: GeoNode): boolean {
+  if (scope.type === "town") {
+    // Ownership follows the single owning town, never citySlugs. A guide
+    // spanning Tofino and Ucluelet has one home and is cross-linked from the
+    // other, otherwise it answers at two URLs and splits its own authority.
+    return article.destinationSlug === scope.slug;
+  }
+  if (scope.type === "region") {
+    // A region-scoped roundup carries no city, otherwise it is a town guide
+    // reachable at its own URL and this one would duplicate it.
+    return article.regionSlug === scope.slug && !article.citySlugs?.length;
+  }
+  // Province-scoped guides need a province field on the article, which the
+  // corpus does not yet carry. Nothing renders there until it does.
+  return false;
+}
+
 export type GuideResolution =
   | { kind: "landing" }
   | { kind: "index"; scope: GeoNode; trail: GeoNode[] }

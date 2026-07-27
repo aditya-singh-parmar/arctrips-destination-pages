@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { resolveDestinationPath, resolveGuidePath, type GeoLookup } from "./resolver";
+import { resolveDestinationPath, resolveGuidePath, guideBelongsToScope, type GeoLookup } from "./resolver";
 import type { GeoNode } from "./geo-types";
 
 function n(slug: string, type: GeoNode["type"], parentId: string | null): GeoNode {
@@ -148,5 +148,43 @@ describe("resolveGuidePath", () => {
     const r = await resolveGuidePath(
       ["canada", "bc", "vancouver-island", "tofino", "long-beach", "a-guide"], lookup);
     expect(r.kind).toBe("not-found");
+  });
+});
+
+describe("guideBelongsToScope", () => {
+  const tofino = n("tofino", "town", "vancouver-island");
+  const island = n("vancouver-island", "region", "bc");
+  const bc = n("bc", "province", "canada");
+
+  it("places a town guide at its town only", () => {
+    const a = { destinationSlug: "tofino", citySlugs: ["tofino"] };
+    expect(guideBelongsToScope(a, tofino)).toBe(true);
+    expect(guideBelongsToScope(a, island)).toBe(false);
+    expect(guideBelongsToScope(a, bc)).toBe(false);
+  });
+
+  it("gives a two-town guide one home, at its owning town", () => {
+    const a = { destinationSlug: "tofino", citySlugs: ["tofino", "ucluelet"] };
+    const ucluelet = n("ucluelet", "town", "vancouver-island");
+    expect(guideBelongsToScope(a, tofino)).toBe(true);
+    // Cross-linked from Ucluelet, never rendered there.
+    expect(guideBelongsToScope(a, ucluelet)).toBe(false);
+  });
+
+  it("places a regional roundup at its region only", () => {
+    const a = { regionSlug: "vancouver-island", citySlugs: [] };
+    expect(guideBelongsToScope(a, island)).toBe(true);
+    expect(guideBelongsToScope(a, tofino)).toBe(false);
+    expect(guideBelongsToScope(a, bc)).toBe(false);
+  });
+
+  it("keeps a city-tagged article off the region URL", () => {
+    const a = { regionSlug: "vancouver-island", citySlugs: ["tofino"] };
+    expect(guideBelongsToScope(a, island)).toBe(false);
+  });
+
+  it("renders nothing at province scope until the corpus carries one", () => {
+    expect(guideBelongsToScope({ regionSlug: "vancouver-island" }, bc)).toBe(false);
+    expect(guideBelongsToScope({ citySlugs: ["tofino"] }, bc)).toBe(false);
   });
 });
