@@ -1,4 +1,8 @@
 import { getDestinations, getListings, getReviews, getNavigableSlugs } from "@/app/lib/content";
+
+// ISR: re-read Supabase in the background so content stays in sync without a rebuild.
+export const revalidate = 300;
+
 import { TopNav } from "@/app/components/landing/TopNav";
 import { Hero } from "@/app/components/landing/Hero";
 import { ScrollRow } from "@/app/components/landing/ScrollRow";
