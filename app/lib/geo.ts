@@ -6,7 +6,7 @@
  */
 import { getServerSupabase } from "./supabase";
 import type { ArticleBlock } from "./content";
-import { geoPath, type GeoNode, type GeoType } from "./geo-types";
+import { geoPath, isRenderable, type GeoNode, type GeoStatus, type GeoType } from "./geo-types";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 function rowToNode(r: any): GeoNode {
@@ -168,4 +168,68 @@ export async function getDestinationCategories(geoPlaceId: string): Promise<Dest
     sortOrder: r.sort_order ?? 0,
     updatedAt: r.updated_at ?? new Date(0).toISOString(),
   }));
+}
+
+/* ── Status cascade (spec 3.7) ──────────────────────────────────────────── */
+
+/**
+ * Hiding or archiving an ancestor makes its descendants unreachable for
+ * rendering only. Stored status is never mutated, so re-publishing the
+ * ancestor restores the prior state exactly (AC 13).
+ */
+const STATUS_SEVERITY: Record<GeoStatus, number> = {
+  published: 0, coming_soon: 1, draft: 2, hidden: 3, archived: 4,
+};
+
+export function effectiveStatus(trail: GeoNode[]): GeoStatus {
+  return trail.reduce<GeoStatus>(
+    (worst, node) => (STATUS_SEVERITY[node.status] > STATUS_SEVERITY[worst] ? node.status : worst),
+    "published",
+  );
+}
+
+export function isTrailRenderable(trail: GeoNode[]): boolean {
+  return isRenderable(effectiveStatus(trail));
+}
+
+/* ── Index and sitemap reads ────────────────────────────────────────────── */
+
+export type GeoChildLink = { node: GeoNode; path: string; townCount: number };
+
+/** Children of the trail's last node with their canonical paths, for index templates. */
+export async function getGeoChildLinks(trail: GeoNode[]): Promise<GeoChildLink[]> {
+  const parent = trail[trail.length - 1];
+  const children = await getGeoChildren(parent.id);
+  return Promise.all(
+    children.map(async (node) => {
+      if (node.type === "town" || node.type === "area") {
+        return { node, path: geoPath([...trail, node]), townCount: 1 };
+      }
+      // A region may hold towns; a province may hold both regions and towns.
+      const [towns, regions] = await Promise.all([
+        getGeoChildren(node.id, "town"),
+        getGeoChildren(node.id, "region"),
+      ]);
+      const nested = await Promise.all(regions.map((r) => getGeoChildren(r.id, "town")));
+      return {
+        node,
+        path: geoPath([...trail, node]),
+        townCount: towns.length + nested.reduce((n, list) => n + list.length, 0),
+      };
+    }),
+  );
+}
+
+/** Every renderable node, root-first, paired with its trail. Drives sitemaps. */
+export async function getAllGeoTrails(): Promise<GeoNode[][]> {
+  const roots = await getGeoChildren(null);
+  const out: GeoNode[][] = [];
+  async function walk(trail: GeoNode[]) {
+    if (!isTrailRenderable(trail)) return;
+    out.push(trail);
+    const children = await getGeoChildren(trail[trail.length - 1].id);
+    for (const child of children) await walk([...trail, child]);
+  }
+  for (const root of roots) await walk([root]);
+  return out;
 }
