@@ -248,21 +248,9 @@ function viewGuide(city, cat) {
   </div></div></section>
 
   ${ps.length ? `
-  <section class="sec" style="padding-top:0" id="places"><div class="wrap wrap--wide">
+  <section class="sec" style="padding-top:0" id="places"><div class="wrap">
     <div class="sechead center"><h2>${ps.length} places, documented.</h2>
       <p class="sub">Every one visited. Names, what they suit, and what to know before you go.</p></div>
-
-    <div class="gshell">
-      <aside class="pindex" aria-label="Places in this guide">
-        <p class="pindex__h">${esc(g.name)}</p>
-        <ol class="pindex__l">${ps.map((p, i) => `
-          <li><a href="#/g/${city}/${cat}?at=${p.slug}" data-jump="${p.slug}">
-            <span class="tnum">${String(i + 1).padStart(2, "0")}</span>${esc(p.name)}</a></li>`).join("")}</ol>
-        <div class="pindex__f">
-          <a href="#gallery">From the guide</a>
-          <a href="#stay">Where to stay</a>
-        </div>
-      </aside>
 
       <div class="plist">${ps.map((p, i) => {
         const good = (p.goodFor || [])
@@ -290,7 +278,6 @@ function viewGuide(city, cat) {
           </div>
         </article>`;
       }).join("")}</div>
-    </div>
   </div></section>` : ""}
 
   ${g.photos.length ? `
@@ -533,26 +520,6 @@ function render() {
   const el = at && document.getElementById(at);
   if (el) { el.classList.add("place--hit"); el.scrollIntoView({ behavior: "smooth", block: "center" }); }
   else window.scrollTo(0, 0);
-
-  spyPlaces();
-}
-
-/* The index highlights whichever place is on screen, so scrolling a 13 entry
-   guide never leaves you guessing where you are. */
-let SPY = null;
-function spyPlaces() {
-  SPY?.disconnect();
-  const links = new Map([...document.querySelectorAll("[data-jump]")].map((a) => [a.dataset.jump, a]));
-  if (!links.size) return;
-  SPY = new IntersectionObserver((entries) => {
-    for (const e of entries) {
-      if (!e.isIntersecting) continue;
-      links.forEach((a) => a.removeAttribute("aria-current"));
-      links.get(e.target.id)?.setAttribute("aria-current", "true");
-      links.get(e.target.id)?.scrollIntoView({ block: "nearest" });
-    }
-  }, { rootMargin: "-45% 0px -50% 0px" });
-  document.querySelectorAll(".place").forEach((el) => SPY.observe(el));
 }
 
 addEventListener("hashchange", render);

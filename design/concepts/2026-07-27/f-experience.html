@@ -35,7 +35,6 @@ img{display:block;max-width:100%}
 a{text-decoration:none;color:inherit}
 button{font:inherit;cursor:pointer;border:0;background:none}
 .wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
-.wrap--wide{max-width:1280px}
 h1,h2,h3,h4{color:var(--n900);font-weight:700;letter-spacing:-.022em;line-height:1.18}
 h1{font-size:clamp(2rem,4vw,2.6rem)}
 h2{font-size:clamp(1.5rem,2.5vw,1.95rem)}
@@ -267,34 +266,6 @@ footer.f{background:var(--n50);border-top:1px solid var(--n150);padding-block:cl
 .gcard__top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:8px}
 .gcard__lead{font-size:.86rem;color:var(--n600);margin-bottom:12px;line-height:1.5}
 .gcard__n{font-size:.78rem;color:var(--n500);margin-top:10px}
-
-/* ── in-page index. Sits in the left gutter so the content column stays
-      centred: a three column grid where the middle track is the page and the
-      side tracks are margin. Below 1240px the rail drops out entirely and the
-      content is simply centred. ─────────────────────────────────────────── */
-.gshell{display:grid;grid-template-columns:1fr minmax(0,760px) 1fr;gap:0;align-items:start}
-.gshell>.plist{grid-column:2}
-.gshell>.pindex{grid-column:1;justify-self:end;width:186px;padding-right:26px}
-@media(max-width:1240px){
-  .gshell{grid-template-columns:minmax(0,760px);justify-content:center}
-  .gshell>.plist{grid-column:1}
-  .pindex{display:none}
-}
-.pindex{position:sticky;top:84px;max-height:calc(100vh - 116px);overflow-y:auto}
-.pindex::-webkit-scrollbar{width:3px}
-.pindex::-webkit-scrollbar-thumb{background:var(--n200);border-radius:3px}
-.pindex__h{font-size:.68rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--n500);
-  padding-bottom:9px;border-bottom:1.5px solid var(--navy);margin-bottom:4px}
-.pindex__l{list-style:none;margin:0;padding:0}
-.pindex__l a{display:flex;gap:8px;padding:6px 0 6px 9px;font-size:.8rem;color:var(--n600);line-height:1.32;
-  border-left:2px solid transparent;margin-left:-11px;transition:color .2s var(--ease),border-color .2s var(--ease)}
-.pindex__l a span{color:var(--n300);font-size:.68rem;font-weight:700;padding-top:2px;flex:none}
-.pindex__l a:hover{color:var(--navy)}
-.pindex__l a[aria-current]{color:var(--azure);font-weight:600;border-left-color:var(--azure)}
-.pindex__l a[aria-current] span{color:var(--azure)}
-.pindex__f{margin-top:13px;padding-top:11px;border-top:1px solid var(--n150);display:flex;flex-direction:column;gap:7px}
-.pindex__f a{font-size:.78rem;color:var(--n600)}
-.pindex__f a:hover{color:var(--azure)}
 
 /* ── documented places. Centred column, photography at the full width of it,
       copy beneath at a comfortable size. Side by side made the photographs
