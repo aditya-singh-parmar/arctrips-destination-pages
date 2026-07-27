@@ -32,11 +32,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   if (r.kind === "geo") {
-    return {
+    const meta: Metadata = {
       title: r.node.seoTitle ?? `${r.node.name} | Arc Trips`,
       description: r.node.seoDescription ?? r.node.standfirst,
       alternates: { canonical: `${SITE}${geoPath(r.trail)}` },
     };
+    if (r.node.type !== "town") {
+      // Country, province and region have no template until Plan 2 and
+      // currently borrow the landing page. Without this every one of them
+      // would index the same content under its own canonical. Keep the URLs
+      // reachable for breadcrumbs, keep them out of the index.
+      meta.robots = { index: false, follow: true };
+      meta.alternates = { canonical: `${SITE}/destinations` };
+    }
+    return meta;
   }
 
   if (r.kind === "category") {

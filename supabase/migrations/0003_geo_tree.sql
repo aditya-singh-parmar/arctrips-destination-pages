@@ -164,13 +164,19 @@ alter table public.search_zero_results    enable row level security;
 
 -- Public read of renderable rows only. draft, hidden and archived are invisible
 -- to the anon key, so an unpublished node cannot leak through the resolver.
+drop policy if exists "geo_places public read" on public.geo_places;
 create policy "geo_places public read" on public.geo_places
   for select using (status in ('published','coming_soon'));
+drop policy if exists "destination_categories public read" on public.destination_categories;
 create policy "destination_categories public read" on public.destination_categories
   for select using (status in ('active','coming_soon'));
-create policy "planning_topics public read"    on public.planning_topics    for select using (status = 'active');
+drop policy if exists "planning_topics public read" on public.planning_topics;
+create policy "planning_topics public read" on public.planning_topics    for select using (status = 'active');
+drop policy if exists "traveller_profiles public read" on public.traveller_profiles;
 create policy "traveller_profiles public read" on public.traveller_profiles for select using (true);
-create policy "geo_place_topics public read"   on public.geo_place_topics   for select using (published = true);
-create policy "search_synonyms public read"    on public.search_synonyms    for select using (true);
+drop policy if exists "geo_place_topics public read" on public.geo_place_topics;
+create policy "geo_place_topics public read" on public.geo_place_topics   for select using (published = true);
+drop policy if exists "search_synonyms public read" on public.search_synonyms;
+create policy "search_synonyms public read" on public.search_synonyms    for select using (true);
 -- notify_requests and search_zero_results: no public select. Writes happen
 -- through a server action on the service role.
