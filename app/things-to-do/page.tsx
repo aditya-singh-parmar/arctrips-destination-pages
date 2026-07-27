@@ -5,6 +5,7 @@ import { getCategoriesAcrossCities, getCityCategory } from "@/app/lib/content";
 import { cld } from "@/app/lib/cloudinary";
 import { TopNav } from "@/app/components/landing/TopNav";
 import { Footer } from "@/app/components/landing/Footer";
+import { pathForTownSlug } from "@/app/lib/geo";
 
 export const metadata: Metadata = {
   title: "Things to do | Arc Trips",
@@ -23,6 +24,19 @@ export default async function ThingsToDoPage() {
   const categories = await getCategoriesAcrossCities();
   const whaleWatching = categories.find((c) => c.categorySlug === "whale-watching");
   const whaleWatchingHero = whaleWatching ? await getCityCategory(whaleWatching.cities[0].citySlug, "whale-watching") : null;
+
+  // Every card here points into the deep tree. Paths are resolved once, up
+  // front, because the JSX below cannot await.
+  const citySlugs = Array.from(new Set([
+    ...categories.flatMap((c) => c.cities.map((x) => x.citySlug)),
+    "tofino",
+    "ucluelet",
+  ]));
+  const cityPaths: Record<string, string> = Object.fromEntries(
+    await Promise.all(citySlugs.map(async (slug) => [slug, await pathForTownSlug(slug)] as const)),
+  );
+  const guideHref = (citySlug: string, categorySlug: string) =>
+    `${cityPaths[citySlug] ?? "/destinations"}/things-to-do/${categorySlug}`;
 
   return (
     <>
@@ -52,7 +66,7 @@ export default async function ThingsToDoPage() {
                   Twenty thousand of them pass Clayoquot Sound over about six weeks. Boats are running daily from
                   both towns and sightings are close to guaranteed until early May.
                 </p>
-                <Link className="btn btn--white" href={`/${whaleWatching.cities[0].citySlug}/whale-watching`}>
+                <Link className="btn btn--white" href={guideHref(whaleWatching.cities[0].citySlug, "whale-watching")}>
                   Read the whale watching guide
                 </Link>
               </div>
@@ -72,27 +86,27 @@ export default async function ThingsToDoPage() {
               <h4>Free, and worth the drive</h4>
               <p>Costs nothing but petrol and a waterproof.</p>
               <ul>
-                <li><Link href="/tofino/beaches"><span>The thirteen beaches</span><span>Tofino</span></Link></li>
-                <li><Link href="/ucluelet/hiking"><span>Wild Pacific Trail</span><span>Ucluelet</span></Link></li>
-                <li><Link href="/tofino/storm-watching"><span>Storm watching</span><span>Nov to Feb</span></Link></li>
+                <li><Link href={guideHref("tofino", "beaches")}><span>The thirteen beaches</span><span>Tofino</span></Link></li>
+                <li><Link href={guideHref("ucluelet", "hiking")}><span>Wild Pacific Trail</span><span>Ucluelet</span></Link></li>
+                <li><Link href={guideHref("tofino", "storm-watching")}><span>Storm watching</span><span>Nov to Feb</span></Link></li>
               </ul>
             </div>
             <div className="coll">
               <h4>When it rains, and it will</h4>
               <p>The coast gets three metres a year. Plan for it.</p>
               <ul>
-                <li><Link href="/tofino/restaurants"><span>Where to eat</span><span>Tofino</span></Link></li>
-                <li><Link href="/tofino/whale-watching"><span>Covered whale boats</span><span>heated</span></Link></li>
-                <li><Link href="/tofino/hiking"><span>Rainforest boardwalks</span><span>short</span></Link></li>
+                <li><Link href={guideHref("tofino", "restaurants")}><span>Where to eat</span><span>Tofino</span></Link></li>
+                <li><Link href={guideHref("tofino", "whale-watching")}><span>Covered whale boats</span><span>heated</span></Link></li>
+                <li><Link href={guideHref("tofino", "hiking")}><span>Rainforest boardwalks</span><span>short</span></Link></li>
               </ul>
             </div>
             <div className="coll">
               <h4>On the water</h4>
               <p>Everything that involves getting properly wet.</p>
               <ul>
-                <li><Link href="/tofino/whale-watching"><span>Whale watching</span><span>from $149</span></Link></li>
-                <li><Link href="/tofino/surfing"><span>Learning to surf</span><span>from $119</span></Link></li>
-                <li><Link href="/tofino/fishing"><span>Fishing charters</span><span>from $189</span></Link></li>
+                <li><Link href={guideHref("tofino", "whale-watching")}><span>Whale watching</span><span>from $149</span></Link></li>
+                <li><Link href={guideHref("tofino", "surfing")}><span>Learning to surf</span><span>from $119</span></Link></li>
+                <li><Link href={guideHref("tofino", "fishing")}><span>Fishing charters</span><span>from $189</span></Link></li>
               </ul>
             </div>
           </div>
@@ -111,7 +125,7 @@ export default async function ThingsToDoPage() {
 
           <div className="grid-3">
             {categories.map((c) => (
-              <Link key={c.categorySlug} className="cat" href={`/${c.cities[0].citySlug}/${c.categorySlug}`}>
+              <Link key={c.categorySlug} className="cat" href={guideHref(c.cities[0].citySlug, c.categorySlug)}>
                 {c.heroPublicId && <Image src={cld(c.heroPublicId, { w: 600, fit: "limit" })} alt="" fill sizes="(max-width: 900px) 100vw, 33vw" style={{ objectFit: "cover" }} />}
                 <span className="cat__scrim" aria-hidden="true" />
                 {c.state === "live" && c.priceFrom !== undefined && <span className="cat__price">from ${c.priceFrom}</span>}

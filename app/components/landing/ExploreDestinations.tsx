@@ -4,7 +4,16 @@ import { cld } from "@/app/lib/cloudinary";
 import type { Destination } from "@/app/lib/content";
 import { IconArrow } from "@/app/components/ui/Icons";
 
-export function ExploreDestinations({ destinations, navigable = [] }: { destinations: Destination[]; navigable?: string[] }) {
+export function ExploreDestinations({
+  destinations,
+  navigable = [],
+  paths = {},
+}: {
+  destinations: Destination[];
+  navigable?: string[];
+  /** Deep-tree path per city slug. Resolved by the caller, which can await. */
+  paths?: Record<string, string>;
+}) {
   return (
     <section className="container section">
       <div className="rowhead">
@@ -35,7 +44,7 @@ export function ExploreDestinations({ destinations, navigable = [] }: { destinat
             </>
           );
           return ready ? (
-            <Link key={d.slug} href={`/${d.slug}`}>{inner}</Link>
+            <Link key={d.slug} href={paths[d.slug] ?? "/destinations"}>{inner}</Link>
           ) : (
             <div key={d.slug}>{inner}</div>
           );

@@ -18,6 +18,7 @@ export function BookingRail({
   cta,
   experiences,
   citySlug,
+  cityPath,
   cityName,
   stayCount,
   stayFrom,
@@ -26,6 +27,8 @@ export function BookingRail({
   cta: CtaResult;
   experiences: Experience[];
   citySlug: string;
+  /** Deep-tree path for the city, e.g. /destinations/canada/bc/vancouver-island/tofino. */
+  cityPath?: string;
   cityName: string;
   stayCount?: number;
   stayFrom?: number;
@@ -34,7 +37,8 @@ export function BookingRail({
   listings?: Listing[];
 }) {
   const { primary, notify } = cta;
-  const href = primary.href ?? (primary.kind === "sister-brand" ? "#" : `/${citySlug}#stays`);
+  const stayHref = `${cityPath ?? `/${citySlug}`}#stays`;
+  const href = primary.href ?? (primary.kind === "sister-brand" ? "#" : stayHref);
   // Keep the rows honest against the button: when the resolver falls back to
   // stays, the rail lists real Arc Trips stays with real nightly prices,
   // rather than placeholder tour rows for a line that is not live yet.
@@ -70,7 +74,7 @@ export function BookingRail({
         ))}
 
         {stays.map((l) => (
-          <Link className="opt" key={l.id} href={`/${citySlug}#stays`}>
+          <Link className="opt" key={l.id} href={stayHref}>
             <Image src={cld(l.heroPublicId, { w: 128, h: 128, fit: "fill" })} alt="" width={64} height={64} />
             <div>
               <b>{l.title}</b>

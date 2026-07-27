@@ -25,7 +25,6 @@ const nextConfig: NextConfig = {
     return [
       { source: "/destinations/vancouver-island", destination: ISLAND, permanent: true },
       { source: "/destinations/sea-to-sky", destination: "/destinations/canada/bc/sea-to-sky", permanent: true },
-      { source: "/things-to-do", destination: "/destinations", permanent: true },
       // Flat S1 city URLs move under the deep tree.
       ...CITIES.flatMap((city) => [
         { source: `/${city}`, destination: `${ISLAND}/${city}`, permanent: true },

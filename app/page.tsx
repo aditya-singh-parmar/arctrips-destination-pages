@@ -15,6 +15,7 @@ import { EmailCapture } from "@/app/components/landing/EmailCapture";
 import { ListYourAccommodation, FindAStayBand } from "@/app/components/landing/Banners";
 import { PromiseCards } from "@/app/components/landing/PromiseCards";
 import { Footer } from "@/app/components/landing/Footer";
+import { pathForTownSlug } from "@/app/lib/geo";
 
 export default async function HomePage() {
   const [destinations, recentlyViewed, tofino, ucluelet, holiday, reviews, navigable] = await Promise.all([
@@ -27,6 +28,12 @@ export default async function HomePage() {
     getNavigableSlugs(),
   ]);
 
+  // Deep-tree path per destination, resolved here because the card component
+  // is not async. A town moving province is then a data change, not an edit.
+  const destinationPaths = Object.fromEntries(
+    await Promise.all(destinations.map(async (d) => [d.slug, await pathForTownSlug(d.slug)] as const)),
+  );
+
   return (
     <>
       <TopNav />
@@ -36,7 +43,7 @@ export default async function HomePage() {
         {recentlyViewed.slice(0, 6).map((l) => <ListingCard key={l.id} listing={l} />)}
       </ScrollRow>
 
-      <ExploreDestinations destinations={destinations} navigable={navigable} />
+      <ExploreDestinations destinations={destinations} navigable={navigable} paths={destinationPaths} />
 
       <ScrollRow title="Our most viewed listings in Tofino" arrowsLeft viewAll="View all listings in Tofino">
         {tofino.map((l) => <ListingCard key={l.id} listing={l} />)}

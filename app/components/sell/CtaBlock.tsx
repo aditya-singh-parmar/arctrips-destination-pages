@@ -26,14 +26,23 @@ import { NotifyForm } from "./NotifyForm";
  * carry it (it's an input to `resolveCta`, not part of the output), added
  * as the minimal necessary extension.
  */
-export function CtaBlock({ cta, citySlug }: { cta: CtaResult; citySlug: string }) {
+export function CtaBlock({
+  cta,
+  citySlug,
+  cityPath,
+}: {
+  cta: CtaResult;
+  citySlug: string;
+  /** Deep-tree path for the city, e.g. /destinations/canada/bc/vancouver-island/tofino. */
+  cityPath?: string;
+}) {
   const { primary, notify } = cta;
   const modifier = primary.kind === "tours" ? "cta--live" : primary.kind === "sister-brand" ? "cta--sister" : "";
   // Internal CTAs (stays, in-house tours) don't carry an href when the
   // product line has no externalUrl (e.g. the plain "Book dates" stays
   // fallback): land on the city's own "Where to stay" anchor rather than a
   // dead "#" link. Mirrors the same fallback in nav/TabBar.tsx.
-  const href = primary.href ?? (primary.kind === "sister-brand" ? "#" : `/${citySlug}#stays`);
+  const href = primary.href ?? (primary.kind === "sister-brand" ? "#" : `${cityPath ?? `/${citySlug}`}#stays`);
 
   return (
     <div className={modifier ? `cta ${modifier}` : "cta"}>

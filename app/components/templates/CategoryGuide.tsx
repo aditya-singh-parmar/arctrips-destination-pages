@@ -194,6 +194,7 @@ export async function CategoryGuide({
               cta={guide.cta}
               experiences={guide.experiences}
               citySlug={citySlug}
+              cityPath={base}
               cityName={guide.cityName}
               stayCount={listings.length}
               stayFrom={stayFrom}
