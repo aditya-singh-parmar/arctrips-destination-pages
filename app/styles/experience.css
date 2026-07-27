@@ -544,6 +544,10 @@
 .dx .cta__notify-form .btn--amber:hover { background: var(--a-100); }
 .dx .cta__offer { font-size: .95rem; color: var(--n-700); }
 
+/* theme.css gives the footer a 96px top margin for the marketplace page, which
+   lands on top of the last section's own padding here and reads as a hole. */
+.dx + .footer { margin-top: clamp(38px, 5vw, 58px); }
+
 @media (prefers-reduced-motion: reduce) {
   .dx *, .dx *::before, .dx *::after { transition: none !important; animation: none !important; }
 }
