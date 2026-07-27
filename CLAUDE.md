@@ -41,9 +41,21 @@ Run order: `npm run seed` (creates rows) **then** `node --env-file=.env.local sc
 The committed look is the Arc Trips **"Full system" — Inter** marketplace style (an Airbnb-style stays browse experience), NOT the splash's Hanken editorial variant. Source: the Figma CSS export Sam provided (1440 frame, 1280 content / 80px gutters). Two page types:
 
 1. **Destinations landing page** (`/`, `app/page.tsx`) — nav → hero + search → listing rails (recently viewed, per-destination, holiday) → Explore destinations → Culture of excellence → Real stories (reviews + video card) → How it works → email capture → List-your-accommodation banner → Promise cards → Find-a-stay band → footer. **Built (Phase 1), faithful + responsive.**
-2. **Destination tree pages** (`/[city]`, `/[city]/[category]`, `/[city]/[category]/[slug]`, `/destinations/[region]`) — **v1.1, built.** Source of truth: `docs/superpowers/specs/2026-07-24-destination-pages-v1.1-design.md`. Read that before changing structure or navigation.
+2. **Destination tree pages**: **deep hierarchy, Plan 1 built (2026-07-27).** Source of truth: `docs/superpowers/specs/2026-07-27-destinations-experience-design.md`. Read that before changing structure or navigation. It supersedes the v1.1 spec on URL structure only; v1.1's taxonomy, CTA engine and navigation rulings still stand.
 
-   Model is **Region → City → Category → Place/Article**, where the **Category is the canonical node**. "Things to do", "Guides & articles" and "Gallery" are three entry points that filter one finite 22-category taxonomy (`app/lib/taxonomy.ts`), not three parallel content branches, so a subject has exactly one URL.
+   ```
+   /destinations/{country}/{province}/[{region}/]{town}
+   /destinations/{country}/{province}/[{region}/]{town}/{area}
+   /destinations/{country}/{province}/[{region}/]{town}/things-to-do[/{category}]
+   /destinations/{country}/{province}/[{region}/]{town}/plan
+   /travel-guides/{country}/{province}/[{region}/][{town}/]{guide}
+   ```
+
+   **Region is optional**, so a town sits at segment 3 or 4 and every deeper segment shifts with it. Position-based routing cannot express that: both trees are single catch-alls (`app/destinations/[[...path]]`, `app/travel-guides/[[...path]]`) driven by `app/lib/resolver.ts`, which walks segments and looks each slug up **scoped to its parent**, branching on the resolved node's `type`. Never add a fixed route file under these trees.
+
+   Model is **Country → Province → [Region] → Town → Area**, with **Category as the canonical node** for subjects, drawn from one finite 22-category taxonomy (`app/lib/taxonomy.ts`), so a subject has exactly one URL. A category page exists **if and only if** a `destination_categories` row exists. Guides likewise have exactly one home, enforced by `guideBelongsToScope`.
+
+   **No redirects inside the tree.** Archived places return 410. Trailing slashes are **rewritten** by `middleware.ts`, never redirected, because a 308 would breach the no-redirect rule. Redirects in `next.config.ts` cover only URLs shipped before this tree existed, and must stay city-specific: a generic `/:city/:category/:place` rule matches `/destinations/canada/bc` and redirects the tree into itself.
 
    Navigation is the **TripAdvisor destination-page idiom**: a **sticky horizontal tab bar** (`app/components/nav/TabBar.tsx`) plus horizontal **rails** and filter **chips**. There is deliberately **no sidebar**: a persistent left sidebar was built, reviewed against TripAdvisor's Tofino page, and rejected by the owner as hard to navigate. The **breadcrumb is a plain non-interactive trail**; dropdown segments were also built and rejected, because the control moved horizontally with URL depth. Destination switching belongs in the top-nav search, never the breadcrumb. Do not reintroduce either pattern.
 
@@ -101,11 +113,15 @@ Hard rules (carried from sibling projects, non-negotiable):
 - `app/theme.css` — all component classes + hard-rule enforcement (`em,i` reset). v1.1 blocks: `.tabbar`, `.rail`, `.chiprow`, `.pcard`, `.cta--live/--sister/--soon`, `.dockbar`, `.toc`.
 - `app/layout.tsx` — root layout, Inter font wiring, metadata.
 - `app/page.tsx` — marketplace landing page.
-- `app/[city]/layout.tsx` — shared TopNav + TabBar + DockBar + Footer for every page in a city.
-- `app/[city]/page.tsx` — city page (hero, chips, rails, theme grids, FAQ).
-- `app/[city]/[category]/page.tsx` — category page. `app/[city]/[category]/[slug]/page.tsx` resolves **place first, then article**: they share one slug namespace, uniqueness enforced in the DB.
-- `app/[city]/{things-to-do,guides,gallery}/page.tsx` — one shared `CategoryIndex` with a `mode` prop.
-- `app/destinations/page.tsx` (regions) and `app/destinations/[region]/page.tsx` (cross-city corpus content).
+- `app/destinations/[[...path]]/page.tsx`: the whole destination tree. One catch-all, no fixed route files beneath it.
+- `app/travel-guides/[[...path]]/page.tsx`: the guide tree. The location path may terminate at province, region or town.
+- `app/lib/resolver.ts`: segment resolvers for both trees plus `guideBelongsToScope`. Pure over an injected lookup, unit-tested.
+- `app/lib/geo-types.ts`: `GeoNode`, child-type legality, `geoPath` / `guidePath` URL builders. Pure.
+- `app/lib/geo.ts`: geo tree reads, Supabase with SEED fallback, plus `pathForTownSlug` for building links from a city slug.
+- `app/lib/slug.ts`: ASCII transliteration and the reserved-slug list.
+- `app/components/templates/`: `DestinationsLanding`, `DestinationHub`, `CategoryGuide`, `GuideDetail`. Routes resolve, templates render.
+- `middleware.ts`: trailing-slash rewrite.
+- `app/guides/[slug]/page.tsx`: pre-tree article URLs, kept alive, sharing `GuideDetail` so the two routes cannot drift.
 - `app/lib/taxonomy.ts` — the finite 22-category list, themes, product lines, `THEME_GRID_THRESHOLD`.
 - `app/lib/cta.ts` — pure CTA resolver. Unit-tested. Never hardcode a booking button; render what this returns.
 - `app/lib/content.ts` — types + reads for region/city/category/place/photo/experience, all Supabase→SEED fallback so pages render without Supabase.
