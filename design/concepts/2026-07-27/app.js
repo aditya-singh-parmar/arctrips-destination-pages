@@ -248,7 +248,7 @@ function viewGuide(city, cat) {
   </div></div></section>
 
   ${ps.length ? `
-  <section class="sec" style="padding-top:0" id="places"><div class="wrap">
+  <section class="sec" style="padding-top:0" id="places"><div class="wrap wrap--wide">
     <div class="sechead center"><h2>${ps.length} places, documented.</h2>
       <p class="sub">Every one visited. Names, what they suit, and what to know before you go.</p></div>
 

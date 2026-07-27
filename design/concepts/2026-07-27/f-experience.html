@@ -35,6 +35,7 @@ img{display:block;max-width:100%}
 a{text-decoration:none;color:inherit}
 button{font:inherit;cursor:pointer;border:0;background:none}
 .wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
+.wrap--wide{max-width:1280px}
 h1,h2,h3,h4{color:var(--n900);font-weight:700;letter-spacing:-.022em;line-height:1.18}
 h1{font-size:clamp(2rem,4vw,2.6rem)}
 h2{font-size:clamp(1.5rem,2.5vw,1.95rem)}
@@ -267,95 +268,58 @@ footer.f{background:var(--n50);border-top:1px solid var(--n150);padding-block:cl
 .gcard__lead{font-size:.86rem;color:var(--n600);margin-bottom:12px;line-height:1.5}
 .gcard__n{font-size:.78rem;color:var(--n500);margin-top:10px}
 
-/* ── in-page index. NOT the site sidebar that was built and rejected: that
-      one navigated between cities and categories. This indexes only the page
-      you are already on, which is the thing a 13 entry guide was missing. ── */
-.gshell{display:grid;grid-template-columns:216px minmax(0,1fr);gap:clamp(28px,4vw,56px);align-items:start}
-@media(max-width:1040px){.gshell{grid-template-columns:1fr}.pindex{display:none}}
-.pindex{position:sticky;top:82px;max-height:calc(100vh - 110px);overflow-y:auto;padding-right:6px}
+/* ── in-page index. Sits in the left gutter so the content column stays
+      centred: a three column grid where the middle track is the page and the
+      side tracks are margin. Below 1240px the rail drops out entirely and the
+      content is simply centred. ─────────────────────────────────────────── */
+.gshell{display:grid;grid-template-columns:1fr minmax(0,760px) 1fr;gap:0;align-items:start}
+.gshell>.plist{grid-column:2}
+.gshell>.pindex{grid-column:1;justify-self:end;width:186px;padding-right:26px}
+@media(max-width:1240px){
+  .gshell{grid-template-columns:minmax(0,760px);justify-content:center}
+  .gshell>.plist{grid-column:1}
+  .pindex{display:none}
+}
+.pindex{position:sticky;top:84px;max-height:calc(100vh - 116px);overflow-y:auto}
 .pindex::-webkit-scrollbar{width:3px}
 .pindex::-webkit-scrollbar-thumb{background:var(--n200);border-radius:3px}
-.pindex__h{font-size:.7rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--n500);
-  padding-bottom:10px;border-bottom:1.5px solid var(--navy);margin-bottom:4px}
+.pindex__h{font-size:.68rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--n500);
+  padding-bottom:9px;border-bottom:1.5px solid var(--navy);margin-bottom:4px}
 .pindex__l{list-style:none;margin:0;padding:0}
-.pindex__l a{display:flex;gap:9px;padding:7px 0;font-size:.85rem;color:var(--n600);line-height:1.35;
-  border-left:2px solid transparent;padding-left:10px;margin-left:-12px;transition:color .2s var(--ease),border-color .2s var(--ease)}
-.pindex__l a span{color:var(--n300);font-size:.72rem;font-weight:700;padding-top:2px;flex:none}
+.pindex__l a{display:flex;gap:8px;padding:6px 0 6px 9px;font-size:.8rem;color:var(--n600);line-height:1.32;
+  border-left:2px solid transparent;margin-left:-11px;transition:color .2s var(--ease),border-color .2s var(--ease)}
+.pindex__l a span{color:var(--n300);font-size:.68rem;font-weight:700;padding-top:2px;flex:none}
 .pindex__l a:hover{color:var(--navy)}
 .pindex__l a[aria-current]{color:var(--azure);font-weight:600;border-left-color:var(--azure)}
 .pindex__l a[aria-current] span{color:var(--azure)}
-.pindex__f{margin-top:14px;padding-top:12px;border-top:1px solid var(--n150);display:flex;flex-direction:column;gap:8px}
-.pindex__f a{font-size:.82rem;color:var(--n600)}
+.pindex__f{margin-top:13px;padding-top:11px;border-top:1px solid var(--n150);display:flex;flex-direction:column;gap:7px}
+.pindex__f a{font-size:.78rem;color:var(--n600)}
 .pindex__f a:hover{color:var(--azure)}
 
-/* documented places: an editorial entry, photography at real size, no pills */
-.plist{display:flex;flex-direction:column;gap:clamp(40px,5vw,72px)}
-.place{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(22px,3.4vw,44px);align-items:center}
-.place:nth-child(even) .place__m{order:2}
-.gshell .place{grid-template-columns:minmax(0,1fr) minmax(0,1.02fr)}
-@media(max-width:820px){.place{grid-template-columns:1fr;gap:18px}.place:nth-child(even) .place__m{order:0}}
-/* 43 of the 127 documented places carry no photograph yet. Those entries run
-   full width rather than leaving an empty column beside them. */
-.place--noimg{grid-template-columns:1fr;max-width:74ch}
+/* ── documented places. Centred column, photography at the full width of it,
+      copy beneath at a comfortable size. Side by side made the photographs
+      too small once the rail existed. ──────────────────────────────────── */
+.plist{display:flex;flex-direction:column;gap:clamp(52px,6vw,88px);max-width:760px;margin-inline:auto}
+.place{display:block}
 .place--hit .place__b{position:relative}
-.place--hit .place__b::before{content:"";position:absolute;left:-16px;top:-10px;bottom:-10px;width:3px;
+.place--hit .place__b::before{content:"";position:absolute;left:-18px;top:2px;bottom:2px;width:3px;
   background:var(--azure);border-radius:2px}
-.place__m{margin:0;border-radius:var(--r);overflow:hidden;background:var(--n100);box-shadow:0 18px 40px -22px rgba(11,51,86,.4)}
-.place__m img{width:100%;aspect-ratio:10/7.2;object-fit:cover;transition:transform .8s var(--ease)}
-.place:hover .place__m img{transform:scale(1.035)}
-.place__i{display:block;font-size:.72rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--n400);margin-bottom:10px}
-.place__b h3{font-size:clamp(1.45rem,2.4vw,1.95rem);letter-spacing:-.026em;margin-bottom:12px}
-.place__lead{font-size:1.06rem;line-height:1.6;color:var(--n700);margin-bottom:12px;max-width:52ch}
-.place__body{font-size:.96rem;line-height:1.65;color:var(--n600);margin-bottom:16px;max-width:54ch}
-.place__good,.place__note{font-size:.92rem;line-height:1.6;max-width:52ch;margin-top:12px;padding-top:12px;border-top:1px solid var(--n150)}
+.place__m{margin:0 0 22px;border-radius:var(--r);overflow:hidden;background:var(--n100);
+  box-shadow:0 20px 44px -24px rgba(11,51,86,.4)}
+.place__m img{width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform .8s var(--ease)}
+.place:hover .place__m img{transform:scale(1.03)}
+.place__i{display:block;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--n400);margin-bottom:9px}
+.place__b h3{font-size:clamp(1.7rem,2.8vw,2.15rem);letter-spacing:-.026em;margin-bottom:14px}
+.place__lead{font-size:1.16rem;line-height:1.62;color:var(--n800);margin-bottom:14px}
+.place__body{font-size:1.04rem;line-height:1.72;color:var(--n600);margin-bottom:18px}
+.place__good,.place__note{font-size:1rem;line-height:1.66;margin-top:15px;padding-top:14px;
+  border-top:1px solid var(--n150)}
 .place__good{color:var(--n700)}
 .place__note{color:var(--n600)}
-.place__good span,.place__note span{display:block;font-size:.7rem;font-weight:700;letter-spacing:.13em;
-  text-transform:uppercase;color:var(--azure);margin-bottom:4px}
+.place__good span,.place__note span{display:block;font-size:.72rem;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--azure);margin-bottom:5px}
 .place__note span{color:var(--em700)}
-
-/* three curated stays, in place of a flat blue band */
-.stays{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-@media(max-width:900px){.stays{grid-template-columns:1fr}}
-.stay{background:var(--white);border:1px solid var(--n150);border-radius:var(--r);overflow:hidden;display:block;
-  transition:box-shadow .25s var(--ease),border-color .25s var(--ease)}
-.stay:hover{box-shadow:0 14px 32px -18px rgba(11,51,86,.34);border-color:var(--n200)}
-.stay__m{position:relative;aspect-ratio:4/3;background:var(--n100)}
-.stay__m img{width:100%;height:100%;object-fit:cover}
-.stay__why{position:absolute;left:10px;top:10px;background:rgba(255,255,255,.95);color:var(--navy);
-  font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
-.stay__b{padding:15px 16px 16px}
-.stay__b h3{font-size:1rem;line-height:1.34;margin-bottom:5px}
-.stay__loc{font-size:.82rem;color:var(--n500)}
-.stay__spec{font-size:.82rem;color:var(--n600);margin-top:7px}
-.stay__foot{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:12px;
-  padding-top:12px;border-top:1px solid var(--n150)}
-.stay__price{font-size:.88rem;color:var(--n600)}
-.stay__price b{font-size:1.06rem;color:var(--navy);font-weight:700}
-.stay__rate{font-size:.84rem;font-weight:700;color:var(--em700);background:var(--em100);border-radius:999px;padding:3px 9px}
-.stays__note{text-align:center;font-size:.83rem;color:var(--n500);margin-top:16px}
-.stays__note a{color:var(--azure);font-weight:600}
-
-/* photo viewer */
-.gal__b{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;position:relative;line-height:0}
-.place__m .gal__b{border-radius:var(--r);overflow:hidden}
-.place__zoom{position:absolute;right:12px;bottom:12px;background:rgba(255,255,255,.94);color:var(--navy);
-  font-size:.74rem;font-weight:600;padding:6px 12px;border-radius:999px;opacity:0;transition:opacity .25s var(--ease);line-height:1.4}
-.place:hover .place__zoom,.gal__b:focus-visible .place__zoom{opacity:1}
-.lb{position:fixed;inset:0;z-index:200;background:rgba(8,26,44,.97);backdrop-filter:blur(6px);display:grid;
-  grid-template-columns:auto 1fr auto;align-items:center;gap:clamp(6px,2vw,22px);padding:clamp(14px,3vw,40px)}
-.lb__f{margin:0;display:flex;flex-direction:column;align-items:center;gap:14px;min-width:0}
-.lb__f img{max-width:100%;max-height:78vh;object-fit:contain;border-radius:6px;box-shadow:0 30px 70px -30px rgba(0,0,0,.7)}
-.lb__f figcaption{display:flex;gap:18px;align-items:baseline;color:rgba(255,255,255,.8);font-size:.88rem;text-align:center}
-.lb__f figcaption b{color:rgba(255,255,255,.55);font-weight:600;font-size:.8rem;white-space:nowrap}
-.lb__nav,.lb__x{background:rgba(255,255,255,.12);color:#fff;border-radius:999px;display:grid;place-items:center;
-  transition:background .2s var(--ease)}
-.lb__nav{width:46px;height:46px;font-size:1.7rem;line-height:1}
-.lb__nav:hover,.lb__x:hover{background:rgba(255,255,255,.26)}
-.lb__x{position:absolute;top:clamp(14px,3vw,26px);right:clamp(14px,3vw,26px);width:40px;height:40px;font-size:1.5rem}
-.lb :focus-visible{outline:2px solid #fff;outline-offset:3px}
-@media(max-width:640px){.lb{grid-template-columns:1fr}.lb__nav{position:absolute;bottom:22px}
-  .lb__nav--p{left:22px}.lb__nav--n{right:22px}}
 
 /* gallery, faq, search results, empty */
 .gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
