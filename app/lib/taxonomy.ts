@@ -79,3 +79,39 @@ export const CATEGORY_BY_SLUG = new Map(CATEGORIES.map((c) => [c.slug, c]));
 
 /** Spec section 8: chips at 10 or fewer, theme grids above that. */
 export const THEME_GRID_THRESHOLD = 10;
+
+/**
+ * Months each category is worth doing, 1 to 12. Drives the "Best time to go"
+ * module (PRD 6.4), the best-months indicator on category cards, and seasonal
+ * ordering of the grid (AC 48: storm watching above whale watching in
+ * December, below it in April).
+ *
+ * The data lives in best-months.json because the seed scripts are plain .mjs
+ * and cannot import TypeScript. One file, no drift.
+ *
+ * These are per-category defaults. `destination_categories.best_months`
+ * overrides them per town once an editor sets it.
+ */
+import BEST_MONTHS from "./best-months.json";
+
+export const CATEGORY_BEST_MONTHS: Record<string, number[]> = BEST_MONTHS;
+
+export const MONTH_SHORT = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"];
+export const MONTH_NAME = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+
+/**
+ * Seasonal rank for ordering a category grid in a given month. Categories in
+ * season sort first, then by how central the month sits in their season, then
+ * by the taxonomy order. Pure so it can be unit-tested (AC 48).
+ */
+export function seasonalRank(bestMonths: number[], month: number): number {
+  if (!bestMonths.length) return 1;
+  if (!bestMonths.includes(month)) return 1;
+  // Peak of the season scores best: distance from the middle of the run.
+  const centre = bestMonths[Math.floor(bestMonths.length / 2)];
+  const dist = Math.min(Math.abs(centre - month), 12 - Math.abs(centre - month));
+  return -100 + dist;
+}

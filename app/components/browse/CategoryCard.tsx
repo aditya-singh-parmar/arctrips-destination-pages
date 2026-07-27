@@ -2,7 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { cld, placeholder } from "@/app/lib/cloudinary";
 
-export type CategoryCardCategory = { slug: string; name: string; blurb?: string; heroPublicId?: string };
+export type CategoryCardCategory = {
+  slug: string; name: string; blurb?: string; heroPublicId?: string;
+  /** "Mar to Oct", from best_months. Rendered as text, never colour alone. */
+  season?: string;
+};
 
 /**
  * Rail card for a "things to do" category. `citySlug` isn't in the plan's
@@ -58,6 +62,7 @@ export function CategoryCard({
       </div>
       <h4 className="pcard__title">{category.name}</h4>
       {category.blurb && <p className="pcard__meta">{category.blurb}</p>}
+      {category.season && <p className="pcard__season">{category.season}</p>}
       {state === "soon" ? (
         <p className="pcard__price" data-state="soon">Notify me &rarr;</p>
       ) : (

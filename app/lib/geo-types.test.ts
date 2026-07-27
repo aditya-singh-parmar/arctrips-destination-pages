@@ -4,7 +4,7 @@ import { isLegalChildType, geoPath, guidePath, isRenderable, countBodyWords, isT
 function node(slug: string, type: GeoNode["type"]): GeoNode {
   return {
     id: slug, slug, name: slug, type, parentId: null, status: "published",
-    body: [], alsoAppearsIn: [], sortPriority: 0, updatedAt: "2026-07-27T00:00:00Z",
+    body: [], alsoAppearsIn: [], facts: [], sortPriority: 0, updatedAt: "2026-07-27T00:00:00Z",
   };
 }
 

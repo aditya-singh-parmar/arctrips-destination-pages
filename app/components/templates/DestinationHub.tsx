@@ -10,6 +10,10 @@ import {
 import { cld, placeholder } from "@/app/lib/cloudinary";
 import { geoPath, type GeoNode } from "@/app/lib/geo-types";
 import { breadcrumbList, itemList, touristDestination } from "@/app/lib/jsonld";
+import { getDestinationCategories, getGeoChildren, getGeoChildLinks, pathForTownSlug } from "@/app/lib/geo";
+import { CATEGORY_BEST_MONTHS, seasonalRank } from "@/app/lib/taxonomy";
+import { seasonLabel } from "@/app/components/browse/BestTime";
+import { TRAVELLER_PROFILES } from "@/app/components/templates/PlanIndex";
 import { JsonLd } from "@/app/components/ui/JsonLd";
 import { TopNav } from "@/app/components/landing/TopNav";
 import { Footer } from "@/app/components/landing/Footer";
@@ -31,13 +35,42 @@ export async function DestinationHub({ citySlug, trail }: { citySlug: string; tr
   const city = await getCity(citySlug);
   if (!city) notFound();
 
-  const [guides, planning, listings] = await Promise.all([
+  const node = trail[trail.length - 1];
+  const parent = trail[trail.length - 2];
+
+  const [guides, planning, listings, cats, areas, siblings] = await Promise.all([
     getGuidesForCity(citySlug),
     getPlanningPieces(citySlug),
     getListings({ destinationSlug: citySlug }),
+    getDestinationCategories(node.id),
+    getGeoChildren(node.id, "area"),
+    parent ? getGeoChildren(parent.id, "town") : Promise.resolve([]),
   ]);
 
   const base = geoPath(trail);
+
+  // Seasonal ordering (AC 48): what is in season now leads the grid. Storm
+  // watching rises in December and falls back in April, without an editor
+  // touching sort_order.
+  const month = new Date().getMonth() + 1;
+  const monthsFor = (slug: string) =>
+    cats.find((c) => c.categorySlug === slug)?.bestMonths?.length
+      ? cats.find((c) => c.categorySlug === slug)!.bestMonths
+      : CATEGORY_BEST_MONTHS[slug] ?? [];
+  const ordered = [...guides].sort(
+    (a, b) => seasonalRank(monthsFor(a.categorySlug), month) - seasonalRank(monthsFor(b.categorySlug), month),
+  );
+
+  // Nearby destinations: the other towns under this town's parent, capped at
+  // six and reciprocal by construction (AC 52).
+  const nearby = await Promise.all(
+    siblings
+      .filter((t) => t.slug !== citySlug)
+      .slice(0, 6)
+      .map(async (t) => ({ node: t, path: await pathForTownSlug(t.slug) })),
+  );
+
+  const facts = node.facts;
 
   // The destination page had no booking surface at all: you could only buy
   // once you were inside a guide. This is the page's one primary CTA, and it
@@ -95,6 +128,21 @@ export async function DestinationHub({ citySlug, trail }: { citySlug: string; tr
         <p className="cityintro">{city.overview[0]}</p>
         {city.overview.slice(1).map((p, i) => <p className="cityintro" key={i}>{p}</p>)}
 
+        {facts.length > 0 && (
+          <dl className="keyfacts">
+            {facts.map((f) => (
+              <div className="keyfacts__i" key={f.k}>
+                <dt className="keyfacts__k">{f.k}</dt>
+                <dd className="keyfacts__v">{f.v}</dd>
+              </div>
+            ))}
+            <div className="keyfacts__i">
+              <dt className="keyfacts__k">Currency</dt>
+              <dd className="keyfacts__v">{node.currency ?? trail[0]?.currency ?? "CAD"}</dd>
+            </div>
+          </dl>
+        )}
+
         <SellTile headline={sellHeadline} blurb={sellBlurb} ctaLabel="Book dates" href={`${base}#stays`} />
 
         <div className="rail__head" style={{ marginTop: 24 }}>
@@ -104,10 +152,16 @@ export async function DestinationHub({ citySlug, trail }: { citySlug: string; tr
           </div>
         </div>
         <div className="pcardgrid">
-          {guides.map((g) => (
+          {ordered.map((g) => (
             <CategoryCard
               key={g.categorySlug}
-              category={{ slug: g.categorySlug, name: g.name, blurb: g.placeCount ? `${g.placeCount} places` : undefined, heroPublicId: g.heroPublicId }}
+              category={{
+                slug: g.categorySlug,
+                name: g.name,
+                blurb: g.placeCount ? `${g.placeCount} places` : undefined,
+                heroPublicId: g.heroPublicId,
+                season: seasonLabel(monthsFor(g.categorySlug)),
+              }}
               citySlug={citySlug}
               basePath={`${base}/things-to-do`}
               bookableCount={g.bookableCount}
@@ -124,6 +178,12 @@ export async function DestinationHub({ citySlug, trail }: { citySlug: string; tr
                 <h2>Planning your trip</h2>
                 <p>Not things to do, but the questions that decide the trip.</p>
               </div>
+              <Link className="viewall" href={`${base}/plan`}>All planning</Link>
+            </div>
+            <div className="profiles">
+              {TRAVELLER_PROFILES.map((pr) => (
+                <Link key={pr.slug} href={`${base}/plan?for=${pr.slug}`}>{pr.name}</Link>
+              ))}
             </div>
             <div className="pcardgrid">
               {planning.map((a) => (
@@ -139,6 +199,55 @@ export async function DestinationHub({ citySlug, trail }: { citySlug: string; tr
             <div className="softnote" style={{ marginTop: 18 }}>
               Planning pieces sit in their own row here rather than inside the things-to-do grid above, so the
               selling row is not diluted by articles nobody can book.
+            </div>
+          </div>
+        )}
+
+        {areas.length > 0 && (
+          <div style={{ marginTop: 32 }}>
+            <div className="rail__head">
+              <div>
+                <h2>Areas in {city.name}</h2>
+                <p>The specific places people mean when they name this town.</p>
+              </div>
+            </div>
+            <div className="nearby">
+              {areas.map((a) => (
+                <Link className="nearby__i" key={a.id} href={`${base}/${a.slug}`}>
+                  <Image
+                    src={a.heroPublicId ? cld(a.heroPublicId, { w: 96, h: 96, fit: "fill" }) : placeholder(48, 48)}
+                    alt=""
+                    width={40}
+                    height={40}
+                  />
+                  {a.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {nearby.length > 0 && (
+          <div style={{ marginTop: 32 }}>
+            <div className="rail__head">
+              <div>
+                <h2>Nearby</h2>
+                <p>Close enough to combine into one trip.</p>
+              </div>
+            </div>
+            <div className="nearby">
+              {nearby.map(({ node: t, path }) => (
+                <Link className="nearby__i" key={t.id} href={path}>
+                  <Image
+                    src={t.heroPublicId ? cld(t.heroPublicId, { w: 96, h: 96, fit: "fill" }) : placeholder(48, 48)}
+                    alt=""
+                    width={40}
+                    height={40}
+                  />
+                  {t.name}
+                  <span className="nearby__d">{t.standfirst ? "guide" : "nearby"}</span>
+                </Link>
+              ))}
             </div>
           </div>
         )}

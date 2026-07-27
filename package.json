@@ -11,7 +11,8 @@
     "seed:geo": "node --env-file=.env.local scripts/seed-geo.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
-    "backfill:categories": "node --env-file=.env.local scripts/backfill-destination-categories.mjs"
+    "backfill:categories": "node --env-file=.env.local scripts/backfill-destination-categories.mjs",
+    "seed:facts": "node --env-file=.env.local scripts/seed-town-facts.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.0",

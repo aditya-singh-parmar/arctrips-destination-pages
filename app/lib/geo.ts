@@ -26,6 +26,7 @@ function rowToNode(r: any): GeoNode {
     currency: r.currency ?? undefined,
     unitSystem: r.unit_system ?? undefined,
     alsoAppearsIn: r.also_appears_in ?? [],
+    facts: r.facts ?? [],
     seoTitle: r.seo_title ?? undefined,
     seoDescription: r.seo_description ?? undefined,
     sortPriority: r.sort_priority ?? 0,
@@ -39,7 +40,7 @@ function seedNode(
 ): GeoNode {
   return {
     id, slug, name, type, parentId, status: "published",
-    body: [], alsoAppearsIn: [], sortPriority: 0,
+    body: [], alsoAppearsIn: [], facts: [], sortPriority: 0,
     updatedAt: "2026-07-27T00:00:00Z", ...extra,
   };
 }

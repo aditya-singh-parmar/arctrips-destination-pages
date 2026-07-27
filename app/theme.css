@@ -679,3 +679,61 @@ details[open] > .faq__q::after { transform: rotate(180deg); }
   .guiderail-stack { position: static; }
   .toc { display: none; }
 }
+
+/* ── Best time to go (PRD 6.4). Legible without colour: every cell carries a
+      glyph as well as a fill, and the strip is a real table for screen
+      readers (AC 49). ───────────────────────────────────────────────────── */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.besttime { margin: 22px 0; }
+.besttime__cap {
+  font-weight: 700; font-size: 15px; color: var(--n-900); margin-bottom: 8px;
+}
+.besttime__grid { border-collapse: separate; border-spacing: 4px 0; width: 100%; max-width: 520px; }
+.besttime__cell {
+  text-align: center; padding: 8px 0; border-radius: 8px; width: 8.33%;
+  background: var(--n-50); color: var(--n-500); border: 1px solid var(--n-100);
+}
+.besttime__cell[data-good="true"] {
+  background: color-mix(in srgb, var(--emerald) 12%, white);
+  border-color: color-mix(in srgb, var(--emerald) 40%, white);
+  color: var(--n-900);
+}
+.besttime__m { display: block; font-size: 12px; font-weight: 700; line-height: 1.4; }
+.besttime__dot { display: block; font-size: 11px; line-height: 1.2; }
+.besttime__legend { margin-top: 8px; font-size: 12px; color: var(--n-500); }
+.besttime__sep { display: inline-block; width: 14px; }
+
+/* ── Key facts strip (PRD 6.2 orientation) ──────────────────────────────── */
+.keyfacts {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1px; background: var(--n-100); border: 1px solid var(--n-100);
+  border-radius: 12px; overflow: hidden; margin: 22px 0;
+}
+.keyfacts__i { background: white; padding: 14px 16px; }
+.keyfacts__k { font-size: 12px; color: var(--n-500); display: block; margin-bottom: 3px; }
+.keyfacts__v { font-size: 15px; font-weight: 600; color: var(--n-900); }
+
+/* ── Nearby destinations and areas (PRD 6.2 context) ────────────────────── */
+.nearby { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.nearby__i {
+  display: flex; align-items: center; gap: 10px; padding: 8px 14px 8px 8px;
+  border: 1px solid var(--n-100); border-radius: 999px; background: white;
+  text-decoration: none; color: var(--n-900); font-weight: 600; font-size: 14px;
+}
+.nearby__i:hover { border-color: var(--azure); }
+.nearby__i img { border-radius: 999px; object-fit: cover; }
+.nearby__d { font-weight: 400; color: var(--n-500); font-size: 13px; }
+
+/* ── Traveller profile shortcuts (PRD 6.2 plan your trip) ───────────────── */
+.profiles { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.profiles a {
+  padding: 8px 14px; border-radius: 999px; border: 1px solid var(--n-100);
+  background: white; text-decoration: none; color: var(--n-900);
+  font-size: 14px; font-weight: 600;
+}
+.profiles a:hover { border-color: var(--azure); color: var(--azure); }
+.pcard__season { font-size: 12px; color: var(--emerald); font-weight: 600; margin-top: 2px; }

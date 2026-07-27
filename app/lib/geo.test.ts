@@ -5,7 +5,7 @@ import type { GeoNode, GeoStatus } from "./geo-types";
 function n(slug: string, status: GeoStatus): GeoNode {
   return {
     id: slug, slug, name: slug, type: "town", parentId: null, status,
-    body: [], alsoAppearsIn: [], sortPriority: 0, updatedAt: "2026-07-27T00:00:00Z",
+    body: [], alsoAppearsIn: [], facts: [], sortPriority: 0, updatedAt: "2026-07-27T00:00:00Z",
   };
 }
 

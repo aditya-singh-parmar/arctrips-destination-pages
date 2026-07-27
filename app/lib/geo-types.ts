@@ -27,6 +27,8 @@ export type GeoNode = {
   unitSystem?: string;
   /** Areas only: other towns that link here. Canonical still follows parentId. */
   alsoAppearsIn: string[];
+  /** Editor-authored key facts for the orientation strip (PRD 6.2). */
+  facts: { k: string; v: string }[];
   seoTitle?: string;
   seoDescription?: string;
   sortPriority: number;

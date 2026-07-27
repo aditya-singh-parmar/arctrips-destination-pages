@@ -5,6 +5,9 @@ import { getGuide, getGuidesForCity, getListings } from "@/app/lib/content";
 import { cld, placeholder } from "@/app/lib/cloudinary";
 import { geoPath, type GeoNode } from "@/app/lib/geo-types";
 import { breadcrumbList, faqPage, itemList } from "@/app/lib/jsonld";
+import { getDestinationCategories } from "@/app/lib/geo";
+import { CATEGORY_BEST_MONTHS } from "@/app/lib/taxonomy";
+import { BestTime } from "@/app/components/browse/BestTime";
 import { JsonLd } from "@/app/components/ui/JsonLd";
 import { TopNav } from "@/app/components/landing/TopNav";
 import { Footer } from "@/app/components/landing/Footer";
@@ -60,10 +63,14 @@ export async function CategoryGuide({
   const guide = await getGuide(citySlug, categorySlug);
   if (!guide) notFound();
 
-  const [listings, siblings] = await Promise.all([
+  const node = trail[trail.length - 1];
+  const [listings, siblings, cats] = await Promise.all([
     getListings({ destinationSlug: citySlug }),
     getGuidesForCity(citySlug),
+    getDestinationCategories(node.id),
   ]);
+  const row = cats.find((c) => c.categorySlug === categorySlug);
+  const bestMonths = row?.bestMonths?.length ? row.bestMonths : CATEGORY_BEST_MONTHS[categorySlug] ?? [];
   const others = siblings.filter((g) => g.categorySlug !== categorySlug);
   const stayFrom = listings.length ? Math.min(...listings.map((l) => l.pricePerNight)) : undefined;
   const standfirst = lead(guide.intro);
@@ -116,6 +123,8 @@ export async function CategoryGuide({
 
         <div className="guidelayout">
           <article>
+            <BestTime months={bestMonths} label={`${guide.categoryName.toLowerCase()} in ${guide.cityName}`} />
+
             <GuideBody blocks={bodyBlocks(guide.intro)} photos={guide.photos} />
 
             {guide.places.length > 0 && (
