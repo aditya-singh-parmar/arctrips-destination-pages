@@ -248,36 +248,53 @@ function viewGuide(city, cat) {
   </div></div></section>
 
   ${ps.length ? `
-  <section class="sec" style="padding-top:0"><div class="wrap">
+  <section class="sec" style="padding-top:0" id="places"><div class="wrap">
     <div class="sechead center"><h2>${ps.length} places, documented.</h2>
       <p class="sub">Every one visited. Names, what they suit, and what to know before you go.</p></div>
-    <div class="plist">${ps.map((p, i) => {
-      // Good-for reads as a sentence, not a row of filter pills. A guide
-      // written by hand would say it in prose, so it does.
-      const good = (p.goodFor || []).map((t) => t.toLowerCase());
-      const goodLine = good.length
-        ? good.length === 1 ? good[0]
-          : good.slice(0, -1).join(", ") + " and " + good[good.length - 1]
-        : "";
-      const body = (p.body || []).filter((t) => !p.blurb || !t.slice(0, 40).includes(p.blurb.slice(0, 30)));
-      return `
-      <article class="place${p.hero ? "" : " place--noimg"}" id="${p.slug}">
-        ${p.hero ? `<figure class="place__m"><button class="gal__b" onclick="lightbox(0,'place',${i})" aria-label="Open photographs of ${esc(p.name)}">
-          <img src="${img(p.hero, 1000, 720)}" alt="${esc(p.name)}"><span class="place__zoom">View gallery</span></button></figure>` : ""}
-        <div class="place__b">
-          <span class="place__i tnum">${String(i + 1).padStart(2, "0")} of ${ps.length}</span>
-          <h3>${esc(p.name)}</h3>
-          ${p.blurb ? `<p class="place__lead">${esc(p.blurb)}</p>` : ""}
-          ${body.slice(0, 1).map((t) => `<p class="place__body">${esc(trim(t, 340))}</p>`).join("")}
-          ${goodLine ? `<p class="place__good"><span>Good for</span> ${esc(goodLine)}.</p>` : ""}
-          ${p.note ? `<p class="place__note"><span>Good to know</span> ${esc(p.note)}</p>` : ""}
+
+    <div class="gshell">
+      <aside class="pindex" aria-label="Places in this guide">
+        <p class="pindex__h">${esc(g.name)}</p>
+        <ol class="pindex__l">${ps.map((p, i) => `
+          <li><a href="#/g/${city}/${cat}?at=${p.slug}" data-jump="${p.slug}">
+            <span class="tnum">${String(i + 1).padStart(2, "0")}</span>${esc(p.name)}</a></li>`).join("")}</ol>
+        <div class="pindex__f">
+          <a href="#gallery">From the guide</a>
+          <a href="#stay">Where to stay</a>
         </div>
-      </article>`;
-    }).join("")}</div>
+      </aside>
+
+      <div class="plist">${ps.map((p, i) => {
+        const good = (p.goodFor || [])
+          // The ingest leaked table headers into a few good-for lists, so a
+          // fragment like "beach - location - best for" is dropped rather
+          // than printed as if a person wrote it.
+          .filter((t) => !/\u00b7/.test(t) && !/^(location|best for|beach)$/i.test(t.trim()))
+          .map((t) => t.toLowerCase());
+        const goodLine = good.length
+          ? good.length === 1 ? good[0]
+            : good.slice(0, -1).join(", ") + " and " + good[good.length - 1]
+          : "";
+        const body = (p.body || []).filter((t) => !p.blurb || !t.slice(0, 40).includes(p.blurb.slice(0, 30)));
+        return `
+        <article class="place${p.hero ? "" : " place--noimg"}" id="${p.slug}">
+          ${p.hero ? `<figure class="place__m"><button class="gal__b" onclick="lightbox(0,'place',${i})" aria-label="Open photographs of ${esc(p.name)}">
+            <img src="${img(p.hero, 1000, 720)}" alt="${esc(p.name)}"><span class="place__zoom">View gallery</span></button></figure>` : ""}
+          <div class="place__b">
+            <span class="place__i tnum">${String(i + 1).padStart(2, "0")} of ${ps.length}</span>
+            <h3>${esc(p.name)}</h3>
+            ${p.blurb ? `<p class="place__lead">${esc(p.blurb)}</p>` : ""}
+            ${body.slice(0, 1).map((t) => `<p class="place__body">${esc(trim(t, 340))}</p>`).join("")}
+            ${goodLine ? `<p class="place__good"><span>Good for</span> ${esc(goodLine)}.</p>` : ""}
+            ${p.note ? `<p class="place__note"><span>Good to know</span> ${esc(p.note)}</p>` : ""}
+          </div>
+        </article>`;
+      }).join("")}</div>
+    </div>
   </div></section>` : ""}
 
   ${g.photos.length ? `
-  <section class="sec" style="padding-top:0"><div class="wrap">
+  <section class="sec" style="padding-top:0" id="gallery"><div class="wrap">
     <div class="sechead center"><h2>From the guide.</h2></div>
     <div class="gal">${g.photos.map((p, i) => `
       <figure><button class="gal__b" onclick="lightbox(${i})" aria-label="Open photograph ${i + 1} of ${g.photos.length}">
@@ -373,7 +390,7 @@ function stayBlock(city, d) {
   const band = three.length === 3 ? ["Lowest rate", "Mid range", "Top of the range"] : three.map(() => "");
   const spread = three.length > 1 ? `$${three[0].price} to $${three[three.length - 1].price} a night` : `$${three[0].price} a night`;
 
-  return `<section class="sec" style="padding-top:0"><div class="wrap">
+  return `<section class="sec" style="padding-top:0" id="stay"><div class="wrap">
     <div class="sechead center"><span class="eyebrow">Where to stay</span>
       <h2>Three places to stay in ${esc(d.name)}.</h2>
       <p class="sub">One from each end of the range and one in the middle, ${spread}, picked from ${d.stays} stays.</p></div>
@@ -516,6 +533,26 @@ function render() {
   const el = at && document.getElementById(at);
   if (el) { el.classList.add("place--hit"); el.scrollIntoView({ behavior: "smooth", block: "center" }); }
   else window.scrollTo(0, 0);
+
+  spyPlaces();
+}
+
+/* The index highlights whichever place is on screen, so scrolling a 13 entry
+   guide never leaves you guessing where you are. */
+let SPY = null;
+function spyPlaces() {
+  SPY?.disconnect();
+  const links = new Map([...document.querySelectorAll("[data-jump]")].map((a) => [a.dataset.jump, a]));
+  if (!links.size) return;
+  SPY = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (!e.isIntersecting) continue;
+      links.forEach((a) => a.removeAttribute("aria-current"));
+      links.get(e.target.id)?.setAttribute("aria-current", "true");
+      links.get(e.target.id)?.scrollIntoView({ block: "nearest" });
+    }
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  document.querySelectorAll(".place").forEach((el) => SPY.observe(el));
 }
 
 addEventListener("hashchange", render);
