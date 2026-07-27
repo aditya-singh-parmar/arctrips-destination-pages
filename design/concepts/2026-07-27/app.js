@@ -262,7 +262,8 @@ function viewGuide(city, cat) {
       const body = (p.body || []).filter((t) => !p.blurb || !t.slice(0, 40).includes(p.blurb.slice(0, 30)));
       return `
       <article class="place${p.hero ? "" : " place--noimg"}" id="${p.slug}">
-        ${p.hero ? `<figure class="place__m"><img src="${img(p.hero, 1000, 720)}" alt="${esc(p.name)}"></figure>` : ""}
+        ${p.hero ? `<figure class="place__m"><button class="gal__b" onclick="lightbox(0,'place',${i})" aria-label="Open photographs of ${esc(p.name)}">
+          <img src="${img(p.hero, 1000, 720)}" alt="${esc(p.name)}"><span class="place__zoom">View gallery</span></button></figure>` : ""}
         <div class="place__b">
           <span class="place__i tnum">${String(i + 1).padStart(2, "0")} of ${ps.length}</span>
           <h3>${esc(p.name)}</h3>
@@ -278,15 +279,13 @@ function viewGuide(city, cat) {
   ${g.photos.length ? `
   <section class="sec" style="padding-top:0"><div class="wrap">
     <div class="sechead center"><h2>From the guide.</h2></div>
-    <div class="gal">${g.photos.map((p) => `
-      <figure><img src="${img(p.id, 460, 345)}" alt="${esc(p.caption || "")}">
+    <div class="gal">${g.photos.map((p, i) => `
+      <figure><button class="gal__b" onclick="lightbox(${i})" aria-label="Open photograph ${i + 1} of ${g.photos.length}">
+        <img src="${img(p.id, 560, 420)}" alt="${esc(p.caption || "")}"></button>
       ${p.caption ? `<figcaption>${esc(trim(p.caption, 70))}</figcaption>` : ""}</figure>`).join("")}</div>
   </div></section>` : ""}
 
-  <section class="sec" style="padding-top:0"><div class="wrap"><div class="closing">
-    <h2>Where to stay in ${esc(d.name)}.</h2>
-    <a class="btn btn--white" href="#/d/${city}">${d.stays} stays</a>
-  </div></div></section>`;
+  ${stayBlock(city, d)}`;
 }
 
 function viewArticle(slug) {
@@ -350,6 +349,99 @@ function viewSearch(q) {
         <div><b>${esc(a.title)}</b><span>${esc(trim(a.excerpt, 80))}</span></div></a>`)}`}
   </div></section>`;
 }
+
+/* ── where to stay: three real listings, chosen so they differ ───────────── */
+function stayBlock(city, d) {
+  const raw = (DATA.listings || []).filter((l) => l.city === city);
+  if (!raw.length) return "";
+
+  // The listings table is seeded placeholder inventory: nine Tofino rows but
+  // four unique titles, several tagged to Canmore, and every one identical at
+  // 3 beds / 2 baths / 4.9. So drop the duplicates, drop rows whose location
+  // contradicts the town, and label by the one thing that genuinely differs,
+  // which is price. Calling one "highest rated" when all are 4.9 is a lie.
+  const seen = new Set();
+  const clean = raw.filter((l) => {
+    const placed = !l.location || l.location.toLowerCase().includes(d.name.toLowerCase());
+    if (!placed || seen.has(l.title)) return false;
+    seen.add(l.title);
+    return true;
+  }).sort((a, b) => a.price - b.price);
+
+  if (!clean.length) return "";
+  const three = clean.length <= 3 ? clean : [clean[0], clean[Math.floor(clean.length / 2)], clean[clean.length - 1]];
+  const band = three.length === 3 ? ["Lowest rate", "Mid range", "Top of the range"] : three.map(() => "");
+  const spread = three.length > 1 ? `$${three[0].price} to $${three[three.length - 1].price} a night` : `$${three[0].price} a night`;
+
+  return `<section class="sec" style="padding-top:0"><div class="wrap">
+    <div class="sechead center"><span class="eyebrow">Where to stay</span>
+      <h2>Three places to stay in ${esc(d.name)}.</h2>
+      <p class="sub">One from each end of the range and one in the middle, ${spread}, picked from ${d.stays} stays.</p></div>
+    <div class="stays">${three.map((l, i) => `
+      <a class="stay" href="#">
+        <div class="stay__m"><img src="${img(l.hero, 620, 465)}" alt="${esc(l.title)}">
+          ${band[i] ? `<span class="stay__why">${band[i]}</span>` : ""}</div>
+        <div class="stay__b">
+          <h3>${esc(trim(l.title, 56))}</h3>
+          <p class="stay__loc">${esc(l.location || d.name)}</p>
+          <p class="stay__spec tnum">${l.beds} beds &middot; ${l.baths} baths &middot; ${l.rooms} rooms</p>
+          <div class="stay__foot">
+            <span class="stay__price tnum"><b>$${l.price}</b> a night</span>
+            ${l.rating ? `<span class="stay__rate tnum">${l.rating.toFixed(1)}</span>` : ""}
+          </div>
+        </div></a>`).join("")}</div>
+    <p class="stays__note">From-rates before taxes and fees. <a href="#">See all ${d.stays} stays in ${esc(d.name)}</a>.</p>
+  </div></section>`;
+}
+
+/* ── photo viewer. A gallery is the one place a modal is the right answer:
+      the subject is the photograph at size, and nothing else. ─────────────── */
+let LB = { list: [], i: 0 };
+window.lightbox = (i, kind, placeIdx) => {
+  const seg = location.hash.replace(/^#\/?/, "").split("?")[0].split("/");
+  const g = DATA.guides.find((x) => x.city === seg[1] && x.cat === seg[2]);
+  if (!g) return;
+  if (kind === "place") {
+    const p = placesFor(seg[1], seg[2])[placeIdx];
+    const tagged = g.photos.filter((ph) => ph.place === p?.slug);
+    LB.list = (tagged.length ? tagged : g.photos).slice();
+    if (p?.hero && !LB.list.some((x) => x.id === p.hero)) LB.list.unshift({ id: p.hero, caption: p.name });
+    LB.i = 0;
+  } else { LB.list = g.photos.slice(); LB.i = i; }
+  paintLB();
+};
+function paintLB() {
+  let el = document.getElementById("lb");
+  if (!el) {
+    el = document.createElement("div");
+    el.id = "lb"; el.className = "lb"; el.setAttribute("role", "dialog");
+    el.setAttribute("aria-modal", "true"); el.setAttribute("aria-label", "Photographs");
+    document.body.appendChild(el);
+    el.addEventListener("click", (e) => { if (e.target === el || e.target.closest("[data-close]")) closeLB(); });
+  }
+  const p = LB.list[LB.i];
+  el.innerHTML = `
+    <button class="lb__x" data-close aria-label="Close">&times;</button>
+    <button class="lb__nav lb__nav--p" onclick="stepLB(-1)" aria-label="Previous">&#8249;</button>
+    <figure class="lb__f">
+      <img src="${img(p.id, 1600, 1100)}" alt="${esc(p.caption || "")}">
+      <figcaption><span>${esc(p.caption || "")}</span><b class="tnum">${LB.i + 1} of ${LB.list.length}</b></figcaption>
+    </figure>
+    <button class="lb__nav lb__nav--n" onclick="stepLB(1)" aria-label="Next">&#8250;</button>`;
+  document.body.style.overflow = "hidden";
+  el.querySelector(".lb__x").focus();
+}
+window.stepLB = (d) => { LB.i = (LB.i + d + LB.list.length) % LB.list.length; paintLB(); };
+function closeLB() {
+  document.getElementById("lb")?.remove();
+  document.body.style.overflow = "";
+}
+addEventListener("keydown", (e) => {
+  if (!document.getElementById("lb")) return;
+  if (e.key === "Escape") closeLB();
+  if (e.key === "ArrowRight") stepLB(1);
+  if (e.key === "ArrowLeft") stepLB(-1);
+});
 
 /* ── chrome ──────────────────────────────────────────────────────────────── */
 function searchCard(placeholder = "Search destinations, guides, places", value = "") {
