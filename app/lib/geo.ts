@@ -5,7 +5,7 @@
  * falls through to SEED_GEO and the tree still serves.
  */
 import { getServerSupabase } from "./supabase";
-import type { ArticleBlock } from "./content";
+import { getNavigableSlugs, type ArticleBlock } from "./content";
 import { geoPath, isRenderable, type GeoNode, type GeoStatus, type GeoType } from "./geo-types";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -196,26 +196,36 @@ export function isTrailRenderable(trail: GeoNode[]): boolean {
 
 export type GeoChildLink = { node: GeoNode; path: string; townCount: number };
 
-/** Children of the trail's last node with their canonical paths, for index templates. */
+/**
+ * Children of the trail's last node with their canonical paths.
+ *
+ * `townCount` counts only towns that actually render. A town exists in the
+ * geo tree the moment it is seeded, but it 404s until it has content, so
+ * counting raw children would make an index page emit links to its own 404s
+ * and would render an empty province as a real page.
+ */
 export async function getGeoChildLinks(trail: GeoNode[]): Promise<GeoChildLink[]> {
   const parent = trail[trail.length - 1];
-  const children = await getGeoChildren(parent.id);
+  const [children, navigable] = await Promise.all([
+    getGeoChildren(parent.id),
+    getNavigableSlugs().then((slugs) => new Set(slugs)),
+  ]);
+
   return Promise.all(
     children.map(async (node) => {
-      if (node.type === "town" || node.type === "area") {
-        return { node, path: geoPath([...trail, node]), townCount: 1 };
+      const path = geoPath([...trail, node]);
+      if (node.type === "town") {
+        return { node, path, townCount: navigable.has(node.slug) ? 1 : 0 };
       }
-      // A region may hold towns; a province may hold both regions and towns.
+      if (node.type === "area") return { node, path, townCount: 1 };
+
       const [towns, regions] = await Promise.all([
         getGeoChildren(node.id, "town"),
         getGeoChildren(node.id, "region"),
       ]);
       const nested = await Promise.all(regions.map((r) => getGeoChildren(r.id, "town")));
-      return {
-        node,
-        path: geoPath([...trail, node]),
-        townCount: towns.length + nested.reduce((n, list) => n + list.length, 0),
-      };
+      const all = [...towns, ...nested.flat()];
+      return { node, path, townCount: all.filter((t) => navigable.has(t.slug)).length };
     }),
   );
 }
