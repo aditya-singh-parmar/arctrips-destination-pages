@@ -40,11 +40,18 @@ export function tierForMonth(months: number[], month: number): SeasonTier {
   return seasonTiers(months)[month - 1];
 }
 
-/** Never colour alone: every tier carries its own words. */
+/** Never colour alone: every tier carries its own words. Used as a badge. */
 export const TIER_WORD: Record<SeasonTier, string> = {
   peak: "At its best now",
   good: "Good now",
   quiet: "Quieter now",
+};
+
+/** The same three states as a sentence fragment, for running copy. */
+export const TIER_PHRASE: Record<SeasonTier, string> = {
+  peak: "this is when it is at its best",
+  good: "this is a good time to go",
+  quiet: "it is quieter, with fewer people",
 };
 
 /** The legend, in the owner's wording. "Quieter" is a reason to go, not a warning. */

@@ -6,9 +6,9 @@ import { cld, placeholder } from "@/app/lib/cloudinary";
 import { geoPath, type GeoNode } from "@/app/lib/geo-types";
 import { breadcrumbList, faqPage, itemList } from "@/app/lib/jsonld";
 import { getDestinationCategories } from "@/app/lib/geo";
-import { CATEGORY_BEST_MONTHS } from "@/app/lib/taxonomy";
+import { CATEGORY_BEST_MONTHS, MONTH_NAME } from "@/app/lib/taxonomy";
 import { SeasonStrip, SeasonLegend } from "@/app/components/browse/SeasonStrip";
-import { TIER_WORD, rankForMonth, tierForMonth } from "@/app/components/browse/season";
+import { TIER_PHRASE, TIER_WORD, rankForMonth, tierForMonth } from "@/app/components/browse/season";
 import { FaqList } from "@/app/components/browse/FaqList";
 import { cleanText, trimText } from "@/app/components/browse/text";
 import { GuideBody } from "@/app/components/guide/GuideBody";
@@ -93,6 +93,7 @@ export async function CategoryGuide({
   const month = new Date().getMonth() + 1;
   const bestMonths = monthsFor(categorySlug);
   const standfirst = lead(guide.intro);
+  const body = bodyBlocks(guide.intro);
   const heroPublicId = guide.heroPublicId ?? guide.photos[0]?.publicId;
   const selfUrl = `${SITE}${base}/things-to-do/${categorySlug}`;
 
@@ -185,18 +186,22 @@ export async function CategoryGuide({
                   month={month}
                 />
               </div>
-              <SeasonLegend note={`Right now, ${TIER_WORD[tierForMonth(bestMonths, month)].toLowerCase()}.`} />
+              <SeasonLegend
+                note={`In ${MONTH_NAME[month - 1]}, ${TIER_PHRASE[tierForMonth(bestMonths, month)]}.`}
+              />
             </div>
           </div>
         </section>
 
-        <section className="sec sec--flush">
-          <div className="container">
-            <div className="col">
-              <GuideBody blocks={bodyBlocks(guide.intro)} photos={guide.photos} />
+        {body.length > 0 && (
+          <section className="sec sec--flush">
+            <div className="container">
+              <div className="col">
+                <GuideBody blocks={body} photos={guide.photos} />
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {guide.places.length > 0 && (
           <section className="sec sec--flush" id="places" style={{ scrollMarginTop: 88 }}>
