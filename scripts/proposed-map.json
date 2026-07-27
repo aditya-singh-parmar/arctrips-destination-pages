@@ -1,0 +1,915 @@
+[
+ {
+  "file": "Banff - Agent Trek.docx",
+  "kind": "hub-whole",
+  "city": "banff",
+  "words": 14440,
+  "images": 58,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 4
+ },
+ {
+  "file": "Best Beaches on Vancouver Island.docx",
+  "kind": "roundup",
+  "cat": "beaches",
+  "words": 4268,
+  "images": 36,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 18,
+  "h2count": 22
+ },
+ {
+  "file": "Best Day Hikes on Vancouver Island.docx",
+  "kind": "roundup",
+  "cat": "hiking",
+  "words": 6037,
+  "images": 35,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 20,
+  "h2count": 25
+ },
+ {
+  "file": "Best Hikes in Squamish.docx",
+  "kind": "category",
+  "city": "squamish",
+  "cat": "hiking",
+  "words": 3381,
+  "images": 21,
+  "placeLevel": "h3",
+  "placeHeadings": [
+   "Best Hard Hikes in Squamish",
+   "Best Moderate Hikes in Squamish",
+   "Best Easy Hikes in Squamish"
+  ],
+  "numberedH2": 0,
+  "h2count": 11
+ },
+ {
+  "file": "Best Hikes in Whistler.docx",
+  "kind": "category",
+  "city": "whistler",
+  "cat": "hiking",
+  "words": 3503,
+  "images": 14,
+  "placeLevel": "h3",
+  "placeHeadings": [
+   "Best Easy Hikes in Whistler",
+   "Best Moderate Hikes in Whistler",
+   "Best Hard Hikes in Whistler"
+  ],
+  "numberedH2": 0,
+  "h2count": 9
+ },
+ {
+  "file": "Best Kayaking Spots on Vancouver Island.docx",
+  "kind": "roundup",
+  "cat": "kayaking",
+  "words": 3793,
+  "images": 19,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 12,
+  "h2count": 21
+ },
+ {
+  "file": "Best Overnight Hikes on Vancouver Island.docx",
+  "kind": "roundup",
+  "cat": "hiking",
+  "words": 4748,
+  "images": 18,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 10,
+  "h2count": 16
+ },
+ {
+  "file": "Best Place to See Whales in BC.docx",
+  "kind": "roundup",
+  "cat": "whale-watching",
+  "words": 2861,
+  "images": 18,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 9,
+  "h2count": 17
+ },
+ {
+  "file": "Best Places for Whale Watching on Vancouver Island.docx",
+  "kind": "roundup",
+  "cat": "whale-watching",
+  "words": 4889,
+  "images": 22,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 10,
+  "h2count": 24
+ },
+ {
+  "file": "Best Time to Stay in Ucluelet or Tofino_ Weather, Prices, and What to See.docx",
+  "kind": "hub",
+  "city": "tofino",
+  "words": 2711,
+  "images": 15,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 3
+ },
+ {
+  "file": "Biking in Whistler, BC.docx",
+  "kind": "category",
+  "city": "whistler",
+  "cat": "mountain-biking",
+  "words": 3181,
+  "images": 18,
+  "placeLevel": "h3",
+  "placeHeadings": [
+   "Bike Park Zones in Whistler"
+  ],
+  "numberedH2": 0,
+  "h2count": 14
+ },
+ {
+  "file": "Birdwatching in Victoria.docx",
+  "kind": "category",
+  "city": "victoria",
+  "cat": "birding",
+  "words": 2993,
+  "images": 56,
+  "placeLevel": "h3",
+  "placeHeadings": [
+   "Best Places for Birdwatching in Victoria"
+  ],
+  "numberedH2": 0,
+  "h2count": 10
+ },
+ {
+  "file": "Campbell River.docx",
+  "kind": "hub",
+  "city": "campbell-river",
+  "words": 6278,
+  "images": 27,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 0
+ },
+ {
+  "file": "Charlottetown - Agent Trek.docx",
+  "kind": "hub-whole",
+  "city": "charlottetown",
+  "words": 12340,
+  "images": 28,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 4
+ },
+ {
+  "file": "Chemainus.docx",
+  "kind": "hub",
+  "city": "chemainus",
+  "words": 6480,
+  "images": 16,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 1
+ },
+ {
+  "file": "Edmonton - Agent Trek.docx",
+  "kind": "hub-whole",
+  "city": "edmonton",
+  "words": 8744,
+  "images": 28,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 3
+ },
+ {
+  "file": "Farmers Markets in Vancouver_.docx",
+  "kind": "roundup",
+  "cat": "markets",
+  "words": 13052,
+  "images": 43,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 19
+ },
+ {
+  "file": "Halifax - Agent Trek.docx",
+  "kind": "hub-whole",
+  "city": "halifax",
+  "words": 15212,
+  "images": 39,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 4
+ },
+ {
+  "file": "Hiking_Walking in Victoria.docx",
+  "kind": "category",
+  "city": "victoria",
+  "cat": "hiking",
+  "words": 3002,
+  "images": 72,
+  "placeLevel": "h3",
+  "placeHeadings": [
+   "Best scenic walks in Victoria",
+   "Best beaches and relaxed coastal walks",
+   "Best Nature Walks & Urban Gardens",
+   "Best nature hikes & viewpoints",
+   "Best nature walks & easy park trails",
+   "Best long walks & multi-use trails near Victoria"
+  ],
+  "numberedH2": 0,
+  "h2count": 9
+ },
+ {
+  "file": "How to Choose a Vacation Rental on Vancouver Island.docx",
+  "kind": "roundup",
+  "words": 1735,
+  "images": 3,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 10,
+  "h2count": 12
+ },
+ {
+  "file": "Jasper.docx",
+  "kind": "hub",
+  "city": "jasper",
+  "words": 11646,
+  "images": 29,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 0
+ },
+ {
+  "file": "Montreal - Agent Trek.docx",
+  "kind": "hub-whole",
+  "city": "montreal",
+  "words": 13085,
+  "images": 41,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 4
+ },
+ {
+  "file": "Mountain Biking in Squamish.docx",
+  "kind": "category",
+  "city": "squamish",
+  "cat": "mountain-biking",
+  "words": 3182,
+  "images": 14,
+  "placeLevel": "h3",
+  "placeHeadings": [
+   "Best Mountain Biking Areas in Squamish"
+  ],
+  "numberedH2": 0,
+  "h2count": 14
+ },
+ {
+  "file": "Nanaimo.docx",
+  "kind": "hub",
+  "city": "nanaimo",
+  "words": 10160,
+  "images": 39,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 6
+ },
+ {
+  "file": "Nanoose.docx",
+  "kind": "hub",
+  "city": "nanoose-bay",
+  "words": 7107,
+  "images": 10,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 5
+ },
+ {
+  "file": "Nelson - fishing.docx",
+  "kind": "category",
+  "city": "nelson",
+  "cat": "fishing",
+  "words": 1320,
+  "images": 9,
+  "placeLevel": "h3",
+  "placeHeadings": [
+   "Best Places to Fish Near Nelson"
+  ],
+  "numberedH2": 0,
+  "h2count": 6
+ },
+ {
+  "file": "Nelson.docx",
+  "kind": "hub",
+  "city": "nelson",
+  "words": 1774,
+  "images": 14,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 6
+ },
+ {
+  "file": "Niagara Falls - Agent Trek.docx",
+  "kind": "hub-whole",
+  "city": "niagara-falls",
+  "words": 13131,
+  "images": 37,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 4
+ },
+ {
+  "file": "Ottawa - Agent Trek.docx",
+  "kind": "hub-whole",
+  "city": "ottawa",
+  "words": 13617,
+  "images": 43,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 4
+ },
+ {
+  "file": "Pacific Rim Whale Festival Guide.docx",
+  "kind": "article",
+  "cat": "whale-watching",
+  "words": 2052,
+  "images": 5,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 13
+ },
+ {
+  "file": "Quebec City - Agent Trek.docx",
+  "kind": "hub-whole",
+  "city": "quebec-city",
+  "words": 14284,
+  "images": 41,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 4
+ },
+ {
+  "file": "Saskatoon - Agent Trek.docx",
+  "kind": "hub-whole",
+  "city": "saskatoon",
+  "words": 5458,
+  "images": 27,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 4
+ },
+ {
+  "file": "Scenic Spots in Victoria.docx",
+  "kind": "category",
+  "city": "victoria",
+  "cat": "landmarks",
+  "words": 4807,
+  "images": 37,
+  "placeLevel": "h2",
+  "placeHeadings": [],
+  "numberedH2": 10,
+  "h2count": 10
+ },
+ {
+  "file": "Shawnigan Lake.docx",
+  "kind": "hub",
+  "city": "shawnigan-lake",
+  "words": 4520,
+  "images": 19,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 0
+ },
+ {
+  "file": "Sidney.docx",
+  "kind": "hub",
+  "city": "sidney",
+  "words": 7145,
+  "images": 26,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 0
+ },
+ {
+  "file": "Skiing and Snowboarding in Whistler.docx",
+  "kind": "category",
+  "city": "whistler",
+  "cat": "skiing",
+  "words": 3099,
+  "images": 14,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 18
+ },
+ {
+  "file": "Slow Food.docx",
+  "kind": "roundup",
+  "cat": "restaurants",
+  "words": 3486,
+  "images": 17,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 5
+ },
+ {
+  "file": "Sooke.docx",
+  "kind": "hub",
+  "city": "sooke",
+  "words": 13870,
+  "images": 46,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 6
+ },
+ {
+  "file": "Squamish - Sports Capital.docx",
+  "kind": "hub",
+  "city": "squamish",
+  "words": 3889,
+  "images": 34,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 3
+ },
+ {
+  "file": "Squamish vs Whistler.docx",
+  "kind": "hub",
+  "city": "squamish",
+  "words": 2791,
+  "images": 23,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 11
+ },
+ {
+  "file": "St. John_s - Agent Trek.docx",
+  "kind": "hub-whole",
+  "city": "st-johns",
+  "words": 15518,
+  "images": 31,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 4
+ },
+ {
+  "file": "The Parksville and Qualicum.docx",
+  "kind": "hub",
+  "city": "parksville",
+  "words": 12901,
+  "images": 45,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 6
+ },
+ {
+  "file": "Tofino & Ucluelet - Campgrounds.docx",
+  "kind": "category",
+  "city": "tofino",
+  "cat": "camping",
+  "words": 2886,
+  "images": 11,
+  "placeLevel": "h3",
+  "placeHeadings": [
+   "Campgrounds in Tofino",
+   "Campgrounds Between Tofino and Ucluelet",
+   "Campgrounds in Ucluelet",
+   "Nearby and Remote Campgrounds",
+   "Wilderness and Island Camping Near Tofino"
+  ],
+  "numberedH2": 0,
+  "h2count": 8
+ },
+ {
+  "file": "Tofino - Beaches.docx",
+  "kind": "category",
+  "city": "tofino",
+  "cat": "beaches",
+  "words": 2670,
+  "images": 22,
+  "placeLevel": "h3",
+  "placeHeadings": [
+   "Best Beaches in and Around Tofino",
+   "Beaches Near Tofino in Pacific Rim National Park"
+  ],
+  "numberedH2": 0,
+  "h2count": 6
+ },
+ {
+  "file": "Tofino - Kayaking.docx",
+  "kind": "category",
+  "city": "tofino",
+  "cat": "kayaking",
+  "words": 4057,
+  "images": 23,
+  "placeLevel": "h3",
+  "placeHeadings": [
+   "Easy to Moderate Kayaking Spots",
+   "Moderate to Advanced Kayaking Spots",
+   "Advanced and Expedition Kayaking Spots",
+   "Other Kayaking Areas Worth Knowing"
+  ],
+  "numberedH2": 0,
+  "h2count": 15
+ },
+ {
+  "file": "Tofino - Restaurants_.docx",
+  "kind": "category",
+  "city": "tofino",
+  "cat": "restaurants",
+  "words": 2291,
+  "images": 6,
+  "placeLevel": "h3",
+  "placeHeadings": [
+   "Best Restaurants in Tofino",
+   "Best Casual Places to Eat in Tofino",
+   "Best Breakfast and Coffee Spots in Tofino",
+   "Best Drinks in Tofino"
+  ],
+  "numberedH2": 0,
+  "h2count": 10
+ },
+ {
+  "file": "Tofino - Seabirds.docx",
+  "kind": "category",
+  "city": "tofino",
+  "cat": "birding",
+  "words": 3083,
+  "images": 47,
+  "placeLevel": "h3",
+  "placeHeadings": [
+   "Common Seabirds and Coastal Birds in Tofino"
+  ],
+  "numberedH2": 0,
+  "h2count": 13
+ },
+ {
+  "file": "Tofino - Storm Watching.docx",
+  "kind": "category",
+  "city": "tofino",
+  "cat": "storm-watching",
+  "words": 2017,
+  "images": 7,
+  "placeLevel": "h3",
+  "placeHeadings": [
+   "Best Places for Storm Watching in Tofino"
+  ],
+  "numberedH2": 0,
+  "h2count": 6
+ },
+ {
+  "file": "Tofino - Surfing.docx",
+  "kind": "category",
+  "city": "tofino",
+  "cat": "surfing",
+  "words": 2044,
+  "images": 6,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 8
+ },
+ {
+  "file": "Tofino - Trails.docx",
+  "kind": "category",
+  "city": "tofino",
+  "cat": "hiking",
+  "words": 3238,
+  "images": 19,
+  "placeLevel": "h3",
+  "placeHeadings": [
+   "Best Trails in Tofino and Nearby"
+  ],
+  "numberedH2": 0,
+  "h2count": 4
+ },
+ {
+  "file": "Tofino - Wildlife tours.docx",
+  "kind": "category",
+  "city": "tofino",
+  "cat": "birding",
+  "words": 2668,
+  "images": 15,
+  "placeLevel": "h3",
+  "placeHeadings": [
+   "What Whales Can You See in Tofino?",
+   "Other Marine Life You May See",
+   "Best Ways to See Wildlife in Tofino"
+  ],
+  "numberedH2": 0,
+  "h2count": 8
+ },
+ {
+  "file": "Tofino.docx",
+  "kind": "hub",
+  "city": "tofino",
+  "words": 10317,
+  "images": 63,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 5
+ },
+ {
+  "file": "Top 15 Things to See and Do in Squamish.docx",
+  "kind": "category",
+  "city": "squamish",
+  "cat": "landmarks",
+  "words": 2234,
+  "images": 15,
+  "placeLevel": "h3",
+  "placeHeadings": [
+   "Best Things to Do in Squamish",
+   "Two-Day Squamish Itinerary"
+  ],
+  "numberedH2": 0,
+  "h2count": 6
+ },
+ {
+  "file": "Top 20 Ski Mountains in BC.docx",
+  "kind": "roundup",
+  "cat": "skiing",
+  "words": 16652,
+  "images": 21,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 4
+ },
+ {
+  "file": "Top Things to See and Do in Whistler.docx",
+  "kind": "category",
+  "city": "whistler",
+  "cat": "landmarks",
+  "words": 2755,
+  "images": 21,
+  "placeLevel": "h3",
+  "placeHeadings": [
+   "Best Things to Do in Whistler",
+   "Two-Day Whistler Itinerary",
+   "Three-Day Whistler Itinerary"
+  ],
+  "numberedH2": 0,
+  "h2count": 9
+ },
+ {
+  "file": "Ucluelet - Hiking Guide.docx",
+  "kind": "category",
+  "city": "ucluelet",
+  "cat": "hiking",
+  "words": 4011,
+  "images": 18,
+  "placeLevel": "h3",
+  "placeHeadings": [
+   "Is Hiking in Ucluelet Easy?",
+   "Best Nearby Hikes in Pacific Rim National Park",
+   "Bigger Nearby Adventures"
+  ],
+  "numberedH2": 0,
+  "h2count": 12
+ },
+ {
+  "file": "Ucluelet - Kayaking.docx",
+  "kind": "category",
+  "city": "ucluelet",
+  "cat": "kayaking",
+  "words": 3244,
+  "images": 14,
+  "placeLevel": "h3",
+  "placeHeadings": [
+   "Easy Kayaking in Ucluelet",
+   "Easy to Moderate Kayaking Near Ucluelet",
+   "Moderate Kayaking Near Ucluelet",
+   "Advanced Kayaking Near Ucluelet",
+   "Top Kayak Rental & Tour Operators in Ucluelet"
+  ],
+  "numberedH2": 0,
+  "h2count": 16
+ },
+ {
+  "file": "Ucluelet - Restaurants.docx",
+  "kind": "category",
+  "city": "ucluelet",
+  "cat": "restaurants",
+  "words": 2339,
+  "images": 1,
+  "placeLevel": "h3",
+  "placeHeadings": [
+   "Top Restaurants in Ucluelet",
+   "Jiggers Fish and Chips",
+   "Best Coffee, Breakfast, and Bakery Stops in Ucluelet"
+  ],
+  "numberedH2": 0,
+  "h2count": 10
+ },
+ {
+  "file": "Ucluelet - Seabirds.docx",
+  "kind": "category",
+  "city": "ucluelet",
+  "cat": "birding",
+  "words": 3034,
+  "images": 39,
+  "placeLevel": "h3",
+  "placeHeadings": [
+   "Common Seabirds and Coastal Birds in Ucluelet"
+  ],
+  "numberedH2": 0,
+  "h2count": 13
+ },
+ {
+  "file": "Ucluelet - Wildlife watching.docx",
+  "kind": "category",
+  "city": "ucluelet",
+  "cat": "birding",
+  "words": 2803,
+  "images": 18,
+  "placeLevel": "h3",
+  "placeHeadings": [
+   "Best Wildlife to Watch in Ucluelet",
+   "Best Ways to Watch Wildlife in Ucluelet",
+   "Best Wildlife Watching Spots in Ucluelet"
+  ],
+  "numberedH2": 0,
+  "h2count": 7
+ },
+ {
+  "file": "Ucluelet.docx",
+  "kind": "hub",
+  "city": "ucluelet",
+  "words": 6375,
+  "images": 40,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 0
+ },
+ {
+  "file": "Vancouver - Agent Trek.docx",
+  "kind": "hub-whole",
+  "city": "vancouver",
+  "words": 13979,
+  "images": 43,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 4
+ },
+ {
+  "file": "Vancouver Island_ Best Mountain Biking Spots.docx",
+  "kind": "roundup",
+  "cat": "mountain-biking",
+  "words": 3342,
+  "images": 8,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 9,
+  "h2count": 19
+ },
+ {
+  "file": "Victoria - Agent Trek.docx",
+  "kind": "hub-whole",
+  "city": "victoria",
+  "words": 16832,
+  "images": 32,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 4
+ },
+ {
+  "file": "Victoria - Kayaking.docx",
+  "kind": "category",
+  "city": "victoria",
+  "cat": "kayaking",
+  "words": 1503,
+  "images": 14,
+  "placeLevel": "h3",
+  "placeHeadings": [
+   "Best places to kayak in Victoria"
+  ],
+  "numberedH2": 0,
+  "h2count": 6
+ },
+ {
+  "file": "Whale Tails, Blows, and Backs_ What You’re Actually Seeing on the Water.docx",
+  "kind": "article",
+  "cat": "whale-watching",
+  "words": 2343,
+  "images": 24,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 11,
+  "h2count": 17
+ },
+ {
+  "file": "Whale Watching Tours in Ucluelet.docx",
+  "kind": "category",
+  "city": "ucluelet",
+  "cat": "whale-watching",
+  "words": 2257,
+  "images": 5,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 12
+ },
+ {
+  "file": "Whale Watching Victoria.docx",
+  "kind": "category",
+  "city": "victoria",
+  "cat": "whale-watching",
+  "words": 1573,
+  "images": 17,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 6
+ },
+ {
+  "file": "Whale Watching in Ucluelet.docx",
+  "kind": "category",
+  "city": "ucluelet",
+  "cat": "whale-watching",
+  "words": 1895,
+  "images": 8,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 6
+ },
+ {
+  "file": "Whales in Ucluelet_ The Spring Migration Explained.docx",
+  "kind": "category",
+  "city": "ucluelet",
+  "cat": "whale-watching",
+  "words": 2421,
+  "images": 6,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 18
+ },
+ {
+  "file": "Whistler - Agent Trek.docx",
+  "kind": "hub-whole",
+  "city": "whistler",
+  "words": 20925,
+  "images": 36,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 6
+ },
+ {
+  "file": "Whistler in Summer.docx",
+  "kind": "hub",
+  "city": "whistler",
+  "words": 2756,
+  "images": 19,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 8
+ },
+ {
+  "file": "Winter in Whistler.docx",
+  "kind": "hub",
+  "city": "whistler",
+  "words": 2564,
+  "images": 16,
+  "placeLevel": "h3",
+  "placeHeadings": [],
+  "numberedH2": 0,
+  "h2count": 8
+ }
+]
