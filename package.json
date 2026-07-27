@@ -8,6 +8,7 @@
     "start": "node node_modules/next/dist/bin/next start",
     "lint": "eslint",
     "seed": "node --env-file=.env.local scripts/seed.mjs",
+    "seed:geo": "node --env-file=.env.local scripts/seed-geo.mjs",
     "test": "vitest run",
     "test:watch": "vitest"
   },
