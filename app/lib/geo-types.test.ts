@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { isLegalChildType, geoPath, guidePath, isRenderable, type GeoNode } from "./geo-types";
+import { isLegalChildType, geoPath, guidePath, isRenderable, countBodyWords, isThinBody, THIN_BODY_WORDS, type GeoNode } from "./geo-types";
 
 function node(slug: string, type: GeoNode["type"]): GeoNode {
   return {
@@ -74,5 +74,18 @@ describe("isRenderable", () => {
     expect(isRenderable("draft")).toBe(false);
     expect(isRenderable("hidden")).toBe(false);
     expect(isRenderable("archived")).toBe(false);
+  });
+});
+
+describe("thin body gate", () => {
+  it("counts words across blocks", () => {
+    expect(countBodyWords([{ text: "one two three" }, { text: "four five" }])).toBe(5);
+    expect(countBodyWords([{}, { text: "  spaced   out  " }])).toBe(2);
+  });
+
+  it("flags a body under the threshold", () => {
+    expect(isThinBody([{ text: "short" }])).toBe(true);
+    expect(isThinBody([{ text: Array(THIN_BODY_WORDS).fill("word").join(" ") }])).toBe(false);
+    expect(isThinBody([{ text: Array(THIN_BODY_WORDS - 1).fill("word").join(" ") }])).toBe(true);
   });
 });

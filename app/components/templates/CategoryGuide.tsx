@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { getGuide, getGuidesForCity, getListings } from "@/app/lib/content";
 import { cld, placeholder } from "@/app/lib/cloudinary";
 import { geoPath, type GeoNode } from "@/app/lib/geo-types";
+import { breadcrumbList, faqPage, itemList } from "@/app/lib/jsonld";
+import { JsonLd } from "@/app/components/ui/JsonLd";
 import { TopNav } from "@/app/components/landing/TopNav";
 import { Footer } from "@/app/components/landing/Footer";
 import { Breadcrumb } from "@/app/components/nav/Breadcrumb";
@@ -12,6 +14,8 @@ import { FaqList } from "@/app/components/browse/FaqList";
 import { BookingRail } from "@/app/components/guide/BookingRail";
 import { GuideBody, splitSections } from "@/app/components/guide/GuideBody";
 import { CategoryCard } from "@/app/components/browse/CategoryCard";
+
+const SITE = "https://arctrips.com";
 
 type Block = { type: string; text?: string };
 
@@ -69,9 +73,21 @@ export async function CategoryGuide({
     .filter((sec) => sec.heading?.text)
     .map((sec) => ({ index: sec.index, text: sec.heading!.text as string }));
 
+  const selfUrl = `${SITE}${base}/things-to-do/${categorySlug}`;
+
   return (
     <>
       <TopNav active="destinations" />
+      <JsonLd data={breadcrumbList([
+        { name: "Destinations", url: `${SITE}/destinations` },
+        ...trail.map((n, i) => ({ name: n.name, url: `${SITE}${geoPath(trail.slice(0, i + 1))}` })),
+        { name: guide.categoryName },
+      ])} />
+      <JsonLd data={faqPage(guide.faqs)} />
+      <JsonLd data={itemList(
+        guide.places.map((pl) => ({ name: pl.name, url: `${selfUrl}#${pl.slug}` })),
+        `${guide.categoryName} in ${guide.cityName}`,
+      )} />
       <div className="container">
         <Breadcrumb
           trail={[

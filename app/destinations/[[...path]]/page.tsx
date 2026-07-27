@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { resolveDestinationPath } from "@/app/lib/resolver";
 import { lookupGeoChild } from "@/app/lib/geo";
-import { geoPath } from "@/app/lib/geo-types";
+import { geoPath, isThinBody } from "@/app/lib/geo-types";
 import { getCity, getGuide } from "@/app/lib/content";
 import { DestinationsLanding } from "@/app/components/templates/DestinationsLanding";
 import { DestinationHub } from "@/app/components/templates/DestinationHub";
@@ -75,6 +75,11 @@ export async function generateMetadata({ params, searchParams }: Props): Promise
       title: `${guide.categoryName} in ${guide.cityName}, Best Time, Where to Go | Arc Trips`,
       description: lead(guide.intro),
       alternates: { canonical: `${SITE}${geoPath(r.trail)}/things-to-do/${r.categorySlug}` },
+      // A thin guide stays reachable, because it may carry a real booking
+      // path, but never enters the index. Without this, tofino/fishing (one
+      // intro block) is an orphan: unlinked from every grid, absent from the
+      // sitemap, and indexable.
+      ...(isThinBody(guide.intro) ? { robots: { index: false, follow: true } } : {}),
     };
   }
 

@@ -9,6 +9,8 @@ import {
 } from "@/app/lib/content";
 import { cld, placeholder } from "@/app/lib/cloudinary";
 import { geoPath, type GeoNode } from "@/app/lib/geo-types";
+import { breadcrumbList, itemList, touristDestination } from "@/app/lib/jsonld";
+import { JsonLd } from "@/app/components/ui/JsonLd";
 import { TopNav } from "@/app/components/landing/TopNav";
 import { Footer } from "@/app/components/landing/Footer";
 import { Breadcrumb } from "@/app/components/nav/Breadcrumb";
@@ -16,6 +18,8 @@ import { CategoryCard } from "@/app/components/browse/CategoryCard";
 import { Rail } from "@/app/components/browse/Rail";
 import { ListingCard } from "@/app/components/landing/ListingCard";
 import { SellTile } from "@/app/components/sell/SellTile";
+
+const SITE = "https://arctrips.com";
 
 /**
  * The destination hub, moved onto the deep tree from the S1 flat route
@@ -51,6 +55,19 @@ export async function DestinationHub({ citySlug, trail }: { citySlug: string; tr
   return (
     <>
       <TopNav active="destinations" />
+      <JsonLd data={breadcrumbList([
+        { name: "Destinations", url: `${SITE}/destinations` },
+        ...trail.map((n, i) => ({ name: n.name, url: `${SITE}${geoPath(trail.slice(0, i + 1))}` })),
+      ])} />
+      <JsonLd data={touristDestination(
+        { name: city.name, lat: trail[trail.length - 1]?.lat, lng: trail[trail.length - 1]?.lng },
+        `${SITE}${base}`,
+        city.standfirst,
+      )} />
+      <JsonLd data={itemList(
+        guides.map((g) => ({ name: g.name, url: `${SITE}${base}/things-to-do/${g.categorySlug}` })),
+        `Things to do in ${city.name}`,
+      )} />
       <div className="container">
         <Breadcrumb
           trail={[

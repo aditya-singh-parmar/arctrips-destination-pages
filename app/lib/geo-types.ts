@@ -69,3 +69,19 @@ export function guidePath(trail: GeoNode[], guideSlug?: string): string {
   const base = trail.length ? `/travel-guides/${segments(trail)}` : "/travel-guides";
   return guideSlug ? `${base}/${guideSlug}` : base;
 }
+
+/**
+ * A category page below this many rendered words is a thin page: Google drops
+ * it as a soft 404 and it costs crawl budget on the way. Such a page still
+ * renders, because it may carry a real booking path, but it is kept out of
+ * the index and out of the sitemap (AC 11, spec section 6).
+ */
+export const THIN_BODY_WORDS = 250;
+
+export function countBodyWords(blocks: { text?: string }[]): number {
+  return blocks.reduce((n, b) => n + (b.text ? b.text.trim().split(/\s+/).filter(Boolean).length : 0), 0);
+}
+
+export function isThinBody(blocks: { text?: string }[]): boolean {
+  return countBodyWords(blocks) < THIN_BODY_WORDS;
+}
