@@ -251,19 +251,28 @@ function viewGuide(city, cat) {
   <section class="sec" style="padding-top:0"><div class="wrap">
     <div class="sechead center"><h2>${ps.length} places, documented.</h2>
       <p class="sub">Every one visited. Names, what they suit, and what to know before you go.</p></div>
-    <div class="plist">${ps.map((p, i) => `
-      <article class="place" id="${p.slug}">
-        <div class="place__i tnum">${String(i + 1).padStart(2, "0")}</div>
+    <div class="plist">${ps.map((p, i) => {
+      // Good-for reads as a sentence, not a row of filter pills. A guide
+      // written by hand would say it in prose, so it does.
+      const good = (p.goodFor || []).map((t) => t.toLowerCase());
+      const goodLine = good.length
+        ? good.length === 1 ? good[0]
+          : good.slice(0, -1).join(", ") + " and " + good[good.length - 1]
+        : "";
+      const body = (p.body || []).filter((t) => !p.blurb || !t.slice(0, 40).includes(p.blurb.slice(0, 30)));
+      return `
+      <article class="place${p.hero ? "" : " place--noimg"}" id="${p.slug}">
+        ${p.hero ? `<figure class="place__m"><img src="${img(p.hero, 1000, 720)}" alt="${esc(p.name)}"></figure>` : ""}
         <div class="place__b">
+          <span class="place__i tnum">${String(i + 1).padStart(2, "0")} of ${ps.length}</span>
           <h3>${esc(p.name)}</h3>
-          ${p.blurb ? `<p class="place__blurb">${esc(p.blurb)}</p>` : ""}
-          ${(p.body || []).filter((t) => !p.blurb || !t.startsWith(p.blurb.slice(0, 40)))
-              .slice(0, 1).map((t) => `<p class="place__body">${esc(trim(t, 320))}</p>`).join("")}
-          ${p.goodFor?.length ? `<div class="tags">${p.goodFor.map((t) => `<span>${esc(t)}</span>`).join("")}</div>` : ""}
-          ${p.note ? `<p class="place__note"><b>Good to know.</b> ${esc(p.note)}</p>` : ""}
+          ${p.blurb ? `<p class="place__lead">${esc(p.blurb)}</p>` : ""}
+          ${body.slice(0, 1).map((t) => `<p class="place__body">${esc(trim(t, 340))}</p>`).join("")}
+          ${goodLine ? `<p class="place__good"><span>Good for</span> ${esc(goodLine)}.</p>` : ""}
+          ${p.note ? `<p class="place__note"><span>Good to know</span> ${esc(p.note)}</p>` : ""}
         </div>
-        ${p.hero ? `<div class="place__m"><img src="${img(p.hero, 400, 300)}" alt=""></div>` : ""}
-      </article>`).join("")}</div>
+      </article>`;
+    }).join("")}</div>
   </div></section>` : ""}
 
   ${g.photos.length ? `
