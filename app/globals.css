@@ -54,6 +54,52 @@
   --color-viz-brown-300:  #D4C4AF;
   --color-viz-cherry-300: #F6B7C5;
 
-  --radius-card: 8px;
+  /* ────────────────────────────────────────────────────────────────────
+     Radius scale. The old system used 8px for every corner on every
+     surface, which is a large part of why the build read as a generic
+     card marketplace. Radius now carries meaning: hairline-crisp on
+     data and index rows, soft only on photography and pill controls.
+     ──────────────────────────────────────────────────────────────── */
+  --radius-hair: 2px;   /* spec rows, table cells, tight index media */
+  --radius-xs:   3px;   /* small thumbnails, chips inside data blocks */
+  --radius-sm:   5px;   /* buttons, inputs, index-card media */
+  --radius-md:   8px;   /* panels, wells, standard media */
+  --radius-lg:   12px;  /* hero and feature photography */
+  --radius-xl:   18px;  /* full-bleed media corners when inset */
+  --radius-card: 8px;   /* legacy alias, kept so nothing breaks */
   --radius-full: 9999px;
+
+  /* ── Elevation. Tinted with the locked navy, never neutral black. ── */
+  --shadow-flat:  none;
+  --shadow-lift:  0 1px 2px rgba(11,51,86,.05), 0 8px 22px -14px rgba(11,51,86,.22);
+  --shadow-raise: 0 2px 4px rgba(11,51,86,.05), 0 20px 46px -24px rgba(11,51,86,.30);
+  --shadow-media: 0 18px 44px -26px rgba(11,51,86,.45);
+
+  /* ── Motion. Ease-out only, per DESIGN.md. ── */
+  --ease-out-quart: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-soft:  cubic-bezier(0.33, 1, 0.68, 1);
+  --dur-1: 200ms;  /* colour, border, small state change */
+  --dur-2: 300ms;  /* hover transform, elevation */
+  --dur-3: 400ms;  /* media scale, reveal */
+  --dur-4: 600ms;  /* page-load stagger only */
+
+  /* ────────────────────────────────────────────────────────────────────
+     Space scale. Named --space-* so it never collides with Tailwind's
+     own --spacing-* utility namespace; theme.css mirrors it as --s-*.
+     ──────────────────────────────────────────────────────────────── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
 }
+
+/* Surface-specific layers. Split so page work can proceed in parallel
+   without two authors editing theme.css at once. */
+@import "./styles/landing.css";
+@import "./styles/tree.css";

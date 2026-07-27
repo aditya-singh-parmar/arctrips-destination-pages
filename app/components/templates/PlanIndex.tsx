@@ -11,6 +11,7 @@ import { Breadcrumb } from "@/app/components/nav/Breadcrumb";
 import { Rail } from "@/app/components/browse/Rail";
 import { ListingCard } from "@/app/components/landing/ListingCard";
 import { JsonLd } from "@/app/components/ui/JsonLd";
+import { SectionHead } from "@/app/components/ui/SectionHead";
 
 const SITE = "https://arctrips.com";
 
@@ -25,9 +26,14 @@ export const TRAVELLER_PROFILES = [
 
 /**
  * Planning index for a town. Browse the practical pieces, filter by traveller
- * profile through query parameters. Carries a persistent stays module, since
- * a guest planning a trip needs somewhere to sleep and this is the highest
- * intent placement on the page.
+ * profile through query parameters.
+ *
+ * Reading-first, so it opens typographically rather than on a photograph: the
+ * destination page and the things-to-do page both open on imagery, and three
+ * photographic heroes in a row down one branch of the tree is monotony. The
+ * pieces themselves are a ruled index, not a card grid, with a sticky stays
+ * rail carrying the page's single primary action, since a guest reading about
+ * when to go is exactly the guest who needs somewhere to sleep.
  *
  * A town with no planning pieces 404s rather than rendering empty.
  */
@@ -50,6 +56,7 @@ export async function PlanIndex({
   const base = geoPath(trail);
   const plan = `${base}/plan`;
   const active = TRAVELLER_PROFILES.find((p) => p.slug === profile);
+  const stayFrom = listings.length ? Math.min(...listings.map((l) => l.pricePerNight)) : undefined;
 
   return (
     <>
@@ -74,25 +81,22 @@ export async function PlanIndex({
           ]}
         />
 
-        <div className="section" style={{ paddingBottom: 8 }}>
-          <div className="rowhead">
-            <div>
-              <h1 className="t-h1">Plan your trip to {city.name}</h1>
-              <p className="t-reg-14" style={{ marginTop: 6 }}>
-                Not things to do, but the questions that decide the trip.
-              </p>
-            </div>
-          </div>
-        </div>
+        <header className="geohead">
+          <span className="t-eyebrow">{city.name}</span>
+          <h1 className="t-h0">Plan your trip</h1>
+          <p className="geohead__sub">
+            Not things to do, but the questions that decide the trip: weather, prices, crowds, and whether the
+            month you were thinking of is a mistake.
+          </p>
+        </header>
 
-        <div className="chiprow" role="group" aria-label="Filter by traveller">
-          <Link className="chip" href={plan} data-active={!active}>Everyone</Link>
+        <div className="chiprow section section--dense" role="group" aria-label="Filter by traveller">
+          <Link className={active ? "chip" : "chip chip--on"} href={plan}>Everyone</Link>
           {TRAVELLER_PROFILES.map((p) => (
             <Link
               key={p.slug}
-              className="chip"
+              className={active?.slug === p.slug ? "chip chip--on" : "chip"}
               href={`${plan}?for=${p.slug}`}
-              data-active={active?.slug === p.slug}
             >
               {p.name}
             </Link>
@@ -100,41 +104,80 @@ export async function PlanIndex({
         </div>
 
         {active && (
-          <p className="softnote" style={{ marginTop: 14 }}>
+          <p className="softnote">
             Showing everything, filtered for {active.name.toLowerCase()}. Profile tagging arrives with the
             corpus import, so this view is not yet narrowed.
           </p>
         )}
 
-        <div className="pcardgrid" style={{ marginTop: 18 }}>
-          {planning.map((a) => (
-            <Link className="pcard" key={a.slug} href={`/guides/${a.slug}`}>
-              <div className="pcard__media">
-                <Image
-                  src={a.heroPublicId ? cld(a.heroPublicId, { w: 380, h: 260, fit: "fill" }) : placeholder(380, 260)}
-                  alt={a.title}
-                  width={380}
-                  height={260}
-                  sizes="172px"
-                />
+        <section className="section section--flush" style={{ paddingTop: "var(--s-6)" }}>
+          <div className="spread spread--wide">
+            <div className="spread__main">
+              <SectionHead
+                ruled
+                eyebrow={`${planning.length} piece${planning.length === 1 ? "" : "s"}`}
+                title="Before you book anything"
+              />
+              <div className="idx">
+                {planning.map((a) => (
+                  <Link className="idx__row" key={a.slug} href={`/guides/${a.slug}`}>
+                    <span className="idx__media">
+                      <Image
+                        src={a.heroPublicId ? cld(a.heroPublicId, { w: 464, h: 348, fit: "fill" }) : placeholder(464, 348)}
+                        alt=""
+                        width={232}
+                        height={174}
+                        sizes="116px"
+                      />
+                    </span>
+                    <span className="idx__b">
+                      <span className="idx__t">{a.title}</span>
+                      {a.excerpt && <span className="idx__d">{a.excerpt}</span>}
+                    </span>
+                    <span className="idx__v">Read</span>
+                  </Link>
+                ))}
               </div>
-              <h4 className="pcard__title">{a.title}</h4>
-              {a.excerpt && <p className="pcard__meta">{a.excerpt}</p>}
-            </Link>
-          ))}
-        </div>
+            </div>
+
+            <aside className="spread__rail brief">
+              <p className="t-eyebrow">While you decide</p>
+              <dl className="spec">
+                <div className="spec__row">
+                  <dt className="spec__k">Stays</dt>
+                  <dd className="spec__v">
+                    {city.listingCount}
+                    {stayFrom !== undefined && <span className="spec__note">From ${stayFrom} a night</span>}
+                  </dd>
+                </div>
+                <div className="spec__row">
+                  <dt className="spec__k">Destination</dt>
+                  <dd className="spec__v"><Link href={base}>{city.name}</Link></dd>
+                </div>
+                <div className="spec__row">
+                  <dt className="spec__k">Things to do</dt>
+                  <dd className="spec__v"><Link href={`${base}/things-to-do`}>All guides</Link></dd>
+                </div>
+              </dl>
+              <Link className="btn btn--primary btn--block" href="#stays">
+                See {city.listingCount} stays
+              </Link>
+              <p className="brief__fine">Real availability and pricing, booked on Arc Trips.</p>
+            </aside>
+          </div>
+        </section>
 
         {listings.length > 0 && (
-          <div id="stays" style={{ scrollMarginTop: 96, marginTop: 8 }}>
+          <section className="section section--open" id="stays" style={{ scrollMarginTop: 96 }}>
             <Rail
               title={`Where to stay in ${city.name}`}
-              subtitle={`${listings.length} cabins, cottages and lodges`}
+              subtitle={`${city.listingCount} cabins, cottages and lodges${stayFrom ? `, from $${stayFrom} a night` : ""}`}
             >
               {listings.slice(0, 8).map((l) => (
                 <ListingCard key={l.id} listing={l} variant="holiday" />
               ))}
             </Rail>
-          </div>
+          </section>
         )}
       </div>
       <Footer />

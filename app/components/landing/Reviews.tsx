@@ -16,7 +16,7 @@ export function Reviews({ reviews }: { reviews: Review[] }) {
     <section className="container section">
       <div className="reviews__head">
         <h2 className="t-h1">Real stories from real stays.</h2>
-        <p className="reviews__sub">Authentic moments shared by guests who've stayed, fished, and explored with us.</p>
+        <p className="reviews__sub">Authentic moments shared by guests who&rsquo;ve stayed, fished, and explored with us.</p>
       </div>
       <div className="masonry">
         {reviews.map((r) =>

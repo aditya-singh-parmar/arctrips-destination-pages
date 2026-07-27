@@ -22,7 +22,7 @@ export function FindAStayBand() {
   return (
     <section className="container section">
       <div className="cta-band">
-        <h2 className="t-h2" style={{ color: "#fff" }}>Find a stay you'll feel good about.</h2>
+        <h2 className="t-h2" style={{ color: "#fff" }}>Find a stay you&rsquo;ll feel good about.</h2>
         <button className="btn btn--white" type="button">Browse accommodations</button>
       </div>
     </section>

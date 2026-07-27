@@ -1,0 +1,440 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   ARC TRIPS, DESTINATION TREE
+
+   Composition CSS for the destination tree only. The system (tokens, type
+   ramp, layout primitives, spec rows, season strip, cards) lives in
+   app/globals.css and app/theme.css and is owned elsewhere. Nothing here
+   redefines a system class; everything here is a page-level arrangement
+   that the system does not, and should not, carry.
+
+   Rules followed: semantic aliases only (no raw hex), hairlines over
+   boxes, tabular figures on every number, no side stripes, no gradients
+   on type, no glassmorphism, ease-out motion on transform, opacity and
+   colour only.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. Destination hero ────────────────────────────────────────────────
+   Full-bleed photography with the type set directly on it and held to the
+   container grid, so the title lines up with the prose beneath it rather
+   than floating at the viewport edge. Deliberately not .chero: that is the
+   inset, rounded, card-shaped hero, and the point here is that the
+   photograph is not a card. */
+
+.dhero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: clamp(520px, 68vh, 680px);
+  background: var(--n-100);
+  isolation: isolate;
+}
+.dhero--sm { min-height: clamp(380px, 48vh, 480px); }
+.dhero__media { position: absolute; inset: 0; z-index: 0; }
+.dhero__media img { width: 100%; height: 100%; object-fit: cover; }
+.dhero__scrim {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--ink) 0%, transparent) 30%,
+    color-mix(in srgb, var(--ink) 26%, transparent) 58%,
+    color-mix(in srgb, var(--ink) 76%, transparent) 100%
+  );
+}
+.dhero__inner {
+  position: relative; z-index: 2;
+  width: 100%;
+  padding-block: var(--s-9) var(--s-6);
+  color: var(--ink-invert);
+}
+.dhero__inner h1 { color: var(--ink-invert); margin: var(--s-3) 0 0; }
+.dhero__sub {
+  color: color-mix(in srgb, var(--ink-invert) 90%, transparent);
+  font-size: 19px; line-height: 1.5;
+  margin: var(--s-4) 0 0;
+  max-width: 46ch;
+}
+/* One quiet tabular line on the photograph. Not a metric row: no large
+   figures, no columns, no boxes. */
+.dhero__meta {
+  display: flex; flex-wrap: wrap; gap: 6px var(--s-5);
+  margin: var(--s-6) 0 0;
+  padding-top: var(--s-4);
+  border-top: 1px solid color-mix(in srgb, var(--ink-invert) 30%, transparent);
+  font-size: 13px; font-weight: 500;
+  color: color-mix(in srgb, var(--ink-invert) 86%, transparent);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.dhero__meta b { font-weight: 700; color: var(--ink-invert); }
+@media (max-width: 700px) {
+  .dhero__inner { padding-block: var(--s-8) var(--s-5); }
+  .dhero__sub { font-size: 17px; }
+}
+
+/* Typographic head, for a tier that has no photograph of its own. */
+.geohead { padding-block: var(--s-7) var(--s-5); border-bottom: 1px solid var(--rule); }
+.geohead h1 { margin: var(--s-3) 0 0; }
+.geohead__sub {
+  font-size: 20px; line-height: 1.5; color: var(--ink-body);
+  margin: var(--s-4) 0 0; max-width: var(--measure-tight);
+}
+.geohead__meta {
+  display: flex; flex-wrap: wrap; gap: 6px var(--s-5);
+  margin: var(--s-5) 0 0; padding-top: var(--s-4);
+  border-top: 1px solid var(--rule);
+  font-size: 13px; font-weight: 500; color: var(--ink-muted);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.geohead__meta b { font-weight: 700; color: var(--ink); }
+
+/* ── 2. Lede and orientation rail ───────────────────────────────────────*/
+
+.lede {
+  font-size: 22px; line-height: 1.5; color: var(--ink); font-weight: 400;
+  letter-spacing: -.011em;
+  max-width: var(--measure-tight);
+  margin: 0 0 var(--s-5);
+  text-wrap: pretty;
+}
+@media (max-width: 700px) { .lede { font-size: 19px; } }
+
+.brief .btn { margin-top: var(--s-4); }
+.brief__fine {
+  font-size: 12.5px; line-height: 1.5; color: var(--ink-muted);
+  margin: var(--s-3) 0 0;
+}
+
+/* ── 3. The almanac ledger ──────────────────────────────────────────────
+   The signature module. Every guide in the destination against the same
+   twelve month columns, so the year reads as one table instead of twelve
+   separate strips. Rules, not boxes; tabular throughout. */
+
+.ledgerwrap { margin-top: var(--s-2); }
+.ledger {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.ledger caption { text-align: left; }
+.ledger thead th {
+  padding: 0 0 9px;
+  border-bottom: 1px solid var(--rule-strong);
+  font-size: 11px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+  color: var(--ink-muted);
+  text-align: left;
+  vertical-align: bottom;
+  white-space: nowrap;
+}
+.ledger thead th.mo { text-align: center; letter-spacing: 0; font-size: 10.5px; padding-inline: 0; }
+.ledger thead th.mo[data-now="true"] { color: var(--ink); }
+.ledger thead th.ledger__last { text-align: right; }
+
+.ledger tbody tr { border-bottom: 1px solid var(--rule); }
+.ledger th, .ledger td { padding-block: 11px; vertical-align: middle; }
+
+/* Row header: thumbnail plus name. The only photography in the module,
+   deliberately small, because the data is the point here. */
+.ledger__name { text-align: left; font-weight: 400; padding-right: var(--s-5); }
+.ledger__link { display: flex; align-items: center; gap: var(--s-3); min-width: 0; }
+.ledger__thumb {
+  flex: none; width: 62px; height: 46px; border-radius: var(--r-xs);
+  overflow: hidden; background: var(--n-100);
+}
+.ledger__thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-3) var(--ease); }
+.ledger__link:hover .ledger__thumb img { transform: scale(1.05); }
+.ledger__t {
+  display: block; font-size: 16.5px; font-weight: 700; letter-spacing: -.014em;
+  color: var(--ink); line-height: 1.25;
+  transition: color var(--dur-1) var(--ease);
+}
+.ledger__link:hover .ledger__t { color: var(--action); }
+.ledger__c { display: block; font-size: 12.5px; color: var(--ink-muted); margin-top: 3px; font-weight: 500; }
+
+/* Month cells. Filled and glyphed, so the strip survives greyscale. */
+.ledger td.mo {
+  width: 27px; padding-inline: 0; text-align: center;
+  font-size: 10px; line-height: 1;
+  color: var(--ink-faint);
+}
+.ledger td.mo > span {
+  display: block; padding-block: 6px;
+  border: 1px solid var(--rule);
+  border-radius: 1px;
+  background: var(--paper-sunk);
+  margin-inline: 1.5px;
+}
+.ledger td.mo[data-good="true"] { color: var(--signal-ink); }
+.ledger td.mo[data-good="true"] > span { background: var(--signal-wash); border-color: var(--signal-ink); }
+.ledger th.mo[data-now="true"], .ledger td.mo[data-now="true"] { background: var(--n-50); }
+
+.ledger__places {
+  text-align: right; font-size: 14px; font-weight: 500; color: var(--ink-muted);
+  white-space: nowrap; padding-right: var(--s-4);
+}
+.ledger__state { text-align: right; white-space: nowrap; font-size: 14px; font-weight: 600; color: var(--ink-muted); }
+.ledger__state[data-state="live"] { color: var(--signal-ink); }
+.ledger__state[data-state="soon"] { color: var(--amber); }
+.ledger__state[data-state="sister"] { color: var(--ink); }
+
+/* Below the month grid's comfortable width the columns go, and the same
+   information arrives as text from a cell that is screen-reader-only above
+   this breakpoint. Nothing is lost either way. */
+.ledger__seasontext {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+@media (max-width: 900px) {
+  .ledger .mo { display: none; }
+  .ledger__seasontext {
+    position: static; width: auto; height: auto; margin: 0; overflow: visible;
+    clip: auto; white-space: nowrap;
+    font-size: 13px; font-weight: 600; color: var(--signal-ink);
+    font-variant-numeric: tabular-nums lining-nums;
+    text-align: right; padding-right: var(--s-4);
+  }
+  .ledger__places { display: none; }
+}
+@media (max-width: 560px) {
+  .ledger__seasontext { display: none; }
+  .ledger__thumb { width: 52px; height: 40px; }
+  .ledger__t { font-size: 15.5px; }
+}
+
+.ledger__note { font-size: 12.5px; color: var(--ink-muted); margin: var(--s-4) 0 0; line-height: 1.5; }
+.ledger tbody tr.ledger__group { border-bottom: 1px solid var(--rule-strong); }
+.ledger__group th {
+  padding: var(--s-6) 0 6px;
+  font-size: 12px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* ── 4. Showcase: one photograph given the whole width ─────────────────── */
+
+.showcase {
+  position: relative; display: block; isolation: isolate;
+  min-height: clamp(340px, 44vw, 520px);
+  background: var(--n-100);
+}
+.showcase img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-3) var(--ease-soft); }
+.showcase__scrim {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--ink) 0%, transparent) 36%,
+    color-mix(in srgb, var(--ink) 70%, transparent) 100%
+  );
+}
+.showcase:hover img { transform: scale(1.025); }
+.showcase__cap {
+  position: absolute; inset: auto 0 0 0; z-index: 2;
+  padding: clamp(20px, 4vw, 52px);
+  color: var(--ink-invert);
+}
+.showcase__cap h2 { color: var(--ink-invert); margin: var(--s-2) 0 0; max-width: 20ch; }
+.showcase__cap p {
+  margin: var(--s-3) 0 0; font-size: 14px; font-weight: 500;
+  color: color-mix(in srgb, var(--ink-invert) 86%, transparent);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.showcase__go {
+  display: inline-block; margin-top: var(--s-4);
+  font-size: 14px; font-weight: 700; color: var(--ink-invert);
+  border-bottom: 1px solid color-mix(in srgb, var(--ink-invert) 55%, transparent);
+  padding-bottom: 2px;
+  transition: border-color var(--dur-1) var(--ease);
+}
+.showcase:hover .showcase__go { border-bottom-color: var(--ink-invert); }
+
+/* ── 5. Ruled index entries ─────────────────────────────────────────────
+   The replacement for a second and third card grid. Media, a title, a
+   description and a right-hand tabular value, on hairlines. */
+
+.idx { border-top: 1.5px solid var(--rule-ink); }
+.idx__row {
+  display: grid;
+  grid-template-columns: 116px minmax(0, 1fr) auto;
+  gap: var(--s-5);
+  align-items: center;
+  padding-block: var(--s-4);
+  border-bottom: 1px solid var(--rule);
+  transition: border-color var(--dur-1) var(--ease);
+}
+.idx__row:hover { border-bottom-color: var(--action); }
+.idx__media { border-radius: var(--r-xs); overflow: hidden; background: var(--n-100); aspect-ratio: 4 / 3; }
+.idx__media img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-3) var(--ease); }
+.idx__row:hover .idx__media img { transform: scale(1.04); }
+.idx__b { min-width: 0; }
+.idx__t {
+  display: block; font-size: 18px; font-weight: 700; letter-spacing: -.016em;
+  color: var(--ink); line-height: 1.3;
+  transition: color var(--dur-1) var(--ease);
+}
+.idx__row:hover .idx__t { color: var(--action); }
+.idx__d { font-size: 14.5px; line-height: 1.55; color: var(--ink-muted); margin: 6px 0 0; max-width: 62ch; }
+.idx__v {
+  font-size: 13px; font-weight: 600; color: var(--ink-muted); white-space: nowrap;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.idx--compact .idx__row { grid-template-columns: 76px minmax(0, 1fr) auto; padding-block: var(--s-3); }
+.idx--compact .idx__t { font-size: 16px; }
+@media (max-width: 640px) {
+  .idx__row { grid-template-columns: 84px minmax(0, 1fr); gap: var(--s-4); }
+  .idx__v { grid-column: 2; margin-top: 4px; }
+  .idx__d { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+}
+
+/* ── 6. Paired ruled lists (areas, nearby towns) ────────────────────────── */
+
+/* auto-fill plus a capped track, so one list does not stretch the width of
+   the page while two still sit side by side. */
+.pairs { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 460px)); gap: var(--s-7); justify-content: start; }
+.plist { border-top: 1.5px solid var(--rule-ink); padding-top: var(--s-4); }
+.plist h2, .plist h3 { font-size: 18px; font-weight: 700; letter-spacing: -.014em; color: var(--ink); margin: 0; }
+.plist > p { font-size: 13.5px; color: var(--ink-muted); margin: 5px 0 0; line-height: 1.5; max-width: 46ch; }
+.plist ul { list-style: none; margin: var(--s-4) 0 0; padding: 0; }
+.plist a {
+  display: flex; align-items: center; gap: var(--s-3);
+  padding-block: 9px; border-bottom: 1px solid var(--rule);
+  transition: border-color var(--dur-1) var(--ease);
+}
+.plist a:hover { border-bottom-color: var(--action); }
+.plist img { flex: none; width: 34px; height: 34px; border-radius: var(--r-full); object-fit: cover; background: var(--n-100); }
+.plist b {
+  font-size: 15.5px; font-weight: 600; color: var(--ink); letter-spacing: -.01em;
+  transition: color var(--dur-1) var(--ease);
+}
+.plist a:hover b { color: var(--action); }
+.plist__v {
+  margin-left: auto; font-size: 13px; font-weight: 500; color: var(--ink-muted);
+  white-space: nowrap; font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* ── 7. Guide reading ───────────────────────────────────────────────────── */
+
+/* A promoted paragraph. Not a duplicated pull quote: a short, load-bearing
+   sentence already in the body, set larger and allowed to break the
+   measure, so a nine thousand word guide gets a visual beat. */
+.gb-callout {
+  margin: var(--s-8) 0;
+  padding: var(--s-5) 0;
+  border-top: 1.5px solid var(--rule-ink);
+  border-bottom: 1px solid var(--rule);
+  max-width: var(--measure-wide);
+  font-size: 23px; line-height: 1.42; font-weight: 400;
+  letter-spacing: -.014em;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+@media (max-width: 700px) { .gb-callout { font-size: 20px; } }
+
+/* A place section is already opened by its own rule, so its heading must not
+   draw a second one immediately beneath it. */
+.guide-places .guide-place > .ar-h2:first-child { border-top: 0; padding-top: 0; margin-top: 0; }
+
+/* Spec values occasionally carry a link (a stays anchor, a nearby town). */
+.spec__v a { color: var(--action); transition: color var(--dur-1) var(--ease); }
+.spec__v a:hover { color: var(--action-hover); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Jump list for a guide that carries a lot of places. */
+.placejump { display: flex; flex-wrap: wrap; gap: 6px var(--s-2); margin: var(--s-4) 0 var(--s-2); }
+.placejump a {
+  font-size: 13px; font-weight: 600; color: var(--ink-body);
+  padding: 5px 11px; border: 1px solid var(--rule-strong); border-radius: var(--r-full);
+  transition: border-color var(--dur-1) var(--ease), color var(--dur-1) var(--ease);
+}
+.placejump a:hover { border-color: var(--action); color: var(--action); }
+
+/* Facts band directly under a guide hero: data before prose. */
+.guideled { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: var(--s-8); align-items: start; }
+@media (max-width: 900px) { .guideled { grid-template-columns: 1fr; gap: var(--s-5); } }
+.guideled .spec { margin-top: 0; }
+
+/* ── 8. Lead-weighted destination card grid ─────────────────────────────
+   The one card grid on an index page, made asymmetric so it does not read
+   as a marketplace wall. The first entry takes two columns. */
+
+.dest-cards--lead > *:first-child { grid-column: span 2; aspect-ratio: 16 / 9; }
+@media (max-width: 620px) { .dest-cards--lead > *:first-child { grid-column: span 1; aspect-ratio: 4 / 3.2; } }
+
+/* ── 9. Destination index entries (/destinations) ───────────────────────
+   One editorial entry per destination: photograph on one side, the town's
+   own figures on the other, sides alternating down the page. Not a card,
+   and deliberately not a grid: with two destinations a grid looks empty and
+   with twenty-four it looks like a marketplace. This shape is right at
+   both. */
+
+.dentry {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: var(--s-7) var(--s-8);
+  align-items: center;
+  padding-block: var(--s-7);
+  border-top: 1.5px solid var(--rule-ink);
+}
+.dentries > .dentry + .dentry { border-top-color: var(--rule-strong); }
+.dentry__media {
+  grid-column: 1; grid-row: 1;
+  display: block; border-radius: var(--r-md); overflow: hidden;
+  background: var(--n-100); aspect-ratio: 4 / 3;
+}
+.dentry__media img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-3) var(--ease); }
+.dentry__media:hover img { transform: scale(1.035); }
+.dentry__b { grid-column: 2; grid-row: 1; min-width: 0; }
+.dentry:nth-child(even) .dentry__media { grid-column: 2; }
+.dentry:nth-child(even) .dentry__b { grid-column: 1; }
+@media (max-width: 860px) {
+  .dentry { grid-template-columns: 1fr; gap: var(--s-5); padding-block: var(--s-6); }
+  .dentry__media, .dentry:nth-child(even) .dentry__media { grid-column: 1; grid-row: 1; aspect-ratio: 16 / 9; }
+  .dentry__b, .dentry:nth-child(even) .dentry__b { grid-column: 1; grid-row: 2; }
+}
+
+.dentry__b h3 { margin: var(--s-2) 0 0; }
+.dentry__b h3 a { color: var(--ink); transition: color var(--dur-1) var(--ease); }
+.dentry__b h3 a:hover { color: var(--action); }
+.dentry__sub {
+  font-size: 17px; line-height: 1.55; color: var(--ink-body);
+  margin: var(--s-3) 0 0; max-width: 52ch;
+}
+.dentry .spec { margin-block: var(--s-5) var(--s-4); }
+
+.dentry__guides { list-style: none; margin: 0; padding: 0; }
+.dentry__guides a {
+  display: flex; align-items: baseline; justify-content: space-between; gap: var(--s-4);
+  padding-block: 8px; border-bottom: 1px solid var(--rule);
+  transition: border-color var(--dur-1) var(--ease);
+}
+.dentry__guides a:hover { border-bottom-color: var(--action); }
+.dentry__guides b {
+  font-size: 15px; font-weight: 600; color: var(--ink); letter-spacing: -.008em;
+  transition: color var(--dur-1) var(--ease);
+}
+.dentry__guides a:hover b { color: var(--action); }
+.dentry__when {
+  font-size: 13px; font-weight: 500; color: var(--ink-muted); white-space: nowrap;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.dentry__go { margin: var(--s-4) 0 0; }
+.dentry__go a { font-size: 14px; font-weight: 700; color: var(--action); }
+.dentry__go a:hover { color: var(--action-hover); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Destinations that lead nowhere yet. Names on a rule, no photography, no
+   link, no grey card pretending to be one. */
+.notyet { border-top: 1.5px solid var(--rule-ink); padding-top: var(--s-5); }
+.notyet__names {
+  font-size: clamp(24px, 3vw, 34px); line-height: 1.25; font-weight: 700;
+  letter-spacing: -.022em; color: var(--ink-faint);
+  margin: var(--s-3) 0 0; text-wrap: balance;
+}
+.notyet__note {
+  font-size: 15px; line-height: 1.6; color: var(--ink-muted);
+  margin: var(--s-4) 0 0; max-width: var(--measure-tight);
+}
+
+/* ── 10. Closing band ───────────────────────────────────────────────────── */
+
+.closing {
+  border-top: 1.5px solid var(--rule-ink); padding-top: var(--s-5);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: var(--s-4);
+}
+.closing p { font-size: 15px; color: var(--ink-muted); margin: 0; max-width: 54ch; line-height: 1.55; }
+.closing b { color: var(--ink); font-weight: 600; }

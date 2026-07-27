@@ -6,9 +6,11 @@ import { cld, placeholder } from "@/app/lib/cloudinary";
 import { geoPath, type GeoNode } from "@/app/lib/geo-types";
 import { breadcrumbList, faqPage, itemList } from "@/app/lib/jsonld";
 import { getDestinationCategories } from "@/app/lib/geo";
-import { CATEGORY_BEST_MONTHS } from "@/app/lib/taxonomy";
-import { BestTime } from "@/app/components/browse/BestTime";
+import { CATEGORY_BEST_MONTHS, MONTH_NAME } from "@/app/lib/taxonomy";
+import { BestTime, seasonLabel } from "@/app/components/browse/BestTime";
+import { SeasonLedger, type LedgerEntry } from "@/app/components/browse/SeasonLedger";
 import { JsonLd } from "@/app/components/ui/JsonLd";
+import { SectionHead } from "@/app/components/ui/SectionHead";
 import { TopNav } from "@/app/components/landing/TopNav";
 import { Footer } from "@/app/components/landing/Footer";
 import { Breadcrumb } from "@/app/components/nav/Breadcrumb";
@@ -16,7 +18,6 @@ import { ArticleBlocks } from "@/app/components/browse/ArticleBlocks";
 import { FaqList } from "@/app/components/browse/FaqList";
 import { BookingRail } from "@/app/components/guide/BookingRail";
 import { GuideBody, splitSections } from "@/app/components/guide/GuideBody";
-import { CategoryCard } from "@/app/components/browse/CategoryCard";
 
 const SITE = "https://arctrips.com";
 
@@ -45,11 +46,19 @@ function bodyBlocks<T extends Block>(intro: T[]): T[] {
 }
 
 /**
- * The category guide, moved onto the deep tree from the S1 flat route
- * (owner-approved 2026-07-24): the article body IS a `city_categories.intro`
- * row. Places render as sections within the guide, never separate pages.
- * Booking is a persistent rail beside the article on desktop, stacking below
- * on mobile (`BookingRail`, driven entirely by `resolveCta`).
+ * The category guide: the long-form surface, up to 338 blocks and 9,000
+ * words. The article body IS a `city_categories.intro` row, and places
+ * render as sections within it, never as separate pages.
+ *
+ * Reading order puts the data first, which is the whole product argument:
+ * hero, then a facts band carrying the season strip and the spec rows, then
+ * the article. Booking is a persistent rail beside the body on desktop,
+ * stacking below on mobile (`BookingRail`, driven entirely by `resolveCta`),
+ * and it carries the page's single `.btn--primary`.
+ *
+ * The onward block at the foot is the almanac rather than a fourth card
+ * grid, so a reader who finishes a guide lands on the same "when to go"
+ * instrument they met on the hub.
  */
 export async function CategoryGuide({
   citySlug,
@@ -69,18 +78,37 @@ export async function CategoryGuide({
     getGuidesForCity(citySlug),
     getDestinationCategories(node.id),
   ]);
-  const row = cats.find((c) => c.categorySlug === categorySlug);
-  const bestMonths = row?.bestMonths?.length ? row.bestMonths : CATEGORY_BEST_MONTHS[categorySlug] ?? [];
+  const monthsFor = (slug: string) => {
+    const row = cats.find((c) => c.categorySlug === slug);
+    return row?.bestMonths?.length ? row.bestMonths : CATEGORY_BEST_MONTHS[slug] ?? [];
+  };
+  const bestMonths = monthsFor(categorySlug);
   const others = siblings.filter((g) => g.categorySlug !== categorySlug);
   const stayFrom = listings.length ? Math.min(...listings.map((l) => l.pricePerNight)) : undefined;
   const standfirst = lead(guide.intro);
   const base = geoPath(trail);
+  const month = new Date().getMonth() + 1;
+  const self = siblings.find((g) => g.categorySlug === categorySlug);
+
   // Long guides had no way to move around inside them: 28 headings, no contents.
   const contents = splitSections(bodyBlocks(guide.intro))
     .filter((sec) => sec.heading?.text)
     .map((sec) => ({ index: sec.index, text: sec.heading!.text as string }));
 
   const selfUrl = `${SITE}${base}/things-to-do/${categorySlug}`;
+  const season = seasonLabel(bestMonths);
+  const inSeasonNow = bestMonths.includes(month);
+
+  const onward: LedgerEntry[] = others.map((g) => ({
+    slug: g.categorySlug,
+    name: g.name,
+    href: `${base}/things-to-do/${g.categorySlug}`,
+    months: monthsFor(g.categorySlug),
+    heroPublicId: g.heroPublicId,
+    placeCount: g.placeCount,
+    state: g.state,
+    priceFrom: g.priceFrom,
+  }));
 
   return (
     <>
@@ -95,6 +123,7 @@ export async function CategoryGuide({
         guide.places.map((pl) => ({ name: pl.name, url: `${selfUrl}#${pl.slug}` })),
         `${guide.categoryName} in ${guide.cityName}`,
       )} />
+
       <div className="container">
         <Breadcrumb
           trail={[
@@ -107,98 +136,149 @@ export async function CategoryGuide({
             { label: guide.categoryName },
           ]}
         />
+      </div>
 
-        <div className="chero chero--sm">
-          {guide.heroPublicId && (
-            <div className="chero__media">
-              <Image src={cld(guide.heroPublicId, { w: 1600, fit: "limit" })} alt={`${guide.categoryName} in ${guide.cityName}`} fill sizes="100vw" style={{ objectFit: "cover" }} priority />
-            </div>
-          )}
-          <div className="chero__scrim" aria-hidden="true" />
-          <div className="chero__text">
-            <h1 className="t-h1">{guide.categoryName} in {guide.cityName}</h1>
-            {standfirst && <p className="chero__sub" style={{ maxWidth: "56ch" }}>{standfirst}</p>}
+      <header className="dhero dhero--sm">
+        {guide.heroPublicId && (
+          <div className="dhero__media">
+            <Image
+              src={cld(guide.heroPublicId, { w: 2000, fit: "limit" })}
+              alt={`${guide.categoryName} in ${guide.cityName}`}
+              fill
+              sizes="100vw"
+              style={{ objectFit: "cover" }}
+              priority
+            />
           </div>
+        )}
+        <div className="dhero__scrim" aria-hidden="true" />
+        <div className="dhero__inner container">
+          <p className="t-eyebrow t-eyebrow--invert">{guide.cityName}</p>
+          <h1 className="t-h0">{guide.categoryName}</h1>
+          {standfirst && <p className="dhero__sub">{standfirst}</p>}
         </div>
+      </header>
+
+      <div className="container">
+        {/* Data before prose. The season strip is the first thing under the
+            photograph, because "when should I go" is the question that
+            brought the reader here. */}
+        <section className="section section--tight">
+          <div className="guideled">
+            <dl className="spec">
+              <div className="spec__row">
+                <dt className="spec__k">Best months</dt>
+                <dd className={inSeasonNow ? "spec__v spec__v--signal" : "spec__v"}>
+                  {season ?? "All year"}
+                  {inSeasonNow && <span className="spec__note">In season now, in {MONTH_NAME[month - 1]}</span>}
+                </dd>
+              </div>
+              {guide.places.length > 0 && (
+                <div className="spec__row">
+                  <dt className="spec__k">Places covered</dt>
+                  <dd className="spec__v">{guide.places.length}</dd>
+                </div>
+              )}
+              <div className="spec__row">
+                <dt className="spec__k">To book</dt>
+                <dd
+                  className={
+                    self?.state === "soon"
+                      ? "spec__v spec__v--soon"
+                      : self?.state === "live"
+                        ? "spec__v spec__v--signal"
+                        : "spec__v"
+                  }
+                >
+                  {bookLabel(self?.state, self?.priceFrom, guide.experiences.length)}
+                </dd>
+              </div>
+              <div className="spec__row">
+                <dt className="spec__k">Where to stay</dt>
+                <dd className="spec__v">
+                  <Link href={`${base}#stays`}>{guide.cityName}</Link>
+                  {stayFrom !== undefined && <span className="spec__note">From ${stayFrom} a night</span>}
+                </dd>
+              </div>
+            </dl>
+            <div>
+              <BestTime months={bestMonths} label={`${guide.categoryName.toLowerCase()} in ${guide.cityName}`} />
+            </div>
+          </div>
+        </section>
 
         <div className="guidelayout">
           <article>
-            <BestTime months={bestMonths} label={`${guide.categoryName.toLowerCase()} in ${guide.cityName}`} />
-
             <GuideBody blocks={bodyBlocks(guide.intro)} photos={guide.photos} />
 
             {guide.places.length > 0 && (
-              <div className="guide-places" id="places">
-                {guide.places.map((p) => (
-                  <section className="guide-place" id={p.slug} key={p.id}>
-                    <h2 className="ar-h2">{p.name}</h2>
-                    {p.blurb && <p className="guide-place__blurb">{p.blurb}</p>}
-                    <ArticleBlocks blocks={p.body} />
-                    {p.goodFor.length > 0 && (
-                      <div className="goodfor">
-                        {p.goodFor.map((g) => <span key={g}>{g}</span>)}
-                      </div>
-                    )}
-                    {p.goodToKnow && <p className="ar-note">{p.goodToKnow}</p>}
-                  </section>
-                ))}
-              </div>
+              <section id="places" style={{ scrollMarginTop: 96 }}>
+                <SectionHead
+                  ruled
+                  eyebrow={guide.categoryName}
+                  title={`${guide.places.length} places in ${guide.cityName}`}
+                />
+                {guide.places.length > 4 && (
+                  <nav className="placejump" aria-label="Jump to a place">
+                    {guide.places.map((p) => (
+                      <a key={p.id} href={`#${p.slug}`}>{p.name}</a>
+                    ))}
+                  </nav>
+                )}
+                <div className="guide-places">
+                  {guide.places.map((p) => (
+                    <section className="guide-place" id={p.slug} key={p.id} style={{ scrollMarginTop: 96 }}>
+                      <h2 className="ar-h2">{p.name}</h2>
+                      {p.blurb && <p className="guide-place__blurb">{p.blurb}</p>}
+                      <ArticleBlocks blocks={p.body} lead={false} />
+                      {p.goodFor.length > 0 && (
+                        <div className="goodfor">
+                          {p.goodFor.map((g) => <span key={g}>{g}</span>)}
+                        </div>
+                      )}
+                      {p.goodToKnow && <p className="ar-note"><b>Good to know.</b> {p.goodToKnow}</p>}
+                    </section>
+                  ))}
+                </div>
+              </section>
             )}
 
             {guide.faqs.length > 0 && (
-              <div style={{ marginTop: 28 }} id="faq">
-                <h2 className="t-bold-20" style={{ marginBottom: 10 }}>Common questions</h2>
+              <section id="faq" style={{ marginTop: "var(--s-8)", scrollMarginTop: 96 }}>
+                <SectionHead ruled eyebrow="Asked before" title="Common questions" />
                 <FaqList faqs={guide.faqs} />
-              </div>
+              </section>
             )}
 
             {guide.related.length > 0 && (
-              <div style={{ borderTop: "1px solid var(--n-100)", marginTop: 40, paddingTop: 26 }}>
-                <div className="rail__head">
-                  <div><h2>{guide.categoryName} reading</h2></div>
-                </div>
-                <div className="pcardgrid">
+              <section style={{ marginTop: "var(--s-8)" }}>
+                <SectionHead
+                  ruled
+                  eyebrow="Related reading"
+                  title={`More on ${guide.categoryName.toLowerCase()}`}
+                  as="h2"
+                />
+                <div className="idx idx--compact">
                   {guide.related.map((a) => (
-                    <Link className="pcard" key={a.slug} href={`/guides/${a.slug}`}>
-                      <div className="pcard__media">
+                    <Link className="idx__row" key={a.slug} href={`/guides/${a.slug}`}>
+                      <span className="idx__media">
                         <Image
-                          src={a.heroPublicId ? cld(a.heroPublicId, { w: 380, h: 260, fit: "fill" }) : placeholder(380, 260)}
-                          alt={a.title}
-                          width={380}
-                          height={260}
-                          sizes="172px"
+                          src={a.heroPublicId ? cld(a.heroPublicId, { w: 304, h: 228, fit: "fill" }) : placeholder(304, 228)}
+                          alt=""
+                          width={152}
+                          height={114}
+                          sizes="76px"
                         />
-                      </div>
-                      <h4 className="pcard__title">{a.title}</h4>
-                      {a.excerpt && <p className="pcard__meta">{a.excerpt}</p>}
+                      </span>
+                      <span className="idx__b">
+                        <span className="idx__t">{a.title}</span>
+                        {a.excerpt && <span className="idx__d">{a.excerpt}</span>}
+                      </span>
+                      <span className="idx__v">Read</span>
                     </Link>
                   ))}
                 </div>
-              </div>
-            )}
-            {others.length > 0 && (
-              <div className="keepgoing">
-                <div className="rail__head">
-                  <div>
-                    <h2>More things to do in {guide.cityName}</h2>
-                    <p>{others.length} more guides, each with what you can book inside it.</p>
-                  </div>
-                  <Link className="viewall" href={base}>All of {guide.cityName}</Link>
-                </div>
-                <div className="pcardgrid">
-                  {others.slice(0, 4).map((g) => (
-                    <CategoryCard
-                      key={g.categorySlug}
-                      category={{ slug: g.categorySlug, name: g.name, blurb: g.placeCount ? `${g.placeCount} places` : undefined, heroPublicId: g.heroPublicId }}
-                      citySlug={citySlug}
-                      basePath={`${base}/things-to-do`}
-                      bookableCount={g.bookableCount}
-                      state={g.state}
-                      priceFrom={g.priceFrom}
-                    />
-                  ))}
-                </div>
-              </div>
+              </section>
             )}
           </article>
 
@@ -227,8 +307,36 @@ export async function CategoryGuide({
             />
           </div>
         </div>
+
+        {onward.length > 0 && (
+          <section className="section section--open">
+            <SectionHead
+              ruled
+              eyebrow="Keep going"
+              title={`The rest of the year in ${guide.cityName}`}
+              description="Every other guide in this destination, and the months each one is worth the trip."
+              actionHref={base}
+              actionLabel={`All of ${guide.cityName}`}
+            />
+            <SeasonLedger
+              entries={onward}
+              month={month}
+              caption={`Other things to do in ${guide.cityName}, by month`}
+            />
+          </section>
+        )}
       </div>
       <Footer />
     </>
   );
+}
+
+function bookLabel(state: string | undefined, priceFrom: number | undefined, experiences: number): string {
+  if (state === "soon") return "Coming soon to Arc Trips";
+  if (state === "sister") return "Arc Trips Fishing";
+  if (state === "live") {
+    const n = experiences > 0 ? `${experiences} trip${experiences === 1 ? "" : "s"}` : "Trips";
+    return priceFrom !== undefined ? `${n}, from $${priceFrom}` : n;
+  }
+  return "Free to visit";
 }

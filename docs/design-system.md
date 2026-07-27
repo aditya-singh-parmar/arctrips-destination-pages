@@ -1,160 +1,373 @@
-# Arc Trips design system
+# Arc Trips Destinations, design system
 
-Status: current as of 2026-07-24. Source of truth for anything visual in this repo.
-Tokens live in `app/globals.css` (`@theme`), components in `app/theme.css`.
+**Direction: field guide, not catalogue.** Hairline rules over boxes. Tabular figures over prose. Photography given real room. Cards only where a card is genuinely the right affordance (a photograph plus a name plus a place).
 
-A note on scope: this documents the system the project **has**, deliberately. The brand
-is fixed (Azure/Emerald/navy, Inter, restrained) and the owner has confirmed the theme
-stays. This is not an invitation to redesign; it is the reference that stops each new
-page inventing its own spacing, crops and type sizes, which is how the first build
-ended up reading as bland and cramped.
+Two files own the whole system and **only the design-system agent edits them**:
 
-## 1. Hard rules
+- `app/globals.css`: Tailwind v4 `@theme` tokens (colour, radius, elevation, motion, space).
+- `app/theme.css`: the component layer, plain CSS classes.
 
-Non-negotiable, from `CLAUDE.md`. A change that breaks one of these is wrong even if it
-looks better.
+Everything below exists today and compiles. `npm run build` is clean.
 
-1. **No italics anywhere.** The owner has difficulty reading italic text. `em, i` are
-   neutralised to weight 600 in `theme.css`. Do not use `<i>` or `<em>` even for icons
-   or breadcrumb separators; use `<span class="sep">`.
-2. **No em dashes** in rendered copy, UI text, or commit messages. Use a comma, colon,
-   parentheses, or "to" for ranges. The ingest strips them at the door
-   (`scripts/lib/decompose.mjs` `normalizeCopy`) so they cannot re-enter through content.
-3. **No emoji** in product copy.
-4. **One `.btn--primary` per rendered page.** Everything else is `.btn--outline`.
-5. **No hardcoded hex in components.** Use the CSS vars below.
-6. **Inter everywhere.** Satoshi is reserved for the `ARCTRIPS` wordmark only.
+## Hard rules
 
-## 2. Colour
+1. No italics. `em, i` are neutralised to weight 600.
+2. No em dashes in rendered copy, UI text, or commit messages.
+3. No emoji in product copy.
+4. No new hues. Azure `#2874BA`, Emerald `#3A9679`, navy `#0B3356`, the neutral ramp, plus the pre-existing amber coming-soon state.
+5. Inter only. Satoshi is for the `ARCTRIPS` wordmark in `.nav__logo` / `.footer__logo` and nowhere else.
+6. No hardcoded hex in components. Use the semantic aliases.
+7. One `.btn--primary` per screen. `CtaBlock` is never primary.
+8. **Banned:** side-stripe borders, gradient text, glassmorphism, hero-metric templates, identical card grids, nested cards, heart icons on cards (`.card__heart` is force-hidden), purple anything.
 
-Ramps are defined in `app/globals.css`. Use the semantic role, not the raw hex.
+---
 
-| Role | Token | Value |
+## 1. Tokens
+
+### Colour, semantic aliases (use these, not the raw ramps)
+
+Colour is semantic. Azure is action. Emerald is availability. Nothing is decorative.
+
+| Alias | Value | Use | Contrast on white |
+|---|---|---|---|
+| `--ink` | `#0B3356` navy | Display, headings, emphatic figures | 13.4:1 |
+| `--ink-strong` | `#181A1E` | Highest-emphasis figures | 16.9:1 |
+| `--ink-body` | `#474B53` | Long-form prose, default body colour | 8.0:1 |
+| `--ink-muted` | `#5F616C` | Labels, meta, eyebrows, captions | 5.7:1 AA |
+| `--ink-faint` | `#7F8490` | Non-essential only, never AA body text | 3.6:1 |
+| `--ink-invert` | `#FFFFFF` | Type on photography | |
+| `--action` | `#2874BA` azure | Links, primary button, focus ring. Nothing else. | 4.7:1 AA |
+| `--action-hover` | `#21639E` | Hover state | |
+| `--action-ink` | `#21639E` | Action text sitting on `--action-wash` | |
+| `--action-wash` | `#EAF2FB` | Action-tinted well | |
+| `--signal` | `#3A9679` emerald | Fills, strip cells, dots. Availability only. | |
+| `--signal-ink` | `#2F7D64` | Signal **text** on white | 4.9:1 AA |
+| `--signal-wash` | `#E8F4F0` | In-season cell fill | |
+| `--paper` | `#FFFFFF` | Default surface | |
+| `--paper-sunk` | `#F9F9F9` | Wells, footer, panels | |
+| `--paper-deep` | `#0B3356` | Inverted bands (`.now`, `.buy__head`, `.selltile`) | |
+| `--rule` | `#EBEBEB` | The default hairline | |
+| `--rule-strong` | `#D1D3D5` | Rules that must read as structure | |
+| `--rule-ink` | `#0B3356` | The 1.5px rule that opens a spread, spec block or index entry | |
+| `--amber` / `--amber-bg` / `--amber-border` | `#B54708` / `#FFFAEB` / `#FEDF89` | Coming-soon state only | |
+
+Raw ramps are still mirrored as `--azure`, `--a-100…--a-800`, `--navy`, `--emerald`, `--emerald-100/200/600`, `--n-50…--n-900`, `--white`. Prefer the aliases in new work.
+
+### Space
+
+`--space-1…--space-10` in `@theme`, mirrored in `theme.css` as `--s-1…--s-10`:
+
+`4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 · 96 · 128`
+
+### Radius (new)
+
+Radius carries meaning now. The old system used 8px on every surface, which is a large part of why the build read as a marketplace.
+
+| Token | px | Use |
 |---|---|---|
-| Primary action, links | `--color-primary-600` | `#2874BA` |
-| Primary hover | `--color-primary-700` | `#21639E` |
-| Headings, navy surfaces | `--color-primary-900` | `#0B3356` |
-| Tint background | `--color-primary-100` | `#EAF2FB` |
-| Success, bookable, price-positive | `--color-secondary-600` | `#2F7D64` |
-| Body text | `--color-neutral-700` | `#474B53` |
-| Meta and captions | `--color-neutral-500` | `#7F8490` |
-| Hairlines | `--color-neutral-100` | `#EBEBEB` |
-| Coming soon | `--warn` | `#B54708` on `#FFFAEB`, border `#FEDF89` |
+| `--r-hair` | 2 | Spec rows, table cells |
+| `--r-xs` | 3 | Thumbnails, index-entry media, gallery frames |
+| `--r-sm` | 5 | Buttons, inputs, small tiles |
+| `--r-md` | 8 | Panels, wells, standard media, `.dcard` |
+| `--r-lg` | 12 | Hero and feature photography |
+| `--r-xl` | 18 | Inset full-bleed media |
+| `--r-full` | 9999 | Pills only |
 
-**Usage discipline.** Azure is for action, not decoration. Navy carries headings and the
-one dark surface per page (booking rail head, sell tile). Emerald means "you can book
-this now" and appears nowhere else, so a green badge always means money. Amber means
-"coming soon" and is never a primary.
+`@theme` names are `--radius-hair/xs/sm/md/lg/xl/full`. `--radius-card: 8px` survives as a legacy alias.
 
-## 3. Type
+### Elevation (new)
 
-Inter throughout, `font-feature-settings: "cv02","cv03","cv04","ss01"`. The ramp lives in
-`theme.css` as `.t-*`. Headings sit on navy, body on neutral-700.
+Tinted with navy, never neutral black. Used sparingly: the system prefers rules to shadows.
 
-| Class | Size / weight | Use |
+- `--e-lift`, button and arrow hover.
+- `--e-raise`, the search bar, the one floating surface.
+- `--e-media`, a photograph that must lift off the page.
+
+`@theme` names: `--shadow-lift`, `--shadow-raise`, `--shadow-media`, `--shadow-flat`.
+
+### Motion (new)
+
+- `--ease` = `cubic-bezier(0.16, 1, 0.3, 1)` (ease-out-quart). `--ease-soft` for long media moves.
+- `--dur-1: 200ms` colour / border / small state, `--dur-2: 300ms` transform / elevation, `--dur-3: 400ms` media scale, `--dur-4: 600ms` page-load stagger only.
+- Only `transform`, `opacity`, `color`, `background-color`, `border-color`, `box-shadow` are animated. Never a layout property.
+- `prefers-reduced-motion: reduce` collapses every animation and transition globally and disables `scroll-behavior`.
+
+### Measure
+
+`--measure: 68ch` · `--measure-tight: 56ch` · `--measure-wide: 78ch` · `--content: 1280px` · `--gutter: clamp(16px, 5.56vw, 80px)`.
+
+---
+
+## 2. Type ramp
+
+The old ramp was flat (48 / 40 / 32 / 24, then a hard drop to 19px section heads). This one steps at roughly **1.28** throughout and adds the missing middle tiers.
+
+`76 · 59 · 46 · 36 · 28 · 22 · 17 · 14 · 12`
+
+| Class | Size (max) | Line | Tracking | Use |
+|---|---|---|---|---|
+| `.t-display` **new** | clamp 44→76 | 1.02 | -.032em | Full-bleed hero on photography |
+| `.t-h0` | clamp 36→59 | 1.06 | -.028em | Page display title |
+| `.t-h1` | clamp 31→46 | 1.10 | -.025em | Page title |
+| `.t-h2` | clamp 26→36 | 1.16 | -.022em | Major band title |
+| `.t-h3` | clamp 22→28 | 1.22 | -.018em | Section head, the middle tier that was missing |
+| `.t-h4` **new** | 22 | 1.27 | -.014em | Rail head, sub-section, entry cluster title |
+| `.t-h5` **new** | 17 | 1.35 | -.006em | Smallest heading |
+| `.t-lead` **new** | 20 | 1.50 | | Standfirst, page subtitle |
+| `.t-body` **new** | 17 | 1.65 | | Default body |
+| `.t-bold-20/18/16`, `.t-med-16`, `.t-reg-16`, `.t-black-16`, `.t-med-14`, `.t-reg-14`, `.t-med-12`, `.t-reg-12` | literal | tuned | tuned | UI text, names unchanged |
+| `.t-eyebrow` **new** | 12 / 700 / .09em uppercase, `--ink-muted` | | | The one eyebrow treatment. Modifiers `--ink`, `--invert` |
+| `.t-num` / `.tnum` **new** | | | | Tabular lining figures. `.t-num` also sets weight 500 and ink |
+
+All display classes get `text-wrap: balance` and `color: var(--ink)`. Sizes are fluid via `clamp()`, so there are no separate mobile overrides to keep in sync.
+
+**Every figure on the site is tabular.** Tabular lining numerals are already applied inside `.spec__v`, `.keyfacts__v`, `.figurine__n`, `.card__price`, `.card__specs`, `.pcard__price`, `.pcard__meta`, `.pcard__season`, `.dcard__meta`, `.dest__meta`, `.opt .pr`, `.coll li span`, `.rating`, `.nearby__d`, `.ar-table`, `.ar-meta`, `.crumb`, `.cta__offer`, `.besttime__m`, `.step__num`, `.chero__count`, `.chero__summary`, `.cat__price`. Use `.tnum` anywhere else a number appears.
+
+Utilities: `.clamp-2`, `.clamp-3` **new**, `.sr-only`.
+
+---
+
+## 3. Layout primitives
+
+| Class | New | What it does |
 |---|---|---|
-| `.t-h1` | 40 / 700, tracking -0.02em | Page title in a hero |
-| `.t-h2` | 28 / 700 | Section heading |
-| `.t-h3` | 20 / 600 | Card group heading |
-| `.t-bold-16` | 16 / 700 | Card title |
-| `.t-reg-16` | 16 / 400, line-height 1.6 | Body |
-| `.t-reg-14` | 14 / 400 | Meta |
-| `.t-reg-12` | 12 / 400 | Fine print |
+| `.container` | | 1280 content, 80px gutters, clamps down to 16 |
+| `.container--narrow` | new | 880 content, for reading-first pages |
+| `.bleed` | new | Escapes `.container` to full viewport width (`width:100vw; margin-inline: calc(50% - 50vw)`). `html` is `overflow-x: clip`, so this cannot produce a horizontal scrollbar and sticky still works |
+| `.bleed--inset` | new | Caps a bleed at 1720px, centred, `--r-xl` corners (square below 700px) |
+| `.spread` | new | The asymmetric spread. `1.62fr / 1fr`, gap `--s-8`, `align-items: start`. One column at 900px |
+| `.spread--wide` | new | `2.2fr / 1fr` when the rail is a thin data column |
+| `.spread--even` | new | `1fr / 1fr` |
+| `.spread--flip` | new | Rail on the left (`direction: rtl` on the grid, `ltr` restored on children) |
+| `.spread__main` | new | Left column, `min-width: 0` so overflowing media cannot blow out the grid |
+| `.spread__rail` | new | Right column, sticky at `--s-9`. `.spread__rail--static` opts out |
+| `.prose` | new | Measured reading column: 68ch, 17/1.7, `--ink-body`, `> * + *` rhythm, styled links and bold. `--wide` (78ch), `--tight` (56ch) |
+| `.rule` | new | Hairline `<hr>`. `--strong`, `--ink` (1.5px navy), `--gap` |
+| `.stack` / `--sm` / `--lg` | new | Vertical grid gaps |
+| `.row` | new | Horizontal flex, wrapping, gap `--s-3` |
+| `.grid-3` | | Three-up grid, halves at 980, single at 640 |
+| `.reveal` | new | One page-load stagger. Children rise 14px and fade over `--dur-4`, delays 0/70/140/210/280/340ms by `nth-child`. Disabled under reduced motion |
 
-**Reading measure.** Article body is capped at `68ch`. Never let prose run the full
-1280px container; that was a real complaint about the first build.
+### Section rhythm
 
-**Article rhythm.** `.ar-lead` (19/500) opens a body, `.ar-p` (16.5, line-height 1.75)
-follows, `.ar-h2` (24/700 navy) breaks it up. The lead paragraph is promoted into the
-hero as the standfirst and must be removed from the body, or every guide repeats itself.
+Rhythm **varies**. Do not repeat one band down a page.
 
-## 4. Spacing and shape
+| Class | Padding-block | Use |
+|---|---|---|
+| `.section--dense` | 24 | Chip rows, breadcrumb bands |
+| `.section--tight` | 32 | Between two related blocks |
+| `.section` | 64 | Default |
+| `.section--air` | 128 | Before and after the one thing that matters most |
+| `.section--flush` | 0 / 64 | First band under a hero |
+| `.section--open` **new** | 64 / 0 | Last band before a footer band |
+| `.section--ruled` **new** | plus top hairline | |
+| `.section--sunk` **new** | plus `--paper-sunk` | |
 
-- Container `1280px`, gutter `80px` desktop and `20px` below 900px.
-- Section rhythm `48px` vertical. Between a heading and its grid, `18px`.
-- Grid gap `20px`. Card padding `14px`.
-- Radius: `8px` (`--radius-card`) for cards and buttons, `999px` for pills and chips.
-- Shadow: cards are flat with a `1px` hairline at rest, and lift to
-  `0 6px 20px -8px rgba(24,26,30,.18)` with `translateY(-2px)` on hover. No heavy or
-  dark drop shadows.
+All drop one step below 700px.
 
-## 5. Imagery
+---
 
-This is where the most visible defects have come from, so the rules are specific.
+## 4. Spec rows, the signature data primitive
 
-**Always request the crop you are going to display.** Every fixed-size image slot must
-pass both `w` and `h` with `fit: "fill"` (Cloudinary `c_fill`), at **2x** the CSS box.
-Never use `fit: "limit"` for a fixed box: limit returns the source aspect ratio, which
-then gets centre-cropped by CSS and reads as a bad crop. This is exactly what made the
-booking rail thumbnails look wrong.
+Aligned label/value pairs on hairline rules with tabular figures. **Use this for key facts, tides, difficulty, distance, drive times, price bands. Never wrap it in a card.**
 
-```ts
-// 64x64 box on screen
-cld(id, { w: 128, h: 128, fit: "fill" })   // correct
-cld(id, { w: 150, fit: "limit" })          // wrong, produces the squashed thumbnails
+```html
+<dl class="spec">
+  <div class="spec__row">
+    <dt class="spec__k">Drive from Victoria</dt>
+    <dd class="spec__v">4 hr 20 min
+      <span class="spec__note">Highway 4, single lane past Port Alberni</span>
+    </dd>
+  </div>
+  <div class="spec__row">
+    <dt class="spec__k">Best months</dt>
+    <dd class="spec__v spec__v--signal">March to September</dd>
+  </div>
+</dl>
 ```
 
-**Standard slots**
+| Class | Notes |
+|---|---|
+| `.spec` **new** | Opens on a 1.5px `--rule-ink` rule |
+| `.spec__row` **new** | `minmax(7.5rem, 30%) / 1fr`, baseline aligned, 11px block padding, hairline bottom. Stacks below 480px |
+| `.spec__k` **new** | 12 / 700 / .07em uppercase, `--ink-muted` |
+| `.spec__v` **new** | 16 / 500, `--ink`, tabular lining figures |
+| `.spec__note` **new** | 13.5px secondary line inside a value |
+| `.spec__v--signal` **new** | Emerald, for in-season / available values |
+| `.spec__v--soon` **new** | Amber, for coming-soon values |
+| `.spec--split` **new** | Two independent columns of rows, single column below 780px |
+| `.spec--tight` **new** | Rail or footer density |
+| `.spec--stacked` **new** | Label above value, for narrow rails |
+| `.keyfacts` / `__i` / `__k` / `__v` | **Reworked.** Was a bordered grid of boxes. Now an auto-fit set of spec rows, no container border, no fill |
+| `.figurine` / `__n` / `__l` **new** | One large tabular number plus an uppercase caption. Maximum two per page, never a hero-metric row |
 
-| Slot | CSS box | Request |
+---
+
+## 5. Season strip
+
+Twelve cells, legible without colour: every cell carries a glyph **and** a fill, and the strip is a real `<table>` with an `.sr-only` caption. Rendered by `app/components/browse/BestTime.tsx`.
+
+| Class | Notes |
+|---|---|
+| `.besttime` | Wrapper `<figure>` |
+| `.besttime__cap` | **Reworked** to an eyebrow: 12 / 700 / .07em uppercase, muted |
+| `.besttime__grid` | `table-layout: fixed`, max 540px, 3px column spacing |
+| `.besttime__cell` | Hairline-ruled, `--r-hair` corners, `--paper-sunk` off-season. `[data-good="true"]` gets `--signal-wash` fill, emerald rule, `--signal-ink` type |
+| `.besttime__m` | Month abbreviation, 11 / 700 / uppercase / tabular |
+| `.besttime__dot` | The filled or hollow glyph |
+| `.besttime__legend`, `.besttime__sep` | Legend row |
+| `.besttime--compact` **new** | The inline variant. 17px cells, no caption chrome, no dot row, no legend. In-season cells keep a darker rule so they survive greyscale. Sits beside a heading or inside an entry body |
+| `.seasonline` / `__label` **new** | Flex lockup for a label plus a compact strip on one line |
+
+To render compact, pass both classes to the figure: `className="besttime besttime--compact"`. `BestTime.tsx` needs a `variant` prop to emit that; the component change belongs to whoever owns it.
+
+---
+
+## 6. Headers and navigation
+
+| Class | Notes |
+|---|---|
+| `.sechead` / `__eyebrow` / `__action` | Section header. `h2` now sits at the `.t-h3` tier (clamp 22→28), the middle step the old system lacked. `--ruled` **new** adds the 1.5px ink rule |
+| `.pagehead` / `__sub` | Index or plan page head, 19px subtitle at 68ch |
+| `.rowhead` / `__arrows` | Legacy title-plus-arrows row, still used by the landing rails |
+| `.crumb` / `__sep` | Plain non-interactive breadcrumb trail. Never a dropdown, never a destination switcher |
+| `.nav` / `__inner` / `__logo` / `__links` / `__link` / `__right` / `__list` | Top nav, 72px, solid paper (no glass). Active link is an inset azure underline |
+| `.footer` / `__inner` / `__logo` / `__cols` / `__col` / `__rule` / `__copy` | Footer on `--paper-sunk`, column heads are eyebrows |
+
+## 7. Controls
+
+| Class | Notes |
+|---|---|
+| `.btn` | `--r-sm` corners, 15.5 / 600, 1px press translate, token-curve transitions |
+| `.btn--primary` | Azure fill. **One per screen** |
+| `.btn--outline` | Neutral rule, azure type, azure wash on hover. The `CtaBlock` default |
+| `.btn--ghost` **new** | Transparent, azure type |
+| `.btn--ink` **new** | Navy fill, for inverted bands |
+| `.btn--white` | White fill, for photography |
+| `.btn--amber` | Coming-soon capture |
+| `.btn--search` | Search bar size |
+| `.btn--block` **new** | Full width |
+| `.arrow` / `--filled` | 40px circular rail arrow. Hover darkens the rule and lifts |
+| `.chiprow` / `.chip` / `.chip--on` | Filter chips. Active is navy fill, not azure (azure is action) |
+| `.goodfor` | "Good for" tags, quiet sunk pills |
+| `.profiles` | Traveller-profile shortcut pills |
+| `.nearby` / `__i` / `__d` | Nearby-place pills with a round thumbnail |
+| `.searchbar` / `__row` / `.searchfield` | The one elevated surface on the site |
+| `.capture` / `__title` / `__form` / `__input` | Email capture band, sunk paper on a hairline |
+
+## 8. Focus and accessibility
+
+- Every `a, button, input, select, textarea, summary, details, [tabindex]` gets `outline: 2px solid var(--action); outline-offset: 3px` on `:focus-visible`.
+- Interactive photography (`.dcard`, `.cat`, `.feature__media`, `.thumb`) gets an inset white ring plus an azure halo so focus survives on any image.
+- Muted text is `--ink-muted` (5.7:1), not `--n-500`. `--ink-faint` exists but must not carry AA body text.
+- Emerald **text** always uses `--signal-ink` (4.9:1); raw `--signal` is for fills only.
+- Never colour alone: the season strip carries glyphs, badges carry text.
+
+---
+
+## 9. Photography and heroes
+
+| Class | Notes |
+|---|---|
+| `.hero` / `__media` / `__scrim` / `__title` | Landing hero, `clamp(360px, 52vh, 520px)` |
+| `.chero` / `__media` / `__scrim` / `__text` / `__sub` / `__count` / `__summary` | Destination hero. Type set directly on the photograph, generous padding, soft base scrim (no heavy wash). `.chero--sm`, `.chero--bleed` **new** (square corners inside a `.bleed`) |
+| `.banner` / `__scrim` / `__content` | Full-bleed banner |
+| `.cta-band` | Inverted navy band |
+| `.now` / `__media` / `__b` | Seasonal split band. **Reworked**: flat navy, the gradient is gone |
+| `.selltile` / `__headline` / `__blurb` / `__go` | Sister-brand tile. **Reworked**: flat navy, the gradient is gone |
+| `.gallery` **new** | 3-up photo grid, `--r-xs` frames |
+| `.gallery--lead` **new** | Asymmetric: first frame spans 2 by 2 |
+| `.thumb` **new** | Generic media link with a hover scale |
+
+## 10. Rails
+
+| Class | Notes |
+|---|---|
+| `.railwrap` / `.rail` / `.rail__track` / `.rail__arrow` | Horizontal scroll-snap rail. **Slots widened from 172px to 228px** and media moved to 4:3, so a rail entry reads as an index entry rather than a thumbnail. Arrow hides below 1100px |
+| `.rail__head` | **Reworked**: opens on a 1.5px ink rule, `h2` at 22px (was 19), subtitle at 13.5 (was 11.5) |
+| `.rail__seeall` | Azure link |
+| `.scroller` | Landing-page 3-up scroller |
+| `.viewall` | Centred "view all" footer |
+
+## 11. Cards and index entries
+
+**`.dcard` is the only true card in the system** (photograph plus name plus place). Everything that used to be a bordered rounded box on white is now an *index entry*: a 1.5px ink rule opens it, the media is larger, and typography carries the hierarchy. Hover moves the rule to azure and scales the media 4%.
+
+| Class | Status | Notes |
 |---|---|---|
-| Rail thumbnail | 64 x 64 | `w:128, h:128, fill` |
-| Card media | aspect 16/10 | `w:380, h:260, fill` |
-| Hero | full bleed | `w:1600, limit` with `fill` layout and `objectFit: cover` |
+| `.dest-cards`, `.dcard`, `__scrim`, `__body`, `__name`, `__meta`, `__badge`, `--soon` | **kept as a card** | `--r-md`, 4:3.2, name at 21/700, tabular meta, media scale on hover |
+| `.cat`, `__scrim`, `__b`, `__where`, `__price`, `__price--soon` | kept as a card | Same affordance, larger scale. Price uses `--signal-ink`, amber when coming soon |
+| `.pcard`, `__media`, `__title`, `__meta`, `__price`, `__free`, `__season`, `__badge` | **reworked, de-boxed** | Border-top hairline, 4:3 media at `--r-xs`, title 16/700 navy. `[data-state="soon"|"sister"]` recolours badge and price |
+| `.pcardgrid` | reworked | `auto-fill minmax(244px, 1fr)`, 2-up below 560px |
+| `.card`, `__media`, `__body`, `__loc`, `__title`, `__specs`, `__spec`, `__foot`, `__price`, `__note`, `__fav`, `--holiday` | **reworked, de-boxed** | No border, no rounded container, no shadow. Border-top hairline, 16:10 media, two-line title reserve and pinned footer so rows still align |
+| `.card__heart` | **force-hidden** | Heart icons are banned. Remove the element from `ListingCard.tsx` |
+| `.rating` | reworked | Was an emerald pill, but emerald is availability, not a review score. Now ink on sunk paper with a hairline, tabular |
+| `.dests`, `.dest__media`, `__name`, `__meta` | reworked | Media scales on hover, tabular meta |
+| `.feature`, `__media`, `__scrim`, `__cap`, `__side` | reworked | One large photograph beside a **ruled list**, not four equal cards. `.feature__side` gap is 0 because `.mini` supplies its own rules |
+| `.mini`, `__b` | **reworked, de-boxed** | Hairline rows, first row on the ink rule. Was a bordered box inside a bordered layout, which is the nested-card failure |
+| `.collections`, `.coll` | **reworked, de-boxed** | Three ruled indexes, not three grey boxes. Items are hairline rows with a tabular right-hand count |
+| `.kicker`, `.kicker--ink` | reworked | The `--ink` variant is a plain eyebrow now, not an azure pill (azure is action only) |
 
-**Verify every public ID before shipping it.** Many old `arcstudio/*` IDs are deleted and
-return 404:
+## 12. Panels and bands
 
-```bash
-curl -sI https://res.cloudinary.com/djqswlfat/image/upload/<id>
-```
+| Class | Notes |
+|---|---|
+| `.panel`, `__title`, `__lead`, `__media` | **Reworked**: sunk paper, not an azure wash |
+| `.feat`, `__icon`, `__title`, `__text` | Hairline rows inside the panel. Icon well is neutral, not azure |
+| `.masonry`, `.review`, `__head`, `__avatar`, `__name`, `__date`, `__text`, `.review--media`, `__overlay`, `__play`, `.reviews__head`, `__sub`, `.reviews__more` | **Reworked**: flat paper on a hairline, no shadow stack |
+| `.steps`, `__title`, `__grid`, `.step`, `__num`, `__title`, `__text` | **Reworked**: the grey rounded panel and the azure numbered squares are gone. Three ruled columns with large tabular numerals |
+| `.promise__title`, `__grid`, `__card`, `__icon`, `__name`, `__text` | **Reworked**: shadowed boxes to ruled columns |
+| `.softnote` | Editor explainer, dashed hairline |
 
-**Known content debt.** Seed listings currently point at generic brand imagery
-(`arc-trips/pillar-connection`, `arc-trips/founding-key`), which is why stay thumbnails
-show candles and keys rather than properties. The crop is now correct; the subject
-matter is not. Real property photography replaces these, not a CSS change.
+## 13. CTA engine
 
-## 6. Components
+Driven by `app/lib/cta.ts`. **Never `.btn--primary`**: the page's single primary action lives elsewhere.
 
-| Class | What it is | Notes |
-|---|---|---|
-| `.nav` | Top bar, sticky | Home, Accommodations, Destinations, Things to do |
-| `.chero` / `.chero--sm` | Page hero over a photo | Scrim is mandatory, white text needs it |
-| `.pcard` | Card for a guide, article or category | Always a `<Link>`, never a bare `<div>` |
-| `.pcardgrid` | 4-up grid, 2-up under 1000px, 1-up under 640px | |
-| `.rail` | Horizontal scroller with a head and See all | For stays and long lists |
-| `.selltile` | Navy gradient band, one CTA | The destination page's primary CTA |
-| `.buy` / `.guiderail` | Booking rail beside an article | Renders `resolveCta` output only |
-| `.opt` | One bookable row inside the rail | Thumbnail, title clamped to 2 lines, price right |
-| `.ar-*` | Article body primitives | lead, p, h2, list, table, note, figure |
-| `.faq` | Accordion | `<details>`, no JS |
-| `.softnote` | Dashed neutral panel | Editorial or explanatory asides |
+| Class | Notes |
+|---|---|
+| `.cta`, `__button`, `__offer` | Base, uses `.btn--outline` |
+| `.cta--live` **new styling** | Emerald rule and type: bookable now |
+| `.cta--sister` | Solid navy fill, so the ArcTrips Fishing hand-off still reads as a strong action |
+| `.cta--soon`, `__notify-form`, `__notify-input`, `__notify-error` | Amber capture surface, `--r-sm` |
+| `.cta__badge` | **Reworked** from an azure pill to a plain eyebrow |
 
-## 7. Commerce surfaces
+## 14. Reading, article, FAQ
 
-The CTA is derived from `app/lib/cta.ts`, never hardcoded. Three visual states:
+| Class | Notes |
+|---|---|
+| `.guidelayout`, `.guiderail`, `.guiderail-stack` | Article beside a sticky booking rail, stacks below 1000px |
+| `.toc`, `__label`, `__list` | **Reworked, de-boxed**: hairline rows with a leading dash that extends on hover, not a bordered grey card |
+| `.buy`, `__head`, `__foot`, `__fine`, `.opt`, `.pr` | Booking rail. Navy head, hairline option rows, tabular prices |
+| `.guide-places`, `.guide-place`, `__blurb` | Places as sections inside a guide |
+| `.keepgoing` | Onward-navigation block on the ink rule |
+| `.cityintro` | 19px intro paragraph at 68ch |
+| `.ar`, `.ar-head`, `.ar-chip`, `.ar-title`, `.ar-standfirst`, `.ar-meta`, `.ar-meta__dot`, `.ar-hero` | Article header. `.ar-chip` is an eyebrow now, not an azure pill |
+| `.ar-body`, `.ar-lead`, `.ar-p` | 17/1.75 at 68ch. Lead is 20px ink at 56ch |
+| `.ar-h2` | **Reworked**: 28px on a 1.5px ink rule. The azure-to-emerald gradient bar is gone |
+| `.ar-h3` **new** | 22px sub-heading |
+| `.ar-list` | Hairline dash markers, was an emerald diamond |
+| `.ar-table-wrap`, `.ar-table` | **Reworked**: rule-based table, uppercase muted head, no navy header fill, no zebra stripes, tabular figures throughout |
+| `.ar-fig`, `.ar-fig--wide` **new** | Interleaved photography with a caption. `--wide` breaks the measure up to 1080px |
+| `.ar-note` | **Reworked**: top hairline rule. The azure left side-stripe is gone (side stripes are banned) |
+| `.faq`, `__item`, `__q`, `__a` | **Reworked**: 16px question (was 12.5), 16px answer (was 11.5), plus-to-cross toggle on the token curve |
 
-- **Live on Arc Trips**: emerald badge, azure primary button.
-- **Live, sister brand**: navy button, ArcTrips Fishing wordmark, states the hand-off,
-  opens in a new tab.
-- **Coming soon**: amber panel with an email capture, and the primary button falls
-  through to stays. A coming-soon category still sells something.
+---
 
-**No page dead-ends.** If a category has no live product line, the rail lists real stays
-with real nightly prices. Rows must always agree with the button: if the button says
-"Book a stay", the rows are stays, not placeholder tours.
+## 15. Removed
 
-## 8. Anti-patterns, learned here
+These were defined but referenced by no `.tsx` in the repo (verified by grep against `app/**/*.tsx`) and were deleted with the S1 rebuild:
 
-Each of these shipped at least once in this project.
+`.tabbar*`, `.dockbar`, `.has-dockbar`, `.themegrid*`, `.things`, `.thing*`, `.guides`, `.guide` and `.guide__*` (the old guide card; `.guide-place*`, `.guidelayout`, `.guiderail*` are unaffected), `.area-hero*`, `.area-layout`, `.area-nav*`, `.area-section`, `.area-prose`, `.area-gallery` (replaced by `.gallery`), `.gs-back*`, `.gs-label`, `.gs-list`, `.gs-item*`, `.guide-side`, `.guide-layout`, `.readlayout`.
 
-- A hero followed by a single card stranded in white space. If a section has one item,
-  it is not a grid; give it a different treatment.
-- Repeated identical listing cards ("Riverside Cabin, 4.9, 2 room(s), 3 bed(s)" four
-  times). Placeholder data must vary or the page reads as broken.
-- `room(s)` style pluralisation. Compute the plural.
-- Cards rendered as `<div>` so nothing is clickable. Every card is a link.
-- Stacked grey paragraphs with no lead, no measure cap and no headings.
-- Tables flattened into middot-separated paragraphs. `ArticleBlocks` stitches these back
-  into real tables at render time.
-- Pages that exist but nothing links to (`/things-to-do` shipped unreachable).
+If you need one back, build it from the primitives above rather than restoring the old rule.
+
+## 16. Building a page against this system
+
+1. Open with a hero (`.chero`, optionally inside `.bleed`).
+2. Follow with the data, not prose: a `.spec` block and a `.besttime` strip inside a `.section--tight`.
+3. Then the long-form in a `.spread`: `.prose` in `.spread__main`, `.spec--tight` plus the CTA in a sticky `.spread__rail`.
+4. Vary the rhythm: `--tight`, then `--air` around the one thing that matters, then default.
+5. Photography earns width. Use `.bleed` or `.gallery--lead` rather than a third equal grid.
+6. One `.btn--primary`. Everything else is `.btn--outline` or `.btn--ghost`.
+7. Every number gets `.tnum`, or lives in a class that already sets it.
+8. If you are about to add a bordered rounded box, add a `.rule` and a heading instead.

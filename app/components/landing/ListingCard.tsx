@@ -1,9 +1,16 @@
 import Image from "next/image";
 import { cld } from "@/app/lib/cloudinary";
 import type { Listing } from "@/app/lib/content";
-import { IconLocation, IconBed, IconRooms, IconBath, IconStar, IconHeart } from "@/app/components/ui/Icons";
+import { IconLocation, IconBed, IconRooms, IconBath, IconStar } from "@/app/components/ui/Icons";
 
-/** `holiday` variant shows the "Guest favorite" pill and hides the location row (matches Figma). */
+/**
+ * `holiday` variant shows the "Guest favorite" pill and hides the location
+ * row (matches Figma).
+ *
+ * There is no heart. Heart icons on cards are banned by DESIGN.md;
+ * theme.css force-hides `.card__heart` as a backstop, and the element is
+ * now gone from the markup too.
+ */
 export function ListingCard({ listing, variant = "default" }: { listing: Listing; variant?: "default" | "holiday" }) {
   const holiday = variant === "holiday";
   return (
@@ -18,9 +25,7 @@ export function ListingCard({ listing, variant = "default" }: { listing: Listing
         />
         {holiday && listing.guestFavorite ? (
           <span className="card__fav t-med-14">Guest favorite</span>
-        ) : (
-          <span className="card__heart" aria-hidden="true"><IconHeart width={24} height={24} /></span>
-        )}
+        ) : null}
       </div>
       <div className="card__body">
         {!holiday && (

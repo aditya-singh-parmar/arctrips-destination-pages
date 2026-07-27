@@ -14,6 +14,19 @@ For any **substantive build/design/refactor request**, do NOT implement directly
 
 You are the architect and reviewer. Trivial one-line tweaks and plain questions can be answered directly — the pipeline is for anything that would otherwise be reactive guesswork.
 
+## UI work: always use the design skills
+
+**Any** visual or frontend task (a page, a component, a layout, spacing, a "make this look better" request) MUST start by invoking the design skills. Do not hand-tune CSS from the raw prompt.
+
+1. Invoke **`/frontend-design`** and **`/impeccable`** before touching any markup or stylesheet.
+2. Read **`PRODUCT.md`** and **`DESIGN.md`** at the repo root. They hold the register, the tone, the anti-references and the locked palette. `/impeccable` loads them automatically via its context loader.
+3. Delegate implementation to **`frontend-design-engineer`** subagents with a self-contained brief: exact file paths, the design direction, and the hard rules below. Run independent surfaces in parallel; never let two agents edit `app/theme.css` at the same time.
+4. Verify by rendering the page and looking at it, not by reading the diff.
+
+**Locked, never change without the owner saying so:** the brand colours in `app/globals.css` (Azure `#2874BA`, Emerald `#3A9679`, navy `#0B3356`, the neutral ramp), and Inter as the only typeface (Satoshi for the `ARCTRIPS` wordmark only). Layout, spacing, density, hierarchy, composition and motion are all fair game and are usually where the real problem is.
+
+**The failure mode to avoid:** incremental CSS tweaks that leave the page reading as a generic marketplace card grid. `DESIGN.md` lists the anti-references. If the result could be any travel site, it is wrong.
+
 ## Project
 
 **Arc Trips — Destination Pages.** Text- and image-heavy destination/activity guide pages for the Arc Trips **stays** experience. Each page covers a place (Tofino, Ucluelet, Victoria, Whistler, Squamish, Banff, and more) or an activity within it (day hikes, kayaking, whale watching, storm-watching), and points travelers toward curated stays there.

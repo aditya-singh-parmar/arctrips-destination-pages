@@ -9,6 +9,7 @@ import { Footer } from "@/app/components/landing/Footer";
 import { Breadcrumb } from "@/app/components/nav/Breadcrumb";
 import { ArticleBlocks } from "@/app/components/browse/ArticleBlocks";
 import { FaqList } from "@/app/components/browse/FaqList";
+import { SectionHead } from "@/app/components/ui/SectionHead";
 
 const SITE = "https://arctrips.com";
 
@@ -58,23 +59,31 @@ export function GuideDetail({ article, trail = [] }: { article: Article; trail?:
             { label: article.title },
           ]}
         />
+      </div>
 
-        <div className="chero chero--sm">
-          {article.heroPublicId && (
-            <div className="chero__media">
-              <Image src={cld(article.heroPublicId, { w: 1600, fit: "limit" })} alt={article.title} fill priority sizes="100vw" style={{ objectFit: "cover" }} />
-            </div>
-          )}
-          <div className="chero__scrim" aria-hidden="true" />
-          <div className="chero__text">
-            <h1 className="t-h1">{article.title}</h1>
-            {standfirst && <p className="chero__sub" style={{ maxWidth: "56ch" }}>{standfirst}</p>}
+      <header className="dhero dhero--sm">
+        {article.heroPublicId && (
+          <div className="dhero__media">
+            <Image src={cld(article.heroPublicId, { w: 2000, fit: "limit" })} alt={article.title} fill priority sizes="100vw" style={{ objectFit: "cover" }} />
           </div>
+        )}
+        <div className="dhero__scrim" aria-hidden="true" />
+        <div className="dhero__inner container">
+          {article.category && <p className="t-eyebrow t-eyebrow--invert">{article.category}</p>}
+          <h1 className="t-h0">{article.title}</h1>
+          {standfirst && <p className="dhero__sub">{standfirst}</p>}
         </div>
+      </header>
 
-        <article style={{ maxWidth: 720, margin: "0 auto" }}>
+      <div className="container container--narrow">
+        <article className="section section--tight">
           <ArticleBlocks blocks={rest} />
-          {(article.faqs?.length ?? 0) > 0 && <FaqList faqs={article.faqs ?? []} />}
+          {(article.faqs?.length ?? 0) > 0 && (
+            <section style={{ marginTop: "var(--s-8)" }}>
+              <SectionHead ruled eyebrow="Asked before" title="Common questions" />
+              <FaqList faqs={article.faqs ?? []} />
+            </section>
+          )}
         </article>
       </div>
       <Footer />

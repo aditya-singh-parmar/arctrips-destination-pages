@@ -15,7 +15,7 @@ export function CultureOfExcellence() {
         <div>
           <h2 className="panel__title t-h2">Culture of excellence.</h2>
           <p className="panel__lead t-reg-16">
-            Because we've lived the host and guide experience ourselves, we knew
+            Because we&rsquo;ve lived the host and guide experience ourselves, we knew
             travelers and providers deserved a platform that simply works better.
           </p>
           {FEATURES.map((f) => (

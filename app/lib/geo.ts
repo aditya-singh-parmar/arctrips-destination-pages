@@ -244,3 +244,28 @@ export async function getAllGeoTrails(): Promise<GeoNode[][]> {
   for (const root of roots) await walk([root]);
   return out;
 }
+
+/**
+ * Every navigable town beneath a node, flattened with its canonical path.
+ *
+ * A province holding one region rendered as a single lonely card. Surfacing
+ * the towns underneath fills the page with something useful and removes a
+ * click, rather than making the guest drill through a tier that holds one item.
+ */
+export async function getTownsBeneath(trail: GeoNode[]): Promise<{ node: GeoNode; path: string }[]> {
+  const navigable = new Set(await getNavigableSlugs());
+  const out: { node: GeoNode; path: string }[] = [];
+
+  async function walk(t: GeoNode[]) {
+    const children = await getGeoChildren(t[t.length - 1].id);
+    for (const child of children) {
+      if (child.type === "town") {
+        if (navigable.has(child.slug)) out.push({ node: child, path: geoPath([...t, child]) });
+      } else if (child.type !== "area") {
+        await walk([...t, child]);
+      }
+    }
+  }
+  await walk(trail);
+  return out;
+}

@@ -57,13 +57,63 @@ function stitchTables(blocks: ArticleBlock[]): ArticleBlock[] {
   return out;
 }
 
-export function ArticleBlocks({ blocks: raw }: { blocks: ArticleBlock[] }) {
-  const blocks = stitchTables(raw);
+/**
+ * `lead` controls whether the first paragraph is promoted to `.ar-lead`.
+ * `GuideBody` renders one call per section, so leaving it on would open all
+ * 28 sections of a long guide at 20px and flatten the hierarchy against the
+ * 28px section headings. It stays on by default for single-body callers
+ * (places, articles), where one lead paragraph is right.
+ */
+/**
+ * The same repair as `stitchTables`, for lists. The docx extraction flattened
+ * bulleted lists into one paragraph per item, so "Orcas / Sea otters / Sea
+ * lions / Harbor seals" arrived as ten separate paragraphs, each carrying a
+ * full paragraph's leading. A run of short, unpunctuated paragraphs is a
+ * list, and reads like one only when it is rendered as one.
+ *
+ * Conservative on purpose: at least three in a row, each short, none ending
+ * in sentence punctuation, so ordinary prose is never swallowed.
+ */
+const LIST_ITEM_MAX_CHARS = 48;
+
+function stitchLists(blocks: ArticleBlock[]): ArticleBlock[] {
+  const item = (b: ArticleBlock) =>
+    b.type === "p" && b.text && b.text.length <= LIST_ITEM_MAX_CHARS && !/[.?!:;,]$/.test(b.text.trim())
+      ? b.text.trim()
+      : null;
+
+  const out: ArticleBlock[] = [];
+  for (let i = 0; i < blocks.length; i++) {
+    const first = item(blocks[i]);
+    if (!first) {
+      out.push(blocks[i]);
+      continue;
+    }
+    const items = [first];
+    let j = i + 1;
+    while (j < blocks.length) {
+      const next = item(blocks[j]);
+      if (!next) break;
+      items.push(next);
+      j++;
+    }
+    if (items.length >= 3) {
+      out.push({ type: "list", items });
+      i = j - 1;
+    } else {
+      out.push(blocks[i]);
+    }
+  }
+  return out;
+}
+
+export function ArticleBlocks({ blocks: raw, lead = true }: { blocks: ArticleBlock[]; lead?: boolean }) {
+  const blocks = stitchLists(stitchTables(raw));
   // First "p" block gets the lead treatment. Computed up front rather than
   // via a mutable flag inside the render loop (that pattern was carried
   // over from the deleted ArticleBody.tsx and tripped the
   // no-reassignment-during-render lint rule).
-  const firstParagraphIndex = blocks.findIndex((b) => b.type === "p");
+  const firstParagraphIndex = lead ? blocks.findIndex((b) => b.type === "p") : -1;
   return (
     <div className="ar-body">
       {blocks.map((b, i) => {
