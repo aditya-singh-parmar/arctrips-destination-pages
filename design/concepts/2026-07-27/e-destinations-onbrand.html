@@ -151,6 +151,17 @@ nav.top{border-bottom:1px solid var(--n150);background:var(--white);position:sti
 .sw--on{background:var(--em100);border-color:var(--em300)}
 @media(max-width:760px){.led__mon{display:none}}
 
+/* things to do: the category row inside the destinations page */
+.eyebrow{display:block;font-size:.7rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--azure);margin-bottom:8px}
+.catrow{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-bottom:clamp(22px,3vw,30px)}
+.cat{display:inline-flex;align-items:baseline;gap:8px;background:var(--white);border:1px solid var(--n150);
+  border-radius:999px;padding:9px 16px;transition:border-color .2s var(--ease),box-shadow .2s var(--ease)}
+.cat:hover{border-color:var(--azure);box-shadow:0 6px 16px -10px rgba(11,51,86,.34)}
+.cat__n{font-size:.88rem;font-weight:600;color:var(--n900)}
+.cat__c{font-size:.75rem;color:var(--n500)}
+.cat--all{background:var(--navy);border-color:var(--navy)}
+.cat--all .cat__n{color:#fff}
+
 /* reading */
 .read{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(22px,3vw,38px)}
 @media(max-width:900px){.read{grid-template-columns:1fr}}
@@ -216,7 +227,6 @@ footer.f{background:var(--n50);border-top:1px solid var(--n150);padding-block:cl
     <li><a href="#">Home</a></li>
     <li><a href="#">Stays</a></li>
     <li><a href="#" aria-current="page">Destinations</a></li>
-    <li><a href="#">Things to do</a></li>
     <li><a href="#">About Us</a></li>
     <li><a href="#">Fishing</a></li>
   </ul>
@@ -316,8 +326,21 @@ footer.f{background:var(--n50);border-top:1px solid var(--n150);padding-block:cl
 <section class="sec" style="padding-top:0"><div class="wrap">
   <div class="panel panel--azure">
     <div class="sechead center">
+      <span class="eyebrow">Things to do</span>
       <h2>Worth doing in July.</h2>
-      <p class="sub">Every subject we cover, ordered by how well this month suits it. The outlined cell is today.</p>
+      <p class="sub">Everything there is to do across our destinations, ordered by how well this month suits it. The outlined cell is today.</p>
+    </div>
+
+    <div class="catrow">
+      <a class="cat" href="#"><span class="cat__n">Whale watching</span><span class="cat__c tnum">2 towns</span></a>
+      <a class="cat" href="#"><span class="cat__n">Beaches</span><span class="cat__c tnum">13 places</span></a>
+      <a class="cat" href="#"><span class="cat__n">Hiking and trails</span><span class="cat__c tnum">31 places</span></a>
+      <a class="cat" href="#"><span class="cat__n">Kayaking</span><span class="cat__c tnum">2 towns</span></a>
+      <a class="cat" href="#"><span class="cat__n">Fishing</span><span class="cat__c tnum">Bookable</span></a>
+      <a class="cat" href="#"><span class="cat__n">Surfing</span><span class="cat__c tnum">Tofino</span></a>
+      <a class="cat" href="#"><span class="cat__n">Storm watching</span><span class="cat__c tnum">Nov to Feb</span></a>
+      <a class="cat" href="#"><span class="cat__n">Birding</span><span class="cat__c tnum">2 towns</span></a>
+      <a class="cat cat--all" href="#"><span class="cat__n">All 13 guides</span></a>
     </div>
     <table class="led">
       <thead><tr><th>Subject</th><th class="led__mon">Season</th><th style="text-align:right">Book</th></tr></thead>
