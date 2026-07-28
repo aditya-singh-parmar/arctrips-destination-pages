@@ -131,7 +131,7 @@ export async function guideEntries(): Promise<SitemapEntry[]> {
 
   const [geo, arts] = await Promise.all([
     sb.from("geo_places").select("id,slug,name,type,parent_id,status,updated_at"),
-    sb.from("articles").select("slug,destination_slug,updated_at,body").eq("published", true),
+    sb.from("articles").select("slug,destination_slug,region_slug,updated_at,body").eq("published", true),
   ]);
   if (geo.error || arts.error || !geo.data || !arts.data) return [];
 
@@ -139,13 +139,27 @@ export async function guideEntries(): Promise<SitemapEntry[]> {
   const byId = new Map(rows.map((r) => [r.id, r]));
   const townById = new Map(rows.filter((r) => r.type === "town").map((r) => [r.slug, r.id]));
 
+  // Regional roundups terminate above town, which is amendment A12 and the
+  // whole reason 11 of them have a legal URL at all. Keying only on
+  // destination_slug dropped every one of them from the sitemap.
+  const regionById = new Map(
+    rows.filter((r) => r.type === "region" || r.type === "province").map((r) => [r.slug, r.id]),
+  );
+
   const entries: SitemapEntry[] = [];
-  for (const a of arts.data as { slug: string; destination_slug: string | null; updated_at: string | null; body: unknown[] }[]) {
+  for (const a of arts.data as {
+    slug: string; destination_slug: string | null; region_slug: string | null;
+    updated_at: string | null; body: unknown[];
+  }[]) {
     // A slug with no body is a FAQ carrier, not a page.
-    if (!a.destination_slug || a.slug.endsWith("-faq") || !(a.body?.length)) continue;
-    const townId = townById.get(a.destination_slug);
-    if (!townId) continue;
-    const trail = pathFor(townId, byId);
+    if (a.slug.endsWith("-faq") || !(a.body?.length)) continue;
+    const scopeId = a.destination_slug
+      ? townById.get(a.destination_slug)
+      : a.region_slug
+        ? regionById.get(a.region_slug)
+        : undefined;
+    if (!scopeId) continue;
+    const trail = pathFor(scopeId, byId);
     if (!trail.length) continue;
     entries.push({ url: `${SITE}${guidePath(trail, a.slug)}`, lastmod: iso(a.updated_at) });
   }

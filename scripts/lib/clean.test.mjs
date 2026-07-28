@@ -162,3 +162,27 @@ describe("readCmsField", () => {
     expect(isCmsField("The water can come in and cover the sandspit.")).toBe(false);
   });
 });
+
+describe("splitUrls with truncated schemes", () => {
+  it("catches a URL whose leading characters Word shore off", () => {
+    const r = splitUrls("ttps://www.istockphoto.com/photo/scenery-along-the-tofino-shoreline");
+    expect(r.urls).toHaveLength(1);
+    expect(r.text).toBe("");
+  });
+
+  it("catches a bare www host", () => {
+    const r = splitUrls("Credit www.istockphoto.com/photo/abc");
+    expect(r.urls).toHaveLength(1);
+    expect(r.text).toBe("Credit");
+  });
+
+  it("still catches a normal URL and leaves copy intact", () => {
+    const r = splitUrls("Photo: https://www.istockphoto.com/photo/abc more text");
+    expect(r.urls).toHaveLength(1);
+    expect(r.text).toBe("Photo: more text");
+  });
+
+  it("does not eat ordinary prose", () => {
+    expect(splitUrls("The tide can cover the sandspit.").urls).toHaveLength(0);
+  });
+});

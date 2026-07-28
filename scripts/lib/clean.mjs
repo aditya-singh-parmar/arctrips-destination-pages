@@ -19,7 +19,14 @@
  */
 
 /** Matches a run of URL characters. Trailing sentence punctuation is excluded. */
-const URL_RE = /https?:\/\/[^\s)]+/g;
+/**
+ * Word splits a hyperlink across text runs, so a URL can reach us with its
+ * leading characters shorn off: the corpus contains paragraphs that begin
+ * "ttps://www.istockphoto.com/...". Matching only https?:// let those through
+ * and they rendered as body copy. This accepts a truncated scheme and a bare
+ * www host as well.
+ */
+const URL_RE = /(?:h?t?t?ps?:\/\/|www\.)[^\s)]+/gi;
 /** A trailing "1. " / "12) " list number, as used by the roundup and Agent Trek docs. */
 const LIST_NUMBER_RE = /^\s*\d{1,3}\s*[.)]\s*/;
 /** Longest a heading can be before it reads as a sentence rather than a title. */

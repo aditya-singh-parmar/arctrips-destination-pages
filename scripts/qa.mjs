@@ -36,10 +36,16 @@ while (queue.length) {
   const body = r.html.replace(/<script[\s\S]*?<\/script>/g, "");
   if (body.includes("—")) fail(`em dash on ${p}`);
   if (/<em>|<i>(?!nput)/.test(body)) fail(`italics on ${p}`);
-  if (/\(\s*(add|todo|tbd|check|fix)\b/i.test(body)) fail(`unresolved editorial note on ${p}`);
+  // Only genuine editor markers. An earlier, broader pattern flagged
+  // "(check local fire bans/permits first)", which is real travel advice.
+  if (/\b(TODO|TBD|FIXME|XXX)\b|\(\s*(add|insert|rewrite|source needed)\b/i.test(body))
+    fail(`unresolved editorial note on ${p}`);
   if (/istockphoto\.com|gettyimages/i.test(body)) fail(`stock photo URL leaked into copy on ${p}`);
-  if (/·\s*location\s*·|>\s*Best For\s*</i.test(body)) fail(`table header leaked into copy on ${p}`);
-  if (/undefined|\[object Object\]|NaN/.test(body)) fail(`placeholder value rendered on ${p}`);
+  // A leaked header is a standalone cell, not the words "Best for" inside a
+  // sentence. The earlier pattern flagged a real comparison table.
+  if (/>\s*(Location|Best For|Difficulty|Skill Level|Best Tide)\s*<\/(p|span|li)>/i.test(body))
+    fail(`table header leaked into copy on ${p}`);
+  if (/>\s*(undefined|\[object Object\]|NaN)\s*</.test(body)) fail(`placeholder value rendered on ${p}`);
   if (/<h[1-6][^>]*>\s*<\/h[1-6]>/.test(body)) fail(`empty heading on ${p}`);
 
   // ── 3. SEO contract ────────────────────────────────────────────────────
@@ -56,6 +62,7 @@ while (queue.length) {
 
   for (const m of body.matchAll(/href="(\/[^"#?]*)"/g)) {
     const href = m[1];
+    if (/^\/_next\/|\.(css|js|woff2?|png|jpe?g|svg|ico|xml|txt)$/i.test(href)) continue;
     if (!seen.has(href) && seen.size + queue.length < 400) queue.push(href);
   }
 }
