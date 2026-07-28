@@ -2,6 +2,8 @@ import { describe, it, expect } from "vitest";
 import {
   splitUrls, pickSourceUrl, isSpacerHeading, isSentenceHeading, stripListNumber,
   isNumberedHeading, isTableFragment, cleanGoodFor, sameText, splitBlurb, isRestatementOf,
+  readCmsField,
+  isCmsField,
 } from "./clean.mjs";
 
 describe("splitUrls", () => {
@@ -138,5 +140,25 @@ describe("isRestatementOf", () => {
   });
   it("does not fire on a short coincidental overlap", () => {
     expect(isRestatementOf("Banff is a town.", "Banff is a town in Alberta with a long main street and many shops.")).toBe(false);
+  });
+});
+
+describe("readCmsField", () => {
+  it("recognises a meta description typed into the body", () => {
+    const r = readCmsField("Meta Description:Discover the best hikes in Squamish, BC.");
+    expect(r.field).toBe("meta-description");
+    expect(r.value).toBe("Discover the best hikes in Squamish, BC.");
+  });
+
+  it("handles a space after the colon and other field names", () => {
+    expect(readCmsField("Meta Title: Best Hikes").field).toBe("meta-title");
+    expect(readCmsField("Slug: best-hikes").value).toBe("best-hikes");
+    expect(readCmsField("Keywords: hiking, squamish").field).toBe("keywords");
+  });
+
+  it("leaves real copy alone", () => {
+    expect(readCmsField("Squamish is great for hiking: here is why.")).toBeNull();
+    expect(readCmsField("Tofino is famous for its beaches.")).toBeNull();
+    expect(isCmsField("The water can come in and cover the sandspit.")).toBe(false);
   });
 });

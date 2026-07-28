@@ -174,3 +174,25 @@ export function splitBlurb(body, maxBlurb = 320) {
   }
   return { blurb: blurb.trim(), body: blocks };
 }
+
+/**
+ * Editors typed the CMS fields into the top of the document, so a guide's
+ * first paragraph reads "Meta Description:Discover the best hikes in
+ * Squamish...". The PRD wants the meta description as a typed field, not as
+ * body copy, so this both recognises the line and hands back its value.
+ *
+ * Returns { field, value } when the text is a CMS field line, else null.
+ */
+const CMS_FIELD = /^\s*(meta\s*description|meta\s*title|seo\s*title|title\s*tag|slug|url|keywords?|focus\s*keyword)\s*[:：]\s*(.*)$/is;
+
+export function readCmsField(text) {
+  const m = CMS_FIELD.exec(String(text || ""));
+  if (!m) return null;
+  const field = m[1].toLowerCase().replace(/\s+/g, "-");
+  return { field, value: m[2].trim() };
+}
+
+/** True when a block is a CMS field line and must never render as copy. */
+export function isCmsField(text) {
+  return readCmsField(text) !== null;
+}
