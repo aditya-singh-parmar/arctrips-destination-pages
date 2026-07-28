@@ -7,8 +7,11 @@ import {
   getGuidesForCity,
   getListings,
   type Article,
+  getCitySummaries,
+  getReadingArticles,
 } from "@/app/lib/content";
-import { getAllGeoTrails, getDestinationCategories, pathForTownSlug } from "@/app/lib/geo";
+import { getAllGeoTrails, getAllGeoNodes, getAllDestinationCategories } from "@/app/lib/geo";
+import { geoPath } from "@/app/lib/geo-types";
 import { cld, IMG } from "@/app/lib/cloudinary";
 import { CATEGORY_BEST_MONTHS, MONTH_NAME } from "@/app/lib/taxonomy";
 import { itemList } from "@/app/lib/jsonld";
@@ -47,27 +50,34 @@ const SOON_CARDS = 4;
  * two destinations and holds its shape at twenty-four.
  */
 export async function DestinationsLanding() {
-  const [destinations, trails] = await Promise.all([getDestinations(), getAllGeoTrails()]);
+  // Four bulk reads for the whole index instead of a fan-out per destination.
+  // The previous shape issued hundreds of sequential queries and cost eighteen
+  // seconds to first byte.
+  const [destinations, trails, summaries, allCats, allNodes, reading0] = await Promise.all([
+    getDestinations(),
+    getAllGeoTrails(),
+    getCitySummaries(),
+    getAllDestinationCategories(),
+    getAllGeoNodes(),
+    getReadingArticles(),
+  ]);
   const trailBySlug = new Map(
     trails
       .filter((t) => t[t.length - 1]?.type === "town")
       .map((t) => [t[t.length - 1].slug, t] as const),
   );
+  const nodeIdBySlug = new Map(allNodes.filter((n) => n.type === "town").map((n) => [n.slug, n.id]));
 
   const month = new Date().getMonth() + 1;
 
-  const rows = await Promise.all(
-    destinations.map(async (d) => {
-      const guides = await getGuidesForCity(d.slug);
+  const rows = destinations.map((d) => {
+      const summary = summaries.get(d.slug);
+      const guides = summary?.guides ?? [];
       const hasGuides = guides.length > 0;
       const trail = trailBySlug.get(d.slug);
-      const [city, path, listings, cats, articles] = await Promise.all([
-        hasGuides ? getCity(d.slug) : Promise.resolve(null),
-        pathForTownSlug(d.slug),
-        hasGuides ? getListings({ destinationSlug: d.slug }) : Promise.resolve([]),
-        hasGuides && trail ? getDestinationCategories(trail[trail.length - 1].id) : Promise.resolve([]),
-        hasGuides ? getArticlesForCity(d.slug) : Promise.resolve([] as Article[]),
-      ]);
+      const path = trail ? geoPath(trail) : "/destinations";
+      const nodeId = nodeIdBySlug.get(d.slug);
+      const cats = nodeId ? allCats.get(nodeId) ?? [] : [];
 
       // Per-town best_months where an editor set them, the taxonomy default
       // otherwise. Same precedence everywhere, so the month a guide shows here
@@ -82,19 +92,18 @@ export async function DestinationsLanding() {
 
       return {
         destination: d,
-        city,
+        city: hasGuides ? d : null,
         path,
         guides: ranked,
         monthsFor,
-        articles,
-        placeCount: guides.reduce((n, g) => n + g.placeCount, 0),
-        stayCount: city?.listingCount ?? 0,
-        stayFrom: listings.length ? Math.min(...listings.map((l) => l.pricePerNight)) : undefined,
+        articleCount: summary?.articleCount ?? 0,
+        placeCount: summary?.placeCount ?? 0,
+        stayCount: d.listingCount ?? 0,
+        stayFrom: summary?.stayFrom,
         atBest: ranked.filter((g) => tierForMonth(monthsFor(g.categorySlug), month) === "peak"),
-        navigable: hasGuides && city !== null,
+        navigable: hasGuides,
       };
-    }),
-  );
+  });
 
   const live = rows.filter((r) => r.navigable && r.city);
   const soon = rows.filter((r) => !r.navigable);
@@ -142,7 +151,7 @@ export async function DestinationsLanding() {
   }));
 
   // Reading. Deduplicated across towns, since several pieces span two of them.
-  const reading = dedupeArticles(live.flatMap((r) => r.articles)).filter((a) => a.heroPublicId && a.excerpt);
+  const reading = dedupeArticles(reading0).filter((a) => a.heroPublicId && a.excerpt);
   const feature = reading[0];
   const rest = reading.slice(1, 1 + READING_ROWS);
 

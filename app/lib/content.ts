@@ -1086,3 +1086,87 @@ export async function getCategoriesAcrossCities(): Promise<CategoryAcrossCities[
     (a, b) => (CATEGORY_BY_SLUG.get(a.categorySlug)?.sortOrder ?? 999) - (CATEGORY_BY_SLUG.get(b.categorySlug)?.sortOrder ?? 999),
   );
 }
+
+/* ── Bulk index reads ──────────────────────────────────────────────────────
+   /destinations needs a line of numbers for every town. Doing that through
+   getGuidesForCity per destination fanned out to hundreds of sequential
+   queries and cost eighteen seconds to first byte. These read the whole set
+   at once instead. ─────────────────────────────────────────────────────── */
+
+export type CitySummary = {
+  slug: string;
+  guides: { categorySlug: string; name: string; heroPublicId?: string; placeCount: number }[];
+  placeCount: number;
+  articleCount: number;
+  stayFrom?: number;
+};
+
+/** Every town's counts in four queries, keyed by city slug. */
+export async function getCitySummaries(): Promise<Map<string, CitySummary>> {
+  const out = new Map<string, CitySummary>();
+  const s = getServerSupabase();
+  if (!s) return out;
+
+  const [cc, pl, ls, ar] = await Promise.all([
+    s.from("city_categories").select("city_slug,category_slug,hero_public_id,intro").eq("published", true).order("sort_order"),
+    s.from("places").select("city_slug,category_slug").eq("published", true),
+    s.from("listings").select("destination_slug,price_per_night").eq("published", true),
+    s.from("articles").select("city_slugs,body").eq("published", true),
+  ]);
+
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  const placeCounts = new Map<string, number>();
+  for (const p of (pl.data ?? []) as any[]) {
+    const k = `${p.city_slug}:${p.category_slug}`;
+    placeCounts.set(k, (placeCounts.get(k) ?? 0) + 1);
+  }
+  const priceFrom = new Map<string, number>();
+  for (const l of (ls.data ?? []) as any[]) {
+    if (!l.destination_slug || l.price_per_night == null) continue;
+    const cur = priceFrom.get(l.destination_slug);
+    if (cur === undefined || l.price_per_night < cur) priceFrom.set(l.destination_slug, l.price_per_night);
+  }
+  const articleCounts = new Map<string, number>();
+  for (const a of (ar.data ?? []) as any[]) {
+    if (!(a.body?.length)) continue;
+    for (const c of a.city_slugs ?? []) articleCounts.set(c, (articleCounts.get(c) ?? 0) + 1);
+  }
+
+  for (const row of (cc.data ?? []) as any[]) {
+    // A guide with a single intro block is a stub, the same rule the grid uses.
+    if ((row.intro?.length ?? 0) <= 1) continue;
+    const city = row.city_slug as string;
+    const entry = out.get(city) ?? { slug: city, guides: [], placeCount: 0, articleCount: 0 };
+    const places = placeCounts.get(`${city}:${row.category_slug}`) ?? 0;
+    entry.guides.push({
+      categorySlug: row.category_slug,
+      name: CATEGORY_BY_SLUG.get(row.category_slug)?.name ?? row.category_slug,
+      heroPublicId: row.hero_public_id ?? undefined,
+      placeCount: places,
+    });
+    entry.placeCount += places;
+    out.set(city, entry);
+  }
+  for (const [city, entry] of out) {
+    entry.stayFrom = priceFrom.get(city);
+    entry.articleCount = articleCounts.get(city) ?? 0;
+  }
+  return out;
+}
+
+/**
+ * Articles fit to show on an index: a real body, a photograph and a standfirst.
+ * One query, ordered newest first, so /destinations does not fan out per town.
+ */
+export async function getReadingArticles(limit = 24): Promise<Article[]> {
+  const s = getServerSupabase();
+  if (!s) return [];
+  const { data, error } = await s
+    .from("articles").select("*").eq("published", true)
+    .not("hero_public_id", "is", null).order("sort_order").limit(200);
+  if (error || !data) return [];
+  return data
+    .filter((a: Record<string, unknown>) => ((a.body as unknown[])?.length ?? 0) > 0 && !String(a.slug).endsWith("-faq"))
+    .slice(0, limit)
+    .map(mapArticleRow);
+}

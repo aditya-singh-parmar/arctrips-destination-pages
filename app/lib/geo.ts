@@ -119,18 +119,14 @@ export async function getTrailFor(id: string): Promise<GeoNode[]> {
 
 /** Canonical destination path for a town slug. Used by landing-page links. */
 export async function pathForTownSlug(slug: string): Promise<string> {
-  const sb = getServerSupabase();
-  if (sb) {
-    const { data, error } = await sb
-      .from("geo_places").select("id").eq("slug", slug).eq("type", "town").in("status", RENDERABLE).limit(1);
-    if (!error && data?.length) return geoPath(await getTrailFor(data[0].id));
-  }
-  const seed = SEED_GEO.find((n) => n.slug === slug && n.type === "town");
-  if (!seed) return "/destinations";
+  const all = await getAllGeoNodes();
+  const byId = new Map(all.map((n) => [n.id, n]));
+  const town = all.find((n) => n.slug === slug && n.type === "town");
+  if (!town) return "/destinations";
   const trail: GeoNode[] = [];
-  let cursor: string | null = seed.id;
-  while (cursor) {
-    const node: GeoNode | undefined = SEED_GEO.find((n) => n.id === cursor);
+  let cursor: string | null = town.id;
+  while (cursor && trail.length < 8) {
+    const node: GeoNode | undefined = byId.get(cursor);
     if (!node) break;
     trail.unshift(node);
     cursor = node.parentId;
@@ -233,16 +229,33 @@ export async function getGeoChildLinks(trail: GeoNode[]): Promise<GeoChildLink[]
 
 /** Every renderable node, root-first, paired with its trail. Drives sitemaps. */
 export async function getAllGeoTrails(): Promise<GeoNode[][]> {
-  const roots = await getGeoChildren(null);
+  // One query, tree assembled in memory. The previous version walked the tree
+  // issuing a sequential query per node, which is 38 round trips here and was
+  // a large part of an 18 second response on /destinations.
+  const all = await getAllGeoNodes();
+  const byParent = new Map<string | null, GeoNode[]>();
+  for (const n of all) byParent.set(n.parentId, [...(byParent.get(n.parentId) ?? []), n]);
+
   const out: GeoNode[][] = [];
-  async function walk(trail: GeoNode[]) {
+  const walk = (trail: GeoNode[]) => {
     if (!isTrailRenderable(trail)) return;
     out.push(trail);
-    const children = await getGeoChildren(trail[trail.length - 1].id);
-    for (const child of children) await walk([...trail, child]);
-  }
-  for (const root of roots) await walk([root]);
+    for (const child of byParent.get(trail[trail.length - 1].id) ?? []) walk([...trail, child]);
+  };
+  for (const root of byParent.get(null) ?? []) walk([root]);
   return out;
+}
+
+/** Every renderable node in one query, sorted the way the tree renders. */
+export async function getAllGeoNodes(): Promise<GeoNode[]> {
+  const sb = getServerSupabase();
+  if (sb) {
+    const { data, error } = await sb
+      .from("geo_places").select("*").in("status", RENDERABLE)
+      .order("sort_priority").order("name");
+    if (!error && data) return data.map(rowToNode);
+  }
+  return [...SEED_GEO].sort((a, b) => a.sortPriority - b.sortPriority || a.name.localeCompare(b.name));
 }
 
 /**
@@ -267,5 +280,30 @@ export async function getTownsBeneath(trail: GeoNode[]): Promise<{ node: GeoNode
     }
   }
   await walk(trail);
+  return out;
+}
+
+/** Every renderable applicability row in one query, grouped by geo place id. */
+export async function getAllDestinationCategories(): Promise<Map<string, DestinationCategory[]>> {
+  const out = new Map<string, DestinationCategory[]>();
+  const sb = getServerSupabase();
+  if (!sb) return out;
+  const { data, error } = await sb
+    .from("destination_categories").select("*")
+    .in("status", ["active", "coming_soon"]).order("sort_order");
+  if (error || !data) return out;
+  for (const r of data as Record<string, unknown>[]) {
+    const row: DestinationCategory = {
+      geoPlaceId: r.geo_place_id as string,
+      categorySlug: r.category_slug as string,
+      status: r.status as DestinationCategory["status"],
+      overviewBody: (r.overview_body ?? []) as ArticleBlock[],
+      bestMonths: (r.best_months ?? []) as number[],
+      heroPublicId: (r.hero_public_id as string) ?? undefined,
+      sortOrder: (r.sort_order as number) ?? 0,
+      updatedAt: (r.updated_at as string) ?? new Date(0).toISOString(),
+    };
+    out.set(row.geoPlaceId, [...(out.get(row.geoPlaceId) ?? []), row]);
+  }
   return out;
 }
