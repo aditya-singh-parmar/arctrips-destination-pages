@@ -4,6 +4,8 @@ import {
   isNumberedHeading, isTableFragment, cleanGoodFor, sameText, splitBlurb, isRestatementOf,
   readCmsField,
   isCmsField,
+  stripEditorNotes,
+  hasEditorNote,
 } from "./clean.mjs";
 
 describe("splitUrls", () => {
@@ -184,5 +186,23 @@ describe("splitUrls with truncated schemes", () => {
 
   it("does not eat ordinary prose", () => {
     expect(splitUrls("The tide can cover the sandspit.").urls).toHaveLength(0);
+  });
+});
+
+describe("stripEditorNotes", () => {
+  it("removes a note and keeps the sentence", () => {
+    expect(stripEditorNotes("Explore Pacific Rim National Park Reserve (add Wickannish trail)"))
+      .toBe("Explore Pacific Rim National Park Reserve");
+  });
+
+  it("catches the other markers", () => {
+    expect(stripEditorNotes("Trail info (TODO verify distance) here")).toBe("Trail info here");
+    expect(hasEditorNote("Rates vary (check with the operator)")).toBe(true);
+  });
+
+  it("leaves real parentheticals alone", () => {
+    const real = "Always check the tide (the water can cover the sandspit).";
+    expect(stripEditorNotes(real)).toBe(real);
+    expect(hasEditorNote("(check local fire bans/permits first)")).toBe(false);
   });
 });

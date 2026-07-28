@@ -203,3 +203,19 @@ export function readCmsField(text) {
 export function isCmsField(text) {
   return readCmsField(text) !== null;
 }
+
+/**
+ * An editor's note to themselves, left in the copy: "(add Wickannish trail)".
+ * The PRD blocks publish on these. Stripping the parenthetical keeps the
+ * sentence, which is what the editor intended to ship.
+ */
+const EDITOR_NOTE = /\s*\(\s*(?:add|insert|rewrite|todo|tbd|fixme|source needed|check with)\b[^)]{0,140}\)/gi;
+
+export function stripEditorNotes(text) {
+  return String(text ?? "").replace(EDITOR_NOTE, "").replace(/\s+([,.;:])/g, "$1").replace(/\s{2,}/g, " ").trim();
+}
+
+export function hasEditorNote(text) {
+  EDITOR_NOTE.lastIndex = 0;
+  return EDITOR_NOTE.test(String(text ?? ""));
+}
