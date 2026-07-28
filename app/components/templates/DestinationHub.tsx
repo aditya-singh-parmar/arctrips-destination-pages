@@ -4,12 +4,16 @@ import { notFound } from "next/navigation";
 import {
   getCity,
   getCityCategories,
+  getPhotos,
   getGuidesForCity,
   getListings,
   getPlanningPieces,
 } from "@/app/lib/content";
 import { cld, placeholder } from "@/app/lib/cloudinary";
 import { geoPath, type GeoNode } from "@/app/lib/geo-types";
+import { GuideBody } from "@/app/components/guide/GuideBody";
+import { BodyContents } from "@/app/components/browse/BodyContents";
+import { cleanText } from "@/app/components/browse/text";
 import { breadcrumbList, itemList, touristDestination } from "@/app/lib/jsonld";
 import { getDestinationCategories, getGeoChildren, pathForTownSlug } from "@/app/lib/geo";
 import { CATEGORY_BEST_MONTHS } from "@/app/lib/taxonomy";
@@ -44,7 +48,7 @@ export async function DestinationHub({ citySlug, trail }: { citySlug: string; tr
   const node = trail[trail.length - 1];
   const parent = trail[trail.length - 2];
 
-  const [guides, categories, planning, listings, cats, areas, siblings] = await Promise.all([
+  const [guides, categories, planning, listings, cats, areas, siblings, hubPhotos] = await Promise.all([
     getGuidesForCity(citySlug),
     getCityCategories(citySlug),
     getPlanningPieces(citySlug),
@@ -52,6 +56,7 @@ export async function DestinationHub({ citySlug, trail }: { citySlug: string; tr
     getDestinationCategories(node.id),
     getGeoChildren(node.id, "area"),
     parent ? getGeoChildren(parent.id, "town") : Promise.resolve([]),
+    getPhotos(citySlug),
   ]);
 
   const base = geoPath(trail);
@@ -168,6 +173,21 @@ export async function DestinationHub({ citySlug, trail }: { citySlug: string; tr
             <div className="container">
               <div className="prose">
                 {city.overview.map((p, i) => <p key={i}>{p}</p>)}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {node.body.length > 0 && (
+          <section className="sec sec--flush" id="about" style={{ scrollMarginTop: 88 }}>
+            <div className="container">
+              <div className="sechead center">
+                <span className="eyebrow">The guide</span>
+                <h2>{cleanText(city.name)}, in full.</h2>
+              </div>
+              <div className="dx-body">
+                <BodyContents blocks={node.body} />
+                <GuideBody blocks={node.body} photos={hubPhotos} />
               </div>
             </div>
           </section>

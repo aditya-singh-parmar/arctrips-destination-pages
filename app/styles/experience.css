@@ -551,3 +551,22 @@
 @media (prefers-reduced-motion: reduce) {
   .dx *, .dx *::before, .dx *::after { transition: none !important; animation: none !important; }
 }
+
+/* ── Hub body. 21 of 27 towns have no category guides at all, so the doc body
+      is the whole page for them and needs a real reading column. ─────────── */
+.dx .dx-body { max-width: 760px; margin-inline: auto; }
+.dx .dx-body p { font-size: 1.04rem; line-height: 1.72; color: var(--n600); margin-bottom: 18px; }
+.dx .dx-body h2, .dx .dx-body h3 { margin: 34px 0 12px; }
+.dx .dx-body figure { margin: 26px 0; border-radius: var(--r); overflow: hidden; }
+.dx .dx-body figure img { width: 100%; height: auto; }
+
+/* Inline contents for a long body. Not a rail: a rail was built and rejected. */
+.dx .dx-toc { border: 1px solid var(--n150); border-radius: var(--r); padding: 16px 20px; margin-bottom: 30px; background: var(--n50); }
+.dx .dx-toc summary { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; cursor: pointer; font-weight: 600; color: var(--navy); list-style: none; }
+.dx .dx-toc summary::-webkit-details-marker { display: none; }
+.dx .dx-toc summary b { font-size: .8rem; font-weight: 600; color: var(--n500); }
+.dx .dx-toc ol { margin: 14px 0 0; padding-left: 20px; columns: 2; column-gap: 30px; }
+.dx .dx-toc li { margin-bottom: 7px; break-inside: avoid; }
+.dx .dx-toc a { font-size: .9rem; color: var(--n700); }
+.dx .dx-toc a:hover { color: var(--azure); }
+@media (max-width: 700px) { .dx .dx-toc ol { columns: 1; } }
