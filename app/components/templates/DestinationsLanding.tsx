@@ -66,7 +66,7 @@ export async function DestinationsLanding() {
       .filter((t) => t[t.length - 1]?.type === "town")
       .map((t) => [t[t.length - 1].slug, t] as const),
   );
-  const nodeIdBySlug = new Map(allNodes.filter((n) => n.type === "town").map((n) => [n.slug, n.id]));
+  const nodeBySlug = new Map(allNodes.filter((n) => n.type === "town").map((n) => [n.slug, n]));
 
   const month = new Date().getMonth() + 1;
 
@@ -76,7 +76,8 @@ export async function DestinationsLanding() {
       const hasGuides = guides.length > 0;
       const trail = trailBySlug.get(d.slug);
       const path = trail ? geoPath(trail) : "/destinations";
-      const nodeId = nodeIdBySlug.get(d.slug);
+      const node = nodeBySlug.get(d.slug);
+      const nodeId = node?.id;
       const cats = nodeId ? allCats.get(nodeId) ?? [] : [];
 
       // Per-town best_months where an editor set them, the taxonomy default
@@ -92,7 +93,7 @@ export async function DestinationsLanding() {
 
       return {
         destination: d,
-        city: hasGuides ? d : null,
+        city: hasGuides || (node?.body.length ?? 0) > 0 ? d : null,
         path,
         guides: ranked,
         monthsFor,
@@ -101,11 +102,15 @@ export async function DestinationsLanding() {
         stayCount: d.listingCount ?? 0,
         stayFrom: summary?.stayFrom,
         atBest: ranked.filter((g) => tierForMonth(monthsFor(g.categorySlug), month) === "peak"),
-        navigable: hasGuides,
+        // A town with an ingested document body is published content even
+        // with no category guides. Twenty-one of twenty-seven are hub only,
+        // and calling those "coming soon" while they serve a 14,000 word
+        // guide is simply untrue.
+        navigable: hasGuides || (node?.body.length ?? 0) > 0,
       };
   });
 
-  const live = rows.filter((r) => r.navigable && r.city);
+  const live = rows.filter((r) => r.navigable);
   const soon = rows.filter((r) => !r.navigable);
 
   const totals = {
