@@ -405,7 +405,11 @@ function orientationProse(blocks) {
 async function ingestArticleDoc(entry) {
   const doc = loadDoc(entry);
   const slug = ARTICLE_SLUG[entry.file] ?? fileSlug(entry.file);
-  const citySlugs = ARTICLE_CITIES[entry.file] ?? [];
+  // ARTICLE_CITIES covers the multi-town articles. Anything else falls back to
+  // the city the map assigned, or the article is orphaned: it never appears on
+  // its town's page and never gets a canonical URL under the tree. That is
+  // what happened to both Whistler seasonal guides.
+  const citySlugs = ARTICLE_CITIES[entry.file] ?? (entry.city ? [entry.city] : []);
   const regionSlug = entry.kind === "roundup" ? ROUNDUP_REGION[entry.file] ?? null : null;
   const categorySlug = entry.cat ?? CATEGORY_FALLBACK[entry.file] ?? null;
   const title = titleOf(doc.intro, entry.file.replace(/\.docx$/i, ""));
