@@ -1,0 +1,349 @@
+- generic [active] [ref=f774e1]:
+  - navigation [ref=f774e2]:
+    - generic [ref=f774e3]:
+      - link "ARCTRIPS" [ref=f774e4] [cursor=pointer]:
+        - /url: index.html
+      - list [ref=f774e5]:
+        - listitem [ref=f774e6]:
+          - link "Stays" [ref=f774e7] [cursor=pointer]:
+            - /url: search.html
+        - listitem [ref=f774e8]:
+          - link "Destinations" [ref=f774e9] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=f774e10]:
+          - link "Vancouver Island" [ref=f774e11] [cursor=pointer]:
+            - /url: region.html
+      - textbox "Search" [ref=f774e16]:
+        - /placeholder: Search Tofino
+      - link "Sign in" [ref=f774e17] [cursor=pointer]:
+        - /url: search.html
+  - navigation "Tofino" [ref=f774e18]:
+    - generic [ref=f774e19]:
+      - link "← Tofino" [ref=f774e20] [cursor=pointer]:
+        - /url: tofino.html
+      - list [ref=f774e22]:
+        - listitem [ref=f774e23]:
+          - link "Overview" [ref=f774e24] [cursor=pointer]:
+            - /url: tofino.html
+        - listitem [ref=f774e25]:
+          - link "Things to do" [ref=f774e26] [cursor=pointer]:
+            - /url: things-to-do.html
+        - listitem [ref=f774e27]:
+          - link "Kayaking & paddling" [ref=f774e28] [cursor=pointer]:
+            - /url: "#top"
+        - listitem [ref=f774e29]:
+          - link "Stays" [ref=f774e30] [cursor=pointer]:
+            - /url: search.html
+      - link "Find a stay" [ref=f774e31] [cursor=pointer]:
+        - /url: search.html
+  - main [ref=f774e32]:
+    - navigation "Breadcrumb" [ref=f774e34]:
+      - link "Arc Trips" [ref=f774e35] [cursor=pointer]:
+        - /url: index.html
+      - generic [ref=f774e36]: /
+      - link "Vancouver Island" [ref=f774e37] [cursor=pointer]:
+        - /url: region.html
+      - generic [ref=f774e38]: /
+      - link "Tofino" [ref=f774e39] [cursor=pointer]:
+        - /url: tofino.html
+      - generic [ref=f774e40]: /
+      - link "Things to do" [ref=f774e41] [cursor=pointer]:
+        - /url: things-to-do.html
+      - generic [ref=f774e42]: /
+      - generic [ref=f774e43]: Kayaking & paddling
+    - generic [ref=f774e44]:
+      - img "Kayaking & paddling in Tofino" [ref=f774e45]
+      - generic [ref=f774e48]:
+        - text: Tofino, Vancouver Island
+        - heading "Kayaking & paddling in Tofino" [level=1] [ref=f774e49]
+        - paragraph [ref=f774e50]: Kayaking in Tofino is one of the best ways to explore Clayoquot Sound, calm inlets, islands, rainforest, and wildlife. Learn where to kayak, when to go, what to expect, and how to stay safe.
+        - generic [ref=f774e51]:
+          - generic [ref=f774e52]:
+            - term [ref=f774e53]: Places written up
+            - definition [ref=f774e54]: "18"
+          - generic [ref=f774e55]:
+            - term [ref=f774e56]: With photographs
+            - definition [ref=f774e57]: "15"
+    - generic [ref=f774e60]:
+      - article [ref=f774e61]:
+        - figure [ref=f774e62]:
+          - img "Mackenzie Beach / tinwis Beach, Tofino" [ref=f774e63]
+        - generic [ref=f774e64]:
+          - heading "Mackenzie Beach / tinwis Beach" [level=3] [ref=f774e65]
+          - paragraph [ref=f774e66]: Mackenzie Beach, also known as tinwis Beach, is one of the calmer paddling areas near Tofino. It is more sheltered than the open surf beaches, so it can be a good place for easy kayaking when conditio
+          - paragraph [ref=f774e67]: This is not a long wilderness paddle. It is better for a relaxed beach paddle, families, and people who want to try kayaking without dealing with big waves.
+          - generic [ref=f774e68]:
+            - generic [ref=f774e69]: Beginner kayaking
+            - generic [ref=f774e70]: Families
+            - generic [ref=f774e71]: Short paddles
+            - generic [ref=f774e72]: Calm water practice
+            - generic [ref=f774e73]: Paddleboarding
+            - generic [ref=f774e74]: Watching the coast from the water
+          - paragraph [ref=f774e75]: Good to know. It is still ocean water, so check wind and weather before going out. Stay close to shore if you are new.
+      - article [ref=f774e76]:
+        - figure [ref=f774e77]:
+          - img "Kennedy Lake, Tofino" [ref=f774e78]
+        - generic [ref=f774e79]:
+          - heading "Kennedy Lake" [level=3] [ref=f774e80]
+          - paragraph [ref=f774e81]: Kennedy Lake is not in Tofino town, but it is close enough to include in a Tofino kayaking guide. It is a freshwater lake near Tofino and Ucluelet.
+          - paragraph [ref=f774e82]: This is a good choice if you want calm lake paddling instead of ocean paddling. It can be great for kayaking, canoeing, and paddleboarding.
+          - generic [ref=f774e83]:
+            - generic [ref=f774e84]: Freshwater kayaking
+            - generic [ref=f774e85]: Canoeing
+            - generic [ref=f774e86]: Paddleboarding
+            - generic [ref=f774e87]: Families
+            - generic [ref=f774e88]: Calm lake views
+            - generic [ref=f774e89]: A break from ocean wind and waves
+          - paragraph [ref=f774e90]: Good to know. Lakes can still get windy. Check conditions before paddling far from shore.
+      - article [ref=f774e91]:
+        - figure [ref=f774e92]:
+          - img "Tofino Harbour and Sheltered Inlet Waters, Tofino" [ref=f774e93]
+        - generic [ref=f774e94]:
+          - heading "Tofino Harbour and Sheltered Inlet Waters" [level=3] [ref=f774e95]
+          - paragraph [ref=f774e96]: The sheltered waters near Tofino Harbour are often used for short guided kayak trips. These areas can offer calm paddling, island views, and an easy way to see Tofino from the water.
+          - paragraph [ref=f774e97]: This is a good place to start if you are new to sea kayaking, but it is best with a guide because the harbour can have boat traffic, float planes, water taxis, and changing tides.
+          - generic [ref=f774e98]:
+            - generic [ref=f774e99]: Short guided trips
+            - generic [ref=f774e100]: First-time sea kayaking
+            - generic [ref=f774e101]: Calm paddling
+            - generic [ref=f774e102]: Island views
+            - generic [ref=f774e103]: Learning basic kayak skills
+          - paragraph [ref=f774e104]: Good to know. Watch for boat traffic and follow your guide’s instructions.
+      - article [ref=f774e105]:
+        - figure [ref=f774e106]:
+          - img "Meares Island and Big Tree Trail, Tofino" [ref=f774e107]
+        - generic [ref=f774e108]:
+          - heading "Meares Island and Big Tree Trail" [level=3] [ref=f774e109]
+          - paragraph [ref=f774e110]: Meares Island is one of the most popular kayaking trips from Tofino. Many tours paddle from Tofino toward Meares Island, then include a walk on the Big Tree Trail.
+          - paragraph [ref=f774e111]: "This trip gives you two experiences in one: kayaking through calm coastal water and walking through old-growth rainforest."
+          - generic [ref=f774e112]:
+            - generic [ref=f774e113]: Guided day tours
+            - generic [ref=f774e114]: Kayaking and hiking
+            - generic [ref=f774e115]: Big Tree Trail
+            - generic [ref=f774e116]: Old-growth forest
+            - generic [ref=f774e117]: Wildlife watching
+            - generic [ref=f774e118]: First-time paddlers with a guide
+          - paragraph [ref=f774e119]: Good to know. The paddle may look short, but tides, wind, and boat traffic matter. Go with a guide if you are new.
+      - article [ref=f774e120]:
+        - figure [ref=f774e121]:
+          - img "Lemmens Inlet, Tofino" [ref=f774e122]
+        - generic [ref=f774e123]:
+          - heading "Lemmens Inlet" [level=3] [ref=f774e124]
+          - paragraph [ref=f774e125]: Lemmens Inlet is one of the best protected kayaking areas near Tofino. It is inside Clayoquot Sound and is known for calmer water, forested shorelines, tidal flats, and wildlife.
+          - paragraph [ref=f774e126]: This is a great choice for nervous paddlers or visitors who want a quieter, more peaceful trip. It is also good when the open coast is too rough.
+          - generic [ref=f774e127]:
+            - generic [ref=f774e128]: Protected water
+            - generic [ref=f774e129]: Wildlife watching
+            - generic [ref=f774e130]: Calm paddling
+            - generic [ref=f774e131]: Forest and mountain views
+            - generic [ref=f774e132]: Longer guided day tours
+            - generic [ref=f774e133]: Beginners who want a quieter route
+          - paragraph [ref=f774e134]: Good to know. It is still affected by tide and weather. A guide can choose the best route for the day.
+      - article [ref=f774e135]:
+        - figure [ref=f774e136]:
+          - img "Grice Bay, Tofino" [ref=f774e137]
+        - generic [ref=f774e138]:
+          - heading "Grice Bay" [level=3] [ref=f774e139]
+          - paragraph [ref=f774e140]: Grice Bay is on the sheltered inlet side near Pacific Rim National Park Reserve. It is not an open Pacific beach. It is calmer and better for paddling, bird watching, and quiet nature time.
+          - paragraph [ref=f774e141]: Grice Bay is a good choice if you want peaceful water and do not need big surf or dramatic ocean waves.
+          - generic [ref=f774e142]:
+            - generic [ref=f774e143]: Calm inlet paddling
+            - generic [ref=f774e144]: Bird watching
+            - generic [ref=f774e145]: Photography
+            - generic [ref=f774e146]: Wildlife viewing
+            - generic [ref=f774e147]: Quiet nature time
+            - generic [ref=f774e148]: Kayaking away from the busier town beaches
+          - paragraph [ref=f774e149]: Good to know. Check park rules, parking, and launch access before you go.
+      - article [ref=f774e150]:
+        - figure [ref=f774e151]:
+          - img "Clayoquot Sound, Tofino" [ref=f774e152]
+        - generic [ref=f774e153]:
+          - heading "Clayoquot Sound" [level=3] [ref=f774e154]
+          - paragraph [ref=f774e155]: Clayoquot Sound is the main sea kayaking area around Tofino. It includes islands, inlets, coves, channels, rocky shores, mudflats, and rainforest.
+          - paragraph [ref=f774e156]: This area can work for many skill levels because routes can be chosen based on weather, tide, and experience. Beginners should go with a guide. Experienced paddlers may explore longer routes with proper planning.
+          - generic [ref=f774e157]:
+            - generic [ref=f774e158]: Classic Tofino kayaking
+            - generic [ref=f774e159]: Wildlife watching
+            - generic [ref=f774e160]: Island views
+            - generic [ref=f774e161]: Guided day tours
+            - generic [ref=f774e162]: Multi-day trips
+            - generic [ref=f774e163]: Rainforest shorelines
+          - paragraph [ref=f774e164]: Good to know. Clayoquot Sound is large. Some parts are calm and protected. Other parts are exposed and remote.
+      - article [ref=f774e165]:
+        - figure [ref=f774e166]:
+          - img "Ucluelet Harbour, Tofino" [ref=f774e167]
+        - generic [ref=f774e168]:
+          - heading "Ucluelet Harbour" [level=3] [ref=f774e169]
+          - paragraph [ref=f774e170]: Ucluelet is near Tofino and can be a good kayaking day trip. The harbour and nearby protected waters can offer calm paddling, wildlife watching, and island views.
+          - paragraph [ref=f774e171]: This is a nice option if you are also visiting the Wild Pacific Trail or spending time in Ucluelet.
+          - generic [ref=f774e172]:
+            - generic [ref=f774e173]: Calm paddling
+            - generic [ref=f774e174]: Guided tours
+            - generic [ref=f774e175]: Day trips from Tofino
+            - generic [ref=f774e176]: Wildlife watching
+            - generic [ref=f774e177]: Harbour views
+          - paragraph [ref=f774e178]: Good to know. Conditions still change with wind and tide. Local guidance is helpful.
+      - article [ref=f774e179]:
+        - figure [ref=f774e180]:
+          - img "Barkley Sound, Tofino" [ref=f774e181]
+        - generic [ref=f774e182]:
+          - heading "Barkley Sound" [level=3] [ref=f774e183]
+          - paragraph [ref=f774e184]: Barkley Sound is near Ucluelet and Bamfield, south of Tofino. It is one of the best kayaking areas on Vancouver Island.
+          - paragraph [ref=f774e185]: Barkley Sound has islands, channels, beaches, rocky shores, and wildlife. It is also home to the Broken Group Islands, one of the most famous sea kayaking areas in Pacific Rim National Park Reserve.
+          - generic [ref=f774e186]:
+            - generic [ref=f774e187]: Sea kayaking
+            - generic [ref=f774e188]: Island hopping
+            - generic [ref=f774e189]: Multi-day trips
+            - generic [ref=f774e190]: Wildlife watching
+            - generic [ref=f774e191]: Kayak camping
+            - generic [ref=f774e192]: More experienced paddlers
+          - paragraph [ref=f774e193]: Good to know. This area needs more planning than a short Tofino paddle. Check weather, route, camping rules, and water access.
+      - article [ref=f774e194]:
+        - figure [ref=f774e195]:
+          - img "Broken Group Islands, Tofino" [ref=f774e196]
+        - generic [ref=f774e197]:
+          - heading "Broken Group Islands" [level=3] [ref=f774e198]
+          - paragraph [ref=f774e199]: The Broken Group Islands are in Barkley Sound and are part of Pacific Rim National Park Reserve. They are one of the best-known sea kayaking destinations in British Columbia.
+          - paragraph [ref=f774e200]: The area has many islands, sheltered channels, shell beaches, campsites, and wildlife. It is more protected than the exposed open coast, but it is still a real sea kayaking destination and needs planning.
+          - generic [ref=f774e201]:
+            - generic [ref=f774e202]: Multi-day kayaking
+            - generic [ref=f774e203]: Island camping
+            - generic [ref=f774e204]: Wildlife viewing
+            - generic [ref=f774e205]: Sheltered channels
+            - generic [ref=f774e206]: Experienced paddlers
+            - generic [ref=f774e207]: Guided trips
+          - paragraph [ref=f774e208]: Good to know. The Broken Group Islands are accessed by boat, and camping or overnight trips require planning and reservations.
+      - article [ref=f774e209]:
+        - figure [ref=f774e210]:
+          - img "Vargas Island and Ahous Bay, Tofino" [ref=f774e211]
+        - generic [ref=f774e212]:
+          - heading "Vargas Island and Ahous Bay" [level=3] [ref=f774e213]
+          - paragraph [ref=f774e214]: Vargas Island is close to Tofino and is one of the best nearby areas for paddling, wilderness camping, and remote beach exploring. It can be reached by kayak, water taxi, or guided multi-day tour.
+          - paragraph [ref=f774e215]: The island has both more protected paddling areas and more exposed outer-coast sections. This makes it important to plan your route carefully. The inside waters are usually more manageable, while the west side and Ahous Bay feel wilder and more open to Pacific swell.
+          - paragraph [ref=f774e216]: Ahous Bay is one of the island’s most beautiful remote beach areas. It is known for long sandy shoreline, quiet camping, wildlife, and open-coast views. It can be reached as part of a longer kayak trip, water taxi plan, or kayak-and-hike adventure.
+          - generic [ref=f774e217]:
+            - generic [ref=f774e218]: Multi-day kayaking
+            - generic [ref=f774e219]: Wilderness camping
+            - generic [ref=f774e220]: Remote beaches
+            - generic [ref=f774e221]: Wildlife watching
+            - generic [ref=f774e222]: Kayak-and-hike trips
+            - generic [ref=f774e223]: Intermediate to advanced paddlers
+            - generic [ref=f774e224]: Guided adventure trips
+          - paragraph [ref=f774e225]: Good to know. Vargas Island is not a casual beginner paddle unless you are on a guided tour. The west side and Ahous Bay can be exposed, so check weather, swell, tides, camping rules, and local advice before going.
+      - article [ref=f774e226]:
+        - figure [ref=f774e227]:
+          - img "Flores Island / Wild Side Trail Route, Tofino" [ref=f774e228]
+        - generic [ref=f774e229]:
+          - heading "Flores Island / Wild Side Trail Route" [level=3] [ref=f774e230]
+          - paragraph [ref=f774e231]: Flores Island is north of Tofino in Clayoquot Sound. It is known for the Wild Side Trail, remote beaches, old-growth forest, and wilderness camping.
+          - paragraph [ref=f774e232]: Kayakers may use Flores Island as part of a kayak-and-hike route. This can include paddling to or around parts of the island, camping, and hiking sections of the Wild Side Trail.
+          - generic [ref=f774e233]:
+            - generic [ref=f774e234]: Kayak and hike trips
+            - generic [ref=f774e235]: Remote beaches
+            - generic [ref=f774e236]: Wilderness camping
+            - generic [ref=f774e237]: Wildlife watching
+            - generic [ref=f774e238]: Experienced paddlers
+            - generic [ref=f774e239]: Multi-day adventures
+          - paragraph [ref=f774e240]: Good to know. Flores Island is not a casual day paddle for most visitors. You may need water taxi access, local permissions, stewardship fees, camping plans, and current route information.
+      - article [ref=f774e241]:
+        - figure [ref=f774e242]:
+          - img "Rafael Point, Tofino" [ref=f774e243]
+        - generic [ref=f774e244]:
+          - heading "Rafael Point" [level=3] [ref=f774e245]
+          - paragraph [ref=f774e246]: Rafael Point is in the Flores Island area and is part of the wilder outer coast of Clayoquot Sound. It is relevant for serious sea kayakers because it sits in a more exposed, remote setting.
+          - paragraph [ref=f774e247]: This is not a beginner kayaking spot. It is better for advanced paddlers, guided expeditions, and people who understand swell, surf landings, weather windows, and remote coastal travel.
+          - generic [ref=f774e248]:
+            - generic [ref=f774e249]: Advanced sea kayaking
+            - generic [ref=f774e250]: Remote outer-coast travel
+            - generic [ref=f774e251]: Wildlife watching from a distance
+            - generic [ref=f774e252]: Expedition planning
+            - generic [ref=f774e253]: Experienced guided trips
+          - paragraph [ref=f774e254]: Good to know. Treat Rafael Point as an advanced or expert route area, not a casual kayaking stop.
+      - article [ref=f774e255]:
+        - figure [ref=f774e256]:
+          - img "Hot Springs Cove, Tofino" [ref=f774e257]
+        - generic [ref=f774e258]:
+          - heading "Hot Springs Cove" [level=3] [ref=f774e259]
+          - paragraph [ref=f774e260]: Hot Springs Cove is north of Tofino and is usually reached by boat or float plane. Some longer kayak adventures include Hot Springs Cove as part of a guided multi-day trip.
+          - paragraph [ref=f774e261]: This is not a normal day paddle from Tofino. It is best for guided expeditions and experienced paddlers.
+          - generic [ref=f774e262]:
+            - generic [ref=f774e263]: Multi-day kayak trips
+            - generic [ref=f774e264]: Guided expeditions
+            - generic [ref=f774e265]: Remote coastal scenery
+            - generic [ref=f774e266]: Camping adventures
+            - generic [ref=f774e267]: A special west coast experience
+          - paragraph [ref=f774e268]: Good to know. This route needs planning, good weather, and local knowledge.
+      - article [ref=f774e269]:
+        - figure [ref=f774e270]:
+          - img "Long Beach and the Open Pacific Coast, Tofino" [ref=f774e271]
+        - generic [ref=f774e272]:
+          - heading "Long Beach and the Open Pacific Coast" [level=3] [ref=f774e273]
+          - paragraph [ref=f774e274]: Long Beach is part of Pacific Rim National Park Reserve. It is famous for surfing, beach walks, and big ocean views. But for most visitors, it is not a regular kayaking spot.
+          - paragraph [ref=f774e275]: The Long Beach area faces the open Pacific Ocean. This means surf, swell, rip currents, wind, and exposed conditions can make kayaking risky. It may be possible for expert sea kayakers or surf kayakers in the right conditions, but it is not a good place for beginners or casual paddlers.
+          - generic [ref=f774e276]:
+            - generic [ref=f774e277]: Expert sea kayakers only
+            - generic [ref=f774e278]: Surf kayaking in the right conditions
+            - generic [ref=f774e279]: Open-coast skills practice
+            - generic [ref=f774e280]: Experienced paddlers with local knowledge
+          - paragraph [ref=f774e281]: Good to know. Most visitors should enjoy Long Beach from shore, not from a kayak. Choose sheltered areas like Lemmens Inlet, Meares Island, Grice Bay, Mackenzie/tinwis Beach, or Kennedy Lake for easier paddling.
+      - article [ref=f774e282]:
+        - generic [ref=f774e283]:
+          - heading "Tofino Inlet" [level=3] [ref=f774e284]
+          - paragraph [ref=f774e285]: Tofino Inlet is part of the wider sheltered water system near Tofino. It can be used for scenic paddling, guided tours, and wildlife viewing.
+          - generic [ref=f774e286]:
+            - generic [ref=f774e287]: Calm water
+            - generic [ref=f774e288]: Inlet scenery
+            - generic [ref=f774e289]: Wildlife
+            - generic [ref=f774e290]: Guided paddles
+            - generic [ref=f774e291]: Longer day trips
+          - paragraph [ref=f774e292]: Good to know. Go with a guide if you are not familiar with local tides, channels, and weather.
+      - article [ref=f774e293]:
+        - generic [ref=f774e294]:
+          - heading "Fortune Channel" [level=3] [ref=f774e295]
+          - paragraph [ref=f774e296]: Fortune Channel is a paddling area in Clayoquot Sound near Meares Island. It is more remote than the short harbour paddles and can be part of longer guided routes.
+          - generic [ref=f774e297]:
+            - generic [ref=f774e298]: Longer sea kayaking trips
+            - generic [ref=f774e299]: Forested shorelines
+            - generic [ref=f774e300]: Wildlife
+            - generic [ref=f774e301]: Experienced paddlers
+            - generic [ref=f774e302]: Guided tours
+          - paragraph [ref=f774e303]: Good to know. This is better for paddlers with some experience or those joining a guided trip.
+      - article [ref=f774e304]:
+        - generic [ref=f774e305]:
+          - heading "Bedwell Sound and Remote Inlets" [level=3] [ref=f774e306]
+          - paragraph [ref=f774e307]: Bedwell Sound and nearby remote inlets are part of the larger Clayoquot Sound paddling area. These are best for guided trips, multi-day routes, and experienced paddlers.
+          - generic [ref=f774e308]:
+            - generic [ref=f774e309]: Remote scenery
+            - generic [ref=f774e310]: Multi-day kayaking
+            - generic [ref=f774e311]: Wildlife watching
+            - generic [ref=f774e312]: Wilderness camping
+            - generic [ref=f774e313]: Guided expeditions
+          - paragraph [ref=f774e314]: Good to know. These are not beginner day trips. Plan carefully and go with local knowledge.
+    - generic [ref=f774e316]:
+      - heading "More on kayaking & paddling" [level=2] [ref=f774e317]
+      - navigation [ref=f774e318]:
+        - link "Kayaking in Tofino kayaking" [ref=f774e319] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f774e320]: Kayaking in Tofino
+          - generic [ref=f774e321]: kayaking
+        - link "Kayaking FAQs kayaking" [ref=f774e322] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f774e323]: Kayaking FAQs
+          - generic [ref=f774e324]: kayaking
+    - generic [ref=f774e326]:
+      - heading "Keep going" [level=2] [ref=f774e327]
+      - navigation [ref=f774e328]:
+        - link "Everything to do in Tofino All the subjects" [ref=f774e329] [cursor=pointer]:
+          - /url: things-to-do.html
+          - generic [ref=f774e330]: Everything to do in Tofino
+          - generic [ref=f774e331]: All the subjects
+        - link "Tofino The town" [ref=f774e332] [cursor=pointer]:
+          - /url: tofino.html
+          - generic [ref=f774e333]: Tofino
+          - generic [ref=f774e334]: The town
+        - link "Stays Search what is open" [ref=f774e335] [cursor=pointer]:
+          - /url: search.html
+          - generic [ref=f774e336]: Stays
+          - generic [ref=f774e337]: Search what is open
+  - contentinfo [ref=f774e338]:
+    - generic [ref=f774e339]: © 2026 Arc Trips. Prices in CAD, before taxes and fees.

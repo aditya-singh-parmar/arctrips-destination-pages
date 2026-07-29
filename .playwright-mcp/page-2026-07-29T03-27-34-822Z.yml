@@ -1,0 +1,458 @@
+- generic [active] [ref=f777e1]:
+  - link "Skip to content" [ref=f777e2] [cursor=pointer]:
+    - /url: "#main"
+  - generic:
+    - img:
+      - generic:
+        - generic: "14"
+        - generic: "9"
+        - generic: "22"
+        - generic: "31"
+        - generic: "17"
+        - generic: "6"
+        - generic: "11"
+        - generic: "26"
+        - generic: "19"
+        - generic: "8"
+        - generic: "24"
+        - generic: "13"
+        - generic: "28"
+        - generic: "5"
+        - generic: "16"
+  - navigation [ref=f777e3]:
+    - generic [ref=f777e4]:
+      - link "Arctrips" [ref=f777e5] [cursor=pointer]:
+        - /url: index.html
+      - list [ref=f777e6]:
+        - listitem [ref=f777e7]:
+          - link "Stays" [ref=f777e8] [cursor=pointer]:
+            - /url: search.html
+        - listitem [ref=f777e9]:
+          - link "Destinations" [ref=f777e10] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=f777e11]:
+          - link "Guides" [ref=f777e12] [cursor=pointer]:
+            - /url: search.html
+      - search [ref=f777e13]:
+        - generic [ref=f777e17]: Go to a town, a beach, a trail or a guide
+        - searchbox "Go to a town, a beach, a trail or a guide" [ref=f777e18]
+      - link "Sign in" [ref=f777e19] [cursor=pointer]:
+        - /url: not-found.html
+  - navigation "Vancouver Island" [ref=f777e20]:
+    - generic [ref=f777e21]:
+      - link "← British Columbia" [ref=f777e22] [cursor=pointer]:
+        - /url: province.html
+      - list [ref=f777e24]:
+        - listitem [ref=f777e25]:
+          - link "Overview" [ref=f777e26] [cursor=pointer]:
+            - /url: "#top"
+        - listitem [ref=f777e27]:
+          - link "Island guides" [ref=f777e28] [cursor=pointer]:
+            - /url: "#guides"
+        - listitem [ref=f777e29]:
+          - link "Towns" [ref=f777e30] [cursor=pointer]:
+            - /url: "#towns"
+        - listitem [ref=f777e31]:
+          - link "Tofino or Ucluelet" [ref=f777e32] [cursor=pointer]:
+            - /url: "#compare"
+        - listitem [ref=f777e33]:
+          - link "Plan" [ref=f777e34] [cursor=pointer]:
+            - /url: "#next"
+  - main [ref=f777e35]:
+    - navigation "Breadcrumb" [ref=f777e37]:
+      - link "Arc Trips" [ref=f777e38] [cursor=pointer]:
+        - /url: index.html
+      - generic [ref=f777e39]: ›
+      - link "Canada" [ref=f777e40] [cursor=pointer]:
+        - /url: country.html
+      - generic [ref=f777e41]: ›
+      - link "British Columbia" [ref=f777e42] [cursor=pointer]:
+        - /url: province.html
+      - generic [ref=f777e43]: ›
+      - generic [ref=f777e44]: Vancouver Island
+    - generic [ref=f777e45]:
+      - generic [ref=f777e46]:
+        - generic [ref=f777e47]:
+          - text: Region, British Columbia
+          - heading "Vancouver Island, end to end" [level=1] [ref=f777e48]
+          - paragraph [ref=f777e49]: Eleven towns from Sooke to Campbell River, written up place by place, plus seven guides that cross every town line on the island.
+          - paragraph [ref=f777e50]: Tofino and Ucluelet are finished and open. They sit 42 km apart on the west coast and hold 429 of the island's documented places between them.
+          - generic [ref=f777e51]:
+            - link "The seven island guides" [ref=f777e52] [cursor=pointer]:
+              - /url: "#guides"
+            - link "All eleven towns" [ref=f777e53] [cursor=pointer]:
+              - /url: "#towns"
+        - figure "The west coast, between Tofino and Ucluelet" [ref=f777e54]:
+          - img "A wide stretch of sand below a forested bluff on the west coast of Vancouver Island" [ref=f777e55]
+      - generic [ref=f777e58]:
+        - generic [ref=f777e59]:
+          - term [ref=f777e60]: Towns
+          - definition [ref=f777e61]: "11"
+        - generic [ref=f777e62]:
+          - term [ref=f777e63]: Documented places
+          - definition [ref=f777e64]: "666"
+        - generic [ref=f777e65]:
+          - term [ref=f777e66]: Guides
+          - definition [ref=f777e67]: "22"
+        - generic [ref=f777e68]:
+          - term [ref=f777e69]: Towns open now
+          - definition [ref=f777e70]: "2"
+        - generic [ref=f777e71]:
+          - term [ref=f777e72]: Island guides
+          - definition [ref=f777e73]: "7"
+    - generic [ref=f777e75]:
+      - generic [ref=f777e76]:
+        - generic [ref=f777e77]:
+          - text: Written across the whole island
+          - heading "The seven island guides" [level=2] [ref=f777e78]
+          - paragraph [ref=f777e79]: Subjects that do not belong to any one town. Each guide names the places, puts them in order, and answers the questions people actually ask.
+        - link "Search all guides" [ref=f777e80] [cursor=pointer]:
+          - /url: search.html
+      - generic [ref=f777e81]:
+        - article [ref=f777e82]:
+          - img "A rocky headland where the rainforest meets open water on the Pacific Rim coast" [ref=f777e84]
+          - generic [ref=f777e85]:
+            - generic [ref=f777e86]: Beaches
+            - heading [level=3] [ref=f777e87]:
+              - link "Best Beaches on Vancouver Island" [ref=f777e88] [cursor=pointer]:
+                - /url: guide.html
+            - paragraph [ref=f777e89]:
+              - generic [ref=f777e90]: 13 beaches
+              - generic [ref=f777e91]: 9 questions answered
+              - generic [ref=f777e92]: West, south and east coasts
+            - paragraph [ref=f777e93]: Discover the best beaches on Vancouver Island, from Long Beach, Chesterman Beach, and Rathtrevor Beach to Tribune Bay, Botanical Beach, China Beach, Mystic Beach, and more. Learn which beaches are best for surfing, swimming, tide pools, families, sunsets, and coastal walks.
+            - generic [ref=f777e94]:
+              - term [ref=f777e95]: The beaches, in order
+              - definition [ref=f777e96]:
+                - link "Long Beach" [ref=f777e97] [cursor=pointer]:
+                  - /url: long-beach.html
+                - text: ", Chesterman Beach, Cox Bay, Mackenzie Beach, Wickaninnish Beach, Florencia Bay, Big Beach, Little Beach, Rathtrevor Beach, Parksville Beach, Qualicum Beach, Tribune Bay, Botanical Beach"
+        - article [ref=f777e98]:
+          - generic [ref=f777e99]: Day hikes
+          - heading [level=3] [ref=f777e100]:
+            - link "Best Day Hikes on Vancouver Island" [ref=f777e101] [cursor=pointer]:
+              - /url: guide.html
+          - paragraph [ref=f777e102]:
+            - generic [ref=f777e103]: 12 trails
+            - generic [ref=f777e104]: 10 questions answered
+          - paragraph [ref=f777e105]: Discover the best day hikes on Vancouver Island, from easy rainforest walks and coastal trails to waterfall hikes, mountain viewpoints, and challenging alpine routes in Strathcona Provincial Park.
+          - generic [ref=f777e106]:
+            - term [ref=f777e107]: The trails
+            - definition [ref=f777e108]: Wild Pacific Trail, Rainforest Trails A and B, South Beach and Nuu-chah-nulth Trail, Mystic Beach, Sombrio Beach, Botanical Beach, East Sooke Coast Trail, Mount Finlayson, Mount Work, Mount Tzouhalem, Mount Benson, Englishman River Falls
+        - article [ref=f777e109]:
+          - generic [ref=f777e110]: Overnight hikes
+          - heading [level=3] [ref=f777e111]:
+            - link "Best Overnight Hikes on Vancouver Island" [ref=f777e112] [cursor=pointer]:
+              - /url: guide.html
+          - paragraph [ref=f777e113]:
+            - generic [ref=f777e114]: 10 routes
+            - generic [ref=f777e115]: 10 questions answered
+          - paragraph [ref=f777e116]: Discover the best overnight hikes on Vancouver Island, from the West Coast Trail and Juan de Fuca Trail to Cape Scott, North Coast Trail, Nootka Trail, Della Falls, Bedwell Lake, and Forbidden Plateau. Learn distance, difficulty, highlights, camping notes, and planning tips.
+          - generic [ref=f777e117]:
+            - term [ref=f777e118]: The routes
+            - definition [ref=f777e119]: West Coast Trail, Juan de Fuca Trail, North Coast Trail, Cape Scott Trail, Nootka Trail, Della Falls Trail, Bedwell Lake and Cream Lake, Forbidden Plateau and Circlet Lake, Elk River Trail and Landslide Lake, Flower Ridge
+        - article [ref=f777e120]:
+          - generic [ref=f777e121]: Kayaking
+          - heading [level=3] [ref=f777e122]:
+            - link "Best Kayaking Spots on Vancouver Island" [ref=f777e123] [cursor=pointer]:
+              - /url: guide.html
+          - paragraph [ref=f777e124]:
+            - generic [ref=f777e125]: 12 paddling areas
+            - generic [ref=f777e126]: 10 questions answered
+          - paragraph [ref=f777e127]: Discover the best kayaking spots on Vancouver Island, from the Broken Group Islands and Clayoquot Sound to Johnstone Strait, Quadra Island, Gulf Islands, Ucluelet, Tofino, and Great Central Lake. Learn where to paddle, what each area is best for, and tips for planning your trip.
+          - generic [ref=f777e128]:
+            - term [ref=f777e129]: The paddling areas
+            - definition [ref=f777e130]: Broken Group Islands, Ucluelet and Barkley Sound, Tofino and Clayoquot Sound, Johnstone Strait, Telegraph Cove, Quadra Island and the Discovery Islands, Gulf Islands, Victoria and Oak Bay, Sooke Basin, Nanaimo and Newcastle Island, Great Central Lake, Campbell River and Discovery Passage
+        - article [ref=f777e131]:
+          - generic [ref=f777e132]: Whale watching
+          - heading [level=3] [ref=f777e133]:
+            - link "Best Places for Whale Watching on Vancouver Island" [ref=f777e134] [cursor=pointer]:
+              - /url: guide.html
+          - paragraph [ref=f777e135]:
+            - generic [ref=f777e136]: 10 places
+            - generic [ref=f777e137]: 10 questions answered
+          - paragraph [ref=f777e138]: Discover the best places for whale watching on Vancouver Island, including Victoria, Ucluelet, Tofino, Telegraph Cove, Campbell River, Sooke, Nanaimo, and Port McNeill. Learn what whales you might see, the best season, tour styles, and planning tips.
+          - generic [ref=f777e139]:
+            - term [ref=f777e140]: The places
+            - definition [ref=f777e141]:
+              - link "Victoria" [ref=f777e142] [cursor=pointer]:
+                - /url: victoria.html
+              - text: ","
+              - link "Sooke" [ref=f777e143] [cursor=pointer]:
+                - /url: sooke.html
+              - text: ", Ucluelet,"
+              - link "Tofino" [ref=f777e144] [cursor=pointer]:
+                - /url: tofino.html
+              - text: ", Telegraph Cove, Port McNeill,"
+              - link "Campbell River" [ref=f777e145] [cursor=pointer]:
+                - /url: campbell-river.html
+              - text: ","
+              - link "Nanaimo" [ref=f777e146] [cursor=pointer]:
+                - /url: nanaimo.html
+              - text: ", Parksville and Qualicum Beach Area, Port Renfrew and the Juan de Fuca Coast"
+        - article [ref=f777e147]:
+          - generic [ref=f777e148]: Mountain biking
+          - heading [level=3] [ref=f777e149]:
+            - 'link "Vancouver Island: Best Mountain Biking Spots" [ref=f777e150] [cursor=pointer]':
+              - /url: guide.html
+          - paragraph [ref=f777e151]:
+            - generic [ref=f777e152]: 9 riding areas
+            - generic [ref=f777e153]: 10 questions answered
+            - generic [ref=f777e154]: 3 sample trips
+          - paragraph [ref=f777e155]: Discover the best mountain biking spots on Vancouver Island, from Cumberland and Nanaimo to Cowichan, Campbell River, Parksville, Victoria, and Mount Washington. Learn where to ride, what each area is best for, and tips for planning your trip.
+          - generic [ref=f777e156]:
+            - term [ref=f777e157]: The riding areas
+            - definition [ref=f777e158]:
+              - text: Cumberland and Comox Valley,
+              - link "Nanaimo" [ref=f777e159] [cursor=pointer]:
+                - /url: nanaimo.html
+              - text: ", Cowichan Valley,"
+              - link "Campbell River" [ref=f777e160] [cursor=pointer]:
+                - /url: campbell-river.html
+              - text: ", Parksville Qualicum Beach and Hammerfest, Victoria and Hartland Mountain Bike Park, Mount Washington, Hornby Island, Sooke and the South Island"
+        - article [ref=f777e161]:
+          - generic [ref=f777e162]: Where to stay
+          - heading [level=3] [ref=f777e163]:
+            - link "How to Choose a Vacation Rental on Vancouver Island" [ref=f777e164] [cursor=pointer]:
+              - /url: guide.html
+          - paragraph [ref=f777e165]:
+            - generic [ref=f777e166]: 10 checks before you book
+            - generic [ref=f777e167]: Best areas and booking tips
+          - paragraph [ref=f777e168]: Planning a Vancouver Island getaway? Learn how to choose the best vacation rental for your trip, including location, budget, and seasonal tips.
+          - generic [ref=f777e169]:
+            - term [ref=f777e170]: The ten checks
+            - definition [ref=f777e171]: Pick the right region before you pick the rental, Decide what matters more between view, beach access, town access or seclusion, Match the rental to the season, Check whether the listing is legal and properly registered, Read for layout not just style, Think about travel logistics before you book, Budget for the real total, Choose amenities that fit Vancouver Island travel, Read reviews for patterns, Check safety and disruption planning
+    - generic [ref=f777e173]:
+      - generic [ref=f777e174]:
+        - generic [ref=f777e175]:
+          - text: 666 documented places
+          - heading "Eleven towns, four parts of the island" [level=2] [ref=f777e176]
+          - paragraph [ref=f777e177]: Every town below is researched and written. Two are published in full. The bar is the size of each town's library measured against Tofino's.
+        - link "Rest of British Columbia" [ref=f777e178] [cursor=pointer]:
+          - /url: province.html
+      - generic [ref=f777e179]:
+        - heading "West coast, the Pacific Rim" [level=3] [ref=f777e180]
+        - generic [ref=f777e181]: 2 towns · 429 places
+      - generic [ref=f777e182]:
+        - generic [ref=f777e183]:
+          - heading [level=4] [ref=f777e184]:
+            - link "Tofino" [ref=f777e185] [cursor=pointer]:
+              - /url: tofino.html
+          - generic [ref=f777e186]: Open now
+        - paragraph [ref=f777e187]: Perched on the wild west coast, framed by the Pacific Ocean, old-growth rainforest, and the vast beauty of Clayoquot Sound.
+        - generic [ref=f777e188]: 232 places and 11 guides
+      - generic [ref=f777e192]:
+        - generic [ref=f777e193]:
+          - heading [level=4] [ref=f777e194]:
+            - link "Ucluelet" [ref=f777e195] [cursor=pointer]:
+              - /url: search.html
+          - generic [ref=f777e196]: Open now
+        - paragraph [ref=f777e197]: Rugged shoreline, temperate rainforest and a small harbour setting, wilder and quieter than better-known beach towns.
+        - generic [ref=f777e198]: 197 places and 9 guides
+      - generic [ref=f777e202]:
+        - heading "South Island" [level=3] [ref=f777e203]
+        - generic [ref=f777e204]: 4 towns · 137 places
+      - generic [ref=f777e205]:
+        - generic [ref=f777e206]:
+          - heading [level=4] [ref=f777e207]:
+            - link "Victoria" [ref=f777e208] [cursor=pointer]:
+              - /url: victoria.html
+          - generic [ref=f777e209]: Six guides written
+        - paragraph [ref=f777e210]: "The capital of British Columbia: colonial-era buildings, lush gardens, a scenic harbour and a mild coastal climate."
+        - generic [ref=f777e211]: 79 places and 6 guides
+      - generic [ref=f777e215]:
+        - heading [level=4] [ref=f777e217]:
+          - link "Sooke" [ref=f777e218] [cursor=pointer]:
+            - /url: sooke.html
+        - paragraph [ref=f777e219]: Rugged shoreline, forested hills and relaxed west coast character, a short drive from the busier streets of Victoria.
+        - generic [ref=f777e220]: 30 places and 1 guide
+      - generic [ref=f777e224]:
+        - heading [level=4] [ref=f777e226]:
+          - link "Sidney" [ref=f777e227] [cursor=pointer]:
+            - /url: sidney.html
+        - paragraph [ref=f777e228]: Good whale watching and a drier climate than the towns around it, on the Saanich Peninsula beside Butchart Gardens.
+        - generic [ref=f777e229]: 16 places and 1 guide
+      - generic [ref=f777e233]:
+        - generic [ref=f777e234]:
+          - heading [level=4] [ref=f777e235]:
+            - link "Shawnigan Lake" [ref=f777e236] [cursor=pointer]:
+              - /url: shawnigan-lake.html
+          - generic [ref=f777e237]: Inland
+        - paragraph [ref=f777e238]: A peaceful inland escape in the South Cowichan region, known for freshwater beauty and forested surroundings.
+        - generic [ref=f777e239]: 12 places and 1 guide
+      - generic [ref=f777e243]:
+        - heading "Central Island" [level=3] [ref=f777e244]
+        - generic [ref=f777e245]: 4 towns · 86 places
+      - generic [ref=f777e246]:
+        - generic [ref=f777e247]:
+          - heading [level=4] [ref=f777e248]:
+            - link "Parksville" [ref=f777e249] [cursor=pointer]:
+              - /url: search.html
+          - generic [ref=f777e250]: With Qualicum Beach
+        - paragraph [ref=f777e251]: Long sandy beaches and shallow warm water on the central east coast, the kind of place that makes it easy to slow down.
+        - generic [ref=f777e252]: 28 places and 1 guide
+      - generic [ref=f777e256]:
+        - heading [level=4] [ref=f777e258]:
+          - link "Nanaimo" [ref=f777e259] [cursor=pointer]:
+            - /url: nanaimo.html
+        - paragraph [ref=f777e260]: "The Harbour City: ocean views, waterfront walks, nearby islands and the easiest crossing back to the mainland."
+        - generic [ref=f777e261]: 27 places and 1 guide
+      - generic [ref=f777e265]:
+        - heading [level=4] [ref=f777e267]:
+          - link "Nanoose" [ref=f777e268] [cursor=pointer]:
+            - /url: nanoose.html
+        - paragraph [ref=f777e269]: A quiet seaside community between Nanaimo and Parksville, with a sheltered bay, forested hills and a scenic shoreline.
+        - generic [ref=f777e270]: 16 places and 1 guide
+      - generic [ref=f777e274]:
+        - heading [level=4] [ref=f777e276]:
+          - link "Chemainus" [ref=f777e277] [cursor=pointer]:
+            - /url: chemainus.html
+        - paragraph [ref=f777e278]: Colourful murals, a seaside setting and a working theatre, in a former logging town on the east coast.
+        - generic [ref=f777e279]: 15 places and 1 guide
+      - generic [ref=f777e283]:
+        - heading "North Island" [level=3] [ref=f777e284]
+        - generic [ref=f777e285]: 1 town · 14 places
+      - generic [ref=f777e286]:
+        - heading [level=4] [ref=f777e288]:
+          - link "Campbell River" [ref=f777e289] [cursor=pointer]:
+            - /url: campbell-river.html
+        - paragraph [ref=f777e290]: Where dense coastal forest meets the sea on the east coast, with the water never far away and the scenery dramatic.
+        - generic [ref=f777e291]: 14 places and 1 guide
+    - generic [ref=f777e296]:
+      - generic [ref=f777e297]:
+        - generic [ref=f777e298]:
+          - text: 42 km apart, about 40 minutes
+          - heading "Tofino or Ucluelet?" [level=2] [ref=f777e299]
+          - paragraph [ref=f777e300]: The two finished towns share a peninsula, a highway, a national park and a whale migration. They do not read the same.
+        - link "Read Tofino in full" [ref=f777e301] [cursor=pointer]:
+          - /url: tofino.html
+      - generic [ref=f777e302]:
+        - generic [ref=f777e303]:
+          - generic [ref=f777e304]: Documented places
+          - generic [ref=f777e305]: Tofino 232
+          - generic [ref=f777e309]: Ucluelet 197
+        - generic [ref=f777e313]:
+          - generic [ref=f777e314]: Written up in full, with photos
+          - generic [ref=f777e315]: Tofino 73
+          - generic [ref=f777e319]: Ucluelet 54
+        - generic [ref=f777e323]:
+          - generic [ref=f777e324]: Subject guides published
+          - generic [ref=f777e325]: Tofino 9
+          - generic [ref=f777e329]: Ucluelet 6
+        - generic [ref=f777e333]:
+          - generic [ref=f777e334]: Places to stay
+          - generic [ref=f777e335]: Tofino 134
+          - generic [ref=f777e339]: Ucluelet 158
+        - generic [ref=f777e343]:
+          - generic [ref=f777e344]: Trails written up
+          - generic [ref=f777e345]: Tofino 18
+          - generic [ref=f777e349]: Ucluelet 20
+        - generic [ref=f777e353]:
+          - generic [ref=f777e354]: Paddling spots written up
+          - generic [ref=f777e355]: Tofino 18
+          - generic [ref=f777e359]: Ucluelet 13
+        - generic [ref=f777e363]:
+          - generic [ref=f777e364]: Restaurants written up
+          - generic [ref=f777e365]: Tofino 16
+          - generic [ref=f777e369]: Ucluelet 15
+        - generic [ref=f777e373]:
+          - generic [ref=f777e374]: Nightly from, CAD
+          - generic [ref=f777e375]: Tofino $320
+          - generic [ref=f777e377]: Ucluelet $320
+      - generic [ref=f777e379]:
+        - generic [ref=f777e380]:
+          - heading "Only in Tofino" [level=4] [ref=f777e381]
+          - paragraph [ref=f777e382]: Beaches, 13 of them written up. Storm watching, 8 places, November to February.
+        - generic [ref=f777e383]:
+          - heading "Only in Ucluelet" [level=4] [ref=f777e384]
+          - paragraph [ref=f777e385]: Whale watching, 6 places, plus three guides on the spring gray whale migration.
+    - generic [ref=f777e388]:
+      - img "The islands and inlets of Clayoquot Sound seen from the air above Tofino" [ref=f777e389]
+      - generic [ref=f777e390]:
+        - text: Start here
+        - heading "Pick the town, then the week" [level=2] [ref=f777e391]
+        - paragraph [ref=f777e392]: Tofino and Ucluelet are open now, with every beach, trail, paddle and table written up. The other nine towns are researched and land next.
+        - generic [ref=f777e393]:
+          - link "Tofino, place by place" [ref=f777e394] [cursor=pointer]:
+            - /url: tofino.html
+          - link "When should you go?" [ref=f777e395] [cursor=pointer]:
+            - /url: plan.html
+        - generic [ref=f777e396]:
+          - generic [ref=f777e397]:
+            - term [ref=f777e398]: Stays, both towns
+            - definition [ref=f777e399]: "292"
+          - generic [ref=f777e400]:
+            - term [ref=f777e401]: Guest rating
+            - definition [ref=f777e402]: "4.9"
+          - generic [ref=f777e403]:
+            - term [ref=f777e404]: Nightly from
+            - definition [ref=f777e405]: $320
+  - contentinfo [ref=f777e406]:
+    - generic [ref=f777e407]:
+      - generic [ref=f777e408]:
+        - generic [ref=f777e409]:
+          - text: Arctrips
+          - paragraph [ref=f777e410]: Stays and guides on Vancouver Island, written by people who go there.
+        - generic [ref=f777e411]:
+          - heading "This island" [level=5] [ref=f777e412]
+          - list [ref=f777e413]:
+            - listitem [ref=f777e414]:
+              - link "Island guides" [ref=f777e415] [cursor=pointer]:
+                - /url: "#guides"
+            - listitem [ref=f777e416]:
+              - link "All eleven towns" [ref=f777e417] [cursor=pointer]:
+                - /url: "#towns"
+            - listitem [ref=f777e418]:
+              - link "Tofino or Ucluelet" [ref=f777e419] [cursor=pointer]:
+                - /url: "#compare"
+            - listitem [ref=f777e420]:
+              - link "Search everything" [ref=f777e421] [cursor=pointer]:
+                - /url: search.html
+        - generic [ref=f777e422]:
+          - heading "Up the tree" [level=5] [ref=f777e423]
+          - list [ref=f777e424]:
+            - listitem [ref=f777e425]:
+              - link "British Columbia" [ref=f777e426] [cursor=pointer]:
+                - /url: province.html
+            - listitem [ref=f777e427]:
+              - link "Canada" [ref=f777e428] [cursor=pointer]:
+                - /url: country.html
+            - listitem [ref=f777e429]:
+              - link "Guides" [ref=f777e430] [cursor=pointer]:
+                - /url: search.html
+        - generic [ref=f777e431]:
+          - heading "Towns" [level=5] [ref=f777e432]
+          - list [ref=f777e433]:
+            - listitem [ref=f777e434]:
+              - link "Tofino" [ref=f777e435] [cursor=pointer]:
+                - /url: tofino.html
+            - listitem [ref=f777e436]:
+              - link "Victoria" [ref=f777e437] [cursor=pointer]:
+                - /url: victoria.html
+            - listitem [ref=f777e438]:
+              - link "Nanaimo" [ref=f777e439] [cursor=pointer]:
+                - /url: nanaimo.html
+            - listitem [ref=f777e440]:
+              - link "Campbell River" [ref=f777e441] [cursor=pointer]:
+                - /url: campbell-river.html
+            - listitem [ref=f777e442]:
+              - link "Sooke" [ref=f777e443] [cursor=pointer]:
+                - /url: sooke.html
+        - generic [ref=f777e444]:
+          - heading "Arc Trips" [level=5] [ref=f777e445]
+          - list [ref=f777e446]:
+            - listitem [ref=f777e447]:
+              - link "About us" [ref=f777e448] [cursor=pointer]:
+                - /url: not-found.html
+            - listitem [ref=f777e449]:
+              - link "List your place" [ref=f777e450] [cursor=pointer]:
+                - /url: not-found.html
+            - listitem [ref=f777e451]:
+              - link "Fishing charters" [ref=f777e452] [cursor=pointer]:
+                - /url: search.html
+            - listitem [ref=f777e453]:
+              - link "Contact" [ref=f777e454] [cursor=pointer]:
+                - /url: not-found.html
+      - generic [ref=f777e455]:
+        - generic [ref=f777e456]: © 2026 Arc Trips
+        - generic [ref=f777e457]: Prices in CAD, before taxes and fees

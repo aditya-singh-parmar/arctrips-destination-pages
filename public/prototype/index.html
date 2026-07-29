@@ -477,7 +477,7 @@ footer.f{margin-top:0}
     </div>
 
     <div class="mswwrap">
-      <p class="msw__lead">Each column is that month's average rainfall in ${TOWN_LABEL[almTown]}. Taller means wetter. Choose a month.</p>
+      <p class="msw__lead"><span id="mswDek">Each column is that month's average rainfall in Tofino. Taller means wetter.</span> Choose a month.</p>
       <div class="almpick" role="group" aria-label="Choose a town">
         <button type="button" class="almpick__b" data-t="tofino" aria-pressed="true">Tofino</button>
         <button type="button" class="almpick__b" data-t="ucluelet" aria-pressed="false">Ucluelet</button>
@@ -875,6 +875,8 @@ function paintAlmanac(){
   const d = daylight(month);
 
   $("#seasonLabel").textContent = name + " in " + TOWN_LABEL[almTown];
+  { const dk=document.getElementById("mswDek");
+    if (dk) dk.textContent = "Each column is that month's average rainfall in " + TOWN_LABEL[almTown] + ". Taller means wetter."; };
   $("#seasonName").textContent = season.name;
   $("#seasonClaim").textContent = season.claim;
   $("#seasonReason").innerHTML =
