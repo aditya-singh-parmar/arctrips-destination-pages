@@ -1,0 +1,374 @@
+- generic [active] [ref=f772e1]:
+  - navigation [ref=f772e2]:
+    - generic [ref=f772e3]:
+      - link "ARCTRIPS" [ref=f772e4] [cursor=pointer]:
+        - /url: index.html
+      - list [ref=f772e5]:
+        - listitem [ref=f772e6]:
+          - link "Stays" [ref=f772e7] [cursor=pointer]:
+            - /url: search.html?in=tofino
+        - listitem [ref=f772e8]:
+          - link "Destinations" [ref=f772e9] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=f772e10]:
+          - link "Guides" [ref=f772e11] [cursor=pointer]:
+            - /url: search.html
+      - textbox "Search" [ref=f772e16]:
+        - /placeholder: Search Tofino
+      - link "Sign in" [ref=f772e17] [cursor=pointer]:
+        - /url: search.html?in=tofino
+  - navigation "Tofino" [ref=f772e18]:
+    - generic [ref=f772e19]:
+      - link "← Tofino" [ref=f772e20] [cursor=pointer]:
+        - /url: tofino.html
+      - list [ref=f772e22]:
+        - listitem [ref=f772e23]:
+          - link "Overview" [ref=f772e24] [cursor=pointer]:
+            - /url: tofino.html
+        - listitem [ref=f772e25]:
+          - link "Things to do" [ref=f772e26] [cursor=pointer]:
+            - /url: things-to-do.html
+        - listitem [ref=f772e27]:
+          - link "Hiking & trails" [ref=f772e28] [cursor=pointer]:
+            - /url: "#top"
+        - listitem [ref=f772e29]:
+          - link "Stays" [ref=f772e30] [cursor=pointer]:
+            - /url: search.html?in=tofino
+      - link "Find a stay" [ref=f772e31] [cursor=pointer]:
+        - /url: search.html?in=tofino
+  - main [ref=f772e32]:
+    - navigation "Breadcrumb" [ref=f772e34]:
+      - link "Arc Trips" [ref=f772e35] [cursor=pointer]:
+        - /url: index.html
+      - generic [ref=f772e36]: /
+      - link "Vancouver Island" [ref=f772e37] [cursor=pointer]:
+        - /url: region.html
+      - generic [ref=f772e38]: /
+      - link "Tofino" [ref=f772e39] [cursor=pointer]:
+        - /url: tofino.html
+      - generic [ref=f772e40]: /
+      - link "Things to do" [ref=f772e41] [cursor=pointer]:
+        - /url: things-to-do.html
+      - generic [ref=f772e42]: /
+      - generic [ref=f772e43]: Hiking & trails
+    - generic [ref=f772e44]:
+      - img "Hiking & trails in Tofino" [ref=f772e45]
+      - generic [ref=f772e48]:
+        - text: Tofino, Vancouver Island
+        - heading "Hiking & trails in Tofino" [level=1] [ref=f772e49]
+        - paragraph [ref=f772e50]: Explore the best trails in Tofino and nearby Pacific Rim National Park. Find easy rainforest walks, beach trails, ocean viewpoints, family-friendly paths, and hiking safety tips.
+        - generic [ref=f772e51]:
+          - generic [ref=f772e52]:
+            - term [ref=f772e53]: Places written up
+            - definition [ref=f772e54]: "18"
+          - generic [ref=f772e55]:
+            - term [ref=f772e56]: With photographs
+            - definition [ref=f772e57]: "18"
+    - generic [ref=f772e60]:
+      - article [ref=f772e61]:
+        - figure [ref=f772e62]:
+          - img "Tonquin Trail, Tofino" [ref=f772e63]
+        - generic [ref=f772e64]:
+          - heading "Tonquin Trail" [level=3] [ref=f772e65]
+          - paragraph [ref=f772e66]: The Tonquin Trail is one of the best easy trails in Tofino. It starts near the village and leads through coastal forest to Tonquin Beach, Third Beach, and Middle Beach.
+          - paragraph [ref=f772e67]: The Tonquin Trail is one of the best easy trails in Tofino. It starts near the village and leads through coastal forest to Tonquin Beach, Third Beach, and Middle Beach.
+          - paragraph [ref=f772e68]: This trail is a great choice if you want forest and beach in one walk. You will pass old-growth forest, ocean viewpoints, stairs, and small beaches. It is also a popular sunset walk.
+          - generic [ref=f772e69]:
+            - generic [ref=f772e70]: Easy hiking
+            - generic [ref=f772e71]: Families
+            - generic [ref=f772e72]: Forest views
+            - generic [ref=f772e73]: Beach access
+            - generic [ref=f772e74]: Sunset views
+            - generic [ref=f772e75]: Photography
+            - generic [ref=f772e76]: A walk close to town
+          - paragraph [ref=f772e77]: Good to know. The trail can be muddy after rain, and there are stairs in some areas. Wear shoes with good grip.
+      - article [ref=f772e78]:
+        - figure [ref=f772e79]:
+          - img "Tonquin Beach Trail, Tofino" [ref=f772e80]
+        - generic [ref=f772e81]:
+          - heading "Tonquin Beach Trail" [level=3] [ref=f772e82]
+          - paragraph [ref=f772e83]: If you do not want to walk the full Tonquin Trail, you can make a shorter visit to Tonquin Beach. This is one of the closest beach walks to Tofino village.
+          - paragraph [ref=f772e84]: If you do not want to walk the full Tonquin Trail, you can make a shorter visit to Tonquin Beach. This is one of the closest beach walks to Tofino village.
+          - paragraph [ref=f772e85]: The walk is short and scenic. It takes you through forest and down to a sandy beach with views across the water. It is a nice choice if you only have a little time.
+          - generic [ref=f772e86]:
+            - generic [ref=f772e87]: Short walks
+            - generic [ref=f772e88]: Sunset views
+            - generic [ref=f772e89]: Picnics
+            - generic [ref=f772e90]: Quiet beach time
+            - generic [ref=f772e91]: A quick nature stop near town
+          - paragraph [ref=f772e92]: Good to know. The beach is smaller than Chesterman or Cox Bay, so it may feel more closed in at high tide.
+      - article [ref=f772e93]:
+        - figure [ref=f772e94]:
+          - img "Third Beach and Middle Beach Walk, Tofino" [ref=f772e95]
+        - generic [ref=f772e96]:
+          - heading "Third Beach and Middle Beach Walk" [level=3] [ref=f772e97]
+          - paragraph [ref=f772e98]: Third Beach and Middle Beach are small beaches along the Tonquin Trail. They are less famous than Tonquin Beach, but they are worth visiting if you want a quieter walk.
+          - paragraph [ref=f772e99]: Third Beach and Middle Beach are small beaches along the Tonquin Trail. They are less famous than Tonquin Beach, but they are worth visiting if you want a quieter walk.
+          - paragraph [ref=f772e100]: This part of the trail has rocky viewpoints, forest sections, and a peaceful feel. It is not a big beach day walk. It is better for people who like hidden corners and short nature stops.
+          - generic [ref=f772e101]:
+            - generic [ref=f772e102]: Quiet beach stops
+            - generic [ref=f772e103]: Forest-to-beach scenery
+            - generic [ref=f772e104]: Photography
+            - generic [ref=f772e105]: Short hikes
+            - generic [ref=f772e106]: Less crowded views
+          - paragraph [ref=f772e107]: Good to know. Beach access can be a little rough in places. Watch your step, especially after rain.
+      - article [ref=f772e108]:
+        - figure [ref=f772e109]:
+          - img "Multi-Use Path in Tofino, Tofino" [ref=f772e110]
+        - generic [ref=f772e111]:
+          - heading "Multi-Use Path in Tofino" [level=3] [ref=f772e112]
+          - paragraph [ref=f772e113]: Tofino also has a local multi-use path that is good for walking, running, and biking. This is not a wilderness hike, but it is useful if you want a safe and easy way to move around without driving.
+          - paragraph [ref=f772e114]: Tofino also has a local multi-use path that is good for walking, running, and biking. This is not a wilderness hike, but it is useful if you want a safe and easy way to move around without driving.
+          - paragraph [ref=f772e115]: The path connects parts of Tofino and links with the larger route toward Pacific Rim National Park Reserve.
+          - generic [ref=f772e116]:
+            - generic [ref=f772e117]: Walking
+            - generic [ref=f772e118]: Running
+            - generic [ref=f772e119]: Biking
+            - generic [ref=f772e120]: Families
+            - generic [ref=f772e121]: Getting around town
+            - generic [ref=f772e122]: Easy outdoor time
+          - paragraph [ref=f772e123]: Good to know. Share the path with bikes, walkers, and runners. Stay to the right and be aware of faster users.
+      - article [ref=f772e124]:
+        - figure [ref=f772e125]:
+          - img "Cox Bay Lookout, Tofino" [ref=f772e126]
+        - generic [ref=f772e127]:
+          - heading "Cox Bay Lookout" [level=3] [ref=f772e128]
+          - paragraph [ref=f772e129]: Cox Bay Lookout is one of the most popular viewpoint walks near Tofino. The trail is short, but it can be steep, muddy, and slippery.
+          - paragraph [ref=f772e130]: Cox Bay Lookout is one of the most popular viewpoint walks near Tofino. The trail is short, but it can be steep, muddy, and slippery.
+          - paragraph [ref=f772e131]: The reward is a beautiful view over Cox Bay, the beach, the forest, and the coastline. It is one of the most photographed viewpoints in the Tofino area.
+          - generic [ref=f772e132]:
+            - generic [ref=f772e133]: Ocean views
+            - generic [ref=f772e134]: Photos
+            - generic [ref=f772e135]: Sunset views
+            - generic [ref=f772e136]: A short adventure
+            - generic [ref=f772e137]: Seeing Cox Bay from above
+          - paragraph [ref=f772e138]: Good to know. This is not a polished boardwalk trail. It can be muddy and rough. Wear proper shoes and avoid it if conditions are very slippery.
+      - article [ref=f772e139]:
+        - figure [ref=f772e140]:
+          - img "Radar Hill Trail, Tofino" [ref=f772e141]
+        - generic [ref=f772e142]:
+          - heading "Radar Hill Trail" [level=3] [ref=f772e143]
+          - paragraph [ref=f772e144]: Radar Hill is in Pacific Rim National Park Reserve, between Tofino and Ucluelet. It is one of the easiest viewpoints near Tofino and a good stop if you want a short walk with a big reward.
+          - paragraph [ref=f772e145]: Radar Hill is in Pacific Rim National Park Reserve, between Tofino and Ucluelet. It is one of the easiest viewpoints near Tofino and a good stop if you want a short walk with a big reward.
+          - paragraph [ref=f772e146]: The walk is short and simple compared with many other trails. From the top, you can see forest, ocean, islands, and the wide west coast landscape. It is also a place with World War II history, as the hill was once used as a radar station.
+          - generic [ref=f772e147]:
+            - generic [ref=f772e148]: Easy walking
+            - generic [ref=f772e149]: Ocean and forest views
+            - generic [ref=f772e150]: A quick stop
+            - generic [ref=f772e151]: Families
+            - generic [ref=f772e152]: Photography
+            - generic [ref=f772e153]: Visitors with limited time
+          - paragraph [ref=f772e154]: Good to know. This is more of a short viewpoint walk than a long hike. You may need a national park pass when stopping in this area.
+      - article [ref=f772e155]:
+        - figure [ref=f772e156]:
+          - img "Rainforest Trail, Tofino" [ref=f772e157]
+        - generic [ref=f772e158]:
+          - heading "Rainforest Trail" [level=3] [ref=f772e159]
+          - paragraph [ref=f772e160]: The Rainforest Trail is in the Pacific Rim National Park Reserve. It is one of the best short walks near Tofino if you want to see the classic west coast rainforest.
+          - paragraph [ref=f772e161]: The Rainforest Trail is in the Pacific Rim National Park Reserve. It is one of the best short walks near Tofino if you want to see the classic west coast rainforest.
+          - paragraph [ref=f772e162]: The trail has boardwalks, stairs, giant trees, moss, ferns, and deep green forest. It feels like walking inside a living postcard.
+          - generic [ref=f772e163]:
+            - generic [ref=f772e164]: First-time visitors
+            - generic [ref=f772e165]: Families
+            - generic [ref=f772e166]: Rainy days
+            - generic [ref=f772e167]: Big trees
+            - generic [ref=f772e168]: Boardwalk photos
+            - generic [ref=f772e169]: Easy rainforest exploring
+          - paragraph [ref=f772e170]: Good to know. The boardwalk can be slippery when wet. You may need a national park pass when stopping in this area.
+      - article [ref=f772e171]:
+        - figure [ref=f772e172]:
+          - img "Shorepine Bog Trail, Tofino" [ref=f772e173]
+        - generic [ref=f772e174]:
+          - heading "Shorepine Bog Trail" [level=3] [ref=f772e175]
+          - paragraph [ref=f772e176]: The Shorepine Bog Trail is a short and easy boardwalk trail in Pacific Rim National Park Reserve. It feels very different from the deep rainforest trails.
+          - paragraph [ref=f772e177]: The Shorepine Bog Trail is a short and easy boardwalk trail in Pacific Rim National Park Reserve. It feels very different from the deep rainforest trails.
+          - paragraph [ref=f772e178]: Instead of giant trees, you will see small twisted shore pines, bog plants, moss, and open wetland scenery. It is a great trail if you want something flat, quick, and different.
+          - generic [ref=f772e179]:
+            - generic [ref=f772e180]: Easy walking
+            - generic [ref=f772e181]: Families
+            - generic [ref=f772e182]: Short stops
+            - generic [ref=f772e183]: Rainy days
+            - generic [ref=f772e184]: Learning about bog ecosystems
+            - generic [ref=f772e185]: Bird watching
+          - paragraph [ref=f772e186]: Good to know. Stay on the boardwalk to protect the fragile bog plants.
+      - article [ref=f772e187]:
+        - figure [ref=f772e188]:
+          - img "Spruce Fringe Trail, Tofino" [ref=f772e189]
+        - generic [ref=f772e190]:
+          - heading "Spruce Fringe Trail" [level=3] [ref=f772e191]
+          - paragraph [ref=f772e192]: Spruce Fringe Trail is a short forest trail in Pacific Rim National Park Reserve. It is often linked with Combers Beach because it gives access toward the Combers Beach area.
+          - paragraph [ref=f772e193]: Spruce Fringe Trail is a short forest trail in Pacific Rim National Park Reserve. It is often linked with Combers Beach because it gives access toward the Combers Beach area.
+          - paragraph [ref=f772e194]: This trail is a good choice if you want a quick forest walk with a coastal feel. It is not as famous as the Rainforest Trail, but it is still worth adding because it gives readers another easy nature stop in the Long Beach area.
+          - generic [ref=f772e195]:
+            - generic [ref=f772e196]: Short forest walks
+            - generic [ref=f772e197]: Beach access
+            - generic [ref=f772e198]: Nature photos
+            - generic [ref=f772e199]: A quieter stop
+            - generic [ref=f772e200]: Exploring near Combers Beach
+          - paragraph [ref=f772e201]: Good to know. Trail access and nearby beach rules can change. Check Parks Canada updates before visiting, especially if you plan to bring a dog.
+      - article [ref=f772e202]:
+        - figure [ref=f772e203]:
+          - img "Nuu-chah-nulth Trail, Tofino" [ref=f772e204]
+        - generic [ref=f772e205]:
+          - heading "Nuu-chah-nulth Trail" [level=3] [ref=f772e206]
+          - paragraph [ref=f772e207]: The Nuu-chah-nulth Trail is in Pacific Rim National Park Reserve. It connects rainforest, boardwalks, beach views, and cultural learning.
+          - paragraph [ref=f772e208]: The Nuu-chah-nulth Trail is in Pacific Rim National Park Reserve. It connects rainforest, boardwalks, beach views, and cultural learning.
+          - paragraph [ref=f772e209]: This trail is longer than some of the short boardwalk trails, but it is still a good choice for many visitors. Along the way, you can learn more about the land, culture, and natural history of the area.
+          - generic [ref=f772e210]:
+            - generic [ref=f772e211]: Rainforest walking
+            - generic [ref=f772e212]: Ocean views
+            - generic [ref=f772e213]: Learning
+            - generic [ref=f772e214]: Photography
+            - generic [ref=f772e215]: A longer nature walk
+            - generic [ref=f772e216]: Visitors who want more than a quick stop
+          - paragraph [ref=f772e217]: Good to know. Expect stairs, boardwalks, and uneven sections. Give yourself enough time and wear proper shoes.
+      - article [ref=f772e218]:
+        - figure [ref=f772e219]:
+          - img "South Beach Trail, Tofino" [ref=f772e220]
+        - generic [ref=f772e221]:
+          - heading "South Beach Trail" [level=3] [ref=f772e222]
+          - paragraph [ref=f772e223]: South Beach Trail is in Pacific Rim National Park Reserve near the Kwisitis Visitor Centre and Wickaninnish Beach. It is a short coastal trail with a strong west coast feel.
+          - paragraph [ref=f772e224]: South Beach Trail is in Pacific Rim National Park Reserve near the Kwisitis Visitor Centre and Wickaninnish Beach. It is a short coastal trail with a strong west coast feel.
+          - paragraph [ref=f772e225]: The trail leads through forest toward a rocky beach area. It is a good choice if you want a quick walk, ocean sounds, and dramatic coastal views without doing a long hike.
+          - generic [ref=f772e226]:
+            - generic [ref=f772e227]: Short hikes
+            - generic [ref=f772e228]: Rocky coast views
+            - generic [ref=f772e229]: Photography
+            - generic [ref=f772e230]: Ocean sounds
+            - generic [ref=f772e231]: A stop near the visitor centre
+            - generic [ref=f772e232]: Pairing with Wickaninnish Beach
+          - paragraph [ref=f772e233]: Good to know. South Beach is better for viewing than swimming. Stay back from waves and wet rocks, especially during high tide or stormy weather.
+      - article [ref=f772e234]:
+        - figure [ref=f772e235]:
+          - img "Long Beach Hike, Tofino" [ref=f772e236]
+        - generic [ref=f772e237]:
+          - heading "Long Beach Hike" [level=3] [ref=f772e238]
+          - paragraph [ref=f772e239]: Long Beach is not a formal hike in the same way as a forest trail, but it is one of the best long beach walks near Tofino. It is part of Pacific Rim National Park Reserve and is one of the most famous
+          - paragraph [ref=f772e240]: Long Beach is not a formal hike in the same way as a forest trail, but it is one of the best long beach walks near Tofino. It is part of Pacific Rim National Park Reserve and is one of the most famous coastal areas on Vancouver Island.
+          - paragraph [ref=f772e241]: "A Long Beach hike is simple: walk along the sand, watch the waves, enjoy the wide-open views, and turn back when you are ready. It is a great choice for travelers who want an easy walk with big scenery."
+          - generic [ref=f772e242]:
+            - generic [ref=f772e243]: Long beach walks
+            - generic [ref=f772e244]: Surf watching
+            - generic [ref=f772e245]: Photography
+            - generic [ref=f772e246]: Storm watching from a safe distance
+            - generic [ref=f772e247]: Easy coastal exploring
+            - generic [ref=f772e248]: Big Pacific Ocean views
+          - paragraph [ref=f772e249]: Good to know. Check tide times before walking far. Stay away from large waves and never turn your back on the ocean.
+      - article [ref=f772e250]:
+        - figure [ref=f772e251]:
+          - img "Combers Beach Trail, Tofino" [ref=f772e252]
+        - generic [ref=f772e253]:
+          - heading "Combers Beach Trail" [level=3] [ref=f772e254]
+          - paragraph [ref=f772e255]: Combers Beach Trail is a short trail in Pacific Rim National Park Reserve that leads to a wild beach. It is a good choice if you want a quiet beach walk and a more natural feel.
+          - paragraph [ref=f772e256]: Combers Beach Trail is a short trail in Pacific Rim National Park Reserve that leads to a wild beach. It is a good choice if you want a quiet beach walk and a more natural feel.
+          - paragraph [ref=f772e257]: This trail is more about beach access than a long forest hike. Once you reach the beach, you can walk along the sand when tide and conditions are safe.
+          - generic [ref=f772e258]:
+            - generic [ref=f772e259]: Beach walks
+            - generic [ref=f772e260]: Quiet nature time
+            - generic [ref=f772e261]: Photography
+            - generic [ref=f772e262]: Wild coastal scenery
+            - generic [ref=f772e263]: A less crowded stop
+          - paragraph [ref=f772e264]: Good to know. Check current park access and dog rules before visiting. Tide and seasonal rules can affect your visit.
+      - article [ref=f772e265]:
+        - figure [ref=f772e266]:
+          - img "Schooner Cove Trail, Tofino" [ref=f772e267]
+        - generic [ref=f772e268]:
+          - heading "Schooner Cove Trail" [level=3] [ref=f772e269]
+          - paragraph [ref=f772e270]: Schooner Cove Trail is another trail in Pacific Rim National Park Reserve. It is known for forest-to-beach scenery and a quieter feel.
+          - paragraph [ref=f772e271]: Schooner Cove Trail is another trail in Pacific Rim National Park Reserve. It is known for forest-to-beach scenery and a quieter feel.
+          - paragraph [ref=f772e272]: It is worth adding if you like peaceful walks, rainforest paths, and beach access. Like many coastal trails, access can change due to weather, maintenance, or park updates.
+          - generic [ref=f772e273]:
+            - generic [ref=f772e274]: Forest walks
+            - generic [ref=f772e275]: Beach access
+            - generic [ref=f772e276]: Quiet exploring
+            - generic [ref=f772e277]: Nature photos
+            - generic [ref=f772e278]: A less busy trail stop
+          - paragraph [ref=f772e279]: Good to know. Check current Parks Canada updates before planning this trail.
+      - article [ref=f772e280]:
+        - figure [ref=f772e281]:
+          - img "ʔapsčiik t̓ašii Multi-Use Pathway, Tofino" [ref=f772e282]
+        - generic [ref=f772e283]:
+          - heading "ʔapsčiik t̓ašii Multi-Use Pathway" [level=3] [ref=f772e284]
+          - paragraph [ref=f772e285]: ʔapsčiik t̓ašii, pronounced “ups-cheek ta-shee,” is a paved multi-use pathway in Pacific Rim National Park Reserve. It runs through the Long Beach Unit and connects many points of interest between t
+          - paragraph [ref=f772e286]: ʔapsčiik t̓ašii, pronounced “ups-cheek ta-shee,” is a paved multi-use pathway in Pacific Rim National Park Reserve. It runs through the Long Beach Unit and connects many points of interest between the Tofino and Ucluelet area.
+          - paragraph [ref=f772e287]: This is not a forest hike in the usual sense. It is best for biking, walking, and longer active days. It passes through forest and bog areas and gives visitors a different way to explore the park without driving to every stop.
+          - generic [ref=f772e288]:
+            - generic [ref=f772e289]: Biking
+            - generic [ref=f772e290]: Walking
+            - generic [ref=f772e291]: Running
+            - generic [ref=f772e292]: Longer active days
+            - generic [ref=f772e293]: Families with bikes
+            - generic [ref=f772e294]: Exploring Pacific Rim National Park
+          - paragraph [ref=f772e295]: Good to know. The path is paved, but there are some hills and curves. Bring water and plan your return route.
+      - article [ref=f772e296]:
+        - figure [ref=f772e297]:
+          - img "Big Tree Trail on Meares Island, Tofino" [ref=f772e298]
+        - generic [ref=f772e299]:
+          - heading "Big Tree Trail on Meares Island" [level=3] [ref=f772e300]
+          - paragraph [ref=f772e301]: Big Tree Trail is on Meares Island, not in Tofino town. To visit, you usually need a water taxi or guided trip from Tofino.
+          - paragraph [ref=f772e302]: Big Tree Trail is on Meares Island, not in Tofino town. To visit, you usually need a water taxi or guided trip from Tofino.
+          - paragraph [ref=f772e303]: This trail is known for huge old-growth trees. It is one of the best choices if you want to see very large cedars and learn why the old-growth rainforest is so important.
+          - generic [ref=f772e304]:
+            - generic [ref=f772e305]: Big trees
+            - generic [ref=f772e306]: Old-growth forest
+            - generic [ref=f772e307]: Nature lovers
+            - generic [ref=f772e308]: Guided trips
+            - generic [ref=f772e309]: Photography
+            - generic [ref=f772e310]: A special half-day adventure
+          - paragraph [ref=f772e311]: Good to know. Plan ahead because you need boat access. Wear good shoes because the trail can be wet and uneven.
+      - article [ref=f772e312]:
+        - figure [ref=f772e313]:
+          - img "Lone Cone Trail, Tofino" [ref=f772e314]
+        - generic [ref=f772e315]:
+          - heading "Lone Cone Trail" [level=3] [ref=f772e316]
+          - paragraph [ref=f772e317]: Lone Cone is also on Meares Island. It is much harder than most trails near Tofino. It is a steep hike with a viewpoint at the top.
+          - paragraph [ref=f772e318]: Lone Cone is also on Meares Island. It is much harder than most trails near Tofino. It is a steep hike with a viewpoint at the top.
+          - paragraph [ref=f772e319]: This trail is best for fit hikers who want a challenge. It is not the best choice for young kids, casual walkers, or people who only want an easy nature trail.
+          - generic [ref=f772e320]:
+            - generic [ref=f772e321]: Experienced hikers
+            - generic [ref=f772e322]: Big views
+            - generic [ref=f772e323]: A hard workout
+            - generic [ref=f772e324]: Adventure travelers
+            - generic [ref=f772e325]: A full or half-day hiking plan
+          - paragraph [ref=f772e326]: Good to know. This is a steep and challenging hike. You need boat access, proper shoes, water, and enough time.
+      - article [ref=f772e327]:
+        - figure [ref=f772e328]:
+          - img "Wild Side Trail on Flores Island, Tofino" [ref=f772e329]
+        - generic [ref=f772e330]:
+          - heading "Wild Side Trail on Flores Island" [level=3] [ref=f772e331]
+          - paragraph [ref=f772e332]: The Wild Side Trail is one of the most special hikes near Tofino. It is on Flores Island in Clayoquot Sound and starts near the village of Ahousaht.
+          - paragraph [ref=f772e333]: The Wild Side Trail is one of the most special hikes near Tofino. It is on Flores Island in Clayoquot Sound and starts near the village of Ahousaht.
+          - paragraph [ref=f772e334]: This trail is more remote than most walks in the Tofino area. You need to reach Flores Island by water taxi, boat, kayak, or float plane. The trail follows sandy beaches and forested headlands along the wild west side of the island.
+          - generic [ref=f772e335]:
+            - generic [ref=f772e336]: Remote beach hiking
+            - generic [ref=f772e337]: Wilderness scenery
+            - generic [ref=f772e338]: Backpacking
+            - generic [ref=f772e339]: Kayak-and-hike trips
+            - generic [ref=f772e340]: Wildlife watching
+            - generic [ref=f772e341]: Experienced hikers
+            - generic [ref=f772e342]: A special Tofino-area adventure
+          - paragraph [ref=f772e343]: Good to know. Plan ahead. You may need water taxi transport, local permissions or stewardship fees, camping plans, and current trail information. This is not a casual town trail like Tonquin Trail.
+    - generic [ref=f772e345]:
+      - heading "More on hiking & trails" [level=2] [ref=f772e346]
+      - navigation [ref=f772e347]:
+        - link "Hiking FAQs hiking" [ref=f772e348] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f772e349]: Hiking FAQs
+          - generic [ref=f772e350]: hiking
+    - generic [ref=f772e352]:
+      - heading "Keep going" [level=2] [ref=f772e353]
+      - navigation [ref=f772e354]:
+        - link "Everything to do in Tofino All the subjects" [ref=f772e355] [cursor=pointer]:
+          - /url: things-to-do.html
+          - generic [ref=f772e356]: Everything to do in Tofino
+          - generic [ref=f772e357]: All the subjects
+        - link "Tofino The town" [ref=f772e358] [cursor=pointer]:
+          - /url: tofino.html
+          - generic [ref=f772e359]: Tofino
+          - generic [ref=f772e360]: The town
+        - link "Stays Search what is open" [ref=f772e361] [cursor=pointer]:
+          - /url: search.html?in=tofino
+          - generic [ref=f772e362]: Stays
+          - generic [ref=f772e363]: Search what is open
+  - contentinfo [ref=f772e364]:
+    - generic [ref=f772e365]: © 2026 Arc Trips. Prices in CAD, before taxes and fees.
