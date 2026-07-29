@@ -1,0 +1,680 @@
+- generic [active] [ref=f737e1]:
+  - link "Skip to content" [ref=f737e2] [cursor=pointer]:
+    - /url: "#main"
+  - generic:
+    - img:
+      - generic:
+        - generic: "14"
+        - generic: "9"
+        - generic: "22"
+        - generic: "31"
+        - generic: "17"
+        - generic: "6"
+        - generic: "11"
+        - generic: "26"
+        - generic: "19"
+        - generic: "8"
+        - generic: "24"
+        - generic: "13"
+        - generic: "28"
+        - generic: "5"
+        - generic: "16"
+  - navigation [ref=f737e3]:
+    - generic [ref=f737e4]:
+      - link "Arctrips" [ref=f737e5] [cursor=pointer]:
+        - /url: index.html
+      - list [ref=f737e6]:
+        - listitem [ref=f737e7]:
+          - link "Stays" [ref=f737e8] [cursor=pointer]:
+            - /url: search.html?in=tofino
+        - listitem [ref=f737e9]:
+          - link "Destinations" [ref=f737e10] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=f737e11]:
+          - link "Guides" [ref=f737e12] [cursor=pointer]:
+            - /url: search.html
+  - generic [ref=f737e14]:
+    - link "← Tofino" [ref=f737e15] [cursor=pointer]:
+      - /url: tofino.html
+    - list [ref=f737e17]:
+      - listitem [ref=f737e18]:
+        - link "Overview" [ref=f737e19] [cursor=pointer]:
+          - /url: tofino.html
+      - listitem [ref=f737e20]:
+        - link "Things to do" [ref=f737e21] [cursor=pointer]:
+          - /url: things-to-do.html
+      - listitem [ref=f737e22]:
+        - link "Areas" [ref=f737e23] [cursor=pointer]:
+          - /url: "#top"
+      - listitem [ref=f737e24]:
+        - link "Plan" [ref=f737e25] [cursor=pointer]:
+          - /url: plan.html
+      - listitem [ref=f737e26]:
+        - link "Guides" [ref=f737e27] [cursor=pointer]:
+          - /url: guide.html
+  - main [ref=f737e28]:
+    - navigation "Breadcrumb" [ref=f737e30]:
+      - link "Vancouver Island" [ref=f737e31] [cursor=pointer]:
+        - /url: region.html
+      - generic [ref=f737e32]: /
+      - link "Tofino" [ref=f737e33] [cursor=pointer]:
+        - /url: tofino.html
+      - generic [ref=f737e34]: /
+      - generic [ref=f737e35]: Long Beach
+    - generic [ref=f737e37]:
+      - generic [ref=f737e38]:
+        - text: Pacific Rim National Park Reserve
+        - heading [level=1] [ref=f737e39]:
+          - text: Long
+          - generic [ref=f737e40]: Beach
+        - paragraph [ref=f737e43]: One of the most famous beaches on Vancouver Island, on the park road between Tofino and Ucluelet.
+        - paragraph [ref=f737e44]: As the name says, it is very long. Open sand, big sky, rolling waves, and rainforest standing behind you.
+        - paragraph [ref=f737e45]:
+          - text: "It turns up in four of our Tofino guides:"
+          - link "beaches, hiking, storm watching and kayaking" [ref=f737e46] [cursor=pointer]:
+            - /url: guide.html
+          - text: .
+      - generic [ref=f737e47]:
+        - figure "Set after set, straight off the Pacific" [ref=f737e55]:
+          - img "Lines of surf breaking one behind another at Long Beach, spray blowing back off the tops, dark forest on the headland beyond" [ref=f737e56]
+        - figure "Low water, low sun" [ref=f737e58]:
+          - img "A cyclist riding alone across wet sand at Long Beach in low golden light, the forest edge lost in haze behind" [ref=f737e59]
+        - figure "The walk, north end to south" [ref=f737e61]:
+          - img "A walker on the reflective wet sand at Long Beach heading toward a low sun, a rocky forested islet standing out of the shallows" [ref=f737e62]
+    - generic [ref=f737e65]:
+      - generic [ref=f737e66]:
+        - generic [ref=f737e67]:
+          - heading "Tide today at Tofino Harbour" [level=2] [ref=f737e68]
+          - paragraph [ref=f737e69]: Long Beach doubles in width at low water, so how much sand you get depends on the hour you arrive.
+        - paragraph [ref=f737e70]: Right now it is 1.6 m and coming in. High water at 12:38, in 3 h 54 min.
+      - generic [ref=f737e71]:
+        - generic [ref=f737e72]:
+          - paragraph [ref=f737e73]: 2.3m
+          - paragraph [ref=f737e74]: between today's low and high. That difference is the width of the walk.
+        - generic [ref=f737e91]:
+          - generic [ref=f737e92]: 06:00
+          - generic [ref=f737e93]: 12:00
+          - generic [ref=f737e94]: 18:00
+      - generic [ref=f737e95]:
+        - generic [ref=f737e96]:
+          - term [ref=f737e97]: Low water
+          - definition [ref=f737e98]: 06:140.8 m
+        - generic [ref=f737e99]:
+          - term [ref=f737e100]: High water
+          - definition [ref=f737e101]: 12:383.1 m
+        - generic [ref=f737e102]:
+          - term [ref=f737e103]: Low water
+          - definition [ref=f737e104]: 18:521.2 m
+        - generic [ref=f737e105]:
+          - term [ref=f737e106]: Sunset
+          - definition [ref=f737e107]: 21:07
+      - generic [ref=f737e108]:
+        - generic [ref=f737e109]:
+          - term [ref=f737e110]: Widest sand, morning
+          - definition [ref=f737e111]: 04:14 to 08:14
+        - generic [ref=f737e112]:
+          - term [ref=f737e113]: Widest sand, evening
+          - definition [ref=f737e114]: 16:52 to 20:52
+    - navigation "On this page" [ref=f737e116]:
+      - link "What it is" [ref=f737e117] [cursor=pointer]:
+        - /url: "#beach"
+      - link "When to go" [ref=f737e118] [cursor=pointer]:
+        - /url: "#year"
+      - link "Getting here" [ref=f737e119] [cursor=pointer]:
+        - /url: "#getting"
+      - link "Before you go" [ref=f737e120] [cursor=pointer]:
+        - /url: "#notes"
+      - link "Where to stay" [ref=f737e121] [cursor=pointer]:
+        - /url: "#stays"
+      - link "More to read" [ref=f737e122] [cursor=pointer]:
+        - /url: "#reading"
+    - generic [ref=f737e124]:
+      - heading "What Long Beach actually is" [level=2] [ref=f737e127]
+      - generic [ref=f737e128]:
+        - generic [ref=f737e129]:
+          - paragraph [ref=f737e130]: Long Beach is part of Pacific Rim National Park Reserve, the stretch of protected coast between Tofino and Ucluelet. It is the beach most people picture when they picture this coast, and it is the reason the road runs out here at all.
+          - paragraph [ref=f737e131]: "It gives you the classic west coast feeling in one look: open sand, big sky, rolling waves, and rainforest behind you. No promenade, no line of hotels, no boardwalk. The car park, then the sand, then the Pacific."
+          - paragraph [ref=f737e132]: It is a good place for walking, surfing, watching waves, and taking photographs, and there are trails and visitor areas in the park within a few minutes of it.
+          - list "What the beaches guide says Long Beach is good for" [ref=f737e133]:
+            - listitem [ref=f737e134]: Long walks
+            - listitem [ref=f737e135]: Big beach views
+            - listitem [ref=f737e136]: Surfing
+            - listitem [ref=f737e137]: Storm watching
+            - listitem [ref=f737e138]: Photography
+            - listitem [ref=f737e139]: Pacific Rim National Park Reserve
+          - heading "In winter it becomes the storm beach" [level=3] [ref=f737e140]
+          - paragraph [ref=f737e141]: Long Beach is wide, long, and open to the ocean with nothing in front of it. That is what makes it a powerful place to watch winter waves. You can walk on the sand when conditions are safe, or watch from a safer distance back, which on the worst days is the better call and still the better view.
+          - heading "Walking it" [level=3] [ref=f737e142]
+          - paragraph [ref=f737e143]: "A Long Beach hike is not a formal trail. It is simple: walk along the sand, watch the waves, enjoy the wide open views, and turn back when you are ready. It is the easiest big walk near Tofino, and the one that suits people who want scenery without a trailhead, a map, or boots."
+          - generic [ref=f737e144]:
+            - heading "Not a kayaking beach" [level=4] [ref=f737e145]
+            - paragraph [ref=f737e146]: "Long Beach faces the open Pacific, so surf, swell, rip currents and wind make it a hard place to paddle. Expert sea kayakers and surf kayakers use it in the right conditions. Everyone else should enjoy it from shore and paddle the sheltered water instead: Lemmens Inlet, Meares Island, Grice Bay, Tinwis Beach or Kennedy Lake."
+        - generic [ref=f737e147]:
+          - heading "What our guides say about it" [level=3] [ref=f737e148]
+          - generic [ref=f737e149]:
+            - generic [ref=f737e150]:
+              - paragraph [ref=f737e151]: Beaches guide
+              - paragraph [ref=f737e152]: "It gives you that classic west coast feeling: open sand, big sky, rolling waves, and rainforest behind you."
+            - generic [ref=f737e153]:
+              - paragraph [ref=f737e154]: Hiking guide
+              - paragraph [ref=f737e155]: Walk along the sand, watch the waves, enjoy the wide open views, and turn back when you are ready.
+            - generic [ref=f737e156]:
+              - paragraph [ref=f737e157]: Storm watching guide
+              - paragraph [ref=f737e158]: It is wide, long, and open to the ocean. This makes it a powerful place to watch winter waves.
+      - generic [ref=f737e159]:
+        - figure [ref=f737e160]:
+          - img "Rows of white water rolling in at Long Beach with spray blowing off the wave tops and a dark forested point behind" [ref=f737e161]
+        - figure [ref=f737e162]:
+          - img "A paddler in a small kayak punching through a breaking wave in the surf zone off the open coast" [ref=f737e163]
+      - paragraph [ref=f737e164]: Left, the surf that made the beach famous. Right, why most visitors should paddle somewhere else.
+    - generic [ref=f737e165]:
+      - img "A single cyclist crossing the wet sand at Long Beach at low water under a wide grey sky" [ref=f737e166]
+      - generic [ref=f737e168]:
+        - text: The Long Beach Unit
+        - paragraph [ref=f737e169]:
+          - generic [ref=f737e170]: "20"
+          - text: places in and beside this one unit of the park.
+        - paragraph [ref=f737e171]: Five beaches on the road, ten trails and paths off it, two storm viewpoints and three pieces of water, each walked and written up on its own. Long Beach is one of the twenty.
+        - link "Everything worth doing in Tofino" [ref=f737e172] [cursor=pointer]:
+          - /url: things-to-do.html
+    - generic [ref=f737e175]:
+      - generic [ref=f737e176]:
+        - generic [ref=f737e177]:
+          - heading "When should you go?" [level=2] [ref=f737e178]
+          - paragraph [ref=f737e179]: Summer for the long dry days, winter for the storms. The sand itself is open, free and walkable every day of the year. Pick a month to see what it is like.
+        - link "Plan a trip to Tofino" [ref=f737e180] [cursor=pointer]:
+          - /url: plan.html
+      - group "Choose a month" [ref=f737e181]:
+        - button "January" [ref=f737e182] [cursor=pointer]: Jan
+        - button "February" [ref=f737e183] [cursor=pointer]: Feb
+        - button "March" [ref=f737e184] [cursor=pointer]: Mar
+        - button "April" [ref=f737e185] [cursor=pointer]: Apr
+        - button "May" [ref=f737e186] [cursor=pointer]
+        - button "June" [ref=f737e187] [cursor=pointer]: Jun
+        - button "July" [pressed] [ref=f737e188] [cursor=pointer]: Jul
+        - button "August" [ref=f737e189] [cursor=pointer]: Aug
+        - button "September" [ref=f737e190] [cursor=pointer]: Sep
+        - button "October" [ref=f737e191] [cursor=pointer]: Oct
+        - button "November" [ref=f737e192] [cursor=pointer]: Nov
+        - button "December" [ref=f737e193] [cursor=pointer]: Dec
+      - paragraph [ref=f737e194]: What the weather is usually like in July, averaged over the years at the Tofino station.
+      - generic [ref=f737e195]:
+        - generic [ref=f737e196]:
+          - paragraph [ref=f737e197]: "July: long days"
+          - paragraph [ref=f737e198]: Sixteen hours of light and the water finally warm enough to stay in.
+        - generic [ref=f737e199]:
+          - generic [ref=f737e200]:
+            - term [ref=f737e201]: Day high
+            - definition [ref=f737e202]: 18.1°
+          - generic [ref=f737e203]:
+            - term [ref=f737e204]: Rain
+            - definition [ref=f737e205]: 66mm
+          - generic [ref=f737e206]:
+            - term [ref=f737e207]: Rain days
+            - definition [ref=f737e208]: 9of 31
+        - paragraph [ref=f737e209]: The dry window. Long light, and the sand walkable end to end around low water.
+      - paragraph [ref=f737e210]:
+        - text: July is the season for beach days, walking, park trails and kayaking.
+        - generic [ref=f737e211]: The sand is open all 31 days of the month, and free.
+      - paragraph [ref=f737e212]: What people come to Long Beach for, and the months each one is at its best. A filled square is a good month.
+      - table [ref=f737e213]:
+        - rowgroup [ref=f737e214]:
+          - row [ref=f737e215]:
+            - cell "Beach days Open sand, big sky, room to spread out" [ref=f737e216]:
+              - generic [ref=f737e217]: Beach days
+              - generic [ref=f737e218]: Open sand, big sky, room to spread out
+            - cell [ref=f737e219]:
+              - img "Beach days, at its best May to September" [ref=f737e220]:
+                - generic [ref=f737e221]: J
+                - generic [ref=f737e222]: F
+                - generic [ref=f737e223]: M
+                - generic [ref=f737e224]: A
+                - generic [ref=f737e225]: M
+                - generic [ref=f737e226]: J
+                - generic [ref=f737e227]: J
+                - generic [ref=f737e228]: A
+                - generic [ref=f737e229]: S
+                - generic [ref=f737e230]: O
+                - generic [ref=f737e231]: "N"
+                - generic [ref=f737e232]: D
+            - cell "Free" [ref=f737e233]
+          - row [ref=f737e234]:
+            - cell "Walking End to end on the sand, no trailhead needed" [ref=f737e235]:
+              - generic [ref=f737e236]: Walking
+              - generic [ref=f737e237]: End to end on the sand, no trailhead needed
+            - cell [ref=f737e238]:
+              - img "Walking, at its best April to October" [ref=f737e239]:
+                - generic [ref=f737e240]: J
+                - generic [ref=f737e241]: F
+                - generic [ref=f737e242]: M
+                - generic [ref=f737e243]: A
+                - generic [ref=f737e244]: M
+                - generic [ref=f737e245]: J
+                - generic [ref=f737e246]: J
+                - generic [ref=f737e247]: A
+                - generic [ref=f737e248]: S
+                - generic [ref=f737e249]: O
+                - generic [ref=f737e250]: "N"
+                - generic [ref=f737e251]: D
+            - cell "Free" [ref=f737e252]
+          - row [ref=f737e253]:
+            - cell "Park trails Ten rainforest trails off the same road" [ref=f737e254]:
+              - generic [ref=f737e255]: Park trails
+              - generic [ref=f737e256]: Ten rainforest trails off the same road
+            - cell [ref=f737e257]:
+              - img "Park trails, at its best April to October" [ref=f737e258]:
+                - generic [ref=f737e259]: J
+                - generic [ref=f737e260]: F
+                - generic [ref=f737e261]: M
+                - generic [ref=f737e262]: A
+                - generic [ref=f737e263]: M
+                - generic [ref=f737e264]: J
+                - generic [ref=f737e265]: J
+                - generic [ref=f737e266]: A
+                - generic [ref=f737e267]: S
+                - generic [ref=f737e268]: O
+                - generic [ref=f737e269]: "N"
+                - generic [ref=f737e270]: D
+            - cell "Park pass" [ref=f737e271]
+          - row [ref=f737e272]:
+            - cell "Kayaking Experts only, and only in the right conditions" [ref=f737e273]:
+              - generic [ref=f737e274]: Kayaking
+              - generic [ref=f737e275]: Experts only, and only in the right conditions
+            - cell [ref=f737e276]:
+              - img "Kayaking, at its best May to September" [ref=f737e277]:
+                - generic [ref=f737e278]: J
+                - generic [ref=f737e279]: F
+                - generic [ref=f737e280]: M
+                - generic [ref=f737e281]: A
+                - generic [ref=f737e282]: M
+                - generic [ref=f737e283]: J
+                - generic [ref=f737e284]: J
+                - generic [ref=f737e285]: A
+                - generic [ref=f737e286]: S
+                - generic [ref=f737e287]: O
+                - generic [ref=f737e288]: "N"
+                - generic [ref=f737e289]: D
+            - cell "Not for beginners" [ref=f737e290]
+          - row [ref=f737e291]:
+            - cell "Better in another month" [ref=f737e292]
+          - row [ref=f737e293]:
+            - cell "Surfing Boards and lessons rent in town" [ref=f737e294]:
+              - generic [ref=f737e295]: Surfing
+              - generic [ref=f737e296]: Boards and lessons rent in town
+            - cell [ref=f737e297]:
+              - img "Surfing, at its best September to April" [ref=f737e298]:
+                - generic [ref=f737e299]: J
+                - generic [ref=f737e300]: F
+                - generic [ref=f737e301]: M
+                - generic [ref=f737e302]: A
+                - generic [ref=f737e303]: M
+                - generic [ref=f737e304]: J
+                - generic [ref=f737e305]: J
+                - generic [ref=f737e306]: A
+                - generic [ref=f737e307]: S
+                - generic [ref=f737e308]: O
+                - generic [ref=f737e309]: "N"
+                - generic [ref=f737e310]: D
+            - cell [ref=f737e311]:
+              - button "Best Sep to Apr" [ref=f737e312] [cursor=pointer]
+          - row [ref=f737e315]:
+            - cell "Storm watching Winter waves, from the sand or from a window" [ref=f737e316]:
+              - generic [ref=f737e317]: Storm watching
+              - generic [ref=f737e318]: Winter waves, from the sand or from a window
+            - cell [ref=f737e319]:
+              - img "Storm watching, at its best November to February" [ref=f737e320]:
+                - generic [ref=f737e321]: J
+                - generic [ref=f737e322]: F
+                - generic [ref=f737e323]: M
+                - generic [ref=f737e324]: A
+                - generic [ref=f737e325]: M
+                - generic [ref=f737e326]: J
+                - generic [ref=f737e327]: J
+                - generic [ref=f737e328]: A
+                - generic [ref=f737e329]: S
+                - generic [ref=f737e330]: O
+                - generic [ref=f737e331]: "N"
+                - generic [ref=f737e332]: D
+            - cell [ref=f737e333]:
+              - button "Best Nov to Feb" [ref=f737e334] [cursor=pointer]
+      - paragraph [ref=f737e337]: Averages from the Environment and Climate Change Canada record for the Tofino station.
+    - generic [ref=f737e339]:
+      - generic [ref=f737e341]:
+        - heading "Getting here" [level=2] [ref=f737e342]
+        - paragraph [ref=f737e343]: Long Beach is the middle of a run of park beaches. This is the order they come in, driving from the Tofino end to the Ucluelet end.
+      - list "The park beaches from the Tofino end to the Ucluelet end" [ref=f737e344]:
+        - listitem [ref=f737e345]:
+          - generic [ref=f737e346]: Schooner Cove
+          - generic [ref=f737e347]: Forest first, then sand. The quietest stop of the five, closest to the Tofino end.
+          - generic [ref=f737e348]: Tofino end
+        - listitem [ref=f737e349]:
+          - generic [ref=f737e350]: Long Beach
+          - generic [ref=f737e351]: The main strand, and this page. Surf, walking, and the winter waves.
+          - generic [ref=f737e352]: You are here
+        - listitem [ref=f737e353]:
+          - generic [ref=f737e354]: Combers Beach
+          - generic [ref=f737e355]: Not a town beach. Wilder, emptier, and made for a long walk.
+        - listitem [ref=f737e356]:
+          - generic [ref=f737e357]: Wickaninnish Beach
+          - generic [ref=f737e358]: Big ocean views, storm watching, and the Kwisitis Visitor Centre.
+        - listitem [ref=f737e359]:
+          - generic [ref=f737e360]: Florencia Bay
+          - generic [ref=f737e361]: Sand cliffs and low tide exploring, down a set of stairs that feel longer coming back.
+          - generic [ref=f737e362]: Ucluelet end
+      - generic [ref=f737e363]:
+        - paragraph [ref=f737e364]: "The Long Beach Unit holds twenty places in all: five beaches on this road, ten trails and paths off it, and three pieces of water."
+        - link "See everything to do in Tofino" [ref=f737e365] [cursor=pointer]:
+          - /url: things-to-do.html
+      - generic [ref=f737e368]:
+        - generic [ref=f737e369]:
+          - term [ref=f737e370]: The road
+          - definition [ref=f737e371]: Highway 4 runs behind the whole beach, with Parks Canada car parks off it at intervals. There is no single entrance to aim for.
+        - generic [ref=f737e372]:
+          - term [ref=f737e373]: From Tofino
+          - definition [ref=f737e374]: You arrive at the north end, about twenty minutes out of town.
+        - generic [ref=f737e375]:
+          - term [ref=f737e376]: From Ucluelet
+          - definition [ref=f737e377]: You arrive at the south end, about twenty minutes out of town, past Florencia Bay and Wickaninnish.
+        - generic [ref=f737e378]:
+          - term [ref=f737e379]: Without a car
+          - definition [ref=f737e380]: The ʔapsčiik t̓ašii pathway, said ups-cheek ta-shee, is paved and runs the length of the unit between the two towns. It has hills, so plan the way back.
+    - generic [ref=f737e382]:
+      - generic [ref=f737e384]:
+        - heading "Before you go" [level=2] [ref=f737e385]
+        - paragraph [ref=f737e386]: Five things the guides say every time. Read these and you are set.
+      - generic [ref=f737e387]:
+        - generic [ref=f737e388]:
+          - term [ref=f737e389]: Check the tide
+          - definition [ref=f737e390]: The beach is much wider at low water, and the walk back is longer than it looked on the way out. Today's readings are at the top of this page.
+        - generic [ref=f737e391]:
+          - term [ref=f737e392]: Watch the waves
+          - definition [ref=f737e393]: Stay well back from big waves and never turn your back on the ocean. This is open coast, not a sheltered bay.
+        - generic [ref=f737e394]:
+          - term [ref=f737e395]: Swimming
+          - definition [ref=f737e396]: Yes, but the water is cold and the current can be strong. Most people wear a wetsuit. There are no lifeguards.
+        - generic [ref=f737e397]:
+          - term [ref=f737e398]: Leave the kayak
+          - definition [ref=f737e399]: "Paddle the sheltered water instead: Lemmens Inlet, Grice Bay or Kennedy Lake."
+        - generic [ref=f737e400]:
+          - term [ref=f737e401]: Park pass and rules
+          - definition [ref=f737e402]: You may need a national park pass to stop here, and dog and access rules change through the year. Follow the Parks Canada signs.
+    - generic [ref=f737e404]:
+      - generic [ref=f737e405]:
+        - generic [ref=f737e406]:
+          - heading "Where to stay" [level=2] [ref=f737e407]
+          - paragraph [ref=f737e408]: Nothing on Long Beach itself is bookable. It is a national park beach, so the rooms sit in the two towns at either end, both about twenty minutes away.
+        - link "Find a stay" [ref=f737e409] [cursor=pointer]:
+          - /url: search.html?in=tofino
+      - paragraph [ref=f737e410]: Tofino end, 4 rooms, from $320 a night
+      - link "A single timber cabin on a forested rocky point, with quiet water and small islands beyond it 4.9 Coastal Bed-Cliff Cottage with Private Beach & Firepit Tofino, British Columbia · 2 rooms · 3 beds · 2 baths $420a night, CAD See this stay and the nights it is open" [ref=f737e411] [cursor=pointer]:
+        - /url: search.html?in=tofino
+        - generic [ref=f737e412]:
+          - img "A single timber cabin on a forested rocky point, with quiet water and small islands beyond it" [ref=f737e413]
+          - generic [ref=f737e414]: "4.9"
+        - generic [ref=f737e415]:
+          - heading "Coastal Bed-Cliff Cottage with Private Beach & Firepit" [level=3] [ref=f737e416]
+          - paragraph [ref=f737e417]: Tofino, British Columbia · 2 rooms · 3 beds · 2 baths
+          - paragraph [ref=f737e418]: $420a night, CAD
+          - generic [ref=f737e419]: See this stay and the nights it is open
+      - generic [ref=f737e422]:
+        - link "The inside of an A-frame cabin, a white corner sofa under a sloping ceiling and glass doors open onto green trees 4.9 Cozy Mountain Chalet with Sauna, Fireplace & Trails Nearby Tofino · 2 rooms · 3 beds · 2 baths $320 a night" [ref=f737e423] [cursor=pointer]:
+          - /url: search.html?in=tofino
+          - generic [ref=f737e424]:
+            - img "The inside of an A-frame cabin, a white corner sofa under a sloping ceiling and glass doors open onto green trees" [ref=f737e425]
+            - generic [ref=f737e426]: "4.9"
+          - heading "Cozy Mountain Chalet with Sauna, Fireplace & Trails Nearby" [level=4] [ref=f737e427]
+          - paragraph [ref=f737e428]: Tofino · 2 rooms · 3 beds · 2 baths
+          - paragraph [ref=f737e429]: $320 a night
+        - link "Houses set among tall trees along a rocky shoreline, with surf breaking on the rocks below them 4.9 Riverside Cabin Retreat with Hot Tub & Forest Views Tofino · 2 rooms · 3 beds · 2 baths $420 a night" [ref=f737e430] [cursor=pointer]:
+          - /url: search.html?in=tofino
+          - generic [ref=f737e431]:
+            - img "Houses set among tall trees along a rocky shoreline, with surf breaking on the rocks below them" [ref=f737e432]
+            - generic [ref=f737e433]: "4.9"
+          - heading "Riverside Cabin Retreat with Hot Tub & Forest Views" [level=4] [ref=f737e434]
+          - paragraph [ref=f737e435]: Tofino · 2 rooms · 3 beds · 2 baths
+          - paragraph [ref=f737e436]: $420 a night
+        - link "A wooded inlet seen from the air, a small boat crossing it and a mountain standing behind 4.9 Lakefront Cottage with Private Dock & Canoes Included Tofino · 2 rooms · 3 beds · 2 baths $500 a night" [ref=f737e437] [cursor=pointer]:
+          - /url: search.html?in=tofino
+          - generic [ref=f737e438]:
+            - img "A wooded inlet seen from the air, a small boat crossing it and a mountain standing behind" [ref=f737e439]
+            - generic [ref=f737e440]: "4.9"
+          - heading "Lakefront Cottage with Private Dock & Canoes Included" [level=4] [ref=f737e441]
+          - paragraph [ref=f737e442]: Tofino · 2 rooms · 3 beds · 2 baths
+          - paragraph [ref=f737e443]: $500 a night
+      - paragraph [ref=f737e444]: Ucluelet end, 3 rooms, from $320 a night
+      - generic [ref=f737e445]:
+        - link [ref=f737e446] [cursor=pointer]:
+          - /url: search.html?in=tofino
+          - img "A forested headland from the air, reefs showing pale through the water off the point" [ref=f737e448]
+          - generic [ref=f737e449]:
+            - paragraph [ref=f737e450]: Historic Old-Town Loft with Stone Walls & River Views
+            - paragraph [ref=f737e451]: Ucluelet · 2 rooms · 3 beds · 2 baths · 4.9 rated
+          - paragraph [ref=f737e452]: $320
+        - link [ref=f737e453] [cursor=pointer]:
+          - /url: search.html?in=tofino
+          - img "A long wooden table set for dinner with candles and bread, on a deck with the ocean behind the railing" [ref=f737e455]
+          - generic [ref=f737e456]:
+            - paragraph [ref=f737e457]: Alpine Timber Chalet with Hot Tub & Stargazing Deck
+            - paragraph [ref=f737e458]: Ucluelet · 2 rooms · 3 beds · 2 baths · 4.9 rated
+          - paragraph [ref=f737e459]: $385
+        - link [ref=f737e460] [cursor=pointer]:
+          - /url: search.html?in=tofino
+          - img "A brass key on a leather fob resting on a linen bed beside a wooden bedside table" [ref=f737e462]
+          - generic [ref=f737e463]:
+            - paragraph [ref=f737e464]: Modern Lakeside Villa with Rooftop Lounge & Marina Access
+            - paragraph [ref=f737e465]: Ucluelet · 2 rooms · 3 beds · 2 baths · 4.9 rated
+          - paragraph [ref=f737e466]: $450
+    - generic [ref=f737e468]:
+      - generic [ref=f737e469]:
+        - heading "More to read" [level=2] [ref=f737e471]
+        - link "All nine Tofino guides" [ref=f737e472] [cursor=pointer]:
+          - /url: guide.html
+      - generic [ref=f737e473]:
+        - 'link "A wide empty beach on the Tofino coast with surf running in and forest along the back of the sand Beaches Tofino 13 beaches written up The Best Beaches in Tofino Long Beach, Cox Bay, Chesterman: where to find surf, sand, and sunset walks, and which one suits the day you actually have." [ref=f737e474] [cursor=pointer]':
+          - /url: guide.html
+          - img "A wide empty beach on the Tofino coast with surf running in and forest along the back of the sand" [ref=f737e476]
+          - generic [ref=f737e477]:
+            - generic [ref=f737e478]: Beaches
+            - generic [ref=f737e480]: Tofino
+            - generic [ref=f737e482]: 13 beaches written up
+          - heading "The Best Beaches in Tofino" [level=3] [ref=f737e483]
+          - paragraph [ref=f737e484]: "Long Beach, Cox Bay, Chesterman: where to find surf, sand, and sunset walks, and which one suits the day you actually have."
+        - generic [ref=f737e485]:
+          - link "A figure in a yellow jacket alone on wet sand under a grey sky, surf running past rocky islets Storm watching 8 places to watch from Storm Watching in Tofino" [ref=f737e486] [cursor=pointer]:
+            - /url: guide.html
+            - img "A figure in a yellow jacket alone on wet sand under a grey sky, surf running past rocky islets" [ref=f737e488]
+            - generic [ref=f737e489]:
+              - generic [ref=f737e490]:
+                - generic [ref=f737e491]: Storm watching
+                - generic [ref=f737e493]: 8 places to watch from
+              - heading "Storm Watching in Tofino" [level=4] [ref=f737e494]
+          - link "A surfer riding along a wave at dusk with a dark rocky point behind Surfing Breaks, seasons, board rental Surfing in Tofino" [ref=f737e495] [cursor=pointer]:
+            - /url: guide.html
+            - img "A surfer riding along a wave at dusk with a dark rocky point behind" [ref=f737e497]
+            - generic [ref=f737e498]:
+              - generic [ref=f737e499]:
+                - generic [ref=f737e500]: Surfing
+                - generic [ref=f737e502]: Breaks, seasons, board rental
+              - heading "Surfing in Tofino" [level=4] [ref=f737e503]
+          - link "A walker in a yellow jacket on a wooden boardwalk staircase through dense rainforest Hiking 18 trails written up Hiking and Trails in Tofino" [ref=f737e504] [cursor=pointer]:
+            - /url: guide.html
+            - img "A walker in a yellow jacket on a wooden boardwalk staircase through dense rainforest" [ref=f737e506]
+            - generic [ref=f737e507]:
+              - generic [ref=f737e508]:
+                - generic [ref=f737e509]: Hiking
+                - generic [ref=f737e511]: 18 trails written up
+              - heading "Hiking and Trails in Tofino" [level=4] [ref=f737e512]
+          - link "A motorhome parked at a forest campsite with low sun breaking through tall trees Camping Between the two towns Tofino and Ucluelet Campgrounds" [ref=f737e513] [cursor=pointer]:
+            - /url: guide.html
+            - img "A motorhome parked at a forest campsite with low sun breaking through tall trees" [ref=f737e515]
+            - generic [ref=f737e516]:
+              - generic [ref=f737e517]:
+                - generic [ref=f737e518]: Camping
+                - generic [ref=f737e520]: Between the two towns
+              - heading "Tofino and Ucluelet Campgrounds" [level=4] [ref=f737e521]
+          - link "A surfer in the shorebreak at sunset on the Tofino coast When to go Month by month Best Time to Stay in Ucluelet or Tofino" [ref=f737e522] [cursor=pointer]:
+            - /url: guide.html
+            - img "A surfer in the shorebreak at sunset on the Tofino coast" [ref=f737e524]
+            - generic [ref=f737e525]:
+              - generic [ref=f737e526]:
+                - generic [ref=f737e527]: When to go
+                - generic [ref=f737e529]: Month by month
+              - heading "Best Time to Stay in Ucluelet or Tofino" [level=4] [ref=f737e530]
+    - generic [ref=f737e532]:
+      - generic [ref=f737e533]:
+        - generic [ref=f737e534]:
+          - heading "The other twelve beaches in Tofino" [level=2] [ref=f737e535]
+          - paragraph [ref=f737e536]: Grouped by the kind of day they suit, so you can pick one without reading all twelve.
+        - link "Beaches, by subject" [ref=f737e537] [cursor=pointer]:
+          - /url: things-to-do.html
+      - navigation "The other beaches in Tofino" [ref=f737e538]:
+        - paragraph [ref=f737e539]:
+          - generic [ref=f737e540]: Close to town
+          - generic [ref=f737e541]: 4 places
+        - generic [ref=f737e542]:
+          - link "Chesterman Beach Long and sandy, with beginner surf lessons and tide pools." [ref=f737e543] [cursor=pointer]:
+            - /url: guide.html
+            - generic [ref=f737e544]: Chesterman Beach
+            - generic [ref=f737e545]: Long and sandy, with beginner surf lessons and tide pools.
+          - link "Cox Bay Wide and facing the Pacific. The surf beach of the big three." [ref=f737e546] [cursor=pointer]:
+            - /url: guide.html
+            - generic [ref=f737e547]: Cox Bay
+            - generic [ref=f737e548]: Wide and facing the Pacific. The surf beach of the big three.
+          - link "Tonquin Beach A short forest trail down from the village to a quieter stretch." [ref=f737e549] [cursor=pointer]:
+            - /url: guide.html
+            - generic [ref=f737e550]: Tonquin Beach
+            - generic [ref=f737e551]: A short forest trail down from the village to a quieter stretch.
+          - link "Tinwis Beach Sheltered, gentler water, and the easiest one with children." [ref=f737e552] [cursor=pointer]:
+            - /url: guide.html
+            - generic [ref=f737e553]: Tinwis Beach
+            - generic [ref=f737e554]: Sheltered, gentler water, and the easiest one with children.
+        - paragraph [ref=f737e555]:
+          - generic [ref=f737e556]: In the national park
+          - generic [ref=f737e557]: 4 places
+        - generic [ref=f737e558]:
+          - link "Wickaninnish Beach Big ocean views and the Kwisitis Visitor Centre." [ref=f737e559] [cursor=pointer]:
+            - /url: guide.html
+            - generic [ref=f737e560]: Wickaninnish Beach
+            - generic [ref=f737e561]: Big ocean views and the Kwisitis Visitor Centre.
+          - link "Combers Beach Wilder and emptier, reached by a short trail off the park road." [ref=f737e562] [cursor=pointer]:
+            - /url: guide.html
+            - generic [ref=f737e563]: Combers Beach
+            - generic [ref=f737e564]: Wilder and emptier, reached by a short trail off the park road.
+          - link "Schooner Cove Forest first, then sand, at the Tofino end of the park road." [ref=f737e565] [cursor=pointer]:
+            - /url: guide.html
+            - generic [ref=f737e566]: Schooner Cove
+            - generic [ref=f737e567]: Forest first, then sand, at the Tofino end of the park road.
+          - link "Florencia Bay Sand cliffs and low tide exploring at the far south end." [ref=f737e568] [cursor=pointer]:
+            - /url: guide.html
+            - generic [ref=f737e569]: Florencia Bay
+            - generic [ref=f737e570]: Sand cliffs and low tide exploring at the far south end.
+        - paragraph [ref=f737e571]:
+          - generic [ref=f737e572]: Quieter and sheltered
+          - generic [ref=f737e573]: 4 places
+        - generic [ref=f737e574]:
+          - link "Middle Beach Tucked away near Chesterman, with rocky edges and forest." [ref=f737e575] [cursor=pointer]:
+            - /url: guide.html
+            - generic [ref=f737e576]: Middle Beach
+            - generic [ref=f737e577]: Tucked away near Chesterman, with rocky edges and forest.
+          - link "Kennedy Lake Fresh water, not ocean. Calm paddling when the coast is blowing." [ref=f737e578] [cursor=pointer]:
+            - /url: guide.html
+            - generic [ref=f737e579]: Kennedy Lake
+            - generic [ref=f737e580]: Fresh water, not ocean. Calm paddling when the coast is blowing.
+          - link "Grice Bay The calm inlet side, for kayaks and birds rather than surf." [ref=f737e581] [cursor=pointer]:
+            - /url: guide.html
+            - generic [ref=f737e582]: Grice Bay
+            - generic [ref=f737e583]: The calm inlet side, for kayaks and birds rather than surf.
+          - link "Rosie Bay Small and quiet, with rocks and pools at low water." [ref=f737e584] [cursor=pointer]:
+            - /url: guide.html
+            - generic [ref=f737e585]: Rosie Bay
+            - generic [ref=f737e586]: Small and quiet, with rocks and pools at low water.
+    - generic [ref=f737e588]:
+      - heading "Where to go from here" [level=2] [ref=f737e591]
+      - generic [ref=f737e592]:
+        - link "Tofino, the whole town Nine guides, seventy-three places, and the month by month read on when to come. Back to Tofino" [ref=f737e593] [cursor=pointer]:
+          - /url: tofino.html
+          - generic [ref=f737e594]: Tofino, the whole town
+          - paragraph [ref=f737e595]: Nine guides, seventy-three places, and the month by month read on when to come.
+          - generic [ref=f737e596]: Back to Tofino
+        - link "Vancouver Island, all eleven towns Tofino and Ucluelet are two of eleven. Victoria, Nanaimo, Campbell River and the rest sit on the same island. See the island" [ref=f737e599] [cursor=pointer]:
+          - /url: region.html
+          - generic [ref=f737e600]: Vancouver Island, all eleven towns
+          - paragraph [ref=f737e601]: Tofino and Ucluelet are two of eleven. Victoria, Nanaimo, Campbell River and the rest sit on the same island.
+          - generic [ref=f737e602]: See the island
+        - link "Rooms within twenty minutes Cabins, lofts and chalets at both ends of this road, from $320 a night. Search stays" [ref=f737e605] [cursor=pointer]:
+          - /url: search.html?in=tofino
+          - generic [ref=f737e606]: Rooms within twenty minutes
+          - paragraph [ref=f737e607]: Cabins, lofts and chalets at both ends of this road, from $320 a night.
+          - generic [ref=f737e608]: Search stays
+  - contentinfo [ref=f737e611]:
+    - generic [ref=f737e612]:
+      - generic [ref=f737e613]:
+        - generic [ref=f737e614]:
+          - text: Arctrips
+          - paragraph [ref=f737e615]: Stays and guides on the west coast of Vancouver Island, written by people who go there.
+        - generic [ref=f737e616]:
+          - heading "This coast" [level=5] [ref=f737e617]
+          - list [ref=f737e618]:
+            - listitem [ref=f737e619]:
+              - link "Tofino" [ref=f737e620] [cursor=pointer]:
+                - /url: tofino.html
+            - listitem [ref=f737e621]:
+              - link "Long Beach" [ref=f737e622] [cursor=pointer]:
+                - /url: "#top"
+            - listitem [ref=f737e623]:
+              - link "Guides" [ref=f737e624] [cursor=pointer]:
+                - /url: search.html
+            - listitem [ref=f737e625]:
+              - link "British Columbia" [ref=f737e626] [cursor=pointer]:
+                - /url: province.html
+            - listitem [ref=f737e627]:
+              - link "Canada" [ref=f737e628] [cursor=pointer]:
+                - /url: country.html
+        - generic [ref=f737e629]:
+          - heading "In Tofino" [level=5] [ref=f737e630]
+          - list [ref=f737e631]:
+            - listitem [ref=f737e632]:
+              - link "All nine subjects" [ref=f737e633] [cursor=pointer]:
+                - /url: things-to-do.html
+            - listitem [ref=f737e634]:
+              - link "Whale watching" [ref=f737e635] [cursor=pointer]:
+                - /url: whale-watching.html
+            - listitem [ref=f737e636]:
+              - link "Beaches guide" [ref=f737e637] [cursor=pointer]:
+                - /url: guide.html
+            - listitem [ref=f737e638]:
+              - link "Search everything" [ref=f737e639] [cursor=pointer]:
+                - /url: search.html?in=tofino
+        - generic [ref=f737e640]:
+          - heading "Plan" [level=5] [ref=f737e641]
+          - list [ref=f737e642]:
+            - listitem [ref=f737e643]:
+              - link "When to go" [ref=f737e644] [cursor=pointer]:
+                - /url: plan.html
+            - listitem [ref=f737e645]:
+              - link "Getting there" [ref=f737e646] [cursor=pointer]:
+                - /url: plan.html
+            - listitem [ref=f737e647]:
+              - link "Where to stay" [ref=f737e648] [cursor=pointer]:
+                - /url: search.html?in=tofino
+            - listitem [ref=f737e649]:
+              - link "What to pack" [ref=f737e650] [cursor=pointer]:
+                - /url: guide.html
+        - generic [ref=f737e651]:
+          - heading "Arc Trips" [level=5] [ref=f737e652]
+          - list [ref=f737e653]:
+            - listitem [ref=f737e654]:
+              - link "About us" [ref=f737e655] [cursor=pointer]:
+                - /url: not-found.html
+            - listitem [ref=f737e656]:
+              - link "List your place" [ref=f737e657] [cursor=pointer]:
+                - /url: not-found.html
+            - listitem [ref=f737e658]:
+              - link "Fishing charters" [ref=f737e659] [cursor=pointer]:
+                - /url: search.html?in=tofino
+            - listitem [ref=f737e660]:
+              - link "Contact" [ref=f737e661] [cursor=pointer]:
+                - /url: not-found.html
+      - generic [ref=f737e662]:
+        - generic [ref=f737e663]: © 2026 Arc Trips
+        - generic [ref=f737e664]: Prices in CAD, before taxes and fees

@@ -1,0 +1,517 @@
+- generic [active] [ref=f760e1]:
+  - link "Skip to content" [ref=f760e2] [cursor=pointer]:
+    - /url: "#main"
+  - generic:
+    - img:
+      - generic:
+        - generic: "14"
+        - generic: "9"
+        - generic: "22"
+        - generic: "31"
+        - generic: "17"
+        - generic: "6"
+        - generic: "11"
+        - generic: "26"
+        - generic: "19"
+        - generic: "8"
+        - generic: "24"
+        - generic: "13"
+        - generic: "28"
+        - generic: "5"
+        - generic: "16"
+  - navigation [ref=f760e3]:
+    - generic [ref=f760e4]:
+      - link "Arctrips" [ref=f760e5] [cursor=pointer]:
+        - /url: index.html
+      - list [ref=f760e6]:
+        - listitem [ref=f760e7]:
+          - link "Stays" [ref=f760e8] [cursor=pointer]:
+            - /url: not-found.html
+        - listitem [ref=f760e9]:
+          - link "Destinations" [ref=f760e10] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=f760e11]:
+          - link "Guides" [ref=f760e12] [cursor=pointer]:
+            - /url: "#top"
+      - link "Sign in" [ref=f760e13] [cursor=pointer]:
+        - /url: not-found.html
+  - navigation "Tofino" [ref=f760e14]:
+    - generic [ref=f760e15]:
+      - link "← Tofino" [ref=f760e16] [cursor=pointer]:
+        - /url: tofino.html
+      - list [ref=f760e18]:
+        - listitem [ref=f760e19]:
+          - link "Overview" [ref=f760e20] [cursor=pointer]:
+            - /url: tofino.html
+        - listitem [ref=f760e21]:
+          - link "Things to do" [ref=f760e22] [cursor=pointer]:
+            - /url: things-to-do.html
+        - listitem [ref=f760e23]:
+          - link "Areas" [ref=f760e24] [cursor=pointer]:
+            - /url: long-beach.html
+        - listitem [ref=f760e25]:
+          - link "Plan" [ref=f760e26] [cursor=pointer]:
+            - /url: plan.html
+        - listitem [ref=f760e27]:
+          - link "Guides" [ref=f760e28] [cursor=pointer]:
+            - /url: guide.html
+  - main [ref=f760e29]:
+    - navigation "Breadcrumb" [ref=f760e31]:
+      - link "Vancouver Island" [ref=f760e32] [cursor=pointer]:
+        - /url: region.html
+      - generic [ref=f760e33]: /
+      - link "Tofino" [ref=f760e34] [cursor=pointer]:
+        - /url: tofino.html
+      - generic [ref=f760e35]: /
+      - generic [ref=f760e36]: Search
+    - generic [ref=f760e38]:
+      - heading "13 results for “whale”" [level=1] [ref=f760e39]:
+        - generic [ref=f760e40]: "13"
+        - text: results for “whale”
+      - paragraph [ref=f760e41]: In Tofino. 32 more are in other towns, listed at the end.
+      - search [ref=f760e42]:
+        - generic [ref=f760e43]:
+          - generic [ref=f760e47]: Search towns, guides, places, articles, questions and stays
+          - combobox "Search towns, guides, places, articles, questions and stays" [ref=f760e48]: whale
+          - button "Search" [ref=f760e49] [cursor=pointer]
+      - paragraph [ref=f760e50]:
+        - generic [ref=f760e51]: You are searching Tofino only.
+        - button "Search all 28 towns instead" [ref=f760e52] [cursor=pointer]
+      - paragraph [ref=f760e53]:
+        - generic [ref=f760e54]: People also search
+        - button "storm watching" [ref=f760e55] [cursor=pointer]
+        - button "Long Beach" [ref=f760e56] [cursor=pointer]
+        - button "hot tub" [ref=f760e57] [cursor=pointer]
+        - button "can you swim" [ref=f760e58] [cursor=pointer]
+      - status [ref=f760e59]: 13 results for whale, in Tofino.
+    - generic [ref=f760e61]:
+      - paragraph [ref=f760e62]: Tide today at Tofino Harbour
+      - paragraph [ref=f760e63]:
+        - generic [ref=f760e64]: Low 06:14
+        - generic [ref=f760e65]: High 12:38
+        - generic [ref=f760e66]: Low 18:52
+        - generic [ref=f760e67]: Sunset 21:07
+      - paragraph [ref=f760e68]: Long Beach doubles in width at low water.
+    - generic [ref=f760e69]:
+      - group "Narrow by kind of page" [ref=f760e70]:
+        - generic [ref=f760e71]: Show
+        - button "Everything 13" [pressed] [ref=f760e72] [cursor=pointer]
+        - button "Guides 1" [ref=f760e73] [cursor=pointer]
+        - button "Articles 4" [ref=f760e74] [cursor=pointer]
+        - button "Questions 8" [ref=f760e75] [cursor=pointer]
+      - group "Narrow by subject" [ref=f760e76]:
+        - generic [ref=f760e77]: Subject
+        - button "Whale watching 12" [ref=f760e78] [cursor=pointer]
+        - button "Events 1" [ref=f760e79] [cursor=pointer]
+    - generic [ref=f760e80]:
+      - region [ref=f760e81]:
+        - heading "Closest match" [level=2] [ref=f760e83]
+        - link "Whale watching, Guide, Tofino Guide, Tofino Whale watching Tofino is one of the best places on Vancouver Island to see wild animals. It sits beside Clayoquot Sound, a rich coastal area with ocean,… Best months to go Whale watching, Best from March to October. This month is outlined. Best from March to October. This month is outlined. Open the guide" [ref=f760e84] [cursor=pointer]:
+          - /url: whale-watching.html
+          - img "Whale watching, Guide, Tofino" [ref=f760e86]
+          - generic [ref=f760e87]:
+            - generic [ref=f760e88]: Guide, Tofino
+            - heading [level=3] [ref=f760e90]:
+              - mark [ref=f760e91]: Whale
+              - text: watching
+            - paragraph [ref=f760e92]: Tofino is one of the best places on Vancouver Island to see wild animals. It sits beside Clayoquot Sound, a rich coastal area with ocean,…
+            - generic [ref=f760e93]:
+              - paragraph [ref=f760e94]: Best months to go
+              - img "Whale watching, Best from March to October. This month is outlined." [ref=f760e95]:
+                - generic [ref=f760e96]: J
+                - generic [ref=f760e97]: F
+                - generic [ref=f760e98]: M
+                - generic [ref=f760e99]: A
+                - generic [ref=f760e100]: M
+                - generic [ref=f760e101]: J
+                - generic [ref=f760e102]: J
+                - generic [ref=f760e103]: A
+                - generic [ref=f760e104]: S
+                - generic [ref=f760e105]: O
+                - generic [ref=f760e106]: "N"
+                - generic [ref=f760e107]: D
+              - paragraph [ref=f760e108]: Best from March to October. This month is outlined.
+            - generic [ref=f760e109]: Open the guide
+      - region [ref=f760e110]:
+        - heading "Articles4" [level=2] [ref=f760e112]
+        - generic [ref=f760e113]:
+          - link "Whale watching FAQs, Article about whale watching Article about whale watching Whale watching FAQs What is the best month for whale watching in Tofino?" [ref=f760e114] [cursor=pointer]:
+            - /url: guide.html
+            - img "Whale watching FAQs, Article about whale watching" [ref=f760e116]
+            - generic [ref=f760e117]:
+              - generic [ref=f760e118]: Article about whale watching
+              - heading [level=3] [ref=f760e120]:
+                - mark [ref=f760e121]: Whale
+                - text: watching FAQs
+              - paragraph [ref=f760e122]:
+                - text: What is the best month for
+                - mark [ref=f760e123]: whale
+                - text: watching in Tofino?
+          - link "Whale Tails, Blows, and Backs, Article about whale watching Article about whale watching Whale Tails, Blows, and Backs What you're actually seeing on the water." [ref=f760e124] [cursor=pointer]:
+            - /url: guide.html
+            - img "Whale Tails, Blows, and Backs, Article about whale watching" [ref=f760e126]
+            - generic [ref=f760e127]:
+              - generic [ref=f760e128]: Article about whale watching
+              - heading [level=3] [ref=f760e130]:
+                - mark [ref=f760e131]: Whale
+                - text: Tails, Blows, and Backs
+              - paragraph [ref=f760e132]: What you're actually seeing on the water.
+          - link "Pacific Rim Whale Festival Guide, Article about events Article about events Pacific Rim Whale Festival Guide The spring festival that marks the gray whale migration through Clayoquot Sound." [ref=f760e133] [cursor=pointer]:
+            - /url: guide.html
+            - img "Pacific Rim Whale Festival Guide, Article about events" [ref=f760e135]
+            - generic [ref=f760e136]:
+              - generic [ref=f760e137]: Article about events
+              - heading [level=3] [ref=f760e139]:
+                - text: Pacific Rim
+                - mark [ref=f760e140]: Whale
+                - text: Festival Guide
+              - paragraph [ref=f760e141]:
+                - text: The spring festival that marks the gray
+                - mark [ref=f760e142]: whale
+                - text: migration through Clayoquot Sound.
+          - 'link "Wildlife Tours in Tofino, Article about whale watching Article about whale watching Wildlife Tours in Tofino Whales, bears, and seabirds: the tours worth booking." [ref=f760e143] [cursor=pointer]':
+            - /url: guide.html
+            - img "Wildlife Tours in Tofino, Article about whale watching" [ref=f760e145]
+            - generic [ref=f760e146]:
+              - generic [ref=f760e147]: Article about whale watching
+              - heading "Wildlife Tours in Tofino" [level=3] [ref=f760e149]
+              - paragraph [ref=f760e150]:
+                - mark [ref=f760e151]: Whale
+                - text: "s, bears, and seabirds: the tours worth booking."
+      - region [ref=f760e152]:
+        - generic [ref=f760e153]:
+          - heading "Questions8" [level=2] [ref=f760e154]
+          - button "See all 8 questions" [ref=f760e155] [cursor=pointer]
+        - generic [ref=f760e158]:
+          - link "Answered in Whale watching FAQs Can you see whales in Tofino without a tour? Yes, sometimes whales can be seen from shore. But a guided boat tour gives you a much better chance of seeing whales and learning about…" [ref=f760e159] [cursor=pointer]:
+            - /url: guide.html
+            - generic [ref=f760e160]: Answered in Whale watching FAQs
+            - heading [level=3] [ref=f760e161]:
+              - text: Can you see
+              - mark [ref=f760e162]: whale
+              - text: s in Tofino without a tour?
+            - paragraph [ref=f760e163]:
+              - text: Yes, sometimes
+              - mark [ref=f760e164]: whale
+              - text: s can be seen from shore. But a guided boat tour gives you a much better chance of seeing
+              - mark [ref=f760e165]: whale
+              - text: s and learning about…
+          - link "Answered in Whale Tails, Blows, and Backs Does seeing a fluke mean the whale is leaving? Not always. A fluke usually means the whale is diving deeper. It may surface again nearby after several minutes, or it may come up farther…" [ref=f760e166] [cursor=pointer]:
+            - /url: guide.html
+            - generic [ref=f760e167]: Answered in Whale Tails, Blows, and Backs
+            - heading [level=3] [ref=f760e168]:
+              - text: Does seeing a fluke mean the
+              - mark [ref=f760e169]: whale
+              - text: is leaving?
+            - paragraph [ref=f760e170]:
+              - text: Not always. A fluke usually means the
+              - mark [ref=f760e171]: whale
+              - text: is diving deeper. It may surface again nearby after several minutes, or it may come up farther…
+          - link "Answered in Whale Tails, Blows, and Backs What does a whale tail mean? If a whale lifts its tail fluke before disappearing, it usually means the whale is making a deeper dive." [ref=f760e172] [cursor=pointer]:
+            - /url: guide.html
+            - generic [ref=f760e173]: Answered in Whale Tails, Blows, and Backs
+            - heading [level=3] [ref=f760e174]:
+              - text: What does a
+              - mark [ref=f760e175]: whale
+              - text: tail mean?
+            - paragraph [ref=f760e176]:
+              - text: If a
+              - mark [ref=f760e177]: whale
+              - text: lifts its tail fluke before disappearing, it usually means the
+              - mark [ref=f760e178]: whale
+              - text: is making a deeper dive.
+          - link "Answered in Whale Tails, Blows, and Backs What does it mean when a whale blows? A blow means the whale has surfaced to breathe. It is often the first sign people see during whale watching." [ref=f760e179] [cursor=pointer]:
+            - /url: guide.html
+            - generic [ref=f760e180]: Answered in Whale Tails, Blows, and Backs
+            - heading [level=3] [ref=f760e181]:
+              - text: What does it mean when a
+              - mark [ref=f760e182]: whale
+              - text: blows?
+            - paragraph [ref=f760e183]:
+              - text: A blow means the
+              - mark [ref=f760e184]: whale
+              - text: has surfaced to breathe. It is often the first sign people see during
+              - mark [ref=f760e185]: whale
+              - text: watching.
+          - link "Answered in Whale watching FAQs What is the best month for whale watching in Tofino? March to May is one of the best times for gray whales. Summer and early fall can also be great for humpbacks, gray whales, orcas, sea…" [ref=f760e186] [cursor=pointer]:
+            - /url: guide.html
+            - generic [ref=f760e187]: Answered in Whale watching FAQs
+            - heading [level=3] [ref=f760e188]:
+              - text: What is the best month for
+              - mark [ref=f760e189]: whale
+              - text: watching in Tofino?
+            - paragraph [ref=f760e190]:
+              - text: March to May is one of the best times for gray
+              - mark [ref=f760e191]: whale
+              - text: s. Summer and early fall can also be great for humpbacks, gray
+              - mark [ref=f760e192]: whale
+              - text: s, orcas, sea…
+          - link "Answered in Whale Tails, Blows, and Backs Why do whales show their backs? Whales show their backs when they surface to breathe, travel, or prepare for another dive. This is one of the most common things to see on…" [ref=f760e193] [cursor=pointer]:
+            - /url: guide.html
+            - generic [ref=f760e194]: Answered in Whale Tails, Blows, and Backs
+            - heading [level=3] [ref=f760e195]:
+              - text: Why do
+              - mark [ref=f760e196]: whale
+              - text: s show their backs?
+            - paragraph [ref=f760e197]:
+              - mark [ref=f760e198]: Whale
+              - text: s show their backs when they surface to breathe, travel, or prepare for another dive. This is one of the most common things to see on…
+      - region [ref=f760e199]:
+        - generic [ref=f760e200]:
+          - heading "Also in Ucluelet32" [level=2] [ref=f760e201]
+          - button "Add them to the count" [ref=f760e202] [cursor=pointer]
+        - generic [ref=f760e205]:
+          - link "Whale watching, Guide, Ucluelet Guide, Ucluelet 6 places Whale watching …wildlife watching in Ucluelet, British Columbia. Learn where to see whales, black bears, sea lions, seals, sea otters, bald eagles, and…" [ref=f760e206] [cursor=pointer]:
+            - /url: whale-watching.html
+            - img "Whale watching, Guide, Ucluelet" [ref=f760e208]
+            - generic [ref=f760e209]:
+              - generic [ref=f760e210]:
+                - generic [ref=f760e211]: Guide, Ucluelet
+                - generic [ref=f760e212]: 6 places
+              - heading [level=3] [ref=f760e213]:
+                - mark [ref=f760e214]: Whale
+                - text: watching
+              - paragraph [ref=f760e215]:
+                - text: …wildlife watching in Ucluelet, British Columbia. Learn where to see
+                - mark [ref=f760e216]: whale
+                - text: s, black bears, sea lions, seals, sea otters, bald eagles, and…
+          - 'link "Whales in Ucluelet: The Spring Migration Explained, Article about whale watching Article about whale watching Whales in Ucluelet: The Spring Migration Explained Why spring is special for gray whales off Ucluelet." [ref=f760e217] [cursor=pointer]':
+            - /url: guide.html
+            - 'img "Whales in Ucluelet: The Spring Migration Explained, Article about whale watching" [ref=f760e219]'
+            - generic [ref=f760e220]:
+              - generic [ref=f760e221]: Article about whale watching
+              - heading [level=3] [ref=f760e223]:
+                - mark [ref=f760e224]: Whale
+                - text: "s in Ucluelet: The Spring Migration Explained"
+              - paragraph [ref=f760e225]:
+                - text: Why spring is special for gray
+                - mark [ref=f760e226]: whale
+                - text: s off Ucluelet.
+          - link "Whale watching FAQs, Article about whale watching Article about whale watching Whale watching FAQs Is Ucluelet good for wildlife watching?" [ref=f760e227] [cursor=pointer]:
+            - /url: guide.html
+            - img "Whale watching FAQs, Article about whale watching" [ref=f760e229]
+            - generic [ref=f760e230]:
+              - generic [ref=f760e231]: Article about whale watching
+              - heading [level=3] [ref=f760e233]:
+                - mark [ref=f760e234]: Whale
+                - text: watching FAQs
+              - paragraph [ref=f760e235]: Is Ucluelet good for wildlife watching?
+          - link "Whale Watching in Ucluelet, Article about whale watching Article about whale watching Whale Watching in Ucluelet Best time and what you might see." [ref=f760e236] [cursor=pointer]:
+            - /url: guide.html
+            - img "Whale Watching in Ucluelet, Article about whale watching" [ref=f760e238]
+            - generic [ref=f760e239]:
+              - generic [ref=f760e240]: Article about whale watching
+              - heading [level=3] [ref=f760e242]:
+                - mark [ref=f760e243]: Whale
+                - text: Watching in Ucluelet
+              - paragraph [ref=f760e244]: Best time and what you might see.
+          - link "Whale Watching Tours in Ucluelet, Article about whale watching Article about whale watching Whale Watching Tours in Ucluelet What to expect, how to choose, and booking tips." [ref=f760e245] [cursor=pointer]:
+            - /url: guide.html
+            - img "Whale Watching Tours in Ucluelet, Article about whale watching" [ref=f760e247]
+            - generic [ref=f760e248]:
+              - generic [ref=f760e249]: Article about whale watching
+              - heading [level=3] [ref=f760e251]:
+                - mark [ref=f760e252]: Whale
+                - text: Watching Tours in Ucluelet
+              - paragraph [ref=f760e253]: What to expect, how to choose, and booking tips.
+          - link "Are whale watching tours in Ucluelet worth it?, Answered in Whale Watching Tours in Ucluelet Answered in Whale Watching Tours in Ucluelet Are whale watching tours in Ucluelet worth it? Yes. Ucluelet is a strong whale watching base because tours can access Barkley Sound, the Broken Group Islands area, and nearby Pacific…" [ref=f760e254] [cursor=pointer]:
+            - /url: guide.html
+            - img "Are whale watching tours in Ucluelet worth it?, Answered in Whale Watching Tours in Ucluelet" [ref=f760e256]
+            - generic [ref=f760e257]:
+              - generic [ref=f760e258]: Answered in Whale Watching Tours in Ucluelet
+              - heading [level=3] [ref=f760e260]:
+                - text: Are
+                - mark [ref=f760e261]: whale
+                - text: watching tours in Ucluelet worth it?
+              - paragraph [ref=f760e262]:
+                - text: Yes. Ucluelet is a strong
+                - mark [ref=f760e263]: whale
+                - text: watching base because tours can access Barkley Sound, the Broken Group Islands area, and nearby Pacific…
+    - generic [ref=f760e265]:
+      - generic [ref=f760e267]:
+        - heading "Search another town" [level=2] [ref=f760e268]
+        - paragraph [ref=f760e269]: 28 towns across 8 provinces. Tofino and Ucluelet are written up. The rest are being written now.
+      - generic [ref=f760e270]:
+        - generic [ref=f760e271]:
+          - link "Vancouver Island" [ref=f760e272] [cursor=pointer]:
+            - /url: region.html
+          - paragraph [ref=f760e273]: 12 towns, 2 written up
+          - list [ref=f760e274]:
+            - listitem [ref=f760e275]:
+              - link "Tofino" [ref=f760e276] [cursor=pointer]:
+                - /url: tofino.html
+            - listitem [ref=f760e277]:
+              - link "Ucluelet" [ref=f760e278] [cursor=pointer]:
+                - /url: region.html
+            - listitem [ref=f760e279]: Victoria
+            - listitem [ref=f760e280]: Nanaimo
+            - listitem [ref=f760e281]: Campbell River
+            - listitem [ref=f760e282]: Parksville
+            - listitem [ref=f760e283]: Qualicum Beach
+            - listitem [ref=f760e284]: Sooke
+            - listitem [ref=f760e285]: Sidney
+            - listitem [ref=f760e286]: Chemainus
+            - listitem [ref=f760e287]: Nanoose Bay
+            - listitem [ref=f760e288]: Shawnigan Lake
+        - generic [ref=f760e289]:
+          - link "Mainland British Columbia" [ref=f760e290] [cursor=pointer]:
+            - /url: province.html
+          - paragraph [ref=f760e291]: 4 towns, 0 written up
+          - list [ref=f760e292]:
+            - listitem [ref=f760e293]: Vancouver
+            - listitem [ref=f760e294]: Whistler
+            - listitem [ref=f760e295]: Squamish
+            - listitem [ref=f760e296]: Nelson
+        - generic [ref=f760e297]:
+          - link "Alberta and the prairies" [ref=f760e298] [cursor=pointer]:
+            - /url: country.html
+          - paragraph [ref=f760e299]: 4 towns, 0 written up
+          - list [ref=f760e300]:
+            - listitem [ref=f760e301]: Banff
+            - listitem [ref=f760e302]: Jasper
+            - listitem [ref=f760e303]: Edmonton
+            - listitem [ref=f760e304]: Saskatoon
+        - generic [ref=f760e305]:
+          - link "Ontario and Quebec" [ref=f760e306] [cursor=pointer]:
+            - /url: country.html
+          - paragraph [ref=f760e307]: 5 towns, 0 written up
+          - list [ref=f760e308]:
+            - listitem [ref=f760e309]: Toronto
+            - listitem [ref=f760e310]: Ottawa
+            - listitem [ref=f760e311]: Niagara Falls
+            - listitem [ref=f760e312]: Montreal
+            - listitem [ref=f760e313]: Quebec City
+        - generic [ref=f760e314]:
+          - link "Atlantic Canada" [ref=f760e315] [cursor=pointer]:
+            - /url: country.html
+          - paragraph [ref=f760e316]: 3 towns, 0 written up
+          - list [ref=f760e317]:
+            - listitem [ref=f760e318]: Halifax
+            - listitem [ref=f760e319]: Charlottetown
+            - listitem [ref=f760e320]: St John's
+    - generic [ref=f760e322]:
+      - generic [ref=f760e324]:
+        - heading "Everything else in Tofino" [level=2] [ref=f760e325]
+        - paragraph [ref=f760e326]: Search is one way in. These are the other pages for this town.
+      - navigation "Elsewhere in Tofino" [ref=f760e327]:
+        - link "Tofino overview 73 places, 9 subjects" [ref=f760e328] [cursor=pointer]:
+          - /url: tofino.html
+          - generic [ref=f760e329]: Tofino overview
+          - generic [ref=f760e330]: 73 places, 9 subjects
+        - link "Things to do 9 subjects to browse" [ref=f760e331] [cursor=pointer]:
+          - /url: things-to-do.html
+          - generic [ref=f760e332]: Things to do
+          - generic [ref=f760e333]: 9 subjects to browse
+        - link "Long Beach The best known beach on the coast" [ref=f760e334] [cursor=pointer]:
+          - /url: long-beach.html
+          - generic [ref=f760e335]: Long Beach
+          - generic [ref=f760e336]: The best known beach on the coast
+        - link "Whale watching 40 questions answered" [ref=f760e337] [cursor=pointer]:
+          - /url: whale-watching.html
+          - generic [ref=f760e338]: Whale watching
+          - generic [ref=f760e339]: 40 questions answered
+        - link "Plan a trip 12 months of weather" [ref=f760e340] [cursor=pointer]:
+          - /url: plan.html
+          - generic [ref=f760e341]: Plan a trip
+          - generic [ref=f760e342]: 12 months of weather
+        - link "Guides 18 articles, 58 photographs" [ref=f760e343] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f760e344]: Guides
+          - generic [ref=f760e345]: 18 articles, 58 photographs
+    - generic [ref=f760e348]:
+      - link "Whale watching in Tofino Grey whales from March, humpbacks through the summer, and the boats that go out to them. Open whale watching" [ref=f760e349] [cursor=pointer]:
+        - /url: whale-watching.html
+        - heading "Whale watching in Tofino" [level=4] [ref=f760e350]
+        - paragraph [ref=f760e351]: Grey whales from March, humpbacks through the summer, and the boats that go out to them.
+        - generic [ref=f760e352]: Open whale watching
+      - link "Things to do in Tofino Every subject we have walked in Tofino, with each place written up underneath it. See things to do" [ref=f760e353] [cursor=pointer]:
+        - /url: things-to-do.html
+        - heading "Things to do in Tofino" [level=4] [ref=f760e354]
+        - paragraph [ref=f760e355]: Every subject we have walked in Tofino, with each place written up underneath it.
+        - generic [ref=f760e356]: See things to do
+      - link "When should you go? Month by month weather for Tofino, and what each month is actually good for. Open the plan" [ref=f760e357] [cursor=pointer]:
+        - /url: plan.html
+        - heading "When should you go?" [level=4] [ref=f760e358]
+        - paragraph [ref=f760e359]: Month by month weather for Tofino, and what each month is actually good for.
+        - generic [ref=f760e360]: Open the plan
+  - contentinfo [ref=f760e361]:
+    - generic [ref=f760e362]:
+      - generic [ref=f760e363]:
+        - generic [ref=f760e364]:
+          - text: Arctrips
+          - paragraph [ref=f760e365]: Stays and guides across Canada, written by people who go there.
+        - generic [ref=f760e366]:
+          - heading "Destinations" [level=5] [ref=f760e367]
+          - list [ref=f760e368]:
+            - listitem [ref=f760e369]:
+              - link "Tofino" [ref=f760e370] [cursor=pointer]:
+                - /url: tofino.html
+            - listitem [ref=f760e371]:
+              - link "Ucluelet" [ref=f760e372] [cursor=pointer]:
+                - /url: region.html
+            - listitem [ref=f760e373]:
+              - link "Guides" [ref=f760e374] [cursor=pointer]:
+                - /url: "#top"
+            - listitem [ref=f760e375]:
+              - link "British Columbia" [ref=f760e376] [cursor=pointer]:
+                - /url: province.html
+            - listitem [ref=f760e377]:
+              - link "Canada" [ref=f760e378] [cursor=pointer]:
+                - /url: country.html
+        - generic [ref=f760e379]:
+          - heading "In Tofino" [level=5] [ref=f760e380]
+          - list [ref=f760e381]:
+            - listitem [ref=f760e382]:
+              - link "Things to do" [ref=f760e383] [cursor=pointer]:
+                - /url: things-to-do.html
+            - listitem [ref=f760e384]:
+              - link "Whale watching" [ref=f760e385] [cursor=pointer]:
+                - /url: whale-watching.html
+            - listitem [ref=f760e386]:
+              - link "Long Beach" [ref=f760e387] [cursor=pointer]:
+                - /url: long-beach.html
+            - listitem [ref=f760e388]:
+              - link "Plan a trip" [ref=f760e389] [cursor=pointer]:
+                - /url: plan.html
+            - listitem [ref=f760e390]:
+              - link "Guides" [ref=f760e391] [cursor=pointer]:
+                - /url: guide.html
+        - generic [ref=f760e392]:
+          - heading "Search" [level=5] [ref=f760e393]
+          - list [ref=f760e394]:
+            - listitem [ref=f760e395]:
+              - link "Storm watching" [ref=f760e396] [cursor=pointer]:
+                - /url: search.html?q=storm%20watching&in=tofino
+            - listitem [ref=f760e397]:
+              - link "Stays with a hot tub" [ref=f760e398] [cursor=pointer]:
+                - /url: search.html?q=hot%20tub&in=tofino
+            - listitem [ref=f760e399]:
+              - link "Questions people ask" [ref=f760e400] [cursor=pointer]:
+                - /url: search.html?q=can%20you%20swim
+            - listitem [ref=f760e401]:
+              - link "Everything we publish" [ref=f760e402] [cursor=pointer]:
+                - /url: search.html?q=
+        - generic [ref=f760e403]:
+          - heading "Arc Trips" [level=5] [ref=f760e404]
+          - list [ref=f760e405]:
+            - listitem [ref=f760e406]:
+              - link "About us" [ref=f760e407] [cursor=pointer]:
+                - /url: not-found.html
+            - listitem [ref=f760e408]:
+              - link "List your place" [ref=f760e409] [cursor=pointer]:
+                - /url: not-found.html
+            - listitem [ref=f760e410]:
+              - link "Fishing charters" [ref=f760e411] [cursor=pointer]:
+                - /url: "#top"
+            - listitem [ref=f760e412]:
+              - link "Contact" [ref=f760e413] [cursor=pointer]:
+                - /url: not-found.html
+      - generic [ref=f760e414]:
+        - generic [ref=f760e415]: © 2026 Arc Trips
+        - generic [ref=f760e416]: Prices in CAD, before taxes and fees. Tide times are seeded for design.
+  - generic [ref=f760e417]:
+    - generic [ref=f760e418]:
+      - generic [ref=f760e419]: Tofino
+      - generic [ref=f760e420]: Searching Tofino only
+    - link "Back to Tofino" [ref=f760e421] [cursor=pointer]:
+      - /url: tofino.html

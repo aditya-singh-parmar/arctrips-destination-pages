@@ -1,0 +1,384 @@
+<!doctype html><html lang="en-CA"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sooke, Arc Trips</title>
+<meta name="description" content="Sooke, Vancouver Island. 30 places written up, 20 with photographs.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_system.css">
+<style>
+:focus-visible{outline:2px solid var(--azure);outline-offset:3px}
+.btn,.nav-links a,.crumb a{min-height:44px;display:inline-flex;align-items:center}
+.crumb{font-size:.9rem}.label--n{color:var(--n600)}
+.thero{position:relative;min-height:min(62vh,560px);display:flex;align-items:flex-end;overflow:hidden;background:var(--navy)}
+.thero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.thero__v{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,51,86,.12) 0%,rgba(11,51,86,.7) 62%,rgba(11,51,86,.95) 100%)}
+.thero__in{position:relative;width:100%;padding-block:clamp(30px,4vw,56px)}
+.thero h1{color:#fff;font-size:clamp(2.8rem,7vw,5.2rem);letter-spacing:-.045em;line-height:.96}
+.thero p{color:rgba(255,255,255,.9);max-width:56ch;margin-top:18px;font-size:1.06rem;line-height:1.6}
+.tfacts{display:flex;gap:clamp(20px,4vw,44px);margin-top:26px;flex-wrap:wrap}
+.tfacts dt{font-size:.9rem;color:rgba(255,255,255,.75);font-weight:600}
+.tfacts dd{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;color:#fff;letter-spacing:-.04em;margin-top:4px;font-variant-numeric:tabular-nums}
+.sechead{max-width:60ch;margin-bottom:clamp(24px,3vw,38px)}
+.sechead h2{margin-top:8px}.cnt{color:var(--n600);margin-top:8px;font-size:.95rem}
+.places{display:grid;gap:clamp(44px,5.5vw,84px)}
+/* Photo entries: the image takes half the row, so it reads as a photograph rather
+   than a thumbnail. Alternating sides gives the page rhythm down the scroll. */
+.pl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,3.4vw,48px);align-items:center}
+.pl:nth-child(even) .pl__m{order:2}
+@media(max-width:820px){.pl{grid-template-columns:1fr;gap:20px}.pl:nth-child(even) .pl__m{order:0}}
+.pl__m{margin:0;border-radius:var(--r);overflow:hidden;background:var(--n100);aspect-ratio:4/3}
+.pl__m img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.pl:hover .pl__m img{transform:scale(1.035)}
+/* No-photo entries: name on the left, prose on the right, so the row still spans
+   the full measure instead of leaving half the page empty. */
+.pl--solo{grid-template-columns:minmax(0,.42fr) minmax(0,1fr);align-items:start}
+.pl--solo .pl__b{max-width:68ch}
+.solo__h{font-size:clamp(1.35rem,2.2vw,1.75rem);font-weight:800;letter-spacing:-.026em;color:var(--navy);
+  position:sticky;top:150px;align-self:start}
+@media(max-width:820px){.pl--solo{grid-template-columns:1fr}.solo__h{position:static}}
+.pl__b h3{font-size:clamp(1.35rem,2.2vw,1.75rem);font-weight:800;letter-spacing:-.026em;margin-bottom:14px}
+.pl__b p{margin-top:0;margin-bottom:14px;color:var(--n700);line-height:1.68;max-width:62ch;font-size:1.02rem}
+.pl__b p:last-of-type{margin-bottom:0}
+.pl__n{margin-top:18px;border-left:0;background:var(--n50);padding:14px 18px;border-radius:var(--r-sm);font-size:.97rem}
+.pl__n b{color:var(--navy)}
+.jump{display:flex;gap:8px;flex-wrap:wrap;padding:16px 0;border-block:1px solid var(--n150)}
+.jump a{font-size:.9rem;font-weight:600;color:var(--n600);padding:8px 14px;border-radius:var(--r-sm);background:var(--n50);min-height:40px;display:inline-flex;align-items:center}
+.jump a:hover{background:var(--a100);color:var(--azure)}
+</style></head><body>
+<span id="top" aria-hidden="true"></span>
+<nav class="top"><div class="wrap nav-in">
+  <a class="brand" href="index.html">ARCTRIPS</a>
+  <ul class="nav-links"><li><a href="search.html?in=sooke">Stays</a></li><li><a href="index.html" aria-current="page">Destinations</a></li><li><a href="region.html">Vancouver Island</a></li></ul>
+  <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input placeholder="Search Sooke" aria-label="Search"><kbd>/</kbd></label>
+  <a class="btn btn--ink btn--sm" href="search.html?in=sooke">Sign in</a>
+</div></nav>
+<nav class="placebar" aria-label="Sooke"><div class="wrap placebar-in">
+  <a class="placebar__back" href="region.html"><span class="n">&larr; Vancouver Island</span></a>
+  <ul class="placebar__links">
+    <li><a href="#top" aria-current="page">Overview</a></li>
+    <li><a href="search.html?in=sooke">Stays</a></li>
+    <li><a href="region.html">Vancouver Island</a></li>
+    <li><a href="index.html">All destinations</a></li>
+  </ul>
+  <a class="btn btn--primary btn--sm placebar__cta" href="search.html?in=sooke">Find a stay</a>
+</div></nav>
+<main id="main">
+<div class="wrap"><nav class="crumb" aria-label="Breadcrumb">
+  <a href="index.html">Arc Trips</a><span class="sep">/</span>
+  <a class="lvl-deep" href="country.html">Canada</a><span class="sep lvl-deep">/</span>
+  <a class="lvl-deep" href="province.html">British Columbia</a><span class="sep lvl-deep">/</span>
+  <a href="region.html">Vancouver Island</a><span class="sep">/</span>
+  <span aria-current="page">Sooke</span>
+</nav></div>
+<header class="thero">
+  <img src="media/sooke/image32.jpg" alt="Sooke, Vancouver Island">
+  <div class="thero__v"></div>
+  <div class="thero__in"><div class="wrap">
+    <span class="label" style="color:var(--a300)">Vancouver Island</span>
+    <h1>Sooke</h1>
+    <p>Sooke Potholes Provincial Park is a 7.3-hectare natural area on the banks of the Sooke River, famous for its unique geological formations. These potholes, deep, smooth rock pools, were carved out of volcanic rock by boulders trapped in swirling river currents over thousands of years.</p>
+    <dl class="tfacts">
+      <div><dt>Places written up</dt><dd class="tnum">30</dd></div>
+      <div><dt>With photographs</dt><dd class="tnum">20</dd></div>
+      <div><dt>Guides</dt><dd class="tnum">1</dd></div>
+    </dl>
+  </div></div>
+</header>
+<div class="wrap"><nav class="jump" aria-label="Sections">
+  <a href="#top-natural-attractions-coastal-parks">Top Natural Attractions &amp; Coastal Parks</a><a href="#hiking-walking-trail-adventures">Hiking, Walking &amp; Trail Adventures</a><a href="#wildlife-marine-water-experiences">Wildlife, Marine &amp; Water Experiences</a><a href="#culture-history-local-character">Culture, History &amp; Local Character</a><a href="#scenic-stays-day-trips-nearby-coastal-stops">Scenic Stays, Day Trips &amp; Nearby Coastal Stops</a><a href="#golf-adventure-activities">Golf &amp; Adventure Activities</a>
+</nav></div>
+
+<section class="sec" id="top-natural-attractions-coastal-parks"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Top Natural Attractions &amp; Coastal Parks</span>
+    <h2>Top Natural Attractions &amp; Coastal Parks</h2><p class="cnt">10 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/sooke/image32.jpg" alt="Sooke Potholes Provincial Park, Sooke"></figure>
+      
+      <div class="pl__b">
+        <h3>Sooke Potholes Provincial Park</h3>
+        <p>Sooke Potholes Provincial Park is a 7.3-hectare natural area on the banks of the Sooke River, famous for its unique geological formations. These potholes, deep, smooth rock pools, were carved out of volcanic rock by boulders trapped in swirling river currents over thousands of years. While the provincial park itself is smaller and less developed than the adjacent regional park, it serves as the essential southern entry point to this iconic river system.</p><p>Natural Swimming Holes: The park is a premier destination for freshwater swimming. The crystal-clear emerald pools range from shallow gravel beds perfect for wading to deep basins popular with confident swimmers seeking a refreshingly cold dip.</p><p>The Riverside Trail: A well-maintained path follows the edge of the canyon, offering multiple viewpoints of the river's dramatic rock formations and cascading waterfalls. It connects directly to the larger trail network of the neighboring regional park.</p>
+        <p class="pl__n"><b>Good to know.</b> the smaller Sooke Potholes Provincial Park at the southern end and the larger Sooke Potholes Regional Park to the north. Most of the famous viewpoints and the campground are located within the Regional Park section.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/sooke/image43.jpg" alt="East Sooke Regional Park, Sooke"></figure>
+      
+      <div class="pl__b">
+        <h3>East Sooke Regional Park</h3>
+        <p>East Sooke Regional Park is often described as a miniature West Coast Trail, offering over 50 kilometers of trails through 1,400 hectares of rugged coastal wilderness. It is the premier destination on the southern tip of Vancouver Island for those seeking a true wilderness experience without leaving the Greater Victoria area.</p><p>The Coast Trail: This challenging 10-kilometer route is the park's signature hike. It follows the jagged shoreline of the Juan de Fuca Strait, requiring some scrambling over rocky bluffs but rewarding hikers with panoramic views of the Olympic Mountains and the occasional sighting of whales or sea lions.</p><p>Aylard Farm: This is the most accessible part of the park, featuring a large open meadow and a sandy pocket beach. It is a popular spot for families, picnicking, and shorter walks to the nearby Ceepeecee Lookout.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/sooke/image20.jpg" alt="Whiffin Spit, Sooke"></figure>
+      
+      <div class="pl__b">
+        <h3>Whiffin Spit</h3>
+        <p>Whiffin Spit is a naturally formed gravel bar that stretches for about 1.5 kilometers into Sooke Harbour, acting as a scenic breakwater between the calm inner basin and the rugged Juan de Fuca Strait. It is a favorite for those seeking a quick, low-impact coastal walk with some of the best mountain and water views in Sooke.</p><p>Coastal Stroll: The main trail is a flat, 2.7-kilometer out-and-back gravel path. It provides a unique experience of walking through the middle of the ocean, with the Olympic Mountains of Washington State looming directly ahead.</p><p>Wildlife and Birdwatching: Over 220 species of birds have been recorded here. On the seaward side, you can often spot Harlequin Ducks and Pacific Loons, while the calmer harbour side attracts Great Blue Herons and Black Oystercatchers. Keep an eye out for harbour seals, sea lions, and even orcas near the mouth of the harbour.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/sooke/image40.jpg" alt="Sheringham Point Lighthouse, Sooke"></figure>
+      
+      <div class="pl__b">
+        <h3>Sheringham Point Lighthouse</h3>
+        <p>Sheringham Point Lighthouse is a designated National Heritage site perched on the rocky coastline of Shirley, approximately 20 minutes west of Sooke. Built in 1912 following the tragic wreck of the SS Valencia, the white hexagonal tower remains an iconic symbol of maritime history and is one of the few lighthouses on Vancouver Island accessible by land.</p><p>Jennie’s Trail &amp; Viewpoints: A short, relatively easy walking trail leads from the parking lot to the lighthouse gate. From there, you can explore several spur trails that lead to specialized viewing platforms, offering unobstructed vistas of the Juan de Fuca Strait and the Olympic Mountains.</p><p>Whale Watching: The point is a premier shore-based whale-watching spot. The preservation society has installed a speaker on the side of the engine room connected to underwater hydrophones, allowing you to listen for the vocalizations of passing orcas and humpbacks.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/sooke/image46.jpg" alt="French Beach Provincial Park, Sooke"></figure>
+      
+      <div class="pl__b">
+        <h3>French Beach Provincial Park</h3>
+        <p>French Beach Provincial Park is a 59-hectare coastal destination situated along the Juan de Fuca Strait, approximately 20 kilometers west of Sooke. It is widely recognized for its long, pebble-and-sand beach and its accessibility, making it one of the most popular family destinations on the southwestern coast of Vancouver Island.</p><p>Shoreline Exploration: The park features a 1,600-meter beach that is ideal for beachcombing and walking. It offers expansive views across the strait to the Olympic Mountains in Washington State.</p><p>Wildlife Viewing: The area is a prime location for spotting marine life. Gray whales can often be seen migrating past the beach in the spring, while killer whales, sea lions, and seals are frequent visitors throughout the year. Bald eagles and ospreys are also common sights in the tall trees bordering the shore.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/sooke/image8.jpg" alt="China Beach, Sooke"></figure>
+      
+      <div class="pl__b">
+        <h3>China Beach</h3>
+        <p>China Beach is a stunning coastal destination within the Juan de Fuca Provincial Park, located roughly 35 kilometers west of Sooke. It serves as one of the major trailheads for the Juan de Fuca Marine Trail and is highly regarded for its expansive fine-sand shoreline and dramatic ocean vistas.</p><p>Shoreline and Waterfall: The beach itself is a wide stretch of sand, perfect for long walks. A highlight is the small waterfall that cascades down the sandstone cliffs directly onto the beach, particularly active after a rainfall.</p><p>Juan de Fuca Marine Trail: This area serves as the eastern terminus for the 47-kilometer Juan de Fuca Marine Trail. Hikers can explore the first few kilometers of this rugged backcountry trail to get a taste of the wilderness without committing to the full multi-day trek.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/sooke/image12.jpg" alt="Race Rocks Ecological Reserve, Sooke"></figure>
+      
+      <div class="pl__b">
+        <h3>Race Rocks Ecological Reserve</h3>
+        <p>Race Rocks Ecological Reserve is a unique marine sanctuary located at the eastern entrance of the Juan de Fuca Strait. Known for its high-current environment, it serves as a critical habitat for a diverse range of marine life and is home to one of the oldest lighthouses on the Pacific Coast.</p><p>Marine Mammal Observation: This is a premier spot for viewing California and Steller sea lions, which haul out on the rocks in massive numbers. You can also frequently spot harbour seals and northern elephant seals, alongside passing orcas and humpback whales.</p><p>Birdwatching: The islands are a vital nesting and stopover site for numerous seabirds. Look for Black Oystercatchers, Pigeon Guillemots, and various species of gulls and cormorants.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/sooke/image23.jpg" alt="Matheson Lake Regional Park, Sooke"></figure>
+      
+      <div class="pl__b">
+        <h3>Matheson Lake Regional Park</h3>
+        <p>Matheson Lake Regional Park is a scenic 156-hectare park located in Metchosin, known for its tranquil freshwater lake nestled within a steep-sided forest. It is a popular destination for those seeking a peaceful alternative to the oceanfront, offering a mix of accessible recreation and rugged hiking.</p><p>The Lakeside Loop: A 3.8-kilometer trail circles the entire lake. While the eastern side is relatively flat and wide, the western portion becomes more rugged, involving some scrambling over rocky outcrops and roots, providing a varied hiking experience.</p><p>Swimming and Paddling: The lake's calm, freshwater surface is ideal for swimming during the summer months. It is also a favored spot for launching kayaks, canoes, or paddleboards to explore the small islands and hidden coves along the shoreline.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Roche Cove Regional Park</h3>
+      <div class="pl__b">
+        
+        <p>Roche Cove Regional Park is a serene 163-hectare destination that borders the Sooke Basin and the District of Metchosin. Named after Richard Roche, a 3rd Lieutenant on the HMS Satellite, the park is known for its secluded cove, lush temperate rainforest, and convenient connection to the Galloping Goose Regional Trail.</p><p>The Secluded Cove: A short, easy walk from the parking area leads to the protected waters of Roche Cove. At low tide, the sandy shoreline reveals little-neck clams and barnacles, while high tide is ideal for observing sea stars and migrating waterfowl like buffleheads and mergansers.</p><p>Cedar Grove Trail: This moderate, 2.5-hour loop offers an invigorating climb through old-growth forests. A highlight of the trail is a massive fallen cedar estimated to be over 500 years old, alongside viewpoints that overlook the park and Sooke Basin.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/sooke/image30.jpg" alt="Jordan River Regional Park, Sooke"></figure>
+      
+      <div class="pl__b">
+        <h3>Jordan River Regional Park</h3>
+        <p>Jordan River Regional Park and Campground is a diverse 187-hectare coastal park situated about 37 kilometers west of Sooke. It is a significant hub for outdoor recreation along the Juan de Fuca Highway, offering everything from premier cold-water surfing to quiet forested campsites and unique geological formations.</p><p>Surfing and Storm Watching: The park is centered around the mouth of the Jordan River, a location world-renowned for its surfing. During the winter months, large swells draw experienced surfers to the point, while the cobble beach serves as an excellent vantage point for watching powerful Pacific storms.</p><p>Sandcut Beach Access: A separate section of the park leads to Sandcut Beach, famous for its twin waterfalls that drop from a sandstone ledge directly onto the beach cobbles.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="hiking-walking-trail-adventures"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Hiking, Walking &amp; Trail Adventures</span>
+    <h2>Hiking, Walking &amp; Trail Adventures</h2><p class="cnt">5 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/sooke/image22.jpg" alt="Galloping Goose Regional Trail, Sooke"></figure>
+      
+      <div class="pl__b">
+        <h3>Galloping Goose Regional Trail</h3>
+        <p>The Galloping Goose Regional Trail is a picturesque 55-kilometer multi-use path that follows a decommissioned railway line from downtown Victoria to the ghost town of Leechtown. Named after the noisy rail-car that traveled the line in the 1920s, it serves as a critical artery for both commuters and recreational users, transitioning from urban pavement to rugged wilderness.</p><p>The Selkirk Trestle: Located near the Victoria end, this massive wooden trestle offers spectacular views across the Upper Harbour and Gorge Waterway. It is a popular spot for watching rowing teams and sunsets over the water.</p><p>Sooke Basin Views: As the trail winds through Roche Cove Regional Park and toward Sooke, it hugs the shoreline of the basin, providing quiet vistas of the saltwater and frequent sightings of bald eagles.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/sooke/image45.jpg" alt="Juan de Fuca Marine Trail, Sooke"></figure>
+      
+      <div class="pl__b">
+        <h3>Juan de Fuca Marine Trail</h3>
+        <p>The Juan de Fuca Marine Trail is a rugged 47-kilometer wilderness trek stretching along the southwestern coast of Vancouver Island. Often compared to its more famous neighbor, the West Coast Trail, it offers a similar landscape of mist-shrouded rainforests, suspension bridges, and dramatic shoreline vistas without requiring a formal reservation system.</p><p>Signature Beaches: The trail connects several iconic coastal spots, including Mystic Beach, known for its rope swing and cliffside waterfall, and Sombrio Beach, which features a hidden waterfall tucked inside a narrow emerald canyon.</p><p>Suspension Bridges: Hikers cross several deep gorges via impressive suspension bridges, such as the one at Loss Creek and Pete Wolfe Creek. These offer a bird's-eye view of the rushing water and lush fern gullies below.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Kludahk Forest Recreation Trails</h3>
+      <div class="pl__b">
+        
+        <p>The Kludahk Trail is a hidden gem of the South Island, running approximately 40 kilometers along the San Juan Ridge between Jordan River and Port Renfrew. Often referred to as Canada’s most southerly alpine route, it offers a dramatic contrast to the coastal Juan de Fuca Trail by providing semi-alpine geography, subalpine bogs, and meadow landscapes at elevations around 1,000 meters.</p><p>The Huts of Kludahk: The trail is famous for its series of community-maintained huts (such as Meadow Cabin and Tower Cabin). While these are managed by the Kludahk Outdoors Club (KOC) for member use and bookings, they serve as iconic landmarks for day hikers and provide emergency shelter.</p><p>Flora and Fauna: The ridge is characterized by vibrant subalpine meadows and unique bogs that turn deep rust and red in the autumn. It is a prime location for spotting wildflowers in early summer and wildlife like elk, black bears, and various raptors.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Shields Lake Loop</h3>
+      <div class="pl__b">
+        
+        <p>The Shields Lake Loop is a rugged, backcountry hiking route located within the Sea to Sea Regional Park and the adjacent Sooke Mountain Provincial Park. Unlike the coastal walks in Sooke, this trail takes you deep into the Sooke Hills, offering a wilderness experience characterized by steep climbs, rocky ridges, and quiet upland lakes.</p><p>Shields Lake: This pristine, high-elevation lake is the centerpiece of the hike. It is a popular spot for a mid-hike break or a refreshing swim in the summer. The lake is also stocked with Rainbow Trout, making it a destination for backcountry anglers.</p><p>Empress Mountain Summit: Many hikers combine the Shields Lake Loop with a trek to the summit of Empress Mountain, the highest point in the Sooke Hills. From the top, you are rewarded with 360-degree views of the Sooke Basin, Victoria, and the distant Olympic Mountains.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/sooke/image7.jpg" alt="Sooke Mountain Provincial Park, Sooke"></figure>
+      
+      <div class="pl__b">
+        <h3>Sooke Mountain Provincial Park</h3>
+        <p>Sooke Mountain Provincial Park is a 450-hectare wilderness area located in the Sooke Hills, approximately 8 kilometers north of the Sooke townsite. Unlike more developed parks in the region, this park remains largely primitive and unmaintained, offering a challenging experience for those looking to escape the more crowded coastal trails.</p><p>Rugged Terrain: The park is characterized by steep, forested hills and rocky outcroppings. The trails are often old logging roads or overgrown paths that require a high degree of navigational skill to follow, as there is very little signage.</p><p>Upland Lakes: Several small, pristine lakes are found within or near the park boundaries, including Shields Lake and Grass Lake. These are popular destinations for hikers and backcountry anglers seeking a quiet spot for rainbow trout fishing.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="wildlife-marine-water-experiences"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Wildlife, Marine &amp; Water Experiences</span>
+    <h2>Wildlife, Marine &amp; Water Experiences</h2><p class="cnt">4 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/sooke/image2.jpg" alt="Whale watching and wildlife tours, Sooke"></figure>
+      
+      <div class="pl__b">
+        <h3>Whale watching and wildlife tours</h3>
+        <p>Whale watching and wildlife tours in Sooke provide an intimate alternative to the larger hubs in Victoria. Because Sooke sits directly on the Strait of Juan de Fuca, tour vessels reach the primary feeding grounds and migration corridors much faster, often spending more time with the wildlife and less time in transit.</p><p>Sooke Whale Watching / Sooke Coastal Explorations is a family-owned operation that offers a personalized experience with a focus on local marine ecology.</p><p>The Experience: They utilize open-air vessels to provide 360-degree unobstructed views, which are ideal for photography and feeling the spray of the ocean.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/sooke/image27.jpg" alt="Charter Fishing, Sooke"></figure>
+      
+      <div class="pl__b">
+        <h3>Charter Fishing</h3>
+        <p>Sooke is a major hub for world-class saltwater angling, providing direct access to the productive waters of the Juan de Fuca Strait. Because the coastline here is less congested than other regional ports, charter guests often enjoy more time with lines in the water and a high success rate for iconic Pacific species.</p><p>Goin Coastal Fishing Charters is a well-regarded operator based in the heart of Sooke that focuses on providing a professional and personalized experience for both novice and experienced anglers.</p><p>Target Species: Their excursions primarily target Chinook and Coho salmon, as well as oversized halibut and various species of rockfish.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/sooke/image25.jpg" alt="Kayaking and Paddling, Sooke"></figure>
+      
+      <div class="pl__b">
+        <h3>Kayaking and Paddling</h3>
+        <p>Sooke offers some of the most diverse paddling terrain on Vancouver Island, ranging from the glassy, protected waters of the Sooke Basin to the rugged, surge-filled coastlines near East Sooke and Jordan River.</p><p>Sooke Basin: This is the most sheltered area, characterized by calm waters and minimal current. It is ideal for beginners, families, and those looking for a meditative sunset or full-moon paddle. You can explore hidden coves, small islands, and even see the remains of historical ships in Cooper's Cove.</p><p>Sooke Harbour: Connecting the basin to the open ocean, the harbour offers a bit more movement. A classic route involves paddling out to Whiffin Spit for a beach picnic. Be mindful of the tidal currents at the narrow mouth of the harbour, which can be surprisingly strong.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/sooke/image14.jpg" alt="Bear Creek and Diversion Reservoirs, Sooke"></figure>
+      
+      <div class="pl__b">
+        <h3>Bear Creek and Diversion Reservoirs</h3>
+        <p>Bear Creek Reservoir and Diversion Reservoir are significant upland water bodies located in the rugged backcountry hills northwest of Sooke. Part of the Jordan River hydroelectric system and regional water lands, these reservoirs offer a true wilderness experience for those prepared to navigate the challenging forest service roads and high-elevation terrain.</p><p>Bear Creek Reservoir: This high-elevation reservoir is impounded by the Bear Creek Dam. Unlike some active hydro sites, it is not primarily used for power generation and often functions like a natural alpine lake. The surrounding landscape is characterized by dense subalpine forest and rocky bluffs.</p><p>Diversion Reservoir: Situated further west, this is the primary storage reservoir for the Jordan River hydroelectric system. It features a dramatic concrete dam and serves as a major piece of infrastructure in the region’s power grid.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="culture-history-local-character"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Culture, History &amp; Local Character</span>
+    <h2>Culture, History &amp; Local Character</h2><p class="cnt">5 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/sooke/image28.jpg" alt="Sooke Harbour and the Waterfront, Sooke"></figure>
+      
+      <div class="pl__b">
+        <h3>Sooke Harbour and the Waterfront</h3>
+        <p>Sooke Harbour and its waterfront serve as the heart of the community, where the rich maritime history of the T'Sou-ke Nation meets modern coastal living. The area is defined by a sheltered basin that provides calm waters for paddling and a more active outer harbour that opens into the Strait of Juan de Fuca.</p><p>The Marine Boardwalk: This accessible wooden walkway connects Ed Macgregor Park to the Rotary Pier. It is a favorite spot for a morning stroll, offering 180-degree views of the harbour where you can watch local seals, herons, and bald eagles.</p><p>Whiffin Spit: This natural sand and gravel spit stretches over a kilometer into the harbour, acting as a natural breakwater. The flat, out-and-back trail is a local tradition for dog walkers and storm watchers, ending at a small lighthouse with views of the Olympic Mountains.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Charters River Interpretive Centre and Hatchery</h3>
+      <div class="pl__b">
+        
+        <p>The Juan De Fuca Salmon Restoration Society operates the Charters River Interpretive Centre, a dedicated education facility located at the junction of the Charters and Sooke Rivers. This center serves as a vital hub for understanding the lifecycle of Pacific salmon and the ongoing conservation efforts required to protect their habitat.</p><p>Salmon Viewing: The facility features an outdoor riverside viewing platform designed to let visitors observe Coho, Chinook, and Chum salmon as they return to spawn in the clear waters of the Charters River during the autumn months.</p><p>Educational Exhibits: Inside the interpretive center, you'll find detailed displays on the local watershed, the cultural significance of salmon to the T'Sou-ke Nation, and the technical challenges of stream restoration.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/sooke/image11.jpg" alt="Sooke Region Museum &amp; Visitor Centre, Sooke"></figure>
+      
+      <div class="pl__b">
+        <h3>Sooke Region Museum &amp; Visitor Centre</h3>
+        <p>The Sooke Region Museum &amp; Visitor Centre serves as a comprehensive gateway to the history and natural wonders of the South Island. It functions as both a repository for local heritage and a primary resource for travelers heading toward the rugged west coast.</p><p>The Moss Cottage: A highlight of the museum grounds is this restored 1870s pioneer home. Visitors can tour the interior to see authentic period furnishings and learn about the daily lives of early settlers in the region.</p><p>Maritime and Industrial History: Extensive outdoor and indoor exhibits detail the local transition from traditional T'Sou-ke fishing practices to the era of large-scale logging and trap fishing. The collection includes a restored lighthouse lens and massive steam donkeys used in early timber operations.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Sooke Country Market</h3>
+      <div class="pl__b">
+        
+        <p>The Sooke Country Market is the primary farmers market in Sooke, serving as a seasonal Saturday tradition that highlights the region's agricultural and creative output. Following a period of central location changes, the market has found a permanent home at a historic local farm, providing a true farm-to-table atmosphere.</p><p>Farm-Fresh Produce: The market is a showcase for the make it, bake it, grow it philosophy. You’ll find a seasonal rotation of local vegetables, honey, eggs, and preserves directly from Sooke-area farms like Silver Cloud or Red Earth.</p><p>Artisan Crafts: Beyond food, the market features unique handmade goods, including arbutus wood carvings, hand-sewn fabric crafts, and local pottery.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Sooke Studio Tour</h3>
+      <div class="pl__b">
+        
+        <p>The art scene in Sooke is vibrant and deeply connected to the local landscape, ranging from world-class exhibitions to intimate backyard workshops. While individual artists often open their doors year-round, the community is best known for its organized annual events that bring hundreds of creatives together.</p><p>Sooke Fine Arts Show: This is Vancouver Island’s premier juried art show, marking its 40th anniversary in 2026. Running from July 25 to August 3 at the SEAPARC Recreation Centre, it transforms a hockey arena into a world-class gallery featuring over 370 pieces of original West Coast art.</p><p>Sooke Secret Garden &amp; Artisans Tour: Scheduled for June 6, 7, 2026, this self-guided tour is a major fundraiser for the Sooke Philharmonic Society. It grants access to ten private gardens where visitors can find local musicians performing and in-garden artisans demonstrating their crafts.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="scenic-stays-day-trips-nearby-coastal-stops"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Scenic Stays, Day Trips &amp; Nearby Coastal Stops</span>
+    <h2>Scenic Stays, Day Trips &amp; Nearby Coastal Stops</h2><p class="cnt">2 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/sooke/image17.jpg" alt="Point No Point Resort, Sooke"></figure>
+      
+      <div class="pl__b">
+        <h3>Point No Point Resort</h3>
+        <p>Point No Point Resort is a historic 40-acre coastal retreat located in Shirley, about 25 kilometers west of Sooke. Established in 1952 by Evelyn Packham, the resort is perched on a rugged bluff overlooking the Juan de Fuca Strait, providing a secluded atmosphere with expansive views of the Olympic Peninsula.</p><p>Accommodations and Amenities</p><p>Rustic Log Cabins: The resort features 25 private beachfront cabins, ranging from cozy studios to two-bedroom houses. Every cabin is equipped with a full kitchen, a fireplace or wood-burning stove, and a private sundeck with a hot tub.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/sooke/image44.jpg" alt="Scenic drive toward Port Renfrew, Sooke"></figure>
+      
+      <div class="pl__b">
+        <h3>Scenic drive toward Port Renfrew</h3>
+        <p>The scenic drive from Sooke to Port Renfrew along Highway 14, also known as the West Coast Road, is a 70-kilometer stretch of winding coastal highway that offers some of the most dramatic ocean views and accessible wilderness on Vancouver Island.</p><p>Key Stops and Scenic Points</p><p>French Beach Provincial Park is an essential first stop, roughly 20 minutes west of Sooke. The 1,600-meter pebble beach provides a wide panorama of the Strait of Juan de Fuca and the Olympic Mountains. This is a prime location for spotting migrating gray whales in the spring and fall, as well as resident orcas, sea lions, and otters year-round. The park features a large picnic area, a playground, and well-maintained trails through second-growth forests of Sitka spruce and cedar.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="golf-adventure-activities"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Golf &amp; Adventure Activities</span>
+    <h2>Golf &amp; Adventure Activities</h2><p class="cnt">4 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl pl--solo">
+      
+      <h3 class="solo__h">John Phillips Memorial Park</h3>
+      <div class="pl__b">
+        
+        <p>The John Phillips Memorial Park (frequently referred to by its former life as the John Phillips Memorial Golf Course) is a central green space in Sooke that has transitioned from a traditional golf course into a multi-use community park. Located directly behind the Sooke Municipal Hall, it serves as the town’s Central Park, offering a mix of open meadows, walking trails, and space for major community events.</p><p>For many years, this site operated as a 9-hole executive golf course. While the traditional golf operations have ceased, the landscape still retains the rolling fairways and manicured feel of a course, making it a unique spot for urban exploration. The District of Sooke has officially designated this as a primary parkland. The open spaces that once served as fairways are now used for picnics, kite flying, and leisurely strolls. While not a permanent fixture, the park occasionally hosts pop-up disc golf tournaments and events, taking advantage of the varied terrain and natural obstacles.</p><p>The Pond: A central feature of the park, the pond is a hub for local birdlife. It is a common spot to see ducks, geese, and occasionally herons. A small picnic table nearby offers a quiet place for a break.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Nearby Golf Courses</h3>
+      <div class="pl__b">
+        
+        <p>While the John Phillips Memorial Park has transitioned away from its golfing origins, Sooke is ideally positioned for access to several of British Columbia's premier courses located just a short drive east in Metchosin and Langford.</p><p>Premier Golfing Near Sooke</p><p>Olympic View Golf Club is an award-winning championship course located about 20 minutes from Sooke, known for its dramatic West Coast scenery and year-round playability.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Zipline at Sooke Hills</h3>
+      <div class="pl__b">
+        
+        <p>Adrena LINE Zipline Adventure Tours is the primary provider of high-flying adventure in the Sooke Hills, offering a thrilling perspective of the coastal rainforest canopy. Located on a 100-acre parcel of land in Sooke, it features an extensive course designed to showcase the diverse ecology of the region.</p><p>Guided Zipline Tours: The signature experience includes eight different ziplines, ranging from 150 to 1,000 feet in length. Participants glide over the forest floor at heights of up to 150 feet, providing panoramic views of the Sooke Hills and the distant Olympic Mountains.</p><p>The Unimog Experience: The adventure often begins with a rugged ride up the hillside in an authentic Unimog, a heavy-duty off-road vehicle that adds a mechanical element to the wilderness excursion.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">ATV / off-road backcountry areas</h3>
+      <div class="pl__b">
+        
+        <p>The backcountry surrounding Sooke is a major draw for off-road enthusiasts, primarily due to the extensive network of decommissioned and active forest service roads (FSRs) that cut deep into the Sooke Hills. While many regional and provincial parks in the immediate area prohibit motorized vehicles to protect sensitive watersheds, the surrounding crown lands and industrial corridors offer significant technical terrain.</p><p>The Sooke Hills Industrial Corridor: Most off-roading in this region occurs on forest service roads originally built for the logging industry. These routes offer access to remote alpine viewpoints and hidden lakes that are inaccessible by standard vehicles.</p><p>Granite Dunes / Sooke Backcountry: For experienced riders, the area toward the Jordan River offers more technical in-and-out trails. These can involve rocky riverbeds, steep inclines, and washouts that require high-clearance 4x4s, ATVs, or dirt bikes.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <h2>Keep going</h2>
+  <nav class="siblings" style="margin-top:20px" aria-label="Next">
+    <a class="sib" href="region.html"><span class="sib__n">Vancouver Island</span><span class="sib__m">All the towns</span></a>
+    <a class="sib" href="search.html?in=sooke"><span class="sib__n">Stays in Sooke</span><span class="sib__m">Search what is open</span></a>
+    <a class="sib" href="index.html"><span class="sib__n">All destinations</span><span class="sib__m">Every town we cover</span></a>
+  </nav>
+</div></section>
+</main>
+<footer class="f"><div class="wrap fbase">&copy; 2026 Arc Trips. Prices in CAD, before taxes and fees.</div></footer>
+<script src="_nav.js"></script>
+</body></html>

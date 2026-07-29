@@ -1,0 +1,303 @@
+- generic [active] [ref=f768e1]:
+  - navigation [ref=f768e2]:
+    - generic [ref=f768e3]:
+      - link "ARCTRIPS" [ref=f768e4] [cursor=pointer]:
+        - /url: index.html
+      - list [ref=f768e5]:
+        - listitem [ref=f768e6]:
+          - link "Stays" [ref=f768e7] [cursor=pointer]:
+            - /url: search.html?in=tofino
+        - listitem [ref=f768e8]:
+          - link "Destinations" [ref=f768e9] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=f768e10]:
+          - link "Guides" [ref=f768e11] [cursor=pointer]:
+            - /url: search.html
+      - generic [ref=f768e12]:
+        - textbox "Search" [ref=f768e16]:
+          - /placeholder: Search Tofino
+        - generic [ref=f768e17]: /
+      - link "Sign in" [ref=f768e18] [cursor=pointer]:
+        - /url: search.html?in=tofino
+  - navigation "Tofino" [ref=f768e19]:
+    - generic [ref=f768e20]:
+      - link "← Tofino" [ref=f768e21] [cursor=pointer]:
+        - /url: tofino.html
+      - list [ref=f768e23]:
+        - listitem [ref=f768e24]:
+          - link "Overview" [ref=f768e25] [cursor=pointer]:
+            - /url: tofino.html
+        - listitem [ref=f768e26]:
+          - link "Things to do" [ref=f768e27] [cursor=pointer]:
+            - /url: things-to-do.html
+        - listitem [ref=f768e28]:
+          - link "Beaches" [ref=f768e29] [cursor=pointer]:
+            - /url: "#top"
+        - listitem [ref=f768e30]:
+          - link "Stays" [ref=f768e31] [cursor=pointer]:
+            - /url: search.html?in=tofino
+      - link "Find a stay" [ref=f768e32] [cursor=pointer]:
+        - /url: search.html?in=tofino
+  - main [ref=f768e33]:
+    - navigation "Breadcrumb" [ref=f768e35]:
+      - link "Arc Trips" [ref=f768e36] [cursor=pointer]:
+        - /url: index.html
+      - generic [ref=f768e37]: /
+      - link "Canada" [ref=f768e38] [cursor=pointer]:
+        - /url: country.html
+      - generic [ref=f768e39]: /
+      - link "British Columbia" [ref=f768e40] [cursor=pointer]:
+        - /url: province.html
+      - generic [ref=f768e41]: /
+      - link "Vancouver Island" [ref=f768e42] [cursor=pointer]:
+        - /url: region.html
+      - generic [ref=f768e43]: /
+      - link "Tofino" [ref=f768e44] [cursor=pointer]:
+        - /url: tofino.html
+      - generic [ref=f768e45]: /
+      - link "Things to do" [ref=f768e46] [cursor=pointer]:
+        - /url: things-to-do.html
+      - generic [ref=f768e47]: /
+      - generic [ref=f768e48]: Beaches
+    - generic [ref=f768e49]:
+      - img "Beaches in Tofino" [ref=f768e50]
+      - generic [ref=f768e53]:
+        - text: Tofino, Vancouver Island
+        - heading "Beaches in Tofino" [level=1] [ref=f768e54]
+        - paragraph [ref=f768e55]: Tofino is famous for its beaches. They are wide, wild, and full of west coast beauty. You will find soft sand, big waves, driftwood, rainforest, rocky points, and long views of the Pacific Ocean.
+        - generic [ref=f768e56]:
+          - generic [ref=f768e57]:
+            - term [ref=f768e58]: Places written up
+            - definition [ref=f768e59]: "13"
+          - generic [ref=f768e60]:
+            - term [ref=f768e61]: With photographs
+            - definition [ref=f768e62]: "13"
+    - generic [ref=f768e65]:
+      - article [ref=f768e66]:
+        - figure [ref=f768e67]:
+          - img "Chesterman Beach, Tofino" [ref=f768e68]
+        - generic [ref=f768e69]:
+          - heading "Chesterman Beach" [level=3] [ref=f768e70]
+          - paragraph [ref=f768e71]: Chesterman Beach is one of the most loved beaches in Tofino. It is long, sandy, and easy to enjoy. It is close to town and popular with walkers, surfers, families, and photographers.
+          - paragraph [ref=f768e72]: Chesterman Beach is one of the most loved beaches in Tofino. It is long, sandy, and easy to enjoy. It is close to town and popular with walkers, surfers, families, and photographers.
+          - paragraph [ref=f768e73]: Chesterman is split into North Chesterman and South Chesterman. At low tide, you can walk across the sandspit, also called a tombolo, toward Frank Island. This is one of the most scenic beach walks in Tofino.
+          - generic [ref=f768e74]:
+            - generic [ref=f768e75]: Long beach walks
+            - generic [ref=f768e76]: Beginner surf lessons
+            - generic [ref=f768e77]: Sunset photos
+            - generic [ref=f768e78]: Sandcastles
+            - generic [ref=f768e79]: Tide pools at low tide
+            - generic [ref=f768e80]: Watching surfers
+          - paragraph [ref=f768e81]: Good to know. Always check the tide before walking toward Frank Island. The water can come in and cover the sandspit.
+      - article [ref=f768e82]:
+        - figure [ref=f768e83]:
+          - img "Cox Bay, Tofino" [ref=f768e84]
+        - generic [ref=f768e85]:
+          - heading "Cox Bay" [level=3] [ref=f768e86]
+          - paragraph [ref=f768e87]: Cox Bay is one of the best beaches in Tofino for surfing. It is wide, open, and faces the Pacific Ocean. Because of this, it often gets strong and steady waves.
+          - paragraph [ref=f768e88]: Cox Bay is one of the best beaches in Tofino for surfing. It is wide, open, and faces the Pacific Ocean. Because of this, it often gets strong and steady waves.
+          - paragraph [ref=f768e89]: Many surfers love Cox Bay. It is also a beautiful place to watch the waves from shore. On clear evenings, it can be a great sunset beach.
+          - generic [ref=f768e90]:
+            - generic [ref=f768e91]: Surfing
+            - generic [ref=f768e92]: Watching surfers
+            - generic [ref=f768e93]: Sunset views
+            - generic [ref=f768e94]: Beach walks
+            - generic [ref=f768e95]: Photography
+            - generic [ref=f768e96]: Storm watching in winter
+          - paragraph [ref=f768e97]: Good to know. Cox Bay can have powerful waves and currents. Beginners should go with a surf school or choose calmer conditions.
+      - article [ref=f768e98]:
+        - figure [ref=f768e99]:
+          - img "Long Beach, Tofino" [ref=f768e100]
+        - generic [ref=f768e101]:
+          - heading "Long Beach" [level=3] [ref=f768e102]
+          - paragraph [ref=f768e103]: Long Beach is one of the most famous beaches on Vancouver Island. It is part of Pacific Rim National Park Reserve, between Tofino and Ucluelet.
+          - paragraph [ref=f768e104]: Long Beach is one of the most famous beaches on Vancouver Island. It is part of Pacific Rim National Park Reserve, between Tofino and Ucluelet.
+          - paragraph [ref=f768e105]: "As the name says, Long Beach is very long. It gives you that classic west coast feeling: open sand, big sky, rolling waves, and rainforest behind you."
+          - generic [ref=f768e106]:
+            - generic [ref=f768e107]: Long walks
+            - generic [ref=f768e108]: Big beach views
+            - generic [ref=f768e109]: Surfing
+            - generic [ref=f768e110]: Storm watching
+            - generic [ref=f768e111]: Photography
+            - generic [ref=f768e112]: Visiting Pacific Rim National Park Reserve
+          - paragraph [ref=f768e113]: Good to know. You may need a national park pass when stopping in this area. Follow Parks Canada signs, closures, and beach safety rules.
+      - article [ref=f768e114]:
+        - figure [ref=f768e115]:
+          - img "Tinwis Beach, formerly Mackenzie Beach, Tofino" [ref=f768e116]
+        - generic [ref=f768e117]:
+          - heading "Tinwis Beach, formerly Mackenzie Beach" [level=3] [ref=f768e118]
+          - paragraph [ref=f768e119]: Tinwis Beach, formerly known as Mackenzie Beach, is a calmer and more sheltered beach near Tofino. It does not face the open ocean as directly as Cox Bay or Long Beach, so the water is often gentler.
+          - paragraph [ref=f768e120]: Tinwis Beach, formerly known as Mackenzie Beach, is a calmer and more sheltered beach near Tofino. It does not face the open ocean as directly as Cox Bay or Long Beach, so the water is often gentler.
+          - paragraph [ref=f768e121]: This makes tinwis a favorite for families, relaxed beach time, and people who want a softer beach experience. It is also a good place to enjoy tide pools and coastal views when conditions are safe.
+          - generic [ref=f768e122]:
+            - generic [ref=f768e123]: Families
+            - generic [ref=f768e124]: Calmer beach days
+            - generic [ref=f768e125]: Paddleboarding in gentle conditions
+            - generic [ref=f768e126]: Tide pools
+            - generic [ref=f768e127]: Relaxing
+            - generic [ref=f768e128]: Staying near beachfront resorts
+          - paragraph [ref=f768e129]: Good to know. The beach is now officially called tinwis, pronounced “ti-nu-wis.” Some maps and visitors may still use the older name, Mackenzie Beach.
+      - article [ref=f768e130]:
+        - figure [ref=f768e131]:
+          - img "Tonquin Beach, Tofino" [ref=f768e132]
+        - generic [ref=f768e133]:
+          - heading "Tonquin Beach" [level=3] [ref=f768e134]
+          - paragraph [ref=f768e135]: Tonquin Beach is a smaller beach close to the village of Tofino. You reach it by walking a short forest trail. It feels quieter and more hidden than the big surf beaches.
+          - paragraph [ref=f768e136]: Tonquin Beach is a smaller beach close to the village of Tofino. You reach it by walking a short forest trail. It feels quieter and more hidden than the big surf beaches.
+          - paragraph [ref=f768e137]: Tonquin Beach is not as wide as Chesterman or Long Beach, but it has a peaceful feel. It is a nice place for a short walk, a picnic, or a quiet sunset.
+          - generic [ref=f768e138]:
+            - generic [ref=f768e139]: Short walks
+            - generic [ref=f768e140]: Quiet beach time
+            - generic [ref=f768e141]: Picnics
+            - generic [ref=f768e142]: Sunset views
+            - generic [ref=f768e143]: Forest-and-beach scenery
+          - paragraph [ref=f768e144]: Good to know. The trail can be wet or muddy after rain. Wear shoes with good grip.
+      - article [ref=f768e145]:
+        - figure [ref=f768e146]:
+          - img "Middle Beach, Tofino" [ref=f768e147]
+        - generic [ref=f768e148]:
+          - heading "Middle Beach" [level=3] [ref=f768e149]
+          - paragraph [ref=f768e150]: Middle Beach is a smaller beach area near Chesterman Beach. It has a more tucked-away feel, with rocky edges, forest, and ocean views.
+          - paragraph [ref=f768e151]: Middle Beach is a smaller beach area near Chesterman Beach. It has a more tucked-away feel, with rocky edges, forest, and ocean views.
+          - paragraph [ref=f768e152]: It is a nice place if you want something quieter than the larger beaches. It is not always the best place for swimming or surfing, but it can be lovely for photos and peaceful walks.
+          - generic [ref=f768e153]:
+            - generic [ref=f768e154]: Quiet views
+            - generic [ref=f768e155]: Photography
+            - generic [ref=f768e156]: Short walks
+            - generic [ref=f768e157]: Relaxing near the ocean
+          - paragraph [ref=f768e158]: Good to know. Check tide and wave conditions before walking near rocks.
+      - article [ref=f768e159]:
+        - figure [ref=f768e160]:
+          - img "Rosie Bay, Tofino" [ref=f768e161]
+        - generic [ref=f768e162]:
+          - heading "Rosie Bay" [level=3] [ref=f768e163]
+          - paragraph [ref=f768e164]: At low tide, you may find interesting rocks, sand, and small pools. It is also a scenic area for photos.
+          - paragraph [ref=f768e165]: At low tide, you may find interesting rocks, sand, and small pools. It is also a scenic area for photos.
+          - generic [ref=f768e166]:
+            - generic [ref=f768e167]: Quiet exploring
+            - generic [ref=f768e168]: Low tide walks
+            - generic [ref=f768e169]: Photography
+            - generic [ref=f768e170]: A break from busier beaches
+          - paragraph [ref=f768e171]: Good to know. Be careful near rocks and changing tides.
+      - article [ref=f768e172]:
+        - figure [ref=f768e173]:
+          - img "Wickaninnish Beach, Tofino" [ref=f768e174]
+        - generic [ref=f768e175]:
+          - heading "Wickaninnish Beach" [level=3] [ref=f768e176]
+          - paragraph [ref=f768e177]: Wickaninnish Beach is in Pacific Rim National Park Reserve, closer to the Ucluelet side of the Long Beach area. It is one of the best places near Tofino for big ocean views and storm watching.
+          - paragraph [ref=f768e178]: Wickaninnish Beach is in Pacific Rim National Park Reserve, closer to the Ucluelet side of the Long Beach area. It is one of the best places near Tofino for big ocean views and storm watching.
+          - paragraph [ref=f768e179]: The nearby Kwisitis Visitor Centre makes this beach extra useful for visitors. You can learn about the coast, local wildlife, and the history of the area. There is also a viewing area, which is helpful when the beach feels too rough or windy.
+          - generic [ref=f768e180]:
+            - generic [ref=f768e181]: Storm watching
+            - generic [ref=f768e182]: Big ocean views
+            - generic [ref=f768e183]: Photography
+            - generic [ref=f768e184]: Sunset watching
+            - generic [ref=f768e185]: Learning about the coast
+            - generic [ref=f768e186]: Visiting the Kwisitis Visitor Centre
+          - paragraph [ref=f768e187]: Good to know. This beach can feel very open and exposed. Stay far back from the water during storms and high tide.
+      - article [ref=f768e188]:
+        - figure [ref=f768e189]:
+          - img "Florencia Bay, Tofino" [ref=f768e190]
+        - generic [ref=f768e191]:
+          - heading "Florencia Bay" [level=3] [ref=f768e192]
+          - paragraph [ref=f768e193]: Florencia Bay is also in Pacific Rim National Park Reserve. It is closer to Ucluelet than Tofino, but it is still a great stop on a Tofino beach trip.
+          - paragraph [ref=f768e194]: Florencia Bay is also in Pacific Rim National Park Reserve. It is closer to Ucluelet than Tofino, but it is still a great stop on a Tofino beach trip.
+          - paragraph [ref=f768e195]: Florencia Bay is known for its sand cliffs, quiet feel, and scenic shoreline. To reach the beach, you walk a trail and take a wooden staircase down to the shore.
+          - generic [ref=f768e196]:
+            - generic [ref=f768e197]: Quiet beach walks
+            - generic [ref=f768e198]: Sand cliff views
+            - generic [ref=f768e199]: Photography
+            - generic [ref=f768e200]: Low-tide exploring
+            - generic [ref=f768e201]: A less crowded beach visit
+          - paragraph [ref=f768e202]: Good to know. The stairs and trail can feel longer on the way back up. Wear comfortable shoes and check the tide before walking far.
+      - article [ref=f768e203]:
+        - figure [ref=f768e204]:
+          - img "Combers Beach, Tofino" [ref=f768e205]
+        - generic [ref=f768e206]:
+          - heading "Combers Beach" [level=3] [ref=f768e207]
+          - paragraph [ref=f768e208]: Combers Beach is part of Pacific Rim National Park Reserve. It is not a town beach, but it is one of the wilder beaches near Tofino.
+          - paragraph [ref=f768e209]: Combers Beach is part of Pacific Rim National Park Reserve. It is not a town beach, but it is one of the wilder beaches near Tofino.
+          - paragraph [ref=f768e210]: Combers Beach is good for visitors who want a natural, open beach experience. It can feel quieter than Chesterman or Cox Bay. It is a good place for a long walk, but you should check trail access, tide times, and park updates before going.
+          - generic [ref=f768e211]:
+            - generic [ref=f768e212]: Long beach walks
+            - generic [ref=f768e213]: Quiet nature time
+            - generic [ref=f768e214]: Photography
+            - generic [ref=f768e215]: Storm watching from a safe distance
+            - generic [ref=f768e216]: A wilder beach feel
+          - paragraph [ref=f768e217]: Good to know. Dog rules and access rules can change in Pacific Rim National Park Reserve. Check current Parks Canada updates before visiting with a dog.
+      - article [ref=f768e218]:
+        - figure [ref=f768e219]:
+          - img "Schooner Cove, Tofino" [ref=f768e220]
+        - generic [ref=f768e221]:
+          - heading "Schooner Cove" [level=3] [ref=f768e222]
+          - paragraph [ref=f768e223]: Schooner Cove is also in Pacific Rim National Park Reserve, closer to the Tofino end of the Long Beach area.
+          - paragraph [ref=f768e224]: Schooner Cove is also in Pacific Rim National Park Reserve, closer to the Tofino end of the Long Beach area.
+          - paragraph [ref=f768e225]: It is worth visiting if you like forest-to-beach scenery and quieter places. It has a more tucked-away feeling than the main beaches near town. It is best for people who want a slower nature stop, not a busy beach day.
+          - generic [ref=f768e226]:
+            - generic [ref=f768e227]: Forest and beach views
+            - generic [ref=f768e228]: Quiet exploring
+            - generic [ref=f768e229]: Nature photos
+            - generic [ref=f768e230]: Peaceful walks
+            - generic [ref=f768e231]: A less crowded beach stop
+          - paragraph [ref=f768e232]: Good to know. Trail and beach access can change in national park areas. Check current Parks Canada updates before planning your visit.
+      - article [ref=f768e233]:
+        - figure [ref=f768e234]:
+          - img "Grice Bay, Tofino" [ref=f768e235]
+        - generic [ref=f768e236]:
+          - heading "Grice Bay" [level=3] [ref=f768e237]
+          - paragraph [ref=f768e238]: Grice Bay is different from the other beaches on this list. It is not a big open Pacific Ocean surf beach. It is a sheltered bay on the calmer inlet side near Tofino and Pacific Rim National Park Rese
+          - paragraph [ref=f768e239]: Grice Bay is different from the other beaches on this list. It is not a big open Pacific Ocean surf beach. It is a sheltered bay on the calmer inlet side near Tofino and Pacific Rim National Park Reserve.
+          - paragraph [ref=f768e240]: This means Grice Bay is not the place to go for surfing, big waves, or classic sandy beach photos. But it is still worth visiting if you like calm water, kayaking, bird watching, and peaceful views.
+          - generic [ref=f768e241]:
+            - generic [ref=f768e242]: Kayaking
+            - generic [ref=f768e243]: Paddle trips
+            - generic [ref=f768e244]: Bird watching
+            - generic [ref=f768e245]: Calm water views
+            - generic [ref=f768e246]: A quiet nature stop
+          - paragraph [ref=f768e247]: Good to know. Choose Grice Bay for calm inlet scenery, not for surfing or storm watching.
+      - article [ref=f768e248]:
+        - figure [ref=f768e249]:
+          - img "Kennedy Lake, Tofino" [ref=f768e250]
+        - generic [ref=f768e251]:
+          - heading "Kennedy Lake" [level=3] [ref=f768e252]
+          - paragraph [ref=f768e253]: Kennedy Lake is not a beach in Tofino town, and it is not an open Pacific Ocean beach. It is a large freshwater lake near Tofino and Ucluelet, close to Pacific Rim National Park Reserve.
+          - paragraph [ref=f768e254]: Kennedy Lake is not a beach in Tofino town, and it is not an open Pacific Ocean beach. It is a large freshwater lake near Tofino and Ucluelet, close to Pacific Rim National Park Reserve.
+          - paragraph [ref=f768e255]: It is worth adding to a Tofino beach and water guide because it gives visitors a different kind of water experience. Instead of big waves, surf, and storm watching, Kennedy Lake is known for calmer water, forest views, and peaceful lake scenery.
+          - generic [ref=f768e256]:
+            - generic [ref=f768e257]: Freshwater lake views
+            - generic [ref=f768e258]: Kayaking or canoeing
+            - generic [ref=f768e259]: Paddleboarding in calm conditions
+            - generic [ref=f768e260]: Quiet nature time
+            - generic [ref=f768e261]: Photography
+            - generic [ref=f768e262]: A break from windy ocean beaches
+            - generic [ref=f768e263]: Quick Beach Guide
+            - generic [ref=f768e264]: Beach · Location · Best For
+          - paragraph [ref=f768e265]: Good to know. Kennedy Lake is best for calm-water activities, not surfing or storm watching. Conditions can still change, so check the weather and wind before paddling.
+    - generic [ref=f768e267]:
+      - heading "More on beaches" [level=2] [ref=f768e268]
+      - navigation [ref=f768e269]:
+        - link "The Best Beaches in Tofino beaches" [ref=f768e270] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f768e271]: The Best Beaches in Tofino
+          - generic [ref=f768e272]: beaches
+        - link "Beaches FAQs beaches" [ref=f768e273] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f768e274]: Beaches FAQs
+          - generic [ref=f768e275]: beaches
+    - generic [ref=f768e277]:
+      - heading "Keep going" [level=2] [ref=f768e278]
+      - navigation [ref=f768e279]:
+        - link "Everything to do in Tofino All the subjects" [ref=f768e280] [cursor=pointer]:
+          - /url: things-to-do.html
+          - generic [ref=f768e281]: Everything to do in Tofino
+          - generic [ref=f768e282]: All the subjects
+        - link "Tofino The town" [ref=f768e283] [cursor=pointer]:
+          - /url: tofino.html
+          - generic [ref=f768e284]: Tofino
+          - generic [ref=f768e285]: The town
+        - link "Stays Search what is open" [ref=f768e286] [cursor=pointer]:
+          - /url: search.html?in=tofino
+          - generic [ref=f768e287]: Stays
+          - generic [ref=f768e288]: Search what is open
+  - contentinfo [ref=f768e289]:
+    - generic [ref=f768e290]: © 2026 Arc Trips. Prices in CAD, before taxes and fees.

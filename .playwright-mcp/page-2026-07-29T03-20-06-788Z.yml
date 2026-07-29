@@ -1,0 +1,323 @@
+- generic [active] [ref=f766e1]:
+  - navigation [ref=f766e2]:
+    - generic [ref=f766e3]:
+      - link "ARCTRIPS" [ref=f766e4] [cursor=pointer]:
+        - /url: index.html
+      - list [ref=f766e5]:
+        - listitem [ref=f766e6]:
+          - link "Stays" [ref=f766e7] [cursor=pointer]:
+            - /url: search.html?in=tofino
+        - listitem [ref=f766e8]:
+          - link "Destinations" [ref=f766e9] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=f766e10]:
+          - link "Guides" [ref=f766e11] [cursor=pointer]:
+            - /url: search.html
+      - textbox "Search" [ref=f766e16]:
+        - /placeholder: Search Tofino
+      - link "Sign in" [ref=f766e17] [cursor=pointer]:
+        - /url: search.html?in=tofino
+  - navigation "Tofino" [ref=f766e18]:
+    - generic [ref=f766e19]:
+      - link "← Tofino" [ref=f766e20] [cursor=pointer]:
+        - /url: tofino.html
+      - list [ref=f766e22]:
+        - listitem [ref=f766e23]:
+          - link "Overview" [ref=f766e24] [cursor=pointer]:
+            - /url: tofino.html
+        - listitem [ref=f766e25]:
+          - link "Things to do" [ref=f766e26] [cursor=pointer]:
+            - /url: things-to-do.html
+        - listitem [ref=f766e27]:
+          - link "Restaurants" [ref=f766e28] [cursor=pointer]:
+            - /url: "#top"
+        - listitem [ref=f766e29]:
+          - link "Stays" [ref=f766e30] [cursor=pointer]:
+            - /url: search.html?in=tofino
+      - link "Find a stay" [ref=f766e31] [cursor=pointer]:
+        - /url: search.html?in=tofino
+  - main [ref=f766e32]:
+    - navigation "Breadcrumb" [ref=f766e34]:
+      - link "Arc Trips" [ref=f766e35] [cursor=pointer]:
+        - /url: index.html
+      - generic [ref=f766e36]: /
+      - link "Vancouver Island" [ref=f766e37] [cursor=pointer]:
+        - /url: region.html
+      - generic [ref=f766e38]: /
+      - link "Tofino" [ref=f766e39] [cursor=pointer]:
+        - /url: tofino.html
+      - generic [ref=f766e40]: /
+      - link "Things to do" [ref=f766e41] [cursor=pointer]:
+        - /url: things-to-do.html
+      - generic [ref=f766e42]: /
+      - generic [ref=f766e43]: Restaurants
+    - generic [ref=f766e44]:
+      - img "Restaurants in Tofino" [ref=f766e45]
+      - generic [ref=f766e48]:
+        - text: Tofino, Vancouver Island
+        - heading "Restaurants in Tofino" [level=1] [ref=f766e49]
+        - paragraph [ref=f766e50]: Discover the best restaurants in Tofino, from seafood and tacos to fine dining, coffee shops, local bakeries, and slow food experiences. Find where to eat for breakfast, lunch, dinner, and local flavors.
+        - generic [ref=f766e51]:
+          - generic [ref=f766e52]:
+            - term [ref=f766e53]: Places written up
+            - definition [ref=f766e54]: "16"
+          - generic [ref=f766e55]:
+            - term [ref=f766e56]: With photographs
+            - definition [ref=f766e57]: "4"
+    - generic [ref=f766e60]:
+      - article [ref=f766e61]:
+        - generic [ref=f766e62]:
+          - heading "Wolf in the Fog" [level=3] [ref=f766e63]
+          - paragraph [ref=f766e64]: Wolf in the Fog is one of the most famous restaurants in Tofino. It is a good choice for a special dinner, a date night, or a meal that feels very connected to the west coast.
+          - paragraph [ref=f766e65]: Wolf in the Fog is one of the most famous restaurants in Tofino. It is a good choice for a special dinner, a date night, or a meal that feels very connected to the west coast.
+          - paragraph [ref=f766e66]: The menu is inspired by Tofino’s ocean, forest, and shoreline. Expect seafood, local produce, foraged flavors, creative cocktails, and dishes made for sharing.
+          - generic [ref=f766e67]:
+            - generic [ref=f766e68]: Special dinners
+            - generic [ref=f766e69]: Local seafood
+            - generic [ref=f766e70]: Cocktails
+            - generic [ref=f766e71]: Date night
+            - generic [ref=f766e72]: Sharing plates
+            - generic [ref=f766e73]: A true Tofino food experience
+          - paragraph [ref=f766e74]: Good to know. Book ahead if you can. This is one of the most popular restaurants in town.
+      - article [ref=f766e75]:
+        - figure [ref=f766e76]:
+          - img "The Pointe Restaurant, Tofino" [ref=f766e77]
+        - generic [ref=f766e78]:
+          - heading "The Pointe Restaurant" [level=3] [ref=f766e79]
+          - paragraph [ref=f766e80]: The Pointe Restaurant is one of the best places in Tofino for ocean-view dining. It is located at the Wickaninnish Inn, near Chesterman Beach, and is known for its wide Pacific Ocean views.
+          - paragraph [ref=f766e81]: The Pointe Restaurant is one of the best places in Tofino for ocean-view dining. It is located at the Wickaninnish Inn, near Chesterman Beach, and is known for its wide Pacific Ocean views.
+          - paragraph [ref=f766e82]: This is a good choice if you want a more polished dining experience. It works well for anniversaries, birthdays, romantic dinners, or a special meal during a Tofino trip.
+          - generic [ref=f766e83]:
+            - generic [ref=f766e84]: Ocean views
+            - generic [ref=f766e85]: Fine dining
+            - generic [ref=f766e86]: Special occasions
+            - generic [ref=f766e87]: West coast seafood
+            - generic [ref=f766e88]: Sunset or storm watching from indoors
+            - generic [ref=f766e89]: A slower, more elegant meal
+          - paragraph [ref=f766e90]: Good to know. This is one of the more upscale dining options in Tofino. Check dress expectations and book ahead.
+      - article [ref=f766e91]:
+        - generic [ref=f766e92]:
+          - heading "Shelter Restaurant" [level=3] [ref=f766e93]
+          - paragraph [ref=f766e94]: Shelter Restaurant is a popular waterfront spot near Tofino Resort + Marina. It is a great choice if you want a relaxed meal with local seafood, burgers, bowls, and a cozy coastal feel.
+          - paragraph [ref=f766e95]: Shelter Restaurant is a popular waterfront spot near Tofino Resort + Marina. It is a great choice if you want a relaxed meal with local seafood, burgers, bowls, and a cozy coastal feel.
+          - paragraph [ref=f766e96]: Shelter works well for many types of travelers. It is casual enough for families but still feels like a proper sit-down dinner.
+          - generic [ref=f766e97]:
+            - generic [ref=f766e98]: Waterfront dining
+            - generic [ref=f766e99]: Families
+            - generic [ref=f766e100]: Seafood
+            - generic [ref=f766e101]: Casual dinner
+            - generic [ref=f766e102]: Groups
+            - generic [ref=f766e103]: Rainy day meals
+          - paragraph [ref=f766e104]: Good to know. It can get busy, especially in summer and at dinner time.
+      - article [ref=f766e105]:
+        - generic [ref=f766e106]:
+          - heading "Ombré Restaurant" [level=3] [ref=f766e107]
+          - paragraph [ref=f766e108]: Ombré is a newer Tofino dining option connected to the team behind Wolf in the Fog. It has a more relaxed feel but still focuses on creative food and local flavor.
+          - paragraph [ref=f766e109]: Ombré is a newer Tofino dining option connected to the team behind Wolf in the Fog. It has a more relaxed feel but still focuses on creative food and local flavor.
+          - paragraph [ref=f766e110]: It is a good choice if you want something stylish, thoughtful, and a little different from the classic seafood spots.
+          - generic [ref=f766e111]:
+            - generic [ref=f766e112]: Creative dining
+            - generic [ref=f766e113]: Small plates
+            - generic [ref=f766e114]: Date night
+            - generic [ref=f766e115]: Cocktails
+            - generic [ref=f766e116]: Local flavors
+            - generic [ref=f766e117]: A relaxed but elevated meal
+          - paragraph [ref=f766e118]: Good to know. Check current hours and reservation options before going.
+      - article [ref=f766e119]:
+        - generic [ref=f766e120]:
+          - heading "ROAR Tofino" [level=3] [ref=f766e121]
+          - paragraph [ref=f766e122]: ROAR is located at Hotel Zed Tofino and is known for live-fire cooking. The food is warm, bold, and inspired by local ingredients and west coast stories.
+          - paragraph [ref=f766e123]: ROAR is located at Hotel Zed Tofino and is known for live-fire cooking. The food is warm, bold, and inspired by local ingredients and west coast stories.
+          - paragraph [ref=f766e124]: This is a good choice if you want something fun and a little different. It is not just a simple seafood meal. The fire cooking gives the food a smoky, cozy feel.
+          - generic [ref=f766e125]:
+            - generic [ref=f766e126]: Live-fire cooking
+            - generic [ref=f766e127]: Dinner with friends
+            - generic [ref=f766e128]: Local ingredients
+            - generic [ref=f766e129]: Cocktails
+            - generic [ref=f766e130]: A warm and lively atmosphere
+            - generic [ref=f766e131]: Hotel Zed guests
+          - paragraph [ref=f766e132]: Good to know. ROAR is a good pick if you want a restaurant that feels modern but still relaxed.
+      - article [ref=f766e133]:
+        - figure [ref=f766e134]:
+          - img "Tacofino Original Truck, Tofino" [ref=f766e135]
+        - generic [ref=f766e136]:
+          - heading "Tacofino Original Truck" [level=3] [ref=f766e137]
+          - paragraph [ref=f766e138]: Tacofino is one of the most famous food stops in Tofino. The original food truck is known for fish tacos, burritos, and west coast Mexican-style food.
+          - paragraph [ref=f766e139]: Tacofino is one of the most famous food stops in Tofino. The original food truck is known for fish tacos, burritos, and west coast Mexican-style food.
+          - paragraph [ref=f766e140]: This is a classic after-surf meal. It is casual, quick, and easy to love.
+          - generic [ref=f766e141]:
+            - generic [ref=f766e142]: Fish tacos
+            - generic [ref=f766e143]: Burritos
+            - generic [ref=f766e144]: Lunch
+            - generic [ref=f766e145]: Takeout
+            - generic [ref=f766e146]: Surf-day food
+            - generic [ref=f766e147]: Budget-friendly meals
+          - paragraph [ref=f766e148]: Good to know. Lines can be long in peak season. Go early or outside busy meal times if you can.
+      - article [ref=f766e149]:
+        - generic [ref=f766e150]:
+          - heading "Wildside Grill" [level=3] [ref=f766e151]
+          - paragraph [ref=f766e152]: Wildside Grill is a local favorite for fish and chips, seafood, burgers, and casual west coast comfort food.
+          - paragraph [ref=f766e153]: Wildside Grill is a local favorite for fish and chips, seafood, burgers, and casual west coast comfort food.
+          - paragraph [ref=f766e154]: It is a good choice after surfing, beach walking, or driving back from Pacific Rim National Park. The food is relaxed, filling, and easy to enjoy.
+          - generic [ref=f766e155]:
+            - generic [ref=f766e156]: Fish and chips
+            - generic [ref=f766e157]: Seafood
+            - generic [ref=f766e158]: Burgers
+            - generic [ref=f766e159]: Casual lunch
+            - generic [ref=f766e160]: Family meals
+            - generic [ref=f766e161]: Quick bites after the beach
+          - paragraph [ref=f766e162]: Good to know. It is located in the Live to Surf plaza area, which is handy if you are staying or exploring outside the village center.
+      - article [ref=f766e163]:
+        - generic [ref=f766e164]:
+          - heading "Shed Tofino" [level=3] [ref=f766e165]
+          - paragraph [ref=f766e166]: Shed is a casual restaurant in downtown Tofino. It is known for burgers, bowls, drinks, and a relaxed west coast feel.
+          - paragraph [ref=f766e167]: Shed is a casual restaurant in downtown Tofino. It is known for burgers, bowls, drinks, and a relaxed west coast feel.
+          - paragraph [ref=f766e168]: This is a good option if you want something easy but still fresh. It works well for lunch, dinner, families, and groups.
+          - generic [ref=f766e169]:
+            - generic [ref=f766e170]: Burgers
+            - generic [ref=f766e171]: Bowls
+            - generic [ref=f766e172]: Casual dinner
+            - generic [ref=f766e173]: Family meals
+            - generic [ref=f766e174]: Downtown dining
+            - generic [ref=f766e175]: Drinks with friends
+          - paragraph [ref=f766e176]: Good to know. Shed is a good “safe choice” when people in your group want different things.
+      - article [ref=f766e177]:
+        - generic [ref=f766e178]:
+          - heading "Rhino Coffee House" [level=3] [ref=f766e179]
+          - paragraph [ref=f766e180]: Rhino Coffee House is one of the best-known coffee shops in Tofino. It is popular with locals and visitors for coffee, breakfast, sandwiches, bagels, and donuts.
+          - paragraph [ref=f766e181]: Rhino Coffee House is one of the best-known coffee shops in Tofino. It is popular with locals and visitors for coffee, breakfast, sandwiches, bagels, and donuts.
+          - paragraph [ref=f766e182]: This is a good place to start the day before surfing, hiking, kayaking, or driving to the beaches.
+          - generic [ref=f766e183]:
+            - generic [ref=f766e184]: Coffee
+            - generic [ref=f766e185]: Breakfast
+            - generic [ref=f766e186]: Donuts
+            - generic [ref=f766e187]: Bagels
+            - generic [ref=f766e188]: Sandwiches
+            - generic [ref=f766e189]: A local morning stop
+          - paragraph [ref=f766e190]: Good to know. It can get busy in the morning, but it is worth adding to your Tofino food list.
+      - article [ref=f766e191]:
+        - generic [ref=f766e192]:
+          - heading "Tofitian Cafe" [level=3] [ref=f766e193]
+          - paragraph [ref=f766e194]: Tofitian Cafe is a long-time Tofino coffee spot. It has a local feel and is a good place for coffee, tea, and a slower start to the day.
+          - paragraph [ref=f766e195]: Tofitian Cafe is a long-time Tofino coffee spot. It has a local feel and is a good place for coffee, tea, and a slower start to the day.
+          - paragraph [ref=f766e196]: It is a handy stop if you are near the surf shops and the Pacific Rim Highway area.
+          - generic [ref=f766e197]:
+            - generic [ref=f766e198]: Coffee
+            - generic [ref=f766e199]: Tea
+            - generic [ref=f766e200]: Morning stops
+            - generic [ref=f766e201]: Local atmosphere
+            - generic [ref=f766e202]: Simple breakfast bites
+            - generic [ref=f766e203]: Pre-surf fuel
+          - paragraph [ref=f766e204]: Good to know. This is a good place if you want a classic Tofino cafe feel.
+      - article [ref=f766e205]:
+        - figure [ref=f766e206]:
+          - img "Driftwood Café, Tofino" [ref=f766e207]
+        - generic [ref=f766e208]:
+          - heading "Driftwood Café" [level=3] [ref=f766e209]
+          - paragraph [ref=f766e210]: Driftwood Café is located at the Wickaninnish Inn near Chesterman Beach. It is a good choice for coffee, breakfast, brunch, or a light meal close to the beach.
+          - paragraph [ref=f766e211]: Driftwood Café is located at the Wickaninnish Inn near Chesterman Beach. It is a good choice for coffee, breakfast, brunch, or a light meal close to the beach.
+          - paragraph [ref=f766e212]: It is also a nice option if you want something calmer and more scenic than a busy downtown cafe.
+          - generic [ref=f766e213]:
+            - generic [ref=f766e214]: Coffee near Chesterman Beach
+            - generic [ref=f766e215]: Brunch
+            - generic [ref=f766e216]: Light meals
+            - generic [ref=f766e217]: Beach-day snacks
+            - generic [ref=f766e218]: A relaxed resort cafe feel
+          - paragraph [ref=f766e219]: Good to know. It is a nice stop before or after a walk on Chesterman Beach.
+      - article [ref=f766e220]:
+        - generic [ref=f766e221]:
+          - heading "Tofino Coffee Roasting Co." [level=3] [ref=f766e222]
+          - paragraph [ref=f766e223]: Tofino Coffee Roasting Co. is a locally owned cafe and roastery. It is a good choice if you care about good coffee and want something simple, warm, and local.
+          - paragraph [ref=f766e224]: Tofino Coffee Roasting Co. is a locally owned cafe and roastery. It is a good choice if you care about good coffee and want something simple, warm, and local.
+          - generic [ref=f766e225]:
+            - generic [ref=f766e226]: Locally roasted coffee
+            - generic [ref=f766e227]: Pastries
+            - generic [ref=f766e228]: A quiet coffee stop
+            - generic [ref=f766e229]: Coffee lovers
+            - generic [ref=f766e230]: Takeaway drinks
+          - paragraph [ref=f766e231]: Good to know. This is a good stop for people who want coffee that feels more craft-focused.
+      - article [ref=f766e232]:
+        - generic [ref=f766e233]:
+          - heading "Harbourview Coffeehouse" [level=3] [ref=f766e234]
+          - paragraph [ref=f766e235]: Harbourview Coffeehouse is a small waterfront coffee stop connected with Tofino Sea Kayaking. It is a lovely place for coffee before or after a kayaking trip.
+          - paragraph [ref=f766e236]: Harbourview Coffeehouse is a small waterfront coffee stop connected with Tofino Sea Kayaking. It is a lovely place for coffee before or after a kayaking trip.
+          - paragraph [ref=f766e237]: The view makes it feel special, even if you only stop for a quick drink.
+          - generic [ref=f766e238]:
+            - generic [ref=f766e239]: Waterfront coffee
+            - generic [ref=f766e240]: Kayaking days
+            - generic [ref=f766e241]: Light snacks
+            - generic [ref=f766e242]: A quiet view
+            - generic [ref=f766e243]: Simple local finds
+          - paragraph [ref=f766e244]: Good to know. This is a nice hidden-gem option if you are already near the harbour.
+      - article [ref=f766e245]:
+        - generic [ref=f766e246]:
+          - heading "Mizu Mizu Café" [level=3] [ref=f766e247]
+          - paragraph [ref=f766e248]: Mizu Mizu Café has a calm Japanese-inspired cafe feel. It is good for slow mornings, matcha, pastries, grilled sandwiches, and thoughtful small finds.
+          - paragraph [ref=f766e249]: Mizu Mizu Café has a calm Japanese-inspired cafe feel. It is good for slow mornings, matcha, pastries, grilled sandwiches, and thoughtful small finds.
+          - paragraph [ref=f766e250]: This is a nice choice if you want a peaceful cafe stop instead of a busy breakfast place.
+          - generic [ref=f766e251]:
+            - generic [ref=f766e252]: Matcha
+            - generic [ref=f766e253]: Coffee
+            - generic [ref=f766e254]: Pastries
+            - generic [ref=f766e255]: Slow mornings
+            - generic [ref=f766e256]: Light meals
+            - generic [ref=f766e257]: A cozy cafe stop
+          - paragraph [ref=f766e258]: Good to know. Good for travelers who enjoy quiet, simple, and thoughtful spaces.
+      - article [ref=f766e259]:
+        - figure [ref=f766e260]:
+          - img "Tofino Brewing Company, Tofino" [ref=f766e261]
+        - generic [ref=f766e262]:
+          - heading "Tofino Brewing Company" [level=3] [ref=f766e263]
+          - paragraph [ref=f766e264]: Tofino Brewing Company is a popular stop for craft beer. It is a good place to try a flight, enjoy a pint, or grab beer to go.
+          - paragraph [ref=f766e265]: Tofino Brewing Company is a popular stop for craft beer. It is a good place to try a flight, enjoy a pint, or grab beer to go.
+          - paragraph [ref=f766e266]: It works well after a beach day, hike, or surf lesson.
+          - generic [ref=f766e267]:
+            - generic [ref=f766e268]: Craft beer
+            - generic [ref=f766e269]: Flights
+            - generic [ref=f766e270]: Casual drinks
+            - generic [ref=f766e271]: Après-surf
+            - generic [ref=f766e272]: Rainy afternoons
+            - generic [ref=f766e273]: Local beer fans
+          - paragraph [ref=f766e274]: Good to know. Check current hours before visiting, especially outside summer.
+      - article [ref=f766e275]:
+        - generic [ref=f766e276]:
+          - heading "Tofino Distillery" [level=3] [ref=f766e277]
+          - paragraph [ref=f766e278]: Tofino Distillery is a good stop for craft spirits and small cocktail tasters. It is known for organic spirits and seasonal tasting room drinks.
+          - paragraph [ref=f766e279]: Tofino Distillery is a good stop for craft spirits and small cocktail tasters. It is known for organic spirits and seasonal tasting room drinks.
+          - paragraph [ref=f766e280]: This is a good choice if you want a local drink experience that is not beer.
+          - generic [ref=f766e281]:
+            - generic [ref=f766e282]: Craft spirits
+            - generic [ref=f766e283]: Tastings
+            - generic [ref=f766e284]: Rainy day stops
+            - generic [ref=f766e285]: Cocktail fans
+            - generic [ref=f766e286]: Local gifts
+            - generic [ref=f766e287]: Small-group visits
+          - paragraph [ref=f766e288]: Good to know. Plan a safe ride if you are tasting.
+    - generic [ref=f766e290]:
+      - heading "More on restaurants" [level=2] [ref=f766e291]
+      - navigation [ref=f766e292]:
+        - link "Where to Eat in Tofino restaurants" [ref=f766e293] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f766e294]: Where to Eat in Tofino
+          - generic [ref=f766e295]: restaurants
+        - link "Restaurants FAQs restaurants" [ref=f766e296] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f766e297]: Restaurants FAQs
+          - generic [ref=f766e298]: restaurants
+    - generic [ref=f766e300]:
+      - heading "Keep going" [level=2] [ref=f766e301]
+      - navigation [ref=f766e302]:
+        - link "Everything to do in Tofino All the subjects" [ref=f766e303] [cursor=pointer]:
+          - /url: things-to-do.html
+          - generic [ref=f766e304]: Everything to do in Tofino
+          - generic [ref=f766e305]: All the subjects
+        - link "Tofino The town" [ref=f766e306] [cursor=pointer]:
+          - /url: tofino.html
+          - generic [ref=f766e307]: Tofino
+          - generic [ref=f766e308]: The town
+        - link "Stays Search what is open" [ref=f766e309] [cursor=pointer]:
+          - /url: search.html?in=tofino
+          - generic [ref=f766e310]: Stays
+          - generic [ref=f766e311]: Search what is open
+  - contentinfo [ref=f766e312]:
+    - generic [ref=f766e313]: © 2026 Arc Trips. Prices in CAD, before taxes and fees.

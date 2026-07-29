@@ -1,0 +1,1096 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Destinations, Arc Trips</title>
+<meta name="description" content="Stays and guides on the west coast of Vancouver Island. Twenty five towns written up place by place, and a month by month answer to when you should go.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_system.css">
+<style>
+/* ── Page-scoped only. Built from _system.css tokens, no new colour values. ──
+      (a) the type floor: body is 17px, so nothing is set below .83rem,
+      (b) the season system with the hue taken out of it,
+      (c) the two components the system does not carry: the place finder and
+      the province roster that has to hold twenty-six towns. ─────────────── */
+
+/* a11y floors the system leaves open */
+:focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:var(--r-sm)}
+.almanac :focus-visible,.band :focus-visible{outline-color:var(--a300)}
+.btn{min-height:44px;white-space:nowrap}
+nav.top .btn{flex:none}
+.brand,.nav-links a{display:inline-flex;align-items:center;min-height:44px}
+.search{height:44px}
+.search input{align-self:stretch}
+.fgrid ul{gap:2px;color:var(--n600)}
+.fgrid ul a{display:inline-block;padding-block:12px}
+.form .btn{height:48px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:var(--gut);top:-60px;z-index:99;background:var(--navy);color:var(--paper);
+  padding:13px 18px;border-radius:0 0 var(--r-sm) var(--r-sm);font-weight:600;font-size:.95rem;transition:top .18s var(--ease)}
+.skip:focus{top:0}
+/* body contrast floor: n500 is 3.7:1 on paper, so anything carrying meaning moves to n600 */
+.label--n,.dest__meta,.kmeta,.fnote,.vcap,.fbase,.who span{color:var(--n600)}
+
+/* ═══ (a) type floor. 14px is the smallest thing on the page. ═══ */
+.label{font-size:.88rem;letter-spacing:.12em}
+.search kbd{font-size:.88rem}
+.kmeta{font-size:.88rem}
+.kmeta .k{font-size:.88rem}
+.pill{font-size:.88rem;padding:5px 11px;letter-spacing:.05em}
+.consent{font-size:.88rem}
+.fgrid h5{font-size:.88rem}
+.fbase{font-size:.88rem}
+.vcap{font-size:.88rem}
+.led th{font-size:.88rem}
+.led__w{font-size:.88rem}
+
+/* ═══ (b) the season system. No hue. Filled is louder, empty is quieter. ═══ */
+.mon{gap:3px}
+.mon i{width:23px;height:23px;font-size:.88rem;font-weight:600;
+  background:rgba(255,255,255,.06);color:rgba(255,255,255,.62)}
+.mon i[data-on]{background:rgba(255,255,255,.14);color:#fff;font-weight:700}
+.mon i[data-now]{outline:1.5px solid #fff;outline-offset:1.5px}
+/* the rest of the green in the system, off everywhere except the booking pill */
+.mark svg{color:var(--azure)}
+.route{color:var(--a400)}
+.stars{color:var(--navy);font-size:1rem}
+.consent input{accent-color:var(--azure);width:18px;height:18px;flex:none}
+.dest__badge{color:var(--navy);font-size:.88rem;letter-spacing:.05em;text-transform:none;padding:7px 12px}
+
+/* ═══ (c) the finder. The nav search answers WHICH PLACE. ═══ */
+.finder{position:relative;margin-left:auto;flex:1 1 auto;min-width:0;max-width:clamp(200px,32vw,420px)}
+.finder .search{margin-left:0;width:100%;min-width:0}
+.qpanel{position:absolute;top:calc(100% + 8px);left:0;right:0;z-index:80;background:var(--paper);
+  border:1px solid var(--n150);border-radius:var(--r);box-shadow:0 22px 50px -20px rgba(11,51,86,.4);
+  max-height:min(64vh,440px);overflow-y:auto;padding:8px}
+.qpanel h6{font-size:.88rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--n600);
+  padding:11px 12px 6px}
+.qopt{display:flex;align-items:baseline;gap:10px;padding:9px 12px;border-radius:var(--r-sm);min-height:44px;cursor:pointer}
+.qopt b{font-size:.97rem;font-weight:600;color:var(--navy)}
+.qopt span{font-size:.88rem;color:var(--n600);margin-left:auto;text-align:right;white-space:nowrap}
+.qopt[data-sel],.qopt:hover{background:var(--a100)}
+.qnone{padding:16px 12px;font-size:.95rem;color:var(--n600)}
+/* mobile: the three global links stay visible, on their own row, always */
+@media(max-width:760px){
+  .nav-in{flex-wrap:wrap;height:auto;padding-block:8px;row-gap:4px;gap:10px}
+  .brand{order:1}
+  .finder{order:2;flex:1 1 110px;max-width:none;margin-left:0}
+  nav.top .btn--ink{order:3}
+  .nav-links{order:4;width:100%;justify-content:space-between;gap:8px;font-size:.95rem}
+  .search{padding-inline:12px}
+}
+
+/* ═══ hero ═══ */
+.hero{padding-block:clamp(56px,7vw,104px) clamp(44px,5vw,76px);min-height:min(88vh,860px);display:flex;align-items:center}
+.hero-grid{width:100%}
+/* .mark is white-space:nowrap in the locked system, so the marked phrase cannot wrap.
+   The type is therefore sized to fit the hero column at every breakpoint. */
+.hero h1{font-size:clamp(2.6rem,5.6vw,4.9rem);font-weight:800;line-height:.98;letter-spacing:-.042em;max-width:15ch;margin-top:18px}
+.hero .lede{font-size:clamp(1.1rem,1.45vw,1.3rem);font-weight:400;max-width:44ch;margin-top:26px}
+.hero-cta{margin-top:32px}
+.btn--lg{padding:16px 30px;font-size:1rem}
+.hero-note{margin-top:22px;padding-top:18px;border-top:1px solid var(--n150);font-size:.95rem;color:var(--n600);max-width:46ch}
+.hero-note b{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+
+/* the collage escapes the container and runs off the right edge of the screen */
+@media(min-width:1080px){
+  .hero>.wrap{max-width:none;margin-inline:0;padding-right:0;
+    padding-left:max(var(--gut),calc((100vw - var(--wrap))/2 + var(--gut)))}
+  .hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.22fr);gap:clamp(34px,5vw,84px)}
+  .collage{aspect-ratio:1/.8}
+  .p2{width:47%}
+}
+@media(max-width:1079px){.hero-grid{align-items:start}}
+@media(max-width:940px){.hero-grid{grid-template-columns:minmax(0,1fr)}.collage{min-height:0;max-width:620px}}
+@media(max-width:560px){.collage{aspect-ratio:1/.88}}
+
+/* ═══ tide strip: labelled, read, then told why it matters ═══ */
+.tide-in{flex-wrap:wrap;row-gap:8px;padding-block:16px}
+.tide-in .label{color:var(--azure)}
+.tide-read{font-size:.93rem}
+.tide-read b{white-space:nowrap}
+.tide-why{flex:1 1 100%;font-size:.93rem;color:var(--n600);margin:0}
+@media(max-width:820px){.tide-wave{display:none}}
+
+/* ═══ stat band ═══ */
+.statband{padding-block:clamp(40px,5vw,68px) clamp(30px,3.4vw,44px)}
+.statgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,3vw,44px)}
+@media(max-width:840px){.statgrid{grid-template-columns:repeat(2,1fr);gap:32px 24px}}
+.stat dd{font-size:clamp(3rem,5.8vw,4.8rem);font-weight:800;color:var(--navy);letter-spacing:-.045em;
+  line-height:.92;font-variant-numeric:tabular-nums}
+.stat dt{font-size:.88rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--azure);margin-bottom:12px}
+.stat p{font-size:.95rem;color:var(--n600);margin-top:12px;line-height:1.5;max-width:24ch}
+
+/* ═══ destinations: two published cards, then twenty-six by province ═══ */
+.sec--dest{padding-block:clamp(50px,5.4vw,80px) clamp(44px,4.6vw,68px)}
+.dgrid--feat{grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.6vw,34px)}
+.dgrid--feat .dest__m{aspect-ratio:4/3}
+.dest h3{font-size:clamp(1.5rem,2.4vw,2rem);font-weight:800;letter-spacing:-.03em;margin-top:17px}
+.dest__sf{font-size:.99rem;color:var(--n600);margin-top:8px;line-height:1.55;max-width:38ch}
+.dest__meta{margin-top:12px;font-size:.92rem}
+.dest__meta b{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+.dest__when{margin-top:8px;font-size:.92rem;color:var(--n600)}
+.dest__when b{color:var(--navy);font-weight:600}
+.dot{background:var(--n400)}
+@media(max-width:760px){.dgrid--feat{grid-template-columns:1fr}}
+.dgrid--feat .dest__m::after{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;
+  background:linear-gradient(180deg,rgba(11,51,86,0),rgba(11,51,86,.62));pointer-events:none}
+
+/* the roster. Nine provinces and regions, each a short scannable line. */
+.rosterhd{margin-top:clamp(38px,4vw,56px);padding-top:clamp(24px,2.6vw,32px);border-top:1px solid var(--n200)}
+.rosterhd h3{font-size:1.3rem;font-weight:700}
+.rosterhd p{font-size:.99rem;color:var(--n600);margin-top:8px;max-width:58ch}
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,32px);margin-top:clamp(22px,2.4vw,30px)}
+@media(max-width:980px){.rgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.rgrid{grid-template-columns:1fr}}
+.rgrp{border-top:2px solid var(--n200);padding-top:13px}
+.rgrp h4{font-size:1.02rem;font-weight:700;display:flex;gap:12px;align-items:baseline;justify-content:space-between}
+.rgrp h4 span{font-size:.9rem;font-weight:600;color:var(--n600);flex:none;font-variant-numeric:tabular-nums}
+.rgrp p{font-size:.92rem;color:var(--n700);line-height:1.65;margin-top:8px}
+.rgrp a{display:inline-flex;align-items:center;gap:7px;min-height:44px;font-size:.9rem;font-weight:600;color:var(--azure)}
+.rgrp a:hover{color:var(--a800)}
+.rgrp a svg{width:13px;height:13px;flex:none}
+
+/* ═══ the almanac. Leads with the question, then answers it. ═══ */
+.sec--alm{padding-block:0 clamp(56px,6vw,96px)}
+.almanac{padding:clamp(30px,4.6vw,72px)}
+.almanac h2{font-size:clamp(2.1rem,4.2vw,3.4rem);letter-spacing:-.038em}
+.almanac .head{margin-bottom:clamp(20px,2.4vw,30px)}
+.almanac .head p{font-size:1.05rem;max-width:48ch}
+.alm__h{font-size:1.35rem;font-weight:700;margin-top:clamp(28px,3.2vw,40px)}
+.alm__p{font-size:.95rem;color:rgba(255,255,255,.74);margin-top:8px;margin-bottom:20px;max-width:62ch;line-height:1.55}
+
+/* the rainfall columns, said plainly before they are drawn */
+.mswwrap{margin:0 0 clamp(26px,3.4vw,40px)}
+.msw__lead{font-size:.98rem;color:rgba(255,255,255,.8);max-width:60ch;margin-bottom:14px;line-height:1.55}
+.msw{display:flex;gap:clamp(3px,.5vw,7px);overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.msw::-webkit-scrollbar{display:none}
+.msw__b{flex:1;min-width:52px;display:flex;flex-direction:column;align-items:center;gap:8px;
+  padding:10px 0 11px;border-radius:var(--r-sm);transition:background .2s var(--ease),transform .24s var(--ease)}
+.msw__b:hover{background:rgba(255,255,255,.08)}
+.msw__mm{font-size:.88rem;font-weight:700;color:rgba(255,255,255,.68);font-variant-numeric:tabular-nums}
+.msw__col{width:100%;height:clamp(84px,13vw,168px);display:flex;align-items:flex-end;justify-content:center}
+.msw__bar{width:66%;background:rgba(255,255,255,.17);border-radius:4px 4px 0 0;height:var(--h);
+  transition:background .24s var(--ease),transform .3s var(--ease);transform-origin:bottom}
+.msw__l{font-size:.88rem;font-weight:700;color:rgba(255,255,255,.68)}
+.msw__b[aria-pressed="true"]{background:rgba(255,255,255,.11)}
+.msw__b[aria-pressed="true"] .msw__bar{background:var(--a300);transform:scaleX(1.14)}
+.msw__b[aria-pressed="true"] .msw__l,.msw__b[aria-pressed="true"] .msw__mm{color:var(--paper)}
+.mswaxis{display:flex;justify-content:flex-start;gap:clamp(16px,3vw,34px);padding-top:11px;
+  border-top:1px solid rgba(255,255,255,.22);font-size:.88rem;color:rgba(255,255,255,.72);flex-wrap:wrap}
+.mswaxis b{color:var(--paper);font-weight:700;font-variant-numeric:tabular-nums}
+@media(max-width:720px){.msw__mm{display:none}.msw__b{min-width:44px}}
+
+/* the answer */
+.claim{border-top:1px solid rgba(255,255,255,.2);border-bottom:1px solid rgba(255,255,255,.2);
+  padding-block:clamp(24px,3.2vw,36px);display:grid;grid-template-columns:1fr auto;align-items:start;
+  column-gap:clamp(20px,4vw,56px);row-gap:clamp(16px,2vw,26px)}
+@media(max-width:960px){.claim{grid-template-columns:1fr;gap:26px}}
+.claim__n{font-size:clamp(1.9rem,3.4vw,2.9rem);font-weight:800;color:var(--paper);letter-spacing:-.038em;line-height:1.04;margin-top:10px}
+.claim__c{color:rgba(255,255,255,.82);font-size:1.05rem;margin-top:11px;max-width:42ch;line-height:1.55}
+.bignums{display:flex;gap:clamp(18px,2.8vw,40px)}
+.bignums dt{font-size:.88rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.bignums dd{font-size:clamp(1.9rem,3.1vw,2.9rem);font-weight:800;color:var(--paper);letter-spacing:-.04em;
+  line-height:1;margin-top:10px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bignums dd small{font-size:max(14px,.42em);font-weight:700;color:rgba(255,255,255,.72);margin-left:4px;letter-spacing:0}
+.bignums dd .mins{font-size:.64em;margin-left:7px;color:rgba(255,255,255,.86)}
+.bignums dd .mins small{font-size:max(14px,.62em);margin-left:3px}
+@media(max-width:600px){
+  .bignums{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 12px}
+  .bignums dt{font-size:.88rem;letter-spacing:.06em;white-space:nowrap}
+  .bignums dd{font-size:1.9rem;margin-top:7px}
+}
+.claim__r{grid-column:1/-1;color:rgba(255,255,255,.8);font-size:1rem;line-height:1.6;max-width:74ch;margin-top:2px}
+.claim__r b{color:var(--paper);font-weight:600}
+
+/* ledger */
+.led tbody tr{animation:rowin .3s var(--ease) both;animation-delay:calc(var(--i,0)*26ms)}
+@keyframes rowin{from{opacity:0;transform:translateY(7px)}}
+.gsep td{padding:26px 0 6px!important;border-bottom:0!important;
+  font-size:.88rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.led__w{color:rgba(255,255,255,.76)}
+.led__b{color:rgba(255,255,255,.82);font-size:.9rem}
+.jump{display:inline-flex;align-items:center;gap:7px;min-height:44px;font-size:.9rem;font-weight:600;
+  color:var(--a300);transition:color .2s var(--ease)}
+.jump:hover{color:var(--paper)}
+.jump svg{width:13px;height:13px;flex:none}
+.almanac .btn--ghost{border-color:rgba(255,255,255,.42);color:var(--paper)}
+.almanac .btn--ghost:hover{border-color:var(--paper);background:rgba(255,255,255,.09)}
+.ledmore td{padding-top:16px}
+.ledmore button{background:none;border:1px solid rgba(255,255,255,.3);color:var(--paper);font-family:inherit;
+  font-size:.92rem;font-weight:600;padding:10px 18px;border-radius:999px;cursor:pointer;min-height:44px;
+  transition:background .18s var(--ease),border-color .18s var(--ease)}
+.ledmore button:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.55)}
+.innow{margin-top:clamp(24px,2.8vw,32px);padding-top:clamp(18px,2.2vw,26px);border-top:1px solid rgba(255,255,255,.2);
+  display:flex;align-items:baseline;gap:8px 18px;flex-wrap:wrap}
+.innow p{font-size:1rem;color:rgba(255,255,255,.84);line-height:1.55;max-width:62ch}
+.innow p b{color:var(--paper);font-weight:700;font-variant-numeric:tabular-nums}
+.innow a{display:inline-flex;align-items:center;gap:7px;min-height:44px;font-size:.95rem;font-weight:600;color:var(--a300)}
+.innow a:hover{color:var(--paper)}
+.innow a svg{width:13px;height:13px;flex:none}
+.almanac__legend{border-top:1px solid rgba(255,255,255,.14);padding-top:18px;display:block;margin-top:clamp(20px,2.4vw,28px);
+  color:rgba(255,255,255,.66);line-height:1.6;max-width:80ch;font-size:.88rem}
+@media(max-width:800px){
+  .led thead{display:none}
+  .led tbody tr{display:block;padding-block:17px;border-bottom:1px solid rgba(255,255,255,.12)}
+  .led tbody tr:last-child{border-bottom:0}
+  .led td{display:block;border-bottom:0;padding:0}
+  .led__mon{display:block;margin-top:13px}
+  .mon i{flex:1;width:auto;min-width:0}
+  .led__b{text-align:left;margin-top:11px;white-space:normal}
+  .gsep{padding-block:0!important;border-bottom:0!important}
+}
+
+/* ═══ the full-bleed proof band ═══ */
+.proof{position:relative;min-height:min(66vh,560px);display:flex;align-items:center;overflow:hidden;
+  margin-block:clamp(52px,6vw,92px)}
+.proof img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.proof__veil{position:absolute;inset:0;background:linear-gradient(92deg,rgba(11,51,86,.94) 0%,rgba(11,51,86,.78) 46%,rgba(11,51,86,.28) 100%)}
+.proof__in{position:relative}
+.proof__n{font-size:clamp(2rem,4.4vw,3.6rem);font-weight:700;color:var(--paper);letter-spacing:-.035em;
+  line-height:1.06;margin-top:14px;max-width:15ch}
+.proof__n b{font-size:clamp(3.6rem,9vw,7.6rem);font-weight:800;display:block;letter-spacing:-.05em;line-height:.9}
+.proof__d{color:rgba(255,255,255,.84);max-width:46ch;margin-top:20px;font-size:1.05rem}
+.proof__cta{margin-top:30px;border-color:rgba(255,255,255,.44);color:var(--paper)}
+.proof__cta:hover{border-color:var(--paper);background:rgba(255,255,255,.1)}
+
+/* ═══ questions ═══ */
+.sec--qa{padding-block:0 clamp(52px,5.6vw,84px)}
+.qagrid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 clamp(28px,4vw,60px)}
+@media(max-width:840px){.qagrid{grid-template-columns:1fr}}
+.qi{border-top:1px solid var(--n150);padding:20px 0}
+.qi h3{font-size:1.08rem;font-weight:700;line-height:1.32}
+.qi p{font-size:.95rem;color:var(--n600);margin-top:8px;line-height:1.6;max-width:52ch}
+.qi span{display:block;font-size:.88rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--azure);margin-bottom:9px}
+
+/* ═══ reading and voice ═══ */
+.sec--read{padding-block:0 clamp(48px,5vw,76px)}
+.feat h3{font-size:clamp(1.7rem,2.6vw,2.2rem)}
+.rlist{max-height:none}
+.sec--voice{padding-block:clamp(44px,5vw,76px) 0}
+
+/* ═══ the capture band takes the whole viewport width ═══ */
+.bleed{margin-top:clamp(50px,5.4vw,80px)}
+footer.f{margin-top:0}
+.band--bleed{border-radius:0;min-height:clamp(400px,50vw,540px)}
+.band--bleed>.wrap{width:100%}
+.band--bleed .band-in{padding-inline:0;padding-block:clamp(40px,5vw,64px);max-width:600px}
+.band h2{font-size:clamp(2.1rem,3.8vw,3.2rem)}
+.band .btn--ghost{border-color:rgba(255,255,255,.62);color:var(--paper)}
+.band .btn--ghost:hover{border-color:var(--paper);background:rgba(255,255,255,.14)}
+
+/* the last of the system's sub-14px type, raised to the floor */
+.plate figcaption{font-size:.88rem}
+.btn--sm{font-size:.88rem}
+.fnote{font-size:.88rem}
+.who span{font-size:.88rem}
+
+.tch{font-size:1.16rem;font-weight:800;color:var(--navy);margin:clamp(30px,3.6vw,46px) 0 16px;padding-top:18px;border-top:1px solid var(--n150)}
+.tcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(212px,1fr));gap:clamp(16px,2vw,24px)}
+.tcards--sm{grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:clamp(13px,1.5vw,18px)}
+.tc{display:flex;flex-direction:column}
+.tc__m{display:block;aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;background:var(--n100);margin-bottom:9px}
+.tcards--sm .tc__m{aspect-ratio:1/1}
+.tc__m img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.tc:hover .tc__m img{transform:scale(1.05)}
+.tc__n{font-size:1.04rem;font-weight:700;color:var(--navy);letter-spacing:-.02em}
+.tcards--sm .tc__n{font-size:.95rem}
+.tc__s{font-size:.85rem;color:var(--n600);font-variant-numeric:tabular-nums;margin-top:2px}
+.tc__p{font-size:.79rem;color:var(--n500)}
+
+/* The landing indexes 25 towns, so the almanac must say which one it is answering
+   for and let you change it, rather than silently meaning Tofino. */
+.almpick{display:inline-flex;gap:4px;background:rgba(255,255,255,.09);padding:4px;border-radius:999px;margin-bottom:20px}
+.almpick__b{font:inherit;font-size:.9rem;font-weight:600;color:rgba(255,255,255,.72);background:none;border:0;
+  padding:9px 18px;border-radius:999px;cursor:pointer;min-height:44px;transition:background .2s var(--ease),color .2s var(--ease)}
+.almpick__b:hover{color:#fff}
+.almpick__b[aria-pressed="true"]{background:#fff;color:var(--navy)}
+
+/* The top of the tree. A destinations index should open at the country and let you
+   drill down, not open inside one town. */
+.sec--canada{padding-block:clamp(44px,5vw,76px) 0}
+.pvs{display:grid;grid-template-columns:repeat(auto-fill,minmax(292px,1fr));gap:1px;background:var(--paper);
+  border:1px solid var(--n150);border-radius:var(--r);overflow:hidden;margin-top:24px}
+.pvs::after{content:"";background:var(--paper);grid-column:1/-1;display:none}
+.pv{background:var(--paper);outline:1px solid var(--n150);outline-offset:0;padding:22px 24px;display:grid;grid-template-columns:1fr auto;gap:6px 18px;align-items:baseline}
+.pv:hover{background:var(--n50)}
+.pv__n{font-size:1.14rem;font-weight:800;color:var(--navy);letter-spacing:-.022em}
+.pv__t{grid-column:1;font-size:.9rem;color:var(--n600);line-height:1.45}
+.pv__c{grid-row:1/3;grid-column:2;text-align:right;font-size:.86rem;color:var(--n600);white-space:nowrap}
+.pv__c b{display:block;font-size:1.6rem;font-weight:800;color:var(--navy);letter-spacing:-.03em;line-height:1}
+.pv__d{display:block;font-size:.82rem;color:var(--n500);margin-top:3px}
+</style>
+</head>
+<body>
+<span id="top" aria-hidden="true"></span>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- the chart ground: contours and depth soundings -->
+<div class="chart" aria-hidden="true">
+<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none">
+  <g stroke="var(--a200)" stroke-width="1" opacity=".72">
+    <path d="M-40 250 C160 200 300 300 420 280 C560 258 640 150 800 170 C960 190 1050 300 1200 280 C1330 262 1420 200 1500 220"/>
+    <path d="M-40 300 C170 250 310 350 430 330 C570 308 650 205 810 225 C970 245 1060 350 1210 330 C1340 312 1425 255 1500 275"/>
+    <path d="M-40 355 C180 305 320 402 440 385 C580 365 665 262 820 282 C980 302 1070 402 1220 385 C1350 368 1430 312 1500 332"/>
+    <path d="M-60 620 C140 585 260 660 400 640 C540 620 620 545 760 560 C900 575 1000 655 1140 640 C1280 625 1380 570 1500 590"/>
+    <path d="M-60 672 C150 638 275 712 415 692 C555 672 632 600 772 615 C912 630 1010 706 1150 692 C1290 678 1385 622 1500 642"/>
+    <path d="M-60 726 C160 692 290 764 430 744 C570 724 645 654 785 669 C925 684 1020 758 1160 744 C1300 730 1390 675 1500 695"/>
+  </g>
+  <g fill="var(--azure)" font-family="Inter" font-weight="600" font-size="9" opacity=".26">
+    <text x="200" y="215">14</text><text x="512" y="268">9</text><text x="700" y="163">22</text>
+    <text x="900" y="196">31</text><text x="1140" y="292">17</text><text x="288" y="386">6</text>
+    <text x="620" y="270">11</text><text x="1010" y="360">26</text><text x="120" y="600">19</text>
+    <text x="480" y="646">8</text><text x="700" y="556">24</text><text x="1050" y="662">13</text>
+    <text x="1330" y="586">28</text><text x="352" y="712">5</text><text x="860" y="742">16</text>
+  </g>
+</svg>
+</div>
+
+<!-- GLOBAL NAV. Identical on every page: Stays, Destinations, Vancouver Island. -->
+<nav class="top"><div class="wrap nav-in">
+  <a class="brand" href="#top">Arctrips</a>
+  <ul class="nav-links">
+    <li><a href="search.html">Stays</a></li>
+    <li><a href="#top" aria-current="page">Destinations</a></li>
+    <li><a href="search.html">Guides</a></li>
+  </ul>
+
+  <div class="finder">
+    <form class="search" role="search" action="search.html" method="get" id="finder">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
+      <label class="vh" for="q">Search towns, places and guides</label>
+      <input id="q" name="q" type="search" placeholder="Tofino, Long Beach, Wild Pacific Trail"
+             role="combobox" aria-expanded="false" aria-controls="qpanel" aria-autocomplete="list" autocomplete="off">
+      <kbd>/</kbd>
+    </form>
+    <div class="qpanel" id="qpanel" role="listbox" aria-label="Towns, places and guides" hidden></div>
+  </div>
+
+  <a class="btn btn--ink btn--sm" href="not-found.html">Sign in</a>
+</div></nav>
+
+<main id="main">
+
+<header class="hero"><div class="wrap hero-grid">
+  <div>
+    <span class="label">Canada</span>
+    <h1>Canada,
+      <span class="mark">town by town<svg viewBox="0 0 200 12" fill="none" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8.4C38 3.2 92 2.1 132 5.1c22 1.7 44 3.6 66 1.2" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg></span>
+    </h1>
+    <p class="lede">Twenty five towns across seven provinces, written up place by place. Start with a province, drill down to a town, then to the places inside it.</p>
+    <div class="hero-cta">
+      <a class="btn btn--primary btn--lg" href="#canada">Browse by province</a>
+      <a class="btn btn--ghost" href="tofino.html">Or start with Tofino</a>
+    </div>
+    <p class="hero-note" id="heroNote"></p>
+  </div>
+
+  <div class="collage">
+    <div class="coast" aria-hidden="true">
+      <svg viewBox="0 0 520 480" fill="none">
+        <path d="M40 120 C110 92 150 150 210 140 C268 130 300 70 360 88 C420 106 452 168 500 150" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M20 300 C96 268 140 336 205 322 C270 308 306 244 372 262 C438 280 470 344 512 326" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M10 400 C90 372 136 434 204 420 C272 406 312 348 380 366" stroke="currentColor" stroke-width="1.4"/>
+        <circle cx="120" cy="212" r="2.6" fill="currentColor"/><circle cx="392" cy="196" r="2.6" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <a class="plate p1" href="banff.html"><img src="media/banff/image29.jpg" alt="Lake Louise, Banff"><figcaption>Lake Louise, Banff</figcaption></a>
+    <a class="plate p2" href="quebec-city.html"><img src="media/quebec-city/image12.jpg" alt="Chateau Frontenac, Quebec City"><figcaption>Chateau Frontenac, Quebec City</figcaption></a>
+    <a class="plate p3" href="whistler.html"><img src="media/whistler/image5.jpg" alt="Lost Lake, Whistler"><figcaption>Lost Lake, Whistler</figcaption></a>
+
+    <div class="route" aria-hidden="true">
+      <svg viewBox="0 0 520 480" fill="none">
+        <path class="dash" d="M150 340 C210 392 300 384 352 330" stroke="currentColor" stroke-width="2"/>
+      </svg>
+    </div>
+    <svg class="seal" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+      <circle cx="50" cy="50" r="46" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="50" cy="50" r="38" stroke="currentColor" stroke-width=".8" stroke-dasharray="2 4"/>
+      <path d="M50 20 L56 46 L82 50 L56 54 L50 80 L44 54 L18 50 L44 46 Z" fill="currentColor" opacity=".55"/>
+      <text x="50" y="14" text-anchor="middle" font-size="7" font-weight="700" fill="currentColor" letter-spacing="1.4">N</text>
+    </svg>
+  </div>
+</div></header>
+
+<!-- says what it is, gives the readings, then says why it matters -->
+<div class="tide"><div class="wrap tide-in">
+  <span class="label" id="tideStation">Tide today at Tofino Harbour</span>
+  <p class="tide-read" id="tideRead"></p>
+  <div class="tide-wave" aria-hidden="true">
+    <svg viewBox="0 0 400 26" fill="none" preserveAspectRatio="none">
+      <path d="M0 18 C34 6 62 6 96 18 C130 30 158 30 192 18 C226 6 254 6 288 18 C322 30 350 30 384 18 L400 15" stroke="currentColor" stroke-width="1.6"/>
+    </svg>
+  </div>
+  <p class="tide-why">Long Beach doubles in width at low water, so that is when the long walk is worth doing.</p>
+</div></div>
+
+
+<section class="sec sec--canada" id="canada"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">Where we publish</span>
+      <h2 style="margin-top:11px">Canada, province by province</h2>
+      <p>Start at the top and work down: a province, then a region, then a town, then the places inside it. British Columbia is the one we have finished.</p>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="province.html">Open British Columbia</a>
+  </div>
+  <div class="pvs"><a class="pv" href="province.html"><span class="pv__n">British Columbia</span><span class="pv__t">Tofino, Whistler, Ucluelet, Victoria</span><span class="pv__c"><b class="tnum">15</b> towns<span class="pv__d">1,067 places</span></span></a><a class="pv" href="index.html#towns"><span class="pv__n">Alberta</span><span class="pv__t">Banff, Edmonton, Jasper</span><span class="pv__c"><b class="tnum">3</b> towns<span class="pv__d">91 places</span></span></a><a class="pv" href="index.html#towns"><span class="pv__n">Ontario</span><span class="pv__t">Ottawa, Niagara Falls</span><span class="pv__c"><b class="tnum">2</b> towns<span class="pv__d">78 places</span></span></a><a class="pv" href="index.html#towns"><span class="pv__n">Quebec</span><span class="pv__t">Quebec City, Montreal</span><span class="pv__c"><b class="tnum">2</b> towns<span class="pv__d">81 places</span></span></a><a class="pv" href="index.html#towns"><span class="pv__n">Nova Scotia</span><span class="pv__t">Halifax</span><span class="pv__c"><b class="tnum">1</b> towns<span class="pv__d">38 places</span></span></a><a class="pv" href="index.html#towns"><span class="pv__n">Saskatchewan</span><span class="pv__t">Saskatoon</span><span class="pv__c"><b class="tnum">1</b> towns<span class="pv__d">27 places</span></span></a><a class="pv" href="index.html#towns"><span class="pv__n">Prince Edward Island</span><span class="pv__t">Charlottetown</span><span class="pv__c"><b class="tnum">1</b> towns<span class="pv__d">28 places</span></span></a></div>
+</div></section>
+<section class="statband"><div class="wrap">
+  <dl class="statgrid" id="statgrid"></dl>
+</div></section>
+
+<section class="sec sec--dest" id="destinations"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">Where we publish</span>
+      <h2 style="margin-top:11px">Destinations</h2>
+      <p id="destDek"></p>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="region.html">All of Vancouver Island</a>
+  </div>
+
+  <div class="dgrid dgrid--feat" id="dfeat"></div>
+
+  <div class="rosterhd">
+    <h3 id="rosterH"></h3>
+    <p>These are written and being checked. Each one goes live the same way the first two did, once we have been.</p>
+  </div>
+  <div class="rgrid" id="roster"></div>
+</div></section>
+
+<section class="sec sec--alm" id="almanac"><div class="wrap">
+  <div class="almanac">
+    <div class="head">
+      <div>
+        <h2>When should you go?</h2>
+        <p>Pick a month and you get the honest answer for Tofino: the weather it really has, what is in season, and what you can book.</p>
+      </div>
+      <a class="btn btn--ghost btn--sm" href="plan.html">Plan a trip</a>
+    </div>
+
+    <div class="mswwrap">
+      <p class="msw__lead">Each column is that month's average rainfall in ${TOWN_LABEL[almTown]}. Taller means wetter. Choose a month.</p>
+      <div class="almpick" role="group" aria-label="Choose a town">
+        <button type="button" class="almpick__b" data-t="tofino" aria-pressed="true">Tofino</button>
+        <button type="button" class="almpick__b" data-t="ucluelet" aria-pressed="false">Ucluelet</button>
+      </div>
+      <div class="msw" role="group" aria-label="Choose a month" id="msw"></div>
+      <p class="mswaxis">
+        <span>Wettest <b>November, 500 mm</b></span>
+        <span>Driest <b>July, 66 mm</b></span>
+      </p>
+    </div>
+
+    <div class="claim">
+      <div>
+        <span class="label" id="seasonLabel"></span>
+        <p class="claim__n" id="seasonName"></p>
+        <p class="claim__c" id="seasonClaim"></p>
+      </div>
+      <dl class="bignums" id="bignums"></dl>
+      <p class="claim__r" id="seasonReason"></p>
+    </div>
+
+    <h3 class="alm__h" id="ledHead"></h3>
+    <p class="alm__p">Each row is one thing to do, and the twelve squares are the months. A filled square means that month is in season for it.</p>
+
+    <table class="led">
+      <thead><tr><th>What to do</th><th class="led__mon">Months in season</th><th style="text-align:right">Booking</th></tr></thead>
+      <tbody id="ledger"></tbody>
+    </table>
+
+    <div class="innow">
+      <p id="innowH"></p>
+      <a href="search.html">Search every place<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+    <p class="almanac__legend">Climate figures are Environment and Climate Change Canada normals for Tofino, seeded for design.</p>
+    <p class="vh" role="status" aria-live="polite" id="live"></p>
+  </div>
+</div></section>
+
+<section class="proof" id="index">
+  <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_2400,h_1100/james-wheeler-YZfDg2L0lUs-unsplash_ino74q" alt="An empty stretch of sand on the west coast of Vancouver Island">
+  <div class="proof__veil"></div>
+  <div class="wrap proof__in">
+    <span class="label" style="color:var(--a300)">The index</span>
+    <p class="proof__n"><b class="tnum" id="proofN">127</b> places, documented by name.</p>
+    <p class="proof__d" id="proofD"></p>
+    <a class="btn btn--ghost btn--lg proof__cta" href="search.html">Search every one of them</a>
+  </div>
+</section>
+
+<section class="sec sec--read"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">From the guides</span>
+      <h2 style="margin-top:11px">Latest reading</h2>
+      <p id="readDek"></p>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="things-to-do.html">Everything to do in Tofino</a>
+  </div>
+
+  <div class="read">
+    <a class="feat" href="guide.html">
+      <div class="feat__m"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1100,h_690/guides/tofino/when-to-go/_category-1" alt="A surfer in the shorebreak at sunset on the Tofino coast"></div>
+      <div class="kmeta"><span class="k">When to go</span><span class="dot"></span><span>Tofino and Ucluelet</span></div>
+      <h3>Best time to stay in Ucluelet or Tofino</h3>
+      <p>Weather, prices, and what is actually on across the seasons. The short version: there is no month here without an answer, and the cheapest ones are the most dramatic.</p>
+    </a>
+
+    <div class="rlist" id="rlist"></div>
+  </div>
+</div></section>
+
+<section class="sec sec--qa"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">Asked and answered</span>
+      <h2 style="margin-top:11px">The awkward questions</h2>
+      <p id="qaDek"></p>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="plan.html">All of them, by subject</a>
+  </div>
+  <div class="qagrid" id="qa"></div>
+</div></section>
+
+<section class="sec sec--voice"><div class="wrap voice">
+  <div>
+    <span class="label label--n">Why people trust the guides</span>
+    <p class="stars" aria-label="Five out of five">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+    <p class="quote">We went in February on your advice, which everyone told us was mad. Empty beaches, half the price, and the storms were the whole point. The tide times in the guide were exact.</p>
+    <div class="who">
+      <img class="who__a" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_120,h_120/andrea-davis-44f42VRbGQg-unsplash_q9h9op" alt="">
+      <div><b>Maren H.</b><span>Stayed four nights in Tofino</span></div>
+    </div>
+    <a class="btn btn--ghost btn--sm" style="margin-top:26px" href="tofino.html">Read the Tofino guide</a>
+  </div>
+  <div>
+    <div class="vmedia">
+      <figure><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_560,h_700/condor-wei-TiLEEXohfsY-unsplash_v7ja5f" alt="Two paddlers carrying a kayak down the sand to the water"></figure>
+      <figure><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_440,h_550/guides/tofino/storm-watching/_category-1" alt="The Tofino shoreline under heavy cloud and breaking surf in winter"></figure>
+    </div>
+    <p class="vcap">February on the Tofino side, when the swell is biggest and the rooms are cheapest.</p>
+  </div>
+</div></section>
+
+<section class="bleed">
+  <div class="band band--bleed">
+    <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_2200,h_1000/james-wheeler-YZfDg2L0lUs-unsplash_ino74q" alt="A wide sand beach below a forested bluff on the west coast">
+    <div class="wrap"><div class="band-in">
+      <span class="label" style="color:var(--a300)">One letter a season</span>
+      <h2 style="margin-top:12px">We write when the coast changes</h2>
+      <p>Four letters a year: when the greys arrive, when the surf turns, when the storms start, and when the trails dry out. Nothing else.</p>
+      <form class="form" id="capture">
+        <label class="vh" for="email">Email address</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" required>
+        <button class="btn btn--ghost" type="submit">Send me the letter</button>
+      </form>
+      <label class="consent"><input type="checkbox" name="consent"> Yes, send me the seasonal letter. You can unsubscribe from any email, and we never pass your address on.</label>
+    </div></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="f"><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <span class="fbrand">Arctrips</span>
+      <p class="fnote">Stays and guides on the west coast of Vancouver Island, written by people who go there.</p>
+    </div>
+    <div><h5>Destinations</h5><ul>
+      <li><a href="tofino.html">Tofino</a></li><li><a href="region.html">Ucluelet</a></li>
+      <li><a href="search.html">Guides</a></li><li><a href="province.html">British Columbia</a></li>
+      <li><a href="country.html">Canada</a></li></ul></div>
+    <div><h5>Things to do</h5><ul>
+      <li><a href="things-to-do.html">All nine subjects</a></li><li><a href="whale-watching.html">Whale watching</a></li>
+      <li><a href="long-beach.html">Long Beach</a></li><li><a href="search.html">Search everything</a></li></ul></div>
+    <div><h5>Plan</h5><ul>
+      <li><a href="plan.html">When to go</a></li><li><a href="plan.html">Getting there</a></li>
+      <li><a href="search.html">Where to stay</a></li><li><a href="guide.html">What to pack</a></li></ul></div>
+    <div><h5>Arc Trips</h5><ul>
+      <li><a href="not-found.html">About us</a></li><li><a href="not-found.html">List your place</a></li>
+      <li><a href="search.html">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
+  </div>
+  <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees</span></div>
+</div></footer>
+
+<script>
+const DATA = {"counts":{"places":127,"photos":84,"guidePhotos":88,"notes":124,"tags":696,"uniqueTags":419,"questions":72,"qArticles":18,"articles":31,"guides":15,"blocks":1725,"stays":292,"from":320,"taxonomy":22},"towns":[{"slug":"tofino","name":"Tofino","hero":"arcstudio/wnrrcrf4lnalgzbjvsz8","standfirst":"Storm-swept beaches, old-growth rainforest, and the best surf on the Pacific coast.","stays":134,"guides":9,"places":73,"from":320,"perMonth":[3,3,4,5,7,6,6,6,8,5,4,3]},{"slug":"ucluelet","name":"Ucluelet","hero":"arcstudio/dtz692xbgvvwjopu7vcs","standfirst":"Tofino's quieter neighbour, wrapped by the Wild Pacific Trail.","stays":158,"guides":6,"places":54,"from":320,"perMonth":[1,1,3,4,6,5,5,5,6,4,2,1]}],"subjects":[{"cat":"hiking","name":"Hiking & trails","towns":["Tofino","Ucluelet"],"guides":2,"places":38,"unit":"walks written up","months":[4,5,6,7,8,9,10],"cta":{"k":"free","t":"Free to visit"}},{"cat":"kayaking","name":"Kayaking & paddling","towns":["Tofino","Ucluelet"],"guides":2,"places":31,"unit":"launches and routes","months":[5,6,7,8,9],"cta":{"k":"soon","t":"Coming soon"}},{"cat":"restaurants","name":"Restaurants","towns":["Tofino","Ucluelet"],"guides":2,"places":31,"unit":"rooms written up","months":[1,2,3,4,5,6,7,8,9,10,11,12],"cta":{"k":"free","t":"No booking needed"}},{"cat":"beaches","name":"Beaches","towns":["Tofino"],"guides":1,"places":13,"unit":"beaches written up","months":[5,6,7,8,9],"cta":{"k":"free","t":"Free to visit"}},{"cat":"storm-watching","name":"Storm watching","towns":["Tofino"],"guides":1,"places":8,"unit":"places to watch from","months":[11,12,1,2],"cta":{"k":"stay","t":"Stays"}},{"cat":"whale-watching","name":"Whale watching","towns":["Tofino","Ucluelet"],"guides":2,"places":6,"unit":"places written up","months":[3,4,5,6,7,8,9,10],"cta":{"k":"soon","t":"Coming soon"}},{"cat":"birding","name":"Birding & wildlife","towns":["Tofino","Ucluelet"],"guides":2,"places":0,"unit":"places written up","months":[3,4,5,9,10,11],"cta":{"k":"free","t":"Free to visit"}},{"cat":"fishing","name":"Fishing","towns":["Tofino","Ucluelet"],"guides":2,"places":0,"unit":"places written up","months":[5,6,7,8,9],"cta":{"k":"sister","t":"ArcTrips Fishing"}},{"cat":"surfing","name":"Surfing","towns":["Tofino"],"guides":1,"places":0,"unit":"breaks written up","months":[1,2,3,4,9,10,11,12],"cta":{"k":"free","t":"Free to visit"}}],"places":[{"n":"Long Beach","cat":"beaches","city":"Tofino"},{"n":"Chesterman Beach","cat":"beaches","city":"Tofino"},{"n":"Cox Bay","cat":"beaches","city":"Tofino"},{"n":"Tonquin Beach","cat":"beaches","city":"Tofino"},{"n":"Wickaninnish Beach","cat":"beaches","city":"Tofino"},{"n":"Florencia Bay","cat":"beaches","city":"Tofino"},{"n":"Rainforest Trail","cat":"hiking","city":"Tofino"},{"n":"Tonquin Trail","cat":"hiking","city":"Tofino"},{"n":"Radar Hill Trail","cat":"hiking","city":"Tofino"},{"n":"Shorepine Bog Trail","cat":"hiking","city":"Tofino"},{"n":"Wild Pacific Trail","cat":"hiking","city":"Ucluelet"},{"n":"Lighthouse Loop","cat":"hiking","city":"Ucluelet"},{"n":"Ancient Cedars Trail","cat":"hiking","city":"Ucluelet"},{"n":"Big Beach Park Trail","cat":"hiking","city":"Ucluelet"},{"n":"Clayoquot Sound","cat":"kayaking","city":"Tofino"},{"n":"Lemmens Inlet","cat":"kayaking","city":"Tofino"},{"n":"Grice Bay","cat":"kayaking","city":"Tofino"},{"n":"Barkley Sound","cat":"kayaking","city":"Ucluelet"},{"n":"Broken Group Islands","cat":"kayaking","city":"Ucluelet"},{"n":"Amphitrite Point Lighthouse","cat":"whale-watching","city":"Ucluelet"},{"n":"Pacific Rim National Park Reserve","cat":"whale-watching","city":"Ucluelet"},{"n":"Pettinger Point","cat":"storm-watching","city":"Tofino"},{"n":"Wolf in the Fog","cat":"restaurants","city":"Tofino"},{"n":"Pluvio Restaurant","cat":"restaurants","city":"Ucluelet"}],"reading":[{"slug":"tofino-storm-watching","title":"Storm Watching in Tofino","hero":"arcstudio/dtz692xbgvvwjopu7vcs","kicker":"Storm watching","where":"Tofino","places":8,"unit":"places to watch from"},{"slug":"tofino-beaches","title":"The Best Beaches in Tofino","hero":"arcstudio/wnrrcrf4lnalgzbjvsz8","kicker":"Beaches","where":"Tofino","places":13,"unit":"beaches written up"},{"slug":"ucluelet-hiking","title":"Ucluelet Hiking Guide","hero":"arcstudio/galleries/dayhike-trail-1","kicker":"Hiking and trails","where":"Ucluelet","places":20,"unit":"walks written up"},{"slug":"ucluelet-kayaking","title":"Kayaking in Ucluelet","hero":"condor-wei-TiLEEXohfsY-unsplash_v7ja5f","kicker":"Kayaking","where":"Ucluelet","places":13,"unit":"launches and routes"},{"slug":"tofino-surfing","title":"Surfing in Tofino","hero":"nicoline-mann-bIIK4mvsDZc-unsplash_vcyrwx","kicker":"Surfing","where":"Tofino","places":0,"unit":"breaks written up"},{"slug":"ucluelet-whale-spring-migration","title":"Whales in Ucluelet: The Spring Migration Explained","hero":"guides/ucluelet/whale-watching/_category-1","kicker":"Whale watching","where":"Ucluelet","places":6,"unit":"places written up"}],"qa":[{"q":"Can you swim in Tofino?","a":"Yes, but the water is cold and the ocean can be strong. Most people wear wetsuits. There are no lifeguards, so be careful.","cat":"Beaches","where":"Tofino"},{"q":"When do whale watching tours run in Ucluelet?","a":"Many tours run from March to October, but exact dates depend on the operator, the weather and the season.","cat":"Whale watching","where":"Ucluelet"},{"q":"Is storm watching in Tofino dangerous?","a":"It can be, if you get too close. Watch from a safe distance, avoid wet rocks, and never turn your back on the waves.","cat":"Storm watching","where":"Tofino"},{"q":"Can beginners surf in Tofino?","a":"Yes. Tofino is one of the best places in Canada for a first surf lesson. Start with a surf school so you learn the right beach, gear and safety steps.","cat":"Surfing","where":"Tofino"},{"q":"Is Tofino expensive for food?","a":"It can be, because it is remote and popular. Mixing food trucks, cafes and takeout with one or two sit-down meals keeps it sensible.","cat":"Restaurants","where":"Tofino"},{"q":"Can you camp on the beach in Tofino?","a":"Only in official campgrounds or designated backcountry sites. Not on public beaches, parking lots, roadsides or pullouts.","cat":"Camping","where":"Tofino and Ucluelet"}],"bestMonths":{"beaches":[5,6,7,8,9],"surfing":[1,2,3,4,9,10,11,12],"kayaking":[5,6,7,8,9],"fishing":[5,6,7,8,9],"boating":[5,6,7,8,9],"hot-springs":[1,2,3,4,5,6,7,8,9,10,11,12],"whale-watching":[3,4,5,6,7,8,9,10],"birding":[3,4,5,9,10,11],"storm-watching":[11,12,1,2],"parks":[4,5,6,7,8,9,10],"hiking":[4,5,6,7,8,9,10],"mountain-biking":[5,6,7,8,9],"skiing":[12,1,2,3],"camping":[5,6,7,8,9],"restaurants":[1,2,3,4,5,6,7,8,9,10,11,12],"markets":[5,6,7,8,9],"breweries":[1,2,3,4,5,6,7,8,9,10,11,12],"landmarks":[1,2,3,4,5,6,7,8,9,10,11,12],"arts-history":[1,2,3,4,5,6,7,8,9,10,11,12],"events":[3,4,5,6,7,8],"when-to-go":[1,2,3,4,5,6,7,8,9,10,11,12],"getting-around":[1,2,3,4,5,6,7,8,9,10,11,12]},"climate":{"tofino":[{"hi":8.6,"lo":2.6,"mm":489,"days":22},{"hi":9.3,"lo":2.3,"mm":368,"days":19},{"hi":10.4,"lo":3.1,"mm":337,"days":21},{"hi":12.3,"lo":4.3,"mm":213,"days":18},{"hi":14.6,"lo":6.7,"mm":132,"days":15},{"hi":16.3,"lo":9.1,"mm":102,"days":13},{"hi":18.1,"lo":10.9,"mm":66,"days":9},{"hi":18.6,"lo":11.1,"mm":82,"days":10},{"hi":17.5,"lo":9.3,"mm":152,"days":12},{"hi":13.9,"lo":6.9,"mm":396,"days":20},{"hi":10.3,"lo":4.4,"mm":500,"days":23},{"hi":8.4,"lo":2.7,"mm":490,"days":23}],"ucluelet":[{"hi":8.4,"lo":2.8,"mm":452,"days":22},{"hi":9.1,"lo":2.5,"mm":341,"days":19},{"hi":10.2,"lo":3.3,"mm":312,"days":20},{"hi":12.0,"lo":4.5,"mm":198,"days":17},{"hi":14.2,"lo":6.9,"mm":124,"days":14},{"hi":15.9,"lo":9.3,"mm":96,"days":12},{"hi":17.6,"lo":11.1,"mm":62,"days":9},{"hi":18.1,"lo":11.3,"mm":78,"days":10},{"hi":17.0,"lo":9.5,"mm":143,"days":12},{"hi":13.6,"lo":7.1,"mm":368,"days":20},{"hi":10.1,"lo":4.6,"mm":463,"days":23},{"hi":8.2,"lo":2.9,"mm":455,"days":22}]},"seasons":{"storm":{"months":[11,12,1,2],"name":"Storm season","claim":"The Pacific throws everything it has at the coast, and people book rooms to watch it."},"green":{"months":[3,4,10],"name":"The green months","claim":"The coast between the storms and the crowds, at half the price."},"long":{"months":[5,6,7,8,9],"name":"Long days","claim":"Sixteen hours of light and the water finally warm enough to stay in."}},"tide":{"station":"Tofino Harbour","low1":"06:14","low1m":0.8,"high1":"12:38","high1m":3.1,"low2":"18:52","low2m":1.2,"sunset":"21:07"}};
+
+/* The corpus is 73 documents across 26 more towns in 8 provinces. The roster
+   below is what the destination list has to hold, so it is built for that
+   shape now, not for the two towns that happen to be published today. */
+const ROSTER = [
+  { n: "British Columbia, Vancouver Island", t: ["Victoria","Nanaimo","Campbell River","Parksville","Qualicum Beach","Sooke","Sidney","Chemainus","Nanoose Bay","Shawnigan Lake"], href: "region.html", cta: "Open Vancouver Island" },
+  { n: "British Columbia, mainland", t: ["Vancouver","Whistler","Squamish","Nelson"], href: "province.html", cta: "Open British Columbia" },
+  { n: "Alberta", t: ["Banff","Jasper","Edmonton"] },
+  { n: "Ontario", t: ["Toronto","Niagara Falls","Ottawa"] },
+  { n: "Quebec", t: ["Montreal","Quebec City"] },
+  { n: "Saskatchewan", t: ["Saskatoon"] },
+  { n: "Nova Scotia", t: ["Halifax"] },
+  { n: "Prince Edward Island", t: ["Charlottetown"] },
+  { n: "Newfoundland and Labrador", t: ["St John's"] }
+];
+
+/* ── helpers ─────────────────────────────────────────────────────────────── */
+const MON = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const SHORT = MON.map((m) => m.slice(0,3));
+const DIM = [31,28,31,30,31,30,31,31,30,31,30,31];
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const cld = (id, w, h) => `https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_${w},h_${h}/${id}`;
+const list = (a) => a.length < 2 ? (a[0] || "") : a.slice(0,-1).join(", ") + " and " + a[a.length-1];
+const short = (n) => n.split(" & ")[0].toLowerCase();
+const plural = (n, w) => `${n} ${w}${n === 1 ? "" : "s"}`;
+const C = DATA.counts;
+const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const ARROW = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>`;
+
+/* every link in this prototype resolves to one of the twelve built screens */
+const PAGE = (cat, name) => name === "Long Beach" ? "long-beach.html"
+  : cat === "whale-watching" ? "whale-watching.html" : "things-to-do.html";
+const TOWN_PAGE = (slug) => slug === "tofino" ? "tofino.html" : "region.html";
+
+/* Longest contiguous runs of months, read round the year, so a winter season
+   comes out as "November to February" rather than two broken halves. */
+function windows(months){
+  const on = new Set(months);
+  if (on.size === 12) return [];
+  const runs = [];
+  for (let m = 1; m <= 12; m++){
+    if (!on.has(m)) continue;
+    const prev = m === 1 ? 12 : m - 1;
+    if (on.has(prev)) continue;
+    let end = m, n = 0;
+    while (on.has(end) && n < 12){ const nx = end === 12 ? 1 : end + 1; if (!on.has(nx)) break; end = nx; n++; }
+    runs.push([m, end]);
+  }
+  return runs;
+}
+const windowText = (months) => {
+  const r = windows(months);
+  if (!r.length) return "all year";
+  return r.map(([a,b]) => a === b ? MON[a-1] : `${SHORT[a-1]} to ${SHORT[b-1]}`).join(", and ");
+};
+const windowFull = (months) => {
+  const r = windows(months);
+  if (!r.length) return "all year";
+  return r.map(([a,b]) => a === b ? MON[a-1] : `${MON[a-1]} to ${MON[b-1]}`).join(", and ");
+};
+const windowLong = (months) => {
+  const r = windows(months);
+  if (!r.length) return "in season all year";
+  return "in season " + r.map(([a,b]) => a === b ? MON[a-1] : `${MON[a-1]} to ${MON[b-1]}`).join(", and ");
+};
+const seasonFor = (m) => Object.values(DATA.seasons).find((s) => s.months.includes(m));
+
+/* Daylight from the real latitude of Tofino, 49.153 N, at mid month. */
+function daylight(m){
+  const N = [15,46,74,105,135,166,196,227,258,288,319,349][m-1];
+  const rad = Math.PI/180;
+  const dec = 23.44 * rad * Math.sin(2*Math.PI*(284+N)/365);
+  const h = Math.acos(-Math.tan(49.153*rad) * Math.tan(dec)) / rad;
+  const hours = 2*h/15;
+  return { h: Math.floor(hours), m: Math.round((hours % 1) * 60) };
+}
+
+let month = new Date().getMonth() + 1;
+let ledgerOpen = false;
+let almTown = "tofino";
+const TOWN_LABEL = {tofino:"Tofino", ucluelet:"Ucluelet"};
+
+const PLACES = DATA.places.map((p) => ({ ...p, months: DATA.bestMonths[p.cat] || [] }));
+
+/* ── the finder. Answers "which place". ──────────────────────────────────── */
+const FIND = [
+  ...DATA.towns.map((t) => ({ n: t.name, m: `Town, ${t.places} places`, href: TOWN_PAGE(t.slug), g: "Towns" })),
+  { n: "Vancouver Island", m: "Region, 12 towns", href: "region.html", g: "Towns" },
+  { n: "British Columbia", m: "Province, 16 towns", href: "province.html", g: "Towns" },
+  { n: "Canada", m: "Country, 28 towns", href: "country.html", g: "Towns" },
+  ...ROSTER.flatMap((r) => r.t.map((n) => ({ n, m: `Town, ${r.n}`, href: r.href || "country.html", g: "Towns" }))),
+  ...PLACES.map((p) => ({ n: p.n, m: p.city, href: PAGE(p.cat, p.n), g: "Places" })),
+  ...DATA.subjects.map((s) => ({ n: s.name, m: `${plural(s.guides,"guide")}, ${list(s.towns)}`,
+    href: s.cat === "whale-watching" ? "whale-watching.html" : "things-to-do.html", g: "Subjects" })),
+  ...DATA.reading.map((a) => ({ n: a.title, m: `Guide, ${a.where}`, href: "guide.html", g: "Reading" }))
+];
+const POPULAR = ["Tofino","Ucluelet","Vancouver Island","Long Beach","Wild Pacific Trail","Victoria"];
+let fIdx = -1, fRows = [];
+
+function findMatches(q){
+  const s = q.trim().toLowerCase();
+  if (!s) return POPULAR.map((n) => FIND.find((r) => r.n === n)).filter(Boolean);
+  const starts = FIND.filter((r) => r.n.toLowerCase().startsWith(s));
+  const has = FIND.filter((r) => !r.n.toLowerCase().startsWith(s) && r.n.toLowerCase().includes(s));
+  const rank = { Towns: 0, Places: 1, Subjects: 2, Reading: 3 };
+  return [...starts, ...has].slice(0, 9)
+    .map((r, i) => [r, i]).sort((a,b) => rank[a[0].g] - rank[b[0].g] || a[1] - b[1]).map(([r]) => r);
+}
+function paintFinder(q){
+  fRows = findMatches(q);
+  fIdx = -1;
+  const panel = $("#qpanel");
+  if (!fRows.length){
+    panel.innerHTML = `<p class="qnone">Nothing by that name yet. <a href="search.html" style="color:var(--azure);font-weight:600">Search everything</a>.</p>`;
+  } else {
+    let g = "", html = "";
+    fRows.forEach((r, i) => {
+      const head = q.trim() ? r.g : "Most looked up";
+      if (head !== g){ g = head; html += `<h6>${esc(head)}</h6>`; }
+      html += `<a class="qopt" role="option" id="qopt${i}" aria-selected="false" href="${r.href}"><b>${esc(r.n)}</b><span>${esc(r.m)}</span></a>`;
+    });
+    panel.innerHTML = html;
+  }
+  panel.hidden = false;
+  $("#q").setAttribute("aria-expanded", "true");
+}
+function closeFinder(){
+  $("#qpanel").hidden = true;
+  $("#q").setAttribute("aria-expanded", "false");
+  $("#q").removeAttribute("aria-activedescendant");
+  fIdx = -1;
+}
+function moveFinder(d){
+  const opts = [...$("#qpanel").querySelectorAll(".qopt")];
+  if (!opts.length) return;
+  opts.forEach((o) => { o.removeAttribute("data-sel"); o.setAttribute("aria-selected","false"); });
+  fIdx = fIdx === -1 && d === -1 ? opts.length - 1 : (fIdx + d + opts.length) % opts.length;
+  const el = opts[fIdx];
+  el.setAttribute("data-sel","");
+  el.setAttribute("aria-selected","true");
+  el.scrollIntoView({ block: "nearest" });
+  $("#q").setAttribute("aria-activedescendant", el.id);
+}
+
+/* ── fixed content off the corpus ────────────────────────────────────────── */
+function paintStatic(){
+  const t = DATA.tide;
+  $("#tideStation").textContent = "Tide today at " + t.station;
+  $("#tideRead").innerHTML =
+    `<span>Low <b>${t.low1}</b>, ${t.low1m} m</span><span>High <b>${t.high1}</b>, ${t.high1m} m</span>` +
+    `<span>Low <b>${t.low2}</b>, ${t.low2m} m</span><span>Sunset <b>${t.sunset}</b></span>`;
+
+  $("#heroNote").innerHTML =
+    `<b>25</b> towns written up, <b>1,108</b> places documented one at a time, <b>837</b> of them photographed, ` +
+    `<b>${C.stays}</b> stays bookable tonight from $${C.from}.`;
+
+  const stats = [
+    [25, "Towns written up", "Across seven provinces, from Tofino to Charlottetown."],
+    [61, "Guides", "Nine subjects in Tofino alone, and forty six documents beyond it."],
+    ["1,108", "Places", "Named, located, and written up one at a time."],
+    [C.stays, "Stays", `Bookable tonight, from $${C.from} a night.`]
+  ];
+  $("#statgrid").innerHTML = stats.map(([n,label,gloss]) =>
+    `<div class="stat"><dt>${label}</dt><dd class="tnum">${n}</dd><p>${gloss}</p></div>`).join("");
+
+  $("#proofD").textContent =
+    "Not scraped, not aggregated. Each one walked, photographed and written up, with its own note on what it is actually like.";
+
+  $("#readDek").textContent = "The guides people open first.";
+  $("#rlist").innerHTML = DATA.reading.map((a) =>
+    `<a class="ritem" href="guide.html">
+      <div class="ritem__m"><img src="${cld(a.hero,260,195)}" alt="${esc(a.title)}"></div>
+      <div><div class="kmeta" style="margin-top:0"><span class="k">${esc(a.kicker)}</span><span class="dot"></span>
+        <span class="tnum">${a.places ? esc(a.places + " " + a.unit) : esc(a.where)}</span></div>
+      <h4>${esc(a.title)}</h4></div></a>`).join("");
+
+  $("#qaDek").textContent = `${C.questions} questions are answered inside the guides. Here are six.`;
+  $("#qa").innerHTML = DATA.qa.map((q) =>
+    `<div class="qi"><span>${esc(q.cat)}, ${esc(q.where)}</span><h3>${esc(q.q)}</h3><p>${esc(q.a)}</p></div>`).join("");
+}
+
+/* ── destinations: two published cards, then the roster ──────────────────── */
+function paintRoster(){
+  const rest = ROSTER.reduce((n,g) => n + g.t.length, 0);
+  $("#destDek").textContent =
+    `Tofino and Ucluelet are finished, place by place. Twenty three more towns are written up and shown below, with their real counts.`;
+  $("#rosterH").textContent = `The other ${rest} towns, by province`;
+  $("#roster").innerHTML = ROSTER.map((g) =>
+    `<div class="rgrp">
+      <h4>${esc(g.n)} <span>${g.t.length}</span></h4>
+      <p>${g.t.map(esc).join(" &middot; ")}</p>
+      ${g.href ? `<a href="${g.href}">${esc(g.cta)}${ARROW}</a>` : ""}
+    </div>`).join("");
+}
+
+function paintDestinations(){
+  $("#dfeat").innerHTML = DATA.towns.map((t) => {
+    const on = DATA.subjects.filter((s) => s.towns.includes(t.name) && s.months.includes(month))
+      .sort((a,b) => a.months.length - b.months.length || b.places - a.places).map((s) => short(s.name));
+    const max = Math.max(...t.perMonth);
+    const peak = t.perMonth.map((v,i) => v >= max * 0.7 ? i+1 : 0).filter(Boolean);
+    return `<a class="dest" href="${TOWN_PAGE(t.slug)}">
+      <div class="dest__m">
+        <img src="${cld(t.hero,900,676)}" alt="${esc(t.name)}, on the west coast of Vancouver Island">
+        ${on.length ? `<span class="dest__badge">In season now: ${esc(on[0])}</span>` : ""}
+      </div>
+      <h3>${esc(t.name)}</h3>
+      <p class="dest__sf">${esc(t.standfirst)}</p>
+      <p class="dest__meta tnum"><b>${t.guides}</b> guides &middot; <b>${t.places}</b> places &middot; <b>${t.stays}</b> stays from $${t.from}</p>
+      <p class="dest__when">Most to do <b>${esc(windowFull(peak))}</b>.</p>
+    </a>`;
+  }).join("");
+}
+
+/* ── the almanac ─────────────────────────────────────────────────────────── */
+function paintSwitcher(){
+  const c = DATA.climate[almTown];
+  const max = Math.max(...c.map((x) => x.mm));
+  $("#msw").innerHTML = c.map((x,i) =>
+    `<button class="msw__b" type="button" data-m="${i+1}" aria-pressed="${i+1 === month}"
+       tabindex="${i+1 === month ? 0 : -1}" aria-label="${MON[i]}, ${x.mm} millimetres of rain">
+      <span class="msw__mm">${x.mm}</span>
+      <span class="msw__col"><span class="msw__bar" style="--h:${(x.mm/max*100).toFixed(1)}%"></span></span>
+      <span class="msw__l">${SHORT[i]}</span>
+    </button>`).join("");
+}
+
+/* the one motion moment: the figures run up to the new month's values */
+function tick(el, to, suffix){
+  const from = Number(String(el.dataset.v || 0));
+  el.dataset.v = to;
+  if (REDUCED || from === to){ el.innerHTML = to + suffix; return; }
+  const t0 = performance.now(), dur = 320;
+  (function step(t){
+    const k = Math.min(1, (t - t0)/dur), e = 1 - Math.pow(1 - k, 3);
+    const v = from + (to - from) * e;
+    el.innerHTML = (Number.isInteger(to) ? Math.round(v) : v.toFixed(1)) + suffix;
+    if (k < 1) requestAnimationFrame(step);
+  })(performance.now());
+}
+
+function paintAlmanac(){
+  const c = DATA.climate[almTown][month-1];
+  const season = seasonFor(month);
+  const name = MON[month-1];
+  const d = daylight(month);
+
+  $("#seasonLabel").textContent = name + " in " + TOWN_LABEL[almTown];
+  $("#seasonName").textContent = season.name;
+  $("#seasonClaim").textContent = season.claim;
+  $("#seasonReason").innerHTML =
+    `<b>${name} averages ${c.hi}&deg;C by day, ${c.mm} mm of rain across ${c.days} of its ${DIM[month-1]} days, ` +
+    `and ${d.h} hours ${d.m} minutes of daylight.</b>`;
+
+  if (!$("#bignums").children.length){
+    $("#bignums").innerHTML =
+      `<div><dt>Average high</dt><dd><span id="bHi"></span>&deg;</dd></div>` +
+      `<div><dt>Rain</dt><dd><span id="bMm"></span><small>mm</small></dd></div>` +
+      `<div><dt>Rain days</dt><dd><span id="bDay"></span><small id="bOf"></small></dd></div>` +
+      `<div><dt>Daylight</dt><dd><span id="bLight"></span></dd></div>`;
+  }
+  tick($("#bHi"), c.hi, "");
+  tick($("#bMm"), c.mm, "");
+  tick($("#bDay"), c.days, "");
+  $("#bOf").textContent = "of " + DIM[month-1];
+  $("#bLight").innerHTML = `${d.h}<small>h</small><span class="mins">${String(d.m).padStart(2,"0")}<small>m</small></span>`;
+
+  $("#ledHead").textContent = "What is in season in " + name;
+
+  const rows = DATA.subjects.slice().sort((a,b) => {
+    const A = a.months.includes(month), B = b.months.includes(month);
+    if (A !== B) return A ? -1 : 1;
+    if (A) return a.months.length - b.months.length || b.places - a.places;
+    return b.places - a.places;
+  });
+  const inSeason = rows.filter((s) => s.months.includes(month));
+  const offSeason = rows.filter((s) => !s.months.includes(month));
+  const shown = ledgerOpen ? rows : [...inSeason, ...offSeason.slice(0, 2)];
+  const hidden = rows.length - shown.length;
+
+  let sepDone = false, i = 0;
+  $("#ledger").innerHTML = shown.map((s) => {
+    const live = s.months.includes(month);
+    let sep = "";
+    if (!live && !sepDone){ sepDone = true; sep = `<tr class="gsep"><td colspan="3">Better in another month</td></tr>`; }
+    const cells = SHORT.map((_,k) =>
+      `<i ${s.months.includes(k+1) ? "data-on" : ""} ${k === month-1 ? "data-now" : ""}>${MON[k][0]}</i>`).join("");
+    let book;
+    if (!live){
+      book = `<button class="jump" type="button" data-m="${windows(s.months)[0][0]}">Best ${esc(windowText(s.months))}${ARROW}</button>`;
+    } else if (s.cta.k === "soon"){
+      book = `<span class="pill pill--soon">Coming soon</span> <b>Stays from $${C.from}</b>`;
+    } else if (s.cta.k === "sister"){
+      book = `<span class="pill pill--go">Book</span> <b>ArcTrips Fishing</b>`;
+    } else if (s.cta.k === "stay"){
+      book = `<span class="pill pill--go">Book</span> <b>Stays from $${C.from}</b>`;
+    } else {
+      book = `<b>${esc(s.cta.t)}</b>`;
+    }
+    const where = s.places ? `${s.places} ${s.unit}` : plural(s.guides, "guide");
+    return sep + `<tr style="--i:${i++}">
+      <td><div class="led__s">${esc(s.name)}</div><div class="led__w">${esc(list(s.towns))}, ${esc(where)}</div></td>
+      <td class="led__mon"><div class="mon" role="img" aria-label="${esc(s.name)}, ${esc(windowLong(s.months))}">${cells}</div></td>
+      <td class="led__b">${book}</td></tr>`;
+  }).join("") + (hidden > 0 || ledgerOpen
+    ? `<tr class="ledmore"><td colspan="3"><button type="button" id="ledgerToggle">${
+        ledgerOpen ? "Show fewer" : `Show the other ${plural(hidden, "thing")} to do`}</button></td></tr>`
+    : "");
+
+  document.querySelectorAll('.almpick__b').forEach(function(b){
+    if(b.dataset.wired) return; b.dataset.wired=1;
+    b.addEventListener('click', function(){
+      almTown = b.dataset.t;
+      document.querySelectorAll('.almpick__b').forEach(function(x){ x.setAttribute('aria-pressed', String(x===b)); });
+      paintSwitcher(); paintAlmanac(); setMonth(month, false);
+    });
+  });
+
+  const tgl = $("#ledgerToggle");
+  if (tgl) tgl.addEventListener("click", () => { ledgerOpen = !ledgerOpen; paintAlmanac(); });
+
+  const onNow = Object.values(DATA.bestMonths).filter((ms) => ms.includes(month)).length;
+  $("#innowH").innerHTML =
+    `<b>${onNow}</b> of the ${C.taxonomy} things we cover are in season in ${name}, across ${C.places} places we have written up by name.`;
+
+  $("#live").textContent = `${name}. ${season.name}. ${c.mm} millimetres of rain.`;
+}
+
+function centerMonth(smooth){
+  const c = $("#msw"), el = c.querySelector('[aria-pressed="true"]');
+  if (!el || c.scrollWidth <= c.clientWidth) return;
+  c.scrollTo({ left: el.offsetLeft - (c.clientWidth - el.offsetWidth)/2, behavior: smooth && !REDUCED ? "smooth" : "auto" });
+}
+
+function setMonth(m, focus){
+  month = m;
+  document.querySelectorAll(".msw__b").forEach((b) => {
+    const on = Number(b.dataset.m) === m;
+    b.setAttribute("aria-pressed", String(on));
+    b.tabIndex = on ? 0 : -1;
+    if (on && focus) b.focus();
+  });
+  centerMonth(true);
+  paintAlmanac();
+  paintDestinations();
+}
+
+/* ── wire up ─────────────────────────────────────────────────────────────── */
+paintStatic();
+paintRoster();
+paintSwitcher();
+paintAlmanac();
+paintDestinations();
+centerMonth(false);
+addEventListener("resize", () => centerMonth(false));
+
+$("#msw").addEventListener("click", (e) => {
+  const b = e.target.closest(".msw__b"); if (b) setMonth(Number(b.dataset.m));
+});
+$("#msw").addEventListener("keydown", (e) => {
+  const d = { ArrowRight: 1, ArrowLeft: -1, ArrowDown: 1, ArrowUp: -1 }[e.key];
+  if (d){ e.preventDefault(); setMonth((month - 1 + d + 12) % 12 + 1, true); }
+  else if (e.key === "Home"){ e.preventDefault(); setMonth(1, true); }
+  else if (e.key === "End"){ e.preventDefault(); setMonth(12, true); }
+});
+$("#ledger").addEventListener("click", (e) => {
+  const b = e.target.closest(".jump");
+  if (!b) return;
+  setMonth(Number(b.dataset.m));
+  document.getElementById("almanac").scrollIntoView({ behavior: REDUCED ? "auto" : "smooth", block: "start" });
+});
+$("#capture").addEventListener("submit", (e) => {
+  e.preventDefault();
+  e.target.querySelector("button").textContent = "Thank you, you are on the list";
+});
+
+/* the finder */
+const qi = $("#q");
+const setPh = () => { qi.placeholder = innerWidth <= 760 ? "Search" : "Tofino, Long Beach, Wild Pacific Trail"; };
+setPh(); addEventListener("resize", setPh);
+qi.addEventListener("input", () => paintFinder(qi.value));
+qi.addEventListener("focus", () => paintFinder(qi.value));
+qi.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowDown"){ e.preventDefault(); if ($("#qpanel").hidden) paintFinder(qi.value); moveFinder(1); }
+  else if (e.key === "ArrowUp"){ e.preventDefault(); moveFinder(-1); }
+  else if (e.key === "Escape"){ closeFinder(); }
+  else if (e.key === "Enter" && fIdx > -1){
+    e.preventDefault();
+    const el = $("#qpanel").querySelectorAll(".qopt")[fIdx];
+    if (el) location.href = el.getAttribute("href");
+  }
+});
+document.addEventListener("click", (e) => { if (!e.target.closest(".finder")) closeFinder(); });
+addEventListener("keydown", (e) => {
+  if (e.key === "/" && !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)){
+    e.preventDefault(); qi.focus();
+  }
+});
+</script>
+
+<script>
+/* Linkify town names inside separator runs like "Victoria · Nanaimo · Sooke".
+   The earlier pass only matched a text node equal to one name, so multi-town
+   rows never linked. This splits on the separator and links each part. */
+(function(){
+  var M={"Victoria": "victoria.html", "Nanaimo": "nanaimo.html", "Campbell River": "campbell-river.html", "Sooke": "sooke.html", "Sidney": "sidney.html", "Chemainus": "chemainus.html", "Nanoose": "nanoose.html", "Shawnigan Lake": "shawnigan-lake.html", "Whistler": "whistler.html", "Squamish": "squamish.html", "Vancouver": "vancouver.html", "Nelson": "nelson.html", "Banff": "banff.html", "Jasper": "jasper.html", "Edmonton": "edmonton.html", "Saskatoon": "saskatoon.html", "Niagara Falls": "niagara-falls.html", "Ottawa": "ottawa.html", "Montreal": "montreal.html", "Quebec City": "quebec-city.html", "Halifax": "halifax.html", "Charlottetown": "charlottetown.html", "Qualicum Beach": "region.html", "Nanoose Bay": "nanoose.html", "Parksville": "nanoose.html"}, SKIP=/^(A|BUTTON|INPUT|SCRIPT|STYLE|H1|TITLE)$/;
+  function run(){
+    var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT), n, jobs=[];
+    while(n=w.nextNode()){
+      var v=n.nodeValue; if(!v||!v.trim()) continue;
+      var p=n.parentElement; if(!p||SKIP.test(p.tagName)||p.closest('a')) continue;
+      var names=Object.keys(M).filter(function(t){return v.indexOf(t)>-1;});
+      if(names.length) jobs.push([n,v]);
+    }
+    jobs.forEach(function(j){
+      var node=j[0], v=j[1], frag=document.createDocumentFragment();
+      var parts=v.split(/(\s*[·|,]\s*)/);
+      var linked=false;
+      parts.forEach(function(part){
+        var key=part.trim();
+        if(M[key]){
+          var a=document.createElement('a');
+          a.href=M[key]; a.textContent=part;
+          a.style.color='var(--azure)';
+          frag.appendChild(a); linked=true;
+        } else frag.appendChild(document.createTextNode(part));
+      });
+      if(linked && node.parentNode) node.parentNode.replaceChild(frag,node);
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(run,80)});
+  else setTimeout(run,80);
+  setTimeout(run,800);
+})();
+</script>
+
+<script>
+/* Replace the province text roster with real destination cards. Every town below
+   has its own page and its own photograph pulled from the source documents. */
+(function(){
+  var T=[{"k": "whistler", "name": "Whistler", "places": 219, "photos": 104, "img": "media/whistler/image5.jpg", "island": false, "prov": "British Columbia"}, {"k": "victoria", "name": "Victoria", "places": 100, "photos": 79, "img": "media/victoria/image31.jpg", "island": true, "prov": "Vancouver Island"}, {"k": "vancouver", "name": "Vancouver", "places": 76, "photos": 76, "img": "media/vancouver/image31.jpg", "island": false, "prov": "British Columbia"}, {"k": "squamish", "name": "Squamish", "places": 73, "photos": 36, "img": "media/squamish/image1.jpg", "island": false, "prov": "British Columbia"}, {"k": "ottawa", "name": "Ottawa", "places": 42, "photos": 42, "img": "media/ottawa/image21.jpg", "island": false, "prov": "Ontario"}, {"k": "quebec-city", "name": "Quebec City", "places": 41, "photos": 39, "img": "media/quebec-city/image12.jpg", "island": false, "prov": "Quebec"}, {"k": "montreal", "name": "Montreal", "places": 40, "photos": 40, "img": "media/montreal/image21.jpg", "island": false, "prov": "Quebec"}, {"k": "banff", "name": "Banff", "places": 39, "photos": 39, "img": "media/banff/image29.jpg", "island": false, "prov": "Alberta"}, {"k": "halifax", "name": "Halifax", "places": 38, "photos": 38, "img": "media/halifax/image26.jpg", "island": false, "prov": "Nova Scotia"}, {"k": "niagara-falls", "name": "Niagara Falls", "places": 36, "photos": 36, "img": "media/niagara-falls/image4.jpg", "island": false, "prov": "Ontario"}, {"k": "sooke", "name": "Sooke", "places": 30, "photos": 20, "img": "media/sooke/image32.jpg", "island": true, "prov": "Vancouver Island"}, {"k": "charlottetown", "name": "Charlottetown", "places": 28, "photos": 26, "img": "media/charlottetown/image23.jpg", "island": false, "prov": "Prince Edward Island"}, {"k": "parksville", "name": "Parksville", "places": 28, "photos": 20, "img": "media/parksville/image19.jpg", "island": true, "prov": "Vancouver Island"}, {"k": "edmonton", "name": "Edmonton", "places": 27, "photos": 27, "img": "media/edmonton/image19.jpg", "island": false, "prov": "Alberta"}, {"k": "nanaimo", "name": "Nanaimo", "places": 27, "photos": 21, "img": "media/nanaimo/image11.jpg", "island": true, "prov": "Vancouver Island"}, {"k": "saskatoon", "name": "Saskatoon", "places": 27, "photos": 27, "img": "media/saskatoon/image19.jpg", "island": false, "prov": "Saskatchewan"}, {"k": "jasper", "name": "Jasper", "places": 25, "photos": 25, "img": "media/jasper/image12.jpg", "island": false, "prov": "Alberta"}, {"k": "nanoose", "name": "Nanoose", "places": 16, "photos": 8, "img": "media/nanoose/image4.jpg", "island": true, "prov": "Vancouver Island"}, {"k": "sidney", "name": "Sidney", "places": 16, "photos": 11, "img": "media/sidney/image6.jpg", "island": true, "prov": "Vancouver Island"}, {"k": "chemainus", "name": "Chemainus", "places": 15, "photos": 10, "img": "media/chemainus/image9.jpg", "island": true, "prov": "Vancouver Island"}, {"k": "campbell-river", "name": "Campbell River", "places": 14, "photos": 14, "img": "media/campbell-river/image23.jpg", "island": true, "prov": "Vancouver Island"}, {"k": "nelson", "name": "Nelson", "places": 12, "photos": 6, "img": "media/nelson/image8.jpg", "island": false, "prov": "British Columbia"}, {"k": "shawnigan-lake", "name": "Shawnigan Lake", "places": 12, "photos": 9, "img": "media/shawnigan-lake/image12.jpg", "island": true, "prov": "Vancouver Island"}, {"k": "st-john", "name": "St John's", "places": 31, "photos": 30, "img": "media/st-john/image16.jpg", "island": false, "prov": "Newfoundland and Labrador"}];
+  function run(){
+    var r=document.getElementById('roster'); if(!r) return;
+    var h=document.getElementById('rosterH');
+    if(h) h.textContent='Every town we have written up';
+    var isl=T.filter(function(x){return x.island}), rest=T.filter(function(x){return !x.island});
+    function card(c,showProv){
+      return '<a class="tc" href="'+c.k+'.html">'+
+        '<span class="tc__m"><img loading="lazy" src="'+c.img+'" alt="'+c.name+'"></span>'+
+        '<span class="tc__n">'+c.name+'</span>'+
+        '<span class="tc__s">'+c.places+' places'+(c.photos?', '+c.photos+' with photos':'')+'</span>'+
+        (showProv?'<span class="tc__p">'+c.prov+'</span>':'')+'</a>';
+    }
+    r.innerHTML='<div class="tch" style="border:0;margin-top:0;padding-top:0">More on Vancouver Island</div>'+
+      '<div class="tcards">'+isl.map(function(c){return card(c,false)}).join('')+'</div>'+
+      '<div class="tch">The rest of Canada</div>'+
+      '<div class="tcards tcards--sm">'+rest.map(function(c){return card(c,true)}).join('')+'</div>';
+    r.className='';
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(run,120)});
+  else setTimeout(run,120);
+  setTimeout(run,900);
+})();
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

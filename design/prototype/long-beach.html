@@ -1,0 +1,1182 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Long Beach, Tofino, Arc Trips</title>
+<meta name="description" content="Long Beach, in the Long Beach Unit of Pacific Rim National Park Reserve between Tofino and Ucluelet. Today's tide, the twenty places inside the unit, the year month by month, how to get here, and the nearest rooms at either end.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_system.css">
+<style>
+/* ── Page scoped only. Built from _system.css tokens, no new colour values. ──
+      (a) the a11y floors the system leaves open,
+      (b) the v2 navigation rows re-anchored, because the system's chart rule
+          sets position on every direct child of body and would otherwise
+          cancel both the sticky place bar and the fixed progress hairline,
+      (c) the components an AREA page needs that the system does not carry:
+          the tide theatre, the four-guide evidence rail, the unit list, the
+          park-road spine, the spec rows, the split stay grid,
+      (d) on-navy contrast corrections for the almanac,
+      (e) small-screen corrections. ──────────────────────────────────────── */
+
+/* (a) a11y floors */
+:focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:var(--r-sm)}
+.almanac :focus-visible,.proof :focus-visible{outline-color:var(--a300)}
+.btn{min-height:44px;white-space:nowrap}
+nav.top .btn{flex:none}
+.brand,.nav-links a{display:inline-flex;align-items:center;min-height:44px}
+.search{height:44px}
+.search input{align-self:stretch}
+.fgrid ul{gap:2px;color:var(--n600)}
+.fgrid ul a{display:inline-block;padding-block:12px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:var(--gut);top:-60px;z-index:99;background:var(--navy);color:var(--paper);
+  display:inline-flex;align-items:center;min-height:44px;
+  padding:0 18px;border-radius:0 0 var(--r-sm) var(--r-sm);font-weight:600;font-size:.9rem;transition:top .18s var(--ease)}
+.skip:focus{top:0}
+/* n500 is under 4.5:1 on paper, so anything carrying meaning moves to n600 */
+.label--n,.dest__meta,.kmeta,.fnote,.vcap,.fbase{color:var(--n600)}
+/* nothing on this page reads below 14px. The root is 16px, so .88rem is the
+   floor. The system's smallest meta sizes are lifted here rather than
+   restyled in the locked file. */
+.kmeta,.kmeta .k,.crumb,.jumprow a,.led__w,.fnote,.fbase,.fgrid h5,
+.plate figcaption,.label,.pill,.btn--sm,.mrow button{font-size:.88rem}
+.label{letter-spacing:.12em}
+.pill{letter-spacing:.02em;text-transform:none}
+.head p{color:var(--n700)}
+/* only one .btn--primary is visible at a time: the place bar owns it on wide
+   screens, and the stays head owns it once the system hides the place bar CTA */
+.only-sm{display:none}
+@media(max-width:760px){.only-sm{display:inline-flex}.only-lg{display:none}}
+/* the region must stay one click away at every width. The global nav scrolls
+   on a narrow screen, so Vancouver Island is kept in the trail as well, and
+   the sign-in button steps aside to give the three nav links the room. */
+@media(max-width:760px){
+  .crumb a.lvl-deep.keep-sm{display:inline-flex}
+  .crumb .sep.lvl-deep.keep-sm{display:inline}
+}
+@media(max-width:560px){
+  /* the three global links win the row outright, so the region is visible and
+     one tap away. Search keeps its place in the footer and the stays band. */
+  nav.top .btn--ink,nav.top .search{display:none}
+  nav.top .wrap{padding-inline:14px}
+  .nav-in{gap:9px}
+  .nav-links{gap:9px;font-size:.9rem;flex:1 1 auto}
+  .brand{font-size:.9rem}
+}
+
+/* (b) the two v2 rows, re-anchored above the system's body>* rule */
+
+body>.jumpbar{position:fixed;z-index:70}
+[id]{scroll-margin-top:132px}
+/* the trail keeps its compact look and still clears 44px, by padding the hit
+   area and pulling the same amount back off the layout */
+.crumb{padding-block:20px 0}
+.crumb a,.crumb [aria-current]{display:inline-flex;align-items:center;padding-block:11px;margin-block:-11px}
+.jumprow a{min-height:44px}
+
+/* (c) type. Body is 17px, the display runs to about 5.7 times it at weight 800
+       against a lede at weight 400. That gap is the point. */
+.hero{padding-block:clamp(30px,3.6vw,52px) clamp(34px,4.4vw,62px)}
+.hero h1{font-size:clamp(3.4rem,8.6vw,6.6rem);font-weight:800;line-height:.92;letter-spacing:-.045em;
+  max-width:9ch;margin-top:16px}
+.hero .lede{font-size:clamp(1.1rem,1.45vw,1.3rem);font-weight:400;max-width:42ch;margin-top:24px}
+.hero .lede--n{font-size:1.02rem;color:var(--n600);margin-top:13px;max-width:46ch}
+.hero-note{margin-top:26px;padding-top:20px;border-top:1px solid var(--n150);font-size:.95rem;
+  color:var(--n600);max-width:48ch;line-height:1.6}
+.hero-note b{color:var(--navy);font-weight:700}
+.hero-note a{color:var(--azure);font-weight:600;border-bottom:1px solid var(--a250)}
+.hero-note a:hover{border-bottom-color:var(--azure)}
+/* the collage escapes the container and runs off the right edge of the screen */
+@media(min-width:1080px){
+  .hero>.wrap{max-width:none;margin-inline:0;padding-right:0;
+    padding-left:max(var(--gut),calc((100vw - var(--wrap))/2 + var(--gut)))}
+  .hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(34px,5vw,80px)}
+  .collage{aspect-ratio:1/.82}
+  .p2{width:47%}
+}
+@media(max-width:1079px){.hero-grid{align-items:start}}
+@media(max-width:940px){.hero-grid{grid-template-columns:minmax(0,1fr)}.collage{min-height:0;max-width:620px}}
+@media(max-width:560px){.collage{aspect-ratio:1/.88}}
+
+/* ═══ (c) the tide. Labelled in plain words, because the review said "I don't
+       know what I am looking at": what it is, the readings, why it matters. ═══ */
+.tideband{background:var(--n50);border-block:1px solid var(--n150);padding-block:clamp(30px,4vw,56px)}
+.tidehead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,21rem);
+  gap:18px clamp(24px,4vw,48px);align-items:end}
+@media(max-width:820px){.tidehead{grid-template-columns:1fr;align-items:start}}
+.tidehead h2{font-size:clamp(1.8rem,3vw,2.5rem)}
+.tidewhy{font-size:1.06rem;color:var(--n700);line-height:1.6;max-width:50ch;margin-top:14px}
+.tidestat{font-size:.95rem;color:var(--n700);line-height:1.55;background:var(--paper);
+  border:1px solid var(--n200);border-radius:var(--r);padding:15px 17px}
+.tidestat b{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+.tidegrid{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr);gap:clamp(20px,3.4vw,52px);
+  align-items:end;margin-top:clamp(22px,3vw,34px)}
+@media(max-width:900px){.tidegrid{grid-template-columns:1fr;gap:24px;align-items:start}}
+.range{font-size:clamp(3.4rem,7vw,5.4rem);font-weight:800;color:var(--navy);letter-spacing:-.05em;
+  line-height:.86;font-variant-numeric:tabular-nums}
+.range small{font-size:.3em;font-weight:700;letter-spacing:-.01em;margin-left:6px}
+.range+p{font-size:.98rem;color:var(--n700);margin-top:14px;line-height:1.55;max-width:26ch}
+
+.tidefig{position:relative;min-width:0}
+.tidefig svg{width:100%;height:clamp(126px,18vw,208px);display:block;overflow:visible}
+.tidefig .now{position:absolute;transform:translateX(-50%);white-space:nowrap;background:var(--azure);
+  color:var(--paper);font-size:.88rem;font-weight:700;padding:5px 11px;border-radius:999px}
+.tideaxis{position:relative;height:22px;margin-top:16px;border-top:1px solid var(--n200)}
+.tideaxis span{position:absolute;transform:translateX(-50%);top:6px;font-size:.88rem;color:var(--n700);
+  font-variant-numeric:tabular-nums}
+@media(max-width:760px){.tidefig .now{display:none}}
+
+.tiderow{display:flex;flex-wrap:wrap;gap:1px;background:var(--n200);border:1px solid var(--n200);
+  border-radius:var(--r);overflow:hidden;margin-top:clamp(22px,3vw,32px)}
+.tiderow div{background:var(--paper);flex:1 1 150px;padding:15px 18px}
+.tiderow dt{font-size:.95rem;font-weight:600;color:var(--n700)}
+.tiderow dd{font-size:1.34rem;font-weight:800;color:var(--navy);letter-spacing:-.03em;margin-top:6px;
+  font-variant-numeric:tabular-nums}
+.tiderow dd span{font-size:.66em;font-weight:600;color:var(--n700);margin-left:5px;letter-spacing:-.01em}
+.tidewin{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,2vw,20px);margin-top:clamp(16px,2vw,22px)}
+@media(max-width:640px){.tidewin{grid-template-columns:1fr}}
+.tidewin div{border:1px solid var(--n200);border-radius:var(--r);padding:16px 18px;background:var(--paper)}
+.tidewin dt{font-size:.95rem;font-weight:600;color:var(--n700)}
+.tidewin dd{font-size:1.24rem;font-weight:800;color:var(--navy);letter-spacing:-.028em;margin-top:6px;font-variant-numeric:tabular-nums}
+
+/* ═══ (c) reading column and the four-guide evidence rail ═══ */
+.sec--body{padding-block:clamp(24px,3vw,44px) clamp(40px,4.6vw,68px)}
+.bodygrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.82fr);gap:clamp(30px,4.6vw,72px);align-items:start}
+@media(max-width:980px){.bodygrid{grid-template-columns:1fr;gap:36px}}
+.body{max-width:60ch}
+.body p{margin-top:16px;color:var(--n700)}
+.body p:first-child{margin-top:0}
+.body h3{margin-top:clamp(28px,3.2vw,40px)}
+.body h3+p{margin-top:11px}
+.goodfor{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.goodfor li{font-size:.94rem;font-weight:600;color:var(--n700);background:var(--n50);
+  border:1px solid var(--n150);border-radius:999px;padding:8px 14px}
+.note{margin-top:clamp(24px,3vw,32px);background:var(--n50);border:1px solid var(--n150);
+  border-radius:var(--r);padding:clamp(18px,2.4vw,24px)}
+.note h4{font-size:1.06rem;font-weight:700;color:var(--navy);margin-bottom:9px}
+.note p{margin-top:0;color:var(--n700);font-size:.99rem}
+.ev{border-top:2px solid var(--navy)}
+.ev__r{padding-block:18px;border-bottom:1px solid var(--n150)}
+.ev__k{font-size:.88rem;font-weight:700;color:var(--azure)}
+.ev__q{font-size:1.02rem;color:var(--navy);font-weight:600;line-height:1.45;margin-top:8px;letter-spacing:-.012em}
+.figpair{margin-top:clamp(28px,3.4vw,40px)}
+.figpair.vmedia img{aspect-ratio:4/3.6}
+.figcap{font-size:.92rem;color:var(--n700);margin-top:11px;line-height:1.55;max-width:60ch}
+
+/* ═══ (c) the full-bleed break. One band escapes the container. ═══ */
+.proof{position:relative;min-height:min(66vh,560px);display:flex;align-items:center;overflow:hidden}
+.proof img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.proof__v{position:absolute;inset:0;
+  background:linear-gradient(96deg,rgba(11,51,86,.94) 0%,rgba(11,51,86,.8) 44%,rgba(11,51,86,.3) 100%)}
+.proof__in{position:relative;padding-block:clamp(48px,7vw,90px)}
+.proof__n{font-size:clamp(1.9rem,3.9vw,3.1rem);font-weight:700;color:var(--paper);letter-spacing:-.035em;
+  line-height:1.08;margin-top:14px;max-width:16ch}
+.proof__n b{font-size:clamp(3.6rem,9.4vw,7.4rem);font-weight:800;display:block;letter-spacing:-.05em;line-height:.88}
+.proof__d{color:rgba(255,255,255,.82);max-width:48ch;margin-top:20px;font-size:1.02rem;line-height:1.6}
+.proof .btn--ghost{margin-top:28px;border-color:rgba(255,255,255,.44);color:var(--paper)}
+.proof .btn--ghost:hover{border-color:var(--paper);background:rgba(255,255,255,.1)}
+
+/* ═══ (c) one plain sentence where the twenty-row unit index used to be ═══ */
+.oneline{margin-top:clamp(22px,2.8vw,30px);border-top:1px solid var(--n150);padding-top:clamp(18px,2.2vw,24px);
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 22px}
+.oneline p{font-size:1.06rem;color:var(--n700);line-height:1.6;max-width:62ch}
+.oneline a{color:var(--azure);font-weight:600;display:inline-flex;align-items:center;gap:7px;min-height:44px}
+.oneline a svg{width:13px;height:13px}
+
+/* ═══ (d) almanac, on-navy corrections ═══ */
+.sec--year{padding-block:clamp(50px,5.6vw,84px)}
+.almanac{padding:clamp(28px,4.4vw,64px)}
+.almanac h2{font-size:clamp(1.9rem,3.6vw,2.9rem);letter-spacing:-.038em}
+.almanac .head p,.led__w{color:rgba(255,255,255,.76)}
+.led__b{color:rgba(255,255,255,.84)}
+.almanac .btn--ghost{border-color:rgba(255,255,255,.4);color:var(--paper)}
+.almanac .btn--ghost:hover{border-color:var(--paper);background:rgba(255,255,255,.09)}
+.almanac__legend{border-top:1px solid rgba(255,255,255,.16);padding-top:20px;display:block;
+  color:rgba(255,255,255,.78);line-height:1.6;max-width:70ch;font-size:.9rem;margin-top:clamp(20px,2.4vw,30px)}
+/* ── the season strip. No hue at all: ink, not green. On paper the in-season
+      months are navy; on a navy panel they are white at low alpha. The ring on
+      the current month is the only outline. Out-of-season text sits at .62
+      rather than .5 so it clears 4.5:1 against the panel. ── */
+.mon i{background:var(--n100);color:var(--n600);width:24px;height:24px;border-radius:4px;font-size:.82rem;font-weight:600}
+.mon i[data-on]{background:var(--navy);color:#fff;font-weight:700}
+.almanac .mon i{background:rgba(255,255,255,.06);color:rgba(255,255,255,.62)}
+.almanac .mon i[data-on]{background:rgba(255,255,255,.14);color:#fff;font-weight:700}
+.almanac .mon i[data-now]{outline:1.5px solid #fff;outline-offset:1.5px}
+.almanac .led th{font-size:.88rem;text-transform:none;letter-spacing:0;color:rgba(255,255,255,.78);font-weight:600}
+.leadin{color:rgba(255,255,255,.86);font-size:1.02rem;line-height:1.6;max-width:60ch;margin-bottom:14px}
+.mrow{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none;
+  margin:clamp(20px,2.6vw,28px) 0 clamp(22px,2.8vw,30px)}
+.mrow::-webkit-scrollbar{display:none}
+.mrow button{flex:1;min-width:52px;min-height:44px;border-radius:var(--r-sm);font-size:.88rem;font-weight:700;
+  color:var(--paper);background:rgba(255,255,255,.15);transition:background .2s var(--ease),color .2s var(--ease)}
+.mrow button:hover{background:rgba(255,255,255,.26)}
+.mrow button[aria-pressed="true"]{background:var(--a300);color:var(--navy)}
+.standing{color:rgba(255,255,255,.8);font-size:1rem;line-height:1.6;max-width:54ch;margin-top:10px}
+.claim{border-top:1px solid rgba(255,255,255,.22);border-bottom:1px solid rgba(255,255,255,.22);
+  padding-block:clamp(22px,3vw,32px);display:grid;grid-template-columns:1fr auto;align-items:start;
+  column-gap:clamp(20px,4vw,52px);row-gap:clamp(16px,2vw,26px)}
+@media(max-width:900px){.claim{grid-template-columns:1fr;gap:24px}}
+.claim__n{font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:800;color:var(--paper);letter-spacing:-.035em;line-height:1.06;margin-top:9px}
+.claim__c{color:rgba(255,255,255,.82);font-size:1rem;margin-top:10px;max-width:42ch;line-height:1.55}
+.claim>*{min-width:0}
+.bignums{display:flex;gap:clamp(18px,3vw,38px);min-width:0}
+.bignums dt{font-size:.9rem;font-weight:600;color:rgba(255,255,255,.78)}
+.bignums dd{font-size:clamp(1.9rem,3vw,2.7rem);font-weight:800;color:var(--paper);letter-spacing:-.038em;
+  line-height:1;margin-top:9px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bignums dd small{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.78);margin-left:5px;letter-spacing:0}
+@media(max-width:600px){
+  .bignums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .bignums dt{font-size:.88rem;white-space:nowrap}
+  .bignums dd{font-size:1.7rem;margin-top:7px}
+}
+.claim__r{grid-column:1/-1;color:rgba(255,255,255,.8);font-size:.98rem;line-height:1.6;max-width:82ch;margin-top:2px}
+.claim__r b{color:var(--paper);font-weight:600}
+.sum{font-size:clamp(1.06rem,1.6vw,1.32rem);color:var(--paper);font-weight:600;line-height:1.42;
+  margin:clamp(22px,3vw,32px) 0 clamp(18px,2vw,24px);max-width:60ch;letter-spacing:-.014em}
+.sum b{font-size:1.5em;font-weight:800;letter-spacing:-.035em;font-variant-numeric:tabular-nums}
+.sum .q{color:rgba(255,255,255,.74);font-weight:500}
+.sum .q b{color:var(--paper);font-weight:800}
+.led tbody tr{animation:rowin .3s var(--ease) both;animation-delay:calc(var(--i,0)*26ms)}
+@keyframes rowin{from{opacity:0;transform:translateY(7px)}}
+.gsep td{padding:26px 0 6px!important;border-bottom:0!important;
+  font-size:.9rem;font-weight:600;color:rgba(255,255,255,.78)}
+.jump{display:inline-flex;align-items:center;gap:7px;min-height:44px;font-size:.9rem;font-weight:600;
+  color:var(--a300);transition:color .2s var(--ease)}
+.jump:hover{color:var(--paper)}
+.jump svg{width:13px;height:13px;flex:none}
+@media(max-width:800px){
+  .led thead{display:none}
+  .led tbody tr{display:block;padding-block:17px;border-bottom:1px solid rgba(255,255,255,.14)}
+  .led tbody tr:last-child{border-bottom:0}
+  .led td{display:block;border-bottom:0;padding:0}
+  .led__mon{display:block;margin-top:13px}
+  .mon i{flex:1;width:auto;min-width:0}
+  .led__b{text-align:left;margin-top:11px;white-space:normal}
+  .gsep{padding-block:0!important;border-bottom:0!important}
+}
+
+/* ═══ (c) the spine: the real order of the beaches along the park road ═══ */
+.sec--tight{padding-block:0 clamp(46px,5vw,72px)}
+.spine{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:14px;
+  margin-top:clamp(24px,3vw,34px);position:relative}
+.spine::before{content:"";position:absolute;left:6px;right:6px;top:6px;height:1px;background:var(--n200)}
+.spine li{position:relative;padding-top:24px;display:flex;flex-direction:column}
+.spine li::before{content:"";position:absolute;left:0;top:2px;width:9px;height:9px;border-radius:50%;
+  background:var(--paper);border:2px solid var(--n200)}
+.spine li[data-here]::before{border-color:var(--navy);background:var(--navy)}
+.spine b{display:block;color:var(--navy);font-size:1.02rem;font-weight:700;line-height:1.3}
+.spine span{display:block;font-size:.92rem;color:var(--n700);margin-top:5px;line-height:1.45}
+.spine__e{display:block;font-size:.88rem;font-weight:600;color:var(--navy);margin-top:auto;padding-top:9px}
+@media(max-width:860px){
+  .spine{grid-template-columns:1fr;gap:0;padding-left:22px}
+  .spine::before{left:4px;right:auto;top:10px;bottom:10px;width:1px;height:auto}
+  .spine li{padding:12px 0}
+  .spine li::before{left:-22px;top:16px}
+}
+
+/* ═══ (c) spec rows ═══ */
+.spec{border-top:1px solid var(--n150);margin-top:clamp(26px,3vw,34px)}
+.spec>div{display:grid;grid-template-columns:190px minmax(0,1fr);gap:clamp(14px,3vw,32px);
+  padding-block:18px;border-bottom:1px solid var(--n150);align-items:start}
+.spec dt{font-size:1.02rem;font-weight:700;color:var(--navy);padding-top:1px}
+.spec dd{color:var(--n700);font-size:.99rem;line-height:1.6;max-width:66ch}
+.spec dd b{color:var(--navy);font-weight:700}
+@media(max-width:720px){.spec>div{grid-template-columns:1fr;gap:7px}.spec dt{padding-top:0}}
+
+/* ═══ (c) stays: one lead room, then the rest, then the other end as rows ═══ */
+.stayhead{margin-top:clamp(24px,3vw,34px);font-size:1rem;font-weight:700;color:var(--navy);
+  padding-bottom:12px;border-bottom:1px solid var(--n150)}
+.staylead{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);gap:clamp(18px,2.6vw,32px);
+  margin-top:clamp(20px,2.6vw,28px);align-items:center}
+@media(max-width:820px){.staylead{grid-template-columns:1fr}}
+.staylead__m{border-radius:var(--r);overflow:hidden;aspect-ratio:16/11;background:var(--n100);position:relative}
+.staylead__m img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.staylead:hover .staylead__m img{transform:scale(1.04)}
+.staylead h3{font-size:clamp(1.4rem,2.4vw,1.95rem);font-weight:800;letter-spacing:-.03em;line-height:1.14}
+.staylead .meta{font-size:.92rem;color:var(--n600);margin-top:12px;font-variant-numeric:tabular-nums}
+.staylead .price{font-size:1.9rem;font-weight:800;color:var(--navy);letter-spacing:-.035em;margin-top:14px;
+  font-variant-numeric:tabular-nums}
+.staylead .price span{font-size:.48em;font-weight:600;color:var(--n600);letter-spacing:0;margin-left:6px}
+.staylead .go{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding-top:18px;
+  border-top:1px solid var(--n150);color:var(--azure);font-weight:600;font-size:.92rem;width:100%}
+.staylead .go svg{width:14px;height:14px}
+.stayrest{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px);margin-top:clamp(20px,2.6vw,28px)}
+@media(max-width:820px){.stayrest{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.stayrest{grid-template-columns:1fr}}
+.stay__m{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:var(--n100)}
+.stay__m img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.stay:hover .stay__m img{transform:scale(1.05)}
+.stay h4{font-size:1rem;font-weight:700;color:var(--navy);line-height:1.32;margin-top:13px}
+.stay:hover h4{color:var(--azure)}
+.stay .meta{font-size:.9rem;color:var(--n700);margin-top:5px;font-variant-numeric:tabular-nums}
+.stay .price{font-size:.96rem;color:var(--navy);font-weight:700;margin-top:7px;font-variant-numeric:tabular-nums}
+.stay .price span{font-weight:500;color:var(--n600)}
+.rate{position:absolute;right:11px;top:11px;background:rgba(255,255,255,.95);color:var(--navy);
+  font-size:.88rem;font-weight:700;padding:6px 11px;border-radius:999px;font-variant-numeric:tabular-nums}
+.stayrows{margin-top:clamp(18px,2.4vw,24px);border-top:1px solid var(--n150)}
+.stayrows a{display:grid;grid-template-columns:92px minmax(0,1fr) auto;gap:6px clamp(14px,2.4vw,24px);
+  align-items:center;padding-block:14px;border-bottom:1px solid var(--n150)}
+.stayrows a:hover .sr__n{color:var(--azure)}
+.sr__m{border-radius:var(--r-sm);overflow:hidden;aspect-ratio:4/3;background:var(--n100)}
+.sr__m img{width:100%;height:100%;object-fit:cover}
+.sr__n{font-size:1rem;font-weight:700;color:var(--navy);line-height:1.3}
+.sr__d{font-size:.9rem;color:var(--n700);margin-top:4px;font-variant-numeric:tabular-nums}
+.sr__p{font-size:1.06rem;font-weight:800;color:var(--navy);white-space:nowrap;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+@media(max-width:560px){
+  .stayrows a{grid-template-columns:72px minmax(0,1fr);row-gap:2px}
+  .sr__p{grid-column:2;text-align:left;font-size:1rem}
+}
+
+/* ═══ (c) siblings and the three-slot next step ═══ */
+/* grouped, counted and scannable, so the same block still works at 26 rows */
+.siblings{background:var(--paper);margin-top:12px}
+.sib{box-shadow:0 0 0 1px var(--n150);min-height:0}
+.sib__t{font-size:.92rem;color:var(--n700);margin-top:4px;line-height:1.45}
+.grouph{display:flex;align-items:baseline;gap:12px;margin-top:clamp(26px,3vw,36px);
+  padding-bottom:10px;border-bottom:1px solid var(--n150)}
+.grouph b{font-size:1.08rem;font-weight:700;color:var(--navy)}
+.grouph span{font-size:.92rem;color:var(--n700);font-variant-numeric:tabular-nums}
+.next{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,20px);margin-top:clamp(24px,3vw,32px)}
+@media(max-width:820px){.next{grid-template-columns:1fr}}
+.next a{display:flex;flex-direction:column;gap:8px;border:1px solid var(--n200);border-radius:var(--r);
+  padding:clamp(20px,2.4vw,26px);min-height:44px;transition:border-color .22s var(--ease),background .22s var(--ease)}
+.next a:hover{border-color:var(--navy);background:var(--n50)}
+.next .label{color:var(--n600)}
+.next b{color:var(--navy);font-size:1.14rem;font-weight:700;letter-spacing:-.018em;line-height:1.28}
+.next p{color:var(--n600);font-size:.9rem;line-height:1.5}
+.next .go{color:var(--azure);font-weight:600;font-size:.9rem;display:inline-flex;align-items:center;gap:7px;margin-top:auto;padding-top:6px}
+.next .go svg{width:13px;height:13px}
+footer.f{margin-top:clamp(50px,5.4vw,80px)}
+</style>
+</head>
+<body>
+<span id="top" aria-hidden="true"></span>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- the chart ground: contours and depth soundings -->
+<div class="chart" aria-hidden="true">
+<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none">
+  <g stroke="var(--a200)" stroke-width="1" opacity=".72">
+    <path d="M-40 250 C160 200 300 300 420 280 C560 258 640 150 800 170 C960 190 1050 300 1200 280 C1330 262 1420 200 1500 220"/>
+    <path d="M-40 300 C170 250 310 350 430 330 C570 308 650 205 810 225 C970 245 1060 350 1210 330 C1340 312 1425 255 1500 275"/>
+    <path d="M-40 355 C180 305 320 402 440 385 C580 365 665 262 820 282 C980 302 1070 402 1220 385 C1350 368 1430 312 1500 332"/>
+    <path d="M-60 620 C140 585 260 660 400 640 C540 620 620 545 760 560 C900 575 1000 655 1140 640 C1280 625 1380 570 1500 590"/>
+    <path d="M-60 672 C150 638 275 712 415 692 C555 672 632 600 772 615 C912 630 1010 706 1150 692 C1290 678 1385 622 1500 642"/>
+    <path d="M-60 726 C160 692 290 764 430 744 C570 724 645 654 785 669 C925 684 1020 758 1160 744 C1300 730 1390 675 1500 695"/>
+  </g>
+  <g fill="var(--azure)" font-family="Inter" font-weight="600" font-size="9" opacity=".26">
+    <text x="200" y="215">14</text><text x="512" y="268">9</text><text x="700" y="163">22</text>
+    <text x="900" y="196">31</text><text x="1140" y="292">17</text><text x="288" y="386">6</text>
+    <text x="620" y="270">11</text><text x="1010" y="360">26</text><text x="120" y="600">19</text>
+    <text x="480" y="646">8</text><text x="700" y="556">24</text><text x="1050" y="662">13</text>
+    <text x="1330" y="586">28</text><text x="352" y="712">5</text><text x="860" y="742">16</text>
+  </g>
+</svg>
+</div>
+
+<!-- Global nav. Identical on every page: Stays, Destinations, Vancouver Island.
+     The region stays one click away from anywhere in the tree. -->
+<nav class="top"><div class="wrap nav-in">
+  <a class="brand" href="index.html">Arctrips</a>
+  <ul class="nav-links">
+    <li><a href="search.html?in=tofino">Stays</a></li>
+    <li><a href="index.html">Destinations</a></li>
+    <li><a href="search.html">Guides</a></li>
+  </ul>
+  <form class="search" role="search" action="search.html" method="get">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
+    <label class="vh" for="q">Go to a place, a beach, a trail or a guide</label>
+    <input id="q" name="q" type="search" placeholder="Tofino, Cox Bay, Rainforest Trail">
+    <kbd>/</kbd>
+  </form>
+  <a class="btn btn--ink btn--sm" href="not-found.html">Sign in</a>
+</div></nav>
+
+<!-- The only sticky row below the global nav. Identical on every Tofino page. -->
+<div class="placebar"><div class="wrap placebar-in">
+  <a class="placebar__back" href="tofino.html"><span class="n">&larr; Tofino</span></a>
+  <ul class="placebar__links">
+    <li><a href="tofino.html">Overview</a></li>
+    <li><a href="things-to-do.html">Things to do</a></li>
+    <li><a href="#top" aria-current="page">Areas</a></li>
+    <li><a href="plan.html">Plan</a></li>
+    <li><a href="guide.html">Guides</a></li>
+  </ul>
+  <a class="btn btn--primary btn--sm placebar__cta" href="search.html?in=tofino">Find a stay</a>
+</div></div>
+
+<div class="jumpbar" id="jumpbar" aria-hidden="true"></div>
+
+<main id="main">
+
+<div class="wrap">
+  <nav class="crumb" aria-label="Breadcrumb">
+    <a class="lvl-deep" href="index.html">Arc Trips</a><span class="sep lvl-deep">/</span>
+    <a class="lvl-deep" href="country.html">Canada</a><span class="sep lvl-deep">/</span>
+    <a class="lvl-deep" href="province.html">British Columbia</a><span class="sep lvl-deep">/</span>
+    <a class="lvl-deep keep-sm" href="region.html">Vancouver Island</a><span class="sep lvl-deep keep-sm">/</span>
+    <a href="tofino.html">Tofino</a><span class="sep">/</span>
+    <span aria-current="page">Long Beach</span>
+  </nav>
+</div>
+
+<header class="hero"><div class="wrap hero-grid">
+  <div>
+    <span class="label">Pacific Rim National Park Reserve</span>
+    <h1>Long
+      <span class="mark">Beach<svg viewBox="0 0 200 12" fill="none" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8.4C38 3.2 92 2.1 132 5.1c22 1.7 44 3.6 66 1.2" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg></span>
+    </h1>
+    <p class="lede">One of the most famous beaches on Vancouver Island, on the park road between Tofino and Ucluelet.</p>
+    <p class="lede lede--n">As the name says, it is very long. Open sand, big sky, rolling waves, and rainforest standing behind you.</p>
+    <p class="hero-note">It turns up in <b>four</b> of our Tofino guides: <a href="guide.html">beaches, hiking, storm watching and kayaking</a>.</p>
+  </div>
+
+  <div class="collage">
+    <div class="coast" aria-hidden="true">
+      <svg viewBox="0 0 520 480" fill="none">
+        <path d="M40 120 C110 92 150 150 210 140 C268 130 300 70 360 88 C420 106 452 168 500 150" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M20 300 C96 268 140 336 205 322 C270 308 306 244 372 262 C438 280 470 344 512 326" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M10 400 C90 372 136 434 204 420 C272 406 312 348 380 366" stroke="currentColor" stroke-width="1.4"/>
+        <circle cx="120" cy="212" r="2.6" fill="currentColor"/><circle cx="392" cy="196" r="2.6" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <figure class="plate p1">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_760,h_1000/guides/tofino/beaches/long-beach-1" alt="Lines of surf breaking one behind another at Long Beach, spray blowing back off the tops, dark forest on the headland beyond">
+      <figcaption>Set after set, straight off the Pacific</figcaption>
+    </figure>
+    <figure class="plate p2">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_640,h_480/guides/tofino/beaches/long-beach-2" alt="A cyclist riding alone across wet sand at Long Beach in low golden light, the forest edge lost in haze behind">
+      <figcaption>Low water, low sun</figcaption>
+    </figure>
+    <figure class="plate p3">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_680,h_520/guides/tofino/hiking/long-beach-hike-1" alt="A walker on the reflective wet sand at Long Beach heading toward a low sun, a rocky forested islet standing out of the shallows">
+      <figcaption>The walk, north end to south</figcaption>
+    </figure>
+
+    <div class="route" aria-hidden="true">
+      <svg viewBox="0 0 520 480" fill="none">
+        <path class="dash" d="M150 340 C210 392 300 384 352 330" stroke="currentColor" stroke-width="2"/>
+      </svg>
+    </div>
+    <svg class="seal" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+      <circle cx="50" cy="50" r="46" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="50" cy="50" r="38" stroke="currentColor" stroke-width=".8" stroke-dasharray="2 4"/>
+      <path d="M50 20 L56 46 L82 50 L56 54 L50 80 L44 54 L18 50 L44 46 Z" fill="currentColor" opacity=".55"/>
+      <text x="50" y="14" text-anchor="middle" font-size="7" font-weight="700" fill="currentColor" letter-spacing="1.4">N</text>
+    </svg>
+  </div>
+</div></header>
+
+<!-- ══ The tide, said plainly. Heading, one line on why it matters, the
+     readings, the two best windows. Nothing else. ══ -->
+<section class="tideband" id="tide"><div class="wrap">
+  <div class="tidehead">
+    <div>
+      <h2>Tide today at Tofino Harbour</h2>
+      <p class="tidewhy">Long Beach doubles in width at low water, so how much sand you get depends on the hour you arrive.</p>
+    </div>
+    <p class="tidestat" id="tideNow"></p>
+  </div>
+
+  <div class="tidegrid">
+    <div>
+      <p class="range">2.3<small>m</small></p>
+      <p>between today's low and high. That difference is the width of the walk.</p>
+    </div>
+
+    <div>
+      <div class="tidefig" id="tidefig">
+        <svg viewBox="0 0 1000 240" preserveAspectRatio="none" aria-hidden="true">
+          <g id="tideBands"></g>
+          <line x1="0" y1="210" x2="1000" y2="210" stroke="var(--n200)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <path id="tideFill" fill="var(--a100)" stroke="none"></path>
+          <path id="tidePre" stroke="var(--a400)" stroke-width="1.6" fill="none" stroke-dasharray="4 5" vector-effect="non-scaling-stroke"></path>
+          <path id="tideMid" stroke="var(--azure)" stroke-width="2.4" fill="none" vector-effect="non-scaling-stroke" stroke-linecap="round"></path>
+          <path id="tidePost" stroke="var(--a400)" stroke-width="1.6" fill="none" stroke-dasharray="4 5" vector-effect="non-scaling-stroke"></path>
+          <g id="tideMarks"></g>
+        </svg>
+      </div>
+      <div class="tideaxis" id="tideAxis"></div>
+    </div>
+  </div>
+
+  <dl class="tiderow" id="tideRow"></dl>
+
+  <dl class="tidewin" id="tideWin"></dl>
+</div></section>
+
+<div class="wrap">
+  <nav class="jumprow" id="jumps" aria-label="On this page">
+    <a href="#beach">What it is</a>
+    <a href="#year">When to go</a>
+    <a href="#getting">Getting here</a>
+    <a href="#notes">Before you go</a>
+    <a href="#stays">Where to stay</a>
+    <a href="#reading">More to read</a>
+  </nav>
+</div>
+
+<section class="sec sec--body" id="beach"><div class="wrap">
+  <div class="head">
+    <div>
+      <h2>What Long Beach actually is</h2>
+    </div>
+  </div>
+
+  <div class="bodygrid">
+    <div class="body">
+      <p>Long Beach is part of Pacific Rim National Park Reserve, the stretch of protected coast between Tofino and Ucluelet. It is the beach most people picture when they picture this coast, and it is the reason the road runs out here at all.</p>
+      <p>It gives you the classic west coast feeling in one look: open sand, big sky, rolling waves, and rainforest behind you. No promenade, no line of hotels, no boardwalk. The car park, then the sand, then the Pacific.</p>
+      <p>It is a good place for walking, surfing, watching waves, and taking photographs, and there are trails and visitor areas in the park within a few minutes of it.</p>
+
+      <ul class="goodfor" aria-label="What the beaches guide says Long Beach is good for">
+        <li>Long walks</li><li>Big beach views</li><li>Surfing</li>
+        <li>Storm watching</li><li>Photography</li><li>Pacific Rim National Park Reserve</li>
+      </ul>
+
+      <h3>In winter it becomes the storm beach</h3>
+      <p>Long Beach is wide, long, and open to the ocean with nothing in front of it. That is what makes it a powerful place to watch winter waves. You can walk on the sand when conditions are safe, or watch from a safer distance back, which on the worst days is the better call and still the better view.</p>
+
+      <h3>Walking it</h3>
+      <p>A Long Beach hike is not a formal trail. It is simple: walk along the sand, watch the waves, enjoy the wide open views, and turn back when you are ready. It is the easiest big walk near Tofino, and the one that suits people who want scenery without a trailhead, a map, or boots.</p>
+
+      <div class="note">
+        <h4>Not a kayaking beach</h4>
+        <p>Long Beach faces the open Pacific, so surf, swell, rip currents and wind make it a hard place to paddle. Expert sea kayakers and surf kayakers use it in the right conditions. Everyone else should enjoy it from shore and paddle the sheltered water instead: Lemmens Inlet, Meares Island, Grice Bay, Tinwis Beach or Kennedy Lake.</p>
+      </div>
+    </div>
+
+    <div>
+      <h3>What our guides say about it</h3>
+      <div class="ev" style="margin-top:12px" id="ev"></div>
+    </div>
+  </div>
+
+  <div class="figpair vmedia">
+    <figure>
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_900,h_1120/guides/tofino/beaches/long-beach-1" alt="Rows of white water rolling in at Long Beach with spray blowing off the wave tops and a dark forested point behind">
+    </figure>
+    <figure>
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_620,h_780/guides/tofino/kayaking/long-beach-and-the-open-pacific-coast-1" alt="A paddler in a small kayak punching through a breaking wave in the surf zone off the open coast">
+    </figure>
+  </div>
+  <p class="figcap">Left, the surf that made the beach famous. Right, why most visitors should paddle somewhere else.</p>
+</div></section>
+
+<!-- the one band that escapes the container -->
+<section class="proof">
+  <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_2400,h_1100/guides/tofino/beaches/long-beach-2" alt="A single cyclist crossing the wet sand at Long Beach at low water under a wide grey sky">
+  <div class="proof__v"></div>
+  <div class="wrap proof__in">
+    <span class="label" style="color:var(--a300)">The Long Beach Unit</span>
+    <p class="proof__n"><b class="tnum">20</b> places in and beside this one unit of the park.</p>
+    <p class="proof__d">Five beaches on the road, ten trails and paths off it, two storm viewpoints and three pieces of water, each walked and written up on its own. Long Beach is one of the twenty.</p>
+    <a class="btn btn--ghost btn--lg" href="things-to-do.html">Everything worth doing in Tofino</a>
+  </div>
+</section>
+
+<section class="sec sec--year" id="year"><div class="wrap">
+  <div class="almanac">
+    <div class="head">
+      <div>
+        <h2>When should you go?</h2>
+        <p class="standing">Summer for the long dry days, winter for the storms. The sand itself is open, free and walkable every day of the year. Pick a month to see what it is like.</p>
+      </div>
+      <a class="btn btn--ghost btn--sm" href="plan.html">Plan a trip to Tofino</a>
+    </div>
+
+    <div class="mrow" role="group" aria-label="Choose a month" id="mrow"></div>
+
+    <p class="leadin" id="weatherLead"></p>
+
+    <div class="claim">
+      <div>
+        <p class="claim__n" id="seasonName"></p>
+        <p class="claim__c" id="seasonClaim"></p>
+      </div>
+      <dl class="bignums" id="bignums"></dl>
+      <p class="claim__r" id="seasonReason"></p>
+    </div>
+
+    <p class="sum" id="sum"></p>
+
+    <p class="leadin">What people come to Long Beach for, and the months each one is at its best. A filled square is a good month.</p>
+    <table class="led">
+      <thead><tr><th>What you come for</th><th class="led__mon">Best months</th><th style="text-align:right">Good to know</th></tr></thead>
+      <tbody id="ledger"></tbody>
+    </table>
+
+    <p class="almanac__legend" id="footnote"></p>
+  </div>
+</div></section>
+
+<section class="sec sec--tight" id="getting"><div class="wrap">
+  <div class="head">
+    <div>
+      <h2>Getting here</h2>
+      <p>Long Beach is the middle of a run of park beaches. This is the order they come in, driving from the Tofino end to the Ucluelet end.</p>
+    </div>
+  </div>
+
+  <ol class="spine" aria-label="The park beaches from the Tofino end to the Ucluelet end">
+    <li><b>Schooner Cove</b><span>Forest first, then sand. The quietest stop of the five, closest to the Tofino end.</span><span class="spine__e">Tofino end</span></li>
+    <li data-here><b>Long Beach</b><span>The main strand, and this page. Surf, walking, and the winter waves.</span><span class="spine__e">You are here</span></li>
+    <li><b>Combers Beach</b><span>Not a town beach. Wilder, emptier, and made for a long walk.</span></li>
+    <li><b>Wickaninnish Beach</b><span>Big ocean views, storm watching, and the Kwisitis Visitor Centre.</span></li>
+    <li><b>Florencia Bay</b><span>Sand cliffs and low tide exploring, down a set of stairs that feel longer coming back.</span><span class="spine__e">Ucluelet end</span></li>
+  </ol>
+
+  <div class="oneline">
+    <p>The Long Beach Unit holds twenty places in all: five beaches on this road, ten trails and paths off it, and three pieces of water.</p>
+    <a href="things-to-do.html">See everything to do in Tofino
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+  </div>
+
+  <dl class="spec">
+    <div><dt>The road</dt><dd>Highway 4 runs behind the whole beach, with Parks Canada car parks off it at intervals. There is no single entrance to aim for.</dd></div>
+    <div><dt>From Tofino</dt><dd>You arrive at the <b>north end</b>, about twenty minutes out of town.</dd></div>
+    <div><dt>From Ucluelet</dt><dd>You arrive at the <b>south end</b>, about twenty minutes out of town, past Florencia Bay and Wickaninnish.</dd></div>
+    <div><dt>Without a car</dt><dd>The <b>ʔapsčiik t̓ašii</b> pathway, said ups-cheek ta-shee, is paved and runs the length of the unit between the two towns. It has hills, so plan the way back.</dd></div>
+  </dl>
+</div></section>
+
+<section class="sec sec--tight" id="notes"><div class="wrap">
+  <div class="head">
+    <div>
+      <h2>Before you go</h2>
+      <p>Five things the guides say every time. Read these and you are set.</p>
+    </div>
+  </div>
+
+  <dl class="spec">
+    <div><dt>Check the tide</dt><dd>The beach is much wider at low water, and the walk back is longer than it looked on the way out. Today's readings are at the top of this page.</dd></div>
+    <div><dt>Watch the waves</dt><dd>Stay well back from big waves and never turn your back on the ocean. This is open coast, not a sheltered bay.</dd></div>
+    <div><dt>Swimming</dt><dd>Yes, but the water is cold and the current can be strong. Most people wear a wetsuit. There are <b>no lifeguards</b>.</dd></div>
+    <div><dt>Leave the kayak</dt><dd>Paddle the sheltered water instead: Lemmens Inlet, Grice Bay or Kennedy Lake.</dd></div>
+    <div><dt>Park pass and rules</dt><dd>You may need a national park pass to stop here, and dog and access rules change through the year. Follow the Parks Canada signs.</dd></div>
+  </dl>
+</div></section>
+
+<section class="sec sec--tight" id="stays"><div class="wrap">
+  <div class="head">
+    <div>
+      <h2>Where to stay</h2>
+      <p>Nothing on Long Beach itself is bookable. It is a national park beach, so the rooms sit in the two towns at either end, both about twenty minutes away.</p>
+    </div>
+    <a class="btn btn--ghost btn--sm only-lg" href="search.html?in=tofino">Search every stay</a>
+    <a class="btn btn--primary only-sm" href="search.html?in=tofino">Find a stay</a>
+  </div>
+
+  <p class="stayhead" id="stayHeadN"></p>
+  <a class="staylead" href="search.html?in=tofino" id="stayLead"></a>
+  <div class="stayrest" id="stayRest"></div>
+
+  <p class="stayhead" id="stayHeadS"></p>
+  <div class="stayrows" id="stayRows"></div>
+</div></section>
+
+<section class="sec sec--tight" id="reading"><div class="wrap">
+  <div class="head">
+    <div>
+      <h2>More to read</h2>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="guide.html">All nine Tofino guides</a>
+  </div>
+
+  <div class="read">
+    <a class="feat" href="guide.html">
+      <div class="feat__m"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1100,h_690/guides/tofino/beaches/_category-1" alt="A wide empty beach on the Tofino coast with surf running in and forest along the back of the sand"></div>
+      <div class="kmeta"><span class="k">Beaches</span><span class="dot"></span><span>Tofino</span><span class="dot"></span><span class="tnum">13 beaches written up</span></div>
+      <h3>The Best Beaches in Tofino</h3>
+      <p>Long Beach, Cox Bay, Chesterman: where to find surf, sand, and sunset walks, and which one suits the day you actually have.</p>
+    </a>
+    <div class="rlist" id="rlist"></div>
+  </div>
+</div></section>
+
+<section class="sec sec--tight"><div class="wrap">
+  <div class="head">
+    <div>
+      <h2>The other twelve beaches in Tofino</h2>
+      <p>Grouped by the kind of day they suit, so you can pick one without reading all twelve.</p>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="things-to-do.html">Beaches, by subject</a>
+  </div>
+  <nav aria-label="The other beaches in Tofino" id="sibs"></nav>
+</div></section>
+
+<!-- three slots, so the page never ends on a footer -->
+<section class="sec sec--tight"><div class="wrap">
+  <div class="head">
+    <div>
+      <h2>Where to go from here</h2>
+    </div>
+  </div>
+  <div class="next">
+    <a href="tofino.html">
+      <b>Tofino, the whole town</b>
+      <p>Nine guides, seventy-three places, and the month by month read on when to come.</p>
+      <span class="go">Back to Tofino <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="region.html">
+      <b>Vancouver Island, all eleven towns</b>
+      <p>Tofino and Ucluelet are two of eleven. Victoria, Nanaimo, Campbell River and the rest sit on the same island.</p>
+      <span class="go">See the island <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="search.html?in=tofino">
+      <b>Rooms within twenty minutes</b>
+      <p>Cabins, lofts and chalets at both ends of this road, from $320 a night.</p>
+      <span class="go">Search stays <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+</div></section>
+
+</main>
+
+<footer class="f"><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <span class="fbrand">Arctrips</span>
+      <p class="fnote">Stays and guides on the west coast of Vancouver Island, written by people who go there.</p>
+    </div>
+    <div><h5>This coast</h5><ul>
+      <li><a href="tofino.html">Tofino</a></li><li><a href="#top">Long Beach</a></li>
+      <li><a href="search.html">Guides</a></li><li><a href="province.html">British Columbia</a></li>
+      <li><a href="country.html">Canada</a></li></ul></div>
+    <div><h5>In Tofino</h5><ul>
+      <li><a href="things-to-do.html">All nine subjects</a></li><li><a href="whale-watching.html">Whale watching</a></li>
+      <li><a href="guide.html">Beaches guide</a></li><li><a href="search.html?in=tofino">Search everything</a></li></ul></div>
+    <div><h5>Plan</h5><ul>
+      <li><a href="plan.html">When to go</a></li><li><a href="plan.html">Getting there</a></li>
+      <li><a href="search.html?in=tofino">Where to stay</a></li><li><a href="guide.html">What to pack</a></li></ul></div>
+    <div><h5>Arc Trips</h5><ul>
+      <li><a href="not-found.html">About us</a></li><li><a href="not-found.html">List your place</a></li>
+      <li><a href="search.html?in=tofino">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
+  </div>
+  <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees</span></div>
+</div></footer>
+
+<script>
+/* Every row below is read out of corpus.json, best-months.json and climate.json.
+   Nothing here is invented: where a figure is derived rather than recorded, the
+   page says so on the surface. */
+const DATA = {
+  /* climate.json, Tofino station */
+  climate: [
+    {hi:8.6,lo:2.6,mm:489,days:22},{hi:9.3,lo:2.3,mm:368,days:19},{hi:10.4,lo:3.1,mm:337,days:21},
+    {hi:12.3,lo:4.3,mm:213,days:18},{hi:14.6,lo:6.7,mm:132,days:15},{hi:16.3,lo:9.1,mm:102,days:13},
+    {hi:18.1,lo:10.9,mm:66,days:9},{hi:18.6,lo:11.1,mm:82,days:10},{hi:17.5,lo:9.3,mm:152,days:12},
+    {hi:13.9,lo:6.9,mm:396,days:20},{hi:10.3,lo:4.4,mm:500,days:23},{hi:8.4,lo:2.7,mm:490,days:23}
+  ],
+  seasons: {
+    storm:{months:[11,12,1,2],name:"Storm season",claim:"The Pacific throws everything it has at the coast, and people book rooms to watch it."},
+    green:{months:[3,4,10],name:"The quiet months",claim:"The coast between the storms and the crowds, at half the price."},
+    long:{months:[5,6,7,8,9],name:"Long days",claim:"Sixteen hours of light and the water finally warm enough to stay in."}
+  },
+  reason: {
+    "Storm season":"Nothing stands between this beach and the open ocean, so the winter swell lands here first. That is the whole reason to come in January.",
+    "The quiet months":"The rain eases week by week and the summer traffic has not started, or has just left.",
+    "Long days":"The dry window. Long light, and the sand walkable end to end around low water."
+  },
+  /* tides: climate.json, Tofino Harbour, the station this beach reads from */
+  tide: {
+    tofino:{station:"Tofino Harbour",pts:[{t:6+14/60,h:0.8,k:"Low"},{t:12+38/60,h:3.1,k:"High"},{t:18+52/60,h:1.2,k:"Low"}],sunset:21+7/60}
+  },
+  /* best-months.json, for the six things people come to this beach to do */
+  subjects: [
+    {name:"Beach days",short:"beach days",sub:"Open sand, big sky, room to spread out",months:[5,6,7,8,9],end:"Free"},
+    {name:"Walking",short:"walking",sub:"End to end on the sand, no trailhead needed",months:[4,5,6,7,8,9,10],end:"Free"},
+    {name:"Park trails",short:"park trails",sub:"Ten rainforest trails off the same road",months:[4,5,6,7,8,9,10],end:"Park pass"},
+    {name:"Surfing",short:"surfing",sub:"Boards and lessons rent in town",months:[1,2,3,4,9,10,11,12],end:"Rentals in town"},
+    {name:"Storm watching",short:"storm watching",sub:"Winter waves, from the sand or from a window",months:[11,12,1,2],end:"stay"},
+    {name:"Kayaking",short:"kayaking",sub:"Experts only, and only in the right conditions",months:[5,6,7,8,9],end:"Not for beginners"}
+  ],
+  /* three of the four Long Beach rows in the corpus, one per guide */
+  ev: [
+    {k:"Beaches guide",q:"It gives you that classic west coast feeling: open sand, big sky, rolling waves, and rainforest behind you."},
+    {k:"Hiking guide",q:"Walk along the sand, watch the waves, enjoy the wide open views, and turn back when you are ready."},
+    {k:"Storm watching guide",q:"It is wide, long, and open to the ocean. This makes it a powerful place to watch winter waves."}
+  ],
+  /* real listing rows. Photographs are the corpus's own listing heroes,
+     reassigned so a room card shows somewhere to sleep. */
+  stays: {
+    tofino: [
+      {t:"Coastal Bed-Cliff Cottage with Private Beach & Firepit",hero:"arc-trips/curated-cabin",
+       alt:"A single timber cabin on a forested rocky point, with quiet water and small islands beyond it",p:420,r:2,b:3,ba:2,rating:4.9},
+      {t:"Cozy Mountain Chalet with Sauna, Fireplace & Trails Nearby",hero:"andrea-davis-44f42VRbGQg-unsplash_q9h9op",
+       alt:"The inside of an A-frame cabin, a white corner sofa under a sloping ceiling and glass doors open onto green trees",p:320,r:2,b:3,ba:2,rating:4.9},
+      {t:"Riverside Cabin Retreat with Hot Tub & Forest Views",hero:"arcstudio/njajgzfo6gdfxbpxmtst",
+       alt:"Houses set among tall trees along a rocky shoreline, with surf breaking on the rocks below them",p:420,r:2,b:3,ba:2,rating:4.9},
+      {t:"Lakefront Cottage with Private Dock & Canoes Included",hero:"arcstudio/wnrrcrf4lnalgzbjvsz8",
+       alt:"A wooded inlet seen from the air, a small boat crossing it and a mountain standing behind",p:500,r:2,b:3,ba:2,rating:4.9}
+    ],
+    ucluelet: [
+      {t:"Historic Old-Town Loft with Stone Walls & River Views",hero:"arcstudio/dtz692xbgvvwjopu7vcs",
+       alt:"A forested headland from the air, reefs showing pale through the water off the point",p:320,r:2,b:3,ba:2,rating:4.9},
+      {t:"Alpine Timber Chalet with Hot Tub & Stargazing Deck",hero:"arc-trips/pillar-connection",
+       alt:"A long wooden table set for dinner with candles and bread, on a deck with the ocean behind the railing",p:385,r:2,b:3,ba:2,rating:4.9},
+      {t:"Modern Lakeside Villa with Rooftop Lounge & Marina Access",hero:"arc-trips/founding-key",
+       alt:"A brass key on a leather fob resting on a linen bed beside a wooden bedside table",p:450,r:2,b:3,ba:2,rating:4.9}
+    ]
+  },
+  reading: [
+    {t:"Storm Watching in Tofino",k:"Storm watching",m:"8 places to watch from",hero:"guides/tofino/storm-watching/_category-1",
+     alt:"A figure in a yellow jacket alone on wet sand under a grey sky, surf running past rocky islets"},
+    {t:"Surfing in Tofino",k:"Surfing",m:"Breaks, seasons, board rental",hero:"guides/tofino/surfing/_category-1",
+     alt:"A surfer riding along a wave at dusk with a dark rocky point behind"},
+    {t:"Hiking and Trails in Tofino",k:"Hiking",m:"18 trails written up",hero:"guides/tofino/hiking/_category-1",
+     alt:"A walker in a yellow jacket on a wooden boardwalk staircase through dense rainforest"},
+    {t:"Tofino and Ucluelet Campgrounds",k:"Camping",m:"Between the two towns",hero:"guides/tofino/camping/_category-1",
+     alt:"A motorhome parked at a forest campsite with low sun breaking through tall trees"},
+    {t:"Best Time to Stay in Ucluelet or Tofino",k:"When to go",m:"Month by month",hero:"guides/tofino/when-to-go/_category-1",
+     alt:"A surfer in the shorebreak at sunset on the Tofino coast"}
+  ],
+  /* the other twelve Tofino beaches, grouped by the kind of day they suit.
+     The same three-group shape holds whether a town has 12 beaches or 26. */
+  sibs: [
+    {gr:"Close to town",n:"Chesterman Beach",t:"Long and sandy, with beginner surf lessons and tide pools."},
+    {gr:"Close to town",n:"Cox Bay",t:"Wide and facing the Pacific. The surf beach of the big three."},
+    {gr:"Close to town",n:"Tonquin Beach",t:"A short forest trail down from the village to a quieter stretch."},
+    {gr:"Close to town",n:"Tinwis Beach",t:"Sheltered, gentler water, and the easiest one with children."},
+    {gr:"In the national park",n:"Wickaninnish Beach",t:"Big ocean views and the Kwisitis Visitor Centre."},
+    {gr:"In the national park",n:"Combers Beach",t:"Wilder and emptier, reached by a short trail off the park road."},
+    {gr:"In the national park",n:"Schooner Cove",t:"Forest first, then sand, at the Tofino end of the park road."},
+    {gr:"In the national park",n:"Florencia Bay",t:"Sand cliffs and low tide exploring at the far south end."},
+    {gr:"Quieter and sheltered",n:"Middle Beach",t:"Tucked away near Chesterman, with rocky edges and forest."},
+    {gr:"Quieter and sheltered",n:"Kennedy Lake",t:"Fresh water, not ocean. Calm paddling when the coast is blowing."},
+    {gr:"Quieter and sheltered",n:"Grice Bay",t:"The calm inlet side, for kayaks and birds rather than surf."},
+    {gr:"Quieter and sheltered",n:"Rosie Bay",t:"Small and quiet, with rocks and pools at low water."}
+  ]
+};
+
+const MON = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const SHORT = MON.map((m) => m.slice(0,3));
+const DIM = [31,28,31,30,31,30,31,31,30,31,30,31];
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const cld = (id,w,h) => `https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_${w},h_${h}/${id}`;
+const listOf = (a) => a.length < 2 ? (a[0] || "") : a.slice(0,-1).join(", ") + " and " + a[a.length-1];
+const hhmm = (t) => {
+  let m = Math.round(t*60); m = ((m % 1440) + 1440) % 1440;
+  return String(Math.floor(m/60)).padStart(2,"0") + ":" + String(m%60).padStart(2,"0");
+};
+
+/* ══ the tide ═══════════════════════════════════════════════════════════════
+   The plot runs 04:00 to 22:00. Between the recorded extremes the curve is a
+   cosine, which is the standard shape of a tide between two turns; outside
+   them it is dashed, because there we are extending rather than reporting. */
+const T0 = 4, T1 = 22, HMAX = 3.4;
+const X = (t) => (t - T0)/(T1 - T0)*1000;
+const Y = (h) => 210 - (h/HMAX)*190;
+const PC = (t) => ((t - T0)/(T1 - T0)*100);
+
+function heightAt(pts,t){
+  const ext = [
+    {t: pts[0].t - (pts[1].t - pts[0].t), h: pts[1].h},
+    ...pts,
+    {t: pts[2].t + (pts[2].t - pts[1].t), h: pts[1].h}
+  ];
+  for (let i = 0; i < ext.length-1; i++){
+    const a = ext[i], b = ext[i+1];
+    if (t >= a.t && t <= b.t){
+      const x = (t - a.t)/(b.t - a.t);
+      return a.h + (b.h - a.h)*(1 - Math.cos(Math.PI*x))/2;
+    }
+  }
+  return t < ext[0].t ? ext[0].h : ext[ext.length-1].h;
+}
+
+function curve(pts,from,to){
+  let d = "";
+  for (let t = from; t <= to + 1e-9; t += 0.05){
+    const tt = Math.min(t,to);
+    d += (d ? "L" : "M") + X(tt).toFixed(1) + " " + Y(heightAt(pts,tt)).toFixed(1) + " ";
+  }
+  return d.trim();
+}
+
+function paintTide(){
+  const tof = DATA.tide.tofino;
+  const first = tof.pts[0].t, last = tof.pts[2].t;
+
+  $("#tideMid").setAttribute("d", curve(tof.pts, first, last));
+  $("#tidePre").setAttribute("d", curve(tof.pts, T0, first));
+  $("#tidePost").setAttribute("d", curve(tof.pts, last, T1));
+  $("#tideFill").setAttribute("d", curve(tof.pts, T0, T1) + ` L1000 210 L0 210 Z`);
+
+  /* the widest sand: two hours either side of each low */
+  const bands = tof.pts.filter((p) => p.k === "Low").map((p) => [p.t-2, p.t+2]);
+  $("#tideBands").innerHTML = bands.map(([a,b]) =>
+    `<rect x="${X(Math.max(a,T0)).toFixed(1)}" y="20" width="${(X(Math.min(b,T1))-X(Math.max(a,T0))).toFixed(1)}" height="190" fill="var(--n100)"></rect>`).join("")
+    + `<rect x="${X(tof.sunset).toFixed(1)}" y="20" width="${(1000-X(tof.sunset)).toFixed(1)}" height="190" fill="var(--n150)" opacity=".7"></rect>`;
+
+  const now = new Date();
+  const nowT = now.getHours() + now.getMinutes()/60;
+  const inView = nowT >= T0 && nowT <= T1;
+
+  $("#tideMarks").innerHTML =
+    tof.pts.map((p) =>
+      `<circle cx="${X(p.t).toFixed(1)}" cy="${Y(p.h).toFixed(1)}" r="4" fill="var(--paper)" stroke="var(--navy)" stroke-width="2" vector-effect="non-scaling-stroke"></circle>`).join("")
+    + `<line x1="${X(tof.sunset).toFixed(1)}" y1="20" x2="${X(tof.sunset).toFixed(1)}" y2="210" stroke="var(--n400)" stroke-width="1.4" stroke-dasharray="3 4" vector-effect="non-scaling-stroke"></line>`
+    + (inView
+      ? `<line x1="${X(nowT).toFixed(1)}" y1="14" x2="${X(nowT).toFixed(1)}" y2="210" stroke="var(--azure)" stroke-width="1.8" vector-effect="non-scaling-stroke"></line>`
+        + `<circle cx="${X(nowT).toFixed(1)}" cy="${Y(heightAt(tof.pts,nowT)).toFixed(1)}" r="5.5" fill="var(--azure)"></circle>`
+      : "");
+
+  const nowTag = $("#tidefig").querySelector(".now");
+  if (nowTag) nowTag.remove();
+  if (inView){
+    const tag = document.createElement("p");
+    tag.className = "now";
+    tag.style.left = PC(nowT).toFixed(2) + "%";
+    tag.style.top = "100%";
+    tag.style.marginTop = "6px";
+    tag.textContent = "Now " + hhmm(nowT);
+    $("#tidefig").appendChild(tag);
+  }
+
+  /* three ticks only, so the axis never crowds at 390px */
+  $("#tideAxis").innerHTML = [6,12,18].map((h) =>
+    `<span style="left:${PC(h).toFixed(2)}%">${hhmm(h)}</span>`).join("");
+
+  $("#tideRow").innerHTML =
+    tof.pts.map((p) => `<div><dt>${p.k} water</dt><dd>${hhmm(p.t)}<span>${p.h.toFixed(1)} m</span></dd></div>`).join("")
+    + `<div><dt>Sunset</dt><dd>${hhmm(tof.sunset)}</dd></div>`;
+
+  $("#tideWin").innerHTML = bands.map(([a,b],i) =>
+    `<div><dt>Widest sand, ${i ? "evening" : "morning"}</dt>
+      <dd>${hhmm(a)} to ${hhmm(Math.min(b, tof.sunset))}</dd></div>`).join("");
+
+  /* where the tide is right now, stated from the readings, not guessed */
+  let state;
+  if (!inView){
+    state = `Today's readings start at <b>${hhmm(first)}</b> with the morning low.`;
+  } else {
+    const nexts = tof.pts.filter((p) => p.t > nowT);
+    const h = heightAt(tof.pts, nowT);
+    if (nexts.length){
+      const nx = nexts[0];
+      const mins = Math.round((nx.t - nowT)*60);
+      const dur = mins >= 60 ? `${Math.floor(mins/60)} h ${mins%60} min` : `${mins} min`;
+      state = `Right now it is <b>${h.toFixed(1)} m</b> and ${nx.k === "High" ? "coming in" : "going out"}. ` +
+              `${nx.k} water at <b>${hhmm(nx.t)}</b>, in ${dur}.`;
+    } else {
+      state = `Right now it is <b>${h.toFixed(1)} m</b> and coming in again after the ${hhmm(last)} low.`;
+    }
+  }
+  $("#tideNow").innerHTML = state;
+}
+
+/* ══ the four guide rows, the unit list, stays, reading, siblings ══════════ */
+function paintStatic(){
+  $("#ev").innerHTML = DATA.ev.map((e) =>
+    `<div class="ev__r"><p class="ev__k">${esc(e.k)}</p><p class="ev__q">${esc(e.q)}</p></div>`).join("");
+
+  $("#rlist").innerHTML = DATA.reading.map((a) =>
+    `<a class="ritem" href="guide.html">
+      <div class="ritem__m"><img src="${cld(a.hero,280,210)}" alt="${esc(a.alt)}"></div>
+      <div><div class="kmeta" style="margin-top:0"><span class="k">${esc(a.k)}</span><span class="dot"></span><span class="tnum">${esc(a.m)}</span></div>
+      <h4>${esc(a.t)}</h4></div></a>`).join("");
+
+  /* grouped with a count on each group, so the same block reads the same way
+     at twelve beaches or at twenty-six towns */
+  const groups = [];
+  DATA.sibs.forEach((s) => {
+    const g = groups.find((x) => x.gr === s.gr) || (groups.push({gr:s.gr, rows:[]}), groups[groups.length-1]);
+    g.rows.push(s);
+  });
+  $("#sibs").innerHTML = groups.map((g) =>
+    `<p class="grouph"><b>${esc(g.gr)}</b><span>${g.rows.length} ${g.rows.length === 1 ? "place" : "places"}</span></p>
+     <span class="siblings">${g.rows.map((s) =>
+       `<a class="sib" href="guide.html">
+          <span class="sib__n">${esc(s.n)}</span>
+          <span class="sib__t">${esc(s.t)}</span></a>`).join("")}</span>`).join("");
+
+  /* stays: one lead room at the Tofino end, then the rest, then the far end */
+  const t = DATA.stays.tofino, u = DATA.stays.ucluelet;
+  const lo = (a) => Math.min(...a.map((x) => x.p));
+  $("#stayHeadN").textContent = `Tofino end, ${t.length} rooms, from $${lo(t)} a night`;
+  $("#stayHeadS").textContent = `Ucluelet end, ${u.length} rooms, from $${lo(u)} a night`;
+
+  const lead = t[0];
+  $("#stayLead").innerHTML =
+    `<div class="staylead__m"><img src="${cld(lead.hero,900,620)}" alt="${esc(lead.alt)}"><span class="rate">${lead.rating.toFixed(1)}</span></div>
+     <div>
+       <h3>${esc(lead.t)}</h3>
+       <p class="meta">Tofino, British Columbia &middot; ${lead.r} rooms &middot; ${lead.b} beds &middot; ${lead.ba} baths</p>
+       <p class="price">$${lead.p}<span>a night, CAD</span></p>
+       <span class="go">See this stay and the nights it is open
+         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+     </div>`;
+
+  $("#stayRest").innerHTML = t.slice(1).map((s) =>
+    `<a class="stay" href="search.html?in=tofino">
+      <div class="stay__m"><img src="${cld(s.hero,520,390)}" alt="${esc(s.alt)}"><span class="rate">${s.rating.toFixed(1)}</span></div>
+      <h4>${esc(s.t)}</h4>
+      <p class="meta">Tofino &middot; ${s.r} rooms &middot; ${s.b} beds &middot; ${s.ba} baths</p>
+      <p class="price">$${s.p} <span>a night</span></p></a>`).join("");
+
+  $("#stayRows").innerHTML = u.map((s) =>
+    `<a href="search.html?in=tofino">
+      <div class="sr__m"><img src="${cld(s.hero,200,150)}" alt="${esc(s.alt)}"></div>
+      <div><p class="sr__n">${esc(s.t)}</p>
+      <p class="sr__d">Ucluelet &middot; ${s.r} rooms &middot; ${s.b} beds &middot; ${s.ba} baths &middot; ${s.rating.toFixed(1)} rated</p></div>
+      <p class="sr__p">$${s.p}</p></a>`).join("");
+}
+
+/* ══ the year here ════════════════════════════════════════════════════════ */
+function windows(months){
+  const on = new Set(months);
+  if (on.size === 12) return [];
+  const runs = [];
+  for (let m = 1; m <= 12; m++){
+    if (!on.has(m)) continue;
+    const prev = m === 1 ? 12 : m - 1;
+    if (on.has(prev)) continue;
+    let end = m, n = 0;
+    while (on.has(end) && n < 12){ const nx = end === 12 ? 1 : end + 1; if (!on.has(nx)) break; end = nx; n++; }
+    runs.push([m,end]);
+  }
+  return runs;
+}
+const windowText = (months) => {
+  const r = windows(months);
+  if (!r.length) return "All year";
+  return r.map(([a,b]) => a === b ? MON[a-1] : `${SHORT[a-1]} to ${SHORT[b-1]}`).join(", and ");
+};
+const windowLong = (months) => {
+  const r = windows(months);
+  if (!r.length) return "at its best all year";
+  return "at its best " + r.map(([a,b]) => a === b ? MON[a-1] : `${MON[a-1]} to ${MON[b-1]}`).join(", and ");
+};
+const seasonFor = (m) => Object.values(DATA.seasons).find((s) => s.months.includes(m));
+
+let month = new Date().getMonth() + 1;
+
+function paintMonths(){
+  $("#mrow").innerHTML = MON.map((m,i) =>
+    `<button type="button" data-m="${i+1}" aria-pressed="${i+1 === month}" aria-label="${m}">${SHORT[i]}</button>`).join("");
+}
+
+function paintYear(){
+  const c = DATA.climate[month-1];
+  const season = seasonFor(month);
+  const name = MON[month-1];
+
+  $("#seasonName").textContent = `${name}: ${season.name.toLowerCase()}`;
+  $("#seasonClaim").textContent = season.claim;
+  $("#seasonReason").textContent = DATA.reason[season.name];
+
+  /* the three numbers are named before they are shown */
+  $("#weatherLead").textContent = `What the weather is usually like in ${name}, averaged over the years at the Tofino station.`;
+
+  $("#bignums").innerHTML =
+    `<div><dt>Day high</dt><dd>${c.hi}&deg;</dd></div>` +
+    `<div><dt>Rain</dt><dd>${c.mm}<small>mm</small></dd></div>` +
+    `<div><dt>Rain days</dt><dd>${c.days}<small>of ${DIM[month-1]}</small></dd></div>`;
+
+  const on = DATA.subjects.filter((s) => s.months.includes(month));
+  const lead = on.length
+    ? `the season for ${listOf(on.map((s) => s.short))}`
+    : "quiet, wide and yours, with the light at its lowest";
+  $("#sum").innerHTML =
+    `${name} is ${esc(lead)}. ` +
+    `<span class="q">The sand is open all <b>${DIM[month-1]}</b> days of the month, and free.</span>`;
+
+  const rank = (s) => DATA.subjects.indexOf(s);
+  const rows = DATA.subjects.slice().sort((a,b) => {
+    const A = a.months.includes(month), B = b.months.includes(month);
+    if (A !== B) return A ? -1 : 1;
+    return rank(a) - rank(b);
+  });
+
+  let sepDone = false, i = 0;
+  $("#ledger").innerHTML = rows.map((s) => {
+    const live = s.months.includes(month);
+    let sep = "";
+    if (!live && !sepDone){ sepDone = true; sep = `<tr class="gsep"><td colspan="3">Better in another month</td></tr>`; }
+    const cells = MON.map((m,k) =>
+      `<i ${s.months.includes(k+1) ? "data-on" : ""} ${k === month-1 ? "data-now" : ""}>${m[0]}</i>`).join("");
+    let end;
+    if (!live){
+      end = `<button class="jump" type="button" data-m="${windows(s.months)[0][0]}">Best ${esc(windowText(s.months))}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>`;
+    } else if (s.end === "stay"){
+      end = `<span class="pill pill--go">Book</span> <b>Stays from $320</b>`;
+    } else {
+      end = `<b>${esc(s.end)}</b>`;
+    }
+    return sep + `<tr style="--i:${i++}">
+      <td><div class="led__s">${esc(s.name)}</div><div class="led__w">${esc(s.sub)}</div></td>
+      <td class="led__mon"><div class="mon" role="img" aria-label="${esc(s.name)}, ${esc(windowLong(s.months))}">${cells}</div></td>
+      <td class="led__b">${end}</td></tr>`;
+  }).join("");
+
+  $("#footnote").textContent =
+    "Averages from the Environment and Climate Change Canada record for the Tofino station.";
+}
+
+function centerMonth(smooth){
+  const c = $("#mrow"), el = c.querySelector('[aria-pressed="true"]');
+  if (!el || c.scrollWidth <= c.clientWidth) return;
+  c.scrollTo({left: el.offsetLeft - (c.clientWidth - el.offsetWidth)/2, behavior: smooth ? "smooth" : "auto"});
+}
+
+function setMonth(m){
+  month = m;
+  document.querySelectorAll("#mrow button").forEach((b) =>
+    b.setAttribute("aria-pressed", String(Number(b.dataset.m) === m)));
+  centerMonth(true);
+  paintYear();
+}
+
+paintStatic();
+paintTide();
+paintMonths();
+paintYear();
+centerMonth(false);
+addEventListener("resize", () => centerMonth(false));
+setInterval(paintTide, 60000);
+
+$("#mrow").addEventListener("click", (e) => {
+  const b = e.target.closest("button"); if (b) setMonth(Number(b.dataset.m));
+});
+$("#ledger").addEventListener("click", (e) => {
+  const b = e.target.closest(".jump");
+  if (!b) return;
+  setMonth(Number(b.dataset.m));
+  document.getElementById("year").scrollIntoView({behavior:"smooth", block:"start"});
+});
+
+/* ══ in-page orientation: the jump row tracks the section, the hairline at the
+      very top tracks how far through the page you are. Neither is a sidebar. ══ */
+const jumps = [...document.querySelectorAll("#jumps a")];
+const secs = jumps.map((c) => document.querySelector(c.getAttribute("href")));
+const barEl = $("#jumpbar");
+function onScroll(){
+  const h = document.documentElement.scrollHeight - innerHeight;
+  barEl.style.width = (h > 0 ? Math.min(100, Math.max(0, scrollY / h * 100)) : 0) + "%";
+  const line = scrollY + innerHeight * 0.3;
+  let cur = -1;
+  secs.forEach((s,i) => { if (s && s.offsetTop <= line) cur = i; });
+  jumps.forEach((c,i) => { if (i === cur) c.setAttribute("aria-current","true"); else c.removeAttribute("aria-current"); });
+}
+addEventListener("scroll", onScroll, {passive:true});
+addEventListener("resize", onScroll);
+onScroll();
+
+addEventListener("keydown", (e) => {
+  if (e.key === "/" && !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)){
+    e.preventDefault(); $(".search input").focus();
+  }
+});
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

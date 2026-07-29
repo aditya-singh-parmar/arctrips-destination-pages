@@ -1,0 +1,1028 @@
+<!doctype html><html lang="en-CA"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Victoria, Arc Trips</title>
+<meta name="description" content="Victoria, Vancouver Island. 100 places written up, 79 with photographs.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_system.css">
+<style>
+:focus-visible{outline:2px solid var(--azure);outline-offset:3px}
+.btn,.nav-links a,.crumb a{min-height:44px;display:inline-flex;align-items:center}
+.crumb{font-size:.9rem}.label--n{color:var(--n600)}
+.thero{position:relative;min-height:min(62vh,560px);display:flex;align-items:flex-end;overflow:hidden;background:var(--navy)}
+.thero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.thero__v{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,51,86,.12) 0%,rgba(11,51,86,.7) 62%,rgba(11,51,86,.95) 100%)}
+.thero__in{position:relative;width:100%;padding-block:clamp(30px,4vw,56px)}
+.thero h1{color:#fff;font-size:clamp(2.8rem,7vw,5.2rem);letter-spacing:-.045em;line-height:.96}
+.thero p{color:rgba(255,255,255,.9);max-width:56ch;margin-top:18px;font-size:1.06rem;line-height:1.6}
+.tfacts{display:flex;gap:clamp(20px,4vw,44px);margin-top:26px;flex-wrap:wrap}
+.tfacts dt{font-size:.9rem;color:rgba(255,255,255,.75);font-weight:600}
+.tfacts dd{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;color:#fff;letter-spacing:-.04em;margin-top:4px;font-variant-numeric:tabular-nums}
+.sechead{max-width:60ch;margin-bottom:clamp(24px,3vw,38px)}
+.sechead h2{margin-top:8px}.cnt{color:var(--n600);margin-top:8px;font-size:.95rem}
+.places{display:grid;gap:clamp(44px,5.5vw,84px)}
+/* Photo entries: the image takes half the row, so it reads as a photograph rather
+   than a thumbnail. Alternating sides gives the page rhythm down the scroll. */
+.pl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,3.4vw,48px);align-items:center}
+.pl:nth-child(even) .pl__m{order:2}
+@media(max-width:820px){.pl{grid-template-columns:1fr;gap:20px}.pl:nth-child(even) .pl__m{order:0}}
+.pl__m{margin:0;border-radius:var(--r);overflow:hidden;background:var(--n100);aspect-ratio:4/3}
+.pl__m img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.pl:hover .pl__m img{transform:scale(1.035)}
+/* No-photo entries: name on the left, prose on the right, so the row still spans
+   the full measure instead of leaving half the page empty. */
+.pl--solo{grid-template-columns:minmax(0,.42fr) minmax(0,1fr);align-items:start}
+.pl--solo .pl__b{max-width:68ch}
+.solo__h{font-size:clamp(1.35rem,2.2vw,1.75rem);font-weight:800;letter-spacing:-.026em;color:var(--navy);
+  position:sticky;top:150px;align-self:start}
+@media(max-width:820px){.pl--solo{grid-template-columns:1fr}.solo__h{position:static}}
+.pl__b h3{font-size:clamp(1.35rem,2.2vw,1.75rem);font-weight:800;letter-spacing:-.026em;margin-bottom:14px}
+.pl__b p{margin-top:0;margin-bottom:14px;color:var(--n700);line-height:1.68;max-width:62ch;font-size:1.02rem}
+.pl__b p:last-of-type{margin-bottom:0}
+.pl__n{margin-top:18px;border-left:0;background:var(--n50);padding:14px 18px;border-radius:var(--r-sm);font-size:.97rem}
+.pl__n b{color:var(--navy)}
+.jump{display:flex;gap:8px;flex-wrap:wrap;padding:16px 0;border-block:1px solid var(--n150)}
+.jump a{font-size:.9rem;font-weight:600;color:var(--n600);padding:8px 14px;border-radius:var(--r-sm);background:var(--n50);min-height:40px;display:inline-flex;align-items:center}
+.jump a:hover{background:var(--a100);color:var(--azure)}
+</style></head><body>
+<span id="top" aria-hidden="true"></span>
+<nav class="top"><div class="wrap nav-in">
+  <a class="brand" href="index.html">ARCTRIPS</a>
+  <ul class="nav-links"><li><a href="search.html?in=victoria">Stays</a></li><li><a href="index.html" aria-current="page">Destinations</a></li><li><a href="region.html">Vancouver Island</a></li></ul>
+  <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input placeholder="Search Victoria" aria-label="Search"><kbd>/</kbd></label>
+  <a class="btn btn--ink btn--sm" href="search.html?in=victoria">Sign in</a>
+</div></nav>
+<nav class="placebar" aria-label="Victoria"><div class="wrap placebar-in">
+  <a class="placebar__back" href="region.html"><span class="n">&larr; Vancouver Island</span></a>
+  <ul class="placebar__links">
+    <li><a href="#top" aria-current="page">Overview</a></li>
+    <li><a href="search.html?in=victoria">Stays</a></li>
+    <li><a href="region.html">Vancouver Island</a></li>
+    <li><a href="index.html">All destinations</a></li>
+  </ul>
+  <a class="btn btn--primary btn--sm placebar__cta" href="search.html?in=victoria">Find a stay</a>
+</div></nav>
+<main id="main">
+<div class="wrap"><nav class="crumb" aria-label="Breadcrumb">
+  <a href="index.html">Arc Trips</a><span class="sep">/</span>
+  <a class="lvl-deep" href="country.html">Canada</a><span class="sep lvl-deep">/</span>
+  <a class="lvl-deep" href="province.html">British Columbia</a><span class="sep lvl-deep">/</span>
+  <a href="region.html">Vancouver Island</a><span class="sep">/</span>
+  <span aria-current="page">Victoria</span>
+</nav></div>
+<header class="thero">
+  <img src="media/victoria/image31.jpg" alt="Victoria, Vancouver Island">
+  <div class="thero__v"></div>
+  <div class="thero__in"><div class="wrap">
+    <span class="label" style="color:var(--a300)">Vancouver Island</span>
+    <h1>Victoria</h1>
+    <p>Swan Lake Christmas Hill Nature Sanctuary is one of the best birdwatching spots in Victoria. It has two main habitats: the wetland around Swan Lake and the rocky oak meadow on Christmas Hill.</p>
+    <dl class="tfacts">
+      <div><dt>Places written up</dt><dd class="tnum">100</dd></div>
+      <div><dt>With photographs</dt><dd class="tnum">79</dd></div>
+      <div><dt>Guides</dt><dd class="tnum">6</dd></div>
+    </dl>
+  </div></div>
+</header>
+<div class="wrap"><nav class="jump" aria-label="Sections">
+  <a href="#best-places-for-birdwatching-in-victoria">Best Places for Birdwatching in Victoria</a><a href="#common-birds-to-see-in-victoria">Common Birds to See in Victoria</a><a href="#best-birdwatching-by-season">Best Birdwatching by Season</a><a href="#frequently-asked-questions">Frequently Asked Questions</a><a href="#best-scenic-walks-in-victoria">Best scenic walks in Victoria</a><a href="#best-beaches-and-relaxed-coastal-walks">Best beaches and relaxed coastal walks</a><a href="#best-nature-walks-urban-gardens">Best Nature Walks &amp; Urban Gardens</a><a href="#best-nature-hikes-viewpoints">Best nature hikes &amp; viewpoints</a><a href="#best-nature-walks-easy-park-trails">Best nature walks &amp; easy park trails</a><a href="#best-long-walks-multi-use-trails-near-victoria">Best long walks &amp; multi-use trails near Victoria</a><a href="#best-time-of-year-for-hiking-and-walking-in-victoria">Best time of year for hiking and walking in Victoria</a><a href="#1-the-inner-harbour">1. The Inner Harbour</a><a href="#world-known-landmarks">World-Known Landmarks</a><a href="#art-and-history-lovers">Art and History Lovers</a><a href="#outdoor-attractions">Outdoor Attractions</a><a href="#other-interesting-places">Other Interesting Places</a><a href="#best-places-to-kayak-in-victoria">Best places to kayak in Victoria</a><a href="#best-whale-watching-tours-in-victoria">Best whale watching tours in Victoria</a>
+</nav></div>
+
+<section class="sec" id="best-places-for-birdwatching-in-victoria"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Best Places for Birdwatching in Victoria</span>
+    <h2>Best Places for Birdwatching in Victoria</h2><p class="cnt">11 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image31.jpg" alt="Swan Lake Christmas Hill Nature Sanctuary, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Swan Lake Christmas Hill Nature Sanctuary</h3>
+        <p>Swan Lake Christmas Hill Nature Sanctuary is one of the best birdwatching spots in Victoria. It has two main habitats: the wetland around Swan Lake and the rocky oak meadow on Christmas Hill.</p><p>The lake area is good for ducks, great blue herons, marsh birds, songbirds, woodpeckers, and hummingbirds. The trails are easy to follow, and the boardwalks and viewing areas make it a great beginner birding spot.</p><p>Christmas Hill adds a different habitat, with Garry oak meadow, rocky slopes, wildflowers, and views across the city.</p>
+        <p class="pl__n"><b>Good to know.</b> Bring binoculars and move slowly around the lake. Many birds hide in reeds, shrubs, and tree branches.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image23.jpg" alt="Esquimalt Lagoon, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Esquimalt Lagoon</h3>
+        <p>Esquimalt Lagoon is one of the top birdwatching places near Victoria. It is a federal Migratory Bird Sanctuary in Colwood, just west of Victoria.</p><p>The lagoon has shallow tidal water, a long beach spit, sheltered resting areas, and rich feeding grounds. It is especially important from fall through spring, when many waterfowl use the lagoon.</p><p>You may see swans, ducks, geese, gulls, great blue herons, shorebirds, and other water birds. It is also a beautiful place for photography because you can see birds with ocean, lagoon, driftwood, and mountain views.</p>
+        <p class="pl__n"><b>Good to know.</b> Do not feed birds. Feeding wildlife can cause health problems and change natural behavior.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image27.jpg" alt="Dallas Road Waterfront, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Dallas Road Waterfront</h3>
+        <p>Dallas Road is one of the easiest places to watch birds near downtown Victoria. The waterfront path follows the coast with views over the Strait of Juan de Fuca.</p><p>You can scan the water for seabirds and ducks, look along the shoreline for gulls and shorebirds, and watch for bald eagles flying overhead. On windy days, seabirds may be easier to spot from shore.</p>
+        <p class="pl__n"><b>Good to know.</b> Bring binoculars. Many birds sit farther offshore than you expect.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image2.jpg" alt="Clover Point, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Clover Point</h3>
+        <p>Clover Point is a strong birdwatching stop along the Victoria waterfront. It sticks out into the water, which makes it useful for scanning the ocean.</p><p>You may see gulls, cormorants, shorebirds, ducks, loons, grebes, and sometimes larger seabird movement offshore.</p>
+        <p class="pl__n"><b>Good to know.</b> This is a good place to bird from the car or near the parking area when the weather is windy or rainy.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image36.jpg" alt="Ogden Point Breakwater, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Ogden Point Breakwater</h3>
+        <p>Ogden Point Breakwater gives birdwatchers a better view into deeper water near Victoria Harbour. It is a good place to scan for cormorants, gulls, ducks, loons, grebes, and other seabirds.</p><p>The breakwater also gives great views back toward the city and across the water.</p>
+        <p class="pl__n"><b>Good to know.</b> It can be windy and exposed. Dress warmly and stay aware of waves and weather.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image34.jpg" alt="Beacon Hill Park, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Beacon Hill Park</h3>
+        <p>Beacon Hill Park is a large urban park near downtown Victoria. It has ponds, lawns, gardens, trees, rocky areas, and coastal edges.</p><p>This makes it good for many types of birds. You may see ducks, geese, herons, woodpeckers, sparrows, juncos, towhees, hummingbirds, and other songbirds. The park is also known for its peacocks, which are easy to spot but are not native wild birds.</p><p>Beacon Hill Park is best for:</p>
+        <p class="pl__n"><b>Good to know.</b> This is one of the easiest birding spots if you are staying downtown.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image47.jpg" alt="Panama Flats, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Panama Flats</h3>
+        <p>Panama Flats is a seasonal wetland and open habitat area in Saanich. It is a good place to look for ducks, geese, shorebirds, swallows, sparrows, raptors, and other open-area birds.</p><p>It can be especially interesting during migration and wet seasons when water levels create good feeding areas.</p>
+        <p class="pl__n"><b>Good to know.</b> Wear shoes that can handle mud, especially after rain.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image54.jpg" alt="Witty’s Lagoon, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Witty’s Lagoon</h3>
+        <p>Witty’s Lagoon is a beautiful birdwatching spot in Metchosin, west of Victoria. It has lagoon habitat, beach, forest, shoreline, and trails.</p><p>At low tide, birds feed along the mudflats and shoreline. You may see herons, ducks, gulls, shorebirds, eagles, kingfishers, and forest birds.</p><p>Witty’s Lagoon is best for:</p>
+        <p class="pl__n"><b>Good to know.</b> Check tide times before visiting if shorebirds are your main goal.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image40.jpg" alt="Cattle Point, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Cattle Point</h3>
+        <p>Cattle Point is a small rocky coastal area in Oak Bay. It is a good quick birding stop, especially for shorebirds and seabirds.</p><p>Look for turnstones, gulls, cormorants, ducks, and birds feeding around rocky edges.</p>
+        <p class="pl__n"><b>Good to know.</b> Move slowly around rocky areas and give shorebirds space.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image24.jpg" alt="Mount Douglas Park, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Mount Douglas Park</h3>
+        <p>Mount Douglas Park is good for forest and hilltop birdwatching. The lower trails and forest edges may have woodpeckers, towhees, chickadees, juncos, wrens, and other songbirds.</p><p>The summit can be good for scanning for raptors, including hawks and bald eagles.</p><p>Mount Douglas is best for:</p>
+        <p class="pl__n"><b>Good to know.</b> Early morning is often best for songbirds.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image41.jpg" alt="Goldstream Provincial Park, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Goldstream Provincial Park</h3>
+        <p>Goldstream Provincial Park is best known for salmon runs in fall, but it is also a good birdwatching area. When salmon are in the river, bald eagles may gather to feed.</p><p>The park also has forest birds, river birds, and wetland habitat.</p><p>Quick Victoria Birdwatching Guide</p>
+        <p class="pl__n"><b>Good to know.</b> During salmon season, follow park rules and stay out of closed areas.</p>
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="common-birds-to-see-in-victoria"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Common Birds to See in Victoria</span>
+    <h2>Common Birds to See in Victoria</h2><p class="cnt">5 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image25.jpg" alt="Waterfowl, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Waterfowl</h3>
+        <p>Victoria is excellent for ducks, geese, and swans, especially in fall and winter.</p><p>Best places: Esquimalt Lagoon, Swan Lake, Panama Flats, Beacon Hill Park, Witty’s Lagoon.</p><p>Best clue: Birds floating, dabbling, or diving on lakes, lagoons, ponds, and bays.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image42.jpg" alt="Shorebirds, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Shorebirds</h3>
+        <p>Shorebirds feed along beaches, mudflats, rocky points, and tide lines. They are often small, fast, and busy.</p><p>Best places: Esquimalt Lagoon, Witty’s Lagoon, Clover Point, Cattle Point, Dallas Road, rocky shorelines.</p><p>Best clue: Small birds running, stopping, pecking, and feeding at low tide.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image38.jpg" alt="Seabirds and Coastal Birds, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Seabirds and Coastal Birds</h3>
+        <p>Victoria’s coastline is good for seabirds and coastal birds, especially in fall and winter.</p><p>Best places: Dallas Road, Clover Point, Ogden Point Breakwater, Cattle Point, Esquimalt Lagoon.</p><p>Best clue: Birds diving, floating offshore, sitting on rocks, or flying low over the water.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image56.jpg" alt="Raptors, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Raptors</h3>
+        <p>Raptors are birds of prey. Around Victoria, you may see bald eagles, hawks, owls, and vultures.</p><p>Best places: Goldstream, Mount Douglas, Swan Lake, coastal viewpoints, forest edges, open fields.</p><p>Best clue: Large birds soaring, perching high, or watching from trees.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image3.jpg" alt="Songbirds and Garden Birds, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Songbirds and Garden Birds</h3>
+        <p>Victoria is also great for small birds in parks, gardens, forests, and backyards.</p><p>Best places: Swan Lake, Beacon Hill Park, Mount Douglas, gardens, forest trails, local neighborhoods.</p><p>Best clue: Listen first. Many songbirds are easier to hear than see.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="best-birdwatching-by-season"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Best Birdwatching by Season</span>
+    <h2>Best Birdwatching by Season</h2><p class="cnt">4 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl pl--solo">
+      
+      <h3 class="solo__h">Spring</h3>
+      <div class="pl__b">
+        
+        <p>Spring is one of the best times for birdwatching in Victoria. Birds are singing, nesting, and migrating. This is a great time for warblers, swallows, hummingbirds, shorebirds, and songbirds.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Summer</h3>
+      <div class="pl__b">
+        
+        <p>Summer is good for easy walks, garden birds, family birding, and coastal birds. Some migration activity slows, but you can still see many resident birds.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Fall</h3>
+      <div class="pl__b">
+        
+        <p>Fall brings migration and winter arrivals. This can be a great time to look for shorebirds, ducks, raptors, and seabirds.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Winter</h3>
+      <div class="pl__b">
+        
+        <p>Winter is one of the best seasons for waterfowl and coastal birding in Victoria. Many ducks, loons, grebes, and seabirds are easier to see in colder months.</p><p>Goldstream Provincial Park</p><p>Best Birdwatching Spots by Bird Type</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="frequently-asked-questions"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Frequently Asked Questions</span>
+    <h2>Frequently Asked Questions</h2><p class="cnt">10 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Victoria good for birdwatching?</h3>
+      <div class="pl__b">
+        
+        <p>Yes. Victoria is one of the best birdwatching areas on Vancouver Island. It has ocean shorelines, wetlands, lakes, gardens, forests, rocky points, and migratory bird sanctuaries.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">What birds can you see in Victoria?</h3>
+      <div class="pl__b">
+        
+        <p>You may see bald eagles, great blue herons, gulls, cormorants, ducks, swans, geese, loons, grebes, shorebirds, owls, hummingbirds, woodpeckers, sparrows, wrens, juncos, towhees, and many songbirds.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Where is the best place to birdwatch in Victoria?</h3>
+      <div class="pl__b">
+        
+        <p>Swan Lake Christmas Hill Nature Sanctuary and Esquimalt Lagoon are two of the best birdwatching spots. Dallas Road, Clover Point, Ogden Point, Beacon Hill Park, Panama Flats, Witty’s Lagoon, and Mount Douglas are also excellent.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Where can I see swans near Victoria?</h3>
+      <div class="pl__b">
+        
+        <p>Esquimalt Lagoon is a good place to look for swans and other waterfowl, especially in fall and winter.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Where can I see bald eagles in Victoria?</h3>
+      <div class="pl__b">
+        
+        <p>Look for bald eagles along the coast, at Goldstream Provincial Park, around Mount Douglas, near Esquimalt Lagoon, and in tall trees near water.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Can you see hummingbirds in Victoria?</h3>
+      <div class="pl__b">
+        
+        <p>Yes. Anna’s hummingbirds can be seen in Victoria, often around gardens, flowering shrubs, feeders, and parks.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">When is the best time for birdwatching in Victoria?</h3>
+      <div class="pl__b">
+        
+        <p>Birdwatching is good year-round. Spring is best for song and migration. Fall is good for shorebirds and raptors. Winter is excellent for ducks, swans, loons, grebes, and seabirds.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Esquimalt Lagoon good for birdwatching?</h3>
+      <div class="pl__b">
+        
+        <p>Yes. Esquimalt Lagoon is one of the best birdwatching spots near Victoria. It is a Migratory Bird Sanctuary and supports many waterfowl and shorebirds.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Do I need binoculars for birdwatching in Victoria?</h3>
+      <div class="pl__b">
+        
+        <p>You can see some birds without binoculars, but binoculars make birdwatching much better, especially for ducks, shorebirds, seabirds, and birds in trees.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is birdwatching in Victoria good for beginners?</h3>
+      <div class="pl__b">
+        
+        <p>Yes. Victoria is excellent for beginners because many birding areas are easy to reach and many birds are visible from trails, beaches, parks, and shorelines.</p><p>Birdwatching in Victoria is easy, peaceful, and rewarding. You can watch ducks at a lagoon, scan the ocean for seabirds, listen for songbirds in a park, or look for bald eagles from a coastal trail.</p><p>Start with Swan Lake if you want an easy nature walk. Visit Esquimalt Lagoon for waterfowl and shorebirds. Walk Dallas Road, Clover Point, or Ogden Point for coastal birds. Try Beacon Hill Park if you want birding close to downtown.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="best-scenic-walks-in-victoria"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Best scenic walks in Victoria</span>
+    <h2>Best scenic walks in Victoria</h2><p class="cnt">5 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image32.jpg" alt="Dallas Road Waterfront Trail, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Dallas Road Waterfront Trail</h3>
+        <p>If you are looking for the classic scenic walk in Victoria, Dallas Road is the best place to start. The Dallas Road Waterfront Trail is an easy 7.1-kilometre route that follows the city’s southern coastline from Ogden Point to Clover Point. Along the way, the paved path runs above the bluffs, offering wide, uninterrupted views of the Juan de Fuca Strait. There are also points where you can head down toward Dallas Road Beach, which adds beach access, shoreline views, and extra walking paths. It is one of Victoria’s most iconic walks and is especially beautiful at sunset or during storm-watching season.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image34.jpg" alt="Inner Harbour to Fisherman's Wharf Trail, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Inner Harbour to Fisherman's Wharf Trail</h3>
+        <p>The Inner Harbour Trail is one of the easiest and most popular walks in central Victoria. This flat, paved route is about 5 kilometres long and is one of the best ways to take in the harbour, historic landmarks, and the city’s waterfront atmosphere. Along the way, you pass highlights such as the Parliament Buildings and the Empress Hotel, making it an ideal choice for those who want something central, scenic, and easy to fit into a day of sightseeing. If you want to extend the walk, continue on to Fisherman’s Wharf to see the colourful floating homes and enjoy a snack by the water.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image13.jpg" alt="Selkirk Waterway, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Selkirk Waterway</h3>
+        <p>Selkirk Waterway offers a quieter and more local-feeling waterfront walk than the busier Inner Harbour routes. This peaceful waterside path follows the Upper Harbour area, with views of marinas, houseboats, working docks, and calm stretches of water that give it a more laid-back atmosphere. It is a good choice for those who want an easy scenic walk without the crowds of downtown, while still enjoying Victoria’s connection to the water. Depending on your route, it can also link naturally with other harbourfront paths, making it a nice addition to a longer urban walk.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image17.jpg" alt="West Song Walkway and West Bay Walkway, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>West Song Walkway and West Bay Walkway</h3>
+        <p>West Song Walkway and West Bay Walkway offer one of the best harbour-view walks in Greater Victoria. These connected waterfront paths create an easy 2.9-kilometre route from downtown Victoria to West Bay, with wide views back toward the Inner Harbour, the city skyline, and the working waterfront. The walk has a more relaxed and local feel than the busier downtown harbourfront, making it a great choice for those who want a scenic waterside route with plenty of space to slow down and enjoy the view.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image52.jpg" alt="Gorge Waterway Park, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Gorge Waterway Park</h3>
+        <p>Gorge Waterway Park is a peaceful waterside walking area that follows the Gorge through Esquimalt and Saanich, offering paved paths, tidal scenery, birdlife, and a quieter atmosphere than the busier harbourfront routes closer to downtown. It is a lovely choice for those who want an easy waterfront walk with a more local feel. Nearby, Esquimalt Gorge Park adds historic gardens and the Gorge Waterway Nature House, making the area especially pleasant for a relaxed stroll.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="best-beaches-and-relaxed-coastal-walks"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Best beaches and relaxed coastal walks</span>
+    <h2>Best beaches and relaxed coastal walks</h2><p class="cnt">8 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image44.jpg" alt="Cattle Point Beach, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Cattle Point Beach</h3>
+        <p>Cattle Point Beach is one of the best places in Victoria for wide coastal views and a quieter shoreline walk. Located at the eastern edge of the city, it offers open views across the water toward the San Juan Islands and Mount Baker on clear days. The atmosphere here feels more open and windswept than some of Victoria’s other beach areas, making it especially appealing for those who enjoy ocean scenery, birdwatching, and a peaceful walk by the shore. It is also a lovely spot to pause and take in the light, especially around sunrise or sunset.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image40.jpg" alt="Cadboro Bay Beach, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Cadboro Bay Beach</h3>
+        <p>Cadboro Bay Beach is one of Victoria’s loveliest beach walks, with a long sandy shoreline and a relaxed local feel. Tucked beside Cadboro-Gyro Park, it is a great place for an easy seaside stroll, with views across Haro Strait toward the San Juan Islands. The atmosphere here is calmer and softer than some of the city’s more exposed coastal spots, making it especially appealing for families, casual walkers, and anyone looking for a peaceful stretch of beach close to the city.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image12.jpg" alt="MacAulay Point Park, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>MacAulay Point Park</h3>
+        <p>A former military defense site, this park features a unique network of walking paths that weave through historic ramparts, old bunkers,</p><p>and wildflower-covered bluffs. The loop trails provide some of the best vantage points in Esquimalt for watching cruise ships and naval vessels enter the harbor against the backdrop of the Olympic Mountains.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image55.jpg" alt="Todd Inlet, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Todd Inlet</h3>
+        <p>Accessed via a gentle, 20-minute forested descent in Gowlland Tod Provincial Park, this walk leads to a secluded and glassy tidal inlet. The trail follows the remnants of an old cement works, blending industrial history with a peaceful nature cathedral atmosphere where you can often spot jellyfish and starfish from the shoreline.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image63.jpg" alt="Willows Beach, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Willows Beach</h3>
+        <p>This classic Victoria walk follows an expansive, level sandy beach and a parallel paved sidewalk, offering approximately 1.2 kilometers of unobstructed ocean views. It is an ideal spot for a low-impact morning walk, where the calm waters of Oak Bay and the sight of the Trial Islands lighthouse provide a serene coastal soundtrack.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image48.jpg" alt="Esquimalt Lagoon, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Esquimalt Lagoon</h3>
+        <p>The walk along this massive driftwood-lined spit is a must for birdwatchers, as the path is sandwiched between a saltwater lagoon and the open ocean. The flat, gravel trail offers a long, straight stretch for power walking or casual wandering, featuring views of the historic Hatley Castle and the distant Victoria skyline.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Island View Beach</h3>
+      <div class="pl__b">
+        
+        <p>Island View Beach is one of the best places near Victoria for a long, open beach walk. With its wide sandy shoreline, dunes, and expansive views across Haro Strait toward Mount Baker, it feels more spacious and untamed than many of the city’s smaller beach areas. It is an excellent choice for those who want a classic coastal outing with plenty of room to wander and take in the scenery.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image2.jpg" alt="Fort Rodd Hill and Fisgard Lighthouse, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Fort Rodd Hill and Fisgard Lighthouse</h3>
+        <p>This National Historic Site offers a structured walking experience through 19th-century artillery batteries and well-manicured green spaces. The highlight of the walk is the causeway leading out to the iconic Fisgard Lighthouse, the oldest on Canada's west coast, where the crashing waves and historic red-and-white architecture make for a stunning turnaround point.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="best-nature-walks-urban-gardens"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Best Nature Walks &amp; Urban Gardens</span>
+    <h2>Best Nature Walks &amp; Urban Gardens</h2><p class="cnt">3 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image64.jpg" alt="Government House Grounds, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Government House Grounds</h3>
+        <p>The official residence of the Lieutenant Governor features 36 acres of meticulously maintained gardens that are free and open to the public. Walking here feels like a journey through different landscapes, from formal Victorian rose gardens and an English country garden to a rare Garry Oak ecosystem. The gravel pathways are largely level, offering a regal and quiet atmosphere just a short distance from the bustle of the city center.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image18.jpg" alt="Abkhazi Garden, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Abkhazi Garden</h3>
+        <p>Known as &quot;The Garden that Love Built,&quot; this heritage site offers a more intimate and tranquil walking experience. The path meanders through a one-acre property built into a dramatic glaciated rocky outcrop, featuring majestic Garry Oaks, carpets of alpines, and exquisite rhododendrons. It is a slow-paced walk designed for appreciation, culminating in a charming teahouse that overlooks the beautifully landscaped grounds.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image50.jpg" alt="Beacon Hill Park, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Beacon Hill Park</h3>
+        <p>Beacon Hill Park is one of the easiest places to enjoy a relaxed nature walk close to downtown. It is one of the region’s key parks, and it works especially well for those who want gardens, ponds, open lawns, and shoreline access without committing to a full hike. Beacon Hill offers over 200 acres of diverse walking trails ranging from manicured flower beds to natural meadows. A walk here can take you past the world’s tallest free-standing totem pole, peaceful duck ponds, and the &quot;Mile 0&quot; marker of the Trans-Canada Highway. The network of paved and gravel paths is exceptionally accessible, making it the perfect spot for a long, scenic urban stroll that transitions seamlessly from garden to sea.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="best-nature-hikes-viewpoints"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Best nature hikes &amp; viewpoints</span>
+    <h2>Best nature hikes &amp; viewpoints</h2><p class="cnt">6 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image10.jpg" alt="Mount Tolmie and Gonzales Hill, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Mount Tolmie and Gonzales Hill</h3>
+        <p>These two viewpoints offer some of the highest reward-for-effort ratios in the city. Mount Tolmie provides a 360-degree vista of the city and the University of Victoria, with a variety of short, rocky trails circling the summit that are perfect for a quick sunset scramble. Nearby, Gonzales Hill Regional Park is home to a historic weather station and offers a stunning, elevated look at the Juan de Fuca Strait and the Olympic Mountains from the smallest wilderness park in the region.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image49.jpg" alt="High Rock Park, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>High Rock Park</h3>
+        <p>Tucked away in Esquimalt, this hidden gem features a short but steep climb to one of the highest points in the Greater Victoria area. The summit, marked by a stone cairn, offers a panoramic view that includes the Inner Harbour, the naval base, and the distant Sooke Hills. It is a favorite for locals looking for a quiet place to watch the clouds roll in over the Pacific.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image66.jpg" alt="Goldstream Provincial Park, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Goldstream Provincial Park</h3>
+        <p>A little farther from central Victoria, Goldstream Provincial Park is one of the best places to go if you want a bigger hike or a more immersive nature outing. Located about 20 minutes from downtown, it is one of the region’s best-known parks for forest scenery, waterfalls, and more substantial trails. The park offers a range of options, from flat riverside walks to more challenging routes such as the climb toward the Goldstream Trestle. In late fall, the lower trails are also one of the best places in the area to witness the annual salmon run.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image36.jpg" alt="Mount Douglas Park (PKOLS), Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Mount Douglas Park (PKOLS)</h3>
+        <p>Known locally as Mount Doug, this park features the largest urban forest in the region and a vast network of interconnected trails. The hike to the summit, whether via the technical Irvine Trail or the more gradual Mercer Trail, is a Victoria rite of passage. Once at the top, you are treated to an unobstructed 360-degree view of the Saanich Peninsula, the Salish Sea, and the downtown skyline.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Mount Work Provincial Park</h3>
+      <div class="pl__b">
+        
+        <p>This is the highest peak on the Saanich Peninsula, offering a true mountain hiking experience within a 20-minute drive of the city. The primary trail is a steady, well-marked climb through a dense arbutus forest that leads to a rocky summit. It is a popular spot for hikers seeking a moderate challenge and a sense of remote wilderness without leaving the CRD.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image6.jpg" alt="Mount Finlayson, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Mount Finlayson</h3>
+        <p>Often described as Victoria’s version of the Grouse Grind, this is the most technical and demanding hike in the immediate area. The trail involves a steep scramble section over exposed rock near the summit that requires steady footing and the use of your hands. The reward for this physical exertion is a breathtaking, bird's-eye view of the Finlayson Arm and the lush green canopy of Goldstream Provincial Park below.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="best-nature-walks-easy-park-trails"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Best nature walks &amp; easy park trails</span>
+    <h2>Best nature walks &amp; easy park trails</h2><p class="cnt">3 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image56.jpg" alt="Swan Lake, Christmas Hill Nature Sanctuary, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Swan Lake, Christmas Hill Nature Sanctuary</h3>
+        <p>This sanctuary offers two distinct walking experiences in one location. The Swan Lake Loop is a flat, 2.5-kilometer trail featuring a long wooden boardwalk that floats directly over the marsh, providing an exceptional vantage point for spotting turtles, ducks, and herons. For those seeking a bit more elevation, the trail up Christmas Hill leads through a rare Garry Oak ecosystem to a rocky summit with sweeping views of the city and the Sooke Hills.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image27.jpg" alt="Thetis Lake Regional Park, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Thetis Lake Regional Park</h3>
+        <p>For a more natural trail setting without going too far from the city, Thetis Lake Regional Park is one of Greater Victoria’s most popular choices. It is well known for its wooded trails, lakeside scenery, and easy access to outdoor recreation, making it especially appealing for easy-to-moderate walks and short hikes. A favourite for a relaxed weekend outing, the Main Lake Loop is a flat 5-kilometre trail that circles the water. It is well-maintained and works especially well for families, dog walkers, and anyone looking for a quick nature escape.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image41.jpg" alt="Francis/King Regional Park, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Francis/King Regional Park</h3>
+        <p>This park is one of the best places in Greater Victoria to experience the majesty of a temperate rainforest without a strenuous climb. The Elsie King Trail is a universally accessible, 550-meter cedar boardwalk designed for all ages and abilities, winding through a grove of towering, centuries-old Douglas firs. For a longer walk, the interconnected forest trails offer a quiet, mossy escape through lush ferns and diverse native flora.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="best-long-walks-multi-use-trails-near-victoria"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Best long walks &amp; multi-use trails near Victoria</span>
+    <h2>Best long walks &amp; multi-use trails near Victoria</h2><p class="cnt">2 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image42.jpg" alt="Galloping Goose Regional Trail, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Galloping Goose Regional Trail</h3>
+        <p>Once a strategic railway line, this 55-kilometer multi-use trail is the backbone of Victoria's outdoor lifestyle, stretching from the city’s downtown core all the way to the rugged ghost town of Leechtown. The section near the city is paved and follows the scenic Selkirk Trestle across the Upper Harbour, while the western stretches transition into a smooth gravel path through quiet forests and rocky canyons. It is an ideal route for those seeking a flat, long-distance walk or a dedicated space for a long-form urban trek away from motorized traffic.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image11.jpg" alt="Lochside Regional Trail, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Lochside Regional Trail</h3>
+        <p>Connecting the Victoria Inner Harbour to the Swartz Bay Ferry Terminal, this 29-kilometer trail offers a charming journey through Saanich’s breadbasket of pastoral farmland and suburban parks. The trail is a mix of paved pathways and quiet country roads, passing by local farm stands and the scenic Blenkinsop Lake boardwalk. It is particularly popular for its level terrain and wide-open views of the peninsula’s agricultural landscape, providing a peaceful, rural walking experience that feels miles away from the city center.</p><p>Victoria’s mild maritime climate makes it a rare Canadian destination where hiking and walking are truly year-round activities. While you can find a dry trail almost any month, each season offers a distinct atmosphere for exploring the coast and forests.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="best-time-of-year-for-hiking-and-walking-in-victoria"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Best time of year for hiking and walking in Victoria</span>
+    <h2>Best time of year for hiking and walking in Victoria</h2><p class="cnt">1 place, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl pl--solo">
+      
+      <h3 class="solo__h">Best Time of Year</h3>
+      <div class="pl__b">
+        
+        <p>Summer (July, August): This is the most reliable window for dry trails and clear, panoramic views. The coastal breezes keep temperatures comfortable (typically 20°C to 24°C), making it perfect for exposed hikes like Mount Douglas or the Dallas Road waterfront.</p><p>Spring (April, June): Spring is spectacular for nature walks. The forest floors in parks like Francis/King and Mount Work are carpeted in wildflowers, including lilies and camas. The waterfalls at Goldstream are also active during this time.</p><p>Fall (September, October): Autumn brings crisp air and fewer crowds. In late October, the big-leaf maples turn vibrant gold, and the salmon run begins at Goldstream Provincial Park, a must-see event along the riverside trails.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="1-the-inner-harbour"><div class="wrap">
+  <div class="sechead"><span class="label label--n">1. The Inner Harbour</span>
+    <h2>1. The Inner Harbour</h2><p class="cnt">4 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl pl--solo">
+      
+      <h3 class="solo__h">The Peak Season: Summer (July, August)</h3>
+      <div class="pl__b">
+        
+        <p>This is the most reliable window for sightseeing, offering the highest number of sunny days and the clearest visibility for mountain-top viewpoints.</p><p>The Vibe: Vibrant, bustling, and blue.</p><p>The Butchart Gardens: Summer is the only time to see the evening illuminations, where the gardens are transformed by thousands of hidden lights.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">The City of Gardens Season: Spring (April, June)</h3>
+      <div class="pl__b">
+        
+        <p>If your primary goal is to see why Victoria is famous for its flora, this is the essential time to visit.</p><p>The Vibe: Fresh, colorful, and lush.</p><p>Cherry Blossoms: In April, the city streets (especially near Beacon Hill Park and View Street) turn into tunnels of pink petals.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">The Moody &amp; Dramatic Season: Fall (September, October)</h3>
+      <div class="pl__b">
+        
+        <p>Autumn provides a softer, more dramatic beauty that is perfect for those who enjoy forest scenery and atmospheric mist.</p><p>The Vibe: Crisp, golden, and quiet.</p><p>Goldstream Provincial Park: October brings the spectacular salmon run and the changing colors of the big-leaf maples in the canyon.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">The Storm-Watching Season: Winter (November, March)</h3>
+      <div class="pl__b">
+        
+        <p>While the rest of Canada is under snow, Victoria stays green, offering a rugged, wild West Coast aesthetic.</p><p>The Vibe: Emerald-green, misty, and powerful.</p><p>Dallas Road &amp; Ogden Point: Winter is the best time for storm watching. Watching massive Pacific swells crash against the breakwater is a powerful sight.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="world-known-landmarks"><div class="wrap">
+  <div class="sechead"><span class="label label--n">World-Known Landmarks</span>
+    <h2>World-Known Landmarks</h2><p class="cnt">10 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image30.jpg" alt="1. The Butchart Gardens, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>1. The Butchart Gardens</h3>
+        <p>The Butchart Gardens is a 55-acre horticultural masterpiece that grew from a former limestone quarry. Known globally as a National Historic Site of Canada, it offers a lush, immersive experience where the rugged landscape of Brentwood Bay has been transformed into a series of themed paradises. It provides a world-class atmosphere characterized by its dramatic floral displays, cascading fountains, and meticulous landscaping that shifts with the seasons.</p><p>Sunken Garden: This is the most iconic part of the estate. Descend the winding stone stairs to find a massive, emerald-green lawn surrounded by towering walls of rock and vibrant flower beds.</p><p>Rose Garden: Stroll through arches of climbing roses and manicured beds containing over 250 varieties. Visitors frequently mention the overwhelming fragrance and the perfection of the blooms, which are at their peak during the summer months.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image9.jpg" alt="2. Inner Harbour, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>2. Inner Harbour</h3>
+        <p>Inner Harbour is the heart of the Garden City, the vibrant soul of British Columbia’s capital. Known for its timeless charm, the harbour is framed by the iconic Neo-baroque Parliament Buildings and the majestic Fairmont Empress Hotel.</p><p>Causeway Stroll: A flat, scenic walk along the lower harbour wall. This is the place to browse local artisan stalls, watch world-class street performers, and admire the totem poles at the nearby Thunderbird Park. It offers the perfect postcard angle of the Empress Hotel.</p><p>Fisherman’s Wharf Walk: A 1.5km scenic walk from the Inner Harbour along the David Foster Way. You’ll end up at a hidden gem of floating homes, fresh seafood kiosks, and cheeky harbor seals. Grab a cone of ice cream and watch the houseboats bob in the tide.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image20.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_p1i3zom2j7j9&quot; w:id=&quot;6&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;6&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;3. British Columbia Parliament Buildings, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_p1i3zom2j7j9&quot; w:id=&quot;6&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;6&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;3. British Columbia Parliament Buildings</h3>
+        <p>The British Columbia Parliament Buildings are the city’s premier architectural landmark, anchoring the Inner Harbour with a grand Neo-baroque presence that feels more like a European palace than a government office. While many historic sites in Victoria require a guided tour to appreciate, the Leg offers an immediate, high-impact visual experience the moment you step onto its sprawling front lawns. At the heart of the capital, you’ll find a massive stone complex topped with a copper dome that has weathered to a regal green, complete with intricate stained glass, a gold-leafed rotunda, and a series of grand corridors that house the province's political history.</p><p>Public Guided Tours (Free): Professional guides lead you through the legislative chamber, the rotunda, and the hall of maps. You’ll learn about the whispering gallery acoustics and the drama of BC's political history without spending a dime.</p><p>Legislative Library: Often cited as one of the most beautiful rooms in Canada, the library is a sanctuary of carved wood and quiet dignity. Even if you aren't a bookworm, the architecture alone is worth the peek.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image5.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_tcumg8jvh5fr&quot; w:id=&quot;7&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;7&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;4. Empress Hotel National Historic Site of Canada, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_tcumg8jvh5fr&quot; w:id=&quot;7&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;7&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;4. Empress Hotel National Historic Site of Canada</h3>
+        <p>Fairmont Empress is Victoria’s luxury landmark, a grand Chateau-style hotel that has anchored the Inner Harbour since 1908. While many historic hotels feel like relics of the past, The Empress is a living legend of Edwardian architecture that has hosted royalty, celebrities, and dignitaries for over a century. It serves as the sophisticated centerpiece of British Columbia’s capital, characterized by its iconic ivy-covered stone walls and a refined atmosphere that remains the gold standard for high-tea culture in North America.</p><p>World-Famous Afternoon Tea: This is the hotel’s signature experience. Served in the elegant Lobby Lounge, it features exclusive tea blends and hand-crafted pastries that have been a tradition since the day the doors opened. Reviewers often mention that while it's a splurge, the atmosphere and service are unmatched.</p><p>Veranda: For a more casual way to soak in the views, head to the outdoor Veranda. It offers a front-row seat to the activity of the Inner Harbour, making it the perfect spot for a seasonal cocktail or a West Coast-inspired lunch under the sun.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image11.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr&gt;&lt;w:sz w:val=&quot;22&quot;/&gt;&lt;w:szCs w:val=&quot;22&quot;/&gt;&lt;/w:rPr&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_hp754c557myh&quot; w:id=&quot;9&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;9&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;5. Craigdarroch Castlehttps://www.istockphoto.com/photo/victoria-british-columbia-canada-craigdarroch-castle-gm1484969214-511063963, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr&gt;&lt;w:sz w:val=&quot;22&quot;/&gt;&lt;w:szCs w:val=&quot;22&quot;/&gt;&lt;/w:rPr&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_hp754c557myh&quot; w:id=&quot;9&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;9&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;5. Craigdarroch Castlehttps://www.istockphoto.com/photo/victoria-british-columbia-canada-craigdarroch-castle-gm1484969214-511063963</h3>
+        <p>Craigdarroch Castle is Victoria’s historic mansion, a bonanza castle built by coal baron Robert Dunsmuir between 1887 and 1890. This four-story landmark is a masterclass in Gilded Age opulence, featuring 39 rooms filled with intricate woodwork and one of North America’s finest collections of residential stained glass. Perched on a hill in the Rockland neighborhood, the 20,000-square-foot estate offers a vertical journey through Victorian luxury, culminating in a tower with 360-degree views of the city and the Olympic Mountains.</p><p>Grand Staircase: This is the castle’s architectural centerpiece. Built from prefabricated oak in Chicago and shipped to Victoria, the staircase winds up through the heart of the home. The joinery is so precise that it remains a marvel of 19th-century engineering.</p><p>Stained Glass Collection: Craigdarroch is home to one of North America’s finest collections of residential stained glass. Look for the intricate floral patterns and vibrant colors in the drawing rooms, they aren't just windows; they are masterpieces that catch the light differently at every hour of the day.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image25.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_v4ozadq9rrqo&quot; w:id=&quot;10&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;10&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;6. Fisherman's Wharf, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_v4ozadq9rrqo&quot; w:id=&quot;10&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;10&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;6. Fisherman's Wharf</h3>
+        <p>Fisherman's Wharf is Victoria’s seaside destination, a vibrant marine community where colorful houseboats, fresh seafood kiosks, and working fishing vessels create a scene unlike any other in the city. While many piers are strictly commercial, this wharf is a living neighborhood built right on the water, offering a sensory explosion of salt air, bright paint, and the sounds of the active harbor.</p><p>Explore the Floating Homes: Walk the docks to see the eclectic village of houseboats. Each home is unique, ranging from sleek modern designs to whimsical cottages adorned with garden boxes and local art.</p><p>Seafood Crawl: This is the heart of Victoria’s casual dining scene. Grab fresh fish and chips or local oysters and ice cream from the various kiosks.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image31.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_sdvi5rf4zcq2&quot; w:id=&quot;11&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;11&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;7. Victoria’s Chinatown National Historic Site, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_sdvi5rf4zcq2&quot; w:id=&quot;11&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;11&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;7. Victoria’s Chinatown National Historic Site</h3>
+        <p>Victoria’s Chinatown National Historic Site is Canada’s oldest Chinatown and the destination for those seeking to walk through 19th-century history. While many modern Chinatowns have sprawled into sprawling commercial districts, Victoria’s remains a remarkably preserved enclave of narrow alleys and vibrant heritage buildings. It serves as a living museum of the Chinese-Canadian experience, characterized by the iconic Gate of Harmonious Interest and the hidden courtyards that once housed a bustling community of merchants and residents.</p><p>Fan Tan Alley: This is the site’s most famous feature, a narrow passageway that was once the center of the district's gambling and opium dens. Today, it is a quirky commercial artery filled with tiny shops and local artisans, holding the record as the narrowest street in Canada.</p><p>Gate of Harmonious Interest: Serving as the grand entrance to the district on Fisgard Street, this traditional archway is adorned with hand-carved stone lions and bright red and gold motifs. It is a masterpiece of symbolic architecture, representing unity and welcome.</p>
+        <p class="pl__n"><b>Good to know.</b> Note the location of the neighborhood relative to the harbour; it was built on land that has been part of the Lekwungen People’s territory for thousands of years, and the history of the two communities often intertwined in early Victoria.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image24.jpg" alt="8. Government House and Gardens, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>8. Government House and Gardens</h3>
+        <p>Government House is Victoria’s ceremonial estate, the official residence of the Lieutenant Governor and a 36-acre sanctuary of rare Garry Oak ecosystems and manicured gardens. While it serves as a high-profile venue for royal visits and state functions, the grounds are open to the public as a massive urban park that feels worlds away from the city. It is a masterclass in horticultural diversity, offering a seamless transition from formal English rose gardens to rugged, windswept viewpoints overlooking the Juan de Fuca Strait.</p><p>Victorian Rose Garden: A meticulously maintained highlight that peaks in early summer. It features hundreds of varieties of roses and serves as the perfect foreground for photos of the historic stone mansion.</p><p>Terrace Lookout: Head to the southern part of the grounds for one of the best views in Victoria. On a clear day, the Olympic Mountains in Washington State frame the horizon across the blue waters of the strait.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image27.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_eg47tkxb8aws&quot; w:id=&quot;13&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;13&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;9. Bastion Square, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_eg47tkxb8aws&quot; w:id=&quot;13&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;13&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;9. Bastion Square</h3>
+        <p>Bastion Square is Victoria’s historic plaza, a pedestrian-only square that marks the site of the original Fort Victoria. While many urban squares feel like modern thoroughfares, Bastion Square retains a hauntingly beautiful Old World atmosphere, characterized by its gas-lamp-style lighting and the grand Victorian architecture of the former law courts. It serves as a social and cultural anchor for the city, bridging the gap between the bustling Inner Harbour and the historic commerce of Government Street.</p><p>Artisan Markets: During the summer months, the square transforms into a vibrant open-air market. High-quality local jewelry, woodwork, and fine arts are sold by regional makers under bright white tents.</p><p>Maritime Museum of BC: Housed in the majestic former Provincial Courthouse building, this museum offers a deep dive into the island’s seafaring history. Visitors frequently mention the oldest operating birdcage elevator in North America as a must-see feature of the interior.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image3.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_14jfqq4624do&quot; w:id=&quot;15&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;15&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;10. Beacon Hill Park, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_14jfqq4624do&quot; w:id=&quot;15&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;15&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;10. Beacon Hill Park</h3>
+        <p>Beacon Hill Park is Victoria’s urban greenspace, a 200-acre landscape that serves as the backyard of the capital city. While many city parks are just a patch of grass, Beacon Hill is a diverse ecosystem of Garry Oak meadows, manicured floral gardens, and rugged coastline. It offers an immediate escape from the downtown bustle, providing a sanctuary where you can transition from watching a cricket match on a traditional pitch to standing at the Mile 0 marker of the Trans-Canada Highway in a single afternoon.</p><p>World’s Tallest Totem Pole: Standing at an impressive 127 feet, this Fourth Story Totem was carved by Mungo Martin and remains a powerful symbol of Indigenous heritage. It is a stunning visual anchor located in the southern section of the park.</p><p>Beacon Hill Children’s Farm: A family favorite known worldwide for the Running of the Goats. Twice a day, dozens of African Pygmy goats sprint from their pen to the petting area, a chaotic and heartwarming spectacle that shouldn't be missed.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="art-and-history-lovers"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Art and History Lovers</span>
+    <h2>Art and History Lovers</h2><p class="cnt">6 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image21.jpg" alt="1. Royal BC Museum, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>1. Royal BC Museum</h3>
+        <p>The Royal BC Museum is Victoria’s premier cultural institution, a world-class facility that brings the natural and human history of British Columbia to life. It is an immersive environment where you can walk through a replica 19th-century town, stand beneath a towering Woolly Mammoth, and explore the deep traditions of Indigenous cultures. It serves as the province's memory bank, located directly across from the Parliament Buildings, and offers a high-impact educational journey that spans millions of years.</p><p>Natural History Gallery: This is where you'll find the museum's most famous resident, a life-sized Woolly Mammoth. Visitors often highlight the coastal forest and ice age displays, which feature incredibly realistic sights and even the subtle scents of the wild.</p><p>Becoming BC Gallery: Step back in time to Old Town, a meticulously crafted 1890s streetscape. You can wander into a period cinema, visit a grand hotel, or walk the decks of a replica of Captain Vancouver’s ship, the HMS Discovery.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image2.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_f4i0bqh2df3g&quot; w:id=&quot;18&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;18&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;2. Christ Church Cathedral, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_f4i0bqh2df3g&quot; w:id=&quot;18&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;18&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;2. Christ Church Cathedral</h3>
+        <p>Christ Church Cathedral is Victoria’s Anglican landmark, a soaring 20th-century masterpiece that serves as one of Canada’s largest cathedrals. The Cathedral has a grand display of Gothic architecture, featuring massive stone walls, a world-class pipe organ, and an interior that feels like a quiet sanctuary in the heart of the city. It serves as both a vibrant community hub and a historic monument, known for its incredible acoustics and its role as a spiritual anchor for the province.</p><p>Labyrinth: Located on the floor of the nave, this prayer labyrinth is a rare feature in North American cathedrals. Visitors often find a sense of peace walking the winding path as a form of moving meditation.</p><p>Pipe Organ: This isn't just an instrument; it's a monumental piece of engineering. With nearly 4,000 pipes, it is one of the finest organs in the country. If you can, time your visit during a rehearsal or a Choral Evensong to hear its full power.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image29.jpg" alt="3. Carr House, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>3. Carr House</h3>
+        <p>Carr House National Historic Site is Victoria’s heritage landmark dedicated to the life of Emily Carr, one of Canada’s most significant painters and authors. A beautifully preserved example of Italianate architecture, this 1863 residence was Carr’s childhood home and remains a powerful portal into the Victorian era that shaped her unconventional spirit. It serves as both a museum and a cultural hub, nestled in the historic James Bay neighborhood just steps away from Beacon Hill Park.</p><p>Historic Room Tours: Walk through the meticulously restored parlor and bedrooms filled with period-appropriate furnishings and Carr family artifacts. It provides a rare, intimate look at the domestic life of a Victorian middle-class family in early British Columbia.</p><p>Rotating Art Exhibitions: The house frequently hosts temporary exhibits featuring works by Carr herself or contemporary artists whose work engages with her legacy of environmentalism and Indigenous culture.</p>
+        <p class="pl__n"><b>Good to know.</b> Note that the house often operates on a seasonal schedule, typically opening its doors to the public during the warmer months (May through September). Always verify the current opening days before making the trip.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image16.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr&gt;&lt;w:sz w:val=&quot;22&quot;/&gt;&lt;w:szCs w:val=&quot;22&quot;/&gt;&lt;/w:rPr&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_bdxs8n7v024y&quot; w:id=&quot;20&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;20&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;4. Hatley Park National Historic Sitehttps://www.istockphoto.com/photo/hatley-castle-of-royal-roads-university-gm184992922-18871616, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr&gt;&lt;w:sz w:val=&quot;22&quot;/&gt;&lt;w:szCs w:val=&quot;22&quot;/&gt;&lt;/w:rPr&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_bdxs8n7v024y&quot; w:id=&quot;20&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;20&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;4. Hatley Park National Historic Sitehttps://www.istockphoto.com/photo/hatley-castle-of-royal-roads-university-gm184992922-18871616</h3>
+        <p>Hatley Park National Historic Site is Victoria’s Edwardian estate, a sprawling 565-acre sanctuary that serves as one of the most complete and intact examples of an early 20th-century bonanza property. Built for coal baron James Dunsmuir, the estate is centered around the majestic Hatley Castle, a 40-room stone mansion that looks so much like a cinematic fantasy it has served as the filming location for the X-Men film series. It offers a stunning blend of architectural grandeur and ecological diversity, ranging from formal heritage gardens to old-growth forests and saltwater marshes.</p><p>Formal Gardens: Explore the trio of world-class gardens: the Italian Garden with its classic statuary, the Rose Garden featuring heritage varieties, and the serene Japanese Garden. Visitors often note that the Japanese Garden, designed with the help of Isaburo Kishida, is one of the most authentic and tranquil spots on the property.</p><p>Hatley Castle Interior: While the castle currently serves as the administrative hub for Royal Roads University, you can take a guided tour to see the grand oak-paneled rooms and the stunning fireplace.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image17.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_djxrr6xka0rb&quot; w:id=&quot;21&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;21&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;5. Fan Tan Alley, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_djxrr6xka0rb&quot; w:id=&quot;21&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;21&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;5. Fan Tan Alley</h3>
+        <p>Fan Tan Alley is a record-breaking destination known as the narrowest street in Canada. While it originated in the 19th century as a hub for gambling and opium dens within Victoria’s Chinatown National Historic Site, it has transformed into a vibrant, high-character micro-district. Measuring only 0.9 meters (about 3 feet) at its tightest point, the alley offers an immediate sense of intrigue, with red-brick walls that seem to lean inward, housing a curated collection of local boutiques and art galleries.</p><p>Curated Shopping: The alley is a sanctuary for independent business. Stop at the Fan Tan Home &amp; Style for unique decor, or the Umbrellatorium &amp; Canery, a shop entirely dedicated to umbrellas and walking sticks that fits the alley's whimsical vibe perfectly.</p><p>Whimsical Treats: Look for Kid Sister Ice Cream, a local favorite that serves artisanal, small-batch scoops. It’s the perfect place to grab a cone and lean against the historic brickwork to soak in the atmosphere.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image1.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_4zfytq6qyfqt&quot; w:id=&quot;22&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;22&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;6. St. Andrew's Cathedral, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_4zfytq6qyfqt&quot; w:id=&quot;22&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;22&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;6. St. Andrew's Cathedral</h3>
+        <p>St. Andrew's Cathedral is Victoria’s Catholic landmark, a stunning example of High Victorian Gothic architecture that has served as the seat of the Diocese of Victoria since 1892. While the city's skyline has modernized around it, the cathedral remains a dramatic presence with its asymmetrical towers and intricate brickwork, modeled after the medieval churches of Europe. It serves as a spiritual and architectural sanctuary in the heart of the downtown core, offering a high-impact interior that contrasts the busy commercial streets outside.</p><p>Altar and Sanctuary: The centerpiece of the interior is a beautifully carved altar, often highlighted by reviewers for its intricate detail and historical significance. The sanctuary’s open, airy design allows for a clear view of the liturgical art that defines the space.</p><p>Stained Glass Masterpieces: The cathedral features an impressive collection of stained glass windows that filter the light into vibrant hues across the nave. These windows are frequently cited by visitors as the highlight of the interior architecture.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="outdoor-attractions"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Outdoor Attractions</span>
+    <h2>Outdoor Attractions</h2><p class="cnt">8 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image15.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_tb301w3lludt&quot; w:id=&quot;24&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;24&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;1. Scenic Marine Route, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_tb301w3lludt&quot; w:id=&quot;24&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;24&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;1. Scenic Marine Route</h3>
+        <p>The Scenic Marine Route in Victoria offers one of the most breathtaking drives along Vancouver Island’s southern coast. Stretching from the Inner Harbour through the posh neighborhoods of Oak Bay and up toward the Saanich Peninsula, this route offers an immediate connection to the Pacific Ocean. While many coastal drives are obscured by trees or buildings, the Marine Route provides unobstructed, 360-degree views of the Olympic Mountains and the Salish Sea, making it the ultimate way to see Victoria’s wild side without ever leaving the comfort of your car.</p><p>Dallas Road Waterfront: This is the iconic first leg of the journey. Parallel to Beacon Hill Park, this stretch features a long, paved walkway atop the bluffs. Pull over to watch the paragliders catch the wind or descend the staircases to the driftwood-strewn beaches below.</p><p>Clover Point Loop: A paved peninsula that juts out into the ocean. It’s a premier spot for kite-flying and storm-watching. It remains the best place to sit in your car with a coffee and watch the massive international cruise ships glide past.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image7.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_azqf7t1ytxd6&quot; w:id=&quot;25&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;25&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;2. Whale Watching, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_azqf7t1ytxd6&quot; w:id=&quot;25&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;25&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;2. Whale Watching</h3>
+        <p>Victoria is world-renowned as a whale-watching destination due to its unique location at the center of the Salish Sea. This rich ecosystem supports a high concentration of marine life, with peak sightings occurring between May and October, where success rates for spotting whales often exceed 95%.</p><p>Seasonal Highlights and Wildlife</p><p>The waters around Victoria are home to several iconic species that can be spotted throughout the year:</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image28.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr&gt;&lt;w:color w:val=&quot;434343&quot;/&gt;&lt;w:sz w:val=&quot;28&quot;/&gt;&lt;w:szCs w:val=&quot;28&quot;/&gt;&lt;/w:rPr&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_wziyl2tpmucd&quot; w:id=&quot;27&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;27&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;3. Abkhazi Garden, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr&gt;&lt;w:color w:val=&quot;434343&quot;/&gt;&lt;w:sz w:val=&quot;28&quot;/&gt;&lt;w:szCs w:val=&quot;28&quot;/&gt;&lt;/w:rPr&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_wziyl2tpmucd&quot; w:id=&quot;27&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;27&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;3. Abkhazi Garden</h3>
+        <p>Abkhazi Garden, a 1.4-acre heritage estate, is a hidden gem in Victoria, offering a peaceful escape with its stunning blend of natural beauty and rich history. This place's history dates back to 1946 when Prince and Princess Abkhazi, exiled from Russia, began creating the garden, transforming a rough landscape into a beautiful space over decades. The garden is known for its unique design, combining traditional European garden elements with the wild charm of the Pacific Northwest.</p><p>Teahouse: Located in the original residence, the teahouse is famous for its elevated Four-Season Afternoon Tea. Visitors frequently mention the exceptional quality of the local ingredients and the stunning views over the garden from the dining room.</p><p>Glaciated Rock Formations: The garden is built directly into a sloping rock face. Look for the way the Prince used these natural features to create rooms, using the rock as both a structural element and a backdrop for rare rhododendrons.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image23.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_tgatxahb864y&quot; w:id=&quot;28&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;28&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;4. Dallas Road Beach, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_tgatxahb864y&quot; w:id=&quot;28&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;28&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;4. Dallas Road Beach</h3>
+        <p>Dallas Road Beach is a rugged stretch of shoreline that serves as the city’s favorite outdoor social hub. While many beaches are tucked-away coves, this beach is actually a series of pebbly inlets and rocky outcrops linked by the iconic 4km Dallas Road waterfront path. It offers an immediate connection to the wild Salish Sea, providing a high-energy atmosphere where you can watch paragliders soar from the bluffs, kite surfers battle the waves, and cruise ships glide toward the horizon against the backdrop of the snow-capped Olympic Mountains.</p><p>Spiral Beach: Located at the foot of Cook Street, this is the most popular sandy/pebbly spot. It’s famous for its dramatic driftwood piles and the steep, winding staircase that gives it its name.</p><p>Off-Leash Social: Dallas Road is arguably the most famous dog-walking spot in Canada. The grassy bluffs between the road and the path are an off-leash paradise where locals gather daily. Even if you don’t have a dog, the pup-watching here is world-class.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image19.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_f4xq5vjg4zl0&quot; w:id=&quot;29&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;29&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;5. Mount Tolmie Park, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_f4xq5vjg4zl0&quot; w:id=&quot;29&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;29&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;5. Mount Tolmie Park</h3>
+        <p>Mount Tolmie Park is a 45-acre hilltop sanctuary that serves as the city’s premier 360-degree lookout. While many local peaks require a grueling trek, this mountain is actually a highly accessible municipal park that allows you to drive or walk to the very top. It offers an immediate, panoramic connection to the Greater Victoria landscape, providing a serene atmosphere where you can watch the city transition from day to night against a massive backdrop of the Olympic Mountains, the San Juan Islands, and the distant, snowy peak of Mount Baker.</p><p>Concrete Summit: The most famous feature is the large, flat concrete slab at the peak, a relic of a WWII defense system. It’s the ultimate stage for the best views in the city, perfect for spinning in a circle to see everything from the University of Victoria to the downtown skyline.</p><p>Garry Oak Meadows: Wander through the protected meadows to see one of the rarest ecosystems in Canada. In the spring, these rocky slopes are covered in camas lilies and wildflowers, offering a peaceful, low-impact nature walk right in the middle of a residential neighborhood.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image26.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_ami2ubq4zc0z&quot; w:id=&quot;31&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;31&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;6. Clover Point Park, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_ami2ubq4zc0z&quot; w:id=&quot;31&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;31&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;6. Clover Point Park</h3>
+        <p>Clover Point Park is a 10-acre promontory that serves as the city’s waterfront viewing platform. While much of the Dallas Road shoreline is defined by high bluffs, this low-lying point juts out directly into the Strait of Juan de Fuca, offering an immediate, front-row seat to the Salish Sea. It provides a high-energy atmosphere where the wind is a constant companion, attracting kite flyers and paragliders who paint the sky with color against a massive backdrop of the Olympic Mountains.</p><p>Kite &amp; Wind Sports: Clover Point is the undisputed wind capital of Victoria. On any given afternoon, you can watch massive power kites pull boarders through the waves or paragliders using the point’s unique thermals to hover effortlessly above the grass.</p><p>Ship Watching: Because the point extends so far into the water, it feels like you can almost reach out and touch the international cruise ships and tankers as they navigate the shipping lanes. It is the premier spot in the city to watch the Swiftsure Yacht Race start every May.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image14.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_qvwgevra4ggi&quot; w:id=&quot;32&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;32&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;7. Westsong Walkway, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_qvwgevra4ggi&quot; w:id=&quot;32&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;32&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;7. Westsong Walkway</h3>
+        <p>Westsong Walkway is a 3km seaside passage that serves as Victoria’s premier harbor-side stroll. While the Dallas Road bluffs offer rugged ocean views, the Westsong (also known as the Songhees Walkway) provides an intimate, winding tour of the working harbour. It offers a refined and peaceful atmosphere where the path hugs the shoreline of the Songhees Peninsula, allowing you to watch the delicate dance of colorful harbor ferries and seaplanes against the sophisticated backdrop of the Fairmont Empress and the Parliament Buildings.</p><p>Johnson Street Bridge: Start your walk at this Bascule bridge, a massive, blue sculptural feat of engineering that lifts to allow tall ships into the Upper Harbour. It is one of the most photographed modern structures in the city.</p><p>Seaplane Ballet: This is the best vantage point in Victoria to watch the de Havilland seaplanes take off and land. Sitting on one of the many benches along the path, you can hear the roar of the engines as they skip across the water toward Vancouver or Seattle.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image8.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_gj1uij3waxtm&quot; w:id=&quot;33&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;33&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;8. Thunderbird Park, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_gj1uij3waxtm&quot; w:id=&quot;33&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;33&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;8. Thunderbird Park</h3>
+        <p>Thunderbird Park is Victoria’s outdoor gallery of Indigenous monumental art, a small but high-impact urban space that serves as a powerful tribute to the living cultures of the First Nations of the Pacific Northwest. Established in 1941 to preserve the region's carving traditions, the park is characterized by its dramatic collection of totem poles and the iconic Wawadit'la (Mungo Martin House), a traditional Kwakwaka'wakw big house. It offers a solemn and respectful atmosphere nestled between the Royal BC Museum and the historic Helmcken House, creating a unique intersection of natural history and colonial architecture.</p><p>Totem Collection: Wander among the towering poles that represent the distinct artistic styles of the Gitxsan, Haida, and Kwakwaka'wakw peoples. Visitors often mention the striking detail of the crest figures, including the thunderbirds, bears, and whales that tell ancestral stories.</p><p>Wawadit'la (Mungo Martin House): Observe the intricate painted facade of this traditional big house, which remains an active center for Indigenous ceremony and culture. While the interior is often closed to the public, the exterior carvings and paintings are a masterclass in Northwest Coast design.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="other-interesting-places"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Other Interesting Places</span>
+    <h2>Other Interesting Places</h2><p class="cnt">7 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image12.jpg" alt="1. Market Square, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>1. Market Square</h3>
+        <p>Market Square is Victoria’s historic shopping destination, a vibrant open-air courtyard carved out of 19th-century brick warehouses. While newer malls offer modern convenience, this site provides a tangible connection to the city’s boomtown past, with three levels of independent boutiques and eateries encircling a sun-drenched central square. It offers a relaxed yet energetic atmosphere in the heart of Old Town, characterized by its original ironwork, hidden staircases, and one of the best people-watching spots in the city.</p><p>Historic Courtyard: The square is built into a series of interconnected heritage buildings from the late 1800s. Visitors often suggest taking the time to explore the upper levels, where you can find unique vantage points of the brick masonry and the bustling courtyard below.</p><p>Independent Boutiques: Unlike the high-street brands found on Government Street, Market Square is a haven for local entrepreneurs. You can find everything from artisanal vegan soaps and handcrafted jewelry to rare vinyl records and vintage clothing.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image6.jpg" alt="2. Victoria Bug Zoo, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>2. Victoria Bug Zoo</h3>
+        <p>Victoria Bug Zoo is Victoria’s interactive insectarium, a two-room mini-zoo that houses an incredible collection of live tropical insects from around the world. While larger zoos focus on mammals, this site provides an intimate, up-close look at the planet's smallest giants, from giant walking sticks to glow-in-the-dark scorpions. It offers a high-energy and educational atmosphere in the heart of downtown, characterized by its hands-on philosophy and some of the most enthusiastic guides in the city.</p><p>Bug Handling Experience: The highlight for most visitors is the opportunity to hold some of the residents. Under the careful supervision of expert guides, you can have a giant millipede walk across your hand or get eye-to-eye with a praying mantis, an experience visitors often describe as a fear-conquering thrill.</p><p>Glow-in-the-Dark Scorpions: Head to the darkened display cases to see Emperor Scorpions under ultraviolet light. Witnessing these arachnids glow a bright neon green is a favorite moment for children and photography enthusiasts alike.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image10.jpg" alt="3. Government Street, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>3. Government Street</h3>
+        <p>Government Street is Victoria’s grand boulevard, serving as the city's primary pedestrian artery and cultural showcase. While other streets are purely commercial, this historic thoroughfare acts as a ceremonial link between the Inner Harbour and the heart of Old Town. It offers a sophisticated and lively atmosphere characterized by its meticulously preserved 19th-century architecture, hanging flower baskets, and a high concentration of heritage businesses that define the classic Victoria experience.</p><p>Heritage Architecture: Stroll past some of the city's most significant buildings, including the former Bank of British Columbia. Visitors often note the intricate stonework and the majestic scale of the structures, which house everything from luxury boutiques to local legends.</p><p>Sweater Row and Souvenirs: This is the destination for high-quality West Coast goods. From authentic Cowichan sweaters to artisan chocolates at Rogers' Chocolates, the street is a curated gallery of regional craftsmanship.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image22.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_jbphjov2npgd&quot; w:id=&quot;39&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;39&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;4. Ogden Point Terminal, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_jbphjov2npgd&quot; w:id=&quot;39&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;39&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;4. Ogden Point Terminal</h3>
+        <p>Ogden Point Terminal is a massive 30-acre facility that serves as the city’s primary gateway for international cruise ships. While much of the waterfront is dedicated to leisure, this site provides a fascinating glimpse into the city's maritime industry and global connections. It offers a high-energy, bustling atmosphere where thousands of visitors arrive daily during the summer months, creating a vibrant entry point characterized by its massive concrete piers, colorful murals, and the iconic breakwater walk that extends deep into the ocean.</p><p>Breakwater Walk: This is the terminal’s most famous feature, a 762-meter concrete walkway that allows you to walk right out into the middle of the Juan de Fuca Strait. It features protective railings and lower pathways that get you remarkably close to the spray of the waves.</p><p>Unity Wall: Observe one of the largest outdoor mural projects in Canada. This stunning collection of First Nations art adorns the concrete blocks of the breakwater, depicting the history and culture of the Lekwungen people through vibrant, large-scale imagery.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image4.jpg" alt="5. Cattle Point Urban Star Park, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>5. Cattle Point Urban Star Park</h3>
+        <p>Cattle Point Urban Star Park is a scenic promontory in the Oak Bay neighborhood designated as one of only a handful of Urban Star Parks in Canada. While most coastal lookouts are designed for daytime vistas, this site is a carefully protected dark-sky refuge, offering an immediate connection to the cosmos without the interference of heavy city light pollution. It provides a serene and contemplative atmosphere, characterized by its rugged rocky shoreline, expansive meadows, and an unobstructed 270-degree view of the Salish Sea and the night sky.</p><p>Celestial Dome: As a designated Star Park, this is the absolute best spot in the Greater Victoria area for stargazing. On clear nights, visitors report being able to see the Milky Way, major constellations, and even meteor showers with the naked eye.</p><p>Scenic Circle Drive: The park is a major stop along the Beach Drive scenic route. Even during the day, the two paved loop roads offer a front-row seat to the ocean, allowing you to pull over and watch the currents of the Enterprise Channel churn against the rocks.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image18.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_yxtecuo975zn&quot; w:id=&quot;41&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;41&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;6. Save-On-Foods Memorial Centre, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_yxtecuo975zn&quot; w:id=&quot;41&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;41&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;6. Save-On-Foods Memorial Centre</h3>
+        <p>Save-On-Foods Memorial Centre is a state-of-the-art 7,000-seat facility that serves as the heartbeat of the city’s major event scene. Built on the site of the historic Victoria Memorial Arena (the Barn on Blanshard), this modern venue is the home ice for the Victoria Royals of the Western Hockey League. It offers a high-energy, electric atmosphere where fans gather for everything from heavy-hitting hockey games and world-class concerts to figure skating championships and community trade shows.</p><p>Victoria Royals Hockey: Experience the city's sporting passion firsthand. The arena provides superior sightlines, ensuring there isn't a bad seat in the house to watch the fast-paced action of WHL hockey.</p><p>Lion's Den Restaurant: For a more refined evening, visit this fine-dining establishment located within the arena. It offers a unique dinner and a show perspective, allowing you to enjoy a meal while overlooking the event floor.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image13.jpg" alt="8. The Bay Centre, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>8. The Bay Centre</h3>
+        <p>The Bay Centre is Victoria’s premier urban shopping destination, an architecturally striking multi-level mall that occupies an entire city block in the heart of the central business district. This center is a sophisticated vertical experience, blending a modern retail environment with the historic charm of Government and Douglas Streets. It offers a climate-controlled sanctuary for over 7 million guests a year, providing a diverse atmosphere where international brands like Hudson’s Bay and Winners coexist with unique local boutiques and one of the city's most scenic food terraces.</p><p>Urban Architecture: Take a moment to look up. The mall is famous for its soaring glass atriums and open-concept design that allows natural light to flood all four levels. The bridge-like walkways between stores offer great interior views of the bustling retail floors.</p><p>Victoria Market Collective: Located on the second level, this is the premier spot for those looking to shop local. It features a curated selection of handmade goods from over 100 Vancouver Island artisans, ranging from botanical skincare to West Coast art.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="best-places-to-kayak-in-victoria"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Best places to kayak in Victoria</span>
+    <h2>Best places to kayak in Victoria</h2><p class="cnt">6 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image10.jpg" alt="The Inner Harbour, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>The Inner Harbour</h3>
+        <p>This is the classic starting point and the easiest answer for travelers searching where to kayak in Victoria. Perfect for those who want to see the city from a different angle. Launching here gives you immediate views of the Legislature, the Empress, marinas, and floating homes, all from water level.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image14.jpg" alt="Gorge Waterway, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Gorge Waterway</h3>
+        <p>Gorge Waterway, is a sheltered tidal inlet with calm, lake-like conditions. The Gorge is one of the best choices for beginners or anyone who wants calmer water and a more relaxed pace. Excellent for birdwatching, with frequent sightings of herons and other local waterfowl along the shorelines. You can paddle several kilometers inland toward Portage Inlet, passing under various historic bridges along the way.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image5.jpg" alt="Brentwood Bay &amp; Tod Inlet, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Brentwood Bay &amp; Tod Inlet</h3>
+        <p>Located about 30 minutes north of downtown, this is a favorite for nature lovers. The waters are exceptionally calm, and a paddle into Tod Inlet offers a serene escape with lush forest shorelines and the chance to spot jellyfish, seals, and eagles.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image12.jpg" alt="Oak Bay &amp; Cadboro Bay, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Oak Bay &amp; Cadboro Bay</h3>
+        <p>For a more coastal feel, these areas offer beautiful sandy beaches and views of the Trial Islands. It is a great spot to explore rocky islets and kelp beds, though it is more exposed to wind than the harbor.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image13.jpg" alt="Thetis Lake &amp; Elk Lake, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Thetis Lake &amp; Elk Lake</h3>
+        <p>If you prefer freshwater, these local lakes are ideal for a relaxing afternoon. They are devoid of large boat traffic and ocean currents, making them the safest possible environment for your first time in a boat.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image7.jpg" alt="Fisherman’s Wharf and the Outer Harbour, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Fisherman’s Wharf and the Outer Harbour</h3>
+        <p>This is a good option for travelers who want a little more character and wildlife without committing to a major open-water route. Serves as an iconic launching point right in the heart of the city, offering immediate access to the bustling Victoria Inner Harbour. Ideal for paddling past the historic houseboats and watching the seaplanes take off and land. It is important to note that this requires vigilance as you share the water with significant marine traffic and seaplane taxi lanes.</p><p>Victoria’s climate is one of the big reasons kayaking is so popular here. Temperatures typically range from roughly 37°F to 66°F over the year, with the best warm-weather window for outdoor activities generally falling from mid-July to late August.</p><p>For most visitors, late spring through early fall is the best overall time to kayak. Summer brings the warmest, driest conditions and the longest daylight, while spring and early fall can be excellent if you prefer fewer crowds. Winter paddling is still possible with guided operators, but it is better suited to people comfortable with colder, wetter conditions.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="best-whale-watching-tours-in-victoria"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Best whale watching tours in Victoria</span>
+    <h2>Best whale watching tours in Victoria</h2><p class="cnt">1 place, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/victoria/image16.jpg" alt="Top-Rated Tour Operators, Victoria"></figure>
+      
+      <div class="pl__b">
+        <h3>Top-Rated Tour Operators</h3>
+        <p>Eagle Wing Tours is a carbon-neutral industry leader known for its high-performance catamarans and strong educational focus. Their tours typically last 3 to 3.5 hours, though they also offer extended Wildlife Safaris during peak season. Vessel options include open-air catamarans for a more immersive experience and semi-covered boats for added protection from the elements. Onboard naturalists provide detailed scientific insight into the local ecosystem and marine conservation, and guests are given access to high-end optics and binoculars.</p><p>Prince of Whales is a long-established operator that received a Viator Experience Award in 2023. It features the Salish Sea Eclipse, a custom-built, environmentally friendly catamaran with three viewing levels. Tour options include the standard 3.5-hour whale-watching trip as well as full-day Ultimate Day Tours connecting Victoria and Vancouver. Guests can choose between high-speed Zodiacs for a more thrilling ride or large, stable catamarans with multiple viewing decks. A complimentary professional photo package is often included, featuring high-quality images from the specific trip. Their flagship vessel is designed for both environmental efficiency and passenger comfort across all age groups.</p><p>Orca Spirit Adventures is known for offering both high-speed Zodiac adventures and comfortable covered boat tours. The company is carbon-neutral and includes a hydrophone on its Zodiac tours, allowing passengers to listen to whale calls in real time. Tours usually last around 3 hours, with both morning and afternoon departures, as well as seasonal sunset tours during the summer. Their fleet includes open-air Zodiacs and large heated cruisers with indoor seating and washrooms. Covered boat options also make them a comfortable choice for winter excursions.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <h2>Keep going</h2>
+  <nav class="siblings" style="margin-top:20px" aria-label="Next">
+    <a class="sib" href="region.html"><span class="sib__n">Vancouver Island</span><span class="sib__m">All the towns</span></a>
+    <a class="sib" href="search.html?in=victoria"><span class="sib__n">Stays in Victoria</span><span class="sib__m">Search what is open</span></a>
+    <a class="sib" href="index.html"><span class="sib__n">All destinations</span><span class="sib__m">Every town we cover</span></a>
+  </nav>
+</div></section>
+</main>
+<footer class="f"><div class="wrap fbase">&copy; 2026 Arc Trips. Prices in CAD, before taxes and fees.</div></footer>
+<script src="_nav.js"></script>
+</body></html>

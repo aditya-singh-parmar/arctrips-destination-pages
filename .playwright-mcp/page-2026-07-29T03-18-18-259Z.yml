@@ -1,0 +1,585 @@
+- generic [active] [ref=f755e1]:
+  - link "Skip to the article" [ref=f755e2] [cursor=pointer]:
+    - /url: "#article"
+  - generic:
+    - img:
+      - generic:
+        - generic: "14"
+        - generic: "9"
+        - generic: "22"
+        - generic: "31"
+        - generic: "17"
+        - generic: "6"
+        - generic: "11"
+        - generic: "26"
+        - generic: "19"
+        - generic: "8"
+        - generic: "24"
+        - generic: "13"
+        - generic: "28"
+        - generic: "5"
+        - generic: "16"
+  - navigation [ref=f755e4]:
+    - generic [ref=f755e5]:
+      - link "Arctrips" [ref=f755e6] [cursor=pointer]:
+        - /url: index.html
+      - list [ref=f755e7]:
+        - listitem [ref=f755e8]:
+          - link "Stays" [ref=f755e9] [cursor=pointer]:
+            - /url: search.html?in=tofino
+        - listitem [ref=f755e10]:
+          - link "Destinations" [ref=f755e11] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=f755e12]:
+          - link "Guides" [ref=f755e13] [cursor=pointer]:
+            - /url: search.html
+      - link "Sign in" [ref=f755e14] [cursor=pointer]:
+        - /url: not-found.html
+  - generic [ref=f755e16]:
+    - link "← Tofino" [ref=f755e17] [cursor=pointer]:
+      - /url: tofino.html
+    - list [ref=f755e19]:
+      - listitem [ref=f755e20]:
+        - link "Overview" [ref=f755e21] [cursor=pointer]:
+          - /url: tofino.html
+      - listitem [ref=f755e22]:
+        - link "Things to do" [ref=f755e23] [cursor=pointer]:
+          - /url: things-to-do.html
+      - listitem [ref=f755e24]:
+        - link "Areas" [ref=f755e25] [cursor=pointer]:
+          - /url: long-beach.html
+      - listitem [ref=f755e26]:
+        - link "Plan" [ref=f755e27] [cursor=pointer]:
+          - /url: plan.html
+      - listitem [ref=f755e28]:
+        - link "Guides" [ref=f755e29] [cursor=pointer]:
+          - /url: "#top"
+  - main [ref=f755e30]:
+    - navigation "Breadcrumb" [ref=f755e31]:
+      - link "Tofino" [ref=f755e32] [cursor=pointer]:
+        - /url: tofino.html
+      - generic [ref=f755e33]: /
+      - link "Things to do" [ref=f755e34] [cursor=pointer]:
+        - /url: things-to-do.html
+      - generic [ref=f755e35]: /
+      - link "Whale watching" [ref=f755e36] [cursor=pointer]:
+        - /url: whale-watching.html
+      - generic [ref=f755e37]: /
+      - generic [ref=f755e38]: Wildlife tours
+    - article [ref=f755e39]:
+      - generic [ref=f755e40]:
+        - generic [ref=f755e41]:
+          - generic [ref=f755e42]:
+            - text: Whale watching, Tofino
+            - heading "Wildlife tours in Tofino" [level=1] [ref=f755e43]
+            - paragraph [ref=f755e44]: Whales, bears and seabirds. Which tours are worth booking, what you actually see from the boat, and what the shore gives you for free.
+          - generic "This guide in numbers" [ref=f755e45]:
+            - generic [ref=f755e46]:
+              - generic [ref=f755e47]: "8"
+              - generic [ref=f755e48]: months of the year the boats go out, March to October
+            - generic [ref=f755e49]:
+              - generic [ref=f755e50]: "12"
+              - generic [ref=f755e51]: places on this coast you can watch from on land
+            - generic [ref=f755e52]:
+              - generic [ref=f755e53]: "134"
+              - generic [ref=f755e54]: stays in Tofino, from $320 a night
+        - generic [ref=f755e55]:
+          - generic [ref=f755e56]: Written by Marit Sandoval
+          - generic [ref=f755e57]: Four trips out of Tofino Harbour, March to September
+          - generic [ref=f755e58]: Published 4 March 2026
+          - generic [ref=f755e59]: Updated 21 July 2026
+          - generic [ref=f755e60]: 1,850 words, 8 minutes
+      - figure "A humpback lifting its fluke on the way down, in the channel behind the islands. One of thirteen photographs held for whale watching on this coast" [ref=f755e61]:
+        - img "A humpback lifting its tail fluke clear of flat blue water, with a dark forested shoreline behind" [ref=f755e63]
+        - generic [ref=f755e64]:
+          - generic [ref=f755e65]: A humpback lifting its fluke on the way down, in the channel behind the islands.
+          - generic [ref=f755e66]: One of thirteen photographs held for whale watching on this coast
+      - generic [ref=f755e68]:
+        - paragraph [ref=f755e69]: Tide today at Tofino Harbour
+        - paragraph [ref=f755e70]:
+          - generic [ref=f755e71]: Low 06:14, 0.8 m
+          - generic [ref=f755e72]: High 12:38, 3.1 m
+          - generic [ref=f755e73]: Low 18:52, 1.2 m
+          - generic [ref=f755e74]: Sunset 21:07
+        - paragraph [ref=f755e75]: Every tour boat on this page leaves from here, and at low water Long Beach doubles in width.
+      - generic [ref=f755e76]:
+        - navigation "Sections in this guide" [ref=f755e77]:
+          - generic [ref=f755e78]: In this guide
+          - link "What you see" [ref=f755e79] [cursor=pointer]:
+            - /url: "#what"
+          - link "When to go" [ref=f755e80] [cursor=pointer]:
+            - /url: "#season"
+          - link "Zodiac or covered" [ref=f755e81] [cursor=pointer]:
+            - /url: "#boat"
+          - link "From the shore" [ref=f755e82] [cursor=pointer]:
+            - /url: "#shore"
+          - link "Blows and flukes" [ref=f755e83] [cursor=pointer]:
+            - /url: "#reading"
+          - link "Booking and kit" [ref=f755e84] [cursor=pointer]:
+            - /url: "#booking"
+          - link "Questions" [ref=f755e85] [cursor=pointer]:
+            - /url: "#faq"
+        - generic [ref=f755e86]:
+          - generic [ref=f755e87]:
+            - heading "What you are actually looking for" [level=2] [ref=f755e88]
+            - paragraph [ref=f755e89]: "Tofino is one of the best places on Vancouver Island to see wild animals. It sits beside Clayoquot Sound, a rich coastal area with ocean, islands, beaches, rainforest and rocky shorelines. Almost everything on a tour boat here comes down to that geography: deep water close in, shallow feeding ground behind the islands, and a harbour you can leave from in almost any weather."
+            - paragraph [ref=f755e90]: Three whales carry most trips. Gray whales come past on migration in spring, humpbacks work the feeding water through summer and into September, and orcas turn up often enough to be worth hoping for and not often enough to be worth planning around. Alongside them you get sea otters, sea lions hauled out on the rocks, harbour seals, river otters, bald eagles, great blue herons and more seabirds than most people expect.
+            - paragraph [ref=f755e91]: Bears are a separate trip. Operators run them into the calm inlet water behind town, around Grice Bay, and they are timed to a low tide rather than to a time of day, because that is when black bears come down to turn rocks over on the flats. If you want both, book them on different days. They are not the same boat and they are not the same water.
+            - generic [ref=f755e92]:
+              - generic [ref=f755e93]: Good to know
+              - paragraph [ref=f755e94]: Nothing on the water is guaranteed. Operators pick routes on the day from weather, swell and recent sightings, and the honest ones will tell you when the sea state means a shorter loop closer in.
+          - figure "Orcas travelling in a line inside the islands. They turn up often enough to hope for, and not often enough to plan a trip around." [ref=f755e95]:
+            - img "Four orcas travelling in a line, dorsal fins above flat green water with dark forest behind them" [ref=f755e97]
+          - generic [ref=f755e99]:
+            - heading "When to go" [level=2] [ref=f755e100]
+            - paragraph [ref=f755e101]: Tours run eight months of the twelve, one of the longest seasons on this coast. That is why March in Tofino books out while the rain is still falling.
+            - generic [ref=f755e103]:
+              - heading "When should you go?" [level=3] [ref=f755e104]
+              - paragraph [ref=f755e105]: Tours run March to October. Go in April or May for gray whales, August or September for humpbacks. November to February the boats stop and the storms take over.
+              - paragraph [ref=f755e106]: Each bar below is that month's average rainfall. The square under it is filled when tours are running. Choose a month to see it.
+              - group "Choose a month" [ref=f755e107]:
+                - button "January. Tours do not run this month. 489 millimetres of rain." [ref=f755e108] [cursor=pointer]:
+                  - generic [ref=f755e111]: J
+                - button "February. Tours do not run this month. 368 millimetres of rain." [ref=f755e112] [cursor=pointer]:
+                  - generic [ref=f755e115]: F
+                - button "March. Tours run this month. 337 millimetres of rain." [ref=f755e116] [cursor=pointer]:
+                  - generic [ref=f755e119]: M
+                - button "April. Tours run this month. 213 millimetres of rain." [ref=f755e120] [cursor=pointer]:
+                  - generic [ref=f755e123]: A
+                - button "May. Tours run this month. 132 millimetres of rain." [ref=f755e124] [cursor=pointer]:
+                  - generic [ref=f755e127]: M
+                - button "June. Tours run this month. 102 millimetres of rain." [ref=f755e128] [cursor=pointer]:
+                  - generic [ref=f755e131]: J
+                - button "July. Tours run this month. 66 millimetres of rain." [pressed] [ref=f755e132] [cursor=pointer]:
+                  - generic [ref=f755e135]: J
+                - button "August. Tours run this month. 82 millimetres of rain." [ref=f755e136] [cursor=pointer]:
+                  - generic [ref=f755e139]: A
+                - button "September. Tours run this month. 152 millimetres of rain." [ref=f755e140] [cursor=pointer]:
+                  - generic [ref=f755e143]: S
+                - button "October. Tours run this month. 396 millimetres of rain." [ref=f755e144] [cursor=pointer]:
+                  - generic [ref=f755e147]: O
+                - button "November. Tours do not run this month. 500 millimetres of rain." [ref=f755e148] [cursor=pointer]:
+                  - generic [ref=f755e151]: "N"
+                - button "December. Tours do not run this month. 490 millimetres of rain." [ref=f755e152] [cursor=pointer]:
+                  - generic [ref=f755e155]: D
+              - generic [ref=f755e156]:
+                - generic [ref=f755e157]:
+                  - 'heading "July: the boats are out" [level=4] [ref=f755e158]'
+                  - paragraph [ref=f755e159]: The driest month on the coast, nine rain days out of thirty-one, and everything on the water is running.
+                - generic [ref=f755e160]:
+                  - generic [ref=f755e161]:
+                    - term [ref=f755e162]: Average high
+                    - definition [ref=f755e163]: 18.1°
+                  - generic [ref=f755e164]:
+                    - term [ref=f755e165]: Rain days
+                    - definition [ref=f755e166]: 9of 31
+              - paragraph [ref=f755e167]:
+                - text: Nine other subjects in Tofino run on the same calendar, from surfing to storm watching.
+                - link "See all nine" [ref=f755e168] [cursor=pointer]:
+                  - /url: things-to-do.html
+              - generic [ref=f755e169]:
+                - link "Whale watching in Tofino" [ref=f755e170] [cursor=pointer]:
+                  - /url: whale-watching.html
+                - link "Plan a trip in July" [ref=f755e171] [cursor=pointer]:
+                  - /url: plan.html
+              - paragraph [ref=f755e172]: Rainfall figures are Environment and Climate Change Canada normals for the Tofino station.
+          - generic [ref=f755e173]:
+            - heading "Zodiac or covered boat" [level=2] [ref=f755e174]
+            - paragraph [ref=f755e175]: This is the only real decision you have to make, and it changes the day more than the operator does.
+            - list [ref=f755e176]:
+              - listitem [ref=f755e177]: A covered boat is better for comfort, families and cooler days. There is a heated cabin to retreat into, a washroom, and somewhere to put a camera down. You sit higher, which helps you spot a blow at distance.
+              - listitem [ref=f755e178]: A zodiac is better for travellers who want a faster, more open-air adventure. You are lower, closer to the water and colder, and the boat can turn and hold in places a bigger hull will not. Nobody on a zodiac stays dry in a swell.
+              - listitem [ref=f755e179]: A smaller tour or private charter is the photographers' answer, and the answer for a group that wants the skipper's attention rather than a commentary.
+            - paragraph [ref=f755e180]: Many tours are about two and a half to three hours, but timing can vary, and the exact length is the operator's to set. There is no perfect time of day either. Morning trips may have calmer water, but wildlife can be active at different times, and a good skipper will chase the report rather than the clock.
+            - paragraph [ref=f755e181]: If you are travelling with someone who gets seasick, take the covered boat and take the tablets before boarding rather than after. The swell out past the islands is longer and slower than it looks from the dock.
+          - generic [ref=f755e182]:
+            - figure "In tight against the rock. This is the sheltered, close water a smaller boat can hold position in." [ref=f755e183]:
+              - img "A whale blowing hard in close to a steep mossy rock shoreline, spray lit against the trees" [ref=f755e185]
+            - figure "Outside the islands, in the chop. On a zodiac this is your eye level, and nobody stays dry." [ref=f755e187]:
+              - img "Spray and the mottled back of a whale breaking the surface in blue chop, close to the camera" [ref=f755e189]
+          - generic [ref=f755e191]:
+            - generic [ref=f755e192]:
+              - generic [ref=f755e193]: Six on the Tofino side, for the horizon
+              - link [ref=f755e194] [cursor=pointer]:
+                - /url: long-beach.html
+                - img "The long open sweep of Long Beach with surf breaking along it" [ref=f755e196]
+                - generic [ref=f755e197]:
+                  - heading "Long Beach" [level=4] [ref=f755e198]
+                  - paragraph [ref=f755e199]: Long Beach is one of the most famous beaches on Vancouver Island.
+              - link [ref=f755e200] [cursor=pointer]:
+                - /url: things-to-do.html
+                - img "Wet sand and shallow surf at Chesterman Beach with forest behind" [ref=f755e202]
+                - generic [ref=f755e203]:
+                  - heading "Chesterman Beach" [level=4] [ref=f755e204]
+                  - paragraph [ref=f755e205]: Chesterman Beach is one of the most loved beaches in Tofino.
+              - link [ref=f755e206] [cursor=pointer]:
+                - /url: things-to-do.html
+                - img "Big surf rolling into the wide open sweep of Cox Bay" [ref=f755e208]
+                - generic [ref=f755e209]:
+                  - heading "Cox Bay" [level=4] [ref=f755e210]
+                  - paragraph [ref=f755e211]: Cox Bay is one of the best beaches in Tofino for surfing.
+              - link [ref=f755e212] [cursor=pointer]:
+                - /url: things-to-do.html
+                - img "The exposed open shoreline at Wickaninnish Beach under grey cloud" [ref=f755e214]
+                - generic [ref=f755e215]:
+                  - heading "Wickaninnish Beach" [level=4] [ref=f755e216]
+                  - paragraph [ref=f755e217]: Wickaninnish Beach is in Pacific Rim National Park Reserve, closer to the Ucluelet side of the Long Beach area.
+              - link [ref=f755e218] [cursor=pointer]:
+                - /url: things-to-do.html
+                - img "A small sheltered beach reached through forest at Tonquin" [ref=f755e220]
+                - generic [ref=f755e221]:
+                  - heading "Tonquin Beach" [level=4] [ref=f755e222]
+                  - paragraph [ref=f755e223]: Tonquin Beach is a smaller beach close to the village of Tofino.
+              - link [ref=f755e224] [cursor=pointer]:
+                - /url: things-to-do.html
+                - img "Sand cliffs and empty beach at Florencia Bay" [ref=f755e226]
+                - generic [ref=f755e227]:
+                  - heading "Florencia Bay" [level=4] [ref=f755e228]
+                  - paragraph [ref=f755e229]: Florencia Bay is also in Pacific Rim National Park Reserve.
+            - generic [ref=f755e230]:
+              - generic [ref=f755e231]: Six on the Ucluelet side, for the height
+              - link [ref=f755e232] [cursor=pointer]:
+                - /url: whale-watching.html
+                - img "The rocky coastline and viewpoints of the Wild Pacific Trail" [ref=f755e234]
+                - generic [ref=f755e235]:
+                  - heading "Wild Pacific Trail" [level=4] [ref=f755e236]
+                  - paragraph [ref=f755e237]: The Wild Pacific Trail is one of the best places in Ucluelet to watch wildlife from land.
+              - link [ref=f755e238] [cursor=pointer]:
+                - /url: whale-watching.html
+                - img "The squat white lighthouse at Amphitrite Point above open water" [ref=f755e240]
+                - generic [ref=f755e241]:
+                  - heading "Amphitrite Point Lighthouse" [level=4] [ref=f755e242]
+                  - paragraph [ref=f755e243]: Amphitrite Point Lighthouse is one of the most famous stops on the Wild Pacific Trail.
+              - link [ref=f755e244] [cursor=pointer]:
+                - /url: whale-watching.html
+                - img "Fishing boats tied up in Ucluelet Harbour" [ref=f755e246]
+                - generic [ref=f755e247]:
+                  - heading "Ucluelet Harbour" [level=4] [ref=f755e248]
+                  - paragraph [ref=f755e249]: Ucluelet Harbour is a good place to look for wildlife close to town.
+              - link [ref=f755e250] [cursor=pointer]:
+                - /url: whale-watching.html
+                - img "Islands and open water in Barkley Sound" [ref=f755e252]
+                - generic [ref=f755e253]:
+                  - heading "Barkley Sound" [level=4] [ref=f755e254]
+                  - paragraph [ref=f755e255]: Barkley Sound is one of the top wildlife watching areas near Ucluelet, reached by guided boat or by kayak.
+              - link [ref=f755e256] [cursor=pointer]:
+                - /url: whale-watching.html
+                - img "Low forested islands scattered across calm water in the Broken Group" [ref=f755e258]
+                - generic [ref=f755e259]:
+                  - heading "Broken Group Islands" [level=4] [ref=f755e260]
+                  - paragraph [ref=f755e261]: The Broken Group Islands sit out in Barkley Sound and are one of the richest wildlife areas on this coast.
+              - link [ref=f755e262] [cursor=pointer]:
+                - /url: whale-watching.html
+                - img "Rainforest and boardwalk inside Pacific Rim National Park Reserve" [ref=f755e264]
+                - generic [ref=f755e265]:
+                  - heading "Pacific Rim National Park Reserve" [level=4] [ref=f755e266]
+                  - paragraph [ref=f755e267]: The park reserve runs the length of this coast and carries most of the viewpoints, beaches and rainforest trails between the two towns.
+          - generic [ref=f755e268]:
+            - heading "Blows, backs and flukes" [level=2] [ref=f755e269]
+            - paragraph [ref=f755e270]: Most people spend the first half hour of a tour looking for the wrong thing. Whales do not pose. What you get is a sequence, and once you can read it you stop missing things.
+            - paragraph [ref=f755e271]: A blow means the whale has surfaced to breathe. It is often the first sign people see during whale watching, and on a still morning you can hear it before anyone points. Whales show their backs when they surface to breathe, travel or prepare for another dive. That long dark roll is the most common thing anyone sees all day.
+            - figure "Three blows hanging against the hillside. At any real distance the blow is the whole sighting, not the whale." [ref=f755e272]:
+              - img "Several whale blows hanging in the air above dark water, lit against a steep forested hillside" [ref=f755e274]
+            - paragraph [ref=f755e276]: If a whale lifts its tail fluke before disappearing, it usually means the whale is making a deeper dive.
+            - generic [ref=f755e277]:
+              - paragraph [ref=f755e278]: A fluke is not a goodbye. It usually means a deeper dive, and the whale may surface again nearby after several minutes, or come up a long way off.
+              - generic [ref=f755e279]: Marit Sandoval, on the water off Clayoquot Sound
+            - paragraph [ref=f755e280]: So when the boat cuts its engine and everyone goes quiet, that is the skipper counting. Gray whales feeding in the shallows will often stay in one patch of water for an hour. Humpbacks travelling will not. The difference between the two is the difference between a five minute stop and the rest of your trip.
+            - figure "A gray whale surfacing close in to the beach. Grays feed in shallow water, which is why they are the ones people occasionally get from land." [ref=f755e281]:
+              - img "The mottled grey back of a gray whale surfacing in shallow water a short way off a gravel beach, with a blow above it" [ref=f755e283]
+            - paragraph [ref=f755e285]: Gray whales pass here as they travel north from winter breeding and calving areas in Baja California, Mexico, toward northern feeding grounds near Alaska and the Arctic. The main spring migration period is usually March to May. Early sightings may happen in February, and some whales may still be present into early summer, which is the overlap that makes May the strongest single month on this coast.
+          - figure "One blow, one back, at the range most sightings actually happen. Half of a three hour tour looks like this, and it is the half people forget to watch." [ref=f755e286]:
+            - img "One tall blow and a dark whale back on flat water in front of a long forested shoreline" [ref=f755e288]
+          - generic [ref=f755e290]:
+            - heading "Booking, and what to take" [level=2] [ref=f755e291]
+            - paragraph [ref=f755e292]: "Tours here fill first at the two ends of the season: the second half of March, when the gray whales are coming back through and the Pacific Rim Whale Festival is on, and the middle of August. Between those, a day or two of notice is usually enough. Sailings do get cancelled for swell, so leave a spare morning in the trip if you can only do this once."
+            - list [ref=f755e293]:
+              - listitem [ref=f755e294]: Layers, and a windproof shell. It is consistently colder on the water than on the sand, in every month of the year.
+              - listitem [ref=f755e295]: Binoculars. The single biggest upgrade to the day, on the boat and off it.
+              - listitem [ref=f755e296]: Motion sickness tablets, taken before boarding. Not after.
+              - listitem [ref=f755e297]: A camera you can hold with one hand. The other hand is for the rail.
+              - listitem [ref=f755e298]: Sunglasses, even in the rain. Glare off grey water is what tires your eyes out by hour two.
+              - listitem [ref=f755e299]: A national park pass if the same day takes you down to Long Beach, Wickaninnish or Florencia Bay.
+            - paragraph [ref=f755e300]: Whale watching tours are not bookable through Arc Trips yet. Below is where that stands, and where the stays are in the meantime.
+          - generic [ref=f755e301]:
+            - heading "Questions people ask" [level=2] [ref=f755e302]
+            - paragraph [ref=f755e303]: The ten that come up most, answered short. They came out of the whale watching guides for both towns.
+            - generic [ref=f755e304]:
+              - generic [ref=f755e305]:
+                - heading "What is the best month for whale watching in Tofino?" [level=3] [ref=f755e306]
+                - paragraph [ref=f755e307]: March to May is one of the best times for gray whales. Summer and early fall can also be great for humpbacks, gray whales, orcas, sea otters, sea lions, and other wildlife.
+              - generic [ref=f755e308]:
+                - heading "Can you see whales in Tofino without a tour?" [level=3] [ref=f755e309]
+                - paragraph [ref=f755e310]: Yes, sometimes whales can be seen from shore. But a guided boat tour gives you a much better chance of seeing whales and learning about them.
+              - generic [ref=f755e311]:
+                - heading "What is the best time of day for whale watching?" [level=3] [ref=f755e312]
+                - paragraph [ref=f755e313]: There is no perfect time every day. Tour operators choose routes based on weather, swell, and recent sightings. Morning trips may have calmer water, but wildlife can be active at different times.
+              - generic [ref=f755e314]:
+                - heading "Is a zodiac or covered boat better for whale watching?" [level=3] [ref=f755e315]
+                - paragraph [ref=f755e316]: A covered boat is better for comfort, families, and cooler days. A zodiac is better for travelers who want a faster, more open-air adventure.
+              - generic [ref=f755e317]:
+                - heading "What does it mean when a whale blows?" [level=3] [ref=f755e318]
+                - paragraph [ref=f755e319]: A blow means the whale has surfaced to breathe. It is often the first sign people see during whale watching.
+              - generic [ref=f755e320]:
+                - heading "What does a whale tail mean?" [level=3] [ref=f755e321]
+                - paragraph [ref=f755e322]: If a whale lifts its tail fluke before disappearing, it usually means the whale is making a deeper dive.
+              - generic [ref=f755e323]:
+                - heading "Does seeing a fluke mean the whale is leaving?" [level=3] [ref=f755e324]
+                - paragraph [ref=f755e325]: Not always. A fluke usually means the whale is diving deeper. It may surface again nearby after several minutes, or it may come up farther away.
+              - generic [ref=f755e326]:
+                - heading "How long are Ucluelet whale watching tours?" [level=3] [ref=f755e327]
+                - paragraph [ref=f755e328]: Many tours are about 2.5 to 3 hours, but timing can vary. Always check the operator's current tour details.
+              - generic [ref=f755e329]:
+                - heading "When is the gray whale migration in Ucluelet?" [level=3] [ref=f755e330]
+                - paragraph [ref=f755e331]: The main spring migration period is usually March to May. Early sightings may happen in February, and some whales may still be present into early summer.
+              - generic [ref=f755e332]:
+                - heading "Where is the best place to see whales from shore in Ucluelet?" [level=3] [ref=f755e333]
+                - paragraph [ref=f755e334]: The Wild Pacific Trail and Amphitrite Point Lighthouse area are among the best shore-based places to scan for whales. Bring binoculars.
+            - paragraph [ref=f755e335]:
+              - text: The other fourteen, mostly about Ucluelet, are on
+              - link "the whale watching guide" [ref=f755e336] [cursor=pointer]:
+                - /url: whale-watching.html
+              - text: .
+            - generic "Related subjects" [ref=f755e337]:
+              - link "Whale watching" [ref=f755e338] [cursor=pointer]:
+                - /url: whale-watching.html
+              - link "Things to do in Tofino" [ref=f755e339] [cursor=pointer]:
+                - /url: things-to-do.html
+              - link "Long Beach" [ref=f755e340] [cursor=pointer]:
+                - /url: long-beach.html
+              - link "When to go" [ref=f755e341] [cursor=pointer]:
+                - /url: plan.html
+              - link "Tofino" [ref=f755e342] [cursor=pointer]:
+                - /url: tofino.html
+              - link "Stays in Tofino" [ref=f755e343] [cursor=pointer]:
+                - /url: search.html?in=tofino
+      - generic [ref=f755e344]:
+        - img "A line of orcas surfacing together on calm blue water with pale hills on the horizon" [ref=f755e345]
+        - generic [ref=f755e347]:
+          - text: How much we have written on this
+          - paragraph [ref=f755e348]:
+            - generic [ref=f755e349]: "321"
+            - text: sections written on this water.
+          - paragraph [ref=f755e350]: Across Tofino and Ucluelet, from four seasons of going out. This article is one piece of it.
+          - generic [ref=f755e351]:
+            - generic [ref=f755e352]:
+              - term [ref=f755e353]: Town guides
+              - definition [ref=f755e354]: "2"
+            - generic [ref=f755e355]:
+              - term [ref=f755e356]: Photographs
+              - definition [ref=f755e357]: "13"
+            - generic [ref=f755e358]:
+              - term [ref=f755e359]: Months tours run
+              - definition [ref=f755e360]: "8"
+          - link "The whale watching guide" [ref=f755e361] [cursor=pointer]:
+            - /url: whale-watching.html
+      - generic [ref=f755e362]:
+        - generic [ref=f755e363]:
+          - generic [ref=f755e364]:
+            - generic [ref=f755e365]:
+              - heading "More on whales, same coast" [level=2] [ref=f755e366]
+              - paragraph [ref=f755e367]: Seven short pieces, each a few minutes at most.
+            - link "All whale watching" [ref=f755e368] [cursor=pointer]:
+              - /url: whale-watching.html
+          - generic [ref=f755e369]:
+            - link "Whale Tails, Blows, and Backs Tofino and Ucluelet · under a minute" [ref=f755e370] [cursor=pointer]:
+              - /url: "#top"
+              - generic [ref=f755e371]: Whale Tails, Blows, and Backs
+              - generic [ref=f755e372]: Tofino and Ucluelet · under a minute
+            - link "Whale watching FAQs, Tofino Tofino · under a minute" [ref=f755e373] [cursor=pointer]:
+              - /url: "#top"
+              - generic [ref=f755e374]: Whale watching FAQs, Tofino
+              - generic [ref=f755e375]: Tofino · under a minute
+            - link "Whale Watching Tours in Ucluelet Ucluelet · under a minute" [ref=f755e376] [cursor=pointer]:
+              - /url: "#top"
+              - generic [ref=f755e377]: Whale Watching Tours in Ucluelet
+              - generic [ref=f755e378]: Ucluelet · under a minute
+            - 'link "Whales in Ucluelet: The Spring Migration Explained Ucluelet · under a minute" [ref=f755e379] [cursor=pointer]':
+              - /url: "#top"
+              - generic [ref=f755e380]: "Whales in Ucluelet: The Spring Migration Explained"
+              - generic [ref=f755e381]: Ucluelet · under a minute
+            - link "Whale Watching in Ucluelet Ucluelet · under a minute" [ref=f755e382] [cursor=pointer]:
+              - /url: "#top"
+              - generic [ref=f755e383]: Whale Watching in Ucluelet
+              - generic [ref=f755e384]: Ucluelet · under a minute
+            - link "Whale watching FAQs, Ucluelet Ucluelet · under a minute" [ref=f755e385] [cursor=pointer]:
+              - /url: "#top"
+              - generic [ref=f755e386]: Whale watching FAQs, Ucluelet
+              - generic [ref=f755e387]: Ucluelet · under a minute
+            - link "Wildlife Watching in Ucluelet Ucluelet · under a minute" [ref=f755e388] [cursor=pointer]:
+              - /url: "#top"
+              - generic [ref=f755e389]: Wildlife Watching in Ucluelet
+              - generic [ref=f755e390]: Ucluelet · under a minute
+        - generic [ref=f755e391]:
+          - generic [ref=f755e392]:
+            - generic [ref=f755e393]:
+              - heading "Other things to do in Tofino" [level=2] [ref=f755e394]
+              - paragraph [ref=f755e395]: Eight more subjects, 73 places written up between them.
+            - link "Everything in Tofino" [ref=f755e396] [cursor=pointer]:
+              - /url: things-to-do.html
+          - generic [ref=f755e397]:
+            - link "Hiking and trails 18 places · best apr to oct" [ref=f755e398] [cursor=pointer]:
+              - /url: things-to-do.html
+              - generic [ref=f755e399]: Hiking and trails
+              - generic [ref=f755e400]: 18 places · best apr to oct
+            - link "Kayaking and paddling 18 places · best may to sep" [ref=f755e401] [cursor=pointer]:
+              - /url: things-to-do.html
+              - generic [ref=f755e402]: Kayaking and paddling
+              - generic [ref=f755e403]: 18 places · best may to sep
+            - link "Restaurants 16 places · best all year" [ref=f755e404] [cursor=pointer]:
+              - /url: things-to-do.html
+              - generic [ref=f755e405]: Restaurants
+              - generic [ref=f755e406]: 16 places · best all year
+            - link "Beaches 13 places · best may to sep" [ref=f755e407] [cursor=pointer]:
+              - /url: long-beach.html
+              - generic [ref=f755e408]: Beaches
+              - generic [ref=f755e409]: 13 places · best may to sep
+            - link "Storm watching 8 places · best nov to feb" [ref=f755e410] [cursor=pointer]:
+              - /url: things-to-do.html
+              - generic [ref=f755e411]: Storm watching
+              - generic [ref=f755e412]: 8 places · best nov to feb
+            - link "Birding and wildlife In the guide · best mar to may and sep to nov" [ref=f755e413] [cursor=pointer]:
+              - /url: things-to-do.html
+              - generic [ref=f755e414]: Birding and wildlife
+              - generic [ref=f755e415]: In the guide · best mar to may and sep to nov
+            - link "Surfing In the guide · best sep to apr" [ref=f755e416] [cursor=pointer]:
+              - /url: things-to-do.html
+              - generic [ref=f755e417]: Surfing
+              - generic [ref=f755e418]: In the guide · best sep to apr
+            - link "Fishing In the guide · best may to sep" [ref=f755e419] [cursor=pointer]:
+              - /url: things-to-do.html
+              - generic [ref=f755e420]: Fishing
+              - generic [ref=f755e421]: In the guide · best may to sep
+        - generic [ref=f755e422]:
+          - text: Whale watching, booking status
+          - heading "Tours are not bookable here yet. The 134 stays in Tofino are." [level=3] [ref=f755e423]
+          - paragraph [ref=f755e424]: We list whale watching operators once we have been out with them and can stand behind the boat, the skipper and the refund policy. Leave an address and we will write the week it opens, and not before.
+          - generic [ref=f755e425]:
+            - generic [ref=f755e426]: Email address
+            - textbox "Email address" [ref=f755e427]:
+              - /placeholder: you@example.com
+            - button "Tell me when tours open" [ref=f755e428] [cursor=pointer]
+          - generic [ref=f755e429]:
+            - checkbox "Yes, email me when whale watching goes live in Tofino. One message, and you can unsubscribe from any email." [ref=f755e430]
+            - text: Yes, email me when whale watching goes live in Tofino. One message, and you can unsubscribe from any email.
+          - generic [ref=f755e431]:
+            - generic [ref=f755e432]:
+              - generic [ref=f755e433]:
+                - text: In the meantime
+                - heading "Three of the 134 stays in Tofino. The town starts at $320 a night." [level=3] [ref=f755e434]
+              - link "See all 134" [ref=f755e435] [cursor=pointer]:
+                - /url: search.html?in=tofino
+            - generic [ref=f755e436]:
+              - link [ref=f755e437] [cursor=pointer]:
+                - /url: search.html?in=tofino
+                - img "A timber cabin standing alone on a forested headland above the water, seen from the air" [ref=f755e439]
+                - heading "Coastal Bed-Cliff Cottage with Private Beach and Firepit" [level=4] [ref=f755e440]
+                - paragraph [ref=f755e441]: $420 a night · 3 beds, 2 baths · 4.9 rated
+              - link [ref=f755e442] [cursor=pointer]:
+                - /url: search.html?in=tofino
+                - img "The living room of an A-frame cabin, white sofa under a sloped timber ceiling with the door open to the trees" [ref=f755e444]
+                - heading "Riverside Cabin Retreat with Hot Tub and Forest Views" [level=4] [ref=f755e445]
+                - paragraph [ref=f755e446]: $420 a night · 3 beds, 2 baths · 4.9 rated
+              - link [ref=f755e447] [cursor=pointer]:
+                - /url: search.html?in=tofino
+                - img "Houses set back in the trees along a rocky stretch of the west coast shoreline" [ref=f755e449]
+                - heading "Riverside Cabin Retreat with Hot Tub and Forest Views" [level=4] [ref=f755e450]
+                - paragraph [ref=f755e451]: $420 a night · 3 beds, 2 baths · 4.9 rated
+        - generic [ref=f755e452]:
+          - generic [ref=f755e454]:
+            - text: Keep going
+            - heading "Where this goes next" [level=2] [ref=f755e455]
+          - generic [ref=f755e456]:
+            - link [ref=f755e457] [cursor=pointer]:
+              - /url: "#top"
+              - text: Next in this guide
+              - heading "Whale Tails, Blows, and Backs" [level=3] [ref=f755e458]
+              - paragraph [ref=f755e459]: "The follow-on piece: what each surface behaviour means, and why a fluke is not the end of the sighting. Four questions, Tofino and Ucluelet."
+              - generic [ref=f755e460]: Read it next
+            - link [ref=f755e463] [cursor=pointer]:
+              - /url: things-to-do.html
+              - text: More in Tofino
+              - heading "Nine subjects, 73 places" [level=3] [ref=f755e464]
+              - paragraph [ref=f755e465]: Eight more subjects, from beaches to storm watching, written up one place at a time.
+              - generic [ref=f755e466]: See all nine
+            - link [ref=f755e469] [cursor=pointer]:
+              - /url: search.html?in=tofino
+              - text: The booking path
+              - heading "134 stays in Tofino" [level=3] [ref=f755e470]
+              - paragraph [ref=f755e471]: Cabins, cottages and chalets within reach of the harbour, from $320 a night before taxes and fees.
+              - generic [ref=f755e472]: Check dates
+  - contentinfo [ref=f755e475]:
+    - generic [ref=f755e476]:
+      - generic [ref=f755e477]:
+        - generic [ref=f755e478]:
+          - text: Arctrips
+          - paragraph [ref=f755e479]: Stays and guides on the west coast of Vancouver Island, written by people who go there.
+        - generic [ref=f755e480]:
+          - heading "Destinations" [level=5] [ref=f755e481]
+          - list [ref=f755e482]:
+            - listitem [ref=f755e483]:
+              - link "Tofino" [ref=f755e484] [cursor=pointer]:
+                - /url: tofino.html
+            - listitem [ref=f755e485]:
+              - link "Guides" [ref=f755e486] [cursor=pointer]:
+                - /url: search.html
+            - listitem [ref=f755e487]:
+              - link "British Columbia" [ref=f755e488] [cursor=pointer]:
+                - /url: province.html
+            - listitem [ref=f755e489]:
+              - link "Canada" [ref=f755e490] [cursor=pointer]:
+                - /url: country.html
+        - generic [ref=f755e491]:
+          - heading "Things to do" [level=5] [ref=f755e492]
+          - list [ref=f755e493]:
+            - listitem [ref=f755e494]:
+              - link "All nine subjects" [ref=f755e495] [cursor=pointer]:
+                - /url: things-to-do.html
+            - listitem [ref=f755e496]:
+              - link "Whale watching" [ref=f755e497] [cursor=pointer]:
+                - /url: whale-watching.html
+            - listitem [ref=f755e498]:
+              - link "Long Beach" [ref=f755e499] [cursor=pointer]:
+                - /url: long-beach.html
+            - listitem [ref=f755e500]:
+              - link "Search everything" [ref=f755e501] [cursor=pointer]:
+                - /url: search.html?in=tofino
+        - generic [ref=f755e502]:
+          - heading "Plan" [level=5] [ref=f755e503]
+          - list [ref=f755e504]:
+            - listitem [ref=f755e505]:
+              - link "When to go" [ref=f755e506] [cursor=pointer]:
+                - /url: plan.html
+            - listitem [ref=f755e507]:
+              - link "Getting there" [ref=f755e508] [cursor=pointer]:
+                - /url: plan.html
+            - listitem [ref=f755e509]:
+              - link "Where to stay" [ref=f755e510] [cursor=pointer]:
+                - /url: search.html?in=tofino
+            - listitem [ref=f755e511]:
+              - link "What to pack" [ref=f755e512] [cursor=pointer]:
+                - /url: "#top"
+        - generic [ref=f755e513]:
+          - heading "Arc Trips" [level=5] [ref=f755e514]
+          - list [ref=f755e515]:
+            - listitem [ref=f755e516]:
+              - link "About us" [ref=f755e517] [cursor=pointer]:
+                - /url: not-found.html
+            - listitem [ref=f755e518]:
+              - link "List your place" [ref=f755e519] [cursor=pointer]:
+                - /url: not-found.html
+            - listitem [ref=f755e520]:
+              - link "Fishing charters" [ref=f755e521] [cursor=pointer]:
+                - /url: search.html?in=tofino
+            - listitem [ref=f755e522]:
+              - link "Contact" [ref=f755e523] [cursor=pointer]:
+                - /url: not-found.html
+      - generic [ref=f755e524]:
+        - generic [ref=f755e525]: © 2026 Arc Trips
+        - generic [ref=f755e526]: Prices in CAD, before taxes and fees
+  - generic [ref=f755e528]:
+    - generic [ref=f755e529]:
+      - generic [ref=f755e530]: Tofino
+      - text: 134 stays, from $320
+    - link "See stays" [ref=f755e531] [cursor=pointer]:
+      - /url: search.html?in=tofino

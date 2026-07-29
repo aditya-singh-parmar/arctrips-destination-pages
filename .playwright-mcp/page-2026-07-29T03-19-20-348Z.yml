@@ -1,0 +1,212 @@
+- generic [active] [ref=f761e1]:
+  - navigation [ref=f761e2]:
+    - generic [ref=f761e3]:
+      - link "ARCTRIPS" [ref=f761e4] [cursor=pointer]:
+        - /url: index.html
+      - list [ref=f761e5]:
+        - listitem [ref=f761e6]:
+          - link "Stays" [ref=f761e7] [cursor=pointer]:
+            - /url: search.html?in=ucluelet
+        - listitem [ref=f761e8]:
+          - link "Destinations" [ref=f761e9] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=f761e10]:
+          - link "Guides" [ref=f761e11] [cursor=pointer]:
+            - /url: search.html
+      - generic [ref=f761e12]:
+        - textbox "Search" [ref=f761e16]:
+          - /placeholder: Search Ucluelet
+        - generic [ref=f761e17]: /
+      - link "Sign in" [ref=f761e18] [cursor=pointer]:
+        - /url: search.html?in=ucluelet
+  - navigation "Ucluelet" [ref=f761e19]:
+    - generic [ref=f761e20]:
+      - link "← Ucluelet" [ref=f761e21] [cursor=pointer]:
+        - /url: region.html
+      - list [ref=f761e23]:
+        - listitem [ref=f761e24]:
+          - link "Overview" [ref=f761e25] [cursor=pointer]:
+            - /url: region.html
+        - listitem [ref=f761e26]:
+          - link "Things to do" [ref=f761e27] [cursor=pointer]:
+            - /url: things-to-do.html
+        - listitem [ref=f761e28]:
+          - link "Whale watching" [ref=f761e29] [cursor=pointer]:
+            - /url: "#top"
+        - listitem [ref=f761e30]:
+          - link "Stays" [ref=f761e31] [cursor=pointer]:
+            - /url: search.html?in=ucluelet
+      - link "Find a stay" [ref=f761e32] [cursor=pointer]:
+        - /url: search.html?in=ucluelet
+  - main [ref=f761e33]:
+    - navigation "Breadcrumb" [ref=f761e35]:
+      - link "Arc Trips" [ref=f761e36] [cursor=pointer]:
+        - /url: index.html
+      - generic [ref=f761e37]: /
+      - link "Canada" [ref=f761e38] [cursor=pointer]:
+        - /url: country.html
+      - generic [ref=f761e39]: /
+      - link "British Columbia" [ref=f761e40] [cursor=pointer]:
+        - /url: province.html
+      - generic [ref=f761e41]: /
+      - link "Vancouver Island" [ref=f761e42] [cursor=pointer]:
+        - /url: region.html
+      - generic [ref=f761e43]: /
+      - link "Ucluelet" [ref=f761e44] [cursor=pointer]:
+        - /url: region.html
+      - generic [ref=f761e45]: /
+      - link "Things to do" [ref=f761e46] [cursor=pointer]:
+        - /url: things-to-do.html
+      - generic [ref=f761e47]: /
+      - generic [ref=f761e48]: Whale watching
+    - generic [ref=f761e49]:
+      - img "Whale watching in Ucluelet" [ref=f761e50]
+      - generic [ref=f761e53]:
+        - text: Ucluelet, Vancouver Island
+        - heading "Whale watching in Ucluelet" [level=1] [ref=f761e54]
+        - paragraph [ref=f761e55]: Discover the best wildlife watching in Ucluelet, British Columbia. Learn where to see whales, black bears, sea lions, seals, sea otters, bald eagles, and coastal birds from shore, boat tours, kayak trips, and trails.
+        - generic [ref=f761e56]:
+          - generic [ref=f761e57]:
+            - term [ref=f761e58]: Places written up
+            - definition [ref=f761e59]: "6"
+          - generic [ref=f761e60]:
+            - term [ref=f761e61]: With photographs
+            - definition [ref=f761e62]: "6"
+    - generic [ref=f761e65]:
+      - article [ref=f761e66]:
+        - figure [ref=f761e67]:
+          - img "Wild Pacific Trail, Ucluelet" [ref=f761e68]
+        - generic [ref=f761e69]:
+          - heading "Wild Pacific Trail" [level=3] [ref=f761e70]
+          - paragraph [ref=f761e71]: The Wild Pacific Trail is one of the best places in Ucluelet to watch wildlife from land. It follows the rocky coast and gives you many ocean viewpoints.
+          - paragraph [ref=f761e72]: The Wild Pacific Trail is one of the best places in Ucluelet to watch wildlife from land. It follows the rocky coast and gives you many ocean viewpoints.
+          - paragraph [ref=f761e73]: You may see whales offshore, eagles flying above the trees, sea lions on rocks, seals in the water, cormorants near the shore, and many types of coastal birds.
+          - generic [ref=f761e74]:
+            - generic [ref=f761e75]: Whale watching from shore
+            - generic [ref=f761e76]: Bald eagles
+            - generic [ref=f761e77]: Sea lions and seals
+            - generic [ref=f761e78]: Coastal birds
+            - generic [ref=f761e79]: Storm watching
+            - generic [ref=f761e80]: Photography
+            - generic [ref=f761e81]: Easy walking
+          - paragraph [ref=f761e82]: Good to know. Bring binoculars. Wildlife may be far from shore.
+      - article [ref=f761e83]:
+        - figure [ref=f761e84]:
+          - img "Amphitrite Point Lighthouse, Ucluelet" [ref=f761e85]
+        - generic [ref=f761e86]:
+          - heading "Amphitrite Point Lighthouse" [level=3] [ref=f761e87]
+          - paragraph [ref=f761e88]: Amphitrite Point Lighthouse is one of the most famous stops on the Wild Pacific Trail. It has wide ocean views and is a good place to watch for whales, sea lions, seals, and birds.
+          - paragraph [ref=f761e89]: Amphitrite Point Lighthouse is one of the most famous stops on the Wild Pacific Trail. It has wide ocean views and is a good place to watch for whales, sea lions, seals, and birds.
+          - paragraph [ref=f761e90]: In spring, you may have a chance to spot migrating gray whales offshore. In other seasons, you may still see eagles, seals, sea lions, and seabirds.
+          - generic [ref=f761e91]:
+            - generic [ref=f761e92]: Whale watching from land
+            - generic [ref=f761e93]: Ocean views
+            - generic [ref=f761e94]: Photography
+            - generic [ref=f761e95]: Eagles
+            - generic [ref=f761e96]: Seals and sea lions
+            - generic [ref=f761e97]: Storm watching
+          - paragraph [ref=f761e98]: Good to know. Stay on marked paths and away from wet rocks. Large waves can be dangerous.
+      - article [ref=f761e99]:
+        - figure [ref=f761e100]:
+          - img "Ucluelet Harbour, Ucluelet" [ref=f761e101]
+        - generic [ref=f761e102]:
+          - heading "Ucluelet Harbour" [level=3] [ref=f761e103]
+          - paragraph [ref=f761e104]: Ucluelet Harbour is a good place to look for wildlife close to town. You may see seals, eagles, gulls, cormorants, river otters, and shorebirds.
+          - paragraph [ref=f761e105]: Ucluelet Harbour is a good place to look for wildlife close to town. You may see seals, eagles, gulls, cormorants, river otters, and shorebirds.
+          - paragraph [ref=f761e106]: This is also where many wildlife and whale watching tours depart.
+          - generic [ref=f761e107]:
+            - generic [ref=f761e108]: Easy wildlife watching
+            - generic [ref=f761e109]: Boat tour departures
+            - generic [ref=f761e110]: Seals
+            - generic [ref=f761e111]: Eagles
+            - generic [ref=f761e112]: River otters
+            - generic [ref=f761e113]: Harbour birds
+          - paragraph [ref=f761e114]: Good to know. Watch for boat traffic and keep a safe distance from docks and working harbour areas.
+      - article [ref=f761e115]:
+        - figure [ref=f761e116]:
+          - img "Barkley Sound, Ucluelet" [ref=f761e117]
+        - generic [ref=f761e118]:
+          - heading "Barkley Sound" [level=3] [ref=f761e119]
+          - paragraph [ref=f761e120]: Barkley Sound is one of the top wildlife watching areas near Ucluelet. It includes islands, channels, rocky shores, kelp beds, and sheltered waters.
+          - paragraph [ref=f761e121]: Barkley Sound is one of the top wildlife watching areas near Ucluelet. It includes islands, channels, rocky shores, kelp beds, and sheltered waters.
+          - paragraph [ref=f761e122]: This is where many boat and kayak trips go. It is also the gateway to the Broken Group Islands.
+          - generic [ref=f761e123]:
+            - generic [ref=f761e124]: Whales
+            - generic [ref=f761e125]: Sea lions
+            - generic [ref=f761e126]: Seals
+            - generic [ref=f761e127]: Sea otters
+            - generic [ref=f761e128]: Bald eagles
+            - generic [ref=f761e129]: Seabirds
+            - generic [ref=f761e130]: Black bears along shorelines
+            - generic [ref=f761e131]: Boat tours and kayaking
+          - paragraph [ref=f761e132]: Good to know. The best way to explore Barkley Sound wildlife is by guided boat or kayak tour.
+      - article [ref=f761e133]:
+        - figure [ref=f761e134]:
+          - img "Broken Group Islands, Ucluelet" [ref=f761e135]
+        - generic [ref=f761e136]:
+          - heading "Broken Group Islands" [level=3] [ref=f761e137]
+          - paragraph [ref=f761e138]: The Broken Group Islands are part of Pacific Rim National Park Reserve in Barkley Sound. They are known for forested islands, shell beaches, sheltered channels, reefs, and rocky outcrops.
+          - paragraph [ref=f761e139]: The Broken Group Islands are part of Pacific Rim National Park Reserve in Barkley Sound. They are known for forested islands, shell beaches, sheltered channels, reefs, and rocky outcrops.
+          - paragraph [ref=f761e140]: This is a great area for wildlife watching by kayak or boat. You may see seals, sea lions, sea otters, bald eagles, seabirds, shorebirds, and sometimes whales in nearby waters.
+          - generic [ref=f761e141]:
+            - generic [ref=f761e142]: Kayak wildlife watching
+            - generic [ref=f761e143]: Boat tours
+            - generic [ref=f761e144]: Sea otters
+            - generic [ref=f761e145]: Seals and sea lions
+            - generic [ref=f761e146]: Bald eagles
+            - generic [ref=f761e147]: Seabirds
+            - generic [ref=f761e148]: Multi-day paddling trips
+          - paragraph [ref=f761e149]: Good to know. The Broken Group Islands are boat-access only. Plan ahead if you are kayaking or camping.
+      - article [ref=f761e150]:
+        - figure [ref=f761e151]:
+          - img "Pacific Rim National Park Reserve, Ucluelet" [ref=f761e152]
+        - generic [ref=f761e153]:
+          - heading "Pacific Rim National Park Reserve" [level=3] [ref=f761e154]
+          - paragraph [ref=f761e155]: Pacific Rim National Park Reserve is near Ucluelet and includes the Long Beach Unit, Broken Group Islands, and the West Coast Trail area. It is a major protected area for coastal rainforest, beaches,
+          - paragraph [ref=f761e156]: Pacific Rim National Park Reserve is near Ucluelet and includes the Long Beach Unit, Broken Group Islands, and the West Coast Trail area. It is a major protected area for coastal rainforest, beaches, and marine ecosystems.
+          - paragraph [ref=f761e157]: Wildlife here may include black bears, wolves, cougars, deer, whales, seals, sea lions, shorebirds, and many other coastal species.
+          - generic [ref=f761e158]:
+            - generic [ref=f761e159]: Bird watching
+            - generic [ref=f761e160]: Beach wildlife
+            - generic [ref=f761e161]: Whale watching from viewpoints
+            - generic [ref=f761e162]: Black bear awareness
+            - generic [ref=f761e163]: Coastal rainforest wildlife
+            - generic [ref=f761e164]: Tidepool life
+            - generic [ref=f761e165]: Guided nature learning
+          - paragraph [ref=f761e166]: Good to know. You may need a national park pass if you stop in the park.
+    - generic [ref=f761e168]:
+      - heading "More on whale watching" [level=2] [ref=f761e169]
+      - navigation [ref=f761e170]:
+        - link "Wildlife Watching in Ucluelet whale-watching" [ref=f761e171] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f761e172]: Wildlife Watching in Ucluelet
+          - generic [ref=f761e173]: whale-watching
+        - link "Whale Watching Tours in Ucluelet whale-watching" [ref=f761e174] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f761e175]: Whale Watching Tours in Ucluelet
+          - generic [ref=f761e176]: whale-watching
+        - 'link "Whales in Ucluelet: The Spring Migration Explained whale-watching" [ref=f761e177] [cursor=pointer]':
+          - /url: guide.html
+          - generic [ref=f761e178]: "Whales in Ucluelet: The Spring Migration Explained"
+          - generic [ref=f761e179]: whale-watching
+        - link "Whale watching FAQs whale-watching" [ref=f761e180] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f761e181]: Whale watching FAQs
+          - generic [ref=f761e182]: whale-watching
+    - generic [ref=f761e184]:
+      - heading "Keep going" [level=2] [ref=f761e185]
+      - navigation [ref=f761e186]:
+        - link "Everything to do in Ucluelet All the subjects" [ref=f761e187] [cursor=pointer]:
+          - /url: things-to-do.html
+          - generic [ref=f761e188]: Everything to do in Ucluelet
+          - generic [ref=f761e189]: All the subjects
+        - link "Ucluelet The town" [ref=f761e190] [cursor=pointer]:
+          - /url: region.html
+          - generic [ref=f761e191]: Ucluelet
+          - generic [ref=f761e192]: The town
+        - link "Stays Search what is open" [ref=f761e193] [cursor=pointer]:
+          - /url: search.html?in=ucluelet
+          - generic [ref=f761e194]: Stays
+          - generic [ref=f761e195]: Search what is open
+  - contentinfo [ref=f761e196]:
+    - generic [ref=f761e197]: © 2026 Arc Trips. Prices in CAD, before taxes and fees.

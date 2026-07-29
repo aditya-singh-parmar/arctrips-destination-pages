@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prototype map, Arc Trips destinations</title>
+<meta name="description" content="Every page in the Arc Trips destinations prototype, grouped by depth, with the contract ruling each one demonstrates.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_system.css">
+<style>
+/* ── The index the owner opens first. Not a product surface: it is a contact
+      sheet for twelve pages. Dark navy ground so every light page card reads
+      as a page, and so leaving this file for a real one is unmistakable.
+      Page-scoped only, built from _system.css tokens. ────────────────────── */
+
+:focus-visible{outline:2px solid var(--a300);outline-offset:3px;border-radius:var(--r-sm)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+body{background:var(--navy);color:rgba(255,255,255,.82)}
+body>.skip{position:absolute;left:var(--gut);top:-60px;z-index:99;background:var(--paper);color:var(--navy);
+  padding:13px 18px;border-radius:0 0 var(--r-sm) var(--r-sm);font-weight:600;font-size:.9rem;transition:top .18s var(--ease)}
+body>.skip:focus{top:0}
+.chart{opacity:.34}
+
+/* ── dark chrome ───────────────────────────────────────────────────────── */
+nav.top{background:rgba(11,51,86,.88);border-bottom:1px solid rgba(255,255,255,.16)}
+.brand{color:var(--paper)}
+.nav-in{gap:clamp(14px,2.4vw,30px)}
+.mnav{display:flex;gap:clamp(10px,1.6vw,20px);list-style:none;font-size:.9rem;font-weight:600;flex-wrap:wrap}
+.mnav a{color:rgba(255,255,255,.7);display:inline-flex;align-items:center;min-height:44px}
+.mnav a:hover{color:var(--paper)}
+.nav-in .btn{margin-left:auto;flex:none;min-height:44px}
+.btn--primary:hover{background:var(--a400);color:var(--navy)}
+.btn--ghost{border-color:rgba(255,255,255,.4);color:var(--paper)}
+.btn--ghost:hover{border-color:var(--paper);background:rgba(255,255,255,.1)}
+@media(max-width:860px){.mnav{display:none}}
+
+/* ── head ──────────────────────────────────────────────────────────────── */
+.mhead{padding-block:clamp(38px,5vw,68px) clamp(26px,3vw,38px)}
+.mhead h1{color:var(--paper);font-size:clamp(2.5rem,5vw,4rem);max-width:16ch}
+.mhead .label{color:var(--a300)}
+.mhead p{color:rgba(255,255,255,.76);font-size:clamp(1.02rem,1.4vw,1.18rem);line-height:1.6;max-width:62ch;margin-top:20px}
+.mhead p b{color:var(--paper);font-weight:700}
+.mfacts{display:flex;gap:clamp(20px,3vw,44px);flex-wrap:wrap;margin-top:30px;padding-top:22px;
+  border-top:1px solid rgba(255,255,255,.2)}
+.mfacts dt{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.58)}
+.mfacts dd{font-size:1.6rem;font-weight:800;color:var(--paper);letter-spacing:-.03em;margin-top:5px;font-variant-numeric:tabular-nums}
+
+/* ── the legend: what the codes on each card mean ──────────────────────── */
+.legend{border:1px solid rgba(255,255,255,.2);border-radius:var(--r);padding:clamp(20px,2.6vw,28px);
+  margin-bottom:clamp(30px,4vw,48px)}
+.legend h2{color:var(--paper);font-size:1.22rem;font-weight:700;letter-spacing:-.012em}
+.legend p{font-size:.92rem;color:rgba(255,255,255,.7);margin-top:8px;max-width:70ch;line-height:1.6}
+.lgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,30px);margin-top:22px}
+@media(max-width:860px){.lgrid{grid-template-columns:1fr;gap:22px}}
+.lgrid h3{color:var(--a300);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.lgrid ul{list-style:none;margin-top:11px;display:flex;flex-direction:column;gap:7px;font-size:.88rem;
+  color:rgba(255,255,255,.74);line-height:1.45}
+.lgrid ul b{color:var(--paper);font-weight:700;font-variant-numeric:tabular-nums}
+
+/* ── groups ────────────────────────────────────────────────────────────── */
+.grp{margin-bottom:clamp(34px,4.4vw,58px)}
+.grp__h{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;padding-bottom:14px;
+  border-bottom:1px solid rgba(255,255,255,.2);margin-bottom:22px}
+.grp__h h2{color:var(--paper);font-size:clamp(1.3rem,2vw,1.62rem);letter-spacing:-.024em}
+.grp__h span{font-size:.8rem;color:rgba(255,255,255,.62);line-height:1.5}
+.grp__h b{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--a300)}
+
+/* ── the page card, deliberately paper on navy ─────────────────────────── */
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,1.8vw,20px)}
+@media(max-width:760px){.cards{grid-template-columns:1fr}}
+.pg{display:block;background:var(--paper);border-radius:var(--r);padding:clamp(18px,2.2vw,24px);
+  box-shadow:0 16px 34px -22px rgba(0,0,0,.6);transition:transform .22s var(--ease),box-shadow .22s var(--ease)}
+.pg:hover{transform:translateY(-3px);box-shadow:0 22px 44px -20px rgba(0,0,0,.66)}
+.pg__t{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.pg__f{font-size:.74rem;font-weight:700;letter-spacing:.02em;color:var(--azure);font-variant-numeric:tabular-nums}
+.pg__n{font-size:.72rem;font-weight:700;color:var(--n400);font-variant-numeric:tabular-nums;flex:none}
+.pg h3{margin-top:9px;font-size:1.22rem;font-weight:800;letter-spacing:-.02em}
+.pg:hover h3{color:var(--azure)}
+.pg__d{font-size:.94rem;color:var(--n600);margin-top:8px;line-height:1.55}
+.pg__r{display:flex;flex-wrap:wrap;gap:5px;margin-top:14px;padding-top:13px;border-top:1px solid var(--n150)}
+.r{font-size:.68rem;font-weight:700;letter-spacing:.05em;padding:4px 9px;border-radius:999px;
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+.r--s{background:var(--em100);color:var(--em700)}
+.r--n{background:var(--a100);color:var(--a800)}
+.r--e{background:var(--n100);color:var(--n700)}
+.pg__go{display:inline-flex;align-items:center;gap:8px;margin-top:14px;min-height:44px;
+  font-size:.88rem;font-weight:700;color:var(--azure)}
+.pg__go svg{width:14px;height:14px}
+
+/* the map's own row, which is this file, so the set reads as complete */
+.pg--self{background:none;border:1px dashed rgba(255,255,255,.34);box-shadow:none}
+.pg--self:hover{transform:none;box-shadow:none}
+.pg--self h3{color:var(--paper)}
+.pg--self .pg__d{color:rgba(255,255,255,.7)}
+.pg--self .pg__f{color:var(--a300)}
+.pg--self .pg__r{border-top-color:rgba(255,255,255,.2)}
+.pg--self .r{background:rgba(255,255,255,.14);color:rgba(255,255,255,.86)}
+
+/* ── the base ──────────────────────────────────────────────────────────── */
+.mbase{border-top:1px solid rgba(255,255,255,.2);margin-top:clamp(30px,4vw,50px);
+  padding-block:clamp(28px,3.4vw,42px) clamp(44px,5vw,70px)}
+.mbase h2{color:var(--paper);font-size:1.22rem;font-weight:700;letter-spacing:-.012em}
+.mbase p{font-size:.92rem;color:rgba(255,255,255,.7);margin-top:9px;max-width:68ch;line-height:1.6}
+.mbase p b{color:var(--paper);font-weight:700}
+.mbase .btn{margin-top:20px}
+.mbase ul{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:8px;
+  font-size:.9rem;color:rgba(255,255,255,.72);line-height:1.5}
+.mbase ul b{color:var(--paper);font-weight:700}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="chart" aria-hidden="true">
+<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none">
+  <g stroke="var(--a400)" stroke-width="1" opacity=".4">
+    <path d="M-40 250 C160 200 300 300 420 280 C560 258 640 150 800 170 C960 190 1050 300 1200 280 C1330 262 1420 200 1500 220"/>
+    <path d="M-40 300 C170 250 310 350 430 330 C570 308 650 205 810 225 C970 245 1060 350 1210 330 C1340 312 1425 255 1500 275"/>
+    <path d="M-40 355 C180 305 320 402 440 385 C580 365 665 262 820 282 C980 302 1070 402 1220 385 C1350 368 1430 312 1500 332"/>
+    <path d="M-60 620 C140 585 260 660 400 640 C540 620 620 545 760 560 C900 575 1000 655 1140 640 C1280 625 1380 570 1500 590"/>
+    <path d="M-60 672 C150 638 275 712 415 692 C555 672 632 600 772 615 C912 630 1010 706 1150 692 C1290 678 1385 622 1500 642"/>
+    <path d="M-60 726 C160 692 290 764 430 744 C570 724 645 654 785 669 C925 684 1020 758 1160 744 C1300 730 1390 675 1500 695"/>
+  </g>
+  <g fill="var(--a300)" font-family="Inter" font-weight="600" font-size="9" opacity=".3">
+    <text x="200" y="215">14</text><text x="512" y="268">9</text><text x="700" y="163">22</text>
+    <text x="900" y="196">31</text><text x="1140" y="292">17</text><text x="288" y="386">6</text>
+    <text x="620" y="270">11</text><text x="1010" y="360">26</text><text x="120" y="600">19</text>
+    <text x="480" y="646">8</text><text x="700" y="556">24</text><text x="1050" y="662">13</text>
+    <text x="1330" y="586">28</text><text x="352" y="712">5</text><text x="860" y="742">16</text>
+  </g>
+</svg>
+</div>
+
+<nav class="top"><div class="wrap nav-in">
+  <span class="brand">Arctrips</span>
+  <ul class="mnav">
+    <li><a href="#landing">Landing</a></li>
+    <li><a href="#geography">Geography</a></li>
+    <li><a href="#town">Town</a></li>
+    <li><a href="#reading">Reading</a></li>
+    <li><a href="#utility">Utility</a></li>
+  </ul>
+  <a class="btn btn--primary btn--sm" href="index.html">Open the prototype</a>
+</div></nav>
+
+<main id="main"><div class="wrap">
+
+<header class="mhead">
+  <span class="label">Prototype index, 28 July 2026</span>
+  <h1 style="margin-top:16px">Twelve pages, one design language</h1>
+  <p>Every page in the destinations prototype, grouped by how deep it sits in the tree. All twelve run on the same <b>_system.css</b>, which is concept D extracted verbatim, and all twelve answer to <b>DESIGN-CONTRACT.md</b>. The codes on each card say which ruling that page is the evidence for. Start anywhere; the tree is fully walkable in both directions from any of them.</p>
+  <dl class="mfacts">
+    <div><dt>Pages</dt><dd>12</dd></div>
+    <div><dt>Season rulings</dt><dd>S1 to S7</dd></div>
+    <div><dt>Navigation rulings</dt><dd>N1 to N5</dd></div>
+    <div><dt>Towns published</dt><dd>2</dd></div>
+  </dl>
+</header>
+
+<section class="legend" aria-labelledby="legendh">
+  <h2 id="legendh">What the codes mean</h2>
+  <p>Short form of DESIGN-CONTRACT.md sections 2, 4 and 5. A card carries a code when that page is where the ruling is visible, not merely where it is obeyed: every page obeys all of them.</p>
+  <div class="lgrid">
+    <div>
+      <h3>Season, section 2</h3>
+      <ul>
+        <li><b>S1</b> No month renders as a deficit</li>
+        <li><b>S2</b> Amber leaves the season system</li>
+        <li><b>S3</b> Rank, never gate</li>
+        <li><b>S4</b> Every month belongs to a named season</li>
+        <li><b>S5</b> State the trade, do not hide it</li>
+        <li><b>S6</b> Never a dead end on a month, two exits</li>
+        <li><b>S7</b> The summary leads with what is on</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Navigation, section 4</h3>
+      <ul>
+        <li><b>N1</b> The town is the spine and never leaves</li>
+        <li><b>N2</b> An article wears its town's chrome</li>
+        <li><b>N3</b> Every reading surface ends with a next step</li>
+        <li><b>N4</b> Orientation without a sidebar</li>
+        <li><b>N5</b> The breadcrumb stays passive</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Earned moments, section 5</h3>
+      <ul>
+        <li><b>Tide</b> Today's real highs, lows and sunset</li>
+        <li><b>Rain</b> The rainfall column at real height</li>
+        <li><b>Longitude</b> Real city longitudes, true scale</li>
+        <li><b>Path</b> The requested address walked against the tree</li>
+        <li>Real data or none. Never announced, never load bearing, at most two a screen.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="grp" id="landing">
+  <div class="grp__h">
+    <b>Depth 0</b>
+    <h2>Landing</h2>
+    <span>Where a cold visitor arrives from search.</span>
+  </div>
+  <div class="cards">
+    <a class="pg" href="index.html">
+      <div class="pg__t"><span class="pg__f">index.html</span><span class="pg__n">01</span></div>
+      <h3>Destinations home</h3>
+      <p class="pg__d">Concept D as shipped: the asymmetric hero collage, the tide strip under it, and the navy almanac panel with a month switcher that answers any of the twelve months without ranking one as a mistake.</p>
+      <div class="pg__r">
+        <span class="r r--s">S1</span><span class="r r--s">S2</span><span class="r r--s">S3</span>
+        <span class="r r--s">S4</span><span class="r r--s">S7</span>
+        <span class="r r--e">Tide</span><span class="r r--e">Rain</span>
+      </div>
+      <span class="pg__go">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+</section>
+
+<section class="grp" id="geography">
+  <div class="grp__h">
+    <b>Depth 1 to 3</b>
+    <h2>Geography</h2>
+    <span>Country, province, region. Each one has to be honest about how little is published without reading as empty.</span>
+  </div>
+  <div class="cards">
+    <a class="pg" href="country.html">
+      <div class="pg__t"><span class="pg__f">country.html</span><span class="pg__n">02</span></div>
+      <h3>Canada</h3>
+      <p class="pg__d">One live province of thirteen. The other twelve are a plain roster with their real status, not grey cards, because a grey card with a name on it would be pretending.</p>
+      <div class="pg__r">
+        <span class="r r--s">S1</span><span class="r r--s">S3</span>
+        <span class="r r--n">N3</span><span class="r r--n">N5</span>
+        <span class="r r--e">Longitude</span>
+      </div>
+      <span class="pg__go">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="pg" href="province.html">
+      <div class="pg__t"><span class="pg__f">province.html</span><span class="pg__n">03</span></div>
+      <h3>British Columbia</h3>
+      <p class="pg__d">The rainfall profile takes the tide strip's slot and its weight, so the wettest months are the reason to come rather than the warning against it. Three named seasons, each with a claim that is true.</p>
+      <div class="pg__r">
+        <span class="r r--s">S1</span><span class="r r--s">S4</span><span class="r r--s">S5</span><span class="r r--s">S7</span>
+        <span class="r r--n">N3</span><span class="r r--n">N5</span>
+        <span class="r r--e">Rain</span>
+      </div>
+      <span class="pg__go">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="pg" href="region.html">
+      <div class="pg__t"><span class="pg__f">region.html</span><span class="pg__n">04</span></div>
+      <h3>Vancouver Island</h3>
+      <p class="pg__d">Two harbours instead of one, so the tide reading is twinned: Tofino and Ucluelet side by side. Towns not yet written up are listed with their real status, with no grayscale and no dimming.</p>
+      <div class="pg__r">
+        <span class="r r--s">S1</span><span class="r r--s">S3</span><span class="r r--s">S7</span>
+        <span class="r r--n">N3</span><span class="r r--n">N5</span>
+        <span class="r r--e">Tide</span>
+      </div>
+      <span class="pg__go">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+</section>
+
+<section class="grp" id="town">
+  <div class="grp__h">
+    <b>Depth 4 and below</b>
+    <h2>Town</h2>
+    <span>Everything here carries the persistent town anchor. This is where the fix for "the navigation is confusing" is visible.</span>
+  </div>
+  <div class="cards">
+    <a class="pg" href="tofino.html">
+      <div class="pg__t"><span class="pg__f">tofino.html</span><span class="pg__n">05</span></div>
+      <h3>Tofino, the destination hub</h3>
+      <p class="pg__d">The spine itself: sticky town bar, nine subjects, 73 places, today's tides for Tofino Harbour, and the almanac reading every month against real rainfall normals.</p>
+      <div class="pg__r">
+        <span class="r r--s">S3</span><span class="r r--s">S7</span>
+        <span class="r r--n">N1</span><span class="r r--n">N3</span><span class="r r--n">N5</span>
+        <span class="r r--e">Tide</span><span class="r r--e">Rain</span>
+      </div>
+      <span class="pg__go">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="pg" href="things-to-do.html">
+      <div class="pg__t"><span class="pg__f">things-to-do.html</span><span class="pg__n">06</span></div>
+      <h3>Things to do in Tofino</h3>
+      <p class="pg__d">The category index, filtered by chips rather than by a sidebar. Subjects reorder by fit for the month and nothing is ever greyed, hidden or badged as a bad idea. Carries the widest set of season rulings on the prototype.</p>
+      <div class="pg__r">
+        <span class="r r--s">S1</span><span class="r r--s">S3</span><span class="r r--s">S4</span>
+        <span class="r r--s">S5</span><span class="r r--s">S6</span><span class="r r--s">S7</span>
+        <span class="r r--n">N1</span><span class="r r--n">N3</span><span class="r r--n">N5</span>
+        <span class="r r--e">Tide</span><span class="r r--e">Rain</span>
+      </div>
+      <span class="pg__go">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="pg" href="whale-watching.html">
+      <div class="pg__t"><span class="pg__f">whale-watching.html</span><span class="pg__n">07</span></div>
+      <h3>Whale watching, a category page</h3>
+      <p class="pg__d">The coming-soon product line. It captures an email and still falls through to stays, so a category we cannot book yet never dead-ends. Pick a month outside the migration and it offers the nearest month that works plus what to do in the one you picked.</p>
+      <div class="pg__r">
+        <span class="r r--s">S1</span><span class="r r--s">S3</span><span class="r r--s">S6</span><span class="r r--s">S7</span>
+        <span class="r r--n">N1</span><span class="r r--n">N3</span><span class="r r--n">N4</span><span class="r r--n">N5</span>
+        <span class="r r--e">Tide</span><span class="r r--e">Rain</span>
+      </div>
+      <span class="pg__go">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="pg" href="plan.html">
+      <div class="pg__t"><span class="pg__f">plan.html</span><span class="pg__n">08</span></div>
+      <h3>Plan a trip to Tofino</h3>
+      <p class="pg__d">Two months set side by side at identical weight, neither one a warning. This is where S5 is easiest to judge: 500 mm across 23 days in November is stated plainly and then argued as the product.</p>
+      <div class="pg__r">
+        <span class="r r--s">S1</span><span class="r r--s">S2</span><span class="r r--s">S3</span>
+        <span class="r r--s">S5</span><span class="r r--s">S7</span>
+        <span class="r r--n">N1</span><span class="r r--n">N3</span><span class="r r--n">N5</span>
+        <span class="r r--e">Tide</span><span class="r r--e">Rain</span>
+      </div>
+      <span class="pg__go">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+</section>
+
+<section class="grp" id="reading">
+  <div class="grp__h">
+    <b>The long form</b>
+    <h2>Reading</h2>
+    <span>The two surfaces the original complaint was about: articles that fell out of the navigation model and ended on a footer.</span>
+  </div>
+  <div class="cards">
+    <a class="pg" href="long-beach.html">
+      <div class="pg__t"><span class="pg__f">long-beach.html</span><span class="pg__n">09</span></div>
+      <h3>Long Beach, a place page</h3>
+      <p class="pg__d">An article wearing Tofino's chrome: same town bar, same anchor, plus a horizontal chip row and a reading hairline instead of the rejected sidebar. Today's three tide readings are drawn to real height against the beach.</p>
+      <div class="pg__r">
+        <span class="r r--s">S1</span><span class="r r--s">S7</span>
+        <span class="r r--n">N1</span><span class="r r--n">N3</span><span class="r r--n">N4</span><span class="r r--n">N5</span>
+        <span class="r r--e">Tide</span>
+      </div>
+      <span class="pg__go">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="pg" href="guide.html">
+      <div class="pg__t"><span class="pg__f">guide.html</span><span class="pg__n">10</span></div>
+      <h3>Wildlife tours, a long guide</h3>
+      <p class="pg__d">The full N2 case, and the only page carrying every navigation ruling at once. It ends on three fixed slots: next in this guide, more in this town, the booking path. It cannot end on a footer.</p>
+      <div class="pg__r">
+        <span class="r r--s">S1</span><span class="r r--s">S5</span><span class="r r--s">S6</span><span class="r r--s">S7</span>
+        <span class="r r--n">N1</span><span class="r r--n">N2</span><span class="r r--n">N3</span>
+        <span class="r r--n">N4</span><span class="r r--n">N5</span>
+        <span class="r r--e">Tide</span><span class="r r--e">Rain</span>
+      </div>
+      <span class="pg__go">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+</section>
+
+<section class="grp" id="utility">
+  <div class="grp__h">
+    <b>Off the tree</b>
+    <h2>Utility</h2>
+    <span>The two pages that have to work hardest when the visitor is lost.</span>
+  </div>
+  <div class="cards">
+    <a class="pg" href="search.html">
+      <div class="pg__t"><span class="pg__f">search.html</span><span class="pg__n">11</span></div>
+      <h3>Search, unified</h3>
+      <p class="pg__d">One field across destinations, guides, places, articles and stays. S3 applied to place rather than season: the town scope ranks results, it never deletes them, so anything outside Tofino stays on the page one section further down.</p>
+      <div class="pg__r">
+        <span class="r r--s">S1</span><span class="r r--s">S2</span><span class="r r--s">S3</span><span class="r r--s">S7</span>
+        <span class="r r--n">N1</span><span class="r r--n">N3</span><span class="r r--n">N5</span>
+        <span class="r r--e">Tide</span>
+      </div>
+      <span class="pg__go">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="pg" href="not-found.html">
+      <div class="pg__t"><span class="pg__f">not-found.html</span><span class="pg__n">12</span></div>
+      <h3>404, a useful one</h3>
+      <p class="pg__d">A search that reaches all 144 pages, the nearest destination on the tree, and the two towns we publish. The address that was asked for is walked segment by segment so you can see exactly where it stopped being a real place.</p>
+      <div class="pg__r">
+        <span class="r r--s">S1</span><span class="r r--s">S2</span><span class="r r--s">S6</span>
+        <span class="r r--n">N3</span><span class="r r--n">N5</span>
+        <span class="r r--e">Path</span>
+      </div>
+      <span class="pg__go">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+</section>
+
+<section class="grp">
+  <div class="grp__h">
+    <b>This file</b>
+    <h2>The map</h2>
+    <span>Not a product surface. It ships to nobody.</span>
+  </div>
+  <div class="cards">
+    <div class="pg pg--self">
+      <div class="pg__t"><span class="pg__f">_map.html</span><span class="pg__n">00</span></div>
+      <h3>Prototype map</h3>
+      <p class="pg__d">This page. Dark ground so the twelve light pages read as pages, and so leaving it for a real one is unmistakable. Delete it before any of this becomes a route.</p>
+      <div class="pg__r"><span class="r">Internal</span><span class="r">noindex</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="mbase">
+  <h2>How to review this</h2>
+  <p>The fastest read on whether the contract landed: open <b>plan.html</b> and set it to November, then open <b>things-to-do.html</b> and set it to January. Neither should feel like an apology. If either one does, section 2 has not landed.</p>
+  <ul>
+    <li><b>Navigation</b>, open guide.html from tofino.html and try to get back without the browser button. The town anchor is in the sticky bar on every page below a town.</li>
+    <li><b>Season</b>, look for amber anywhere. There is none. Emerald means in season, neutral means out of season and says so in words.</li>
+    <li><b>Earned moments</b>, at most two a page and never labelled. Tide times are Tofino Harbour, rainfall is Environment and Climate Change Canada normals, flagged unverified and not shippable until a human checks them against the station record.</li>
+    <li><b>Dead ends</b>, every page ends on three slots: next in this guide, more in this town, the booking path. No page ends on a footer.</li>
+  </ul>
+  <a class="btn btn--ghost" href="index.html">Start at the landing page</a>
+</section>
+
+</div></main>
+
+
+<script>
+/* Linkify town names inside separator runs like "Victoria · Nanaimo · Sooke".
+   The earlier pass only matched a text node equal to one name, so multi-town
+   rows never linked. This splits on the separator and links each part. */
+(function(){
+  var M={"Victoria": "victoria.html", "Nanaimo": "nanaimo.html", "Campbell River": "campbell-river.html", "Sooke": "sooke.html", "Sidney": "sidney.html", "Chemainus": "chemainus.html", "Nanoose": "nanoose.html", "Shawnigan Lake": "shawnigan-lake.html", "Whistler": "whistler.html", "Squamish": "squamish.html", "Vancouver": "vancouver.html", "Nelson": "nelson.html", "Banff": "banff.html", "Jasper": "jasper.html", "Edmonton": "edmonton.html", "Saskatoon": "saskatoon.html", "Niagara Falls": "niagara-falls.html", "Ottawa": "ottawa.html", "Montreal": "montreal.html", "Quebec City": "quebec-city.html", "Halifax": "halifax.html", "Charlottetown": "charlottetown.html", "Qualicum Beach": "region.html", "Nanoose Bay": "nanoose.html", "Parksville": "nanoose.html"}, SKIP=/^(A|BUTTON|INPUT|SCRIPT|STYLE|H1|TITLE)$/;
+  function run(){
+    var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT), n, jobs=[];
+    while(n=w.nextNode()){
+      var v=n.nodeValue; if(!v||!v.trim()) continue;
+      var p=n.parentElement; if(!p||SKIP.test(p.tagName)||p.closest('a')) continue;
+      var names=Object.keys(M).filter(function(t){return v.indexOf(t)>-1;});
+      if(names.length) jobs.push([n,v]);
+    }
+    jobs.forEach(function(j){
+      var node=j[0], v=j[1], frag=document.createDocumentFragment();
+      var parts=v.split(/(\s*[·|,]\s*)/);
+      var linked=false;
+      parts.forEach(function(part){
+        var key=part.trim();
+        if(M[key]){
+          var a=document.createElement('a');
+          a.href=M[key]; a.textContent=part;
+          a.style.color='var(--azure)';
+          frag.appendChild(a); linked=true;
+        } else frag.appendChild(document.createTextNode(part));
+      });
+      if(linked && node.parentNode) node.parentNode.replaceChild(frag,node);
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(run,80)});
+  else setTimeout(run,80);
+  setTimeout(run,800);
+})();
+</script>
+</body>
+</html>

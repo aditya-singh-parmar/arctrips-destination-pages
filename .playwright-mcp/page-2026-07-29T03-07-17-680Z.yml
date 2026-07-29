@@ -1,0 +1,215 @@
+- generic [active] [ref=f705e1]:
+  - navigation [ref=f705e2]:
+    - generic [ref=f705e3]:
+      - link "ARCTRIPS" [ref=f705e4] [cursor=pointer]:
+        - /url: index.html
+      - list [ref=f705e5]:
+        - listitem [ref=f705e6]:
+          - link "Stays" [ref=f705e7] [cursor=pointer]:
+            - /url: search.html
+        - listitem [ref=f705e8]:
+          - link "Destinations" [ref=f705e9] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=f705e10]:
+          - link "Guides" [ref=f705e11] [cursor=pointer]:
+            - /url: search.html
+      - generic [ref=f705e12]:
+        - textbox "Search" [ref=f705e16]:
+          - /placeholder: Search Chemainus
+        - generic [ref=f705e17]: /
+      - link "Sign in" [ref=f705e18] [cursor=pointer]:
+        - /url: search.html
+  - navigation "Chemainus" [ref=f705e19]:
+    - generic [ref=f705e20]:
+      - link "← Vancouver Island" [ref=f705e21] [cursor=pointer]:
+        - /url: region.html
+      - list [ref=f705e23]:
+        - listitem [ref=f705e24]:
+          - link "Overview" [ref=f705e25] [cursor=pointer]:
+            - /url: "#top"
+        - listitem [ref=f705e26]:
+          - link "Stays" [ref=f705e27] [cursor=pointer]:
+            - /url: search.html
+        - listitem [ref=f705e28]:
+          - link "Guides" [ref=f705e29] [cursor=pointer]:
+            - /url: search.html
+        - listitem [ref=f705e30]:
+          - link "All destinations" [ref=f705e31] [cursor=pointer]:
+            - /url: index.html
+      - link "Find a stay" [ref=f705e32] [cursor=pointer]:
+        - /url: search.html
+  - main [ref=f705e33]:
+    - navigation "Breadcrumb" [ref=f705e35]:
+      - link "Arc Trips" [ref=f705e36] [cursor=pointer]:
+        - /url: index.html
+      - generic [ref=f705e37]: /
+      - link "Canada" [ref=f705e38] [cursor=pointer]:
+        - /url: country.html
+      - generic [ref=f705e39]: /
+      - link "British Columbia" [ref=f705e40] [cursor=pointer]:
+        - /url: province.html
+      - generic [ref=f705e41]: /
+      - link "Vancouver Island" [ref=f705e42] [cursor=pointer]:
+        - /url: region.html
+      - generic [ref=f705e43]: /
+      - generic [ref=f705e44]: Chemainus
+    - generic [ref=f705e45]:
+      - img "Chemainus, Vancouver Island" [ref=f705e46]
+      - generic [ref=f705e49]:
+        - text: Vancouver Island
+        - heading "Chemainus" [level=1] [ref=f705e50]
+        - paragraph [ref=f705e51]: Chemainus, once a struggling lumber town, transformed itself into a world-famous outdoor gallery through its extensive mural program. The Chemainus Murals tell the vivid history of the region’s indigenous roots, forestry heritage, and community life, turning the town's building exterior walls into.
+        - generic [ref=f705e52]:
+          - generic [ref=f705e53]:
+            - term [ref=f705e54]: Places written up
+            - definition [ref=f705e55]: "15"
+          - generic [ref=f705e56]:
+            - term [ref=f705e57]: With photographs
+            - definition [ref=f705e58]: "10"
+          - generic [ref=f705e59]:
+            - term [ref=f705e60]: Guides
+            - definition [ref=f705e61]: "1"
+    - navigation "Sections" [ref=f705e63]:
+      - link "Chemainus" [ref=f705e64] [cursor=pointer]:
+        - /url: "#chemainus"
+      - link "Other Interesting Places In and Around Chemainus" [ref=f705e65] [cursor=pointer]:
+        - /url: "#other-interesting-places-in-and-around-chemainus"
+    - generic [ref=f705e67]:
+      - generic [ref=f705e68]:
+        - text: Chemainus
+        - heading "Chemainus" [level=2] [ref=f705e69]
+        - paragraph [ref=f705e70]: 9 places, written up one at a time
+      - generic [ref=f705e71]:
+        - article [ref=f705e72]:
+          - figure [ref=f705e73]:
+            - img "1. Walk the Chemainus Murals, Chemainus" [ref=f705e74]
+          - generic [ref=f705e75]:
+            - heading "1. Walk the Chemainus Murals" [level=3] [ref=f705e76]
+            - paragraph [ref=f705e77]: Chemainus, once a struggling lumber town, transformed itself into a world-famous outdoor gallery through its extensive mural program. The Chemainus Murals tell the vivid history of the region’s indigenous roots, forestry heritage, and community life, turning the town's building exterior walls into a massive, walkable history book.
+            - paragraph [ref=f705e78]: "The Mural Walk: Follow the yellow footprints painted on the sidewalks. This trail connects over 40 professional murals and several sculptures, ensuring you don't miss the major works like The Hermit or the massive Historical Series."
+            - paragraph [ref=f705e79]: "Heritage Square: This central area features some of the most intricate artworks and serves as a natural starting point. It is surrounded by tiered gardens and heritage-style architecture that complements the historical themes of the paintings."
+        - article [ref=f705e80]:
+          - figure [ref=f705e81]:
+            - img "2. Visit the Chemainus Theatre Festival, Chemainus" [ref=f705e82]
+          - generic [ref=f705e83]:
+            - heading "2. Visit the Chemainus Theatre Festival" [level=3] [ref=f705e84]
+            - paragraph [ref=f705e85]: The Chemainus Theatre Festival is a premier cultural destination on Vancouver Island, housed in a stunning neo-classical building that anchors the town’s arts district. Known for its high-production values and professional cast members recruited from across Canada, the theatre offers a sophisticated dinner and a show experience that complements the town's artistic atmosphere.
+            - paragraph [ref=f705e86]: "Mainstage Performances: The theatre presents a year-round calendar of diverse productions, ranging from classic Broadway musicals and lighthearted comedies to powerful dramas and holiday-themed specials."
+            - paragraph [ref=f705e87]: "The Playbill Dining Room: Located within the theatre complex, this highly-rated restaurant offers a themed buffet that changes with each production. It is a popular tradition for guests to enjoy a relaxed, live-piano-accompanied meal before the curtain rises."
+        - article [ref=f705e88]:
+          - figure [ref=f705e89]:
+            - img "3. Browse the boutiques, galleries, and artisan shops, Chemainus" [ref=f705e90]
+          - generic [ref=f705e91]:
+            - heading "3. Browse the boutiques, galleries, and artisan shops" [level=3] [ref=f705e92]
+            - paragraph [ref=f705e93]: The shopping scene in Chemainus is an extension of its artistic identity, where the lack of big-box retailers allows independent boutiques, high-end galleries, and nostalgic specialty shops to thrive. Concentrated largely along Willow Street, these establishments offer curated goods that reflect the West Coast lifestyle and the town's creative spirit.
+            - paragraph [ref=f705e94]: The retail experience here is characterized by discovery and craftsmanship, with many shop owners also being the makers of the products they sell.
+            - paragraph [ref=f705e95]: "Artisanal Galleries: Several dedicated spaces, such as Rainforest Arts, focus specifically on local island artists. Visitors can find professional-grade pottery, fine jewelry, and paintings that range from abstract to traditional indigenous styles."
+        - article [ref=f705e96]:
+          - figure [ref=f705e97]:
+            - img "4. Enjoy the waterfront and harbour views, Chemainus" [ref=f705e98]
+          - generic [ref=f705e99]:
+            - heading "4. Enjoy the waterfront and harbour views" [level=3] [ref=f705e100]
+            - paragraph [ref=f705e101]: The waterfront in Chemainus provides a serene counterpoint to the town’s busy mural-lined streets. While the community is famous for its inland art, the coastline offers expansive views of the Stuart Channel, the Gulf Islands, and the steady rhythm of the local working harbour.
+            - paragraph [ref=f705e102]: The shoreline is a mix of manicured parkland, sandy beaches, and industrial marine infrastructure.
+            - paragraph [ref=f705e103]: "Kinsmen Beach Park (Kin Beach): This is the town’s primary oceanfront park, featuring a mix of rocky and sandy shoreline. At low tide, the water recedes to reveal vast tidal pools and sandbars, making it possible to walk out toward Bird Rock."
+        - article [ref=f705e104]:
+          - figure [ref=f705e105]:
+            - img "5. Stroll through Waterwheel Park, Chemainus" [ref=f705e106]
+          - generic [ref=f705e107]:
+            - heading "5. Stroll through Waterwheel Park" [level=3] [ref=f705e108]
+            - paragraph [ref=f705e109]: Waterwheel Park is the civic and horticultural heart of Chemainus, acting as a central gathering point that bridges the town's industrial past with its artistic present. Named for the massive replica of the 19th-century wheel that once powered the local economy, the park offers a lush, shaded environment perfect for a mid-day break.
+            - paragraph [ref=f705e110]: The park is meticulously landscaped and serves as a transition zone between the main shopping district and the waterfront.
+            - paragraph [ref=f705e111]: "The Iconic Waterwheel: A towering wooden replica of the 1862 original stands near the entrance, providing a popular backdrop for photography and a reminder of the town's origins as a milling outpost."
+        - article [ref=f705e112]:
+          - figure [ref=f705e113]:
+            - img "6. Explore the Chemainus Valley Museum, Chemainus" [ref=f705e114]
+          - generic [ref=f705e115]:
+            - heading "6. Explore the Chemainus Valley Museum" [level=3] [ref=f705e116]
+            - paragraph [ref=f705e117]: The Chemainus Valley Museum, located in the heart of Waterwheel Park, offers an intimate look at the regional history that shaped this coastal community. Operated by dedicated volunteers from the Chemainus Valley Historical Society, the museum provides the essential context behind the town's famous murals, detailing its transition from a 19th-century resource hub to an international arts destination.
+            - paragraph [ref=f705e118]: The museum’s collection is thoughtfully arranged to guide visitors through the distinct eras of the Chemainus Valley.
+            - paragraph [ref=f705e119]: "Logging and Industry Exhibits: Explore the town’s foundation as a mill town through displays of antique forestry equipment, including a steam whistle and items from the early days of the local lumber mill."
+        - article [ref=f705e120]:
+          - figure [ref=f705e121]:
+            - img "7. Chemainus Public Market, Chemainus" [ref=f705e122]
+          - generic [ref=f705e123]:
+            - heading "7. Chemainus Public Market" [level=3] [ref=f705e124]
+            - paragraph [ref=f705e125]: The Chemainus Public Market is an indoor community hub that serves as a modern gathering space in the center of town. While the town’s famous murals provide an outdoor gallery experience, the public market offers a temperature-controlled environment where visitors can browse local wares, enjoy casual dining, and participate in community activities.
+            - paragraph [ref=f705e126]: "Archie’s Ice Cream Parlour & Diner: A major anchor of the market, this nostalgic 1950s-style diner serves thick milkshakes, coffee, and hearty meals. It’s a popular spot for a casual lunch or a retro-themed treat."
+            - paragraph [ref=f705e127]: "Wizard’s Arcade: Tucked in the back of the market, this space features a variety of classic arcade games and pinball machines, making it a favorite for families and gaming enthusiasts."
+        - article [ref=f705e128]:
+          - figure [ref=f705e129]:
+            - img "8. Spend time on trails and outdoor areas nearby, Chemainus" [ref=f705e130]
+          - generic [ref=f705e131]:
+            - heading "8. Spend time on trails and outdoor areas nearby" [level=3] [ref=f705e132]
+            - paragraph [ref=f705e133]: Chemainus is surrounded by a diverse network of trails and parks that cater to both casual walkers and dedicated hikers. These outdoor spaces transition from manicured community parks to rugged wilderness, showcasing the varied landscapes of the Cowichan Valley.
+            - paragraph [ref=f705e134]: "Lakefront Recreation: Fuller Lake Park is a premier destination for those looking to blend a walk with water activities. It features a sandy beach, a fishing pier stocked with trout, and quiet forested paths."
+            - paragraph [ref=f705e135]: "Wilderness Immersion: Askew Park offers a true forest experience right in town. Its trail system meanders through second and old-growth trees, providing a cool, shaded retreat along Askew Creek."
+        - article [ref=f705e136]:
+          - heading "9. Chemainus Wednesday Market" [level=3] [ref=f705e137]
+          - generic [ref=f705e138]:
+            - paragraph [ref=f705e139]: The Chemainus Wednesday Market is a seasonal outdoor "Make It, Bake It, Grow It" market that transforms the heart of town into a lively community hub. Held in the parking lot area right across from Waterwheel Park, it showcases the best of the Cowichan Valley’s local artisans, farmers, and bakers.
+            - paragraph [ref=f705e140]: The market focuses on original, handmade, and locally produced goods, ensuring a high-quality selection of authentic Vancouver Island products.
+            - paragraph [ref=f705e141]: "Farm-Fresh Produce: Local growers bring seasonal fruits and vegetables directly from the valley’s fertile soil, alongside fresh-cut flowers and nursery plants."
+    - generic [ref=f705e143]:
+      - generic [ref=f705e144]:
+        - text: Other Interesting Places In and Around Chemainus
+        - heading "Other Interesting Places In and Around Chemainus" [level=2] [ref=f705e145]
+        - paragraph [ref=f705e146]: 6 places, written up one at a time
+      - generic [ref=f705e147]:
+        - article [ref=f705e148]:
+          - figure [ref=f705e149]:
+            - img "10. BC Forest Discovery Centre, Chemainus" [ref=f705e150]
+          - generic [ref=f705e151]:
+            - heading "10. BC Forest Discovery Centre" [level=3] [ref=f705e152]
+            - paragraph [ref=f705e153]: The BC Forest Discovery Centre is a 100-acre open-air museum in Duncan, 17 kilometers away from Chemainus, that brings the coastal province's forestry heritage to life. It is widely considered a must-visit for families and history enthusiasts, offering an immersive look at the industry that built many Vancouver Island communities.
+            - paragraph [ref=f705e154]: The center is designed around a series of historical buildings and outdoor exhibits that illustrate the evolution of logging technology.
+            - paragraph [ref=f705e155]: "The Steam Train: One of the main highlights is a ride on the historic Samson narrow-gauge steam train. The track winds through the forest and crosses a scenic trestle over Somenos Lake."
+        - article [ref=f705e156]:
+          - figure [ref=f705e157]:
+            - img "11. Thetis & Penelakut, Chemainus" [ref=f705e158]
+          - generic [ref=f705e159]:
+            - heading "11. Thetis & Penelakut" [level=3] [ref=f705e160]
+            - paragraph [ref=f705e161]: Thetis Island and Penelakut Island are two distinct gems in the Southern Gulf Islands, accessible via a short ferry ride from the Chemainus Ferry Terminal. While they are close neighbors, each offers a unique atmosphere, Thetis is known for its quiet, rural charm and artisan community, while Penelakut Island is the home of the Penelakut Tribe and holds deep indigenous cultural significance.
+            - paragraph [ref=f705e162]: "Kayaking and Paddling: The calm, sheltered waters of Telegraph Harbour on Thetis Island are perfect for beginners and experienced paddlers alike. The area is dotted with small islets and hidden coves that are best explored by water."
+            - paragraph [ref=f705e163]: "Artisans and Vineyards: Thetis is home to several boutique galleries and the Thetis Island Vineyard, where visitors can sample locally produced wines in a serene, pastoral setting."
+        - article [ref=f705e164]:
+          - heading "12. Somenos Marsh Wildlife Refuge" [level=3] [ref=f705e165]
+          - generic [ref=f705e166]:
+            - paragraph [ref=f705e167]: Somenos Marsh Wildlife Refuge (now primarily known as the Somenos Conservation Area) is a 200-hectare sanctuary in Duncan, BC. It is a critical stop on the Pacific Flyway and is recognized as an Important Bird and Biodiversity Area (IBA).
+            - paragraph [ref=f705e168]: "The Open Air Classroom: Located just off Highway 1, this is the primary access point. It features an elevated boardwalk that leads through the marsh, offering wide-open views of the wetlands without disturbing the habitat."
+            - paragraph [ref=f705e169]: "Drinkwater Dock: Accessible via a short spur off Drinkwater Road, this dock provides a panoramic viewing platform over Somenos Lake, ideal for spotting waterfowl in the deeper sections of the lake."
+        - article [ref=f705e170]:
+          - heading "13. Mount Brenton Golf Club" [level=3] [ref=f705e171]
+          - generic [ref=f705e172]:
+            - paragraph [ref=f705e173]: Mount Brenton Golf Course is a scenic, par-71 course located in Chemainus, BC, known for its parkland setting and walkable layout. Established in 1948, it offers a blend of historical charm and a challenging variety of holes that wind through mature forests.
+            - paragraph [ref=f705e174]: "Strategic Design: The course is relatively tight and heavily treed, demanding accuracy over distance. Many fairways are lined with towering firs and cedars, requiring careful club selection and shot placement."
+            - paragraph [ref=f705e175]: "Water Hazards: Several ponds and creeks come into play, particularly on the back nine, adding both visual appeal and technical difficulty."
+        - article [ref=f705e176]:
+          - heading "14. Xihwu Reef" [level=3] [ref=f705e177]
+          - generic [ref=f705e178]:
+            - paragraph [ref=f705e179]: Xihwu Reef (pronounced "KEY-quot") is a unique artificial reef located just off the coast of Kinsmen Beach Park (Kin Beach) in Chemainus. It gained international attention in 2006 when a decommissioned Boeing 737-200 was submerged to create a complex marine habitat, making it the only aircraft of its kind used as an artificial reef in Canada.
+            - paragraph [ref=f705e180]: "The Airframe: The 100-foot-long fuselage rests about 70 to 100 feet below the surface. It was prepared by the Artificial Reef Society of BC to ensure it was environmentally safe and accessible for divers, with several entry and exit points cut into the body."
+            - paragraph [ref=f705e181]: "Marine Colonization: Since its sinking, the Xihwu (the Hul’q’umi’num’ word for \"Osprey\") has become a thriving ecosystem. It is now home to a massive population of plumose anemones, rockfish, lingcod, and hundreds of red sea urchins."
+        - article [ref=f705e182]:
+          - heading "15. Weyerhauser Mill" [level=3] [ref=f705e183]
+          - generic [ref=f705e184]:
+            - paragraph [ref=f705e185]: While the name Weyerhaeuser is synonymous with the history of the Chemainus Sawmill, the facility is currently owned and operated by Western Forest Products. It remains the industrial heartbeat of the town and a significant landmark for those interested in the evolution of the Pacific Northwest timber industry.
+            - paragraph [ref=f705e186]: "The Big Mill: The site has hosted a sawmill since 1862, making it one of the oldest continuously operating industrial sites in British Columbia. Weyerhaeuser acquired the mill in 1999 as part of its purchase of MacMillan Bloedel, before it eventually transitioned to Western Forest Products in the mid-2000s."
+            - paragraph [ref=f705e187]: "Economic Anchor: For over a century, the mill has been the primary employer in Chemainus. Even as the town successfully diversified into tourism and the arts (following a major mill downsizing in the 1980s), the sawmill remains a critical contributor to the local economy."
+    - generic [ref=f705e189]:
+      - heading "Keep going" [level=2] [ref=f705e190]
+      - navigation "Next" [ref=f705e191]:
+        - link "Vancouver Island All the towns" [ref=f705e192] [cursor=pointer]:
+          - /url: region.html
+          - generic [ref=f705e193]: Vancouver Island
+          - generic [ref=f705e194]: All the towns
+        - link "Stays in Chemainus Search what is open" [ref=f705e195] [cursor=pointer]:
+          - /url: search.html
+          - generic [ref=f705e196]: Stays in Chemainus
+          - generic [ref=f705e197]: Search what is open
+        - link "All destinations Every town we cover" [ref=f705e198] [cursor=pointer]:
+          - /url: index.html
+          - generic [ref=f705e199]: All destinations
+          - generic [ref=f705e200]: Every town we cover
+  - contentinfo [ref=f705e201]:
+    - generic [ref=f705e202]: © 2026 Arc Trips. Prices in CAD, before taxes and fees.

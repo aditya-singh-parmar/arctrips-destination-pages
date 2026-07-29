@@ -1,0 +1,1999 @@
+<!doctype html><html lang="en-CA"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Whistler, Arc Trips</title>
+<meta name="description" content="Whistler, British Columbia. 217 places written up, 104 with photographs.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_system.css">
+<style>
+:focus-visible{outline:2px solid var(--azure);outline-offset:3px}
+.btn,.nav-links a,.crumb a{min-height:44px;display:inline-flex;align-items:center}
+.crumb{font-size:.9rem}.label--n{color:var(--n600)}
+.thero{position:relative;min-height:min(62vh,560px);display:flex;align-items:flex-end;overflow:hidden;background:var(--navy)}
+.thero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.thero__v{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,51,86,.12) 0%,rgba(11,51,86,.7) 62%,rgba(11,51,86,.95) 100%)}
+.thero__in{position:relative;width:100%;padding-block:clamp(30px,4vw,56px)}
+.thero h1{color:#fff;font-size:clamp(2.8rem,7vw,5.2rem);letter-spacing:-.045em;line-height:.96}
+.thero p{color:rgba(255,255,255,.9);max-width:56ch;margin-top:18px;font-size:1.06rem;line-height:1.6}
+.tfacts{display:flex;gap:clamp(20px,4vw,44px);margin-top:26px;flex-wrap:wrap}
+.tfacts dt{font-size:.9rem;color:rgba(255,255,255,.75);font-weight:600}
+.tfacts dd{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;color:#fff;letter-spacing:-.04em;margin-top:4px;font-variant-numeric:tabular-nums}
+.sechead{max-width:60ch;margin-bottom:clamp(24px,3vw,38px)}
+.sechead h2{margin-top:8px}.cnt{color:var(--n600);margin-top:8px;font-size:.95rem}
+.places{display:grid;gap:clamp(44px,5.5vw,84px)}
+/* Photo entries: the image takes half the row, so it reads as a photograph rather
+   than a thumbnail. Alternating sides gives the page rhythm down the scroll. */
+.pl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,3.4vw,48px);align-items:center}
+.pl:nth-child(even) .pl__m{order:2}
+@media(max-width:820px){.pl{grid-template-columns:1fr;gap:20px}.pl:nth-child(even) .pl__m{order:0}}
+.pl__m{margin:0;border-radius:var(--r);overflow:hidden;background:var(--n100);aspect-ratio:4/3}
+.pl__m img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.pl:hover .pl__m img{transform:scale(1.035)}
+/* No-photo entries: name on the left, prose on the right, so the row still spans
+   the full measure instead of leaving half the page empty. */
+.pl--solo{grid-template-columns:minmax(0,.42fr) minmax(0,1fr);align-items:start}
+.pl--solo .pl__b{max-width:68ch}
+.solo__h{font-size:clamp(1.35rem,2.2vw,1.75rem);font-weight:800;letter-spacing:-.026em;color:var(--navy);
+  position:sticky;top:150px;align-self:start}
+@media(max-width:820px){.pl--solo{grid-template-columns:1fr}.solo__h{position:static}}
+.pl__b h3{font-size:clamp(1.35rem,2.2vw,1.75rem);font-weight:800;letter-spacing:-.026em;margin-bottom:14px}
+.pl__b p{margin-top:0;margin-bottom:14px;color:var(--n700);line-height:1.68;max-width:62ch;font-size:1.02rem}
+.pl__b p:last-of-type{margin-bottom:0}
+.pl__n{margin-top:18px;border-left:0;background:var(--n50);padding:14px 18px;border-radius:var(--r-sm);font-size:.97rem}
+.pl__n b{color:var(--navy)}
+.jump{display:flex;gap:8px;flex-wrap:wrap;padding:16px 0;border-block:1px solid var(--n150)}
+.jump a{font-size:.9rem;font-weight:600;color:var(--n600);padding:8px 14px;border-radius:var(--r-sm);background:var(--n50);min-height:40px;display:inline-flex;align-items:center}
+.jump a:hover{background:var(--a100);color:var(--azure)}
+</style></head><body>
+<span id="top" aria-hidden="true"></span>
+<nav class="top"><div class="wrap nav-in">
+  <a class="brand" href="index.html">ARCTRIPS</a>
+  <ul class="nav-links"><li><a href="search.html?in=whistler">Stays</a></li><li><a href="index.html" aria-current="page">Destinations</a></li><li><a href="region.html">Vancouver Island</a></li></ul>
+  <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input placeholder="Search Whistler" aria-label="Search"><kbd>/</kbd></label>
+  <a class="btn btn--ink btn--sm" href="search.html?in=whistler">Sign in</a>
+</div></nav>
+<nav class="placebar" aria-label="Whistler"><div class="wrap placebar-in">
+  <a class="placebar__back" href="province.html"><span class="n">&larr; British Columbia</span></a>
+  <ul class="placebar__links">
+    <li><a href="#top" aria-current="page">Overview</a></li>
+    <li><a href="search.html?in=whistler">Stays</a></li>
+    <li><a href="province.html">British Columbia</a></li>
+    <li><a href="index.html">All destinations</a></li>
+  </ul>
+  <a class="btn btn--primary btn--sm placebar__cta" href="search.html?in=whistler">Find a stay</a>
+</div></nav>
+<main id="main">
+<div class="wrap"><nav class="crumb" aria-label="Breadcrumb">
+  <a href="index.html">Arc Trips</a><span class="sep">/</span>
+  <a class="lvl-deep" href="country.html">Canada</a><span class="sep lvl-deep">/</span>
+  <a class="lvl-deep" href="province.html">British Columbia</a><span class="sep lvl-deep">/</span>
+  
+  <span aria-current="page">Whistler</span>
+</nav></div>
+<header class="thero">
+  <img src="media/whistler/image5.jpg" alt="Whistler, British Columbia">
+  <div class="thero__v"></div>
+  <div class="thero__in"><div class="wrap">
+    <span class="label" style="color:var(--a300)">British Columbia</span>
+    <h1>Whistler</h1>
+    <p>Lost Lake is one of the best easy hikes in Whistler. It is close to Whistler Village, but it still feels peaceful and forested. The loop around the lake is short, scenic, and good for beginners, families, and anyone who wants a gentle walk without leaving town.</p>
+    <dl class="tfacts">
+      <div><dt>Places written up</dt><dd class="tnum">217</dd></div>
+      <div><dt>With photographs</dt><dd class="tnum">104</dd></div>
+      <div><dt>Guides</dt><dd class="tnum">8</dd></div>
+    </dl>
+  </div></div>
+</header>
+<div class="wrap"><nav class="jump" aria-label="Sections">
+  <a href="#best-easy-hikes-in-whistler">Best Easy Hikes in Whistler</a><a href="#best-moderate-hikes-in-whistler">Best Moderate Hikes in Whistler</a><a href="#best-hard-hikes-in-whistler">Best Hard Hikes in Whistler</a><a href="#frequently-asked-questions">Frequently Asked Questions</a><a href="#bike-park-zones-in-whistler">Bike Park Zones in Whistler</a><a href="#can-beginners-bike-in-whistler">Can Beginners Bike in Whistler?</a><a href="#top-biking-events-in-whistler">Top Biking Events in Whistler</a><a href="#whistler-blackcomb-the-main-ski-area">Whistler Blackcomb: The Main Ski Area</a><a href="#what-to-do-in-squamish">What to Do in Squamish</a><a href="#what-to-do-in-whistler">What to Do in Whistler</a><a href="#squamish-vs-whistler-by-travel-style">Squamish vs Whistler by Travel Style</a><a href="#two-day-squamish-and-whistler-itinerary">Two-Day Squamish and Whistler Itinerary</a><a href="#three-day-squamish-and-whistler-itinerary">Three-Day Squamish and Whistler Itinerary</a><a href="#best-things-to-do-in-whistler">Best Things to Do in Whistler</a><a href="#two-day-whistler-itinerary">Two-Day Whistler Itinerary</a><a href="#three-day-whistler-itinerary">Three-Day Whistler Itinerary</a><a href="#world-known-landmarks">World-Known Landmarks</a><a href="#arts-history-cultural-attractions">Arts, History, &amp; Cultural Attractions</a><a href="#outdoor-attractions">Outdoor Attractions</a><a href="#other-interesting-attractions">Other Interesting Attractions</a><a href="#best-whistler-summer-activities">Best Whistler Summer Activities</a><a href="#best-whistler-winter-activities">Best Whistler Winter Activities</a><a href="#common-questions-about-whistler-in-winter">Common Questions About Whistler in Winter</a>
+</nav></div>
+
+<section class="sec" id="best-easy-hikes-in-whistler"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Best Easy Hikes in Whistler</span>
+    <h2>Best Easy Hikes in Whistler</h2><p class="cnt">5 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image5.jpg" alt="1. Lost Lake Loop, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>1. Lost Lake Loop</h3>
+        <p>Lost Lake is one of the best easy hikes in Whistler. It is close to Whistler Village, but it still feels peaceful and forested. The loop around the lake is short, scenic, and good for beginners, families, and anyone who wants a gentle walk without leaving town.</p><p>The main Lost Lake loop is about 4 km, with minimal elevation gain, and usually takes 1 to 1.5 hours at a relaxed pace. You can also add nearby forest trails if you want a longer walk.</p><p>This area is beautiful in summer, when people swim, picnic, and bike nearby. In winter, Lost Lake becomes a Nordic skiing and snowshoeing area, so trail access changes by season.</p>
+        <p class="pl__n"><b>Good to know.</b> Lost Lake can be busy in summer. Go early or later in the day if you want a quieter walk.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image6.jpg" alt="2. Whistler Valley Trail, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>2. Whistler Valley Trail</h3>
+        <p>The Whistler Valley Trail is not a wilderness hike, but it is one of the easiest and most useful walking routes in Whistler. This paved trail network connects Whistler Village, parks, lakes, neighborhoods, viewpoints, and picnic areas.</p><p>You can walk just a short section or make it a longer outing. Since the trail is mostly flat and paved, it is good for families, casual walkers, strollers, bikes, and visitors who do not want a rough trail.</p><p>Distances vary depending on your route. A short walk may take 30 minutes, while a longer lake-to-lake route can take several hours. Elevation gain is usually minimal, making this one of the easiest ways to explore Whistler on foot.</p>
+        <p class="pl__n"><b>Good to know.</b> This is a shared trail, so watch for cyclists, children, dogs, and other walkers.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image8.jpg" alt="3. Train Wreck Trail, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>3. Train Wreck Trail</h3>
+        <p>Train Wreck is one of the most unique hikes in Whistler. The trail leads through forest to old painted train boxcars scattered near the Cheakamus River. It also crosses a suspension-style bridge, making the hike more memorable.</p><p>The Train Wreck hike is about 5 km round trip, with minimal elevation gain, and usually takes 1 to 3 hours, depending on how long you spend exploring and taking photos. It is an easy hike, but there are roots, forest paths, and some uneven sections.</p><p>This is a good choice if you want a short hike with something different from the usual lake or mountain viewpoint.</p>
+        <p class="pl__n"><b>Good to know.</b> Use the official trail access. Do not walk on railway tracks.</p>
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">4. Rainbow Falls</h3>
+      <div class="pl__b">
+        
+        <p>Rainbow Falls is a good short hike if you want a waterfall and forest without committing to the full Rainbow Lake hike. The trail follows a forested route to a pretty waterfall viewpoint.</p><p>The hike is about 2 to 3 km round trip, with around 100 m of elevation gain, and usually takes 45 minutes to 1.5 hours. It is easy to moderate, with roots, rocks, and some uphill sections.</p><p>This is a good choice for a half-day or rainy-day forest walk.</p>
+        <p class="pl__n"><b>Good to know.</b> The trail can be wet and slippery after rain, so wear shoes with grip.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image2.jpg" alt="5. Brandywine Falls Trail, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>5. Brandywine Falls Trail</h3>
+        <p>Brandywine Falls is one of the easiest waterfall walks near Whistler. It is located south of Whistler along the Sea to Sky Highway and makes a great stop on the drive to or from town.</p><p>The walk to the viewpoint is short, usually about 1 km round trip, with minimal elevation gain, and takes about 20 to 30 minutes. The viewpoint overlooks a dramatic waterfall dropping into a canyon.</p><p>Best for: Families, road trips, waterfall photos, easy walks.</p>
+        <p class="pl__n"><b>Good to know.</b> Stay behind barriers and use marked trails. The canyon edges are dangerous.</p>
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="best-moderate-hikes-in-whistler"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Best Moderate Hikes in Whistler</span>
+    <h2>Best Moderate Hikes in Whistler</h2><p class="cnt">4 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image3.jpg" alt="6. Ancient Cedars Trail, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>6. Ancient Cedars Trail</h3>
+        <p>Ancient Cedars Trail is a good forest hike for people who want to see big old trees without doing a major mountain climb. The trail leads through peaceful forest to large cedar trees, giving visitors a quieter side of Whistler.</p><p>The hike is about 5 km round trip, with around 175 m of elevation gain, and usually takes 1.5 to 2.5 hours. It is easy to moderate, depending on trail conditions and your hiking pace.</p><p>This is a nice option on a warm day because much of the route is shaded.</p>
+        <p class="pl__n"><b>Good to know.</b> The access road can be rough or seasonal, so check conditions before going.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image14.jpg" alt="7. Cheakamus Lake Trail, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>7. Cheakamus Lake Trail</h3>
+        <p>Cheakamus Lake is one of the best moderate lake hikes near Whistler. The trail follows forest and river scenery before reaching a beautiful turquoise lake surrounded by mountains.</p><p>The hike to the lake is about 14 km round trip if you go to the main lake area and return, with around 400 m of elevation gain, and usually takes 4 to 5 hours. The trail is easier than many alpine hikes because the climb is more gradual, but it is still a longer outing.</p><p>This is a great choice if you want a full nature experience without the steep effort of Rainbow Lake, Garibaldi Lake, or Wedgemount Lake.</p>
+        <p class="pl__n"><b>Good to know.</b> Cheakamus Lake is in Garibaldi Provincial Park, so check current access, parking, and pass requirements before going.</p>
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">8. Crater Rim and Logger’s Lake</h3>
+      <div class="pl__b">
+        
+        <p>Crater Rim and Logger’s Lake offer a more local-feeling hike in the Cheakamus area. The route climbs through forest to viewpoints over Logger’s Lake, which sits in an old volcanic crater.</p><p>The hike is about 4 to 5 km, with roughly 200 m of elevation gain, and usually takes 1.5 to 2.5 hours. It is moderate because the trail has rocky sections, roots, and short climbs.</p><p>This is a good hike if you want something shorter than Cheakamus Lake but more active than Train Wreck.</p>
+        <p class="pl__n"><b>Good to know.</b> Trails in this area can connect with other routes, so use a map or offline trail app.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image1.jpg" alt="9. Blackcomb Alpine Trails, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>9. Blackcomb Alpine Trails</h3>
+        <p>Blackcomb Mountain has several alpine hiking options, ranging from short scenic walks to harder loops. These trails are accessed by gondola and are great for visitors who want mountain scenery, wildflowers, glaciers, and alpine views without starting from the valley floor.</p><p>Distances and difficulty vary. Some short alpine walks may take 30 minutes to 1 hour, while longer routes can take 2 to 4 hours or more. Elevation gain also depends on the trail, but even easier alpine walks can feel more tiring because of uneven ground and high-mountain conditions.</p><p>Best for: Alpine meadows, mountain views, families, photography, gondola-accessed hiking.</p>
+        <p class="pl__n"><b>Good to know.</b> Check lift hours and trail status before going. Alpine trails may open later in the season because of snow.</p>
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="best-hard-hikes-in-whistler"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Best Hard Hikes in Whistler</span>
+    <h2>Best Hard Hikes in Whistler</h2><p class="cnt">6 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image11.jpg" alt="10. Rainbow Lake, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>10. Rainbow Lake</h3>
+        <p>Rainbow Lake is one of Whistler’s classic hard day hikes. It is long, steady, and rewarding, with forest, creek crossings, waterfalls, mountain views, and a beautiful lake at the end.</p><p>The hike is about 16 km round trip, with around 850 m of elevation gain, and usually takes 6 to 8 hours. It is a hard hike because of the distance and steady climb.</p><p>This is a strong choice for fit hikers who want a full-day trail close to Whistler.</p>
+        <p class="pl__n"><b>Good to know.</b> Swimming is not allowed in Rainbow Lake because it is part of Whistler’s drinking water supply. Dogs are also not allowed on this trail.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image12.jpg" alt="11. High Note Trail, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>11. High Note Trail</h3>
+        <p>High Note Trail is one of the best alpine hikes in Whistler. It starts from the top of Whistler Mountain and gives huge views over Cheakamus Lake, Black Tusk, Garibaldi Provincial Park, alpine meadows, rocky slopes, and surrounding peaks.</p><p>The full High Note Trail is about 9 to 10 km, with about 430 m of elevation change, and usually takes 3 to 4.5 hours. It is moderate to hard because it is in alpine terrain, with uneven ground, exposure, and changing weather.</p><p>This is one of the best hikes for visitors who want big mountain views without hiking all the way up from the valley.</p>
+        <p class="pl__n"><b>Good to know.</b> You need lift access, and the trail is only available when mountain operations and trail conditions allow. Bring layers because the alpine can be much cooler than the village.</p>
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">12. Decker Loop</h3>
+      <div class="pl__b">
+        
+        <p>Decker Loop is one of the best advanced hikes on Blackcomb Mountain. It connects with the Overlord Trail and gives views of glaciers, alpine lakes, rugged peaks, and high mountain terrain.</p><p>The loop from the Top of the World area to the Roundhouse Lodge area usually takes about 3 to 4 hours, depending on pace and conditions. It is a hard alpine route, with rocky terrain and more serious mountain conditions than a simple sightseeing walk.</p><p>This is a good choice for hikers who want a bigger alpine experience after riding up the mountain.</p>
+        <p class="pl__n"><b>Good to know.</b> This trail enters serious alpine terrain. Check lift schedules, weather, and trail status before starting.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image10.jpg" alt="13. Garibaldi Lake, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>13. Garibaldi Lake</h3>
+        <p>Garibaldi Lake is one of the most famous hikes in the Sea to Sky area. It is south of Whistler, but many Whistler visitors include it as a big hiking day.</p><p>The hike is about 18 km round trip, with around 820 m of elevation gain, and usually takes 5 to 7+ hours. The trail climbs steadily through forest before reaching a bright blue glacier-fed lake surrounded by mountains.</p><p>This is a hard full-day hike, but the lake is one of the most beautiful hiking rewards near Whistler.</p>
+        <p class="pl__n"><b>Good to know.</b> Garibaldi Provincial Park may require a free day-use pass during busy periods. Check BC Parks rules before going.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image13.jpg" alt="14. Singing Pass Trail, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>14. Singing Pass Trail</h3>
+        <p>Singing Pass is a long and demanding route that connects the Whistler Village area with the alpine around Garibaldi Provincial Park. It is often used by experienced hikers heading toward Russet Lake, Musical Bumps, or longer backcountry routes.</p><p>The trail is about 22 km one way if hiking from the village toward the alpine, with significant elevation gain. Many people use it as part of a longer backcountry plan rather than a casual day hike.</p><p>This is not a beginner hike. It is best for prepared hikers who understand route planning, weather, distance, and backcountry travel.</p>
+        <p class="pl__n"><b>Good to know.</b> Plan carefully. Check current trail conditions, snow, daylight, and whether lift-assisted route options are available.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image4.jpg" alt="15. Wedgemount Lake, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>15. Wedgemount Lake</h3>
+        <p>Wedgemount Lake is one of the hardest popular hikes near Whistler. It is steep, rocky, and demanding, but the reward is dramatic: a bright alpine lake below glacier-covered peaks.</p><p>The hike is about 12 to 14 km round trip, with around 1,200 m of elevation gain, and usually takes 6 to 8+ hours. It is very hard because the climb is steep almost the whole way.</p><p>This hike is best for strong, prepared hikers with good footwear, enough water, layers, and mountain experience.</p>
+        <p class="pl__n"><b>Good to know.</b> This is much harder than the distance suggests. Do not choose it as your first Whistler hike.</p>
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="frequently-asked-questions"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Frequently Asked Questions</span>
+    <h2>Frequently Asked Questions</h2><p class="cnt">63 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl pl--solo">
+      
+      <h3 class="solo__h">What is the best hike in Whistler?</h3>
+      <div class="pl__b">
+        
+        <p>For easy hiking, Lost Lake and Train Wreck are two of the best choices. For alpine views, High Note Trail is one of the best hikes in Whistler. For a hard full-day lake hike, Garibaldi Lake, Rainbow Lake, and Wedgemount Lake are popular choices.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">What is the easiest hike in Whistler?</h3>
+      <div class="pl__b">
+        
+        <p>Lost Lake Loop, the Valley Trail, Train Wreck, Rainbow Falls, and Brandywine Falls are some of the easiest hikes and walks in Whistler.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">What is the best alpine hike in Whistler?</h3>
+      <div class="pl__b">
+        
+        <p>High Note Trail is one of the best alpine hikes in Whistler because it offers views of Cheakamus Lake, Black Tusk, Garibaldi Provincial Park, and surrounding peaks. Blackcomb’s Decker Loop is another strong alpine option for more experienced hikers.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Can beginners hike in Whistler?</h3>
+      <div class="pl__b">
+        
+        <p>Yes. Beginners can start with Lost Lake, the Valley Trail, Train Wreck, Rainbow Falls, Brandywine Falls, or short gondola-accessed alpine walks.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Garibaldi Lake closer to Whistler or Squamish?</h3>
+      <div class="pl__b">
+        
+        <p>Garibaldi Lake is between Squamish and Whistler, but it is often included in Whistler hiking trips because it is a major Sea to Sky trail near the resort area.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Wedgemount Lake hard?</h3>
+      <div class="pl__b">
+        
+        <p>Yes. Wedgemount Lake is very hard. It has a steep climb, rough terrain, and major elevation gain. It is best for strong, prepared hikers.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Do you need a pass to hike in Whistler?</h3>
+      <div class="pl__b">
+        
+        <p>Some nearby hikes in Garibaldi Provincial Park may require free day-use passes during busy periods. Lift-access alpine hikes require sightseeing or lift access. Always check current rules before going.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Can you hike in Whistler in winter?</h3>
+      <div class="pl__b">
+        
+        <p>Some lower trails and the Valley Trail can be used in winter, but many hiking trails are covered in snow. Lost Lake becomes a Nordic skiing and snowshoeing area, and alpine hiking routes are usually not summer hiking trails in winter.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">What should I hike if I only have one day in Whistler?</h3>
+      <div class="pl__b">
+        
+        <p>For an easy day, choose Lost Lake, Train Wreck, or the Valley Trail. For alpine views, ride the gondola and hike High Note or shorter alpine trails if open. For a hard full-day hike, choose Garibaldi Lake, Rainbow Lake, or Wedgemount Lake if conditions are safe.</p><p>Whistler is one of the best hiking destinations in British Columbia because it offers so many trail types in one place. You can take an easy village walk, hike through old forest, cross a suspension bridge, follow a river to a turquoise lake, or ride a gondola into the alpine.</p><p>For first-time visitors, Lost Lake, Train Wreck, and High Note Trail are great starting points. For families, choose Lost Lake, the Valley Trail, Rainbow Falls, or Brandywine Falls. For stronger hikers, Rainbow Lake, Garibaldi Lake, Decker Loop, and Wedgemount Lake offer bigger adventure.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">What is Whistler known for in biking?</h3>
+      <div class="pl__b">
+        
+        <p>Whistler is best known for Whistler Mountain Bike Park, lift-accessed downhill riding, Crankworx Whistler, cross-country trails, the Valley Trail, and its strong summer bike culture.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Whistler good for non-mountain bikers?</h3>
+      <div class="pl__b">
+        
+        <p>Yes. Whistler is excellent even if you are not a mountain biker. The Valley Trail, lake rides, e-bike tours, Lost Lake, and casual rentals make biking accessible for visitors who just want an easy outdoor activity.</p><p>You do not need to ride the bike park to enjoy biking in Whistler. For many travelers, the best biking day is a simple ride from the village to Lost Lake or Alta Lake, with a picnic or swim along the way.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Whistler Bike Park good for beginners?</h3>
+      <div class="pl__b">
+        
+        <p>Yes, but beginners should approach it carefully. Whistler Bike Park has beginner trails, lessons, and progression routes, but it is still a downhill mountain bike park. That means steeper terrain, higher speeds, berms, braking bumps, and trail features.</p><p>The best beginner plan is to rent proper gear, take a lesson, start on green trails, and avoid comparing yourself to experienced riders.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Do you need a special bike for Whistler Bike Park?</h3>
+      <div class="pl__b">
+        
+        <p>Yes. For the bike park, use a downhill or enduro mountain bike with proper suspension and brakes. A casual bike, cruiser bike, or basic hybrid bike is not suitable for downhill park trails.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Whistler Bike Park only for experts?</h3>
+      <div class="pl__b">
+        
+        <p>No. Whistler Bike Park has trails for different levels, including beginner and intermediate routes. However, first-time riders should take a lesson and start slowly.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">What is the easiest biking in Whistler?</h3>
+      <div class="pl__b">
+        
+        <p>The Valley Trail is the easiest biking option in Whistler. It is paved, scenic, and connects the village with lakes, parks, and neighborhoods.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">What is the best biking event in Whistler?</h3>
+      <div class="pl__b">
+        
+        <p>Crankworx Whistler is the top biking event for mountain bike fans. RBC GranFondo Whistler is the major event for road cyclists.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">When is Crankworx Whistler?</h3>
+      <div class="pl__b">
+        
+        <p>Crankworx Whistler is usually held in summer. For 2026, it is scheduled for July 24 to August 2.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">When is the best time to bike in Whistler?</h3>
+      <div class="pl__b">
+        
+        <p>The best biking season is usually summer, especially June through September. Fall can also be excellent, depending on weather, trail conditions, and lift operations.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Can you e-bike in Whistler?</h3>
+      <div class="pl__b">
+        
+        <p>Yes. E-bikes are available in Whistler and are popular for scenic rides, the Valley Trail, and guided tours. Check local rules because not all trails allow all types of e-bikes.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is biking in Whistler expensive?</h3>
+      <div class="pl__b">
+        
+        <p>It can be, especially if you rent a downhill bike, buy bike park tickets, book lessons, or visit during major events. Casual Valley Trail biking can be more affordable, especially if you bring your own bike or rent a simple cruiser.</p><p>Biking is one of the best ways to experience Whistler in summer. The bike park gives Whistler its world-famous downhill reputation, but the destination is much more than expert mountain biking.</p><p>Beginners can cruise the Valley Trail, families can ride to Lost Lake, casual visitors can rent e-bikes, cross-country riders can explore forest trails, and experienced riders can spend days in the bike park.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">What is Whistler best known for in winter?</h3>
+      <div class="pl__b">
+        
+        <p>Whistler is best known for Whistler Blackcomb, skiing, snowboarding, the Peak 2 Peak Gondola, après-ski, alpine bowls, long runs, and its walkable winter village.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Whistler Blackcomb one ski resort or two?</h3>
+      <div class="pl__b">
+        
+        <p>Whistler Blackcomb is one resort made up of two mountains: Whistler Mountain and Blackcomb Mountain. They are connected by the Peak 2 Peak Gondola.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Which is better, Whistler Mountain or Blackcomb Mountain?</h3>
+      <div class="pl__b">
+        
+        <p>Both are excellent. Whistler Mountain is often a classic choice for first-time visitors and village access. Blackcomb is also large and varied, with strong intermediate and advanced terrain. Many visitors try both.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Whistler better for skiers or snowboarders?</h3>
+      <div class="pl__b">
+        
+        <p>Whistler is excellent for both skiers and snowboarders. Skiers may enjoy the long groomers, alpine bowls, moguls, and steep terrain. Snowboarders often enjoy the wide runs, terrain parks, powder, and tree riding.</p><p>The main challenge for snowboarders can be flat sections and traverses, especially when moving around the mountain. Beginners on snowboards should take lessons to learn how to manage speed, edges, and lift exits.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Whistler good for beginners?</h3>
+      <div class="pl__b">
+        
+        <p>Yes, Whistler can be good for beginners, especially with lessons. However, beginners should plan carefully because the resort is large and can feel overwhelming.</p><p>The best beginner plan is to book lessons, rent proper gear, stay near learning areas, and avoid following more experienced friends into unfamiliar terrain.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Whistler good for advanced skiers and snowboarders?</h3>
+      <div class="pl__b">
+        
+        <p>Yes. Advanced riders have a lot to explore at Whistler Blackcomb, including alpine bowls, steep marked runs, tree skiing, powder areas, moguls, and glacier terrain.</p><p>The key is to follow current signs, closures, and patrol guidance. Whistler’s advanced terrain can change quickly with weather and visibility.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">When is the best time to ski in Whistler?</h3>
+      <div class="pl__b">
+        
+        <p>The best time for a ski-focused trip is usually January to March. December is festive but busy, and April can offer spring skiing with more variable conditions.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Do you need to book lift tickets in advance?</h3>
+      <div class="pl__b">
+        
+        <p>Booking lift tickets in advance is recommended, especially during holidays, weekends, and peak ski dates. It can also help you avoid last-minute stress.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Can non-skiers go up the mountain?</h3>
+      <div class="pl__b">
+        
+        <p>Yes. Non-skiers can ride the Peak 2 Peak Gondola for sightseeing when sightseeing access is operating. They can also enjoy the village, tubing, snowshoeing, spas, museums, and dining.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">What should beginners avoid in Whistler?</h3>
+      <div class="pl__b">
+        
+        <p>Beginners should avoid following friends into blue, black, tree, mogul, or alpine terrain before they are ready. They should also avoid flat traverses if they are not confident, especially on a snowboard.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Whistler expensive for skiing?</h3>
+      <div class="pl__b">
+        
+        <p>Yes, Whistler can be expensive. Lift tickets, rentals, lessons, hotels, restaurants, and parking can add up. Book early, visit midweek, avoid peak holidays, and consider package deals if you want to save.</p><p>Skiing and snowboarding in Whistler is one of the classic winter experiences in British Columbia. Whistler Blackcomb is huge, scenic, and full of variety, with terrain for beginners, families, intermediates, advanced riders, and experts.</p><p>For a first trip, keep your plan simple. Book lessons if you are new, choose one mountain for your first day, check the trail map, and do not rush to ski everything. For stronger riders, use several days to explore Whistler Mountain, Blackcomb Mountain, alpine bowls, trees, groomers, and terrain parks.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Squamish better than Whistler?</h3>
+      <div class="pl__b">
+        
+        <p>Squamish is better if you want rugged outdoor adventure, lower-key travel, hiking, climbing, biking, and easier access from Vancouver. Whistler is better if you want skiing, a resort village, hotels, restaurants, spas, and lots of organized activities.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Whistler worth visiting if you do not ski?</h3>
+      <div class="pl__b">
+        
+        <p>Yes. Whistler is worth visiting without skiing. You can ride the Peak 2 Peak Gondola, walk the village, visit Lost Lake, go hiking, bike, zipline, visit the Squamish Lil’wat Cultural Centre, eat out, or relax at a spa.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Squamish worth visiting?</h3>
+      <div class="pl__b">
+        
+        <p>Yes. Squamish is worth visiting for the Sea to Sky Gondola, Shannon Falls, the Stawamus Chief, hiking, climbing, biking, kiteboarding, eagle watching, and Howe Sound views.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Can you visit Squamish and Whistler in one day?</h3>
+      <div class="pl__b">
+        
+        <p>Yes, but it is a long day. If you only have one day, stop at Shannon Falls and the Sea to Sky Gondola in Squamish, then continue to Whistler Village. Start early and do not plan too many big activities.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Which is closer to Vancouver, Squamish or Whistler?</h3>
+      <div class="pl__b">
+        
+        <p>Squamish is closer to Vancouver. Whistler is farther north along the Sea to Sky Highway.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Which is cheaper, Squamish or Whistler?</h3>
+      <div class="pl__b">
+        
+        <p>Squamish is usually cheaper. Whistler tends to cost more because it is a major resort destination with higher hotel, activity, dining, and lift ticket costs.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Which is better for hiking, Squamish or Whistler?</h3>
+      <div class="pl__b">
+        
+        <p>Squamish is better for rugged hikes like the Stawamus Chief and Sea to Summit Trail. Whistler is better for alpine hiking, lake walks, and resort-accessed mountain trails.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Which is better for families?</h3>
+      <div class="pl__b">
+        
+        <p>Whistler is often easier for families on a multi-day trip because of the village, hotels, gondolas, and many activities. Squamish is great for a family day trip with Shannon Falls, the Sea to Sky Gondola, and easy walks.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Which is better in winter?</h3>
+      <div class="pl__b">
+        
+        <p>Whistler is better in winter if you want skiing, snowboarding, snowshoeing, and a classic mountain resort trip. Squamish is better for a quieter winter stop, eagle watching, and lower-elevation nature.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Which is better in summer?</h3>
+      <div class="pl__b">
+        
+        <p>Both are great in summer. Squamish is best for rugged outdoor adventure. Whistler is best for alpine sightseeing, biking, lake days, and resort activities.</p><p>Choose Squamish if you want a more rugged, local, affordable, outdoor-focused trip with hiking, climbing, biking, waterfalls, gondola views, and Howe Sound scenery.</p><p>Choose Whistler if you want a famous mountain resort with skiing, gondolas, hotels, restaurants, spas, nightlife, alpine views, and easy activity booking.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">What is Whistler best known for?</h3>
+      <div class="pl__b">
+        
+        <p>Whistler is best known for Whistler Blackcomb, skiing, snowboarding, the Peak 2 Peak Gondola, Whistler Village, mountain biking, alpine hiking, lakes, and après-ski.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Whistler worth visiting if you do not ski?</h3>
+      <div class="pl__b">
+        
+        <p>Yes. Whistler is worth visiting even if you do not ski. You can ride the Peak 2 Peak Gondola, walk the village, visit Lost Lake, bike the Valley Trail, go to museums, relax at Scandinave Spa, eat out, or book adventure tours.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">What is the best thing to do in Whistler for first-time visitors?</h3>
+      <div class="pl__b">
+        
+        <p>The Peak 2 Peak Gondola is one of the best first-time activities because it gives you big mountain views and a true Whistler experience without needing special skills.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Can you visit Whistler as a day trip from Vancouver?</h3>
+      <div class="pl__b">
+        
+        <p>Yes, but it is a long day. The drive from Vancouver to Whistler usually takes about two to two and a half hours. Start early and keep your plan simple.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">What can you do in Whistler in summer?</h3>
+      <div class="pl__b">
+        
+        <p>In summer, you can ride the Peak 2 Peak Gondola, mountain bike, hike, swim at lakes, paddleboard, kayak, zipline, golf, walk the Valley Trail, and enjoy patios and events.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">What can you do in Whistler in winter besides skiing?</h3>
+      <div class="pl__b">
+        
+        <p>You can snowshoe, cross-country ski, ride the Peak 2 Peak Gondola, visit the village, relax at Scandinave Spa, visit museums, go shopping, enjoy après-ski, or take a snowmobile tour.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Whistler good for families?</h3>
+      <div class="pl__b">
+        
+        <p>Yes. Whistler is very family-friendly. Families can enjoy the village, gondola sightseeing, Lost Lake, easy biking, snowshoeing, ski lessons, lakes, museums, and guided activities.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">How many days do you need in Whistler?</h3>
+      <div class="pl__b">
+        
+        <p>One day is enough for a quick village and gondola visit. Two to three days is better if you want outdoor activities, lake time, skiing, biking, or a spa visit.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Whistler expensive?</h3>
+      <div class="pl__b">
+        
+        <p>Whistler can be expensive, especially for hotels, lift tickets, restaurants, and tours. You can save money by visiting outside peak dates, using the Valley Trail, enjoying free lake and village walks, and booking early.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Do you need a car in Whistler?</h3>
+      <div class="pl__b">
+        
+        <p>Not always. If you stay near Whistler Village, many restaurants, shops, lifts, and tour meeting points are walkable. A car helps if you want to visit lakes, trailheads, or nearby stops on your own.</p><p>Whistler is one of the easiest mountain destinations to enjoy because it offers so many activities in one place. You can ski in winter, bike in summer, ride the Peak 2 Peak Gondola, walk through the village, relax by a lake, visit museums, eat well, or spend a quiet afternoon at the spa.</p><p>If you only do one thing, ride the Peak 2 Peak Gondola. If you have more time, add Lost Lake, the Valley Trail, the Squamish Lil’wat Cultural Centre, and one bigger outdoor activity like skiing, biking, hiking, or ziplining.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">What is Whistler known for in summer?</h3>
+      <div class="pl__b">
+        
+        <p>Whistler is known for mountain biking, alpine hiking, Peak 2 Peak Gondola sightseeing, lake days, paddling, ziplining, golf, patios, festivals, and the walkable village.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">What is the best month to visit Whistler in summer?</h3>
+      <div class="pl__b">
+        
+        <p>July and August are the warmest and most active summer months. June can be beautiful but some alpine trails may still have snow. September is also excellent if you want fewer crowds and cooler weather.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Whistler expensive in summer?</h3>
+      <div class="pl__b">
+        
+        <p>Whistler can be expensive in summer, especially for hotels, guided tours, bike park tickets, restaurants, and spa visits. July and August are usually busy and can be costly.</p><p>You can make the trip more budget-friendly by walking the Valley Trail, visiting Lost Lake, choosing self-guided hikes, using picnic areas, staying outside peak weekends, and booking early.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Whistler good for families in summer?</h3>
+      <div class="pl__b">
+        
+        <p>Yes. Whistler is very family-friendly in summer. Families can enjoy Lost Lake, the Valley Trail, easy bike rides, gondola sightseeing, Train Wreck Trail, Brandywine Falls, playgrounds, patios, ice cream stops, and lake parks.</p><p>For active families, mountain bike lessons, ziplining, rafting, and guided tours can add more adventure.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Whistler worth visiting in summer if you do not bike?</h3>
+      <div class="pl__b">
+        
+        <p>Yes. Whistler is worth visiting in summer even if you do not mountain bike. You can ride the Peak 2 Peak Gondola, hike, swim, paddle, walk the Valley Trail, visit museums, relax at the spa, enjoy lake parks, go ziplining, take photos, eat out, or simply enjoy the village.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Can you swim in Whistler in summer?</h3>
+      <div class="pl__b">
+        
+        <p>Yes. Lost Lake and Alta Lake are popular summer swimming spots. Lake water can still be cold early in the season.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is the Peak 2 Peak Gondola open in summer?</h3>
+      <div class="pl__b">
+        
+        <p>Yes, the Peak 2 Peak Gondola usually operates as part of Whistler Blackcomb’s summer sightseeing experience, but dates and hours change by season. Check current lift operations before going.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Whistler good for hiking in summer?</h3>
+      <div class="pl__b">
+        
+        <p>Yes. Summer is one of the best times to hike in Whistler. Lower trails open earlier, while alpine trails are best once snow has melted and lifts are operating.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Can beginners mountain bike in Whistler?</h3>
+      <div class="pl__b">
+        
+        <p>Yes, but beginners should take a lesson or start with easier valley trails before trying the bike park. The Whistler Bike Park has beginner options, but it is still a real downhill biking environment.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">What can you do in Whistler on a rainy summer day?</h3>
+      <div class="pl__b">
+        
+        <p>Visit the Audain Art Museum, Squamish Lil’wat Cultural Centre, Scandinave Spa, cafes, shops, restaurants, or take a shorter forest walk if conditions are safe.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">How many days do you need in Whistler in summer?</h3>
+      <div class="pl__b">
+        
+        <p>One day is enough for a quick village, gondola, and lake visit. Two to three days is better if you want hiking, biking, paddling, spa time, and a more relaxed trip.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Do you need a car in Whistler in summer?</h3>
+      <div class="pl__b">
+        
+        <p>Not always. If you stay near Whistler Village, you can walk to many restaurants, shops, lifts, bike rentals, and tours. The Valley Trail also makes it easy to reach lakes and parks by bike or on foot.</p><p>Whistler in summer is more than a ski resort without snow. It is a full mountain destination with hiking, biking, lakes, paddling, sightseeing, patios, culture, spas, and family-friendly activities.</p><p>For first-time visitors, ride the Peak 2 Peak Gondola, walk through Whistler Village, visit Lost Lake, and spend time on the Valley Trail. If you want adventure, add mountain biking, alpine hiking, ziplining, rafting, or a guided wildlife tour. If you want a slower trip, focus on lakes, patios, museums, and spa time.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="bike-park-zones-in-whistler"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Bike Park Zones in Whistler</span>
+    <h2>Bike Park Zones in Whistler</h2><p class="cnt">4 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl pl--solo">
+      
+      <h3 class="solo__h">Fitzsimmons Zone</h3>
+      <div class="pl__b">
+        
+        <p>The Fitzsimmons Zone is the original and most famous part of the bike park. It is close to Whistler Village and is where many riders start. This zone has beginner-friendly progression trails, classic flow trails, technical trails, and some of the most famous lines in the park.</p><p>It is a good place to build confidence, repeat laps, and learn how the bike park works.</p><p>Best for: First bike park experience, progression, classic Whistler trails, quick laps from the village.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Creekside Zone</h3>
+      <div class="pl__b">
+        
+        <p>The Creekside Zone gives riders another access point and a different style of terrain. It is popular with riders who want longer descents, a little more space, and a different base area from the main village.</p><p>This zone is better for riders who already feel comfortable on mountain bike trails.</p><p>Best for: Intermediate riders, longer laps, quieter access, riders staying near Creekside.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Garbanzo Zone</h3>
+      <div class="pl__b">
+        
+        <p>Garbanzo takes riders higher up the mountain. Trails here are longer, rougher, and more demanding than the lower mountain. Riders should be comfortable with sustained downhill riding, braking, body position, and fatigue.</p><p>Best for: Intermediate to advanced riders, longer descents, more physical riding.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Peak Zone and Top of the World</h3>
+      <div class="pl__b">
+        
+        <p>The Peak Zone gives riders a high-alpine experience with big mountain views. Top of the World is one of Whistler’s most iconic alpine bike trails, but it is not for beginners. The terrain is exposed, rocky, and more serious than lower park trails.</p><p>Best for: Advanced and expert riders, alpine views, bucket-list Whistler biking.</p><p>Yes, beginners can bike in Whistler, but they should choose the right type of riding.</p>
+        <p class="pl__n"><b>Good to know.</b> Do not judge bike park trails by ski-run colors alone. A green downhill bike trail can still feel harder than a normal paved or gravel ride.</p>
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="can-beginners-bike-in-whistler"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Can Beginners Bike in Whistler?</span>
+    <h2>Can Beginners Bike in Whistler?</h2><p class="cnt">2 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image17.jpg" alt="The Valley Trail: Easy Biking in Whistler, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>The Valley Trail: Easy Biking in Whistler</h3>
+        <p>The Valley Trail is one of the best ways to bike in Whistler if you are not looking for downhill riding. It is a paved, car-free trail network that connects Whistler Village with lakes, parks, neighborhoods, viewpoints, and picnic areas.</p><p>This is the best choice for families, casual riders, couples, and visitors who want to explore Whistler without driving.</p><p>You can use the Valley Trail to bike to:</p>
+        <p class="pl__n"><b>Good to know.</b> The Valley Trail is shared by walkers, runners, cyclists, children, and dogs. Ride slowly in busy areas and use your bell when passing.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image13.jpg" alt="Lost Lake Biking, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>Lost Lake Biking</h3>
+        <p>Lost Lake is one of the easiest places to enjoy biking close to Whistler Village. The area has paved access through the Valley Trail, plus forest trails nearby for riders who want a little more adventure.</p><p>Casual riders can bike to the lake for swimming, a picnic, or a short loop. More confident riders can explore nearby cross-country trails.</p><p>Best for: Families, beginner riders, lake rides, easy forest biking, short trips from the village.</p>
+        <p class="pl__n"><b>Good to know.</b> Book rentals and lessons early during summer weekends, holidays, and bike events.</p>
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="top-biking-events-in-whistler"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Top Biking Events in Whistler</span>
+    <h2>Top Biking Events in Whistler</h2><p class="cnt">3 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image4.jpg" alt="Crankworx Whistler, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>Crankworx Whistler</h3>
+        <p>Crankworx Whistler is the biggest mountain biking event in Whistler and one of the most important bike festivals in the world. It is usually held in summer, most often in July or August.</p><p>The event brings together professional riders, amateur riders, bike fans, brands, demos, races, Kidsworx events, and a high-energy village atmosphere. It is not just one race.</p><p>Crankworx includes several styles of mountain bike competition, such as slopestyle, downhill, dual slalom, pump track, enduro, and other gravity-focused events. These events show different sides of mountain biking: big tricks, technical downhill speed, head-to-head racing, tight cornering, stamina, and bike handling.</p>
+        <p class="pl__n"><b>Good to know.</b> Whistler gets very busy during Crankworx. Book lodging, bike rentals, restaurants, and activities early. Some trails, village areas, and bike park zones may also be affected by events, so check the current schedule before planning your riding days.</p>
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">RBC GranFondo Whistler</h3>
+      <div class="pl__b">
+        
+        <p>RBC GranFondo Whistler is a major road cycling event from Vancouver to Whistler along the Sea to Sky Highway. It is usually held in September, making it a late-summer or early-fall cycling event.</p><p>This is a different kind of biking event from Crankworx. Instead of downhill mountain biking, GranFondo focuses on endurance road cycling, scenic highway riding, and a big finish in Whistler. Riders travel about 122 km from Vancouver to Whistler, following the Sea to Sky corridor in a large organized cycling event.</p><p>It is relevant for serious road cyclists, endurance riders, spectators, and visitors who want to see a major cycling event in the region.</p>
+        <p class="pl__n"><b>Good to know.</b> The event can affect road travel and traffic between Vancouver and Whistler. Plan ahead if you are driving on event day, especially along the Sea to Sky Highway.</p>
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">UCI Mountain Bike World Cup Downhill</h3>
+      <div class="pl__b">
+        
+        <p>Whistler will host the UCI Mountain Bike World Cup Downhill for the first time in 2026. It is scheduled for September 25 to 27, 2026, making it a fall mountain biking event.</p><p>This is not a long-running annual Whistler event like Crankworx. Instead, 2026 marks the event’s Whistler debut, bringing an official UCI World Cup downhill race to one of the most famous mountain biking destinations in the world.</p><p>The event focuses on downhill racing, where elite riders race one at a time down a steep, technical course, with the fastest time winning. The Whistler stop is expected to take place in the Creekside area of Whistler Mountain Bike Park.</p>
+        <p class="pl__n"><b>Good to know.</b> Because this is a major first-time World Cup event for Whistler, expect strong interest from mountain bike fans. Event dates, trail access, bike park operations, village crowds, and travel plans may affect the normal riding experience, so check the current event schedule before booking or planning your riding days.</p>
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="whistler-blackcomb-the-main-ski-area"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Whistler Blackcomb: The Main Ski Area</span>
+    <h2>Whistler Blackcomb: The Main Ski Area</h2><p class="cnt">1 place, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image11.jpg" alt="Safety Tips for Whistler Blackcomb, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>Safety Tips for Whistler Blackcomb</h3>
+        <p>Whistler Blackcomb is a resort, but it is still a mountain environment. Weather, visibility, snow conditions, crowds, and fatigue all affect safety.</p><p>Stay in control at all times. You should be able to stop or avoid people and objects.</p><p>Give people downhill of you the right of way. It is your responsibility to avoid them.</p>
+        <p class="pl__n"><b>Good to know.</b> Never ski trees alone. Tree wells can be dangerous, especially after heavy snowfall.</p>
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="what-to-do-in-squamish"><div class="wrap">
+  <div class="sechead"><span class="label label--n">What to Do in Squamish</span>
+    <h2>What to Do in Squamish</h2><p class="cnt">8 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image7.jpg" alt="Ride the Sea to Sky Gondola, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>Ride the Sea to Sky Gondola</h3>
+        <p>The Sea to Sky Gondola is one of the best things to do in Squamish. It takes you up from near sea level to high mountain views above Howe Sound.</p><p>At the top, you can walk across the suspension bridge, enjoy viewing platforms, eat at the summit lodge, and explore hiking trails. It is one of the easiest ways to get big views without doing a hard hike.</p>
+        <p class="pl__n"><b>Good to know.</b> This is one of the best Squamish activities if you want mountain views but do not want to hike the Stawamus Chief.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image14.jpg" alt="Hike the Stawamus Chief, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>Hike the Stawamus Chief</h3>
+        <p>The Stawamus Chief is one of the most famous landmarks in Squamish. It is a huge granite cliff that rises above the town and Howe Sound.</p><p>Hiking the Chief is a classic Squamish adventure. It is steep, challenging, and rewarding. There are three main peaks, and each gives amazing views.</p><p>Classic Squamish adventure</p>
+        <p class="pl__n"><b>Good to know.</b> This is not an easy stroll. Expect steep sections, stairs, rocks, roots, and busy trails in peak season.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image12.jpg" alt="Visit Shannon Falls, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>Visit Shannon Falls</h3>
+        <p>Shannon Falls is one of the easiest and most beautiful stops near Squamish. The waterfall is close to the highway and only a short walk from the parking area.</p><p>It is a great stop if you are driving from Vancouver to Whistler and want a quick nature break.</p>
+        <p class="pl__n"><b>Good to know.</b> Shannon Falls pairs well with the Sea to Sky Gondola because they are close to each other.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image3.jpg" alt="Go Rock Climbing, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>Go Rock Climbing</h3>
+        <p>Squamish is one of Canada’s best rock climbing destinations. The granite walls, especially around the Chief, attract climbers from around the world.</p><p>There are routes for many levels, but beginners should go with a guide or take a lesson.</p>
+        <p class="pl__n"><b>Good to know.</b> If you are new to climbing, book a guided experience instead of trying it on your own.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image11.jpg" alt="Try Mountain Biking, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>Try Mountain Biking</h3>
+        <p>Squamish has excellent mountain biking trails. The area is known for forest trails, technical riding, flow trails, and a strong local biking culture.</p><p>Whistler is more famous for lift-access bike park riding, but Squamish is loved by many riders for its natural trail network.</p><p>Intermediate and advanced riders</p>
+        <p class="pl__n"><b>Good to know.</b> Trails vary by skill level. Check local trail maps and ride within your ability.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image15.jpg" alt="Go Kiteboarding or Watch the Wind Sports, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>Go Kiteboarding or Watch the Wind Sports</h3>
+        <p>Squamish is one of the best places in the Sea to Sky area for kiteboarding and wind sports. The wind, water, and mountain setting make it exciting to watch even if you do not try it.</p>
+        <p class="pl__n"><b>Good to know.</b> Beginners should take lessons. Do not try kiteboarding without proper training.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image17.jpg" alt="Watch Bald Eagles, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>Watch Bald Eagles</h3>
+        <p>Squamish is known for bald eagle viewing, especially in winter when eagles gather near rivers to feed on salmon.</p>
+        <p class="pl__n"><b>Good to know.</b> Bring binoculars and keep a respectful distance from wildlife.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image4.jpg" alt="Explore Downtown Squamish, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>Explore Downtown Squamish</h3>
+        <p>Downtown Squamish has cafes, breweries, shops, restaurants, and a more local feel than Whistler Village.</p><p>It is a good place to relax after hiking, climbing, biking, or riding the gondola.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="what-to-do-in-whistler"><div class="wrap">
+  <div class="sechead"><span class="label label--n">What to Do in Whistler</span>
+    <h2>What to Do in Whistler</h2><p class="cnt">9 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image5.jpg" alt="Ride the Peak 2 Peak Gondola, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>Ride the Peak 2 Peak Gondola</h3>
+        <p>The Peak 2 Peak Gondola is one of Whistler’s most famous attractions. It connects Whistler Mountain and Blackcomb Mountain and gives visitors sweeping alpine views.</p><p>You can ride it in winter during ski season or in summer for mountain sightseeing and alpine hiking.</p>
+        <p class="pl__n"><b>Good to know.</b> It is cooler in the mountains than in the village, so bring layers.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image13.jpg" alt="Ski or Snowboard at Whistler Blackcomb, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>Ski or Snowboard at Whistler Blackcomb</h3>
+        <p>Whistler is one of the best ski destinations in North America. Whistler Blackcomb is huge, with two mountains, many runs, lifts, bowls, and terrain for different skill levels.</p><p>This is the biggest reason many people choose Whistler over Squamish in winter.</p>
+        <p class="pl__n"><b>Good to know.</b> Book lift tickets, rentals, lessons, and lodging early during peak winter dates.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image10.jpg" alt="Explore Whistler Village, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>Explore Whistler Village</h3>
+        <p>Whistler Village is one of the easiest resort villages to enjoy on foot. You can walk between hotels, restaurants, shops, cafes, bars, galleries, tour desks, and lift bases.</p><p>Even if you do not ski, the village is fun for food, shopping, and people-watching.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image18.jpg" alt="Go Mountain Biking, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>Go Mountain Biking</h3>
+        <p>In summer, Whistler is famous for mountain biking. The Whistler Mountain Bike Park is one of the best-known lift-access bike parks in the world.</p><p>There are also valley trails and easier biking routes for riders who do not want downhill park riding.</p>
+        <p class="pl__n"><b>Good to know.</b> The bike park is exciting but can be intense. Beginners should take lessons or start on easier trails.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image1.jpg" alt="Walk or Bike the Valley Trail, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>Walk or Bike the Valley Trail</h3>
+        <p>The Valley Trail is a paved path system that connects many parts of Whistler. It is great for easy biking, walking, jogging, and getting around without a car.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image6.jpg" alt="Visit Lost Lake, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>Visit Lost Lake</h3>
+        <p>Lost Lake is one of the best easy outdoor spots in Whistler. In summer, people go for swimming, walking, biking, and beach time. In winter, the area becomes a place for cross-country skiing and snowshoeing.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Relax at Scandinave Spa</h3>
+      <div class="pl__b">
+        
+        <p>Scandinave Spa is one of Whistler’s most popular relaxation experiences. It is known for outdoor hot and cold pools, quiet spaces, forest views, and a calm atmosphere.</p><p>Recovery after skiing or hiking</p>
+        <p class="pl__n"><b>Good to know.</b> It is a quiet spa, so it is better for adults and calm relaxation than for families with young children.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image2.jpg" alt="Visit the Squamish Lil’wat Cultural Centre, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>Visit the Squamish Lil’wat Cultural Centre</h3>
+        <p>The Squamish Lil’wat Cultural Centre is one of the best cultural stops in Whistler. It shares the living cultures, stories, art, and traditions of the Squamish Nation and Lil’wat Nation.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Try Ziplining, ATV Tours, or Rafting</h3>
+      <div class="pl__b">
+        
+        <p>Whistler has many bookable adventure tours. Depending on the season, you may find ziplining, ATV tours, rafting, snowmobiling, snowshoeing, and other guided activities.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="squamish-vs-whistler-by-travel-style"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Squamish vs Whistler by Travel Style</span>
+    <h2>Squamish vs Whistler by Travel Style</h2><p class="cnt">12 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl pl--solo">
+      
+      <h3 class="solo__h">Best for a Day Trip from Vancouver</h3>
+      <div class="pl__b">
+        
+        <p>Squamish is closer to Vancouver and works well as a day trip. You can ride the Sea to Sky Gondola, visit Shannon Falls, walk downtown, and still return to Vancouver the same day.</p><p>Whistler can also be done as a day trip, but it is a longer day with more driving.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Best for a Weekend Trip</h3>
+      <div class="pl__b">
+        
+        <p>Choose Whistler if you want a full resort weekend with hotels, restaurants, activities, and nightlife.</p><p>Choose Squamish if you want a cheaper, more relaxed, adventure-focused weekend.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Best for Hiking</h3>
+      <div class="pl__b">
+        
+        <p>Choose Squamish for steeper, more rugged hikes like the Chief and Sea to Summit Trail.</p><p>Choose Whistler for alpine hikes, lake walks, and more resort-accessed mountain trails.</p><p>Best answer: Squamish for challenge, Whistler for variety and alpine access.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Best for Skiing and Snowboarding</h3>
+      <div class="pl__b">
+        
+        <p>Whistler Blackcomb is the clear winner for skiing and snowboarding. Squamish is not a major ski resort town.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Best for Mountain Biking</h3>
+      <div class="pl__b">
+        
+        <p>Choose Whistler if you want lift-access bike park riding.</p><p>Choose Squamish if you want local forest trails and a more natural trail network.</p><p>Best answer: Whistler for bike park, Squamish for trail riding.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Best for Families</h3>
+      <div class="pl__b">
+        
+        <p>Choose Whistler for easier planning, lots of activities, and a walkable village.</p><p>Choose Squamish for a simpler family day with Shannon Falls, the Sea to Sky Gondola, easy walks, and less resort energy.</p><p>Best answer: Whistler for multi-day family trips, Squamish for easy nature stops.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Best for Couples</h3>
+      <div class="pl__b">
+        
+        <p>Choose Whistler for hotels, spas, restaurants, and a romantic mountain resort feel.</p><p>Choose Squamish for hiking, views, casual food, breweries, and a more relaxed trip.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Best for Budget Travelers</h3>
+      <div class="pl__b">
+        
+        <p>Whistler can be expensive, especially for hotels, lift tickets, restaurants, parking, and activities. Squamish is usually easier for travelers who want outdoor fun without the full resort price.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Best for Food and Nightlife</h3>
+      <div class="pl__b">
+        
+        <p>Whistler has more restaurants, bars, lounges, cafes, and nightlife. Squamish has good food and breweries, but it is smaller and quieter.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Best for Nature Without Crowds</h3>
+      <div class="pl__b">
+        
+        <p>Squamish can still be busy, especially at popular hikes and the gondola, but it usually feels less resort-heavy than Whistler.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Best for First-Time Visitors to British Columbia</h3>
+      <div class="pl__b">
+        
+        <p>Choose Whistler if you want the famous bucket-list resort experience.</p><p>Choose Squamish if you want a more local, scenic, outdoor-focused stop.</p><p>Best answer: Do both if you can. Stop in Squamish on the way to Whistler.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Best Things to Do in Squamish and Whistler Together</h3>
+      <div class="pl__b">
+        
+        <p>If you want to visit both towns, build a Sea to Sky itinerary.</p><p>Start early from Vancouver.</p><p>Stop at Shannon Falls in Squamish.</p>
+        <p class="pl__n"><b>Good to know.</b> This is a long day. Start early and keep the plan simple.</p>
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="two-day-squamish-and-whistler-itinerary"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Two-Day Squamish and Whistler Itinerary</span>
+    <h2>Two-Day Squamish and Whistler Itinerary</h2><p class="cnt">2 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl pl--solo">
+      
+      <h3 class="solo__h">Day 1: Squamish</h3>
+      <div class="pl__b">
+        
+        <p>Optional Chief hike or easy trail</p><p>Stay in Squamish or continue to Whistler</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Day 2: Whistler</h3>
+      <div class="pl__b">
+        
+        <p>Squamish Lil’wat Cultural Centre</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="three-day-squamish-and-whistler-itinerary"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Three-Day Squamish and Whistler Itinerary</span>
+    <h2>Three-Day Squamish and Whistler Itinerary</h2><p class="cnt">2 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl pl--solo">
+      
+      <h3 class="solo__h">Day 1: Squamish Nature and Views</h3>
+      <div class="pl__b">
+        
+        <p>Easy hike or viewing platforms</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Day 2: Squamish Adventure</h3>
+      <div class="pl__b">
+        
+        <p>Hike the Chief, go climbing, mountain bike, or try a guided activity</p><p>Drive to Whistler in the evening</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="best-things-to-do-in-whistler"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Best Things to Do in Whistler</span>
+    <h2>Best Things to Do in Whistler</h2><p class="cnt">15 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image10.jpg" alt="1. Ride the Peak 2 Peak Gondola, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>1. Ride the Peak 2 Peak Gondola</h3>
+        <p>The Peak 2 Peak Gondola is one of Whistler’s most famous attractions. It connects Whistler Mountain and Blackcomb Mountain, giving visitors a huge alpine sightseeing experience without needing to ski or hike.</p><p>The ride gives you views of forests, valleys, peaks, snowfields, and Whistler Village below. In summer, a sightseeing ticket can also give access to alpine trails, mountain viewpoints, and the Whistler Peak Suspension Bridge when open. In winter, it is part of the mountain experience for skiers and sightseeing visitors.</p><p>Mountain temperatures are often 5 to 10°C cooler than the village, so dress in layers even on warm days.</p>
+        <p class="pl__n"><b>Good to know.</b> Hours and access change by season, so check the current schedule before going. Wear sturdy shoes if you plan to walk or hike in the alpine.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image8.jpg" alt="2. Ski or Snowboard at Whistler Blackcomb, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>2. Ski or Snowboard at Whistler Blackcomb</h3>
+        <p>Whistler Blackcomb is the biggest reason many people visit Whistler in winter. It is known as North America’s largest ski resort, with two mountains, wide terrain, ski schools, rentals, on-mountain dining, and a lively village at the base.</p><p>There are runs for different levels, from beginner-friendly slopes to advanced bowls and steeps. Even if you are new to skiing or snowboarding, lessons make it easier to enjoy the mountain safely.</p><p>Best for:Skiing, snowboarding, winter vacations, families, lessons, après-ski</p>
+        <p class="pl__n"><b>Good to know.</b> Winter is a busy season. Book lodging, lift tickets, rentals, and lessons early, especially around holidays and weekends.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image17.jpg" alt="3. Explore Whistler Village, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>3. Explore Whistler Village</h3>
+        <p>Whistler Village is the heart of the resort. It is walkable, lively, and easy to enjoy without a car. You can wander between shops, restaurants, cafes, bars, hotels, galleries, gear stores, and lift bases.</p><p>In winter, the village feels cozy and festive. In summer, patios, bikes, outdoor events, and mountain views make it a great place to spend time between activities.</p><p>Whistler Village is good for:</p>
+        <p class="pl__n"><b>Good to know.</b> If you are visiting for the first time, stay near the village if you want the easiest access to restaurants, shops, lifts, and tours.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image19.jpg" alt="4. Visit Lost Lake, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>4. Visit Lost Lake</h3>
+        <p>Lost Lake is one of the best easy nature spots in Whistler. It is close to the village but feels peaceful and forested.</p><p>In summer, visitors come here to swim, picnic, walk, bike, paddle, and relax by the water. In winter, the area becomes a place for cross-country skiing and snowshoeing, with a large network of Nordic trails.</p><p>Winter cross-country skiing</p>
+        <p class="pl__n"><b>Good to know.</b> It can get busy in summer. Go earlier in the day if you want a quieter lake visit.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image9.jpg" alt="5. Go Mountain Biking, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>5. Go Mountain Biking</h3>
+        <p>Whistler is one of the world’s best-known mountain biking destinations. The Whistler Mountain Bike Park is famous for lift-access downhill biking, flow trails, jump lines, technical terrain, and bike culture.</p><p>If you are not ready for downhill riding, there are also easier valley trails and scenic bike paths around town. You can rent bikes, take lessons, or choose guided rides.</p><p>Mountain biking in Whistler is best for:</p>
+        <p class="pl__n"><b>Good to know.</b> The bike park can be intense for beginners. Start with lessons or easier trails if you are new.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image1.jpg" alt="6. Hike in the Alpine, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>6. Hike in the Alpine</h3>
+        <p>Whistler is a great hiking destination in summer and early fall. The alpine trails are especially beautiful because you can reach high mountain areas by gondola.</p><p>Depending on the season and lift access, you may find trails with wildflowers, viewpoints, lakes, ridgelines, and mountain scenery. Summer sightseeing can include access to over 50 km of hiking, running, and interpretive walking trails.</p><p>Good hiking options include:</p>
+        <p class="pl__n"><b>Good to know.</b> Alpine weather can change quickly. Bring layers, water, sun protection, and proper footwear.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image14.jpg" alt="7. Walk or Bike the Valley Trail, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>7. Walk or Bike the Valley Trail</h3>
+        <p>The Valley Trail is one of the easiest ways to explore Whistler. It is a paved path system that connects neighborhoods, lakes, parks, viewpoints, and Whistler Village.</p><p>You can walk, bike, run, or cruise between places without needing to drive. This is one of the best family-friendly activities in Whistler, especially in summer.</p><p>The Valley Trail is good for:</p>
+        <p class="pl__n"><b>Good to know.</b> Rent a bike if you want to cover more ground. The path is shared, so stay aware of walkers, cyclists, and children.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image4.jpg" alt="8. Visit the Squamish Lil’wat Cultural Centre, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>8. Visit the Squamish Lil’wat Cultural Centre</h3>
+        <p>The Squamish Lil’wat Cultural Centre is one of the most meaningful places to visit in Whistler. It shares the living cultures, stories, art, and traditions of the Squamish Nation and Lil’wat Nation.</p><p>This is a great stop if you want to understand the land beyond the resort experience. It is also a good rainy-day activity and a strong choice for families.</p><p>Best for:Culture, Indigenous learning, art, history, rainy days, families</p>
+        <p class="pl__n"><b>Good to know.</b> Give yourself enough time to explore the exhibits and consider joining a guided experience if available.</p>
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">9. Relax at Scandinave Spa</h3>
+      <div class="pl__b">
+        
+        <p>Scandinave Spa is one of Whistler’s most popular wellness experiences. It is known for outdoor hot baths, cold plunges, steam rooms, saunas, quiet spaces, and a peaceful forest setting.</p><p>This is a great choice after skiing, hiking, biking, or a long travel day.</p><p>Best for:Couples, relaxation, wellness, rainy days, recovery after outdoor activities</p>
+        <p class="pl__n"><b>Good to know.</b> The spa is quiet and phone-free, so it is best for adults and travelers looking for calm rather than a social pool experience.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image6.jpg" alt="10. Visit the Audain Art Museum, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>10. Visit the Audain Art Museum</h3>
+        <p>The Audain Art Museum is a strong cultural stop in Whistler. It features art from British Columbia, including important Indigenous art and works by major regional artists.</p><p>It is a good choice when the weather is rainy, when you want a slower day, or when you want a break from outdoor activities.</p><p>Best for:Art, culture, rainy days, quiet afternoons, couples, families with older kids</p>
+        <p class="pl__n"><b>Good to know.</b> Pair it with the Squamish Lil’wat Cultural Centre for a culture-focused Whistler day.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image12.jpg" alt="11. Try Ziplining or Adventure Tours, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>11. Try Ziplining or Adventure Tours</h3>
+        <p>Whistler has many adventure tours that are easy to book, especially in summer. Ziplining is one of the most popular choices, but you may also find ATV tours, rafting, bungee jumping, off-road tours, and snowmobile trips depending on the season.</p><p>Adventure tours are good if you want excitement but do not have your own gear.</p><p>Best for:Groups, families with older kids, thrill seekers, first-time visitors, guided adventure</p>
+        <p class="pl__n"><b>Good to know.</b> Check age, height, weight, and weather rules before booking.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image3.jpg" alt="12. Paddle or Relax at Whistler Lakes, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>12. Paddle or Relax at Whistler Lakes</h3>
+        <p>Whistler has several lakes that are great in summer. Lost Lake, Alta Lake, Green Lake, and Nita Lake are all popular for different reasons.</p><p>You can swim, paddleboard, canoe, kayak, picnic, walk, bike, or just relax by the water.</p><p>Whistler lakes are good for:</p>
+        <p class="pl__n"><b>Good to know.</b> Lake water can still be cold early in the season. Bring layers and check rental options before going.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image18.jpg" alt="13. Go Snowshoeing or Cross-Country Skiing, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>13. Go Snowshoeing or Cross-Country Skiing</h3>
+        <p>Whistler is not only for downhill skiing. If you want a quieter winter activity, try snowshoeing or cross-country skiing.</p><p>Lost Lake is one of the most convenient areas for Nordic skiing and snowshoeing. It feels peaceful and forested, even though it is close to the village.</p><p>Best for:Winter nature, families, non-skiers, peaceful snow days, exercise</p>
+        <p class="pl__n"><b>Good to know.</b> Rentals and trail passes may be needed depending on where you go. Check current trail conditions before heading out.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image16.jpg" alt="14. Enjoy Après-Ski and Dining, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>14. Enjoy Après-Ski and Dining</h3>
+        <p>Whistler is famous for après-ski, restaurants, patios, bars, and mountain-town dining. After skiing, biking, hiking, or sightseeing, the village has plenty of places to eat and relax.</p><p>You can find everything from casual pubs and pizza to fine dining, cafes, bakeries, cocktail bars, sushi, and family-friendly restaurants.</p><p>Whistler dining is good for:</p>
+        <p class="pl__n"><b>Good to know.</b> Make reservations for popular dinner spots, especially in winter, summer, and on weekends.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image11.jpg" alt="15. Drive the Sea to Sky Highway, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>15. Drive the Sea to Sky Highway</h3>
+        <p>Getting to Whistler is part of the experience. The Sea to Sky Highway between Vancouver and Whistler is one of British Columbia’s most scenic drives.</p><p>On the way, you can stop at viewpoints, waterfalls, Squamish, the Sea to Sky Gondola, Shannon Falls, Brandywine Falls, or other short nature stops.</p><p>Peak 2 Peak Gondola, Whistler Village, Lost Lake, Valley Trail</p>
+        <p class="pl__n"><b>Good to know.</b> In winter, check road conditions and make sure your vehicle is properly equipped for mountain travel.</p>
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="two-day-whistler-itinerary"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Two-Day Whistler Itinerary</span>
+    <h2>Two-Day Whistler Itinerary</h2><p class="cnt">2 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl pl--solo">
+      
+      <h3 class="solo__h">Day 1: Classic Whistler</h3>
+      <div class="pl__b">
+        
+        <p>Ride the Peak 2 Peak Gondola</p><p>Visit the Squamish Lil’wat Cultural Centre</p><p>Enjoy dinner in the village</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Day 2: Outdoor Adventure</h3>
+      <div class="pl__b">
+        
+        <p>Winter: ski, snowboard, snowshoe, or cross-country ski</p><p>Summer: mountain bike, hike, paddle, zipline, or relax at a lake</p><p>End with Scandinave Spa or a good meal.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="three-day-whistler-itinerary"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Three-Day Whistler Itinerary</span>
+    <h2>Three-Day Whistler Itinerary</h2><p class="cnt">2 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl pl--solo">
+      
+      <h3 class="solo__h">Day 1: Village and Mountain Views</h3>
+      <div class="pl__b">
+        
+        <p>Ride the Peak 2 Peak Gondola</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Day 3: Slow Whistler Day</h3>
+      <div class="pl__b">
+        
+        <p>Visit Audain Art Museum or Squamish Lil’wat Cultural Centre</p><p>Enjoy a final village meal</p><p>Whistler is a year-round destination, and the best time to visit depends on what you want to do.</p>
+        <p class="pl__n"><b>Good to know.</b> Good to Know</p>
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="world-known-landmarks"><div class="wrap">
+  <div class="sechead"><span class="label label--n">World-Known Landmarks</span>
+    <h2>World-Known Landmarks</h2><p class="cnt">10 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image15.jpg" alt="1. Whistler Blackcomb, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>1. Whistler Blackcomb</h3>
+        <p>Whistler Blackcomb is the undisputed heavyweight of North American ski resorts, covering over 8,000 acres across two massive mountains. It is a high-alpine kingdom where you can ride a single lift from mossy rainforests at the bottom to windy glaciers at the top.</p><p>What makes this place famous is the incredible variety. With over 200 runs, 16 bowls, and 3 glaciers, the area is so big that you can explore for a week and still find new spots. Whether you are watching pros on steep slopes or teaching kids in the Magic Castle, the scale of these mountains is something you have to see to believe.</p><p>Location &amp; Access: The resort is divided into two main bases: Whistler Village (access via the Whistler Village Gondola or Fitzsimmons Express) and the Upper Village (access via the Blackcomb Gondola). Both mountains are seamlessly connected mid-mountain by the Peak 2 Peak Gondola.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image8.jpg" alt="2. Peak 2 Peak Gondola, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>2. Peak 2 Peak Gondola</h3>
+        <p>The Peak 2 Peak is a high-speed gondola system that links the alpine hubs of Whistler Mountain and Blackcomb Mountain, letting skiers and sightseers glide across the deep valley between them in roughly 11 minutes. The full span stretches about 4.4 km (2.7 miles), and it famously holds the world record for the longest unsupported span between two cable towers, 3.024 km.</p><p>Even more jaw-dropping is the height: at its highest point, the gondola hangs about 436 metres (1,427 feet) above the valley floor, delivering a true floating over the wilderness feeling. On a clear day, you can see the volcanic spire of Black Tusk, the sprawling Fitzsimmons Creek below, and the ancient glaciers that carved this landscape.</p><p>Location &amp; Access: The Peak 2 Peak terminals are located at Roundhouse Lodge (Whistler Mountain) and Rendezvous Lodge (Blackcomb Mountain). You reach them by taking the main gondolas up from Whistler Village (Whistler Gondola) or the Upper Village (Blackcomb Gondola). The Peak 2 Peak Gondola is open year-round, but weather conditions can affect operations, particularly during the winter months.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image10.jpg" alt="3. Olympic Rings (Whistler Olympic Plaza), Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>3. Olympic Rings (Whistler Olympic Plaza)</h3>
+        <p>The Olympic Rings at the Whistler Olympic Plaza are the definitive symbol of the town’s 2010 Winter Games legacy. While they are technically a photo-op, the plaza they sit in is really the town square of the Village. It’s a massive, open-air green space (or snow space, depending on when you visit) where the energy of the town shifts from adrenaline-fueled mountain sports to community chill.</p><p>What makes this spot special is the backdrop. You’ve got the giant rings in the foreground and the towering peaks of Whistler and Blackcomb looming right behind them. It’s the kind of place where you’ll see kids running on the grass in the summer, or locals playing a game of pond hockey on the outdoor rink in the winter.</p><p>Location &amp; Access: You’ll find the rings at the north end of the Village Stroll in Whistler Olympic Plaza. If you’re walking from the main gondola base, just follow the Stroll all the way past the shops; you can’t miss the giant open field and the mountain views.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image24.jpg" alt="4. Whistler Inukshuk, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>4. Whistler Inukshuk</h3>
+        <p>The Whistler Inukshuk is much more than just a stone statue; it is a powerful symbol of Northern culture and a permanent legacy of the 2010 Winter Games. Standing tall at the very top of the world, this traditional Inuit stone landmark was historically used as a navigational aid or to mark sacred ground. Here in the Coast Mountains, it serves as a silent guardian overlooking the vast, snow-capped wilderness.</p><p>What makes this particular Inukshuk so special is its placement. Perched on a rocky ridge at the summit, it creates a dramatic contrast between man-made heritage and the raw, jagged peaks of the Garibaldi Ranges. Standing next to it, you get a humbling sense of scale, it feels like you’re at the edge of the map. On a bluebird day, the grey stones pop against the deep blue sky, making it arguably the most meaningful photo-op in the entire province.</p><p>Location &amp; Access: The most famous Inukshuk is located at the summit of Whistler Mountain, right near the top of the Peak Express Chairlift. To get there, you’ll take the Whistler Village Gondola to the Roundhouse Lodge, walk a short distance to the Peak Express, and ride the open-air chair to the very top.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image9.jpg" alt="5. Brandywine Falls Provincial Park, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>5. Brandywine Falls Provincial Park</h3>
+        <p>Brandywine Falls is that wow moment you usually find on the cover of a travel magazine. It’s a spectacular 70-metre (230-foot) waterfall that plunges over a sheer basalt cliff into a perfectly round volcanic bowl. What makes it so striking isn't just the height, but the way the water has carved through layers of ancient lava flows over thousands of years, leaving behind a rugged, prehistoric-looking canyon.</p><p>It’s the ultimate low effort, high reward stop. A flat, easy 15-minute walk through a lush forest brings you to a viewing platform that makes you feel tiny against the roar of the water. On a sunny afternoon, you’ll almost always see a rainbow shimmering in the mist at the base of the falls, hence the name Brandywine. It’s the perfect place to stretch your legs and get your first real taste of the Sea to Sky wilderness.</p><p>Location &amp; Access: You’ll find the entrance right off Highway 99, about 15 minutes (20km) south of Whistler Village. There is a large, well-marked parking lot, and the trail to the falls is a wide, gravel path that is easy for almost anyone to navigate.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image7.jpg" alt="6. The Black Tusk, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>6. The Black Tusk</h3>
+        <p>The Black Tusk is the unmistakable crown of the Garibaldi Ranges, a jagged, black volcanic spire that looks like a giant tooth jutting out from a sea of white glaciers. It’s easily the most recognizable landmark in the Whistler skyline. This isn't just another mountain; it’s the core of an ancient volcano that erupted roughly 170,000 years ago. Over time, the softer outer rock eroded away, leaving behind this dramatic, dark basalt plug that stands in stark contrast to the surrounding green valleys and blue alpine lakes.</p><p>For the Squamish People, the Tusk is known as the Landing Place of the Thunderbird. It carries a heavy sense of mystery and power that you feel the moment you see it from a distance. Whether you are staring at it from a gondola or standing on its base, the Tusk feels ancient, imposing, and completely wild. It’s the ultimate North Star for hikers and photographers in the region.</p><p>Location &amp; Access: The Black Tusk is located within Garibaldi Provincial Park. To see it up close, most hikers start at the Rubble Creek trailhead, about a 25-minute drive south of Whistler. To see it without the 11-hour hike, simply take the Whistler Village Gondola to the summit, it looms large on the southern horizon from almost any high-alpine viewpoint.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image28.jpg" alt="7. Whistler Sliding Centre, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>7. Whistler Sliding Centre</h3>
+        <p>The Whistler Sliding Centre is where the high-octane legacy of the 2010 Winter Olympics truly lives on. Tucked onto the side of Blackcomb Mountain, this is the fastest ice track in the world, a serpentine ribbon of concrete and ice where athletes hit speeds that most of us only reach on the highway. It’s a place of incredible intensity; standing beside the track while a sled thunders past is an experience that vibrates right through your chest.</p><p>What’s truly unique about the Sliding Centre is that it isn’t just for pros. It is one of the very few Olympic venues globally where regular people can actually jump in a sled and experience the g-force for themselves. Whether you’re watching world-class lugers train or bracing yourself for a bobsleigh run, there’s an electric, competitive energy here that you won’t find anywhere else in the valley.</p><p>Location &amp; Access: You’ll find the Centre at 4910 Glacier Lane, just above the Upper Village. You can reach it via a quick 5-minute drive or by taking the Excalibur Gondola (which is free for foot passengers) to the first stop and walking about 10 minutes up the hill.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image13.jpg" alt="8. Whistler Mountain Bike Park, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>8. Whistler Mountain Bike Park</h3>
+        <p>Whistler Mountain Bike Park is a world-renowned biking destination that draws enthusiasts from around the globe. When the snow melts, the ski runs transform into a massive, gravity-fed playground with over 80 kilometers of trails winding through four distinct mountain zones. It’s a high-energy landscape where you’ll see everyone from world-class professionals catching massive air to families tentatively navigating their first forest loamy paths.</p><p>What makes the park legendary is its flow. The trail builders here are artists; they’ve created everything from Easy Tiger, a gentle introduction to downhill, to A-Line, arguably the most famous jump trail on the planet. Even if you don’t ride, standing at the base and watching riders fly off the final drops into the Village is a spectator sport in its own right. It’s loud, dusty, and absolutely exhilarating, a place where the adrenaline of winter is kept alive all summer long.</p><p>Location &amp; Access: The main hub is at the Whistler Village Base, where you load the Fitzsimmons Express or the Whistler Village Gondola. You can also access the higher Creekside Zone via the Creekside Gondola, which offers a quieter, local feel with some of the best technical trails in the park.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image20.jpg" alt="9. Cloudraker Skybridge, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>9. Cloudraker Skybridge</h3>
+        <p>The Cloudraker Skybridge, often simply called the Whistler Suspension Bridge, is one of those take your breath away experiences that stays with you long after you’ve headed back down the mountain. Stretching 130 metres (427 feet) from Whistler Peak to the West Ridge, it hangs right over the legendary Whistler Bowl. It’s not just a bridge; it’s a high-altitude thrill ride where you’re suspended in the open air, feeling the mountain breeze and staring down into a dizzying alpine abyss.</p><p>What makes it truly unique is the engineering and the sheer height. Standing at over 2,000 metres (nearly 7,000 feet) above sea level, you get a 360-degree view that includes the jagged Tantalus Range and the icy glaciers of Blackcomb. The bridge has a slight sway to it, which adds to the adrenaline, but it’s the Raven’s Eye, a cantilevered viewing platform at the far end, that really steals the show. It extends out over the cliff edge, making you feel like you’re literally floating above the mountain peaks.</p><p>Location &amp; Access: The bridge is located at the very top of Whistler Mountain. To get there, take the Whistler Village Gondola to the Roundhouse Lodge, then walk to the Peak Express Chairlift. Once you get off the chair at the summit, the bridge entrance is just a few steps away.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image34.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr&gt;&lt;w:sz w:val=&quot;22&quot;/&gt;&lt;w:szCs w:val=&quot;22&quot;/&gt;&lt;/w:rPr&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_aizq8sddshqw&quot; w:id=&quot;24&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;24&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;10. Joffre Lakes Provincial Park, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr&gt;&lt;w:sz w:val=&quot;22&quot;/&gt;&lt;w:szCs w:val=&quot;22&quot;/&gt;&lt;/w:rPr&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_aizq8sddshqw&quot; w:id=&quot;24&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;24&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;10. Joffre Lakes Provincial Park</h3>
+        <p>Joffre Lakes is the kind of place that looks like a Photoshop filter come to life. It’s a string of three glacier-fed lakes, Lower, Middle, and Upper, each one a more impossible shade of turquoise than the last. This vibrant Gatorade blue comes from silt (rock flour) suspended in the glacial meltwater, reflecting the sunlight in a way that’s almost blindingly bright. It’s a rugged, high-alpine landscape where ancient glaciers hang off the peaks right above you.</p><p>What makes this hike so iconic is the progression. You start in the dense, cool forest and work your way up to the Matier Glacier, which feeds the lakes. It’s a steep climb in sections, but the moment you break through the trees at Middle Lake and see that famous log floating in the blue water, all the effort feels worth it. It’s a quintessential British Columbia experience, raw and beautiful.</p><p>Location &amp; Access: Joffre Lakes is located about an hour’s drive (60km) north of Whistler, just past the town of Pemberton. The trailhead has a large parking lot right off Highway 99 (the Sea to Sky Highway). Unlike the Village attractions, you’ll definitely need a car or a booked shuttle to get here.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="arts-history-cultural-attractions"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Arts, History, &amp; Cultural Attractions</span>
+    <h2>Arts, History, &amp; Cultural Attractions</h2><p class="cnt">7 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image11.jpg" alt="1. Squamish Lil'wat Cultural Centre, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>1. Squamish Lil'wat Cultural Centre</h3>
+        <p>The Squamish Lil’wat Cultural Centre (SLCC) is the soulful heart of the valley. While the rest of Whistler often feels like a fast-paced playground, this center invites you to slow down and connect with the land’s original high-alpine culture. It is a stunning, light-filled space designed to evoke a traditional Squamish Longhouse and a Lil’wat Earth House (Istken). Here, the history isn't just kept in glass cases; it’s lived and shared through the voices of the people who have called these mountains home since time immemorial.</p><p>What makes the SLCC so special is the atmosphere of genuine hospitality. As soon as you walk in, you’re greeted by the smell of cedar and the sound of hand-drums. It’s an immersive journey through the distinct traditions of the Squamish and Lil’wat Nations. From the massive 40-foot dugout canoes to the intricate hand-woven cedar baskets, every piece tells a story of survival, artistry, and a deep respect for the natural world.</p><p>Location &amp; Access: You’ll find the center at 4584 Blackcomb Way in the Upper Village. It’s a beautiful, flat 10-minute walk from the main Village Stroll or a quick ride on the free #5 Upper Village shuttle.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image33.jpg" alt="2. Audain Art Museum, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>2. Audain Art Museum</h3>
+        <p>The Audain Art Museum is Whistler’s quiet masterpiece, a stunning architectural gem tucked into a grove of towering trees between the Village and the Upper Village. While the mountains offer adrenaline, the Audain offers a deep, soul-stirring look at the cultural history of British Columbia. The building itself is a work of art, a dark, minimalist structure elevated on stilts to protect the forest floor and withstand the heavy local snowfall.</p><p>The museum houses one of the world’s most significant collections of Northwest Coast First Nations masks, alongside iconic works by Emily Carr and contemporary Canadian masters. The lighting is low and intimate, designed to make the intricate cedar carvings feel like they are floating in the dark.</p><p>Location &amp; Access: You’ll find the museum at 4350 Blackcomb Way. It’s located right along the Village Stroll, just a three-minute walk from the Olympic Plaza. If you’re coming from the Upper Village, it’s an easy, flat walk across the Fitzsimmons Creek bridge.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image25.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_uirpmjwfahdk&quot; w:id=&quot;29&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;29&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;3. Whistler Olympic Park, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_uirpmjwfahdk&quot; w:id=&quot;29&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;29&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;3. Whistler Olympic Park</h3>
+        <p>Whistler Olympic Park is the quiet, expansive counterpart to the bustling downhill slopes. Located in the beautiful Callaghan Valley, this 2010 Olympic venue hosted the Nordic events, cross-country skiing, biathlon, and ski jumping. Today, it’s a world-class winter and summer playground that feels more like a serene wilderness retreat than a high-traffic resort.</p><p>What makes this place stand out is the scale of the landscape. With over 90 kilometers of groomed trails winding through ancient forests and wide-open meadows, it’s where you go to find some breathing room. In the winter, the silence of the valley is broken only by the sound of skis on corduroy; in the summer, it transforms into a lush haven for hiking and bear-watching.</p><p>Location &amp; Access: The Park is located at 5 Callaghan Valley Road, about a 30-minute drive south of Whistler Village. Since there is no shuttle service in 2026, you’ll need a rental car or a local taxi to get there. The drive itself is spectacular, often offering better chances of spotting local wildlife than the main highway.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image2.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_tpd1aqq7ixsr&quot; w:id=&quot;30&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;30&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;4. The Whistler Train Wreck Trail, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_tpd1aqq7ixsr&quot; w:id=&quot;30&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;30&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;4. The Whistler Train Wreck Trail</h3>
+        <p>The Whistler Train Wreck is easily the town’s most unique cultural landmark, a bizarre and beautiful blend of industrial history and modern street art. In 1956, a freighter train derailed south of town, and seven massive boxcars were wedged so deeply into the old-growth forest that they were simply left behind. Over the decades, local graffiti artists transformed these rusting metal giants into a vibrant, ever-evolving outdoor gallery.</p><p>The setting is pure West Coast: towering cedars, mossy forest floors, and the rushing turquoise water of the Cheakamus River. To reach the cars, you’ll cross a stunning suspension bridge that offers a bird’s-eye view of the white-water rapids below. It feels like stepping into a post-apocalyptic fairy tale where nature is slowly reclaiming heavy machinery, and it’s one of the few places in Whistler where the vibe is more gritty and bohemian than polished and resort-like.</p><p>Location &amp; Access: The trailhead is located in the Creekside/Cheakamus area at the end of Jane Lakes Road. It’s about a 10-minute drive south of Whistler Village. There is a designated parking lot, and the hike is a relatively flat, 2-km (1.2-mile) round trip that takes about an hour at a leisurely pace.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">5. Whistler Museum</h3>
+      <div class="pl__b">
+        
+        <p>The Whistler Museum is a charming, deep dive into the town’s transformation from a rugged fishing outpost to a world-class Olympic destination. While the surrounding Village is shiny and modern, the museum keeps the old Whistler spirit alive. It’s packed with eccentric mountain memorabilia, from vintage ski gear that looks terrifyingly primitive to stories of the early pioneers who fought to put this valley on the map long before the first chairlift ever turned.</p><p>Location &amp; Access: You’ll find the museum at 4333 Main Street, right next to the Whistler Public Library and just a few steps from the Olympic Plaza. It’s an easy walk from anywhere in the main Village.</p><p>Recommendations: What to Do &amp; See</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image18.jpg" alt="6. Whistler Public Library, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>6. Whistler Public Library</h3>
+        <p>The Whistler Public Library, affectionately known as the Whistler Cabin, is far from your typical quiet book depository. It is an architectural masterpiece and the community’s favorite living room. Designed with high vaulted ceilings, massive Douglas Fir beams, and floor-to-ceiling windows, the building captures the essence of a modern mountain lodge. It was built to the &quot;LEED Gold&quot; environmental standard, making it as sustainable as it is beautiful.</p><p>What makes this spot a must-visit isn't just the books; it’s the atmosphere. Whether the snow is dumping outside or the summer sun is hitting the Olympic Plaza next door, the library offers a warm, peaceful sanctuary with some of the best mountain views in the Village. It’s where locals come to remote-work, travelers come to recharge their devices, and families gather for some low-key downtime between adventures.</p><p>Location &amp; Access: You’ll find the library at 4329 Main Street, right in the heart of the Village. It sits directly across the courtyard from the Whistler Museum and overlooks the open greenspace of Whistler Olympic Plaza.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image6.jpg" alt="7. Whistler Art Galleries, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>7. Whistler Art Galleries</h3>
+        <p>Whistler’s art scene is a vibrant, mountain-town mix of high-end luxury and rugged, local creativity. While the big museums get the headlines, the private Whistler Art Galleries scattered throughout the Village are where you can actually get your hands on a piece of the Pacific Northwest. These spaces range from sleek, modern showrooms to cozy mountain studios, featuring everything from hyper-realistic landscape paintings to massive bronze sculptures and traditional Indigenous carvings.</p><p>The variety is what makes gallery-hopping here so engaging. It’s a culture of mountain-inspired art that reflects the scale of the peaks and the textures of the forest, offering a sophisticated way to experience the valley when you’re off the slopes or trails.</p><p>Location &amp; Access: Most galleries are clustered along the Village Stroll, in the Upper Village (inside the Fairmont Chateau Whistler), or tucked into the Hilton and Westin resort lobbies. They are all easily reachable on foot within a 15-minute walk of the main gondola base.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="outdoor-attractions"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Outdoor Attractions</span>
+    <h2>Outdoor Attractions</h2><p class="cnt">10 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image1.jpg" alt="1. Lost Lake, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>1. Lost Lake</h3>
+        <p>Lost Lake is the local’s favorite sanctuary, offering a serene escape just minutes from the high-energy pulse of Whistler Village. Nestled within 525 acres of pristine parkland, the lake is a tranquil mirror reflecting the surrounding Douglas firs and the peaks of Blackcomb. In the summer, it’s the go-to spot for sunbathing on sandy beaches and swimming in the calm, crisp water; in the winter, it transforms into a world-class Nordic center with groomed cross-country ski and snowshoe trails that look like something out of a holiday card.</p><p>What makes Lost Lake truly special is its accessibility. You don’t need a mountain pass or a rugged 4x4 to get here, just a pair of sneakers or a cruiser bike. It’s a place that balances wild and convenient perfectly, allowing you to go from a morning coffee in the Village to a secluded lakeside forest trail in under 15 minutes.</p><p>Location &amp; Access: You can reach Lost Lake via a flat, scenic 1.5-km (0.9-mile) walk along the Valley Trail starting from the Village. During the summer, a free shuttle bus (Route #8) runs regularly from the Village Gate Boulevard to the lakefront.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image23.jpg" alt="2. Valley Trail, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>2. Valley Trail</h3>
+        <p>The Valley Trail is the scenic, car-free artery that connects the entire Whistler valley. Stretching over 46 kilometers (28 miles), this paved network links every major neighborhood, five shimmering lakes, and countless parks. While the mountains get all the glory, the Valley Trail is where the real Whistler happens. It’s a place where you can glide past golf courses, cross rushing glacial rivers on wooden bridges, and wind through ancient cedar groves without ever having to worry about traffic.</p><p>It’s a multi-seasonal gem; in the summer, it's a highway for cruiser bikes and skateboards, while in the winter, many sections are cleared or groomed, allowing for a unique perspective of the snow-covered valley floor.</p><p>Location &amp; Access: The trail has entry points throughout the town, but the most popular hubs are in Whistler Village (near the Olympic Plaza), Upper Village, and Creekside. You can pick up a trail map at the Visitor Centre or simply follow the yellow directional signs located at every major junction.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image29.jpg" alt="3. Alexander Falls, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>3. Alexander Falls</h3>
+        <p>Alexander Falls is the quiet giant of the Whistler area, a spectacular, multi-tiered waterfall that drops a sheer 43 meters (141 feet) into the Madeley Creek valley. While Brandywine Falls gets the highway crowds, Alexander Falls offers a more serene, off-the-beaten-path experience. The water cascades over three distinct steps of volcanic basalt rock, creating a wide, curtain-like effect that is especially thunderous during the spring snowmelt.</p><p>What makes it a standout is the viewing experience. Unlike many falls where you have to hike for miles to get a glimpse, Alexander Falls features a large, paved viewing platform located right at the top of the canyon. It provides a perfect, straight-on perspective of the water’s plunge against a backdrop of dense old-growth forest. It feels grand, wild, and incredibly peaceful, making it a favorite for those who want a big mountain view without the big mountain effort.</p><p>Location &amp; Access: The falls are located in the Callaghan Valley, about a 20-minute drive south of Whistler Village. To get there, turn off Highway 99 onto Callaghan Valley Road (follow signs for Whistler Olympic Park). The parking lot for the Alexander Falls Forest Service Site is located on the left side of the road, just before you reach the main gate of the Olympic Park.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image32.jpg" alt="4. Cheakamus Lake Trailhttps://www.istockphoto.com/photo/scenic-photo-of-the-calm-cheakamus-lake-gm168257954-16867159, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>4. Cheakamus Lake Trailhttps://www.istockphoto.com/photo/scenic-photo-of-the-calm-cheakamus-lake-gm168257954-16867159</h3>
+        <p>The Cheakamus Lake Trail is the perfect antidote to the steep, leg-burning climbs usually associated with Whistler. Located within the magnificent Garibaldi Provincial Park, this trail winds through some of the most impressive old-growth forests in the valley, featuring massive Douglas firs and ancient cedars that dwarf everything in their path. The payoff is a stunning, 7-km long lake filled with vivid, turquoise glacial water, framed by the dramatic, snow-capped peaks of the Fitzsimmons Range.</p><p>What makes this hike a local favorite is its accessibility and high reward for low effort. The trail is relatively flat, making it one of the few places in the region where you can experience true backcountry wilderness without a 1,000-meter vertical climb.</p><p>Location &amp; Access: The trailhead is located at the end of Cheakamus Lake Road, a forest service road that begins just south of the Cheakamus Crossing neighborhood. It’s about a 15-minute drive from Whistler Village. The final 6 km of the drive is on a gravel road that can be bumpy, but it is typically manageable for most standard vehicles.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image19.jpg" alt="5. Alta Lake Park, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>5. Alta Lake Park</h3>
+        <p>Alta Lake is the historical heart of Whistler and its largest body of water. Long before the first ski lift was ever bolted into the mountainside, this was a summer retreat for fishing and lodge life. Today, it serves as the valley’s ultimate aquatic playground, framed by panoramic views of both Whistler and Blackcomb mountains. Unlike the glacier-fed lakes that stay bone-chillingly cold, Alta Lake’s shallower waters warm up enough in the summer to make it the go-to destination for swimming, paddleboarding, and kayaking.</p><p>Alta Lake is unique because of the different personalities found along its shores. It features three distinct parks, Rainbow, Lakeside, and Wayside, each offering a different view of the valley. Whether you want a sandy beach for a family barbecue, a quiet spot to launch a canoe, or a chance to see historic pioneer cabins, the lake provides a great escape from the busy Village.</p><p>Location &amp; Access: Alta Lake is located about 2 km (1.2 miles) west of Whistler Village. It is most easily accessed via the Valley Trail, a scenic 20-minute walk or 10-minute bike ride. Each park has its own small parking lot, but these fill up quickly on sunny days.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image16.jpg" alt="6. Cheakamus River, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>6. Cheakamus River</h3>
+        <p>The Cheakamus River is the powerful, bright teal lifeblood of the Whistler valley. Fed by melting glaciers, the river shows off the raw beauty of the Pacific Northwest. It thunders through deep canyons and flows under giant, moss-covered trees. Its striking color comes from fine rock dust ground down by glaciers, making the water look like it is glowing against the dark forest.</p><p>Depending on where you are, you might see calm, quiet pools or crashing whitewater rapids. It is a perfect spot for everyone, from brave rafters and kayakers to hikers looking for a peaceful riverside walk.</p><p>Location &amp; Access: The river runs south of Whistler Village. The best access points are in the Cheakamus Crossing neighborhood, via the Whistler Train Wreck trailhead, or from the Cheakamus Lake Road parking areas. Many sections are easily reached by a 10-15 minute drive from the main Village.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image31.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_102o6ux96at&quot; w:id=&quot;48&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;48&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;7. Wedgemount Lake, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_102o6ux96at&quot; w:id=&quot;48&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;48&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;7. Wedgemount Lake</h3>
+        <p>Wedgemount Lake is often called the ultimate Whistler hike, a tough, steep climb that leads to a dramatic, otherworldly landscape. Located high in Garibaldi Provincial Park, the lake is a bright, milky turquoise and sits right at the base of the massive Wedgemount Glacier. This is not a casual walk; it is a rugged ascent through thick forests and rock fields that brings you face-to-face with the edge of a glacier.</p><p>The scenery here is legendary. Once you finish the final, difficult climb, you are rewarded with views of jagged mountain peaks. The area is incredibly quiet, with the silence only broken by the sound of moving ice or waterfalls crashing down the rocks. It is a place of extreme beauty that requires great effort, perfect for those who want to see the wild side of the mountains.</p><p>Location &amp; Access: The trailhead is located about 13 km (8 miles) north of Whistler Village. You’ll turn off Highway 99 onto a gravel forest service road. While most cars can make it to the lower parking lot, a 4x4 is recommended for the final stretch to the upper lot.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image35.jpg" alt="8. Ancient Cedars Trail, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>8. Ancient Cedars Trail</h3>
+        <p>The Ancient Cedars Trail is a journey back in time, leading you to a hidden grove of giants that have stood for over 900 years. While much of the valley was logged in the early 20th century, this pocket of old-growth forest remained untouched. Walking among these massive Western Red Cedars, some measuring over 3 metres in diameter, is a humbling experience.</p><p>What makes this trail a standout is the atmosphere. The air is noticeably cooler and richer here, filtered by a canopy of prehistoric-looking trees and thick hanging moss. As you reach the grove, the forest opens up to reveal these ancient sentinels, their gnarled bark and sprawling roots telling a story of survival through centuries of coastal storms and mountain winters. It’s a short but impactful trip into the real wild BC that many visitors miss.</p><p>Location &amp; Access: The trailhead is located on the far side of Cougar Mountain, about a 15-minute drive north of Whistler Village. You’ll turn off Highway 99 onto Sixteen Mile Creek Forest Service Road. The road is gravel and can be bumpy; while most cars can make it in the summer, a vehicle with higher clearance is definitely a plus.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_e3ka82rylkjs&quot; w:id=&quot;51&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;51&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;9. Green Lake</h3>
+      <div class="pl__b">
+        
+        <p>Green Lake is Whistler’s most striking body of water, acting as a massive, emerald-colored mirror at the north end of the valley. Its namesake color is so vivid it looks artificial, a result of rock flour (fine glacial silt) suspended in the water that reflects light in a brilliant turquoise-green. As the largest and deepest lake in Whistler, it sits at the base of the mountains, providing a dramatic, cold, and majestic backdrop that feels worlds away from the busy Village Stroll.</p><p>What makes Green Lake truly unique is its role as the valley’s high-alpine airport. Because of its size, it is the primary base for floatplanes, where you can watch de Havilland Beavers and Otters skim the emerald surface against a backdrop of snow-capped peaks. While other lakes in Whistler are for swimming, Green Lake is for the big views, it’s a place of thundering glacial runoff, dramatic winds, and some of the most iconic photography spots in British Columbia.</p><p>Location &amp; Access: Green Lake is located about 4 km (2.5 miles) north of Whistler Village. You can reach it via a scenic bike ride along the Valley Trail, or by a 5-minute drive north on Highway 99. The best viewing areas are found at Nicklaus North Golf Course or the Green Lake Boat Launch.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image5.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_rsf1pmihhk2f&quot; w:id=&quot;53&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;53&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;10. Callaghan Lake Provincial Park, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_rsf1pmihhk2f&quot; w:id=&quot;53&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;53&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;10. Callaghan Lake Provincial Park</h3>
+        <p>Callaghan Lake Provincial Park is a raw, high-alpine sanctuary that feels like a secret hidden in plain sight. While the crowds gravitate toward the Village, this park offers a rugged top of the world experience without the need for a gondola ticket. The lake itself sits in a sub-alpine basin at 1,370 metres (4,500 feet), surrounded by dramatic cirque glaciers, wildflower meadows, and jagged peaks that remain snow-capped well into August.</p><p>What makes Callaghan Lake truly special is its unpolished, wilderness character. This is a non-motorized paradise where the only sounds you’ll hear are the wind through the sub-alpine firs and the splash of a paddle. Because it sits so high in the valley, the park is a snow magnet, often holding onto its winter coat longer than anywhere else, which keeps the landscape lush, the water crystal clear, and the atmosphere feeling like a true backcountry expedition.</p><p>Location &amp; Access: The park is located at the end of Callaghan Lake Road, about a 30-minute drive from Whistler. After turning off Highway 99, you’ll pass the Olympic Park and continue onto a 8-km gravel forest service road. This road can be rough and riddled with potholes; a high-clearance 4x4 vehicle is strongly recommended to reach the lakeshore.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="other-interesting-attractions"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Other Interesting Attractions</span>
+    <h2>Other Interesting Attractions</h2><p class="cnt">10 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl pl--solo">
+      
+      <h3 class="solo__h">1. Scandinave Spa</h3>
+      <div class="pl__b">
+        
+        <p>The Scandinave Spa is Whistler’s ultimate sanctuary for digital detox and physical recovery. Tucked into a sprawling three-acre grove of old-growth cedars overlooking Lost Lake Park, this open-air spa feels like a secret Nordic village. It is dedicated to the ancient practice of hydrotherapy, a cycle of hot, cold, and relaxation designed to soothe sore muscles, improve circulation, and settle the mind after a high-output day on the mountains.</p><p>What sets Scandinave Spa apart is the total silence. It is a strictly quiet space where talking and electronics are not allowed. Instead, you only hear the sound of outdoor fires, waterfalls, and the wind in the trees. Whether you are soaking in a hot pool while it snows or resting in a hammock during a summer sunset, it offers a level of peace you won't find in the busy Village.</p><p>Location &amp; Access: The spa is located at 8010 Mons Road, about a 5-minute drive or a 20-minute walk via the Valley Trail from Whistler Village. While there is plenty of parking, many guests prefer to take a local taxi or the public bus to fully lean into the relaxation.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">2. Vallea Lumina</h3>
+      <div class="pl__b">
+        
+        <p>Vallea Lumina is a nighttime walk that turns the forest of Cougar Mountain into a glowing wonderland. Created by the famous Moment Factory studio, this experience uses high-tech lights, beautiful sounds, and detailed sets to tell a story about two lost hikers. It is a mix of technology and nature that makes you feel like you have stepped into a magical version of the wilderness.</p><p>What makes it truly amazing is how the forest itself is used as a canvas. Trees seem to whisper, the ground glows with light, and the giant cedar trees are lit up to show their massive size. It is a journey that captures the mystery of the mountains at night, making it a perfect evening activity for families and couples looking for magic away from the Village.</p><p>Location &amp; Access: The experience is located at The Adventure Group (TAG) base on Cougar Mountain, about a 10-minute drive north of Whistler Village. While you can drive yourself, the most convenient way to get there is via the complimentary shuttle that picks up guests from several designated locations throughout the Village.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image26.jpg" alt="3. Peak to Creek, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>3. Peak to Creek</h3>
+        <p>The Peak to Creek is Whistler Mountain’s legendary marathon run, famous for having the longest consistent vertical drop in North America. Starting at the very top of Whistler Peak and ending at the valley floor in Creekside, this groomed run covers 11 kilometers and drops over 1,500 meters. it is a true test of stamina and a &quot;must-do&quot; for intermediate and advanced skiers.</p><p>What makes Peak to Creek so iconic is how the scenery changes. You start in the high-mountain peaks with views of the vast wilderness before skiing down into the thick evergreen forests. On a clear day, the run feels endless, a long, exciting journey that shows off the massive scale of the mountain in a way few other ski runs can.</p><p>Location &amp; Access: The run starts at the top of the Whistler Peak Express chairlift. To get back to your starting point after finishing at the base, you’ll take the Creekside Gondola back up the mountain.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image27.jpg" alt="4. Bubly Tube Park, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>4. Bubly Tube Park</h3>
+        <p>The Bubly Tube Park is Whistler’s premier destination for high-speed, gravity-fed fun without the need for skis or a snowboard. Located on Blackcomb Mountain, this massive snow-sliding arena features multiple lanes ranging from gentle to steep, allowing riders to zoom down groomed icy chutes at thrilling speeds. It is the ultimate family-friendly adrenaline rush, offering the simple, nostalgic joy of sledding but dialed up to a world-class resort scale.</p><p>What makes the Tube Park a standout is the sheer ease of the experience. After screaming your way down the 1,000-foot lanes, you don't have to worry about the grueling hike back up; a state-of-the-art conveyor lift whisks you and your tube back to the top in comfort.</p><p>Location &amp; Access: The park is located at the Base II area on Blackcomb Mountain. You can reach it for free by taking the Excalibur Gondola from Whistler Village and getting off at the first stop (Base II). Alternatively, you can drive and park directly in Lots 7 or 8, which are just a short walk from the ticket booth.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image17.jpg" alt="5. Forged Axe Throwing, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>5. Forged Axe Throwing</h3>
+        <p>Forged Axe Throwing is Whistler’s premier indoor lumberjack experience, offering a high-energy, satisfyingly tactile break from the mountain elements. Located in the hip, industrial neighborhood of Function Junction, this venue leans into the town’s rugged heritage, allowing guests to hurl professional-grade axes at wooden targets. It’s a place where technique beats brute strength, and the distinct thwack of a blade sinking into timber provides a unique brand of mountain-town catharsis.</p><p>What makes Forged a standout is the atmosphere of competitive camaraderie. It isn’t just about throwing sharp objects; it’s a fully hosted experience where expert axe masters guide you through the safety basics before leading your group into trick shots and tournament-style games.</p><p>Location &amp; Access: Forged is located at 1208 Alpha Lake Road in Function Junction, about a 15-minute drive south of Whistler Village. You can easily reach it by car, taxi, or by taking the #10 or #20 public bus from the Village. For the adventurous, it’s also a scenic 30-minute bike ride along the Valley Trail.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image21.jpg" alt="6. Coast Mountain Brewing, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>6. Coast Mountain Brewing</h3>
+        <p>Coast Mountain Brewing is the soulful, independent heart of Whistler’s craft beer scene. Tucked away from the neon lights of the main Village, this boutique brewery is where the locals go to toast a successful day in the alpine. The space is a masterclass in mountain industrial design, think warm wood accents, views of the brewing tanks, and a cozy, bustling tasting room that smells faintly of fresh hops and malt.</p><p>What makes Coast Mountain a standout is their uncompromising focus on quality over quantity. Known for their Hope You’re Happy IPA and a rotating list of complex sours and stouts, they brew in small batches to ensure every pint reflects the rugged, adventurous spirit of the Coast Range.</p><p>Location &amp; Access: Located at 1212 Alpha Lake Road in the Function Junction neighborhood, it’s about a 15-minute drive south of Whistler Village. You can hop on the #10 or #20 public bus, or better yet, take a leisurely 30-minute bike ride down the Valley Trail to earn your brew.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image3.jpg" alt="7. Harmony Lake Trail, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>7. Harmony Lake Trail</h3>
+        <p>The Harmony Lake Trail is the perfect introduction to Whistler’s high-alpine beauty, offering a greatest hits reel of mountain scenery without requiring an elite level of fitness. Starting right from the bustling hub of the Roundhouse Lodge, this loop trail descends into a spectacular alpine bowl filled with vibrant wildflowers, weather-beaten krummholz trees, and its namesake, the serene, crystal-clear Harmony Lake.</p><p>What makes this trail so rewarding is the immediate immersion into the wilderness. Within minutes of leaving the gondola, the sounds of the resort fade away, replaced by the whistle of marmots and the wind rushing through the Harmony Horseshoes (the jagged rock ridges above). The trail features a series of well-maintained boardwalks that protect the delicate alpine ecosystem, allowing you to walk directly over marshy meadows and rugged terrain while keeping your eyes fixed on the panoramic views of the Overlord Glacier and the Fitzsimmons Valley.</p><p>Location &amp; Access: The trailhead is located just below the Roundhouse Lodge on Whistler Mountain. You reach it by taking the Whistler Village Gondola from the main village. The trail is a 2.5-km (1.5-mile) loop that typically takes about 60 to 90 minutes to complete.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image4.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_20uqg3m72w85&quot; w:id=&quot;68&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;68&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;8. Whistler Village, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_20uqg3m72w85&quot; w:id=&quot;68&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;68&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;8. Whistler Village</h3>
+        <p>Whistler Village is a pedestrian-only heart of the valley. It was designed to look like a modern alpine fairy tale, inspired by the winding streets of European mountain towns. The Village is a car-free maze of world-class restaurants, shops, and lively outdoor patios. It serves as the base camp for both mountains, where wild mountain energy meets a stylish, modern atmosphere.</p><p>What makes the Village special is the &quot;Village Stroll&quot;, a walking path that lets you go from the Olympic Plaza to the gondolas in just a few minutes. Whether you are watching mountain bikers in the summer or walking through sparkling lights in the winter, the Village always feels exciting. It is the social center of the region where people gather to share their mountain stories over great food and local drinks.</p><p>Location &amp; Access: The Village is located at the base of Whistler Mountain. It is divided into the Main Village, the Village North, and the Upper Village (at the base of Blackcomb). Everything is connected by the pedestrian Stroll and the Valley Trail, and a free shuttle bus (the Upper Village Loop) connects the two main base areas.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image12.jpg" alt="9. Crankworx Whistler, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>9. Crankworx Whistler</h3>
+        <p>Crankworx Whistler is the Super Bowl of mountain biking, a ten-day festival that makes Whistler the world capital of dirt and speed. Every summer, the world’s best riders come to the valley to compete in events featuring massive jumps, high speeds, and incredible tricks. The energy in the Village is electric, and the air is filled with the excitement of mountain bike culture.</p><p>Even if you don’t ride, the event is amazing to watch. The base of the mountain becomes a giant stadium where thousands of fans cheer as riders perform backflips off ramps as tall as a three-story building. It is a huge outdoor party and a celebration of the daring spirit that defines Whistler.</p><p>Location &amp; Access: Most major events take place at the base of Whistler Mountain and within the Whistler Mountain Bike Park. The Village Stroll acts as the festival hub, with &quot;Expo Way&quot; stretching from the Olympic Plaza to the Skier’s Plaza. Access to the main spectator zones at the base is completely free.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image30.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_64prjij4leye&quot; w:id=&quot;71&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;71&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;10. Blackcomb Ascent Trail, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_64prjij4leye&quot; w:id=&quot;71&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;71&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;10. Blackcomb Ascent Trail</h3>
+        <p>The Blackcomb Ascent Trail is the ultimate vertical challenge for those who prefer to earn their mountain views one step at a time. Designed as an uphill only hiking route, this trail system masterfully weaves through the lush rainforest of Blackcomb Mountain, climbing from the valley floor all the way to the alpine. It is a grueling yet rewarding journey that gains a staggering 1,200 meters (3,937 feet) of elevation over a total distance of 6.2 kilometers (3.9 miles).</p><p>What makes the Ascent Trail so unique is its tiered structure, divided into three distinct sections: Little Burn, Big Burn, and Heart Burn. As the names suggest, the hike gets progressively more challenging, but the environment changes beautifully along the way, shifting from the massive Douglas firs of the lower mountain to the thinning sub-alpine meadows where the burn in your legs is matched by the jaw-dropping views of the Coast Range across the valley.</p><p>Location &amp; Access: The trail begins in the Upper Village, right next to the base of the Blackcomb Gondola. You look for the trailhead signage near the bottom of the Wizard Express chairlift area.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="best-whistler-summer-activities"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Best Whistler Summer Activities</span>
+    <h2>Best Whistler Summer Activities</h2><p class="cnt">15 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image16.jpg" alt="1. Ride the Peak 2 Peak Gondola, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>1. Ride the Peak 2 Peak Gondola</h3>
+        <p>The Peak 2 Peak Gondola is one of Whistler’s top summer experiences. It connects Whistler Mountain and Blackcomb Mountain and gives huge views of forests, valleys, peaks, and alpine terrain.</p><p>This is one of the best things to do if it is your first time in Whistler. You get the mountain experience without needing to hike from the village. Once you are up high, you can walk short trails, take photos, visit viewpoints, eat at mountain restaurants, or continue into longer alpine hikes if trails are open.</p><p>Best for: First-time visitors, families, views, photography, non-hikers, alpine sightseeing.</p>
+        <p class="pl__n"><b>Good to know.</b> Mountain weather is often cooler than the village, so bring a jacket or warm layer even on sunny days.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image15.jpg" alt="2. Go Mountain Biking, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>2. Go Mountain Biking</h3>
+        <p>Whistler is one of the best mountain biking destinations in the world, and summer is the main season for it. The Whistler Mountain Bike Park is known for lift-access downhill trails, flow trails, technical terrain, jump lines, lessons, rentals, and a strong bike culture.</p><p>If you are new to mountain biking, Whistler can still work well, but do not jump straight into advanced trails. Book a lesson, rent the right bike, and start on beginner-friendly routes. If you are experienced, this is one of the best places to spend several full days riding.</p><p>Best for: Mountain bikers, adventure travelers, teens, adults, bike park riders, summer sports trips.</p>
+        <p class="pl__n"><b>Good to know.</b> The bike park is different from casual biking. Wear proper protective gear and choose trails that match your skill level.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image4.jpg" alt="3. Hike in the Alpine, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>3. Hike in the Alpine</h3>
+        <p>Summer is the best time for alpine hiking in Whistler. Gondola access makes it easier to reach high mountain trails without climbing all the way from the valley.</p><p>Popular alpine hiking areas include Whistler Mountain, Blackcomb Mountain, High Note Trail, and other lift-accessed routes. These trails can bring you to wildflower meadows, rocky viewpoints, ridges, glacier views, and views toward Cheakamus Lake and Garibaldi Provincial Park.</p><p>Best for: Views, wildflowers, photos, fitness, summer adventure.</p>
+        <p class="pl__n"><b>Good to know.</b> Alpine trails often open later than lower trails because snow can stay high in the mountains into summer. Check trail and lift status before going.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image10.jpg" alt="4. Spend the Day at Lost Lake, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>4. Spend the Day at Lost Lake</h3>
+        <p>Lost Lake is one of the easiest and most popular summer spots in Whistler. It is close to the village and has a beach, swimming areas, walking trails, biking trails, and picnic spots.</p><p>You can walk or bike there from Whistler Village, spend a few hours by the water, or make it part of a longer Valley Trail route. It is a good option for families, couples, and anyone who wants a relaxing day without driving far.</p><p>Best for: Swimming, families, easy walking, picnics, lake time, relaxing close to the village.</p>
+        <p class="pl__n"><b>Good to know.</b> Lost Lake gets busy on hot summer days. Go early or later in the day for a calmer visit.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image8.jpg" alt="5. Paddle on Whistler’s Lakes, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>5. Paddle on Whistler’s Lakes</h3>
+        <p>Whistler’s lakes are a big part of summer. Alta Lake, Lost Lake, Green Lake, and Nita Lake all offer different ways to enjoy the water.</p><p>Alta Lake is especially popular for paddleboarding, canoeing, kayaking, and relaxing at lake parks. Wayside Park and Lakeside Park are useful access points, and Rainbow Park is known for open views across the lake toward the mountains.</p><p>Best for: Paddleboarding, canoeing, kayaking, swimming, families, slow summer days.</p>
+        <p class="pl__n"><b>Good to know.</b> Lake water can still be cold early in the season. Wind can also pick up in the afternoon, so beginners should choose calm conditions.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image2.jpg" alt="6. Walk or Bike the Valley Trail, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>6. Walk or Bike the Valley Trail</h3>
+        <p>The Valley Trail is one of the smartest ways to explore Whistler in summer. This paved trail network connects Whistler Village with lakes, parks, neighborhoods, viewpoints, and picnic areas.</p><p>You can walk a short section, rent a bike, or make a full day of lake hopping. It is especially useful for families because it gives you a car-free way to move around town.</p><p>Best for: Easy biking, walking, families, lake hopping, car-free exploring.</p>
+        <p class="pl__n"><b>Good to know.</b> The Valley Trail is shared by walkers, cyclists, runners, dogs, and children. Stay aware and keep to the right.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image7.jpg" alt="7. Try Ziplining or an Adventure Tour, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>7. Try Ziplining or an Adventure Tour</h3>
+        <p>Whistler has many guided adventure tours in summer. Ziplining is one of the most popular, but you may also find rafting, ATV tours, bungee jumping, bear viewing tours, off-road tours, and scenic flights.</p><p>These activities are useful if you want adventure but do not have your own gear. They are also good for groups because everything is organized for you.</p><p>Best for: Groups, families with older kids, thrill seekers, first-time visitors.</p>
+        <p class="pl__n"><b>Good to know.</b> Check age, height, weight, and safety requirements before booking. Summer tours can sell out.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image12.jpg" alt="8. Explore Whistler Village, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>8. Explore Whistler Village</h3>
+        <p>Whistler Village is fun in summer because it is made for walking. You can move between shops, patios, cafes, restaurants, galleries, bike rental shops, and lift bases without needing a car.</p><p>In the evening, the village becomes one of the best places to relax after a day outside. You can sit on a patio, listen to live music if events are happening, eat dinner, shop, or simply walk around and enjoy the mountain-town atmosphere.</p><p>Best for: Food, shopping, patios, nightlife, families, easy evenings.</p>
+        <p class="pl__n"><b>Good to know.</b> Stay near the village if you want the easiest access to restaurants, tours, lifts, and summer events.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image1.jpg" alt="9. Visit the Squamish Lil’wat Cultural Centre, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>9. Visit the Squamish Lil’wat Cultural Centre</h3>
+        <p>The Squamish Lil’wat Cultural Centre is one of the most meaningful places to visit in Whistler. It shares the living cultures, histories, art, and traditions of the Squamish Nation and Lil’wat Nation.</p><p>This is a good summer activity when you want a break from the heat, the trails, or the bike park. It also helps visitors understand the land beyond the resort experience.</p><p>Best for: Culture, Indigenous learning, families, rainy days, slower travel days.</p>
+        <p class="pl__n"><b>Good to know.</b> Give yourself enough time to explore the exhibits and join a guided experience if available.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image18.jpg" alt="10. Visit the Audain Art Museum, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>10. Visit the Audain Art Museum</h3>
+        <p>The Audain Art Museum is a strong indoor activity for summer, especially if the day is rainy, smoky, very hot, or you want a slower afternoon. The museum features art from British Columbia, including important Indigenous art and works by major regional artists.</p><p>It pairs well with a village walk, a café stop, or the Squamish Lil’wat Cultural Centre.</p><p>Best for: Art, culture, rainy days, quiet afternoons, couples, families with older kids.</p>
+        <p class="pl__n"><b>Good to know.</b> This is a good choice if you want a break from outdoor activities without leaving Whistler Village.</p>
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">11. Relax at Scandinave Spa</h3>
+      <div class="pl__b">
+        
+        <p>Summer in Whistler can be active, so a spa visit is a good way to slow down. Scandinave Spa is known for outdoor hot baths, cold plunges, steam rooms, saunas, quiet spaces, and a forest setting.</p><p>It is especially nice after biking, hiking, golfing, or a long travel day.</p><p>Best for: Couples, wellness, recovery, quiet time, adults.</p>
+        <p class="pl__n"><b>Good to know.</b> The spa is quiet and phone-free. Book ahead because it is popular in both summer and winter.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image11.jpg" alt="12. Play Golf with Mountain Views, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>12. Play Golf with Mountain Views</h3>
+        <p>Whistler is a popular summer golf destination, with courses surrounded by mountains, forests, and resort scenery. Golf is a good option if you want an outdoor activity that is active but less intense than hiking or biking.</p><p>It is also a good group activity, especially for travelers who want a more relaxed summer day.</p><p>Best for: Golfers, groups, couples, scenic summer mornings.</p>
+        <p class="pl__n"><b>Good to know.</b> Book tee times ahead, especially on weekends and peak summer dates.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image17.jpg" alt="13. Go Bear Viewing or Wildlife Watching, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>13. Go Bear Viewing or Wildlife Watching</h3>
+        <p>Summer is a good time to join a guided wildlife or bear viewing tour around Whistler. These tours give visitors a safer and more respectful way to learn about local wildlife and habitat.</p><p>You may also see birds, squirrels, deer, or other animals while walking trails and parks. Always watch from a distance and never feed wildlife.</p><p>Best for: Wildlife lovers, families, photographers, nature-focused travelers.</p>
+        <p class="pl__n"><b>Good to know.</b> Use a guide for bear viewing. Do not approach bears for photos, and keep food and garbage secure.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image3.jpg" alt="14. Visit Brandywine Falls, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>14. Visit Brandywine Falls</h3>
+        <p>Brandywine Falls is one of the best easy side trips near Whistler. It is located south of town along the Sea to Sky Highway and has a short walk to a viewpoint overlooking a tall waterfall in a canyon.</p><p>This is a good stop on the drive to or from Whistler, or as part of a slower sightseeing day.</p><p>Best for: Waterfall photos, families, short walks, road trips.</p>
+        <p class="pl__n"><b>Good to know.</b> Stay behind barriers and use marked trails. The canyon edges are dangerous.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image9.jpg" alt="15. Enjoy Summer Patios, Food, and Après-Bike, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>15. Enjoy Summer Patios, Food, and Après-Bike</h3>
+        <p>Whistler’s food scene is part of the summer experience. After a hike, bike ride, lake day, or tour, the village is full of places to eat, drink, and relax.</p><p>Summer patios are especially popular. You can find casual pubs, coffee shops, bakeries, fine dining, family restaurants, cocktail spots, and après-bike energy around the village.</p><p>Best for: Food, drinks, groups, couples, nightlife, relaxed evenings.</p>
+        <p class="pl__n"><b>Good to know.</b> Make dinner reservations for popular restaurants, especially on weekends and during peak summer.</p>
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="best-whistler-winter-activities"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Best Whistler Winter Activities</span>
+    <h2>Best Whistler Winter Activities</h2><p class="cnt">13 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image11.jpg" alt="1. Ski or Snowboard at Whistler Blackcomb, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>1. Ski or Snowboard at Whistler Blackcomb</h3>
+        <p>Skiing and snowboarding are the main reasons many people visit Whistler in winter. Whistler Blackcomb has two mountains, a large lift system, wide terrain, ski schools, rentals, on-mountain dining, and a lively village at the base.</p><p>There are runs for many ability levels, from beginner-friendly areas to advanced bowls, glades, and steep terrain. If you are new to skiing or snowboarding, lessons are a smart choice. They help you learn safely and make the mountain less overwhelming.</p><p>Best for: Skiing, snowboarding, winter vacations, families, lessons, après-ski.</p>
+        <p class="pl__n"><b>Good to know.</b> Book lift tickets, lessons, rentals, and accommodation early. Winter holidays and weekends can be very busy.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image5.jpg" alt="2. Ride the Peak 2 Peak Gondola, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>2. Ride the Peak 2 Peak Gondola</h3>
+        <p>The Peak 2 Peak Gondola is one of Whistler’s most famous attractions in both winter and summer. In winter, it connects Whistler and Blackcomb Mountains and gives big views over snowy forests, ski runs, mountain peaks, and the valley below.</p><p>You do not need to be a skier to enjoy it. Sightseeing visitors can ride up for views, photos, mountain restaurants, and the feeling of being high in the alpine.</p><p>Best for: First-time visitors, non-skiers, views, photography, families.</p>
+        <p class="pl__n"><b>Good to know.</b> Dress warmly. It can be much colder and windier on the mountain than in the village.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image13.jpg" alt="3. Explore Whistler Village, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>3. Explore Whistler Village</h3>
+        <p>Whistler Village is one of the best parts of a winter trip. It is walkable, lively, and full of restaurants, shops, cafes, bars, hotels, galleries, and ski rental stores.</p><p>In the morning, the village feels energetic as skiers head to the lifts. In the afternoon, it fills with après-ski crowds. At night, lights, snow, and mountain views make it feel cozy and festive.</p><p>Best for: Food, shopping, après-ski, nightlife, easy walking, non-skiers.</p>
+        <p class="pl__n"><b>Good to know.</b> Stay near the village if you want the easiest access to restaurants, lift bases, tours, and shops without driving.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image15.jpg" alt="4. Go Snowshoeing, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>4. Go Snowshoeing</h3>
+        <p>Snowshoeing is one of the best winter activities in Whistler for non-skiers. It lets you walk through snowy forest trails without needing downhill ski skills.</p><p>You can snowshoe on maintained trails, book a guided snowshoe tour, or combine it with a quiet winter nature day. It is slower than skiing, but that is part of the appeal. You get time to enjoy the snow, trees, and mountain silence.</p><p>Best for: Non-skiers, families, winter walks, nature, quiet snow days.</p>
+        <p class="pl__n"><b>Good to know.</b> Wear warm waterproof boots, layers, gloves, and a hat. Trails may require passes or rentals depending on where you go.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image10.jpg" alt="5. Try Tubing, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>5. Try Tubing</h3>
+        <p>Tubing is one of the easiest snow activities in Whistler. You do not need ski or snowboard experience. You sit in an inflatable tube and slide down a groomed snow lane.</p><p>It is a fun option for families, groups, and visitors who want a simple winter activity without lessons or special skills.</p><p>Best for: Families, kids, groups, non-skiers, easy snow fun.</p>
+        <p class="pl__n"><b>Good to know.</b> Dress warmly and wear waterproof clothing. Check height, age, and operating rules before going.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image4.jpg" alt="6. Cross-Country Ski at Lost Lake, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>6. Cross-Country Ski at Lost Lake</h3>
+        <p>Lost Lake is popular in summer, but in winter it becomes a Nordic skiing and snowshoeing area. It is close to the village and offers a quieter snow experience than the downhill ski slopes.</p><p>Cross-country skiing is a good choice if you want exercise, winter scenery, and a slower pace. It can be peaceful, but it still gives you a great workout.</p><p>Best for: Fitness, peaceful winter trails, non-downhill skiers, families with older kids.</p>
+        <p class="pl__n"><b>Good to know.</b> Trail access, rentals, and passes may be required. Check current Lost Lake winter operations before going.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image9.jpg" alt="7. Relax at Scandinave Spa, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>7. Relax at Scandinave Spa</h3>
+        <p>Scandinave Spa is one of Whistler’s best winter wellness experiences. It is known for outdoor hot baths, cold plunges, steam rooms, saunas, quiet spaces, and a forest setting.</p><p>Winter makes the spa feel extra special. Sitting in warm water while snow surrounds the pools is one of the most relaxing ways to enjoy Whistler.</p><p>Best for: Couples, wellness, recovery after skiing, quiet time, adults.</p>
+        <p class="pl__n"><b>Good to know.</b> The spa is quiet and phone-free. Book ahead because it is very popular in winter.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image14.jpg" alt="8. Visit the Squamish Lil’wat Cultural Centre, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>8. Visit the Squamish Lil’wat Cultural Centre</h3>
+        <p>The Squamish Lil’wat Cultural Centre is one of the most meaningful places to visit in Whistler. It shares the living cultures, stories, art, and traditions of the Squamish Nation and Lil’wat Nation.</p><p>This is a great winter activity when you want a break from the cold, skiing, or busy village crowds. It also helps visitors understand the land beyond the resort experience.</p><p>Best for: Culture, Indigenous learning, families, indoor activity, rest days.</p>
+        <p class="pl__n"><b>Good to know.</b> Give yourself enough time to explore the exhibits and join a guided experience if available.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image1.jpg" alt="9. Visit the Audain Art Museum, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>9. Visit the Audain Art Museum</h3>
+        <p>The Audain Art Museum is a strong indoor activity for winter. It is close to Whistler Village and features art from British Columbia, including important Indigenous art and works by major regional artists.</p><p>It is a good option for snowy, rainy, very cold, or low-energy days when you still want to do something meaningful.</p><p>Best for: Art, culture, rainy days, rest days, couples, families with older kids.</p>
+        <p class="pl__n"><b>Good to know.</b> Pair it with a village lunch, coffee stop, or visit to the Squamish Lil’wat Cultural Centre.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image8.jpg" alt="10. Try Snowmobiling, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>10. Try Snowmobiling</h3>
+        <p>Snowmobiling is one of Whistler’s classic winter adventure tours. Guided trips take you through snowy forest roads, mountain terrain, and scenic winter areas.</p><p>It is a good activity if you want something faster and more adventurous than snowshoeing, but you do not want to ski or snowboard.</p><p>Best for: Adventure travelers, groups, couples, winter scenery, guided tours.</p>
+        <p class="pl__n"><b>Good to know.</b> Check age, driver’s license, clothing, and safety requirements before booking. Tours can sell out during peak winter dates.</p>
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">11. Go Winter Ziplining</h3>
+      <div class="pl__b">
+        
+        <p>Ziplining is not only a summer activity. In winter, zipline tours can give you a different view of Whistler’s snowy forests, creeks, and mountain scenery.</p><p>It is a fun option if you want a guided activity with a bit of thrill, but without needing ski skills.</p><p>Best for: Groups, couples, families with older kids, thrill seekers, non-skiers.</p>
+        <p class="pl__n"><b>Good to know.</b> Dress warmly because you may be standing outside between ziplines. Gloves, warm socks, and layers are important.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image3.jpg" alt="12. Enjoy Après-Ski and Dining, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>12. Enjoy Après-Ski and Dining</h3>
+        <p>Après-ski is a major part of winter in Whistler. After a day on the mountain, people gather in the village for drinks, food, music, patios with heaters, casual pubs, and cozy restaurants.</p><p>You can enjoy après-ski even if you did not ski. The village has everything from coffee and bakeries to casual meals, fine dining, cocktail bars, family restaurants, and late-night spots.</p><p>Best for: Food, drinks, nightlife, groups, couples, relaxed evenings.</p>
+        <p class="pl__n"><b>Good to know.</b> Popular restaurants and après spots can be busy. Make reservations for dinner, especially on weekends and holidays.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/whistler/image7.jpg" alt="13. Go Ice Skating, Whistler"></figure>
+      
+      <div class="pl__b">
+        <h3>13. Go Ice Skating</h3>
+        <p>Ice skating is a fun, classic winter activity for families, couples, and non-skiers. Whistler usually offers seasonal outdoor skating in the village area, depending on weather and operations.</p><p>It is a good option if you want something easy and festive without leaving town.</p><p>Best for: Families, couples, kids, winter atmosphere, easy activity.</p>
+        <p class="pl__n"><b>Good to know.</b> Check current rink location, hours, and rental information before going.</p>
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="common-questions-about-whistler-in-winter"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Common Questions About Whistler in Winter</span>
+    <h2>Common Questions About Whistler in Winter</h2><p class="cnt">12 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl pl--solo">
+      
+      <h3 class="solo__h">What is Whistler known for in winter?</h3>
+      <div class="pl__b">
+        
+        <p>Whistler is known for skiing, snowboarding, Whistler Blackcomb, Peak 2 Peak Gondola, après-ski, winter village atmosphere, snowshoeing, tubing, spas, and winter adventure tours.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Whistler expensive in winter?</h3>
+      <div class="pl__b">
+        
+        <p>Yes, Whistler can be expensive in winter. Hotels, lift tickets, rentals, lessons, tours, restaurants, and parking can add up quickly. Prices are usually highest during holidays, weekends, and peak ski dates.</p><p>You can save money by visiting midweek, avoiding Christmas and New Year, booking early, staying outside the village, choosing non-ski activities, cooking some meals, or planning a shorter trip.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Whistler worth visiting if you do not ski?</h3>
+      <div class="pl__b">
+        
+        <p>Yes. Whistler is worth visiting in winter even if you do not ski. The village, mountain views, snowshoeing, tubing, gondola sightseeing, spa, museums, winter tours, dining, shopping, and après-ski scene make it a strong winter destination for non-skiers.</p><p>A good non-skier trip might include the Peak 2 Peak Gondola, snowshoeing, Scandinave Spa, the Squamish Lil’wat Cultural Centre, a village walk, and a relaxed dinner.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">What can you do in Whistler in winter besides skiing?</h3>
+      <div class="pl__b">
+        
+        <p>You can ride the Peak 2 Peak Gondola, go snowshoeing, try tubing, cross-country ski, relax at Scandinave Spa, visit museums, go snowmobiling, go ziplining, ice skate, walk the village, dine out, shop, and enjoy après-ski.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Whistler good for beginners in winter?</h3>
+      <div class="pl__b">
+        
+        <p>Yes. Beginners can take ski or snowboard lessons, try tubing, go snowshoeing, ride the gondola, walk the village, or do easy guided winter activities.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Whistler good for families in winter?</h3>
+      <div class="pl__b">
+        
+        <p>Yes. Whistler is very family-friendly in winter. Families can ski, snowboard, take lessons, go tubing, ice skate, snowshoe, enjoy hot chocolate stops, walk the village, and visit indoor attractions.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is Whistler worth visiting in December?</h3>
+      <div class="pl__b">
+        
+        <p>Yes. December is a festive time to visit Whistler, with snowy village atmosphere, holiday energy, winter activities, and ski season underway. It can also be busy and expensive, especially around Christmas and New Year.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is January or February better for Whistler?</h3>
+      <div class="pl__b">
+        
+        <p>January and February are both strong winter months. January can feel quieter after the holidays, while February has strong winter energy and longer days. Weather and snow can vary, so check current conditions before traveling.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Can non-skiers ride the Peak 2 Peak Gondola?</h3>
+      <div class="pl__b">
+        
+        <p>Yes. Non-skiers can ride the Peak 2 Peak Gondola for winter sightseeing when sightseeing access is operating. Check current lift and ticket details before going.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Do you need a car in Whistler in winter?</h3>
+      <div class="pl__b">
+        
+        <p>Not always. If you stay near Whistler Village, many restaurants, shops, lifts, rentals, and tour meeting points are walkable. A car is helpful for side trips, but winter driving requires more planning.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Is it hard to drive to Whistler in winter?</h3>
+      <div class="pl__b">
+        
+        <p>The Sea to Sky Highway is scenic but can have winter driving conditions, including rain, snow, ice, and heavy traffic. Check road reports before driving a nd make sure your vehicle meets winter tire or chain requirements.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">How many days do you need in Whistler in winter?</h3>
+      <div class="pl__b">
+        
+        <p>One day is enough for a quick village and gondola visit, but two to four days is better if you want to ski, snowboard, snowshoe, enjoy the spa, try winter tours, and have time to relax.</p><p>Winter in Whistler is the classic Whistler experience: snowy mountains, busy lifts, cozy village nights, après-ski, winter tours, and beautiful views in every direction.</p><p>If you ski or snowboard, Whistler Blackcomb is the main event. If you do not ski, you can still have a full winter trip with the Peak 2 Peak Gondola, snowshoeing, tubing, spa time, museums, village walks, shopping, dining, and guided tours.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <h2>Keep going</h2>
+  <nav class="siblings" style="margin-top:20px" aria-label="Next">
+    <a class="sib" href="province.html"><span class="sib__n">British Columbia</span><span class="sib__m">All the towns</span></a>
+    <a class="sib" href="search.html?in=whistler"><span class="sib__n">Stays in Whistler</span><span class="sib__m">Search what is open</span></a>
+    <a class="sib" href="index.html"><span class="sib__n">All destinations</span><span class="sib__m">Every town we cover</span></a>
+  </nav>
+</div></section>
+</main>
+<footer class="f"><div class="wrap fbase">&copy; 2026 Arc Trips. Prices in CAD, before taxes and fees.</div></footer>
+<script src="_nav.js"></script>
+</body></html>

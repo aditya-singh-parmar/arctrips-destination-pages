@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The month module, Arc Trips</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B3356; --azure:#2874BA; --emerald:#3A9679;
+  --n-0:#FFFFFF; --n-50:#F7F9FB; --n-100:#EEF2F6; --n-200:#DFE6ED;
+  --n-400:#9AA9B8; --n-500:#78889A; --n-600:#5C6C7E; --n-700:#3E4E60;
+  --em-50:#EEF7F3; --em-700:#2A7159;
+  --wrap:1180px; --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--n-0);color:var(--n-700);font-family:'Inter',system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;font-size:17px;line-height:1.65}
+em,i{font-style:normal;font-weight:600}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(20px,4vw,40px)}
+.tnum{font-variant-numeric:tabular-nums}
+h1,h2,h3{color:var(--navy);letter-spacing:-.025em;line-height:1.04;font-weight:700}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--n-500)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:clamp(420px,56vh,560px);display:flex;align-items:flex-end;
+  background:var(--navy);overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero__veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,51,86,.15) 0%,rgba(11,51,86,.72) 72%,rgba(11,51,86,.88) 100%)}
+.hero__in{position:relative;width:100%;padding-bottom:clamp(28px,4vw,48px);padding-top:120px}
+.hero .eyebrow{color:rgba(255,255,255,.82)}
+.hero h1{margin-top:12px}
+.hero__q{display:block;color:rgba(255,255,255,.6);font-weight:700;font-size:clamp(22px,3vw,38px);letter-spacing:-.02em}
+.hero__m{display:block;color:#fff;font-weight:800;font-size:clamp(52px,9.4vw,120px);letter-spacing:-.04em;line-height:.96}
+
+/* ---------- month strip ---------- */
+.strip{border-bottom:1px solid var(--n-200);background:var(--n-0);position:sticky;top:0;z-index:20}
+.strip__in{display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.strip__in::-webkit-scrollbar{display:none}
+.m{flex:1 0 auto;min-width:78px;background:none;border:0;border-bottom:3px solid transparent;
+  padding:16px 8px 13px;cursor:pointer;font-family:inherit;text-align:center;transition:background .2s var(--ease)}
+.m:hover{background:var(--n-50)}
+.m__n{display:block;font-size:14px;font-weight:600;color:var(--n-600);letter-spacing:.02em}
+.m__c{display:block;font-size:12px;color:var(--n-600);margin-top:3px;font-variant-numeric:tabular-nums}
+.m.on{border-bottom-color:var(--azure);background:var(--n-50)}
+.m.on .m__n{color:var(--navy);font-weight:700}
+.m.on .m__c{color:var(--azure);font-weight:600}
+
+/* ---------- answer ---------- */
+.answer{padding:clamp(48px,7vw,88px) 0 clamp(36px,5vw,56px)}
+.answer__season{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--emerald)}
+.answer__claim{font-size:clamp(26px,3.6vw,44px);font-weight:700;color:var(--navy);letter-spacing:-.028em;
+  line-height:1.12;max-width:20ch;margin-top:14px}
+.answer__sub{font-size:clamp(17px,1.5vw,19px);color:var(--n-600);max-width:56ch;margin-top:18px}
+
+/* ---------- peak list ---------- */
+.peak{padding-bottom:clamp(40px,5vw,64px)}
+.peak__head{display:flex;align-items:baseline;gap:14px;border-top:1.5px solid var(--navy);padding-top:14px;margin-bottom:22px}
+.peak__head h2{font-size:22px}
+.peak__head b{font-size:13px;color:var(--n-500);font-weight:600;font-variant-numeric:tabular-nums}
+.peak__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1px;background:var(--n-200);
+  border:1px solid var(--n-200)}
+.p{background:var(--n-0);padding:16px 18px;display:flex;align-items:center;gap:11px;min-height:64px}
+.p__dot{width:8px;height:8px;border-radius:50%;background:var(--emerald);flex:0 0 auto}
+.p__t{display:block;font-size:16px;font-weight:600;color:var(--navy);line-height:1.25}
+.p__w{display:block;font-size:12.5px;color:var(--n-600);margin-top:3px}
+.p--fill{background:var(--n-0)}
+.p.off{background:var(--n-50)}
+.p.off .p__dot{background:none;border:1.5px solid var(--n-400);width:9px;height:9px}
+.p.off .p__t{color:var(--n-600);font-weight:500}
+
+/* ---------- the trade, with the rain column ---------- */
+.trade{background:var(--navy);color:rgba(255,255,255,.86);padding:clamp(48px,6vw,80px) 0}
+.trade h2{color:#fff;font-size:clamp(24px,2.8vw,34px);max-width:22ch}
+.trade__lede{max-width:52ch;margin-top:16px;color:rgba(255,255,255,.72);font-size:17px}
+.trade__body{display:grid;grid-template-columns:1fr auto;gap:clamp(28px,5vw,72px);align-items:end;margin-top:clamp(32px,4vw,52px)}
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:28px 20px}
+.fig b{display:block;font-size:clamp(34px,4.4vw,58px);font-weight:800;color:#fff;letter-spacing:-.04em;
+  font-variant-numeric:tabular-nums;line-height:1}
+.fig span{display:block;font-size:13px;color:rgba(255,255,255,.62);margin-top:8px;letter-spacing:.01em}
+
+/* earned moment: column height is the real millimetre figure */
+.rain{display:flex;align-items:flex-end;gap:10px;height:230px;flex:0 0 auto}
+.rain__col{width:44px;background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.30));
+  border-top:2px solid rgba(255,255,255,.85);transition:height .55s var(--ease);position:relative}
+.rain__col.now{background:linear-gradient(180deg,rgba(58,150,121,.35),rgba(58,150,121,.85));
+  border-top-color:var(--emerald)}
+.rain__cap{font-size:11px;color:rgba(255,255,255,.5);text-align:center;margin-top:9px;letter-spacing:.06em}
+
+/* ---------- the fallback, two exits ---------- */
+.exits{padding:clamp(44px,6vw,72px) 0 clamp(56px,7vw,96px)}
+.exits__k{border-top:1.5px solid var(--navy);padding-top:14px;font-size:22px}
+.exits__row{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(20px,3vw,40px);margin-top:26px}
+.exit{border-left:2px solid var(--n-200);padding-left:20px}
+.exit b{display:block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--n-500)}
+.exit p{margin-top:10px;font-size:17px;color:var(--n-700);max-width:40ch}
+.exit a{display:inline-block;margin-top:14px;color:var(--azure);font-weight:600;font-size:16px;text-decoration:none;
+  border-bottom:1.5px solid rgba(40,116,186,.32);padding-bottom:1px}
+.exit a:hover{border-bottom-color:var(--azure)}
+
+.foot{border-top:1px solid var(--n-200);padding:22px 0 60px;font-size:13px;color:var(--n-500)}
+
+:focus-visible{outline:2px solid var(--azure);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media(max-width:760px){
+  .trade__body{grid-template-columns:1fr}
+  .rain{height:170px;width:100%;gap:5px}
+  .rain__col{width:auto;flex:1 1 0;min-width:0}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img id="heroImg" alt="The Pacific coast at Tofino" src="">
+  <div class="hero__veil"></div>
+  <div class="hero__in"><div class="wrap">
+    <span class="eyebrow">Tofino, British Columbia</span>
+    <h1><span class="hero__q">What</span><span class="hero__m" id="heroMonth">January</span><span class="hero__q">is for</span></h1>
+  </div></div>
+</header>
+
+<nav class="strip" aria-label="Choose a month"><div class="wrap"><div class="strip__in" id="strip"></div></div></nav>
+
+<main>
+  <section class="answer"><div class="wrap">
+    <div class="answer__season" id="seasonName">Storm season</div>
+    <h2 class="answer__claim" id="claim"></h2>
+    <p class="answer__sub" id="claimSub"></p>
+  </div></section>
+
+  <section class="peak"><div class="wrap">
+    <div class="peak__head">
+      <h2>At their best right now</h2>
+      <b id="peakCount"></b>
+    </div>
+    <div class="peak__grid" id="peakGrid"></div>
+  </div></section>
+
+  <section class="trade"><div class="wrap">
+    <h2 id="tradeHead"></h2>
+    <p class="trade__lede" id="tradeLede"></p>
+    <div class="trade__body">
+      <div class="figs" id="figs"></div>
+      <div>
+        <div class="rain" id="rain" aria-hidden="true"></div>
+        <div class="rain__cap">Rainfall by month, millimetres</div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="exits"><div class="wrap">
+    <h2 class="exits__k">Came for something else?</h2>
+    <div class="exits__row" id="exits"></div>
+  </div></section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  Season data is the live <code>best_months</code> corpus: 22 categories, of which 20 are seasonal
+  activities. When to go and Getting around are planning pages and are excluded. Climate figures are
+  Environment and Climate Change Canada normals for the Tofino station, seeded for design and
+  not yet verified against the station record.
+</div></footer>
+
+<script>
+const MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const SHORT = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+// Environment and Climate Change Canada normals, Tofino station. Seeded, unverified.
+const CLIMATE = [
+  {hi:8.6, lo:2.6, mm:489, days:22}, {hi:9.3, lo:2.3, mm:368, days:19},
+  {hi:10.4,lo:3.1, mm:337, days:21}, {hi:12.3,lo:4.3, mm:213, days:18},
+  {hi:14.6,lo:6.7, mm:132, days:15}, {hi:16.3,lo:9.1, mm:102, days:13},
+  {hi:18.1,lo:10.9,mm:66,  days:9},  {hi:18.6,lo:11.1,mm:82,  days:10},
+  {hi:17.5,lo:9.3, mm:152, days:12}, {hi:13.9,lo:6.9, mm:396, days:20},
+  {hi:10.3,lo:4.4, mm:500, days:23}, {hi:8.4, lo:2.7, mm:490, days:23}
+];
+
+// Named seasons. Every month belongs to one, and every claim is true and appealing.
+const SEASONS = {
+  storm: {
+    name:'Storm season',
+    claim:'The Pacific throws everything it has at the coast, and people book rooms to watch it.',
+    sub:'Swell arrives from open ocean with nothing in its way. The beaches empty, the surf gets serious, and the hot springs are better in the rain than they are in August.',
+    tradeHead:'It rains. That is the whole point.',
+    tradeLede:'The rainforest is a rainforest because of these months. Come prepared and the coast is louder, emptier and more itself than it is all summer.',
+    img:'https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_2000,h_1100/nicoline-mann-bIIK4mvsDZc-unsplash_vcyrwx'
+  },
+  green: {
+    name:'The green months',
+    claim:'The coast between the storms and the crowds, at half the price.',
+    sub:'Whales move up the coast, the trails dry out, and the towns get their mornings back. The shoulder is the locals’ answer when you ask when to come.',
+    tradeHead:'Changeable, and that is the trade.',
+    tradeLede:'You will get weather. You will also get grey whales, open tables, and a beach you can walk for an hour without meeting anyone.',
+    img:'https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_2000,h_1100/james-wheeler-YZfDg2L0lUs-unsplash_ino74q'
+  },
+  long: {
+    name:'Long days',
+    claim:'Sixteen hours of light and the water finally warm enough to stay in.',
+    sub:'Everything is open, everything is running, and the sun sets after nine. This is the coast at full volume, and the only months where the ocean is genuinely swimmable.',
+    tradeHead:'Book early. Everyone else worked this out too.',
+    tradeLede:'The weather is the best it gets and so is the competition for a room. These are the months that sell out first, by a wide margin.',
+    img:'https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_2000,h_1100/condor-wei-TiLEEXohfsY-unsplash_v7ja5f'
+  }
+};
+const SEASON_OF = ['storm','storm','green','green','long','long','long','long','long','green','storm','storm'];
+
+const LABEL = {
+  'beaches':'Beaches','surfing':'Surfing','kayaking':'Kayaking','fishing':'Fishing','boating':'Boating',
+  'hot-springs':'Hot springs','whale-watching':'Whale watching','birding':'Birding','storm-watching':'Storm watching',
+  'parks':'Parks','hiking':'Hiking','mountain-biking':'Mountain biking','camping':'Camping','skiing':'Skiing',
+  'restaurants':'Restaurants','markets':'Markets','breweries':'Breweries','landmarks':'Landmarks',
+  'arts-history':'Arts and history','events':'Events','when-to-go':'When to go','getting-around':'Getting around'
+};
+
+// "When to go" and "Getting around" are planning pages, not seasonal activities. Counting them
+// as "at their best right now" is meaningless and quietly inflates every month's score.
+const PLANNING = ['when-to-go', 'getting-around'];
+
+let MONTHS = {};
+let ACTIVITIES = [];
+let cur = 0;
+
+fetch('../2026-07-27/data/best-months.json')
+  .then(r => r.json())
+  .then(d => {
+    MONTHS = d;
+    ACTIVITIES = Object.keys(d).filter(c => !PLANNING.includes(c));
+    build();
+    render(new Date().getMonth());
+  })
+  .catch(() => { document.body.insertAdjacentHTML('afterbegin',
+    '<p style="padding:16px">Could not load the corpus. Serve this from the design root.</p>'); });
+
+const inSeason = (cat, m) => (MONTHS[cat] || []).includes(m + 1);
+const peakCats = m => ACTIVITIES.filter(c => inSeason(c, m));
+
+function build() {
+  const strip = document.getElementById('strip');
+  MONTH_NAMES.forEach((_, i) => {
+    const b = document.createElement('button');
+    b.className = 'm';
+    b.innerHTML = '<span class="m__n"></span><span class="m__c"></span>';
+    b.querySelector('.m__n').textContent = SHORT[i];
+    b.querySelector('.m__c').textContent = peakCats(i).length + ' in season';
+    b.addEventListener('click', () => render(i));
+    strip.appendChild(b);
+  });
+
+  // The rain column. Height is the real millimetre figure, never a decorative curve.
+  const max = Math.max(...CLIMATE.map(c => c.mm));
+  const rain = document.getElementById('rain');
+  CLIMATE.forEach((c, i) => {
+    const col = document.createElement('div');
+    col.className = 'rain__col';
+    col.style.height = Math.round((c.mm / max) * 100) + '%';
+    col.dataset.i = i;
+    rain.appendChild(col);
+  });
+}
+
+function render(m) {
+  cur = m;
+  const s = SEASONS[SEASON_OF[m]];
+  const c = CLIMATE[m];
+  const peaks = peakCats(m);
+
+  document.getElementById('heroMonth').textContent = MONTH_NAMES[m];
+  document.getElementById('heroImg').src = s.img;
+  document.getElementById('heroImg').alt = 'Tofino in ' + MONTH_NAMES[m];
+  document.getElementById('seasonName').textContent = s.name;
+  document.getElementById('claim').textContent = s.claim;
+  document.getElementById('claimSub').textContent = s.sub;
+  document.getElementById('tradeHead').textContent = s.tradeHead;
+  document.getElementById('tradeLede').textContent = s.tradeLede;
+  document.getElementById('peakCount').textContent = peaks.length + ' of ' + ACTIVITIES.length;
+
+  [...document.querySelectorAll('.m')].forEach((b, i) => b.classList.toggle('on', i === m));
+  [...document.querySelectorAll('.rain__col')].forEach((b, i) => b.classList.toggle('now', i === m));
+
+  // Everything is listed. In-season leads, out-of-season follows, nothing is hidden or greyed to a warning.
+  const all = ACTIVITIES.slice().sort((a, b) => (inSeason(b, m) - inSeason(a, m)) || LABEL[a].localeCompare(LABEL[b]));
+  const cells = all.map(cat => {
+    const on = inSeason(cat, m);
+    return '<div class="p' + (on ? '' : ' off') + '"><span class="p__dot"></span><span><span class="p__t">' +
+      LABEL[cat] + '</span>' + (on ? '' : '<span class="p__w">Peaks ' + windowOf(cat) + '</span>') + '</span></div>';
+  });
+  // Complete the final row so the grid never ends on a hole.
+  const cols = getComputedStyle(document.getElementById('peakGrid')).gridTemplateColumns.split(' ').length;
+  const short = (cols - (cells.length % cols)) % cols;
+  for (let i = 0; i < short; i++) cells.push('<div class="p p--fill"></div>');
+  document.getElementById('peakGrid').innerHTML = cells.join('');
+
+  document.getElementById('figs').innerHTML = [
+    ['<b class="tnum">' + c.mm + '</b><span>Millimetres of rain</span>'],
+    ['<b class="tnum">' + c.days + '</b><span>Days with rain</span>'],
+    ['<b class="tnum">' + c.hi + '&deg;</b><span>Average high</span>'],
+    ['<b class="tnum">' + c.lo + '&deg;</b><span>Average low</span>']
+  ].map(x => '<div class="fig">' + x + '</div>').join('');
+
+  // Two exits, never zero. The nearest peak month, and what to do in the month they picked.
+  const missing = ['kayaking', 'beaches', 'whale-watching'].find(k => !inSeason(k, m)) || 'kayaking';
+  const near = nearestPeak(missing, m);
+  const swap = peaks.find(p => ['storm-watching', 'surfing', 'hot-springs', 'skiing', 'whale-watching'].includes(p)) || peaks[0];
+  document.getElementById('exits').innerHTML =
+    '<div class="exit"><b>If you came for ' + LABEL[missing].toLowerCase() + '</b><p>It peaks ' + windowOf(missing) +
+      '. The nearest month that works is ' + MONTH_NAMES[near] + '.</p>' +
+      '<a href="#" onclick="render(' + near + ');return false">Show me ' + MONTH_NAMES[near] + '</a></div>' +
+    '<div class="exit"><b>Or stay in ' + MONTH_NAMES[m] + '</b><p>' + LABEL[swap] +
+      ' is at its best right now, and it is the reason people come this month at all.</p>' +
+      '<a href="#">Read the ' + LABEL[swap].toLowerCase() + ' guide</a></div>';
+}
+
+function windowOf(cat) {
+  const ms = (MONTHS[cat] || []).slice().sort((a, b) => a - b);
+  if (!ms.length) return 'year round';
+  if (ms.length === 12) return 'year round';
+  // Handle a window that wraps the new year, like storm watching at 11,12,1,2.
+  const wraps = ms.includes(1) && ms.includes(12) && ms.length < 12;
+  if (wraps) {
+    let start = 12; while (ms.includes(start - 1)) start--;
+    let end = 1;   while (ms.includes(end + 1)) end++;
+    return SHORT[start - 1] + ' to ' + SHORT[end - 1];
+  }
+  return SHORT[ms[0] - 1] + ' to ' + SHORT[ms[ms.length - 1] - 1];
+}
+
+function nearestPeak(cat, m) {
+  const ms = (MONTHS[cat] || []).map(x => x - 1);
+  if (!ms.length) return m;
+  return ms.slice().sort((a, b) => dist(a, m) - dist(b, m))[0];
+}
+const dist = (a, b) => Math.min((a - b + 12) % 12, (b - a + 12) % 12);
+window.render = render;
+</script>
+</body>
+</html>

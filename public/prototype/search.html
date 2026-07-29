@@ -1,0 +1,1298 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Search, Arc Trips</title>
+<meta name="description" content="Search everything Arc Trips publishes: towns, guides, places, articles, questions and stays.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_system.css">
+<style>
+/* ── Page-scoped only. Tokens from _system.css, no new colour values.
+      Nothing on this page renders below 14px. No green: season fills are
+      navy on n100, because emerald is reserved for a live-booking pill. ─── */
+
+/* a11y floors the system leaves open */
+:focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:var(--r-sm)}
+.almanac :focus-visible,.dock :focus-visible{outline-color:var(--a300)}
+.btn{min-height:44px;white-space:nowrap}
+nav.top .btn{flex:none}
+.brand,.nav-links a{display:inline-flex;align-items:center;min-height:44px}
+.search{height:44px}
+/* a form control does not inherit the page font on its own, so the nav field
+   was rendering in Arial */
+.search input{align-self:stretch;font-family:inherit}
+/* On a phone the nav field would squeeze the three global links down to two
+   clipped words. This page has a full size field of its own six lines below,
+   so the small one steps aside and Stays, Destinations and Vancouver Island
+   all stay reachable. */
+@media(max-width:760px){nav.top .search{display:none}}
+.fgrid ul{gap:2px}
+.fgrid ul a{display:inline-block;padding-block:12px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* _system.css sets body>*:not(.chart){position:relative}, a two-part selector,
+   so body children needing their own positioning have to match it. */
+body>.skip{position:absolute;left:var(--gut);top:-60px;z-index:99;background:var(--navy);color:var(--paper);
+  padding:13px 18px;border-radius:0 0 var(--r-sm) var(--r-sm);font-weight:600;font-size:.95rem;transition:top .18s var(--ease)}
+body>.skip:focus{top:0}
+
+/* The 14px floor. 1rem is 16px here, so .88rem is the smallest size allowed
+   and every system piece this page reuses is lifted to it. */
+.label{font-size:.88rem;letter-spacing:.1em}
+.kmeta,.kmeta__m{font-size:.88rem;color:var(--n600)}
+.kmeta .k{font-size:.88rem;letter-spacing:.04em;text-transform:none;color:var(--n600);font-weight:600}
+.btn--sm{font-size:.88rem}
+nav.top kbd{font-size:.88rem}
+.crumb,.crumb a,.crumb span{font-size:.88rem}
+.fnote,.fgrid h5,.fgrid a,.fbase{font-size:.88rem}
+/* n500 is 3.6:1 on paper, so every text use of it is lifted to n600 */
+.fgrid h5,.fbase,.fbase span,nav.top kbd{color:var(--n600);letter-spacing:.06em}
+
+/* ── the place bar. Identical on every page in this town: one way back, the
+      same five sections, no micro-label, no extra control. ─────────────── */
+.placebar__links{margin:0}
+.placebar__back .n{font-size:1.05rem}
+
+/* the trail sits above the H1 and carries no controls */
+.crumb{padding-block:clamp(16px,2.2vw,24px) 0}
+@media(pointer:coarse){.crumb{padding-top:8px}.crumb a{display:inline-flex;align-items:center;min-height:44px}}
+
+/* ── the head: one column, the field, and the scope in plain words ─────── */
+.shead{padding-block:clamp(14px,1.8vw,20px) clamp(26px,3.4vw,44px)}
+/* the head is a .wrap, so its own max-width has to stay at the container
+   width or the H1 centres itself and stops aligning with the trail above it
+   and the results below. The measure is set on the children instead. */
+.shead-g>*{max-width:760px}
+.shead h1{font-size:clamp(1.5rem,2.4vw,1.95rem);font-weight:700;letter-spacing:-.028em;line-height:1.16;
+  max-width:22ch;text-wrap:balance}
+.shead h1 .n{display:block;font-size:clamp(3rem,7vw,4.6rem);font-weight:800;letter-spacing:-.055em;
+  line-height:.9;margin-bottom:6px;font-variant-numeric:tabular-nums;color:var(--navy)}
+.shead h1 .q{color:var(--azure)}
+.shead__s{margin-top:14px;font-size:1rem;color:var(--n600);max-width:58ch;line-height:1.6}
+.shead__s b{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+
+.bigsearch{position:relative;max-width:640px;margin-top:clamp(20px,2.6vw,28px)}
+.bs{display:flex;align-items:center;gap:13px;min-height:64px;border:1px solid var(--n200);border-radius:999px;
+  padding:0 8px 0 22px;background:var(--paper);
+  box-shadow:0 16px 34px -24px rgba(11,51,86,.5),0 2px 8px rgba(11,51,86,.05);
+  transition:border-color .2s var(--ease),box-shadow .2s var(--ease)}
+.bs:focus-within{border-color:var(--azure);box-shadow:0 0 0 3px var(--a100),0 16px 34px -24px rgba(11,51,86,.5)}
+.bs>svg{width:20px;height:20px;color:var(--n600);flex:none}
+.bs input{flex:1;min-width:0;border:0;outline:0;background:none;font:inherit;font-size:1.06rem;
+  color:var(--n900);padding-block:16px}
+.bs input::placeholder{color:var(--n600)}
+.bs input::-webkit-search-cancel-button{-webkit-appearance:none}
+.bs .btn{flex:none}
+@media(max-width:520px){.bs{padding-left:18px;gap:10px}.bs input{font-size:1rem}.bs .btn{padding-inline:16px}}
+
+/* the scope, said in words, directly under the field */
+.scopeline{display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap;margin-top:14px;
+  font-size:.98rem;color:var(--n600);line-height:1.5}
+.scopeline b{color:var(--navy);font-weight:700}
+.scopeline button{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;
+  border:1px solid var(--n200);background:var(--paper);font-family:inherit;font-size:.92rem;font-weight:600;
+  color:var(--navy);cursor:pointer;transition:border-color .18s var(--ease)}
+.scopeline button:hover{border-color:var(--navy)}
+
+/* the typeahead, open from two characters */
+.ta{position:absolute;left:0;right:0;top:calc(100% + 9px);z-index:45;background:var(--paper);
+  border:1px solid var(--n150);border-radius:var(--r);padding:6px;list-style:none;
+  box-shadow:0 30px 60px -30px rgba(11,51,86,.55),0 3px 10px rgba(11,51,86,.06)}
+.ta[hidden]{display:none}
+.ta li{display:flex;align-items:center;gap:13px;min-height:56px;padding:8px 12px;border-radius:var(--r-sm);cursor:pointer}
+.ta li:hover,.ta li[aria-selected="true"]{background:var(--a100)}
+.ta img{width:46px;height:36px;border-radius:5px;object-fit:cover;flex:none;background:var(--n100)}
+.ta b{display:block;font-size:.98rem;font-weight:600;color:var(--navy);line-height:1.3}
+.ta span{display:block;font-size:.88rem;color:var(--n600);margin-top:2px}
+.ta__f{padding:12px;font-size:.88rem;color:var(--n600);border-top:1px solid var(--n150);margin-top:4px;
+  cursor:default;min-height:0;display:block}
+
+.quickq{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-top:clamp(14px,1.8vw,20px)}
+.quickq .qlab{flex:none;font-size:.92rem;color:var(--n600);margin-right:2px}
+@media(max-width:600px){.quickq .qlab{flex:1 0 100%;margin-bottom:-2px}}
+.quickq button{font-size:.92rem;font-weight:600;color:var(--n700);padding:9px 15px;border-radius:999px;
+  border:1px solid var(--n200);background:var(--paper);min-height:44px;cursor:pointer;font-family:inherit;
+  transition:border-color .18s var(--ease),color .18s var(--ease)}
+.quickq button:hover{border-color:var(--navy);color:var(--navy)}
+
+/* ── the tide strip, labelled in plain words ───────────────────────────── */
+.tide-in{gap:10px clamp(16px,3vw,34px)}
+.tide-h{flex:none;font-size:.98rem;font-weight:700;color:var(--navy)}
+.tide-read{font-size:.92rem}
+.tide-why{font-size:.92rem;color:var(--n600);flex:1;min-width:210px;line-height:1.5}
+
+/* ── the filters ───────────────────────────────────────────────────────── */
+.ctrl{padding-top:clamp(18px,2.4vw,26px)}
+.filterrow{margin-block:0 clamp(14px,1.8vw,18px)}
+.filterrow:last-of-type{padding-bottom:clamp(16px,2.2vw,24px);border-bottom:1px solid var(--n150);margin-bottom:0}
+.filterrow .k{flex:none;font-size:.9rem;font-weight:600;color:var(--n600);margin-right:3px}
+.filterrow button{font-size:.92rem}
+.filterrow .clear{min-height:44px;font-family:inherit;font-size:.92rem;font-weight:600;cursor:pointer}
+.filterrow--t button{font-weight:700}
+
+/* ── results ───────────────────────────────────────────────────────────── */
+.rsec{padding-top:clamp(28px,3.6vw,48px)}
+.rhead{display:flex;align-items:baseline;justify-content:space-between;gap:10px 20px;flex-wrap:wrap;
+  margin-bottom:clamp(12px,1.6vw,18px)}
+.rhead h2{font-size:1.2rem;font-weight:700;letter-spacing:-.016em}
+.rhead .c{font-size:.9rem;color:var(--n600);font-weight:500;font-variant-numeric:tabular-nums;margin-left:9px}
+.seeall{display:inline-flex;align-items:center;gap:7px;min-height:44px;font-size:.92rem;font-weight:700;
+  color:var(--azure);font-family:inherit;transition:color .2s var(--ease)}
+.seeall:hover{color:var(--a800)}
+.seeall svg{width:14px;height:14px;flex:none}
+
+/* the best match. No border: it is the answer, not a card. */
+.rlead{display:grid;grid-template-columns:1.28fr 1fr;gap:clamp(20px,3.2vw,46px);align-items:center;
+  padding-top:clamp(6px,1vw,12px)}
+@media(max-width:840px){.rlead{grid-template-columns:1fr;gap:20px}}
+.rlead__m{border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;background:var(--n100);
+  box-shadow:0 22px 48px -26px rgba(11,51,86,.42)}
+.rlead__m img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.rlead:hover .rlead__m img{transform:scale(1.04)}
+.rlead h3{font-size:clamp(1.55rem,2.8vw,2.2rem);font-weight:800;margin-top:10px;line-height:1.1;letter-spacing:-.035em}
+.rlead:hover h3{color:var(--azure)}
+.rlead p{color:var(--n600);font-size:1rem;margin-top:11px;line-height:1.6;max-width:46ch}
+.rlead .btn{margin-top:18px}
+
+/* the season strip, said in words before it is shown */
+.season{margin-top:18px}
+.season__h{font-size:.92rem;font-weight:700;color:var(--navy)}
+.season__w{font-size:.92rem;color:var(--n600);margin-top:8px;line-height:1.5}
+
+/* the ordinary result row */
+.rl{display:grid;grid-template-columns:repeat(2,1fr);column-gap:clamp(24px,3.4vw,52px)}
+@media(max-width:900px){.rl{grid-template-columns:1fr}}
+.rl--one{grid-template-columns:1fr}
+.rrow{display:grid;grid-template-columns:124px 1fr;gap:17px;padding:16px 0;border-top:1px solid var(--n150);
+  align-items:start;animation:rowin .3s var(--ease) both;animation-delay:calc(var(--i,0)*18ms)}
+@keyframes rowin{from{opacity:0;transform:translateY(6px)}}
+.rrow__m{border-radius:var(--r-sm);overflow:hidden;aspect-ratio:4/3;background:var(--n100)}
+.rrow__m img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.rrow:hover .rrow__m img{transform:scale(1.05)}
+.rrow h3{font-size:1.06rem;font-weight:700;margin-top:5px;line-height:1.3}
+.rrow:hover h3{color:var(--azure)}
+.rrow p{font-size:.92rem;color:var(--n600);margin-top:7px;line-height:1.55;max-width:62ch;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+/* the system defines .dot against --n300, which is not in the token set */
+.dot{background:var(--n400)}
+.kmeta__m{display:inline-flex;align-items:center;gap:10px}
+@media(max-width:560px){.kmeta{gap:3px 10px}.kmeta__m .dot{display:none}}
+p.rrow__p{font-size:.92rem;color:var(--navy);font-weight:700;margin-top:8px;font-variant-numeric:tabular-nums}
+@media(max-width:560px){.rrow{grid-template-columns:94px 1fr;gap:14px}}
+
+/* questions. A different shape, because a question is not a place. */
+.qgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 clamp(28px,4vw,60px)}
+@media(max-width:840px){.qgrid{grid-template-columns:1fr}}
+.qrow{border-top:1px solid var(--n150);padding:18px 0;display:block;
+  animation:rowin .3s var(--ease) both;animation-delay:calc(var(--i,0)*18ms)}
+.qrow .k{display:block;font-size:.88rem;font-weight:600;color:var(--n600);margin-bottom:6px}
+.qrow h3{font-size:1.06rem;font-weight:700;line-height:1.34}
+.qrow:hover h3{color:var(--azure)}
+.qrow p{font-size:.92rem;color:var(--n600);margin-top:8px;line-height:1.6;max-width:54ch;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* town and guide cards */
+.gg{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.4vw,30px)}
+.gg--2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:1000px){.gg{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.gg,.gg--2{grid-template-columns:1fr}}
+.gcard{display:flex;flex-direction:column;animation:rowin .3s var(--ease) both;animation-delay:calc(var(--i,0)*22ms)}
+.gcard .dest__m{aspect-ratio:4/3}
+.gcard h3{margin-top:14px;font-size:1.2rem}
+.gcard:hover h3{color:var(--azure)}
+.gcard p{color:var(--n600);font-size:.94rem;line-height:1.5;margin-top:8px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.gcard p.gcard__meta{font-size:.88rem;font-weight:600;color:var(--n600);margin-top:auto;padding-top:12px;
+  display:block;overflow:visible}
+/* no green anywhere in the badge set */
+.dest__badge{font-size:.88rem;letter-spacing:.06em;padding:6px 12px}
+.gcard__badge{background:var(--navy);color:var(--paper)}
+.gcard__badge--n{background:rgba(255,255,255,.94);color:var(--n700)}
+
+/* the search term, marked where it was found */
+mark{background:var(--a100);color:var(--navy);font-weight:700;border-radius:3px;padding:0 3px;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone}
+h3 mark,h1 mark{background:none;padding:0;border-radius:0;box-shadow:inset 0 -.32em 0 var(--a250)}
+
+/* ── the season strip. Navy for in season, n100 for out. No hue. ───────── */
+.mon--l{gap:4px;max-width:430px}
+.mon--l i{flex:1;width:auto;min-width:0;height:32px;border-radius:5px;font-size:.88rem;font-weight:600;
+  background:var(--n100);color:var(--n600)}
+.mon--l i[data-on]{background:var(--navy);color:var(--paper);font-weight:700}
+.mon--l i[data-now]{outline:2px solid var(--navy);outline-offset:2px}
+
+/* ── notes: nothing here, nothing with these filters. Never a wall. ────── */
+.note{border:1px solid var(--n150);background:var(--n50);border-radius:var(--r);
+  padding:clamp(20px,3vw,30px);display:flex;gap:16px 24px;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;margin-top:clamp(22px,3vw,32px)}
+.note h3{font-size:1.16rem}
+.note p{font-size:.96rem;color:var(--n600);margin-top:7px;max-width:56ch;line-height:1.55}
+.note p b{color:var(--navy);font-weight:700}
+.note .btn{flex:none}
+
+/* ── the empty answer, as a navy inset rather than a grey box ──────────── */
+.zero{margin-top:clamp(24px,3vw,34px)}
+.zero h2{font-size:clamp(1.6rem,3vw,2.2rem);max-width:22ch}
+.zero__l{color:rgba(255,255,255,.86);font-size:1.02rem;line-height:1.65;margin-top:14px;max-width:58ch}
+.zero__l b{color:var(--paper);font-weight:700;font-variant-numeric:tabular-nums}
+.zero__b{border-top:1px solid rgba(255,255,255,.22);margin-top:clamp(22px,2.8vw,30px);padding-top:clamp(20px,2.6vw,28px)}
+.zero__h{font-size:1.02rem;font-weight:700;color:var(--paper)}
+.zero__chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}
+.zero__chips button{font-size:.92rem;font-weight:600;padding:9px 15px;border-radius:999px;min-height:44px;
+  font-family:inherit;cursor:pointer;color:var(--paper);border:1px solid rgba(255,255,255,.45);
+  background:none;transition:background .18s var(--ease),border-color .18s var(--ease)}
+.zero__chips button:hover{border-color:var(--paper);background:rgba(255,255,255,.14)}
+.zero__chips .ct{opacity:.8;font-variant-numeric:tabular-nums;margin-left:5px}
+.almanac .btn--ghost{border-color:rgba(255,255,255,.5);color:var(--paper)}
+.almanac .btn--ghost:hover{border-color:var(--paper);background:rgba(255,255,255,.14)}
+.near{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.6vw,30px);margin-top:16px}
+@media(max-width:760px){.near{grid-template-columns:1fr}}
+.nearc{display:flex;gap:16px;align-items:center}
+.nearc__m{width:clamp(96px,13vw,132px);aspect-ratio:4/3;border-radius:var(--r-sm);overflow:hidden;
+  background:rgba(255,255,255,.1);flex:none}
+.nearc__m img{width:100%;height:100%;object-fit:cover}
+.nearc__t{flex:1;min-width:0}
+.nearc__t b{display:block;color:var(--paper);font-size:1.2rem;font-weight:800;letter-spacing:-.024em}
+.nearc__t p{color:rgba(255,255,255,.82);font-size:.92rem;line-height:1.55;margin-top:6px}
+.nearc__t span{display:inline-flex;align-items:center;min-height:44px;color:var(--a300);font-size:.9rem;font-weight:700}
+.nearc:hover .nearc__t b{color:var(--a300)}
+
+/* ── the town roster: built for 28 towns, grouped, counted, never a wall ── */
+/* Columns, not a fixed grid: one long group and four short ones pack instead
+   of leaving four empty tracks beside Vancouver Island. */
+.roster{column-width:300px;column-gap:clamp(22px,2.6vw,36px)}
+.rgrp{border-top:2px solid var(--navy);padding-top:12px;margin-bottom:clamp(22px,2.6vw,32px);break-inside:avoid}
+.rgrp__h{display:inline-flex;align-items:center;min-height:44px;font-size:1.02rem;font-weight:700;color:var(--navy)}
+.rgrp__h:hover{color:var(--azure)}
+.rgrp__c{font-size:.88rem;color:var(--n600);font-variant-numeric:tabular-nums;margin-top:-4px}
+.rgrp ul{list-style:none;margin-top:8px}
+.rgrp li{padding-block:6px;font-size:.94rem;line-height:1.4}
+.rgrp li a{color:var(--navy);font-weight:700}
+.rgrp li a:hover{color:var(--azure)}
+.rgrp li span{color:var(--n600)}
+/* the 44px target is bought back where a finger is doing the pointing */
+@media(pointer:coarse){.rgrp li{padding-block:0}
+  .rgrp li a,.rgrp li span{display:inline-flex;align-items:center;min-height:44px}}
+/* One column of 28 towns on a phone is a wall, so each group runs two up */
+@media(max-width:600px){.rgrp ul{column-count:2;column-gap:20px}.rgrp li{break-inside:avoid}}
+
+/* ── the lateral rail. Six tiles, so two clean rows, never an empty cell ── */
+.siblings{background:var(--paper);grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:760px){.siblings{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:460px){.siblings{grid-template-columns:1fr}}
+.sib{box-shadow:0 0 0 1px var(--n150)}
+.sib__m{font-size:.88rem}
+.sib__m b{color:var(--navy);font-weight:700}
+
+/* ── every page ends with a next step ──────────────────────────────────── */
+.keepgoing{border-top:1px solid var(--n150);padding-top:clamp(30px,4vw,46px);
+  display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.6vw,34px)}
+@media(max-width:860px){.keepgoing{grid-template-columns:1fr;gap:26px}}
+.kg{display:flex;flex-direction:column}
+.kg h4{font-size:1.2rem;font-weight:700;color:var(--navy);line-height:1.25;letter-spacing:-.014em}
+.kg:hover h4{color:var(--azure)}
+.kg p{font-size:.94rem;color:var(--n600);margin-top:8px;margin-bottom:18px;line-height:1.55;max-width:34ch}
+.kg .btn{margin-top:auto;align-self:flex-start}
+
+/* ── mobile dock. The town anchor stays in reach at every width. ───────── */
+body>.dock{display:none}
+@media(max-width:760px){
+  body>.dock{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:70;align-items:center;gap:14px;
+    background:var(--navy);padding:10px var(--gut);padding-bottom:calc(10px + env(safe-area-inset-bottom))}
+  .dock div{min-width:0}
+  .dock b{display:block;color:var(--paper);font-size:1rem;font-weight:700;letter-spacing:-.014em;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .dock span{display:block;font-size:.88rem;color:rgba(255,255,255,.82);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .dock .btn{margin-left:auto}
+  .dock .btn--ghost{border-color:rgba(255,255,255,.6);color:var(--paper)}
+  body{padding-bottom:76px}
+}
+footer.f{margin-top:clamp(48px,6vw,80px)}
+</style>
+</head>
+<body>
+<span id="top" aria-hidden="true"></span>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- the chart ground: contours and depth soundings -->
+<div class="chart" aria-hidden="true">
+<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none">
+  <g stroke="var(--a200)" stroke-width="1" opacity=".72">
+    <path d="M-40 250 C160 200 300 300 420 280 C560 258 640 150 800 170 C960 190 1050 300 1200 280 C1330 262 1420 200 1500 220"/>
+    <path d="M-40 300 C170 250 310 350 430 330 C570 308 650 205 810 225 C970 245 1060 350 1210 330 C1340 312 1425 255 1500 275"/>
+    <path d="M-40 355 C180 305 320 402 440 385 C580 365 665 262 820 282 C980 302 1070 402 1220 385 C1350 368 1430 312 1500 332"/>
+    <path d="M-60 620 C140 585 260 660 400 640 C540 620 620 545 760 560 C900 575 1000 655 1140 640 C1280 625 1380 570 1500 590"/>
+    <path d="M-60 672 C150 638 275 712 415 692 C555 672 632 600 772 615 C912 630 1010 706 1150 692 C1290 678 1385 622 1500 642"/>
+    <path d="M-60 726 C160 692 290 764 430 744 C570 724 645 654 785 669 C925 684 1020 758 1160 744 C1300 730 1390 675 1500 695"/>
+  </g>
+  <g fill="var(--azure)" font-family="Inter" font-weight="600" font-size="9" opacity=".26">
+    <text x="200" y="215">14</text><text x="512" y="268">9</text><text x="700" y="163">22</text>
+    <text x="900" y="196">31</text><text x="1140" y="292">17</text><text x="288" y="386">6</text>
+    <text x="620" y="270">11</text><text x="1010" y="360">26</text><text x="120" y="600">19</text>
+    <text x="480" y="646">8</text><text x="700" y="556">24</text><text x="1050" y="662">13</text>
+    <text x="1330" y="586">28</text><text x="352" y="712">5</text><text x="860" y="742">16</text>
+  </g>
+</svg>
+</div>
+
+<!-- The global nav. Identical on every page: Stays, Destinations, and
+     Vancouver Island, so the region is always one click away. -->
+<nav class="top"><div class="wrap nav-in">
+  <a class="brand" href="index.html">Arctrips</a>
+  <ul class="nav-links">
+    <li><a href="not-found.html">Stays</a></li>
+    <li><a href="index.html">Destinations</a></li>
+    <li><a href="#top" aria-current="page">Guides</a></li>
+  </ul>
+  <form class="search" role="search" id="navform" action="search.html" method="get">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+    <label class="vh" for="q">Search everything Arc Trips publishes</label>
+    <input id="q" name="q" type="search" placeholder="Search everything">
+    <kbd>/</kbd>
+  </form>
+  <a class="btn btn--ink btn--sm" href="not-found.html">Sign in</a>
+</div></nav>
+
+<!-- The place bar. One way back to the town, then the town's five sections.
+     Identical on every page below Tofino. -->
+<nav class="placebar" aria-label="Tofino"><div class="wrap placebar-in">
+  <a class="placebar__back" href="tofino.html"><span class="n">&larr; Tofino</span></a>
+  <ul class="placebar__links">
+    <li><a href="tofino.html">Overview</a></li>
+    <li><a href="things-to-do.html">Things to do</a></li>
+    <li><a href="long-beach.html">Areas</a></li>
+    <li><a href="plan.html">Plan</a></li>
+    <li><a href="guide.html">Guides</a></li>
+  </ul>
+</div></nav>
+
+<main id="main">
+<div class="jumpbar" id="jumpbar" aria-hidden="true"></div>
+
+<div class="wrap">
+  <nav class="crumb" id="crumb" aria-label="Breadcrumb"></nav>
+</div>
+
+<header class="shead"><div class="wrap shead-g">
+  <h1 id="h1">Search</h1>
+  <p class="shead__s" id="sub"></p>
+
+  <form class="bigsearch" role="search" id="bigform">
+    <div class="bs">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <label class="vh" for="bigq">Search towns, guides, places, articles, questions and stays</label>
+      <input id="bigq" name="q" type="search" autocomplete="off" spellcheck="false"
+             role="combobox" aria-expanded="false" aria-controls="ta" aria-autocomplete="list"
+             placeholder="A town, a beach, a subject, a question">
+      <button class="btn btn--primary" type="submit">Search</button>
+    </div>
+    <ul class="ta" id="ta" role="listbox" aria-label="Suggestions" hidden></ul>
+  </form>
+
+  <p class="scopeline" id="scope"></p>
+
+  <p class="quickq">
+    <span class="qlab">People also search</span>
+    <button type="button" class="qq" data-q="storm watching">storm watching</button>
+    <button type="button" class="qq" data-q="Long Beach">Long Beach</button>
+    <button type="button" class="qq" data-q="hot tub">hot tub</button>
+    <button type="button" class="qq" data-q="can you swim">can you swim</button>
+  </p>
+
+  <p class="vh" role="status" aria-live="polite" id="ann"></p>
+</div></header>
+
+<!-- today's tide, said plainly -->
+<div class="tide"><div class="wrap tide-in">
+  <p class="tide-h" id="tideStation">Tide today at Tofino Harbour</p>
+  <p class="tide-read" id="tideRead"></p>
+  <p class="tide-why">Long Beach doubles in width at low water.</p>
+</div></div>
+
+<div class="wrap ctrl" id="ctrl"></div>
+<div class="wrap" id="results"></div>
+
+<section class="sec" style="padding-block:clamp(44px,5vw,76px) 0"><div class="wrap">
+  <div class="head">
+    <div>
+      <h2>Search another town</h2>
+      <p id="rosterSub"></p>
+    </div>
+  </div>
+  <div class="roster" id="roster"></div>
+</div></section>
+
+<section class="sec" style="padding-block:clamp(44px,5vw,76px) 0"><div class="wrap">
+  <div class="head">
+    <div>
+      <h2>Everything else in Tofino</h2>
+      <p>Search is one way in. These are the other pages for this town.</p>
+    </div>
+  </div>
+  <nav class="siblings" id="sibs" aria-label="Elsewhere in Tofino"></nav>
+</div></section>
+
+<section class="sec" style="padding-block:clamp(44px,5vw,76px) 0"><div class="wrap">
+  <div class="keepgoing">
+    <a class="kg" href="whale-watching.html">
+      <h4>Whale watching in Tofino</h4>
+      <p>Grey whales from March, humpbacks through the summer, and the boats that go out to them.</p>
+      <span class="btn btn--ghost btn--sm">Open whale watching</span>
+    </a>
+    <a class="kg" href="things-to-do.html">
+      <h4>Things to do in Tofino</h4>
+      <p>Every subject we have walked in Tofino, with each place written up underneath it.</p>
+      <span class="btn btn--ghost btn--sm">See things to do</span>
+    </a>
+    <a class="kg" href="plan.html">
+      <h4>When should you go?</h4>
+      <p>Month by month weather for Tofino, and what each month is actually good for.</p>
+      <span class="btn btn--ghost btn--sm">Open the plan</span>
+    </a>
+  </div>
+</div></section>
+
+</main>
+
+<footer class="f"><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <span class="fbrand">Arctrips</span>
+      <p class="fnote">Stays and guides across Canada, written by people who go there.</p>
+    </div>
+    <div><h5>Destinations</h5><ul>
+      <li><a href="tofino.html">Tofino</a></li><li><a href="region.html">Ucluelet</a></li>
+      <li><a href="#top" aria-current="page">Guides</a></li><li><a href="province.html">British Columbia</a></li>
+      <li><a href="country.html">Canada</a></li></ul></div>
+    <div><h5>In Tofino</h5><ul>
+      <li><a href="things-to-do.html">Things to do</a></li><li><a href="whale-watching.html">Whale watching</a></li>
+      <li><a href="long-beach.html">Long Beach</a></li><li><a href="plan.html">Plan a trip</a></li>
+      <li><a href="guide.html">Guides</a></li></ul></div>
+    <div><h5>Search</h5><ul>
+      <li><a href="search.html?q=storm%20watching&amp;in=tofino">Storm watching</a></li>
+      <li><a href="search.html?q=hot%20tub&amp;in=tofino">Stays with a hot tub</a></li>
+      <li><a href="search.html?q=can%20you%20swim">Questions people ask</a></li>
+      <li><a href="search.html?q=">Everything we publish</a></li></ul></div>
+    <div><h5>Arc Trips</h5><ul>
+      <li><a href="not-found.html">About us</a></li><li><a href="not-found.html">List your place</a></li>
+      <li><a href="#top">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
+  </div>
+  <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees. Tide times are seeded for design.</span></div>
+</div></footer>
+
+<!-- the town anchor stays in reach on small screens -->
+<div class="dock">
+  <div>
+    <b>Tofino</b>
+    <span id="dockSub">Searching Tofino only</span>
+  </div>
+  <a class="btn btn--ghost btn--sm" href="tofino.html">Back to Tofino</a>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════════════════════════════
+   Client-side search over the whole corpus: towns, category guides, named
+   places, articles, the questions answered inside them, and stays. Trimmed
+   from corpus.json to the fields this page both searches and shows.
+   Inlined so the page opens straight off the file system.
+   ══════════════════════════════════════════════════════════════════════════ */
+const RAW = {"d":[{"s":"edmonton","n":"Edmonton","f":"","h":"arcstudio/njajgzfo6gdfxbpxmtst","st":0,"ov":""},{"s":"montreal","n":"Montreal","f":"","h":"nicoline-mann-bIIK4mvsDZc-unsplash_vcyrwx","st":0,"ov":""},{"s":"toronto","n":"Toronto","f":"","h":"james-wheeler-YZfDg2L0lUs-unsplash_ino74q","st":0,"ov":""},{"s":"ucluelet","n":"Ucluelet","f":"Tofino's quieter neighbour, wrapped by the Wild Pacific Trail.","h":"arcstudio/dtz692xbgvvwjopu7vcs","st":158,"ov":"Ucluelet sits at the tip of the peninsula south of Tofino, wrapped by the Wild Pacific Trail. It keeps a working-harbour character and tends to feel calmer than its better-known neighbour. It makes a natural base for whale watching, wildlife tours, and long coastal walks, with easy access to Pacific Rim National Park just up the road."},{"s":"tofino","n":"Tofino","f":"Storm-swept beaches, old-growth rainforest, and the best surf on the Pacific coast.","h":"arcstudio/wnrrcrf4lnalgzbjvsz8","st":134,"ov":"Tofino sits at the western edge of Vancouver Island, where the rainforest meets long stretches of open Pacific beach. It draws surfers, storm-watchers, and travelers looking for quiet time close to the water. Plan around the tides and the seasons. Summer brings calm mornings and warm evenings on the sand, while winter delivers dramatic storm-watching and empty beaches. Whatever the season, the pace here rewards…"}],"g":[{"c":"tofino","k":"fishing","n":"Fishing","h":"thomas-lipke-M12HGHNVJ2s-unsplash_nttcvc","l":"Salmon and halibut charters run out of Tofino harbour most of the year, with guides who know the banks and the tides.","ph":0,"bl":1},{"c":"ucluelet","k":"fishing","n":"Fishing","h":"thomas-lipke-M12HGHNVJ2s-unsplash_nttcvc","l":"Charters run from Ucluelet's harbour for salmon and halibut, with easier water access than the open beaches further up the coast.","ph":0,"bl":1},{"c":"tofino","k":"beaches","n":"Beaches","h":"guides/tofino/beaches/_category-1","l":"Tofino is famous for its beaches. They are wide, wild, and full of west coast beauty. You will find soft sand, big waves, driftwood, rainforest, rocky points, and long views of the Pacific Ocean.","ph":8,"bl":29},{"c":"tofino","k":"surfing","n":"Surfing","h":"guides/tofino/surfing/_category-1","l":"Tofino is known as the surf capital of Canada. It sits on the west coast of Vancouver Island, facing the open Pacific Ocean. This means the waves can be strong, steady, and fun all year.","ph":6,"bl":84},{"c":"tofino","k":"whale-watching","n":"Whale watching","h":"guides/tofino/whale-watching/_category-1","l":"Tofino is one of the best places on Vancouver Island to see wild animals. It sits beside Clayoquot Sound, a rich coastal area with ocean, islands, beaches, rainforest, and rocky shorelines.","ph":8,"bl":153},{"c":"tofino","k":"birding","n":"Birding & wildlife","h":"guides/tofino/birding/_category-1","l":"Discover common seabirds in Tofino, British Columbia. Learn how to spot gulls, cormorants, murres, auklets, puffins, oystercatchers, ducks, loons, grebes, and other coastal birds.","ph":8,"bl":338},{"c":"tofino","k":"storm-watching","n":"Storm watching","h":"guides/tofino/storm-watching/_category-1","l":"Tofino is not just a summer beach town. In winter, it becomes one of the best places in Canada to watch storms.","ph":6,"bl":23},{"c":"tofino","k":"hiking","n":"Hiking & trails","h":"guides/tofino/hiking/_category-1","l":"Explore the best trails in Tofino and nearby Pacific Rim National Park. Find easy rainforest walks, beach trails, ocean viewpoints, family-friendly paths, and hiking safety tips.","ph":8,"bl":31},{"c":"tofino","k":"restaurants","n":"Restaurants","h":"guides/tofino/restaurants/_category-1","l":"Discover the best restaurants in Tofino, from seafood and tacos to fine dining, coffee shops, local bakeries, and slow food experiences. Find where to eat for breakfast, lunch, dinner, and local flavors.","ph":6,"bl":84},{"c":"ucluelet","k":"hiking","n":"Hiking & trails","h":"arcstudio/galleries/dayhike-trail-1","l":"Explore the best hikes in Ucluelet, British Columbia. Find easy coastal trails, rainforest walks, lighthouse views, Pacific Rim National Park hikes, family-friendly paths, and hiking safety tips.","ph":8,"bl":129},{"c":"ucluelet","k":"kayaking","n":"Kayaking & paddling","h":"guides/ucluelet/kayaking/_category-1","l":"Discover the best kayaking in Ucluelet, British Columbia. Learn where to paddle, what skill level you need, when to go, what wildlife you may see, and how to plan a safe trip.","ph":8,"bl":151},{"c":"ucluelet","k":"whale-watching","n":"Whale watching","h":"guides/ucluelet/whale-watching/_category-1","l":"Discover the best wildlife watching in Ucluelet, British Columbia. Learn where to see whales, black bears, sea lions, seals, sea otters, bald eagles, and coastal birds from shore, boat tours, kayak trips, and trails.","ph":5,"bl":168},{"c":"ucluelet","k":"birding","n":"Birding & wildlife","h":"guides/ucluelet/birding/_category-1","l":"Discover common seabirds and coastal birds in Ucluelet, British Columbia. Learn where to see gulls, cormorants, oystercatchers, eagles, loons, grebes, sea ducks, shorebirds, puffins, murres, and auklets.","ph":8,"bl":329},{"c":"ucluelet","k":"restaurants","n":"Restaurants","h":"arcstudio/mg8epie7gzlpfb1bn7jo","l":"Discover the best restaurants in Ucluelet, British Columbia. Find seafood, fine dining, fish and chips, brunch, coffee, casual eats, local finds, and slow food on Vancouver Island’s west coast.","ph":1,"bl":72},{"c":"tofino","k":"kayaking","n":"Kayaking & paddling","h":"guides/tofino/kayaking/_category-1","l":"Kayaking in Tofino is one of the best ways to explore Clayoquot Sound, calm inlets, islands, rainforest, and wildlife. Learn where to kayak, when to go, what to expect, and how to stay safe.","ph":8,"bl":132}],"p":[{"c":"ucluelet","k":"kayaking","s":"ucluelet-harbour","n":"Ucluelet Harbour","h":"guides/ucluelet/kayaking/ucluelet-harbour-1","b":"Ucluelet Harbour is the best place to start if you are new to kayaking. It is sheltered, scenic, and close to town. On a guided harbour tour, you may paddle past docks, rocky shoreline, kelp beds, and forested edges. You may also see seals, sea lions, bald eagles, shorebirds, and sometimes black bears along the shoreline at low tide.","f":["First-time kayakers","Families","Short guided tours","Wildlife watching","Calm-water paddling","Learning basic kayak skills"],"no":"The harbour is sheltered, but it is still active water. Watch for boats, tides, and wind. A guide is helpful if you are new."},{"c":"tofino","k":"kayaking","s":"mackenzie-beach-tinwis-beach","n":"Mackenzie Beach / tinwis Beach","h":"guides/tofino/kayaking/mackenzie-beach-tinwis-beach-1","b":"Mackenzie Beach, also known as tinwis Beach, is one of the calmer paddling areas near Tofino. It is more sheltered than the open surf beaches, so it can be a good place for easy kayaking when conditions are calm. This is not a long wilderness paddle. It is better for a relaxed beach paddle, families, and people who want to try kayaking without dealing with big waves.","f":["Beginner kayaking","Families","Short paddles","Calm water practice","Paddleboarding","Watching the coast from the water"],"no":"It is still ocean water, so check wind and weather before going out. Stay close to shore if you are new."},{"c":"tofino","k":"restaurants","s":"wolf-in-the-fog","n":"Wolf in the Fog","h":null,"b":"Wolf in the Fog is one of the most famous restaurants in Tofino. It is a good choice for a special dinner, a date night, or a meal that feels very connected to the west coast. The menu is inspired by Tofino’s ocean, forest, and shoreline. Expect seafood, local produce, foraged flavors, creative cocktails, and dishes made for sharing.","f":["Special dinners","Local seafood","Cocktails","Date night","Sharing plates","A true Tofino food experience"],"no":"Book ahead if you can. This is one of the most popular restaurants in town."},{"c":"tofino","k":"hiking","s":"tonquin-trail","n":"Tonquin Trail","h":"guides/tofino/hiking/tonquin-trail-1","b":"The Tonquin Trail is one of the best easy trails in Tofino. It starts near the village and leads through coastal forest to Tonquin Beach, Third Beach, and Middle Beach. This trail is a great choice if you want forest and beach in one walk. You will pass old-growth forest, ocean viewpoints, stairs, and small beaches. It is also a popular sunset walk.","f":["Easy hiking","Families","Forest views","Beach access","Sunset views","Photography","A walk close to town"],"no":"The trail can be muddy after rain, and there are stairs in some areas. Wear shoes with good grip."},{"c":"tofino","k":"storm-watching","s":"public-viewing-points","n":"Public Viewing Points","h":null,"b":"","f":[],"no":""},{"c":"ucluelet","k":"whale-watching","s":"wild-pacific-trail","n":"Wild Pacific Trail","h":"guides/ucluelet/whale-watching/wild-pacific-trail-1","b":"The Wild Pacific Trail is one of the best places in Ucluelet to watch wildlife from land. It follows the rocky coast and gives you many ocean viewpoints. You may see whales offshore, eagles flying above the trees, sea lions on rocks, seals in the water, cormorants near the shore, and many types of coastal birds. The trail is also one of the easiest ways to enjoy wildlife without booking a tour.","f":["Whale watching from shore","Bald eagles","Sea lions and seals","Coastal birds","Storm watching","Photography","Easy walking"],"no":"Bring binoculars. Wildlife may be far from shore."},{"c":"ucluelet","k":"hiking","s":"wild-pacific-trail","n":"Wild Pacific Trail","h":"guides/ucluelet/hiking/wild-pacific-trail-1","b":"The Wild Pacific Trail is the most famous trail in Ucluelet. It follows the edge of the Ucluelet Peninsula and gives visitors dramatic views of the open Pacific Ocean, rocky shoreline, Barkley Sound, and the Broken Group Islands. This trail is one of the best reasons to visit Ucluelet. It is easy to follow, well-loved, and good for most visitors. You can walk just one short section or spend more time exploring different parts. The trail passes through…","f":["Easy hiking","Ocean views","Storm watching","Photography","Families","Bird watching","Whale watching from shore","Short walks or longer walks"],"no":"Stay on the marked trail and behind safety barriers. The ocean is powerful, especially during storms and high tide."},{"c":"ucluelet","k":"restaurants","s":"pluvio-restaurant-rooms","n":"Pluvio Restaurant + Rooms","h":null,"b":"Pluvio is one of the best-known restaurants in Ucluelet. It is a fine dining restaurant and small boutique inn on Peninsula Road. This is the place to choose for a special dinner, anniversary meal, date night, or food-focused trip. The restaurant celebrates local products, seasonal ingredients, and the natural setting of Ucluelet and Vancouver Island. The menu is creative and refined, with a strong sense of place. Expect a slower, more thoughtful dining…","f":["Fine dining","Special occasions","Seasonal tasting menus","Local and wild ingredients","Date night","Food lovers"],"no":"Reservations are strongly recommended. This is one of the most sought-after dining experiences in Ucluelet."},{"c":"tofino","k":"beaches","s":"chesterman-beach","n":"Chesterman Beach","h":"guides/tofino/beaches/chesterman-beach-1","b":"Chesterman Beach is one of the most loved beaches in Tofino. It is long, sandy, and easy to enjoy. It is close to town and popular with walkers, surfers, families, and photographers. Chesterman is split into North Chesterman and South Chesterman. At low tide, you can walk across the sandspit, also called a tombolo, toward Frank Island. This is one of the most scenic beach walks in Tofino.","f":["Long beach walks","Beginner surf lessons","Sunset photos","Sandcastles","Tide pools at low tide","Watching surfers"],"no":"Always check the tide before walking toward Frank Island. The water can come in and cover the sandspit."},{"c":"ucluelet","k":"kayaking","s":"inner-harbour-and-shoreline-paddles","n":"Inner Harbour and Shoreline Paddles","h":"guides/ucluelet/kayaking/inner-harbour-and-shoreline-paddles-1","b":"The inner harbour and nearby shoreline areas are good for slow paddling and getting used to the kayak. This type of trip is less about distance and more about enjoying the scenery. This is a good choice if you want a relaxed nature outing without committing to a full-day sea kayaking trip.","f":["Short trips","Easy paddling","Families with older kids","Wildlife watching","Photography","Calm mornings"],"no":"Morning can be a good time because wind is often lighter earlier in the day."},{"c":"tofino","k":"hiking","s":"tonquin-beach-trail","n":"Tonquin Beach Trail","h":"guides/tofino/hiking/tonquin-beach-trail-1","b":"If you do not want to walk the full Tonquin Trail, you can make a shorter visit to Tonquin Beach. This is one of the closest beach walks to Tofino village. The walk is short and scenic. It takes you through forest and down to a sandy beach with views across the water. It is a nice choice if you only have a little time.","f":["Short walks","Sunset views","Picnics","Quiet beach time","A quick nature stop near town"],"no":"The beach is smaller than Chesterman or Cox Bay, so it may feel more closed in at high tide."},{"c":"ucluelet","k":"restaurants","s":"heartwood-kitchen","n":"Heartwood Kitchen","h":null,"b":"Heartwood Kitchen is a cozy Ucluelet favorite for breakfast, brunch, and comfort food made with care. It is a good choice if you want a relaxed meal in town before hiking, kayaking, or exploring the coast. The menu focuses on scratch-made food and local ingredients. It is especially good for people who want a warm, welcoming meal rather than something too formal.","f":["Breakfast","Brunch","Coffee","Casual lunch","Comfort food","Families","Rainy mornings"],"no":"This is a popular local spot, so it can get busy during peak travel season."},{"c":"tofino","k":"storm-watching","s":"cox-bay","n":"Cox Bay","h":null,"b":"Cox Bay is one of the most famous storm-watching spots in Tofino. It is wide, open, and exposed to the Pacific Ocean. This makes it a great place to see large waves roll in. On stormy days, the waves can look huge. You may also see surfers on calmer winter days, but do not enter the water unless you are trained and conditions are safe. Best for: Big waves, beach views, photos, stormy ocean scenes","f":[],"no":"Stay far back from the water. Waves can reach higher up the beach than expected."},{"c":"tofino","k":"beaches","s":"cox-bay","n":"Cox Bay","h":"guides/tofino/beaches/cox-bay-1","b":"Cox Bay is one of the best beaches in Tofino for surfing. It is wide, open, and faces the Pacific Ocean. Because of this, it often gets strong and steady waves. Many surfers love Cox Bay. It is also a beautiful place to watch the waves from shore. On clear evenings, it can be a great sunset beach. Cox Bay is also known for the short Cox Bay lookout hike. The trail can be muddy and steep, but the view over the beach is one of the most popular photo spots…","f":["Surfing","Watching surfers","Sunset views","Beach walks","Photography","Storm watching in winter"],"no":"Cox Bay can have powerful waves and currents. Beginners should go with a surf school or choose calmer conditions."},{"c":"ucluelet","k":"hiking","s":"lighthouse-loop","n":"Lighthouse Loop","h":"guides/ucluelet/hiking/lighthouse-loop-1","b":"The Lighthouse Loop is the most popular section of the Wild Pacific Trail. It is a short loop near Amphitrite Point Lighthouse, at the southern end of Ucluelet. This trail gives you big ocean views without a hard hike. You can see rocky coastline, crashing waves, wind-shaped trees, and the lighthouse. It is one of the best short walks in Ucluelet for first-time visitors.","f":["First-time visitors","Families","Lighthouse views","Ocean photos","Storm watching","Whale watching in season","Short walks"],"no":"This is one of the easiest and most rewarding walks in town. Bring a jacket because it can be windy."},{"c":"tofino","k":"kayaking","s":"kennedy-lake","n":"Kennedy Lake","h":"guides/tofino/kayaking/kennedy-lake-1","b":"Kennedy Lake is not in Tofino town, but it is close enough to include in a Tofino kayaking guide. It is a freshwater lake near Tofino and Ucluelet. This is a good choice if you want calm lake paddling instead of ocean paddling. It can be great for kayaking, canoeing, and paddleboarding.","f":["Freshwater kayaking","Canoeing","Paddleboarding","Families","Calm lake views","A break from ocean wind and waves"],"no":"Lakes can still get windy. Check conditions before paddling far from shore."},{"c":"tofino","k":"restaurants","s":"the-pointe-restaurant","n":"The Pointe Restaurant","h":"guides/tofino/restaurants/the-pointe-restaurant-1","b":"The Pointe Restaurant is one of the best places in Tofino for ocean-view dining. It is located at the Wickaninnish Inn, near Chesterman Beach, and is known for its wide Pacific Ocean views. This is a good choice if you want a more polished dining experience. It works well for anniversaries, birthdays, romantic dinners, or a special meal during a Tofino trip.","f":["Ocean views","Fine dining","Special occasions","West coast seafood","Sunset or storm watching from indoors","A slower, more elegant meal"],"no":"This is one of the more upscale dining options in Tofino. Check dress expectations and book ahead."},{"c":"ucluelet","k":"whale-watching","s":"amphitrite-point-lighthouse","n":"Amphitrite Point Lighthouse","h":"guides/ucluelet/whale-watching/amphitrite-point-lighthouse-1","b":"Amphitrite Point Lighthouse is one of the most famous stops on the Wild Pacific Trail. It has wide ocean views and is a good place to watch for whales, sea lions, seals, and birds. In spring, you may have a chance to spot migrating gray whales offshore. In other seasons, you may still see eagles, seals, sea lions, and seabirds.","f":["Whale watching from land","Ocean views","Photography","Eagles","Seals and sea lions","Storm watching"],"no":"Stay on marked paths and away from wet rocks. Large waves can be dangerous."},{"c":"tofino","k":"kayaking","s":"tofino-harbour-and-sheltered-inlet-waters","n":"Tofino Harbour and Sheltered Inlet Waters","h":"guides/tofino/kayaking/tofino-harbour-and-sheltered-inlet-waters-1","b":"The sheltered waters near Tofino Harbour are often used for short guided kayak trips. These areas can offer calm paddling, island views, and an easy way to see Tofino from the water. This is a good place to start if you are new to sea kayaking, but it is best with a guide because the harbour can have boat traffic, float planes, water taxis, and changing tides.","f":["Short guided trips","First-time sea kayaking","Calm paddling","Island views","Learning basic kayak skills"],"no":"Watch for boat traffic and follow your guide’s instructions."},{"c":"tofino","k":"beaches","s":"long-beach","n":"Long Beach","h":"guides/tofino/beaches/long-beach-1","b":"Long Beach is one of the most famous beaches on Vancouver Island. It is part of Pacific Rim National Park Reserve, between Tofino and Ucluelet. As the name says, Long Beach is very long. It gives you that classic west coast feeling: open sand, big sky, rolling waves, and rainforest behind you. Long Beach is a great place for walking, surfing, watching waves, and taking photos. It also has nearby trails and visitor areas in the national park.","f":["Long walks","Big beach views","Surfing","Storm watching","Photography","Visiting Pacific Rim National Park Reserve"],"no":"You may need a national park pass when stopping in this area. Follow Parks Canada signs, closures, and beach safety rules."},{"c":"ucluelet","k":"whale-watching","s":"ucluelet-harbour","n":"Ucluelet Harbour","h":"guides/ucluelet/whale-watching/ucluelet-harbour-1","b":"Ucluelet Harbour is a good place to look for wildlife close to town. You may see seals, eagles, gulls, cormorants, river otters, and shorebirds. This is also where many wildlife and whale watching tours depart.","f":["Easy wildlife watching","Boat tour departures","Seals","Eagles","River otters","Harbour birds"],"no":"Watch for boat traffic and keep a safe distance from docks and working harbour areas."},{"c":"ucluelet","k":"restaurants","s":"floathouse-patio-grill","n":"Floathouse Patio & Grill","h":"guides/ucluelet/restaurants/floathouse-patio-grill-1","b":"Floathouse Patio & Grill is a popular harbourfront restaurant in Ucluelet. It sits near the small craft harbour and is a good choice if you want seafood, casual dining, and water views. The setting is a big part of the experience. You can eat while looking out at boats, harbour activity, and the coastal scenery.","f":["Harbour views","Seafood","Casual dinner","Lunch","Families","Drinks by the water"],"no":"This is a good pick when you want a relaxed meal with a strong Ucluelet harbour feel."},{"c":"tofino","k":"restaurants","s":"shelter-restaurant","n":"Shelter Restaurant","h":null,"b":"Shelter Restaurant is a popular waterfront spot near Tofino Resort + Marina. It is a great choice if you want a relaxed meal with local seafood, burgers, bowls, and a cozy coastal feel. Shelter works well for many types of travelers. It is casual enough for families but still feels like a proper sit-down dinner.","f":["Waterfront dining","Families","Seafood","Casual dinner","Groups","Rainy day meals"],"no":"It can get busy, especially in summer and at dinner time."},{"c":"tofino","k":"storm-watching","s":"chesterman-beach","n":"Chesterman Beach","h":null,"b":"Chesterman Beach is a favorite place for beach walks and storm watching. It is close to town and easy to access. The beach is long, sandy, and scenic. On stormy days, you can watch waves crash along the shore. On calmer days, it is a great place for a winter walk. Best for: Easy access, beach walks, families, photography","f":[],"no":"Watch the tide. Parts of the beach may be harder to walk during high tide."},{"c":"ucluelet","k":"kayaking","s":"little-beach-area","n":"Little Beach Area","h":"guides/ucluelet/kayaking/little-beach-area-1","b":"Little Beach is close to town and can be a useful area to know, but it is not always a main kayak launch for visitors. Conditions vary, and shoreline access can depend on tide, wind, and local rules. This area is better for experienced paddlers or guided outings when conditions are right.","f":["Short coastal exploring","Calm-condition paddles","Local shoreline views","A quiet stop near town"],"no":"Do not launch from rocky or rough areas unless you know what you are doing. Ask a local operator where to launch safely."},{"c":"tofino","k":"hiking","s":"third-beach-and-middle-beach-walk","n":"Third Beach and Middle Beach Walk","h":"guides/tofino/hiking/third-beach-and-middle-beach-walk-1","b":"Third Beach and Middle Beach are small beaches along the Tonquin Trail. They are less famous than Tonquin Beach, but they are worth visiting if you want a quieter walk. This part of the trail has rocky viewpoints, forest sections, and a peaceful feel. It is not a big beach day walk. It is better for people who like hidden corners and short nature stops.","f":["Quiet beach stops","Forest-to-beach scenery","Photography","Short hikes","Less crowded views"],"no":"Beach access can be a little rough in places. Watch your step, especially after rain."},{"c":"ucluelet","k":"hiking","s":"big-beach-park-trail","n":"Big Beach Park Trail","h":"guides/ucluelet/hiking/big-beach-park-trail-1","b":"Big Beach Park is a small beach and park area in Ucluelet. It is a nice place for a short walk, picnic, or beach stop before or after hiking the Wild Pacific Trail. This area connects well with nearby Wild Pacific Trail sections. It is not a long hike, but it is useful for families and anyone who wants easy beach access.","f":["Short walks","Beach access","Picnics","Families","Sunset stops","Tide watching"],"no":"Watch the tide and stay back from slippery rocks."},{"c":"ucluelet","k":"hiking","s":"artist-loops","n":"Artist Loops","h":"guides/ucluelet/hiking/artist-loops-1","b":"The Artist Loops are part of the Wild Pacific Trail system. These small loop sections lead to scenic viewpoints, benches, forest corners, and quiet spots for looking out over the coast. They are called Artist Loops because the views are perfect for sketching, painting, photography, or simply sitting still.","f":["Quiet viewpoints","Benches","Photography","Slow walks","Nature journaling","Ocean views"],"no":"These loops are short, but they make the trail feel richer and more peaceful."},{"c":"ucluelet","k":"whale-watching","s":"barkley-sound","n":"Barkley Sound","h":"guides/ucluelet/whale-watching/barkley-sound-1","b":"Barkley Sound is one of the top wildlife watching areas near Ucluelet. It includes islands, channels, rocky shores, kelp beds, and sheltered waters. This is where many boat and kayak trips go. It is also the gateway to the Broken Group Islands.","f":["Whales","Sea lions","Seals","Sea otters","Bald eagles","Seabirds","Black bears along shorelines","Boat tours and kayaking"],"no":"The best way to explore Barkley Sound wildlife is by guided boat or kayak tour."},{"c":"ucluelet","k":"restaurants","s":"cedar-grill","n":"Cedar Grill","h":null,"b":"Cedar Grill is a casual restaurant in Ucluelet with a menu that works for many types of travelers. It is a practical choice for families, groups, and visitors who want a reliable sit-down meal. It is often a good option when you want something easy, filling, and central.","f":["Casual dinner","Families","Groups","Comfort food","Pizza and pub-style meals","Easy town dining"],"no":"This is a useful choice when you need a flexible menu that works for different tastes."},{"c":"ucluelet","k":"kayaking","s":"grice-bay","n":"Grice Bay","h":"guides/ucluelet/kayaking/grice-bay-1","b":"Grice Bay is near the Pacific Rim area between Tofino and Ucluelet. It is on the sheltered inlet side, not the open ocean side. This makes it a good choice for calmer paddling, bird watching, and quiet water views. Grice Bay is better for people who want peaceful water instead of surf, swell, and big waves.","f":["Calm inlet paddling","Bird watching","Photography","Kayaking away from busy beaches","Quiet nature time","Families with some paddling comfort"],"no":"Check park rules, tide, and access before going. Stay close to shore if you are new."},{"c":"tofino","k":"storm-watching","s":"long-beach","n":"Long Beach","h":null,"b":"Long Beach is part of Pacific Rim National Park Reserve. It is one of the most famous beaches on Vancouver Island. It is wide, long, and open to the ocean. This makes it a powerful place to watch winter waves. You can walk on the sand when conditions are safe, or watch from a safer distance. Best for: Wide views, long walks, classic west coast scenery","f":[],"no":"You may need a park pass. Always follow Parks Canada safety signs and closures."},{"c":"tofino","k":"restaurants","s":"ombr-restaurant","n":"Ombré Restaurant","h":null,"b":"Ombré is a newer Tofino dining option connected to the team behind Wolf in the Fog. It has a more relaxed feel but still focuses on creative food and local flavor. It is a good choice if you want something stylish, thoughtful, and a little different from the classic seafood spots.","f":["Creative dining","Small plates","Date night","Cocktails","Local flavors","A relaxed but elevated meal"],"no":"Check current hours and reservation options before going."},{"c":"tofino","k":"beaches","s":"tinwis-beach-formerly-mackenzie-beach","n":"Tinwis Beach, formerly Mackenzie Beach","h":"guides/tofino/beaches/tinwis-beach-formerly-mackenzie-beach-1","b":"Tinwis Beach, formerly known as Mackenzie Beach, is a calmer and more sheltered beach near Tofino. It does not face the open ocean as directly as Cox Bay or Long Beach, so the water is often gentler. This makes tinwis a favorite for families, relaxed beach time, and people who want a softer beach experience. It is also a good place to enjoy tide pools and coastal views when conditions are safe.","f":["Families","Calmer beach days","Paddleboarding in gentle conditions","Tide pools","Relaxing","Staying near beachfront resorts"],"no":"The beach is now officially called tinwis, pronounced “ti-nu-wis.” Some maps and visitors may still use the older name, Mackenzie Beach."},{"c":"tofino","k":"hiking","s":"multi-use-path-in-tofino","n":"Multi-Use Path in Tofino","h":"guides/tofino/hiking/multi-use-path-in-tofino-1","b":"Tofino also has a local multi-use path that is good for walking, running, and biking. This is not a wilderness hike, but it is useful if you want a safe and easy way to move around without driving. The path connects parts of Tofino and links with the larger route toward Pacific Rim National Park Reserve.","f":["Walking","Running","Biking","Families","Getting around town","Easy outdoor time"],"no":"Share the path with bikes, walkers, and runners. Stay to the right and be aware of faster users."},{"c":"tofino","k":"kayaking","s":"meares-island-and-big-tree-trail","n":"Meares Island and Big Tree Trail","h":"guides/tofino/kayaking/meares-island-and-big-tree-trail-1","b":"Meares Island is one of the most popular kayaking trips from Tofino. Many tours paddle from Tofino toward Meares Island, then include a walk on the Big Tree Trail. This trip gives you two experiences in one: kayaking through calm coastal water and walking through old-growth rainforest.","f":["Guided day tours","Kayaking and hiking","Big Tree Trail","Old-growth forest","Wildlife watching","First-time paddlers with a guide"],"no":"The paddle may look short, but tides, wind, and boat traffic matter. Go with a guide if you are new."},{"c":"tofino","k":"beaches","s":"tonquin-beach","n":"Tonquin Beach","h":"guides/tofino/beaches/tonquin-beach-1","b":"Tonquin Beach is a smaller beach close to the village of Tofino. You reach it by walking a short forest trail. It feels quieter and more hidden than the big surf beaches. Tonquin Beach is not as wide as Chesterman or Long Beach, but it has a peaceful feel. It is a nice place for a short walk, a picnic, or a quiet sunset.","f":["Short walks","Quiet beach time","Picnics","Sunset views","Forest-and-beach scenery"],"no":"The trail can be wet or muddy after rain. Wear shoes with good grip."},{"c":"tofino","k":"hiking","s":"cox-bay-lookout","n":"Cox Bay Lookout","h":"guides/tofino/hiking/cox-bay-lookout-1","b":"Cox Bay Lookout is one of the most popular viewpoint walks near Tofino. The trail is short, but it can be steep, muddy, and slippery. The reward is a beautiful view over Cox Bay, the beach, the forest, and the coastline. It is one of the most photographed viewpoints in the Tofino area.","f":["Ocean views","Photos","Sunset views","A short adventure","Seeing Cox Bay from above"],"no":"This is not a polished boardwalk trail. It can be muddy and rough. Wear proper shoes and avoid it if conditions are very slippery."},{"c":"ucluelet","k":"whale-watching","s":"broken-group-islands","n":"Broken Group Islands","h":"guides/ucluelet/whale-watching/broken-group-islands-1","b":"The Broken Group Islands are part of Pacific Rim National Park Reserve in Barkley Sound. They are known for forested islands, shell beaches, sheltered channels, reefs, and rocky outcrops. This is a great area for wildlife watching by kayak or boat. You may see seals, sea lions, sea otters, bald eagles, seabirds, shorebirds, and sometimes whales in nearby waters.","f":["Kayak wildlife watching","Boat tours","Sea otters","Seals and sea lions","Bald eagles","Seabirds","Multi-day paddling trips"],"no":"The Broken Group Islands are boat-access only. Plan ahead if you are kayaking or camping."},{"c":"ucluelet","k":"hiking","s":"ancient-cedars-trail","n":"Ancient Cedars Trail","h":"guides/ucluelet/hiking/ancient-cedars-trail-1","b":"The Ancient Cedars Trail is a short forest section of the Wild Pacific Trail system. It is a good choice if you want a calmer rainforest walk instead of open ocean views. You can see large trees, moss, ferns, and thick west coast forest. It is easy, peaceful, and good for people who want to slow down.","f":["Forest walking","Big trees","Rainy days","Families","Quiet nature time","Short hikes"],"no":"The Wild Pacific Trail Society describes a stand of trees on the trail as over 800 years old, making this a special stop for rainforest lovers."},{"c":"ucluelet","k":"kayaking","s":"kennedy-lake","n":"Kennedy Lake","h":"guides/ucluelet/kayaking/kennedy-lake-1","b":"Kennedy Lake is a large freshwater lake near Ucluelet and Tofino. It is not ocean kayaking, but it is worth adding because it gives visitors a calmer freshwater option. This can be a good place for kayaking, canoeing, and paddleboarding when the weather is calm. It is a nice choice if the ocean feels too windy or rough.","f":["Freshwater kayaking","Canoeing","Paddleboarding","Families","Calm lake views","A break from ocean conditions"],"no":"Lakes can still get windy and choppy. Check the forecast and stay near shore if you are new."},{"c":"tofino","k":"storm-watching","s":"wickaninnish-beach-and-kwisitis-visitor-centre","n":"Wickaninnish Beach and Kwisitis Visitor Centre","h":null,"b":"The Kwisitis Visitor Centre area is a good choice if you want a safer, more comfortable storm watching spot. The viewing deck gives you a strong view of the beach and waves. This is also a good place to learn about the area’s natural history, wildlife, and local First Nations culture. Best for: Viewing deck, learning, families, safer storm views","f":[],"no":"This is a good option when the beach itself feels too rough."},{"c":"tofino","k":"kayaking","s":"lemmens-inlet","n":"Lemmens Inlet","h":"guides/tofino/kayaking/lemmens-inlet-1","b":"Lemmens Inlet is one of the best protected kayaking areas near Tofino. It is inside Clayoquot Sound and is known for calmer water, forested shorelines, tidal flats, and wildlife. This is a great choice for nervous paddlers or visitors who want a quieter, more peaceful trip. It is also good when the open coast is too rough.","f":["Protected water","Wildlife watching","Calm paddling","Forest and mountain views","Longer guided day tours","Beginners who want a quieter route"],"no":"It is still affected by tide and weather. A guide can choose the best route for the day."},{"c":"ucluelet","k":"restaurants","s":"big-beach-bar-lounge","n":"Big Beach Bar & Lounge","h":null,"b":"Big Beach Bar & Lounge is a good choice if you want drinks, a relaxed meal, and a coastal resort setting. It is connected with the Black Rock Oceanfront Resort area, close to Big Beach and the Wild Pacific Trail. This is a good stop after a walk, especially if you want oceanfront atmosphere without leaving town.","f":["Drinks","Casual dinner","Lounge food","Oceanfront atmosphere","Couples","After-hike meals"],"no":"Pair it with a walk near Big Beach or the Wild Pacific Trail."},{"c":"tofino","k":"restaurants","s":"roar-tofino","n":"ROAR Tofino","h":null,"b":"ROAR is located at Hotel Zed Tofino and is known for live-fire cooking. The food is warm, bold, and inspired by local ingredients and west coast stories. This is a good choice if you want something fun and a little different. It is not just a simple seafood meal. The fire cooking gives the food a smoky, cozy feel.","f":["Live-fire cooking","Dinner with friends","Local ingredients","Cocktails","A warm and lively atmosphere","Hotel Zed guests"],"no":"ROAR is a good pick if you want a restaurant that feels modern but still relaxed."},{"c":"ucluelet","k":"whale-watching","s":"pacific-rim-national-park-reserve","n":"Pacific Rim National Park Reserve","h":"guides/ucluelet/whale-watching/pacific-rim-national-park-reserve-1","b":"Pacific Rim National Park Reserve is near Ucluelet and includes the Long Beach Unit, Broken Group Islands, and the West Coast Trail area. It is a major protected area for coastal rainforest, beaches, and marine ecosystems. Wildlife here may include black bears, wolves, cougars, deer, whales, seals, sea lions, shorebirds, and many other coastal species. Visitors should give wildlife space, store food properly, and never feed animals.","f":["Bird watching","Beach wildlife","Whale watching from viewpoints","Black bear awareness","Coastal rainforest wildlife","Tidepool life","Guided nature learning"],"no":"You may need a national park pass if you stop in the park."},{"c":"tofino","k":"restaurants","s":"tacofino-original-truck","n":"Tacofino Original Truck","h":"guides/tofino/restaurants/tacofino-original-truck-1","b":"Tacofino is one of the most famous food stops in Tofino. The original food truck is known for fish tacos, burritos, and west coast Mexican-style food. This is a classic after-surf meal. It is casual, quick, and easy to love.","f":["Fish tacos","Burritos","Lunch","Takeout","Surf-day food","Budget-friendly meals"],"no":"Lines can be long in peak season. Go early or outside busy meal times if you can."},{"c":"tofino","k":"hiking","s":"radar-hill-trail","n":"Radar Hill Trail","h":"guides/tofino/hiking/radar-hill-trail-1","b":"Radar Hill is in Pacific Rim National Park Reserve, between Tofino and Ucluelet. It is one of the easiest viewpoints near Tofino and a good stop if you want a short walk with a big reward. The walk is short and simple compared with many other trails. From the top, you can see forest, ocean, islands, and the wide west coast landscape. It is also a place with World War II history, as the hill was once used as a radar station.","f":["Easy walking","Ocean and forest views","A quick stop","Families","Photography","Visitors with limited time"],"no":"This is more of a short viewpoint walk than a long hike. You may need a national park pass when stopping in this area."},{"c":"tofino","k":"storm-watching","s":"tonquin-beach","n":"Tonquin Beach","h":null,"b":"Tonquin Beach is smaller and more sheltered than the larger surf beaches. It is reached by a forest trail from town. This beach can be beautiful in stormy weather, but the trail may be wet and slippery. It is better for a short visit than a long storm watching session. Best for: Short walk, forest trail, quiet views","f":[],"no":"Wear proper shoes because the trail can be muddy."},{"c":"tofino","k":"kayaking","s":"grice-bay","n":"Grice Bay","h":"guides/tofino/kayaking/grice-bay-1","b":"Grice Bay is on the sheltered inlet side near Pacific Rim National Park Reserve. It is not an open Pacific beach. It is calmer and better for paddling, bird watching, and quiet nature time. Grice Bay is a good choice if you want peaceful water and do not need big surf or dramatic ocean waves.","f":["Calm inlet paddling","Bird watching","Photography","Wildlife viewing","Quiet nature time","Kayaking away from the busier town beaches"],"no":"Check park rules, parking, and launch access before you go."},{"c":"ucluelet","k":"restaurants","s":"currents-restaurant","n":"Currents Restaurant","h":null,"b":"Currents Restaurant is another dining option connected with Black Rock Oceanfront Resort. It is a good choice for travelers looking for a more polished meal with west coast views and a quieter atmosphere.","f":["Resort dining","Ocean views","Dinner","Couples","Special meals","West coast atmosphere"],"no":"Check current hours and seasonal openings before planning your meal."},{"c":"ucluelet","k":"hiking","s":"bog-interpretive-loop","n":"Bog Interpretive Loop","h":null,"b":"The Bog Interpretive Loop is a short nature walk that shows a different side of Ucluelet. Instead of big ocean views, this route focuses on bog plants, wetland habitat, and small details in the landscape. It is a good choice for curious visitors, families, and people who like learning about ecosystems.","f":["Easy walking","Nature learning","Kids","Bog plants","Photography","A short stop"],"no":"Stay on the trail to protect fragile plants."},{"c":"tofino","k":"beaches","s":"middle-beach","n":"Middle Beach","h":"guides/tofino/beaches/middle-beach-1","b":"Middle Beach is a smaller beach area near Chesterman Beach. It has a more tucked-away feel, with rocky edges, forest, and ocean views. It is a nice place if you want something quieter than the larger beaches. It is not always the best place for swimming or surfing, but it can be lovely for photos and peaceful walks.","f":["Quiet views","Photography","Short walks","Relaxing near the ocean"],"no":"Check tide and wave conditions before walking near rocks."},{"c":"ucluelet","k":"kayaking","s":"barkley-sound","n":"Barkley Sound","h":"guides/ucluelet/kayaking/barkley-sound-1","b":"Barkley Sound is the larger ocean area near Ucluelet. It includes islands, channels, rocky shores, coves, kelp beds, and wildlife. It is one of the main reasons Ucluelet is such a strong kayaking destination. Some parts of Barkley Sound are calm and protected. Other parts are more exposed and need more skill. That is why a guided tour is a smart choice for most visitors.","f":["Sea kayaking","Island views","Wildlife watching","Kelp forests","Longer day tours","Experienced beginners with a guide","Intermediate paddlers"],"no":"Barkley Sound is bigger and more serious than Ucluelet Harbour. Wind, swell, and tides matter."},{"c":"tofino","k":"kayaking","s":"clayoquot-sound","n":"Clayoquot Sound","h":"guides/tofino/kayaking/clayoquot-sound-1","b":"Clayoquot Sound is the main sea kayaking area around Tofino. It includes islands, inlets, coves, channels, rocky shores, mudflats, and rainforest. This area can work for many skill levels because routes can be chosen based on weather, tide, and experience. Beginners should go with a guide. Experienced paddlers may explore longer routes with proper planning.","f":["Classic Tofino kayaking","Wildlife watching","Island views","Guided day tours","Multi-day trips","Rainforest shorelines"],"no":"Clayoquot Sound is large. Some parts are calm and protected. Other parts are exposed and remote."},{"c":"ucluelet","k":"restaurants","s":"ucluelet-brewing-company","n":"Ucluelet Brewing Company","h":null,"b":"Ucluelet Brewing Company is a fun stop for craft beer, casual food, and harbour views. It is located in a former church, which gives it a unique local feel. This is a good place to relax after hiking the Wild Pacific Trail, kayaking, fishing, or beach exploring.","f":["Craft beer","Casual meals","Snacks","Harbour views","Groups","Relaxed evenings"],"no":"It has a lively but relaxed feel and is a good choice for people who want drinks with a local touch."},{"c":"tofino","k":"beaches","s":"rosie-bay","n":"Rosie Bay","h":"guides/tofino/beaches/rosie-bay-1","b":"At low tide, you may find interesting rocks, sand, and small pools. It is also a scenic area for photos.","f":["Quiet exploring","Low tide walks","Photography","A break from busier beaches"],"no":"Be careful near rocks and changing tides."},{"c":"tofino","k":"storm-watching","s":"pettinger-point","n":"Pettinger Point","h":"guides/tofino/storm-watching/pettinger-point-1","b":"Accessible via a trail from Cox Bay, this headland offers a spectacular vantage point where waves explode into white spray against the cliffs.","f":[],"no":""},{"c":"tofino","k":"hiking","s":"rainforest-trail","n":"Rainforest Trail","h":"guides/tofino/hiking/rainforest-trail-1","b":"The Rainforest Trail is in the Pacific Rim National Park Reserve. It is one of the best short walks near Tofino if you want to see the classic west coast rainforest. The trail has boardwalks, stairs, giant trees, moss, ferns, and deep green forest. It feels like walking inside a living postcard. There are two short loops on different sides of the highway. You can do one loop or both.","f":["First-time visitors","Families","Rainy days","Big trees","Boardwalk photos","Easy rainforest exploring"],"no":"The boardwalk can be slippery when wet. You may need a national park pass when stopping in this area."},{"c":"tofino","k":"restaurants","s":"wildside-grill","n":"Wildside Grill","h":null,"b":"Wildside Grill is a local favorite for fish and chips, seafood, burgers, and casual west coast comfort food. It is a good choice after surfing, beach walking, or driving back from Pacific Rim National Park. The food is relaxed, filling, and easy to enjoy.","f":["Fish and chips","Seafood","Burgers","Casual lunch","Family meals","Quick bites after the beach"],"no":"It is located in the Live to Surf plaza area, which is handy if you are staying or exploring outside the village center."},{"c":"ucluelet","k":"hiking","s":"spring-cove-mudflats","n":"Spring Cove Mudflats","h":null,"b":"Spring Cove Mudflats is a quieter nature area in Ucluelet. It is a good place for bird watching, peaceful walking, and seeing a different habitat from the open ocean coast. Mudflats are important feeding areas for birds, especially during migration. This is a good place to slow down and look closely.","f":["Bird watching","Quiet nature time","Families","Easy walking","Photography","Learning about coastal habitats"],"no":"Bring binoculars if you like birds."},{"c":"ucluelet","k":"kayaking","s":"wya-point-area","n":"Wya Point Area","h":null,"b":"Wya Point is near Ucluelet and is known for beautiful beaches, coves, rocky shoreline, and forested scenery. It is also a popular place to stay. For kayaking, this area can be scenic, but it is best with local advice. Some shoreline areas can be exposed, and launch conditions may change with tide and swell.","f":["Scenic coastal paddling","Beach stays","Wildlife watching","Experienced paddlers","Guided trips","Photography"],"no":"Ask local operators about safe launch points and current conditions."},{"c":"ucluelet","k":"hiking","s":"terrace-beach-trail","n":"Terrace Beach Trail","h":null,"b":"Terrace Beach is a small beach in Ucluelet near the Wild Pacific Trail area. It is not a long hike, but it is a nice short beach walk or add-on stop. The beach feels quieter and more tucked away than the larger beaches near Tofino. It can be a good place for photos, a calm break, or a quick nature stop.","f":["Short walks","Quiet beach time","Photography","Families","A peaceful stop near town"],"no":"Check tide and wave conditions before exploring near rocks."},{"c":"ucluelet","k":"restaurants","s":"abbondanza-wood-fired-pizza","n":"Abbondanza Wood Fired Pizza","h":null,"b":"Abbondanza is a good choice when you want pizza in Ucluelet. It serves wood-fired pizza and works well for families, groups, and casual nights. Pizza is also a useful option if you want something easy after a long outdoor day.","f":["Wood-fired pizza","Casual dinner","Families","Groups","Takeout-style meals","Easy comfort food"],"no":"Popular casual spots can sell out or have changing hours, so check before going."},{"c":"ucluelet","k":"kayaking","s":"secret-beach-and-toquaht-bay","n":"Secret Beach and Toquaht Bay","h":null,"b":"Secret Beach, at Toquaht Bay, is one of the key kayak launch areas near Ucluelet. It is often used as a gateway to Barkley Sound and the Broken Group Islands. This is not in downtown Ucluelet. It is a drive away and involves rough gravel road access. But for paddlers planning a Broken Group Islands trip, it can be an important launch point.","f":["Kayak launching","Barkley Sound trips","Broken Group Islands access","Camping before or after a paddle","Multi-day kayaking","More experienced paddlers"],"no":"Check current road, launch, parking, campground, and seasonal opening details before going. This area needs more planning than a simple harbour tour."},{"c":"tofino","k":"storm-watching","s":"oceanfront-resorts-and-cabins","n":"Oceanfront Resorts and Cabins","h":"guides/tofino/storm-watching/oceanfront-resorts-and-cabins-1","b":"One of the best ways to storm watch in Tofino is from inside. Many oceanfront hotels, cabins, and resorts have large windows facing the water. This is perfect if the weather is too rough to be outside. You can watch the storm with a warm drink, a blanket, and dry socks. The Wickaninnish Inn is the most iconic destination for this experience, specifically built on a rocky headland to withstand and showcase the Pacific's power.","f":[],"no":""},{"c":"tofino","k":"kayaking","s":"ucluelet-harbour","n":"Ucluelet Harbour","h":"guides/tofino/kayaking/ucluelet-harbour-1","b":"Ucluelet is near Tofino and can be a good kayaking day trip. The harbour and nearby protected waters can offer calm paddling, wildlife watching, and island views. This is a nice option if you are also visiting the Wild Pacific Trail or spending time in Ucluelet.","f":["Calm paddling","Guided tours","Day trips from Tofino","Wildlife watching","Harbour views"],"no":"Conditions still change with wind and tide. Local guidance is helpful."},{"c":"tofino","k":"restaurants","s":"shed-tofino","n":"Shed Tofino","h":null,"b":"Shed is a casual restaurant in downtown Tofino. It is known for burgers, bowls, drinks, and a relaxed west coast feel. This is a good option if you want something easy but still fresh. It works well for lunch, dinner, families, and groups.","f":["Burgers","Bowls","Casual dinner","Family meals","Downtown dining","Drinks with friends"],"no":"Shed is a good “safe choice” when people in your group want different things."},{"c":"tofino","k":"beaches","s":"wickaninnish-beach","n":"Wickaninnish Beach","h":"guides/tofino/beaches/wickaninnish-beach-1","b":"Wickaninnish Beach is in Pacific Rim National Park Reserve, closer to the Ucluelet side of the Long Beach area. It is one of the best places near Tofino for big ocean views and storm watching. The nearby Kwisitis Visitor Centre makes this beach extra useful for visitors. You can learn about the coast, local wildlife, and the history of the area. There is also a viewing area, which is helpful when the beach feels too rough or windy.","f":["Storm watching","Big ocean views","Photography","Sunset watching","Learning about the coast","Visiting the Kwisitis Visitor Centre"],"no":"This beach can feel very open and exposed. Stay far back from the water during storms and high tide."},{"c":"tofino","k":"hiking","s":"shorepine-bog-trail","n":"Shorepine Bog Trail","h":"guides/tofino/hiking/shorepine-bog-trail-1","b":"The Shorepine Bog Trail is a short and easy boardwalk trail in Pacific Rim National Park Reserve. It feels very different from the deep rainforest trails. Instead of giant trees, you will see small twisted shore pines, bog plants, moss, and open wetland scenery. It is a great trail if you want something flat, quick, and different.","f":["Easy walking","Families","Short stops","Rainy days","Learning about bog ecosystems","Bird watching"],"no":"Stay on the boardwalk to protect the fragile bog plants."},{"c":"ucluelet","k":"restaurants","s":"papis-cantina","n":"Papi’s Cantina","h":null,"b":"Papi’s Cantina is a Mexican restaurant and cocktail bar in Ucluelet. It is a good option if you want tacos, Mexican flavors, drinks, and a casual night out. It brings variety to the Ucluelet food scene, especially if you want something other than seafood or pub food.","f":["Mexican food","Tacos","Cocktails","Casual dinner","Groups","A fun evening meal"],"no":"A good choice when you want bold flavors and a relaxed restaurant setting."},{"c":"tofino","k":"restaurants","s":"rhino-coffee-house","n":"Rhino Coffee House","h":null,"b":"Rhino Coffee House is one of the best-known coffee shops in Tofino. It is popular with locals and visitors for coffee, breakfast, sandwiches, bagels, and donuts. This is a good place to start the day before surfing, hiking, kayaking, or driving to the beaches.","f":["Coffee","Breakfast","Donuts","Bagels","Sandwiches","A local morning stop"],"no":"It can get busy in the morning, but it is worth adding to your Tofino food list."},{"c":"tofino","k":"hiking","s":"spruce-fringe-trail","n":"Spruce Fringe Trail","h":"guides/tofino/hiking/spruce-fringe-trail-1","b":"Spruce Fringe Trail is a short forest trail in Pacific Rim National Park Reserve. It is often linked with Combers Beach because it gives access toward the Combers Beach area. This trail is a good choice if you want a quick forest walk with a coastal feel. It is not as famous as the Rainforest Trail, but it is still worth adding because it gives readers another easy nature stop in the Long Beach area.","f":["Short forest walks","Beach access","Nature photos","A quieter stop","Exploring near Combers Beach"],"no":"Trail access and nearby beach rules can change. Check Parks Canada updates before visiting, especially if you plan to bring a dog."},{"c":"ucluelet","k":"kayaking","s":"broken-group-islands","n":"Broken Group Islands","h":"guides/ucluelet/kayaking/broken-group-islands-1","b":"The Broken Group Islands are one of the best sea kayaking destinations on Vancouver Island. They are in Barkley Sound and are part of Pacific Rim National Park Reserve. This area has forested islands, sheltered channels, shell beaches, rocky outcrops, reefs, and backcountry campsites. It is a dream trip for many sea kayakers.","f":["Multi-day kayaking","Kayak camping","Island hopping","Wildlife watching","Calm channels in good weather","Guided expeditions","Intermediate to advanced paddlers"],"no":"The Broken Group Islands are boat-access only. You need proper planning, camping reservations or permits where required, navigation skills, safety gear, and current weather information."},{"c":"tofino","k":"beaches","s":"florencia-bay","n":"Florencia Bay","h":"guides/tofino/beaches/florencia-bay-1","b":"Florencia Bay is also in Pacific Rim National Park Reserve. It is closer to Ucluelet than Tofino, but it is still a great stop on a Tofino beach trip. Florencia Bay is known for its sand cliffs, quiet feel, and scenic shoreline. To reach the beach, you walk a trail and take a wooden staircase down to the shore. It feels less busy than Chesterman, Cox Bay, and Long Beach. This makes it a good choice for people who want a slower, quieter beach visit.","f":["Quiet beach walks","Sand cliff views","Photography","Low-tide exploring","A less crowded beach visit"],"no":"The stairs and trail can feel longer on the way back up. Wear comfortable shoes and check the tide before walking far."},{"c":"tofino","k":"kayaking","s":"barkley-sound","n":"Barkley Sound","h":"guides/tofino/kayaking/barkley-sound-1","b":"Barkley Sound is near Ucluelet and Bamfield, south of Tofino. It is one of the best kayaking areas on Vancouver Island. Barkley Sound has islands, channels, beaches, rocky shores, and wildlife. It is also home to the Broken Group Islands, one of the most famous sea kayaking areas in Pacific Rim National Park Reserve.","f":["Sea kayaking","Island hopping","Multi-day trips","Wildlife watching","Kayak camping","More experienced paddlers"],"no":"This area needs more planning than a short Tofino paddle. Check weather, route, camping rules, and water access."},{"c":"ucluelet","k":"hiking","s":"little-beach-trail","n":"Little Beach Trail","h":null,"b":"Little Beach is another easy beach stop in Ucluelet. It is close to town and works well for a short visit, especially if you do not want a long hike. This is a good option for families, quick beach walks, and relaxed shoreline views.","f":["Easy beach access","Families","Short walks","Picnics","Calm shoreline views","A quick stop"],"no":"Like all west coast beaches, watch the tide and stay away from slippery rocks."},{"c":"ucluelet","k":"hiking","s":"rainforest-trail","n":"Rainforest Trail","h":"guides/ucluelet/hiking/rainforest-trail-1","b":"The Rainforest Trail is one of the best short hikes near Ucluelet. It is in Pacific Rim National Park Reserve and is known for boardwalks, huge trees, moss, ferns, and deep green forest. There are two short loops on opposite sides of the highway. You can do one loop or both.","f":["Big trees","Boardwalks","Families","Rainy days","First-time visitors","Easy rainforest photos"],"no":"The boardwalk can be slippery when wet. Wear shoes with good grip."},{"c":"tofino","k":"beaches","s":"combers-beach","n":"Combers Beach","h":"guides/tofino/beaches/combers-beach-1","b":"Combers Beach is part of Pacific Rim National Park Reserve. It is not a town beach, but it is one of the wilder beaches near Tofino. Combers Beach is good for visitors who want a natural, open beach experience. It can feel quieter than Chesterman or Cox Bay. It is a good place for a long walk, but you should check trail access, tide times, and park updates before going.","f":["Long beach walks","Quiet nature time","Photography","Storm watching from a safe distance","A wilder beach feel"],"no":"Dog rules and access rules can change in Pacific Rim National Park Reserve. Check current Parks Canada updates before visiting with a dog."},{"c":"ucluelet","k":"kayaking","s":"effingham-island-area","n":"Effingham Island Area","h":null,"b":"Effingham Island is one of the well-known island areas in the Broken Group Islands. It is a common name paddlers hear when planning a route. This area can offer beautiful island scenery, camping access, and classic Broken Group paddling.","f":["Island exploring","Camping","Wildlife watching","Multi-day routes","Experienced paddlers","Guided trips"],"no":"Route planning matters. Distances, wind, and crossings can feel different once you are on the water."},{"c":"tofino","k":"hiking","s":"nuu-chah-nulth-trail","n":"Nuu-chah-nulth Trail","h":"guides/tofino/hiking/nuu-chah-nulth-trail-1","b":"The Nuu-chah-nulth Trail is in Pacific Rim National Park Reserve. It connects rainforest, boardwalks, beach views, and cultural learning. This trail is longer than some of the short boardwalk trails, but it is still a good choice for many visitors. Along the way, you can learn more about the land, culture, and natural history of the area.","f":["Rainforest walking","Ocean views","Learning","Photography","A longer nature walk","Visitors who want more than a quick stop"],"no":"Expect stairs, boardwalks, and uneven sections. Give yourself enough time and wear proper shoes."},{"c":"ucluelet","k":"restaurants","s":"ukee-poke","n":"Ukee Poke","h":null,"b":"Ukee Poke is a casual, healthy choice near the Tofino-Ucluelet junction area. It is good for a quick lunch, light dinner, or takeout before a beach or park stop. Poke bowls are a nice fit for west coast travel because they feel fresh, customizable, and easy to eat on the go.","f":["Poke bowls","Healthy lunch","Takeout","Casual dinner","Quick meals","Fresh flavors"],"no":"This is a good option when you want something lighter than fish and chips or pizza."},{"c":"tofino","k":"kayaking","s":"broken-group-islands","n":"Broken Group Islands","h":"guides/tofino/kayaking/broken-group-islands-1","b":"The Broken Group Islands are in Barkley Sound and are part of Pacific Rim National Park Reserve. They are one of the best-known sea kayaking destinations in British Columbia. The area has many islands, sheltered channels, shell beaches, campsites, and wildlife. It is more protected than the exposed open coast, but it is still a real sea kayaking destination and needs planning.","f":["Multi-day kayaking","Island camping","Wildlife viewing","Sheltered channels","Experienced paddlers","Guided trips"],"no":"The Broken Group Islands are accessed by boat, and camping or overnight trips require planning and reservations."},{"c":"tofino","k":"restaurants","s":"tofitian-cafe","n":"Tofitian Cafe","h":null,"b":"Tofitian Cafe is a long-time Tofino coffee spot. It has a local feel and is a good place for coffee, tea, and a slower start to the day. It is a handy stop if you are near the surf shops and the Pacific Rim Highway area.","f":["Coffee","Tea","Morning stops","Local atmosphere","Simple breakfast bites","Pre-surf fuel"],"no":"This is a good place if you want a classic Tofino cafe feel."},{"c":"tofino","k":"hiking","s":"south-beach-trail","n":"South Beach Trail","h":"guides/tofino/hiking/south-beach-trail-1","b":"South Beach Trail is in Pacific Rim National Park Reserve near the Kwisitis Visitor Centre and Wickaninnish Beach. It is a short coastal trail with a strong west coast feel. The trail leads through forest toward a rocky beach area. It is a good choice if you want a quick walk, ocean sounds, and dramatic coastal views without doing a long hike.","f":["Short hikes","Rocky coast views","Photography","Ocean sounds","A stop near the visitor centre","Pairing with Wickaninnish Beach"],"no":"South Beach is better for viewing than swimming. Stay back from waves and wet rocks, especially during high tide or stormy weather."},{"c":"ucluelet","k":"restaurants","s":"ukee-dogs-eatery","n":"Ukee Dogs Eatery","h":null,"b":"Ukee Dogs Eatery is a casual local stop known for hot dogs, tacos, burritos, and coffee. It is simple, relaxed, and useful when you want a quick bite. This is not fine dining, but it can be exactly what you need after a walk or before heading out for the day.","f":["Quick meals","Hot dogs","Tacos","Burritos","Casual snacks","Coffee"],"no":"Great for a relaxed, no-fuss meal."},{"c":"tofino","k":"beaches","s":"schooner-cove","n":"Schooner Cove","h":"guides/tofino/beaches/schooner-cove-1","b":"Schooner Cove is also in Pacific Rim National Park Reserve, closer to the Tofino end of the Long Beach area. It is worth visiting if you like forest-to-beach scenery and quieter places. It has a more tucked-away feeling than the main beaches near town. It is best for people who want a slower nature stop, not a busy beach day.","f":["Forest and beach views","Quiet exploring","Nature photos","Peaceful walks","A less crowded beach stop"],"no":"Trail and beach access can change in national park areas. Check current Parks Canada updates before planning your visit."},{"c":"ucluelet","k":"hiking","s":"shorepine-bog-trail","n":"Shorepine Bog Trail","h":"guides/ucluelet/hiking/shorepine-bog-trail-1","b":"Shorepine Bog Trail is a short, flat boardwalk trail in Pacific Rim National Park Reserve. It feels very different from the Rainforest Trail. Instead of huge trees, you will see twisted shore pines, bog plants, moss, and open wetland scenery.","f":["Easy walking","Kids","Bog plants","Short stops","Rainy days","Learning about wetlands"],"no":"Stay on the boardwalk to protect the fragile bog."},{"c":"tofino","k":"restaurants","s":"driftwood-caf","n":"Driftwood Café","h":"guides/tofino/restaurants/driftwood-caf-1","b":"Driftwood Café is located at the Wickaninnish Inn near Chesterman Beach. It is a good choice for coffee, breakfast, brunch, or a light meal close to the beach. It is also a nice option if you want something calmer and more scenic than a busy downtown cafe.","f":["Coffee near Chesterman Beach","Brunch","Light meals","Beach-day snacks","A relaxed resort cafe feel"],"no":"It is a nice stop before or after a walk on Chesterman Beach."},{"c":"ucluelet","k":"kayaking","s":"turret-island-area","n":"Turret Island Area","h":"guides/ucluelet/kayaking/turret-island-area-1","b":"Turret Island is another area paddlers may visit in the Broken Group Islands. The nearby channels and islands can be beautiful in calm conditions. It is a good example of why the Broken Group is so loved: short island distances, protected-feeling water in places, and lots of coastal detail.","f":["Island channels","Wildlife watching","Photography","Kayak camping routes","Intermediate paddlers","Guided trips"],"no":"Even sheltered island areas can become windy. Plan your route with weather windows in mind."},{"c":"tofino","k":"kayaking","s":"vargas-island-and-ahous-bay","n":"Vargas Island and Ahous Bay","h":"guides/tofino/kayaking/vargas-island-and-ahous-bay-1","b":"Vargas Island is close to Tofino and is one of the best nearby areas for paddling, wilderness camping, and remote beach exploring. It can be reached by kayak, water taxi, or guided multi-day tour. The island has both more protected paddling areas and more exposed outer-coast sections. This makes it important to plan your route carefully. The inside waters are usually more manageable, while the west side and Ahous Bay feel wilder and more open to Pacific…","f":["Multi-day kayaking","Wilderness camping","Remote beaches","Wildlife watching","Kayak-and-hike trips","Intermediate to advanced paddlers","Guided adventure trips"],"no":"Vargas Island is not a casual beginner paddle unless you are on a guided tour. The west side and Ahous Bay can be exposed, so check weather, swell, tides, camping rules, and local advice before going."},{"c":"tofino","k":"restaurants","s":"tofino-coffee-roasting-co","n":"Tofino Coffee Roasting Co.","h":null,"b":"Tofino Coffee Roasting Co. is a locally owned cafe and roastery. It is a good choice if you care about good coffee and want something simple, warm, and local.","f":["Locally roasted coffee","Pastries","A quiet coffee stop","Coffee lovers","Takeaway drinks"],"no":"This is a good stop for people who want coffee that feels more craft-focused."},{"c":"tofino","k":"hiking","s":"long-beach-hike","n":"Long Beach Hike","h":"guides/tofino/hiking/long-beach-hike-1","b":"Long Beach is not a formal hike in the same way as a forest trail, but it is one of the best long beach walks near Tofino. It is part of Pacific Rim National Park Reserve and is one of the most famous coastal areas on Vancouver Island. A Long Beach hike is simple: walk along the sand, watch the waves, enjoy the wide-open views, and turn back when you are ready. It is a great choice for travelers who want an easy walk with big scenery.","f":["Long beach walks","Surf watching","Photography","Storm watching from a safe distance","Easy coastal exploring","Big Pacific Ocean views"],"no":"Check tide times before walking far. Stay away from large waves and never turn your back on the ocean."},{"c":"tofino","k":"kayaking","s":"flores-island-wild-side-trail-route","n":"Flores Island / Wild Side Trail Route","h":"guides/tofino/kayaking/flores-island-wild-side-trail-route-1","b":"Flores Island is north of Tofino in Clayoquot Sound. It is known for the Wild Side Trail, remote beaches, old-growth forest, and wilderness camping. Kayakers may use Flores Island as part of a kayak-and-hike route. This can include paddling to or around parts of the island, camping, and hiking sections of the Wild Side Trail.","f":["Kayak and hike trips","Remote beaches","Wilderness camping","Wildlife watching","Experienced paddlers","Multi-day adventures"],"no":"Flores Island is not a casual day paddle for most visitors. You may need water taxi access, local permissions, stewardship fees, camping plans, and current route information."},{"c":"tofino","k":"beaches","s":"grice-bay","n":"Grice Bay","h":"guides/tofino/beaches/grice-bay-1","b":"Grice Bay is different from the other beaches on this list. It is not a big open Pacific Ocean surf beach. It is a sheltered bay on the calmer inlet side near Tofino and Pacific Rim National Park Reserve. This means Grice Bay is not the place to go for surfing, big waves, or classic sandy beach photos. But it is still worth visiting if you like calm water, kayaking, bird watching, and peaceful views.","f":["Kayaking","Paddle trips","Bird watching","Calm water views","A quiet nature stop"],"no":"Choose Grice Bay for calm inlet scenery, not for surfing or storm watching."},{"c":"ucluelet","k":"restaurants","s":"ukee-snack-shack","n":"Ukee Snack Shack","h":null,"b":"Ukee Snack Shack is a family-owned comfort food stop with smash burgers, donairs, fries, onion rings, and other quick meals. It also offers many gluten-free options. This is a good choice for travelers who want something casual, filling, and easy.","f":["Smash burgers","Donairs","Fries","Quick meals","Gluten-free options","Family-friendly comfort food"],"no":"A useful pick when you want simple comfort food rather than seafood."},{"c":"ucluelet","k":"hiking","s":"south-beach-trail","n":"South Beach Trail","h":"guides/ucluelet/hiking/south-beach-trail-1","b":"South Beach Trail starts near the Kwisitis Visitor Centre and Wickaninnish Beach area. It is a short coastal trail that leads through forest toward a rocky beach. This trail is a good choice if you want a quick walk with strong ocean sounds and dramatic coastal views.","f":["Short hikes","Rocky beach views","Ocean sounds","Photography","A stop near the visitor centre","Pairing with Wickaninnish Beach"],"no":"South Beach is better for viewing than swimming. Stay back from waves and wet rocks."},{"c":"ucluelet","k":"kayaking","s":"clarke-island-area","n":"Clarke Island Area","h":"guides/ucluelet/kayaking/clarke-island-area-1","b":"Clarke Island is often mentioned in Broken Group Islands trip planning because of its beach camping and beautiful setting. It can be a lovely place to stop on a multi-day trip, but campsite use and conditions should always be checked before you go.","f":["Kayak camping","Beach stops","Multi-day routes","Island scenery","Photography","Wildlife watching"],"no":"Campsites can be busy in summer. Plan ahead and follow Leave No Trace rules."},{"c":"tofino","k":"beaches","s":"kennedy-lake","n":"Kennedy Lake","h":"guides/tofino/beaches/kennedy-lake-1","b":"Kennedy Lake is not a beach in Tofino town, and it is not an open Pacific Ocean beach. It is a large freshwater lake near Tofino and Ucluelet, close to Pacific Rim National Park Reserve. It is worth adding to a Tofino beach and water guide because it gives visitors a different kind of water experience. Instead of big waves, surf, and storm watching, Kennedy Lake is known for calmer water, forest views, and peaceful lake scenery. Chesterman Beach · Tofino ·…","f":["Freshwater lake views","Kayaking or canoeing","Paddleboarding in calm conditions","Quiet nature time","Photography","A break from windy ocean beaches","Quick Beach Guide","Beach · Location · Best For"],"no":"Kennedy Lake is best for calm-water activities, not surfing or storm watching. Conditions can still change, so check the weather and wind before paddling."},{"c":"tofino","k":"kayaking","s":"rafael-point","n":"Rafael Point","h":"guides/tofino/kayaking/rafael-point-1","b":"Rafael Point is in the Flores Island area and is part of the wilder outer coast of Clayoquot Sound. It is relevant for serious sea kayakers because it sits in a more exposed, remote setting. This is not a beginner kayaking spot. It is better for advanced paddlers, guided expeditions, and people who understand swell, surf landings, weather windows, and remote coastal travel.","f":["Advanced sea kayaking","Remote outer-coast travel","Wildlife watching from a distance","Expedition planning","Experienced guided trips"],"no":"Treat Rafael Point as an advanced or expert route area, not a casual kayaking stop."},{"c":"tofino","k":"hiking","s":"combers-beach-trail","n":"Combers Beach Trail","h":"guides/tofino/hiking/combers-beach-trail-1","b":"Combers Beach Trail is a short trail in Pacific Rim National Park Reserve that leads to a wild beach. It is a good choice if you want a quiet beach walk and a more natural feel. This trail is more about beach access than a long forest hike. Once you reach the beach, you can walk along the sand when tide and conditions are safe.","f":["Beach walks","Quiet nature time","Photography","Wild coastal scenery","A less crowded stop"],"no":"Check current park access and dog rules before visiting. Tide and seasonal rules can affect your visit."},{"c":"tofino","k":"restaurants","s":"harbourview-coffeehouse","n":"Harbourview Coffeehouse","h":null,"b":"Harbourview Coffeehouse is a small waterfront coffee stop connected with Tofino Sea Kayaking. It is a lovely place for coffee before or after a kayaking trip. The view makes it feel special, even if you only stop for a quick drink.","f":["Waterfront coffee","Kayaking days","Light snacks","A quiet view","Simple local finds"],"no":"This is a nice hidden-gem option if you are already near the harbour."},{"c":"ucluelet","k":"hiking","s":"nuu-chah-nulth-trail","n":"Nuu-chah-nulth Trail","h":"guides/ucluelet/hiking/nuu-chah-nulth-trail-1","b":"The Nuu-chah-nulth Trail is one of the more meaningful walks in Pacific Rim National Park Reserve. It connects rainforest, boardwalk, beach views, and cultural learning. This trail is longer and more active than the shortest boardwalk walks, but it is still manageable for many visitors.","f":["Rainforest walking","Ocean views","Learning","Photography","A more active nature walk","Visitors who want more than a quick stop"],"no":"Expect stairs, boardwalks, and uneven sections. Take your time."},{"c":"ucluelet","k":"restaurants","s":"zoes-bakery-cafe","n":"Zoe’s Bakery & Cafe","h":null,"b":"Zoe’s Bakery & Cafe is a popular stop for baked goods, breakfast, lunch, coffee, and sweet treats. It is a good choice before a hike, kayak tour, or drive through Pacific Rim National Park.","f":["Coffee","Baked goods","Breakfast","Lunch","Pastries","Grab-and-go food"],"no":"Good for a casual morning stop or a simple lunch."},{"c":"ucluelet","k":"kayaking","s":"loudoun-channel","n":"Loudoun Channel","h":"guides/ucluelet/kayaking/loudoun-channel-1","b":"Loudoun Channel is a larger crossing area in Barkley Sound. Some paddlers use it when traveling toward the Broken Group Islands from certain launch points. This is not a beginner area. Wind, waves, boat traffic, and exposure can make crossings challenging.","f":["Experienced paddlers","Route planning","Broken Group access","Guided expeditions","Strong sea kayaking skills"],"no":"Do not treat channel crossings lightly. Check marine weather and go with proper skills or a guide."},{"c":"tofino","k":"hiking","s":"schooner-cove-trail","n":"Schooner Cove Trail","h":"guides/tofino/hiking/schooner-cove-trail-1","b":"Schooner Cove Trail is another trail in Pacific Rim National Park Reserve. It is known for forest-to-beach scenery and a quieter feel. It is worth adding if you like peaceful walks, rainforest paths, and beach access. Like many coastal trails, access can change due to weather, maintenance, or park updates.","f":["Forest walks","Beach access","Quiet exploring","Nature photos","A less busy trail stop"],"no":"Check current Parks Canada updates before planning this trail."},{"c":"tofino","k":"kayaking","s":"hot-springs-cove","n":"Hot Springs Cove","h":"guides/tofino/kayaking/hot-springs-cove-1","b":"Hot Springs Cove is north of Tofino and is usually reached by boat or float plane. Some longer kayak adventures include Hot Springs Cove as part of a guided multi-day trip. This is not a normal day paddle from Tofino. It is best for guided expeditions and experienced paddlers.","f":["Multi-day kayak trips","Guided expeditions","Remote coastal scenery","Camping adventures","A special west coast experience"],"no":"This route needs planning, good weather, and local knowledge."},{"c":"ucluelet","k":"hiking","s":"willowbrae-trail","n":"Willowbrae Trail","h":null,"b":"Willowbrae Trail is closer to the Ucluelet side of Pacific Rim National Park Reserve. It leads through forest and connects toward Florencia Bay and Halfmoon Bay. This is a good trail if you want a more active walk and beach access. It has stairs, and the return walk can feel harder than the walk down.","f":["Forest walking","Beach access","Florencia Bay","Halfmoon Bay","Photography","A quieter national park hike"],"no":"Check tide times before spending time on the beach."},{"c":"tofino","k":"restaurants","s":"mizu-mizu-caf","n":"Mizu Mizu Café","h":null,"b":"Mizu Mizu Café has a calm Japanese-inspired cafe feel. It is good for slow mornings, matcha, pastries, grilled sandwiches, and thoughtful small finds. This is a nice choice if you want a peaceful cafe stop instead of a busy breakfast place.","f":["Matcha","Coffee","Pastries","Slow mornings","Light meals","A cozy cafe stop"],"no":"Good for travelers who enjoy quiet, simple, and thoughtful spaces."},{"c":"ucluelet","k":"restaurants","s":"barkley-cafe","n":"Barkley Cafe","h":null,"b":"Barkley Cafe is a good local-style cafe stop for coffee, breakfast, lunch, and a relaxed small-town feel. It is useful for travelers who want a casual meal before exploring Ucluelet.","f":["Coffee","Breakfast","Lunch","Sandwiches","Casual cafe meals","Easy town stop"],"no":"A good option when you want something simple and comfortable."},{"c":"tofino","k":"restaurants","s":"tofino-brewing-company","n":"Tofino Brewing Company","h":"guides/tofino/restaurants/tofino-brewing-company-1","b":"Tofino Brewing Company is a popular stop for craft beer. It is a good place to try a flight, enjoy a pint, or grab beer to go. It works well after a beach day, hike, or surf lesson.","f":["Craft beer","Flights","Casual drinks","Après-surf","Rainy afternoons","Local beer fans"],"no":"Check current hours before visiting, especially outside summer."},{"c":"ucluelet","k":"hiking","s":"halfmoon-bay-trail","n":"Halfmoon Bay Trail","h":"guides/ucluelet/hiking/halfmoon-bay-trail-1","b":"Halfmoon Bay Trail branches from the Willowbrae area and leads down to a small, quiet beach. It is a beautiful stop if you want something calmer and less busy. The beach feels tucked away, but the stairs can make the return feel more tiring.","f":["Quiet beach stops","Forest and shoreline scenery","Photography","A peaceful walk","More active families"],"no":"Be careful near driftwood and waves. Do not get trapped by rising tide."},{"c":"tofino","k":"hiking","s":"apsc-iik-t-as-ii-multi-use-pathway","n":"ʔapsčiik t̓ašii Multi-Use Pathway","h":"guides/tofino/hiking/apsc-iik-t-as-ii-multi-use-pathway-1","b":"ʔapsčiik t̓ašii, pronounced “ups-cheek ta-shee,” is a paved multi-use pathway in Pacific Rim National Park Reserve. It runs through the Long Beach Unit and connects many points of interest between the Tofino and Ucluelet area. This is not a forest hike in the usual sense. It is best for biking, walking, and longer active days. It passes through forest and bog areas and gives visitors a different way to explore the park without driving to every stop.","f":["Biking","Walking","Running","Longer active days","Families with bikes","Exploring Pacific Rim National Park"],"no":"The path is paved, but there are some hills and curves. Bring water and plan your return route."},{"c":"tofino","k":"kayaking","s":"long-beach-and-the-open-pacific-coast","n":"Long Beach and the Open Pacific Coast","h":"guides/tofino/kayaking/long-beach-and-the-open-pacific-coast-1","b":"Long Beach is part of Pacific Rim National Park Reserve. It is famous for surfing, beach walks, and big ocean views. But for most visitors, it is not a regular kayaking spot. The Long Beach area faces the open Pacific Ocean. This means surf, swell, rip currents, wind, and exposed conditions can make kayaking risky. It may be possible for expert sea kayakers or surf kayakers in the right conditions, but it is not a good place for beginners or casual…","f":["Expert sea kayakers only","Surf kayaking in the right conditions","Open-coast skills practice","Experienced paddlers with local knowledge"],"no":"Most visitors should enjoy Long Beach from shore, not from a kayak. Choose sheltered areas like Lemmens Inlet, Meares Island, Grice Bay, Mackenzie/tinwis Beach, or Kennedy Lake for easier paddling."},{"c":"ucluelet","k":"restaurants","s":"blackberry-cove-marketplace","n":"Blackberry Cove Marketplace","h":null,"b":"Blackberry Cove Marketplace is useful if you want deli items, groceries, snacks, or picnic food. It is not just a restaurant stop, but it is worth including because many visitors need easy food for hikes, beach days, and road trips.","f":["Picnic supplies","Snacks","Deli items","Groceries","Road trip food","Easy takeout-style options"],"no":"Stop here before heading to the Wild Pacific Trail, beaches, or Pacific Rim National Park."},{"c":"ucluelet","k":"hiking","s":"florencia-bay-trail","n":"Florencia Bay Trail","h":"guides/ucluelet/hiking/florencia-bay-trail-1","b":"Florencia Bay is one of the most beautiful beaches near Ucluelet. It is known for a quiet feel, sand cliffs, and wide shoreline views. The trail to Florencia Bay includes forest and stairs. It is worth the effort if you want a beach that feels less busy than Long Beach.","f":["Quiet beach walks","Sand cliff views","Photography","Low-tide exploring","A less crowded national park beach","A scenic stop near Ucluelet"],"no":"The stairs can feel harder on the way back up. Wear comfortable shoes."},{"c":"tofino","k":"restaurants","s":"tofino-distillery","n":"Tofino Distillery","h":null,"b":"Tofino Distillery is a good stop for craft spirits and small cocktail tasters. It is known for organic spirits and seasonal tasting room drinks. This is a good choice if you want a local drink experience that is not beer.","f":["Craft spirits","Tastings","Rainy day stops","Cocktail fans","Local gifts","Small-group visits"],"no":"Plan a safe ride if you are tasting."},{"c":"tofino","k":"kayaking","s":"tofino-inlet","n":"Tofino Inlet","h":null,"b":"Tofino Inlet is part of the wider sheltered water system near Tofino. It can be used for scenic paddling, guided tours, and wildlife viewing.","f":["Calm water","Inlet scenery","Wildlife","Guided paddles","Longer day trips"],"no":"Go with a guide if you are not familiar with local tides, channels, and weather."},{"c":"tofino","k":"hiking","s":"big-tree-trail-on-meares-island","n":"Big Tree Trail on Meares Island","h":"guides/tofino/hiking/big-tree-trail-on-meares-island-1","b":"Big Tree Trail is on Meares Island, not in Tofino town. To visit, you usually need a water taxi or guided trip from Tofino. This trail is known for huge old-growth trees. It is one of the best choices if you want to see very large cedars and learn why the old-growth rainforest is so important.","f":["Big trees","Old-growth forest","Nature lovers","Guided trips","Photography","A special half-day adventure"],"no":"Plan ahead because you need boat access. Wear good shoes because the trail can be wet and uneven."},{"c":"ucluelet","k":"hiking","s":"radar-hill","n":"Radar Hill","h":"guides/ucluelet/hiking/radar-hill-1","b":"Radar Hill is a short viewpoint stop in Pacific Rim National Park Reserve. It is not a long hike, but it is worth adding if you want a quick view and a little history. The hill was used as a radar station during World War II. Today, visitors come for forest, ocean, and island views.","f":["Quick stops","Easy walking","Viewpoints","Families","History","Photography"],"no":"This is more of a viewpoint walk than a full hike."},{"c":"tofino","k":"hiking","s":"lone-cone-trail","n":"Lone Cone Trail","h":"guides/tofino/hiking/lone-cone-trail-1","b":"Lone Cone is also on Meares Island. It is much harder than most trails near Tofino. It is a steep hike with a viewpoint at the top. This trail is best for fit hikers who want a challenge. It is not the best choice for young kids, casual walkers, or people who only want an easy nature trail.","f":["Experienced hikers","Big views","A hard workout","Adventure travelers","A full or half-day hiking plan"],"no":"This is a steep and challenging hike. You need boat access, proper shoes, water, and enough time."},{"c":"tofino","k":"kayaking","s":"fortune-channel","n":"Fortune Channel","h":null,"b":"Fortune Channel is a paddling area in Clayoquot Sound near Meares Island. It is more remote than the short harbour paddles and can be part of longer guided routes.","f":["Longer sea kayaking trips","Forested shorelines","Wildlife","Experienced paddlers","Guided tours"],"no":"This is better for paddlers with some experience or those joining a guided trip."},{"c":"tofino","k":"kayaking","s":"bedwell-sound-and-remote-inlets","n":"Bedwell Sound and Remote Inlets","h":null,"b":"Bedwell Sound and nearby remote inlets are part of the larger Clayoquot Sound paddling area. These are best for guided trips, multi-day routes, and experienced paddlers.","f":["Remote scenery","Multi-day kayaking","Wildlife watching","Wilderness camping","Guided expeditions"],"no":"These are not beginner day trips. Plan carefully and go with local knowledge."},{"c":"tofino","k":"hiking","s":"wild-side-trail-on-flores-island","n":"Wild Side Trail on Flores Island","h":"guides/tofino/hiking/wild-side-trail-on-flores-island-1","b":"The Wild Side Trail is one of the most special hikes near Tofino. It is on Flores Island in Clayoquot Sound and starts near the village of Ahousaht. This trail is more remote than most walks in the Tofino area. You need to reach Flores Island by water taxi, boat, kayak, or float plane. The trail follows sandy beaches and forested headlands along the wild west side of the island. The Wild Side Trail is best for travelers who want a bigger adventure, not…","f":["Remote beach hiking","Wilderness scenery","Backpacking","Kayak-and-hike trips","Wildlife watching","Experienced hikers","A special Tofino-area adventure"],"no":"Plan ahead. You may need water taxi transport, local permissions or stewardship fees, camping plans, and current trail information. This is not a casual town trail like Tonquin Trail."},{"c":"ucluelet","k":"hiking","s":"apsc-iik-t-as-ii-multi-use-pathway","n":"ʔapsčiik t̓ašii Multi-Use Pathway","h":"guides/ucluelet/hiking/apsc-iik-t-as-ii-multi-use-pathway-1","b":"ʔapsčiik t̓ašii, pronounced “ups-cheek ta-shee,” is a paved multi-use pathway in Pacific Rim National Park Reserve. It runs through the Long Beach Unit and connects many areas between the Tofino and Ucluelet side of the park. It is good for walking, biking, and running. It is not a wilderness hike, but it is a great way to move through the park without driving to every stop.","f":["Walking","Biking","Running","Families","Longer active days","Exploring Pacific Rim National Park"],"no":"The path is paved, but there are hills and curves. Share the route with cyclists and other users."},{"c":"ucluelet","k":"hiking","s":"west-coast-trail","n":"West Coast Trail","h":"guides/ucluelet/hiking/west-coast-trail-1","b":"The West Coast Trail is part of Pacific Rim National Park Reserve, but it is very different from Ucluelet’s easy day hikes. This is a famous multi-day backpacking route with mud, ladders, beach walking, tide timing, cable cars, and remote camping. It is not a casual day hike.","f":["Experienced hikers","Multi-day backpacking","Remote coastal travel","Adventure trips","Serious planning"],"no":"You need permits, reservations, fitness, gear, and tide knowledge. This is not a beginner trail."},{"c":"ucluelet","k":"hiking","s":"broken-group-islands-walks","n":"Broken Group Islands Walks","h":"guides/ucluelet/hiking/broken-group-islands-walks-1","b":"The Broken Group Islands are in Barkley Sound and are part of Pacific Rim National Park Reserve. They are not regular hiking trails you drive to. They are reached by boat or kayak. If you are on a kayak camping trip or boat-supported visit, you may do short island walks near campsites or beaches.","f":["Kayak camping trips","Short island exploring","Wildlife watching","Remote beach walks","Experienced travelers","Guided trips"],"no":"These areas need planning, proper permits, and respect for park rules."}],"a":[{"s":"tofino-wildlife-tours","t":"Wildlife Tours in Tofino","e":"Whales, bears, and seabirds: the tours worth booking.","h":"thomas-lipke-M12HGHNVJ2s-unsplash_nttcvc","k":"whale-watching","c":["tofino"],"nq":0},{"s":"tofino-restaurants","t":"Where to Eat in Tofino","e":"From fish tacos to tasting menus, the town's essential tables.","h":"arc-trips/pillar-connection","k":"restaurants","c":["tofino"],"nq":0},{"s":"ucluelet-hiking","t":"Ucluelet Hiking Guide","e":"The Wild Pacific Trail and the routes that make Ucluelet worth the drive.","h":"arcstudio/galleries/dayhike-trail-1","k":"hiking","c":["ucluelet"],"nq":0},{"s":"ucluelet-kayaking","t":"Kayaking in Ucluelet","e":"Sheltered launches and open-water paddles from the harbour town.","h":"guides/ucluelet/kayaking/_category-1","k":"kayaking","c":["ucluelet"],"nq":0},{"s":"ucluelet-wildlife-watching","t":"Wildlife Watching in Ucluelet","e":"Grey whales on migration, sea lions, and the spring seabird return.","h":"james-wheeler-YZfDg2L0lUs-unsplash_ino74q","k":"whale-watching","c":["ucluelet"],"nq":0},{"s":"ucluelet-restaurants","t":"Ucluelet Restaurants","e":"Chowder, fresh catch, and the town's easy-going local rooms.","h":"arcstudio/mg8epie7gzlpfb1bn7jo","k":"restaurants","c":["ucluelet"],"nq":0},{"s":"pacific-rim-whale-festival-guide","t":"Pacific Rim Whale Festival Guide","e":"The spring festival that marks the gray whale migration through Clayoquot Sound.","h":"guides/tofino/events/_category-1","k":"events","c":["tofino","ucluelet"],"nq":0},{"s":"tofino-ucluelet-campgrounds","t":"Tofino & Ucluelet Campgrounds","e":"Where to pitch a tent between the two towns.","h":"guides/tofino/camping/_category-1","k":"camping","c":["tofino","ucluelet"],"nq":4},{"s":"how-to-choose-a-vacation-rental","t":"How to Choose a Vacation Rental on Vancouver Island","e":"Planning a Vancouver Island getaway? Learn how to choose the best vacation rental for your trip, including location, budget, and seasonal tips.","h":"guides/vancouver-island/when-to-go/_category-1","k":"when-to-go","c":[],"nq":0},{"s":"ucluelet-whale-watching-tours","t":"Whale Watching Tours in Ucluelet","e":"What to expect, how to choose, and booking tips.","h":"guides/ucluelet/whale-watching/_category-1","k":"whale-watching","c":["ucluelet"],"nq":4},{"s":"ucluelet-whale-spring-migration","t":"Whales in Ucluelet: The Spring Migration Explained","e":"Why spring is special for gray whales off Ucluelet.","h":"guides/ucluelet/whale-watching/_category-1","k":"whale-watching","c":["ucluelet"],"nq":4},{"s":"best-time-to-stay-tofino-ucluelet","t":"Best Time to Stay in Ucluelet or Tofino","e":"Weather, prices, and what to see across the seasons.","h":"guides/tofino/when-to-go/_category-1","k":"when-to-go","c":["tofino","ucluelet"],"nq":0},{"s":"tofino-beaches","t":"The Best Beaches in Tofino","e":"Long Beach, Cox Bay, Chesterman: where to find surf, sand, and sunset walks.","h":"guides/tofino/beaches/_category-1","k":"beaches","c":["tofino"],"nq":0},{"s":"tofino-surfing","t":"Surfing in Tofino","e":"Canada's surf capital: breaks, seasons, and where to rent a board.","h":"guides/tofino/surfing/_category-1","k":"surfing","c":["tofino"],"nq":0},{"s":"tofino-kayaking","t":"Kayaking in Tofino","e":"Paddle Clayoquot Sound past islands, inlets, and old-growth shoreline.","h":"condor-wei-TiLEEXohfsY-unsplash_v7ja5f","k":"kayaking","c":["tofino"],"nq":0},{"s":"tofino-storm-watching","t":"Storm Watching in Tofino","e":"Why winter is the dramatic season on the exposed Pacific coast.","h":"guides/tofino/storm-watching/_category-1","k":"storm-watching","c":["tofino"],"nq":0},{"s":"tofino-surfing-faq","t":"Surfing FAQs","e":"What Is a Rip Current?","h":"guides/tofino/surfing/_category-1","k":"surfing","c":["tofino"],"nq":4},{"s":"tofino-kayaking-faq","t":"Kayaking FAQs","e":"Is Tofino Good for Beginner Kayaking?","h":"guides/tofino/kayaking/_category-1","k":"kayaking","c":["tofino"],"nq":4},{"s":"tofino-birding-faq","t":"Birding FAQs","e":"What seabirds can you see in Tofino?","h":"guides/tofino/birding/_category-1","k":"birding","c":["tofino"],"nq":4},{"s":"tofino-storm-watching-faq","t":"Storm watching FAQs","e":"Is storm watching in Tofino dangerous?","h":"guides/tofino/storm-watching/_category-1","k":"storm-watching","c":["tofino"],"nq":4},{"s":"tofino-restaurants-faq","t":"Restaurants FAQs","e":"What is the best restaurant in Tofino?","h":"guides/tofino/restaurants/_category-1","k":"restaurants","c":["tofino"],"nq":4},{"s":"ucluelet-kayaking-faq","t":"Kayaking FAQs","e":"Is Ucluelet good for kayaking?","h":"guides/ucluelet/kayaking/_category-1","k":"kayaking","c":["ucluelet"],"nq":4},{"s":"ucluelet-birding-faq","t":"Birding FAQs","e":"Where is the best place to see birds in Ucluelet?","h":"guides/ucluelet/birding/_category-1","k":"birding","c":["ucluelet"],"nq":4},{"s":"tofino-beaches-faq","t":"Beaches FAQs","e":"What is the nicest beach in Tofino?","h":"guides/tofino/beaches/_category-1","k":"beaches","c":["tofino"],"nq":4},{"s":"tofino-whale-watching-faq","t":"Whale watching FAQs","e":"What is the best month for whale watching in Tofino?","h":"guides/tofino/whale-watching/_category-1","k":"whale-watching","c":["tofino"],"nq":4},{"s":"tofino-hiking-faq","t":"Hiking FAQs","e":"What is the best easy trail in Tofino?","h":"guides/tofino/hiking/_category-1","k":"hiking","c":["tofino"],"nq":4},{"s":"ucluelet-hiking-faq","t":"Hiking FAQs","e":"What is the best hike in Ucluelet?","h":null,"k":"hiking","c":["ucluelet"],"nq":4},{"s":"ucluelet-whale-watching-faq","t":"Whale watching FAQs","e":"Is Ucluelet good for wildlife watching?","h":"guides/ucluelet/whale-watching/_category-1","k":"whale-watching","c":["ucluelet"],"nq":4},{"s":"ucluelet-restaurants-faq","t":"Restaurants FAQs","e":"What is the best restaurant in Ucluelet?","h":null,"k":"restaurants","c":["ucluelet"],"nq":4},{"s":"whale-tails-blows-and-backs","t":"Whale Tails, Blows, and Backs","e":"What you're actually seeing on the water.","h":"guides/tofino/whale-watching/_category-1","k":"whale-watching","c":["tofino","ucluelet"],"nq":4},{"s":"ucluelet-whale-watching-guide","t":"Whale Watching in Ucluelet","e":"Best time and what you might see.","h":"guides/ucluelet/whale-watching/_category-1","k":"whale-watching","c":["ucluelet"],"nq":4}],"q":[{"q":"What is the best campground in Tofino?","a":"Surf Grove is a top choice for Cox Bay surf access. Bella Pacifica is a classic family-friendly beach campground on tinwis/Mackenzie Beach. Crystal Cove is best for RV campers who want a resort-style stay.","k":"camping","c":["tofino","ucluelet"],"h":"guides/tofino/camping/_category-1","ft":"Tofino & Ucluelet Campgrounds"},{"q":"What is the best campground in Ucluelet?","a":"Ucluelet Campground is the most convenient option if you want to stay in town. Wya Point is better if you want a quieter beachfront nature stay outside town.","k":"camping","c":["tofino","ucluelet"],"h":"guides/tofino/camping/_category-1","ft":"Tofino & Ucluelet Campgrounds"},{"q":"Can you camp on the beach in Tofino?","a":"You should only camp in official campgrounds or designated backcountry sites. Do not camp on public beaches, parking lots, roadsides, or random pullouts.","k":"camping","c":["tofino","ucluelet"],"h":"guides/tofino/camping/_category-1","ft":"Tofino & Ucluelet Campgrounds"},{"q":"Do you need reservations for Tofino campgrounds?","a":"Yes, reservations are strongly recommended. Summer sites can book months ahead.","k":"camping","c":["tofino","ucluelet"],"h":"guides/tofino/camping/_category-1","ft":"Tofino & Ucluelet Campgrounds"},{"q":"Are whale watching tours in Ucluelet worth it?","a":"Yes. Ucluelet is a strong whale watching base because tours can access Barkley Sound, the Broken Group Islands area, and nearby Pacific waters with whales and other marine wildlife.","k":"whale-watching","c":["ucluelet"],"h":"guides/ucluelet/whale-watching/_category-1","ft":"Whale Watching Tours in Ucluelet"},{"q":"What is the best whale watching tour in Ucluelet?","a":"The best tour depends on your needs. Families and comfort-focused travelers may prefer a covered boat. Adventure travelers may prefer a zodiac. Photographers or groups may prefer a smaller tour or private charter.","k":"whale-watching","c":["ucluelet"],"h":"guides/ucluelet/whale-watching/_category-1","ft":"Whale Watching Tours in Ucluelet"},{"q":"When do whale watching tours run in Ucluelet?","a":"Many whale watching tours run from March to October, but exact dates depend on the operator, weather, and season.","k":"whale-watching","c":["ucluelet"],"h":"guides/ucluelet/whale-watching/_category-1","ft":"Whale Watching Tours in Ucluelet"},{"q":"How long are Ucluelet whale watching tours?","a":"Many tours are about 2.5 to 3 hours, but timing can vary. Always check the operator’s current tour details.","k":"whale-watching","c":["ucluelet"],"h":"guides/ucluelet/whale-watching/_category-1","ft":"Whale Watching Tours in Ucluelet"},{"q":"What whales migrate past Ucluelet in spring?","a":"Pacific gray whales are the main whales associated with the spring migration in Ucluelet. Humpbacks may also appear later in spring and become more common during summer.","k":"whale-watching","c":["ucluelet"],"h":"guides/ucluelet/whale-watching/_category-1","ft":"Whales in Ucluelet: The Spring Migration Explained"},{"q":"When is the gray whale migration in Ucluelet?","a":"The main spring migration period is usually March to May. Early sightings may happen in February, and some whales may still be present into early summer.","k":"whale-watching","c":["ucluelet"],"h":"guides/ucluelet/whale-watching/_category-1","ft":"Whales in Ucluelet: The Spring Migration Explained"},{"q":"Why do gray whales migrate past Ucluelet?","a":"Gray whales pass Ucluelet as they travel north from winter breeding and calving areas in Baja California, Mexico, toward northern feeding grounds near Alaska and the Arctic.","k":"whale-watching","c":["ucluelet"],"h":"guides/ucluelet/whale-watching/_category-1","ft":"Whales in Ucluelet: The Spring Migration Explained"},{"q":"Is March a good time for whale watching in Ucluelet?","a":"Yes. March is a key month because gray whales are returning along the coast, and the Pacific Rim Whale Festival celebrates their migration.","k":"whale-watching","c":["ucluelet"],"h":"guides/ucluelet/whale-watching/_category-1","ft":"Whales in Ucluelet: The Spring Migration Explained"},{"q":"What Is a Rip Current?","a":"A rip current is a strong flow of water that moves away from shore. It can pull swimmers and surfers farther out. If you get caught in one, do not fight it. Stay calm. Float, hold your board, and paddle or swim sideways, parallel to the beach. Once you are out of the current, come back toward shore. If you are not sure about the water, do not go in. Ask a surf school or local surf shop for advice.","k":"surfing","c":["tofino"],"h":"guides/tofino/surfing/_category-1","ft":"Surfing FAQs"},{"q":"Can beginners surf in Tofino?","a":"Yes. Tofino is one of the best places in Canada for beginner surf lessons. Start with a surf school so you learn the right beach, gear, and safety steps.","k":"surfing","c":["tofino"],"h":"guides/tofino/surfing/_category-1","ft":"Surfing FAQs"},{"q":"Can Kids Learn to Surf in Tofino?","a":"Yes, many kids can learn to surf in Tofino. Surf schools often offer family or kid-friendly lessons. The right age depends on the child, the surf school, and the ocean conditions that day. Kids should be comfortable in water and able to listen to safety instructions. A private or family lesson may be best for younger children.","k":"surfing","c":["tofino"],"h":"guides/tofino/surfing/_category-1","ft":"Surfing FAQs"},{"q":"Which beach is best for beginner surfing in Tofino?","a":"Chesterman Beach is a popular choice for beginners and lessons. Cox Bay and Long Beach can also be good when conditions are calm.","k":"surfing","c":["tofino"],"h":"guides/tofino/surfing/_category-1","ft":"Surfing FAQs"},{"q":"Is Tofino Good for Beginner Kayaking?","a":"Yes, Tofino can be great for beginner kayaking, especially with a guide. Many tours use calm, sheltered waters instead of open surf beaches. This makes the trip easier and safer for first-time paddlers. A guide can help you with paddling, steering, tide timing, wildlife rules, and local conditions. Beginners should choose: A guided tour A calm inlet route A tandem kayak if nervous A half-day trip Good weather and…","k":"kayaking","c":["tofino"],"h":"guides/tofino/kayaking/_category-1","ft":"Kayaking FAQs"},{"q":"Is Kayaking in Tofino Good for Kids?","a":"Yes, kayaking can be good for kids when conditions are calm and the trip is guided. For families, a tandem kayak is often best. A child can sit with an adult, and the guide can choose a shorter route. Family-friendly kayak trips are usually: Shorter Guided In sheltered water Done in good weather Focused on easy paddling and wildlife Ask the tour company about age rules before booking.","k":"kayaking","c":["tofino"],"h":"guides/tofino/kayaking/_category-1","ft":"Kayaking FAQs"},{"q":"What Is Better: Kayaking or Paddleboarding in Tofino?","a":"Both are fun, but they are different. Kayaking is better for longer trips, wildlife viewing, and cooler weather. You sit lower in the boat, and it is often easier to travel farther. Paddleboarding is better on very calm water. It can be fun on Kennedy Lake, sheltered bays, or calm inlet areas. It is not a good choice for rough water, strong wind, or open surf beaches unless you are experienced. For most first-time…","k":"kayaking","c":["tofino"],"h":"guides/tofino/kayaking/_category-1","ft":"Kayaking FAQs"},{"q":"Where is the best place to kayak in Tofino?","a":"Clayoquot Sound is the classic kayaking area. Meares Island is also popular because you can combine kayaking with the Big Tree Trail.","k":"kayaking","c":["tofino"],"h":"guides/tofino/kayaking/_category-1","ft":"Kayaking FAQs"},{"q":"What seabirds can you see in Tofino?","a":"You may see gulls, cormorants, common murres, rhinoceros auklets, pigeon guillemots, tufted puffins, shearwaters, sea ducks, loons, grebes, black oystercatchers, and bald eagles.","k":"birding","c":["tofino"],"h":"guides/tofino/birding/_category-1","ft":"Birding FAQs"},{"q":"Can you see puffins in Tofino?","a":"Yes, tufted puffins may be seen near Tofino, especially on summer boat tours near offshore rocks and islands. They are not usually easy to see from town beaches.","k":"birding","c":["tofino"],"h":"guides/tofino/birding/_category-1","ft":"Birding FAQs"},{"q":"What is the most common bird in Tofino?","a":"Gulls, cormorants, bald eagles, and shorebirds are among the easiest coastal birds for visitors to notice. The exact “most common” bird depends on season and habitat.","k":"birding","c":["tofino"],"h":"guides/tofino/birding/_category-1","ft":"Birding FAQs"},{"q":"What are the black birds on the rocks in Tofino?","a":"They may be cormorants, black oystercatchers, or pigeon guillemots. Cormorants have long necks and often hold their wings open. Black oystercatchers have bright orange-red bills. Pigeon guillemots are smaller and may show white wing patches.","k":"birding","c":["tofino"],"h":"guides/tofino/birding/_category-1","ft":"Birding FAQs"},{"q":"Is storm watching in Tofino dangerous?","a":"It can be dangerous if you get too close to the ocean. Watch from a safe distance, avoid wet rocks, and never turn your back on the waves.","k":"storm-watching","c":["tofino"],"h":"guides/tofino/storm-watching/_category-1","ft":"Storm watching FAQs"},{"q":"What Are King Tides?","a":"King tides are extra high tides. In Tofino, they can happen around the full moon or new moon. During storm season, king tides can make the ocean rise much higher than normal. This can make beach entrances unsafe. It can also make some beach walks impossible. If you are storm watching during a king tide, choose a safe viewpoint instead of walking close to the water.","k":"storm-watching","c":["tofino"],"h":"guides/tofino/storm-watching/_category-1","ft":"Storm watching FAQs"},{"q":"What Should You Wear for Storm Watching in Tofino?","a":"To enjoy storm watching, dress for rain, wind, and cold air. You do not need fancy clothes, but you do need warm and waterproof layers. Bring or wear: Waterproof rain jacket Waterproof pants Warm sweater or fleece Hat or toque Gloves Warm socks Waterproof boots Extra dry clothes Small backpack Phone in a waterproof case Umbrellas are not very useful in strong wind. A good rain jacket is better.","k":"storm-watching","c":["tofino"],"h":"guides/tofino/storm-watching/_category-1","ft":"Storm watching FAQs"},{"q":"Can You Walk on the Beach During a Storm?","a":"Sometimes, but not always. A beach walk can be safe during light rain, low tide, and calmer conditions. But during strong storms, high tide, or large waves, it is better to watch from a safe viewpoint. Before walking on the beach, ask: Is the tide coming in? Are waves reaching high up the beach? Are there logs near the water? Is the wind too strong? Is this beach open? Can I get back safely? If you are not sure, do…","k":"storm-watching","c":["tofino"],"h":"guides/tofino/storm-watching/_category-1","ft":"Storm watching FAQs"},{"q":"What is the best restaurant in Tofino?","a":"Many visitors consider Wolf in the Fog one of the best restaurants in Tofino because it focuses on local seafood, foraged ingredients, cocktails, and west coast flavor. The Pointe Restaurant is another top choice for fine dining and ocean views.","k":"restaurants","c":["tofino"],"h":"guides/tofino/restaurants/_category-1","ft":"Restaurants FAQs"},{"q":"Do you need reservations in Tofino?","a":"Yes, reservations are a good idea for dinner, especially in summer, on weekends, and at popular restaurants.","k":"restaurants","c":["tofino"],"h":"guides/tofino/restaurants/_category-1","ft":"Restaurants FAQs"},{"q":"Is Tofino expensive for food?","a":"Tofino can be expensive because it is remote and popular. You can save money by mixing food trucks, cafes, takeout, and a few special sit-down meals.","k":"restaurants","c":["tofino"],"h":"guides/tofino/restaurants/_category-1","ft":"Restaurants FAQs"},{"q":"Are there vegetarian options in Tofino?","a":"Yes. Many restaurants and cafes offer vegetarian options. Look at Shed, Tacofino, ROAR, Ombré, Basic Goodness Pizzeria, and local cafes.","k":"restaurants","c":["tofino"],"h":"guides/tofino/restaurants/_category-1","ft":"Restaurants FAQs"},{"q":"Is Ucluelet good for kayaking?","a":"Yes. Ucluelet is one of the best kayaking bases on Vancouver Island. It has sheltered harbour paddling, access to Barkley Sound, and routes toward the Broken Group Islands.","k":"kayaking","c":["ucluelet"],"h":"guides/ucluelet/kayaking/_category-1","ft":"Kayaking FAQs"},{"q":"Can beginners kayak in Ucluelet?","a":"Yes, beginners can kayak in Ucluelet with a guided harbour tour. The harbour is more sheltered than the open coast, but it is still best to go with a guide if you are new.","k":"kayaking","c":["ucluelet"],"h":"guides/ucluelet/kayaking/_category-1","ft":"Kayaking FAQs"},{"q":"Where is the best place to kayak in Ucluelet?","a":"Ucluelet Harbour is best for beginners. Barkley Sound is best for scenic sea kayaking. The Broken Group Islands are best for multi-day kayaking and island camping.","k":"kayaking","c":["ucluelet"],"h":"guides/ucluelet/kayaking/_category-1","ft":"Kayaking FAQs"},{"q":"Should You Take a Guided Kayak Tour in Ucluelet?","a":"For most visitors, yes. A guided kayak tour is the best way to enjoy Ucluelet safely. A guide can help with: Choosing the best route Reading tide and wind Avoiding unsafe areas Spotting wildlife Sharing local history Teaching paddle skills Managing boat traffic Handling changing weather Guided trips can be short and easy, or longer and more adventurous. You can choose a harbour tour, a Barkley Sound tour, or a…","k":"kayaking","c":["ucluelet"],"h":"guides/ucluelet/kayaking/_category-1","ft":"Kayaking FAQs"},{"q":"Where is the best place to see birds in Ucluelet?","a":"The Wild Pacific Trail, Amphitrite Point Lighthouse, Ucluelet Harbour, Spring Cove Mudflats, Big Beach, and Barkley Sound are all good birdwatching spots.","k":"birding","c":["ucluelet"],"h":"guides/ucluelet/birding/_category-1","ft":"Birding FAQs"},{"q":"Can you see puffins in Ucluelet?","a":"Yes, tufted puffins may be seen offshore in season, but they are not common on town beaches. A wildlife or birdwatching boat tour gives you a better chance.","k":"birding","c":["ucluelet"],"h":"guides/ucluelet/birding/_category-1","ft":"Birding FAQs"},{"q":"What are the black birds on the rocks in Ucluelet?","a":"They may be cormorants, black oystercatchers, or pigeon guillemots. Cormorants have long necks and dive. Black oystercatchers have orange-red bills. Pigeon guillemots are smaller and may show white wing patches.","k":"birding","c":["ucluelet"],"h":"guides/ucluelet/birding/_category-1","ft":"Birding FAQs"},{"q":"What are the small birds running on the beach?","a":"They are likely shorebirds, such as sandpipers, sanderlings, dunlin, plovers, or turnstones. They feed along the tide line and mudflats.","k":"birding","c":["ucluelet"],"h":"guides/ucluelet/birding/_category-1","ft":"Birding FAQs"},{"q":"What is the nicest beach in Tofino?","a":"Many people think Chesterman Beach is the nicest beach in Tofino because it is long, sandy, scenic, and easy to enjoy. Cox Bay and Long Beach are also favorites.","k":"beaches","c":["tofino"],"h":"guides/tofino/beaches/_category-1","ft":"Beaches FAQs"},{"q":"What is the best beach in Tofino for surfing?","a":"Cox Bay is one of the best beaches for surfing. Chesterman Beach and Long Beach are also popular surf spots, depending on conditions.","k":"beaches","c":["tofino"],"h":"guides/tofino/beaches/_category-1","ft":"Beaches FAQs"},{"q":"What is the best beach in Tofino for families?","a":"Tinwis Beach and Chesterman Beach are good choices for families. tinwis is more sheltered, while Chesterman has lots of space for walking and playing.","k":"beaches","c":["tofino"],"h":"guides/tofino/beaches/_category-1","ft":"Beaches FAQs"},{"q":"Can you swim in Tofino?","a":"Yes, but the water is cold and the ocean can be strong. Most people wear wetsuits. There are no lifeguards, so be careful.","k":"beaches","c":["tofino"],"h":"guides/tofino/beaches/_category-1","ft":"Beaches FAQs"},{"q":"What is the best month for whale watching in Tofino?","a":"March to May is one of the best times for gray whales. Summer and early fall can also be great for humpbacks, gray whales, orcas, sea otters, sea lions, and other wildlife.","k":"whale-watching","c":["tofino"],"h":"guides/tofino/whale-watching/_category-1","ft":"Whale watching FAQs"},{"q":"Can you see whales in Tofino without a tour?","a":"Yes, sometimes whales can be seen from shore. But a guided boat tour gives you a much better chance of seeing whales and learning about them.","k":"whale-watching","c":["tofino"],"h":"guides/tofino/whale-watching/_category-1","ft":"Whale watching FAQs"},{"q":"What is the best time of day for whale watching?","a":"There is no perfect time every day. Tour operators choose routes based on weather, swell, and recent sightings. Morning trips may have calmer water, but wildlife can be active at different times.","k":"whale-watching","c":["tofino"],"h":"guides/tofino/whale-watching/_category-1","ft":"Whale watching FAQs"},{"q":"Is a zodiac or covered boat better for whale watching?","a":"A covered boat is better for comfort, families, and cooler days. A zodiac is better for travelers who want a faster, more open-air adventure.","k":"whale-watching","c":["tofino"],"h":"guides/tofino/whale-watching/_category-1","ft":"Whale watching FAQs"},{"q":"What is the best easy trail in Tofino?","a":"The Tonquin Trail is one of the best easy trails in Tofino because it is close to town and includes forest, beaches, and ocean views.","k":"hiking","c":["tofino"],"h":"guides/tofino/hiking/_category-1","ft":"Hiking FAQs"},{"q":"What is the best rainforest trail near Tofino?","a":"The Rainforest Trail in Pacific Rim National Park Reserve is one of the best rainforest trails near Tofino. It has boardwalks, huge trees, ferns, moss, and a classic west coast forest feel.","k":"hiking","c":["tofino"],"h":"guides/tofino/hiking/_category-1","ft":"Hiking FAQs"},{"q":"Are Tofino trails good for kids?","a":"Yes, many Tofino trails are good for kids. Tonquin Trail, Shorepine Bog Trail, Rainforest Trail, and South Beach Trail are good choices. Keep kids close near stairs, beaches, cliffs, and slippery boardwalks.","k":"hiking","c":["tofino"],"h":"guides/tofino/hiking/_category-1","ft":"Hiking FAQs"},{"q":"Can you walk from Tofino to the beach?","a":"Yes. Tonquin Trail is one of the easiest ways to walk from Tofino village to a beach. Some other beaches are easier to reach by car or bike.","k":"hiking","c":["tofino"],"h":"guides/tofino/hiking/_category-1","ft":"Hiking FAQs"},{"q":"What is the best hike in Ucluelet?","a":"The Wild Pacific Trail is the best-known hike in Ucluelet. The Lighthouse Loop is the best short section for first-time visitors because it has lighthouse views, ocean views, and easy walking.","k":"hiking","c":["ucluelet"],"h":null,"ft":"Hiking FAQs"},{"q":"Is the Wild Pacific Trail easy?","a":"Yes. Most of the Wild Pacific Trail is easy and well-marked, with gravel paths, viewpoints, and benches. Some areas may have stairs or uneven ground.","k":"hiking","c":["ucluelet"],"h":null,"ft":"Hiking FAQs"},{"q":"How long is the Wild Pacific Trail?","a":"The Wild Pacific Trail has several sections. You can walk a short loop, such as the Lighthouse Loop, or combine sections for a longer walk.","k":"hiking","c":["ucluelet"],"h":null,"ft":"Hiking FAQs"},{"q":"Can you see whales from the Wild Pacific Trail?","a":"Yes, sometimes. The Wild Pacific Trail and Amphitrite Point Lighthouse area are good places to scan for whales, especially during migration season. Bring binoculars.","k":"hiking","c":["ucluelet"],"h":null,"ft":"Hiking FAQs"},{"q":"Is Ucluelet good for wildlife watching?","a":"Yes. Ucluelet is one of the best wildlife watching areas on Vancouver Island. You can see whales, black bears, sea lions, seals, sea otters, bald eagles, shorebirds, seabirds, and more.","k":"whale-watching","c":["ucluelet"],"h":"guides/ucluelet/whale-watching/_category-1","ft":"Whale watching FAQs"},{"q":"What animals can you see in Ucluelet?","a":"You may see gray whales, humpback whales, orcas, black bears, sea lions, harbor seals, sea otters, river otters, bald eagles, great blue herons, shorebirds, and seabirds.","k":"whale-watching","c":["ucluelet"],"h":"guides/ucluelet/whale-watching/_category-1","ft":"Whale watching FAQs"},{"q":"Can you see whales from Ucluelet?","a":"Yes. You can see whales on boat tours, and sometimes from shore along the Wild Pacific Trail, especially during migration seasons.","k":"whale-watching","c":["ucluelet"],"h":"guides/ucluelet/whale-watching/_category-1","ft":"Whale watching FAQs"},{"q":"Where is the best place to see whales from shore in Ucluelet?","a":"The Wild Pacific Trail and Amphitrite Point Lighthouse area are among the best shore-based places to scan for whales. Bring binoculars.","k":"whale-watching","c":["ucluelet"],"h":"guides/ucluelet/whale-watching/_category-1","ft":"Whale watching FAQs"},{"q":"What is the best restaurant in Ucluelet?","a":"Pluvio is often considered one of the top restaurants in Ucluelet for fine dining and special occasions. For casual meals, Jiggers, Heartwood Kitchen, Floathouse Patio & Grill, and Ucluelet Brewing Company are popular choices.","k":"restaurants","c":["ucluelet"],"h":null,"ft":"Restaurants FAQs"},{"q":"Where should I eat seafood in Ucluelet?","a":"Try Jiggers for casual fish and chips, Floathouse Patio & Grill for harbourfront seafood, Pluvio for refined local seafood, and Ukee Poke for a fresh casual seafood bowl.","k":"restaurants","c":["ucluelet"],"h":null,"ft":"Restaurants FAQs"},{"q":"What is the best place for breakfast in Ucluelet?","a":"Heartwood Kitchen is a strong choice for breakfast and brunch. Zoe’s Bakery & Cafe and Barkley Cafe are also good morning stops.","k":"restaurants","c":["ucluelet"],"h":null,"ft":"Restaurants FAQs"},{"q":"Where can I get coffee in Ucluelet?","a":"Try Zoe’s Bakery & Cafe, Barkley Cafe, Heartwood Kitchen, or other local cafe stops in town.","k":"restaurants","c":["ucluelet"],"h":null,"ft":"Restaurants FAQs"},{"q":"What does it mean when a whale blows?","a":"A blow means the whale has surfaced to breathe. It is often the first sign people see during whale watching.","k":"whale-watching","c":["tofino","ucluelet"],"h":"guides/tofino/whale-watching/_category-1","ft":"Whale Tails, Blows, and Backs"},{"q":"What does a whale tail mean?","a":"If a whale lifts its tail fluke before disappearing, it usually means the whale is making a deeper dive.","k":"whale-watching","c":["tofino","ucluelet"],"h":"guides/tofino/whale-watching/_category-1","ft":"Whale Tails, Blows, and Backs"},{"q":"Why do whales show their backs?","a":"Whales show their backs when they surface to breathe, travel, or prepare for another dive. This is one of the most common things to see on a whale watching tour.","k":"whale-watching","c":["tofino","ucluelet"],"h":"guides/tofino/whale-watching/_category-1","ft":"Whale Tails, Blows, and Backs"},{"q":"Does seeing a fluke mean the whale is leaving?","a":"Not always. A fluke usually means the whale is diving deeper. It may surface again nearby after several minutes, or it may come up farther away.","k":"whale-watching","c":["tofino","ucluelet"],"h":"guides/tofino/whale-watching/_category-1","ft":"Whale Tails, Blows, and Backs"},{"q":"Is Ucluelet good for whale watching?","a":"Yes. Ucluelet is one of the best whale watching bases on Vancouver Island because it gives access to Barkley Sound, the Broken Group Islands area, and Pacific feeding and migration waters.","k":"whale-watching","c":["ucluelet"],"h":"guides/ucluelet/whale-watching/_category-1","ft":"Whale Watching in Ucluelet"},{"q":"What whales can you see in Ucluelet?","a":"You may see gray whales, humpback whales, and sometimes orcas. Tours may also see sea lions, harbor seals, sea otters, bald eagles, and seabirds.","k":"whale-watching","c":["ucluelet"],"h":"guides/ucluelet/whale-watching/_category-1","ft":"Whale Watching in Ucluelet"},{"q":"When is the best time for whale watching in Ucluelet?","a":"March to May is best for gray whale migration. Mid-summer to September is often good for humpback whales. Orcas are possible but less predictable.","k":"whale-watching","c":["ucluelet"],"h":"guides/ucluelet/whale-watching/_category-1","ft":"Whale Watching in Ucluelet"},{"q":"Can you see gray whales in Ucluelet?","a":"Yes. Gray whales are one of the main whale species associated with Ucluelet, especially during spring migration.","k":"whale-watching","c":["ucluelet"],"h":"guides/ucluelet/whale-watching/_category-1","ft":"Whale Watching in Ucluelet"}],"l":[{"t":"Cozy Mountain Chalet with Sauna, Fireplace & Trails Nearby","c":"tofino","h":"arcstudio/zczetpngmabknruslfwn","p":320,"r":2,"b":3,"ba":2,"rt":4.9,"lo":"Tofino, British Columbia"},{"t":"Historic Old-Town Loft with Stone Walls & River Views","c":"ucluelet","h":"arcstudio/wnrrcrf4lnalgzbjvsz8","p":320,"r":2,"b":3,"ba":2,"rt":4.9,"lo":"Ucluelet, British Columbia"},{"t":"Alpine Timber Chalet with Mountain Hot Tub & Stargazing Deck","c":"ucluelet","h":"arc-trips/pillar-connection","p":385,"r":2,"b":3,"ba":2,"rt":4.9,"lo":"Ucluelet, British Columbia"},{"t":"Riverside Cabin Retreat with Hot Tub & Forest Views","c":"tofino","h":"arcstudio/mg8epie7gzlpfb1bn7jo","p":420,"r":2,"b":3,"ba":2,"rt":4.9,"lo":"Tofino, British Columbia"},{"t":"Coastal Bed-Cliff Cottage with Private Beach & Firepit","c":"tofino","h":"arc-trips/curated-cabin","p":420,"r":2,"b":3,"ba":2,"rt":4.9,"lo":"Canmore, Alberta"},{"t":"Modern Lakeside Villa with Rooftop Lounge & Marina Access","c":"ucluelet","h":"arc-trips/founding-key","p":450,"r":2,"b":3,"ba":2,"rt":4.9,"lo":"Ucluelet, British Columbia"},{"t":"Lakefront Cottage with Private Dock & Canoes Included","c":"tofino","h":"arcstudio/galleries/dayhike-trail-1","p":500,"r":2,"b":3,"ba":2,"rt":4.9,"lo":"Tofino, British Columbia"}]};
+const BEST = {"beaches":[5,6,7,8,9],"surfing":[1,2,3,4,9,10,11,12],"kayaking":[5,6,7,8,9],"fishing":[5,6,7,8,9],
+"boating":[5,6,7,8,9],"hot-springs":[1,2,3,4,5,6,7,8,9,10,11,12],"whale-watching":[3,4,5,6,7,8,9,10],
+"birding":[3,4,5,9,10,11],"storm-watching":[11,12,1,2],"parks":[4,5,6,7,8,9,10],"hiking":[4,5,6,7,8,9,10],
+"mountain-biking":[5,6,7,8,9],"skiing":[12,1,2,3],"camping":[5,6,7,8,9],
+"restaurants":[1,2,3,4,5,6,7,8,9,10,11,12],"markets":[5,6,7,8,9],"breweries":[1,2,3,4,5,6,7,8,9,10,11,12],
+"landmarks":[1,2,3,4,5,6,7,8,9,10,11,12],"arts-history":[1,2,3,4,5,6,7,8,9,10,11,12],"events":[3,4,5,6,7,8],
+"when-to-go":[1,2,3,4,5,6,7,8,9,10,11,12],"getting-around":[1,2,3,4,5,6,7,8,9,10,11,12]};
+
+const CATNAME = {"beaches":"Beaches","surfing":"Surfing","kayaking":"Kayaking","fishing":"Fishing",
+"boating":"Boating","hot-springs":"Hot springs","whale-watching":"Whale watching","birding":"Birding",
+"storm-watching":"Storm watching","parks":"Parks","hiking":"Hiking","mountain-biking":"Mountain biking",
+"skiing":"Skiing","camping":"Camping","restaurants":"Restaurants","markets":"Markets","breweries":"Breweries",
+"landmarks":"Landmarks","arts-history":"Arts and history","events":"Events","when-to-go":"When to go",
+"getting-around":"Getting around"};
+
+const TIDES = {
+  tofino:  { station:"Tofino Harbour",  low1:"06:14", low1m:0.8, high1:"12:38", high1m:3.1, low2:"18:52", low2m:1.2, sunset:"21:07" },
+  ucluelet:{ station:"Ucluelet Harbour",low1:"06:02", low1m:0.7, high1:"12:26", high1m:3.0, low2:"18:40", low2m:1.1, sunset:"21:05" }
+};
+
+/* Every town Arc Trips is writing, grouped the way a person picks one.
+   Two are published. The rest are named honestly, not greyed out. */
+const ROSTER = [
+  { n:"Vancouver Island", href:"region.html",
+    towns:["Tofino","Ucluelet","Victoria","Nanaimo","Campbell River","Parksville",
+           "Qualicum Beach","Sooke","Sidney","Chemainus","Nanoose Bay","Shawnigan Lake"] },
+  { n:"Mainland British Columbia", href:"province.html",
+    towns:["Vancouver","Whistler","Squamish","Nelson"] },
+  { n:"Alberta and the prairies", href:"country.html",
+    towns:["Banff","Jasper","Edmonton","Saskatoon"] },
+  { n:"Ontario and Quebec", href:"country.html",
+    towns:["Toronto","Ottawa","Niagara Falls","Montreal","Quebec City"] },
+  { n:"Atlantic Canada", href:"country.html",
+    towns:["Halifax","Charlottetown","St John's"] }
+];
+
+const MON = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const SHORT = MON.map(m => m.slice(0,3));
+const MONTH = new Date().getMonth() + 1;
+
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const cld = (id, w, h) => "https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_" + w + ",h_" + h + "/" + id;
+const cap = (s) => String(s).charAt(0).toUpperCase() + String(s).slice(1);
+const nplural = (n, w) => n + " " + w + (n === 1 ? "" : "s");
+const list = (a) => a.length < 2 ? (a[0] || "") : a.slice(0,-1).join(", ") + " and " + a[a.length-1];
+
+/* Longest contiguous runs of months, read round the year, so a winter window
+   reads "November to February" rather than as two broken halves. */
+function windows(months){
+  const on = new Set(months);
+  if (on.size === 12) return [];
+  const runs = [];
+  for (let m = 1; m <= 12; m++){
+    if (!on.has(m)) continue;
+    const prev = m === 1 ? 12 : m - 1;
+    if (on.has(prev)) continue;
+    let end = m, n = 0;
+    while (on.has(end) && n < 12){ const nx = end === 12 ? 1 : end + 1; if (!on.has(nx)) break; end = nx; n++; }
+    runs.push([m, end]);
+  }
+  return runs;
+}
+const windowText = (months) => {
+  const r = windows(months);
+  if (!r.length) return "all year";
+  return r.map(([a,b]) => a === b ? MON[a-1] : MON[a-1] + " to " + MON[b-1]).join(", and ");
+};
+
+/* The strip is navy for in season and grey for out. No colour carries meaning
+   on its own: the sentence above it says the same thing in words. */
+function seasonBlock(cat, name){
+  const m = BEST[cat]; if (!m) return "";
+  const cells = MON.map((mm,k) =>
+    "<i " + (m.includes(k+1) ? "data-on" : "") + " " + (k === MONTH-1 ? "data-now" : "") + ">" + mm[0] + "</i>").join("");
+  const words = m.length === 12
+    ? "Good all year. This month is outlined."
+    : "Best from " + windowText(m) + ". This month is outlined.";
+  return '<div class="season"><p class="season__h">Best months to go</p>' +
+    '<div class="mon mon--l" role="img" aria-label="' + esc(name) + ", " + esc(words) + '">' + cells + "</div>" +
+    '<p class="season__w">' + esc(words) + "</p></div>";
+}
+
+/* ── build the searchable records ────────────────────────────────────────── */
+const GHERO = {};
+RAW.g.forEach((g) => { GHERO[g.c + "/" + g.k] = g.h; });
+const heroFor = (city, cat, own) => own || GHERO[city + "/" + cat] || "arcstudio/wnrrcrf4lnalgzbjvsz8";
+const townHref = (slug) => slug === "tofino" ? "tofino.html" : slug === "ucluelet" ? "region.html" : "country.html";
+/* Only pages this prototype actually holds are linked. */
+const guideHref = (city, cat) => cat === "whale-watching" ? "whale-watching.html"
+  : cat === "beaches" ? "long-beach.html"
+  : city === "tofino" ? "things-to-do.html" : "region.html";
+const placeHref = (p) => /long beach/i.test(p.n) ? "long-beach.html"
+  : p.k === "whale-watching" ? "whale-watching.html"
+  : p.c === "tofino" ? "things-to-do.html" : "region.html";
+
+/* A town outranks a subject, a subject outranks the places inside it, and a
+   question ranks last. */
+const TYPE = {
+  destinations: { label:"Towns",     one:"town",     cap:4, w:18 },
+  guides:       { label:"Guides",    one:"guide",    cap:6, w:14 },
+  places:       { label:"Places",    one:"place",    cap:8, w:5 },
+  articles:     { label:"Articles",  one:"article",  cap:6, w:6 },
+  questions:    { label:"Questions", one:"question", cap:6, w:2 },
+  stays:        { label:"Stays",     one:"stay",     cap:6, w:3 }
+};
+const ORDER = ["destinations","guides","places","articles","questions","stays"];
+const OPEN = { destinations:"Open the town", guides:"Open the guide", places:"Open the place",
+               articles:"Read the article", questions:"Read the answer", stays:"See the stay" };
+
+const ITEMS = [];
+const nGuides = (slug) => RAW.g.filter((g) => g.c === slug).length;
+const nPlaces = (slug) => RAW.p.filter((p) => p.c === slug).length;
+const nArts   = (slug) => RAW.a.filter((a) => a.c.indexOf(slug) >= 0).length;
+const nQs     = (slug) => RAW.q.filter((q) => q.c.indexOf(slug) >= 0).length;
+const nPhotos = (slug) => RAW.g.filter((g) => g.c === slug).reduce((s,g) => s + g.ph, 0);
+
+RAW.d.forEach((d) => ITEMS.push({
+  type:"destinations", name:d.n, cat:null, cities:[d.s], hero:d.h, href:townHref(d.s),
+  kicker: d.st ? "Town, written up" : "Town, being written",
+  body: d.f || d.ov || "", extra: (d.ov || "") + " destination town city",
+  meta: d.st ? nplural(nPlaces(d.s), "place") + ", " + d.st + " stays" : "Being written now",
+  live: !!d.st
+}));
+
+RAW.g.forEach((g) => {
+  const places = RAW.p.filter((p) => p.c === g.c && p.k === g.k).length;
+  ITEMS.push({
+    type:"guides", name:g.n, cat:g.k, cities:[g.c], hero:heroFor(g.c, g.k, g.h),
+    href: guideHref(g.c, g.k),
+    kicker: "Guide, " + cap(g.c),
+    body: g.l || "", extra: (CATNAME[g.k] || "") + " " + g.c + " guide subject category",
+    meta: places ? nplural(places, "place") : ""
+  });
+});
+
+RAW.p.forEach((p) => ITEMS.push({
+  type:"places", name:p.n, cat:p.k, cities:[p.c], hero:heroFor(p.c, p.k, p.h), href:placeHref(p),
+  kicker: (CATNAME[p.k] || cap(p.k)) + " in " + cap(p.c),
+  body: p.b || "", extra: (p.f || []).join(" ") + " " + (p.no || "") + " " + p.c + " place",
+  meta: ""
+}));
+
+RAW.a.forEach((a) => ITEMS.push({
+  type:"articles", name:a.t, cat:a.k, cities:a.c, hero:heroFor(a.c[0], a.k, a.h), href:"guide.html",
+  kicker: "Article about " + (CATNAME[a.k] || cap(a.k)).toLowerCase(),
+  body: a.e || "", extra: a.c.join(" ") + " article guide reading feature",
+  meta: ""
+}));
+
+RAW.q.forEach((q) => ITEMS.push({
+  type:"questions", name:q.q, cat:q.k, cities:q.c, hero:heroFor(q.c[0], q.k, q.h), href:"guide.html",
+  kicker: "Answered in " + q.ft,
+  body: q.a || "", extra: q.ft + " question answer",
+  meta: ""
+}));
+
+RAW.l.forEach((l) => ITEMS.push({
+  type:"stays", name:l.t, cat:null, cities:[l.c], hero:l.h, href:"not-found.html",
+  kicker:"Stay in " + l.lo,
+  body: l.r + " bedrooms, " + l.b + " beds, " + l.ba + " bathrooms.",
+  extra: l.lo + " stay accommodation room cabin cottage chalet lodge",
+  meta:"", price:l.p, rating:l.rt, rooms:l.r
+}));
+
+ITEMS.forEach((it) => {
+  it._n = it.name.toLowerCase();
+  it._c = (it.cat ? (CATNAME[it.cat] || it.cat) + " " + it.cat.replace(/-/g, " ") : "").toLowerCase();
+  it._b = (it.body || "").toLowerCase();
+  it._x = (it.extra + " " + TYPE[it.type].label).toLowerCase();
+});
+
+const TOTAL = ITEMS.length;
+const COUNTS = {}; ORDER.forEach((k) => { COUNTS[k] = ITEMS.filter((it) => it.type === k).length; });
+const NTOWNS = ROSTER.reduce((s,g) => s + g.towns.length, 0);
+const PUB = new Set(RAW.d.filter((d) => d.st).map((d) => d.n));
+const PUBHREF = {}; RAW.d.forEach((d) => { if (d.st) PUBHREF[d.n] = townHref(d.s); });
+
+/* ── scoring. Every token has to land somewhere, so two words narrow. ────── */
+const STOP = new Set(["the","and","for","you","are","can","with","from","that","this","its","near","get"]);
+function tokenize(q){
+  const all = String(q).toLowerCase().replace(/[^a-z0-9\s'-]/g, " ").split(/\s+/).filter((t) => t.length > 1);
+  const kept = all.filter((t) => !STOP.has(t));
+  return kept.length ? kept : all;
+}
+function score(it, tokens){
+  let total = 0;
+  for (const t of tokens){
+    let s = 0;
+    if (it._n === t) s += 130;
+    else if (it._n.startsWith(t)) s += 76;
+    else if (it._n.includes(t)) s += 48;
+    if (it._c.includes(t)) s += 26;
+    if (it._b.includes(t)) s += 14;
+    if (it._x.includes(t)) s += 8;
+    if (!s) return -1;
+    total += s;
+  }
+  if (it.cat && BEST[it.cat] && BEST[it.cat].includes(MONTH)) total += 1;
+  return total + TYPE[it.type].w;
+}
+function runSearch(q){
+  const tokens = tokenize(q);
+  if (!tokens.length) return { tokens, hits: [] };
+  const hits = [];
+  for (const it of ITEMS){ const s = score(it, tokens); if (s >= 0) hits.push({ it, s }); }
+  hits.sort((a,b) => b.s - a.s || a.it.name.localeCompare(b.it.name));
+  return { tokens, hits: hits.map((h) => h.it) };
+}
+
+/* Mark every token in one pass on the raw string, then escape, so a match on a
+   word like "mark" or "amp" cannot land inside the markup we just added. */
+const M1 = "", M2 = "";
+function hl(text, tokens){
+  let s = String(text || "");
+  if (tokens && tokens.length){
+    const re = new RegExp("(" + tokens.map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|") + ")", "gi");
+    s = s.replace(re, M1 + "$1" + M2);
+  }
+  return esc(s).split(M1).join("<mark>").split(M2).join("</mark>");
+}
+
+/* snippet: the window round the first hit, with every token marked */
+function snippet(text, tokens, len){
+  const src = String(text || "");
+  if (!src) return "";
+  const n = len || 140;
+  const low = src.toLowerCase();
+  let at = -1;
+  for (const t of tokens){ const i = low.indexOf(t); if (i >= 0 && (at < 0 || i < at)) at = i; }
+  let start = 0;
+  if (at > 78){ start = src.lastIndexOf(" ", at - 62); if (start < 0) start = at - 62; }
+  let out = src.slice(start, start + n);
+  if (start > 0) out = "…" + out.replace(/^\S*\s/, "");
+  if (start + n < src.length) out = out.replace(/\s\S*$/, "") + "…";
+  return hl(out, tokens);
+}
+
+/* ── state ───────────────────────────────────────────────────────────────── */
+const TOWN_NAMES = {"whistler": "Whistler", "victoria": "Victoria", "vancouver": "Vancouver", "squamish": "Squamish", "ottawa": "Ottawa", "quebec-city": "Quebec City", "montreal": "Montreal", "banff": "Banff", "halifax": "Halifax", "niagara-falls": "Niagara Falls", "sooke": "Sooke", "charlottetown": "Charlottetown", "parksville": "Parksville", "edmonton": "Edmonton", "nanaimo": "Nanaimo", "saskatoon": "Saskatoon", "jasper": "Jasper", "nanoose": "Nanoose", "sidney": "Sidney", "chemainus": "Chemainus", "campbell-river": "Campbell River", "nelson": "Nelson", "shawnigan-lake": "Shawnigan Lake", "tofino": "Tofino", "ucluelet": "Ucluelet"};
+const params = new URLSearchParams(location.search);
+const INCOMING = params.get("in") === null ? "tofino" : (params.get("in") || null);
+const townName = (k) => TOWN_NAMES[k] || (k ? k.charAt(0).toUpperCase()+k.slice(1) : "");
+const state = {
+  q: params.get("q") === null ? "whale" : params.get("q"),
+  scope: INCOMING,
+  tab: "all",
+  cats: new Set()
+};
+
+/* ── chrome that follows the state ──────────────────────────────────────── */
+function paintCrumb(){
+  const sep = '<span class="sep" aria-hidden="true">/</span>';
+  const dsep = '<span class="sep lvl-deep" aria-hidden="true">/</span>';
+  $("#crumb").innerHTML = state.scope
+    ? '<a class="lvl-deep" href="country.html">Canada</a>' + dsep +
+      '<a class="lvl-deep" href="province.html">British Columbia</a>' + dsep +
+      '<a href="region.html">Vancouver Island</a>' + sep +
+      '<a href="tofino.html">Tofino</a>' + sep +
+      '<span aria-current="page">Search</span>'
+    : '<a class="lvl-deep" href="index.html">All destinations</a>' + dsep +
+      '<a href="country.html">Canada</a>' + sep +
+      '<span aria-current="page">Search</span>';
+}
+
+function paintTide(){
+  const t = TIDES.tofino;
+  $("#tideStation").textContent = "Tide today at " + t.station;
+  $("#tideRead").innerHTML =
+    "<span>Low <b>" + t.low1 + "</b></span><span>High <b>" + t.high1 + "</b></span>" +
+    "<span>Low <b>" + t.low2 + "</b></span><span>Sunset <b>" + t.sunset + "</b></span>";
+}
+
+/* The scope, in a sentence, with the one control that changes it. */
+function paintScope(){
+  const s = $("#scope");
+  s.innerHTML = state.scope
+    ? "<span>You are searching <b>" + townName(state.scope) + " only</b>.</span>" +
+      '<button type="button" id="unscope">Search all ' + NTOWNS + " towns instead</button>"
+    : "<span>You are searching <b>all " + NTOWNS + " towns</b>.</span>" +
+      '<button type="button" id="rescope">Search " + townName(INCOMING) + " only</button>';
+  const un = s.querySelector("#unscope");
+  if (un) un.addEventListener("click", () => { state.scope = null; state.tab = "all"; syncURL(); render(); });
+  const re = s.querySelector("#rescope");
+  if (re) re.addEventListener("click", () => { state.scope = INCOMING; state.tab = "all"; syncURL(); render(); });
+}
+
+/* ── renderers ───────────────────────────────────────────────────────────── */
+function cardHTML(it, i){
+  const badge = it.type === "destinations"
+    ? (it.live ? '<span class="dest__badge gcard__badge">Written up</span>'
+               : '<span class="dest__badge gcard__badge--n">Being written</span>')
+    : '<span class="dest__badge gcard__badge--n">' + esc(TYPE[it.type].label.replace(/s$/, "")) + "</span>";
+  return '<a class="gcard" href="' + it.href + '" style="--i:' + i + '">' +
+    '<div class="dest__m"><img src="' + cld(it.hero, 640, 480) + '" alt="' + esc(it.name) + ", " + esc(it.kicker) + '">' + badge + "</div>" +
+    "<h3>" + (it._title || esc(it.name)) + "</h3>" +
+    "<p>" + (it._snip || esc(it.body)) + "</p>" +
+    (it.meta ? '<p class="gcard__meta tnum">' + esc(it.meta) + "</p>" : "") +
+    "</a>";
+}
+
+function rowHTML(it, i){
+  const price = it.type === "stays"
+    ? '<p class="rrow__p">$' + it.price + " a night, sleeps " + it.rooms + " bedrooms</p>" : "";
+  return '<a class="rrow" href="' + it.href + '" style="--i:' + i + '">' +
+    '<div class="rrow__m"><img src="' + cld(it.hero, 300, 225) + '" alt="' + esc(it.name) + ", " + esc(it.kicker) + '"></div>' +
+    '<div><div class="kmeta" style="margin-top:0"><span class="k">' + esc(it.kicker) + "</span>" +
+      (it.meta ? '<span class="kmeta__m"><span class="dot"></span>' + esc(it.meta) + "</span>" : "") + "</div>" +
+    "<h3>" + (it._title || esc(it.name)) + "</h3>" +
+    "<p>" + (it._snip || esc(it.body)) + "</p>" + price + "</div></a>";
+}
+
+function qHTML(it, i){
+  return '<a class="qrow" href="' + it.href + '" style="--i:' + i + '">' +
+    '<span class="k">' + esc(it.kicker) + "</span>" +
+    "<h3>" + (it._title || esc(it.name)) + "</h3>" +
+    "<p>" + (it._snip || esc(it.body)) + "</p></a>";
+}
+
+function leadHTML(it){
+  return '<a class="rlead" href="' + it.href + '">' +
+    '<div class="rlead__m"><img src="' + cld(it.hero, 1000, 625) + '" alt="' + esc(it.name) + ", " + esc(it.kicker) + '"></div>' +
+    '<div><div class="kmeta" style="margin-top:0"><span class="k">' + esc(it.kicker) + "</span>" +
+      (it.meta ? '<span class="kmeta__m"><span class="dot"></span><span class="tnum">' + esc(it.meta) + "</span></span>" : "") + "</div>" +
+    "<h3>" + (it._title || esc(it.name)) + "</h3>" +
+    "<p>" + (it._snip || esc(it.body)) + "</p>" +
+    (it.cat ? seasonBlock(it.cat, it.name) : "") +
+    '<span class="btn btn--ghost btn--sm">' + OPEN[it.type] + "</span></div></a>";
+}
+
+function groupHTML(key, items, shown, i0){
+  const t = TYPE[key];
+  /* A lone card in a three column grid reads as a mistake, so one of anything
+     falls back to the list row. */
+  const useCards = (key === "destinations" || key === "guides") && shown.length > 1;
+  const useQ = key === "questions";
+  const rows = shown.map((it, i) => useCards ? cardHTML(it, i) : useQ ? qHTML(it, i0 + i) : rowHTML(it, i0 + i)).join("");
+  const more = items.length > shown.length
+    ? '<button class="seeall" type="button" data-tab="' + key + '">See all ' + items.length + " " +
+      (items.length === 1 ? t.one : t.one + "s") +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>'
+    : "";
+  const cls = useCards ? "gg" + (shown.length === 2 ? " gg--2" : "") : useQ ? "qgrid" : "rl" + (shown.length === 1 ? " rl--one" : "");
+  return '<section class="rsec" id="g-' + key + '" aria-labelledby="h-' + key + '">' +
+    '<div class="rhead"><h2 id="h-' + key + '">' + t.label +
+      '<span class="c">' + items.length + "</span></h2>" + more + "</div>" +
+    '<div class="' + cls + '">' + rows + "</div></section>";
+}
+
+/* the browse blocks, shared by the empty answer and the not-yet-typed state */
+function suggestedChips(){
+  const cats = Object.keys(CATNAME)
+    .map((c) => ({ c, n: runSearch(CATNAME[c].split(" ")[0]).hits.length }))
+    .filter((x) => x.n > 3).sort((a,b) => b.n - a.n).slice(0, 6);
+  return cats.map((x) =>
+    '<button type="button" data-q="' + esc(CATNAME[x.c].split(" and ")[0]) + '">' +
+    esc(CATNAME[x.c]) + ' <span class="ct">' + x.n + "</span></button>").join("");
+}
+function townsHTML(){
+  const live = RAW.d.filter((d) => d.st)
+    .sort((a,b) => (b.s === state.scope) - (a.s === state.scope) || a.n.localeCompare(b.n));
+  return '<div class="zero__b"><p class="zero__h">The two towns that are written up</p>' +
+    '<div class="near">' + live.map((d) =>
+      '<a class="nearc" href="' + townHref(d.s) + '">' +
+        '<span class="nearc__m"><img src="' + cld(d.h, 400, 300) + '" alt="' + esc(d.n) + ", " + esc(d.f) + '"></span>' +
+        '<span class="nearc__t"><b>' + esc(d.n) + "</b>" +
+          "<p>" + nplural(nPlaces(d.s), "place") + " written up, " + d.st + " stays.</p>" +
+          "<span>Open " + esc(d.n) + "</span></span></a>").join("") +
+    "</div></div>";
+}
+
+function zeroHTML(q){
+  const dym = didYouMean(q);
+  return '<div class="almanac zero">' +
+    "<h2>Nothing we publish uses that word yet</h2>" +
+    '<p class="zero__l">We have searched every paragraph of <b>' + TOTAL +
+      "</b> pages across Tofino and Ucluelet. Here is what to try instead.</p>" +
+    (dym.length
+      ? '<div class="zero__b"><p class="zero__h">Did you mean</p><div class="zero__chips">' +
+        dym.map((d) => '<button type="button" data-q="' + esc(d.w) + '">' + esc(d.w) +
+          ' <span class="ct">' + d.n + "</span></button>").join("") +
+        "</div></div>"
+      : "") +
+    townsHTML() +
+    '<div class="zero__b"><p class="zero__h">Or start from a subject</p>' +
+      '<div class="zero__chips">' + suggestedChips() + "</div></div>" +
+    "</div>";
+}
+
+function promptHTML(){
+  return '<div class="almanac zero">' +
+    "<h2>Type two letters to start</h2>" +
+    '<p class="zero__l">One field searches everything: towns, guides, the places inside them, ' +
+      "articles, the questions those articles answer, and stays.</p>" +
+    townsHTML() +
+    '<div class="zero__b"><p class="zero__h">Or start from a subject</p>' +
+      '<div class="zero__chips">' + suggestedChips() + "</div></div>" +
+    "</div>";
+}
+
+/* a cheap edit distance, only used to offer a spelling when one is close */
+function edits(a, b){
+  const m = a.length, n = b.length;
+  if (Math.abs(m - n) > 2) return 9;
+  let prev = Array.from({length:n+1}, (_,i) => i);
+  for (let i = 1; i <= m; i++){
+    const cur = [i];
+    for (let j = 1; j <= n; j++){
+      cur[j] = Math.min(prev[j] + 1, cur[j-1] + 1, prev[j-1] + (a[i-1] === b[j-1] ? 0 : 1));
+    }
+    prev = cur;
+  }
+  return prev[n];
+}
+function didYouMean(q){
+  const t = tokenize(q); if (!t.length) return [];
+  const vocab = new Set();
+  Object.values(CATNAME).forEach((c) => c.split(/[\s]+/).forEach((w) => w.length > 3 && vocab.add(w.toLowerCase())));
+  ITEMS.forEach((it) => it._n.split(/[\s,]+/).forEach((w) => w.length > 3 && vocab.add(w)));
+  /* Sharing the first letter is what a misspelling almost always does, and it
+     removes a whole class of nonsense suggestion. */
+  const out = [];
+  for (const w of vocab){
+    for (const tok of t){
+      if (tok.length > 3 && tok[0] === w[0] && edits(tok, w) <= 2){
+        const n = runSearch(w).hits.length;
+        if (n) out.push({ w: cap(w), n });
+        break;
+      }
+    }
+    if (out.length >= 4) break;
+  }
+  return out.sort((a,b) => b.n - a.n);
+}
+
+/* ── the filters. One row of kinds, one short row of subjects. ─────────── */
+function controlsHTML(base, byGroup, facetCats){
+  const total = base.length;
+  const types = ['<button type="button" aria-pressed="' + (state.tab === "all") + '" data-tab="all">Everything <span class="ct">' + total + "</span></button>"]
+    .concat(ORDER.filter((k) => byGroup[k] && byGroup[k].length).map((k) =>
+      '<button type="button" aria-pressed="' + (state.tab === k) + '" data-tab="' + k + '">' +
+      TYPE[k].label + ' <span class="ct">' + byGroup[k].length + "</span></button>")).join("");
+
+  let rows = '<div class="filterrow filterrow--t" role="group" aria-label="Narrow by kind of page">' +
+    '<span class="k">Show</span>' + types + "</div>";
+
+  /* Six subjects at most. A longer row is a directory, not a filter. */
+  const top = facetCats.slice(0, 6);
+  if (top.length > 1){
+    const on = state.cats.size;
+    rows += '<div class="filterrow" role="group" aria-label="Narrow by subject">' +
+      '<span class="k">Subject</span>' +
+      top.map((c) =>
+        '<button type="button" aria-pressed="' + state.cats.has(c.k) + '" data-cat="' + c.k + '">' +
+        esc(CATNAME[c.k] || cap(c.k)) + ' <span class="ct">' + c.n + "</span></button>").join("") +
+      (on ? '<button class="clear" type="button" id="clearf">Clear ' + on + " " + (on === 1 ? "filter" : "filters") + "</button>" : "") +
+      "</div>";
+  }
+  return rows;
+}
+
+/* ── the main paint ──────────────────────────────────────────────────────── */
+function inTown(it, town){ return it.cities.indexOf(town) >= 0; }
+
+function render(){
+  paintCrumb();
+  paintTide();
+  paintScope();
+  $("#dockSub").textContent = state.scope ? "Searching Tofino only" : "Searching all " + NTOWNS + " towns";
+
+  const q = state.q.trim();
+  const ctrl = $("#ctrl"), out = $("#results");
+  ITEMS.forEach((it) => { it._snip = ""; it._title = ""; });
+
+  if (q.length < 2){
+    $("#h1").textContent = "Search Arc Trips";
+    $("#sub").innerHTML = "One field for everything we publish: towns, guides, places, articles, " +
+      "questions and stays.";
+    ctrl.innerHTML = "";
+    out.innerHTML = promptHTML();
+    $("#ann").textContent = q.length ? "Keep typing. Two letters starts the search." : "";
+    wire();
+    return;
+  }
+
+  const { tokens, hits } = runSearch(q);
+  hits.forEach((it) => {
+    it._snip = snippet(it.body || it.extra, tokens, 140);
+    it._title = hl(it.name, tokens);
+  });
+
+  if (!hits.length){
+    $("#h1").innerHTML = 'No results for <span class="q">“' + esc(q) + '”</span>';
+    $("#sub").innerHTML = "We searched every paragraph on every page. Nothing uses that word yet.";
+    ctrl.innerHTML = "";
+    out.innerHTML = zeroHTML(q);
+    $("#ann").textContent = "No results for " + q + ".";
+    wire();
+    return;
+  }
+
+  const scoped = state.scope === "tofino";
+  const base0 = scoped ? hits.filter((it) => inTown(it, "tofino")) : hits;
+  const outsideList = scoped ? hits.filter((it) => !inTown(it, "tofino")) : [];
+
+  /* facets are counted over everything the query found in scope, so the
+     numbers do not move as you tick them */
+  const catCount = {};
+  base0.forEach((it) => { if (it.cat) catCount[it.cat] = (catCount[it.cat] || 0) + 1; });
+  const facetCats = Object.keys(catCount).map((k) => ({ k, n: catCount[k] })).sort((a,b) => b.n - a.n);
+
+  const base = base0.filter((it) => !state.cats.size || (it.cat && state.cats.has(it.cat)));
+
+  const byGroup = {};
+  ORDER.forEach((k) => { byGroup[k] = base.filter((it) => it.type === k); });
+  if (state.tab !== "all" && !byGroup[state.tab].length) state.tab = "all";
+
+  /* a scope with nothing in it still leads with the number the coast does
+     have, never with the zero */
+  const bare = scoped && !base0.length && outsideList.length > 0;
+  const headline = bare ? outsideList.length : base.length;
+
+  $("#h1").innerHTML = '<span class="n">' + headline + "</span> " + (headline === 1 ? "result" : "results") +
+    ' for <span class="q">“' + esc(q) + '”</span>';
+  $("#sub").innerHTML = bare
+    ? "None of them are in Tofino. " + (outsideList.length === 1 ? "The one match is" : "They are") + " in " +
+      esc(list(outsideWhere(outsideList))) + ", forty minutes down Highway 4."
+    : scoped
+      ? "In Tofino. " + (outsideList.length
+          ? "<b>" + outsideList.length + "</b> more are in other towns, listed at the end."
+          : "Nothing outside the town matches.")
+      : "Across every town we publish.";
+  $("#ann").textContent = nplural(headline, "result") + " for " + q +
+    (bare ? ", none of them in Tofino" : scoped ? ", in Tofino" : "") +
+    (state.tab === "all" ? "" : ", showing " + TYPE[state.tab].label.toLowerCase() + " only") + ".";
+
+  ctrl.innerHTML = bare ? "" : controlsHTML(base, byGroup, facetCats);
+
+  /* nothing inside the town, but the coast has answers: hand over the way out */
+  if (bare){
+    const where = esc(list(outsideWhere(outsideList)));
+    out.innerHTML = '<div class="note"><div><h3>' +
+      (outsideList.length === 1 ? "This one is in " + where : "These are all in " + where) + "</h3>" +
+      "<p>Nothing in Tofino uses “" + esc(q) + "” yet. Dropping the town puts these in the count.</p></div>" +
+      '<button class="btn btn--ghost" type="button" id="unscope3">Search all ' + NTOWNS + " towns</button></div>" +
+      outsideHTML(outsideList);
+    wire();
+    return;
+  }
+
+  /* nothing left after the filters: say so, and hand back the way out */
+  if (!base.length){
+    out.innerHTML = '<div class="note"><div><h3>No match with those filters</h3>' +
+      "<p>The search still finds <b>" + base0.length + "</b> " + (base0.length === 1 ? "page" : "pages") +
+      " for “" + esc(q) + "”. Clearing the filters brings them back.</p></div>" +
+      '<button class="btn btn--ghost" type="button" id="clearf2">Clear the filters</button></div>' +
+      (outsideList.length ? outsideHTML(outsideList) : "");
+    wire();
+    return;
+  }
+
+  let html = "";
+  let i = 0;
+
+  if (state.tab === "all"){
+    const lead = base[0];
+    html += '<section class="rsec" id="g-lead" aria-labelledby="h-lead">' +
+      '<div class="rhead"><h2 id="h-lead">Closest match</h2></div>' + leadHTML(lead) + "</section>";
+    ORDER.forEach((k) => {
+      const items = byGroup[k].filter((it) => it !== lead);
+      if (!items.length) return;
+      const shown = items.slice(0, TYPE[k].cap);
+      html += groupHTML(k, items, shown, i);
+      i += shown.length;
+    });
+  } else {
+    const items = byGroup[state.tab];
+    html += groupHTML(state.tab, items, items, 0);
+  }
+
+  if (outsideList.length) html += outsideHTML(outsideList);
+  out.innerHTML = html;
+  wire();
+}
+
+/* The town scope ranks, it never deletes. Everything outside Tofino stays on
+   the page, one section further down. */
+function outsideWhere(items){
+  const towns = {};
+  items.forEach((it) => it.cities.forEach((c) => { if (c !== "tofino") towns[c] = (towns[c] || 0) + 1; }));
+  return Object.keys(towns).sort((a,b) => towns[b] - towns[a]).map(cap);
+}
+function outsideHTML(items){
+  const where = esc(list(outsideWhere(items)));
+  const shown = items.slice(0, 6);
+  return '<section class="rsec" id="g-out" aria-labelledby="h-out">' +
+    '<div class="rhead"><h2 id="h-out">Also in ' + where +
+      '<span class="c">' + items.length + "</span></h2>" +
+    '<button class="seeall" type="button" id="unscope2">Add them to the count' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button></div>' +
+    '<div class="rl">' + shown.map((it,k) => rowHTML(it, k)).join("") + "</div></section>";
+}
+
+/* ── typeahead, open from two characters ────────────────────────────────── */
+let taItems = [], taAt = -1;
+function closeTA(){
+  const ta = $("#ta");
+  ta.hidden = true; ta.innerHTML = ""; taItems = []; taAt = -1;
+  $("#bigq").setAttribute("aria-expanded", "false");
+  $("#bigq").removeAttribute("aria-activedescendant");
+}
+function openTA(){
+  const q = $("#bigq").value.trim();
+  if (q.length < 2 || document.activeElement !== $("#bigq")) return closeTA();
+  const { hits } = runSearch(q);
+  taItems = hits.slice(0, 6);
+  if (!taItems.length){
+    $("#ta").innerHTML = '<li class="ta__f" role="presentation" style="border-top:0;margin-top:0">' +
+      "Nothing uses “" + esc(q) + "” yet. Press Enter to see what to try instead.</li>";
+    $("#ta").hidden = false;
+    $("#bigq").setAttribute("aria-expanded", "true");
+    taAt = -1;
+    return;
+  }
+  $("#ta").innerHTML = taItems.map((it,i) =>
+    '<li role="option" id="ta-' + i + '" aria-selected="false">' +
+      '<img src="' + cld(it.hero, 92, 72) + '" alt="">' +
+      "<span><b>" + esc(it.name) + "</b><span>" + esc(it.kicker) + "</span></span></li>").join("") +
+    '<li class="ta__f" role="presentation">' + hits.length + " " + (hits.length === 1 ? "match" : "matches") +
+      " in total. Press Enter for all of them.</li>";
+  $("#ta").hidden = false;
+  $("#bigq").setAttribute("aria-expanded", "true");
+  taAt = -1;
+}
+function moveTA(d){
+  if ($("#ta").hidden || !taItems.length) return;
+  taAt = (taAt + d + taItems.length + 1) % (taItems.length + 1);
+  const opts = $("#ta").querySelectorAll('[role="option"]');
+  opts.forEach((o,i) => o.setAttribute("aria-selected", String(i === taAt)));
+  if (taAt >= 0) $("#bigq").setAttribute("aria-activedescendant", "ta-" + taAt);
+  else $("#bigq").removeAttribute("aria-activedescendant");
+}
+
+/* ── wiring ──────────────────────────────────────────────────────────────── */
+function setQuery(q, keepScope){
+  state.q = q;
+  if (!keepScope){ state.cats.clear(); state.tab = "all"; }
+  $("#bigq").value = q; $("#q").value = q;
+  syncURL();
+  render();
+}
+function syncURL(){
+  try {
+    const p = new URLSearchParams();
+    if (state.q) p.set("q", state.q);
+    if (state.scope) p.set("in", state.scope);
+    history.replaceState(null, "", location.pathname + (p.toString() ? "?" + p : ""));
+  } catch (e){ /* file:// blocks replaceState in some browsers, which is fine */ }
+}
+
+function wire(){
+  const ctrl = $("#ctrl"), out = $("#results");
+  [ctrl, out].forEach((root) => {
+    root.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => {
+      state.tab = b.dataset.tab; render();
+      $("#results").scrollIntoView({ behavior:"smooth", block:"start" });
+    }));
+    root.querySelectorAll("[data-q]").forEach((b) => b.addEventListener("click", () => setQuery(b.dataset.q)));
+    root.querySelectorAll("#unscope2,#unscope3").forEach((b) =>
+      b.addEventListener("click", () => { state.scope = null; state.tab = "all"; syncURL(); render(); }));
+    root.querySelectorAll("#clearf,#clearf2").forEach((b) =>
+      b.addEventListener("click", () => { state.cats.clear(); render(); }));
+  });
+  ctrl.querySelectorAll("[data-cat]").forEach((b) => b.addEventListener("click", () => {
+    const k = b.dataset.cat; state.cats.has(k) ? state.cats.delete(k) : state.cats.add(k); state.tab = "all"; render();
+  }));
+}
+
+document.querySelectorAll(".qq").forEach((b) => b.addEventListener("click", () => setQuery(b.dataset.q)));
+
+let timer = null;
+function onType(v){
+  clearTimeout(timer);
+  timer = setTimeout(() => { state.q = v; state.cats.clear(); state.tab = "all"; syncURL(); render(); }, 130);
+}
+$("#bigq").addEventListener("input", (e) => { $("#q").value = e.target.value; onType(e.target.value); openTA(); });
+$("#q").addEventListener("input", (e) => { $("#bigq").value = e.target.value; onType(e.target.value); });
+$("#bigq").addEventListener("focus", openTA);
+$("#bigq").addEventListener("blur", () => setTimeout(closeTA, 140));
+$("#bigq").addEventListener("keydown", (e) => {
+  if (e.key === "ArrowDown"){ e.preventDefault(); moveTA(1); }
+  else if (e.key === "ArrowUp"){ e.preventDefault(); moveTA(-1); }
+  else if (e.key === "Escape"){ closeTA(); }
+  else if (e.key === "Enter" && taAt >= 0 && taItems[taAt]){ e.preventDefault(); location.href = taItems[taAt].href; }
+});
+$("#ta").addEventListener("mousedown", (e) => {
+  const li = e.target.closest('[role="option"]');
+  if (!li) return;
+  e.preventDefault();
+  location.href = taItems[[...$("#ta").querySelectorAll('[role="option"]')].indexOf(li)].href;
+});
+$("#bigform").addEventListener("submit", (e) => { e.preventDefault(); closeTA(); onType($("#bigq").value); });
+$("#navform").addEventListener("submit", (e) => { e.preventDefault(); onType($("#q").value); });
+addEventListener("keydown", (e) => {
+  if (e.key === "/" && !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)){
+    e.preventDefault(); $("#bigq").focus(); $("#bigq").select();
+  }
+});
+
+/* ── the standing parts of the page ─────────────────────────────────────── */
+(function paintRoster(){
+  $("#rosterSub").textContent =
+    NTOWNS + " towns across 8 provinces. Tofino and Ucluelet are written up. " +
+    "The rest are being written now.";
+  $("#roster").innerHTML = ROSTER.map((g) => {
+    const done = g.towns.filter((t) => PUB.has(t)).length;
+    return '<div class="rgrp">' +
+      '<a class="rgrp__h" href="' + g.href + '">' + esc(g.n) + "</a>" +
+      '<p class="rgrp__c">' + nplural(g.towns.length, "town") + ", " + done + " written up</p><ul>" +
+      g.towns.map((t) => PUB.has(t)
+        ? '<li><a href="' + PUBHREF[t] + '">' + esc(t) + "</a></li>"
+        : "<li><span>" + esc(t) + "</span></li>").join("") +
+      "</ul></div>";
+  }).join("");
+})();
+
+(function paintSibs(){
+  const rows = [
+    ["tofino.html", "Tofino overview", nPlaces("tofino") + " places, " + nGuides("tofino") + " subjects"],
+    ["things-to-do.html", "Things to do", nGuides("tofino") + " subjects to browse"],
+    ["long-beach.html", "Long Beach", "The best known beach on the coast"],
+    ["whale-watching.html", "Whale watching", nQs("tofino") + " questions answered"],
+    ["plan.html", "Plan a trip", "12 months of weather"],
+    ["guide.html", "Guides", nArts("tofino") + " articles, " + nPhotos("tofino") + " photographs"]
+  ];
+  $("#sibs").innerHTML = rows.map((r) =>
+    '<a class="sib" href="' + r[0] + '"><span class="sib__n">' + esc(r[1]) + "</span>" +
+    '<span class="sib__m">' + r[2].replace(/(\d+)/g, "<b>$1</b>") + "</span></a>").join("");
+})();
+
+/* the reading-progress hairline, the only fixed thing this page adds */
+(function progress(){
+  const bar = $("#jumpbar");
+  const on = () => {
+    const h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.width = (h > 0 ? Math.min(scrollY / h, 1) * 100 : 0) + "%";
+  };
+  addEventListener("scroll", on, { passive:true });
+  addEventListener("resize", on);
+  on();
+})();
+
+$("#bigq").value = state.q;
+$("#q").value = state.q;
+render();
+</script>
+
+<script>
+/* Linkify town names inside separator runs like "Victoria · Nanaimo · Sooke".
+   The earlier pass only matched a text node equal to one name, so multi-town
+   rows never linked. This splits on the separator and links each part. */
+(function(){
+  var M={"Victoria": "victoria.html", "Nanaimo": "nanaimo.html", "Campbell River": "campbell-river.html", "Sooke": "sooke.html", "Sidney": "sidney.html", "Chemainus": "chemainus.html", "Nanoose": "nanoose.html", "Shawnigan Lake": "shawnigan-lake.html", "Whistler": "whistler.html", "Squamish": "squamish.html", "Vancouver": "vancouver.html", "Nelson": "nelson.html", "Banff": "banff.html", "Jasper": "jasper.html", "Edmonton": "edmonton.html", "Saskatoon": "saskatoon.html", "Niagara Falls": "niagara-falls.html", "Ottawa": "ottawa.html", "Montreal": "montreal.html", "Quebec City": "quebec-city.html", "Halifax": "halifax.html", "Charlottetown": "charlottetown.html", "Qualicum Beach": "region.html", "Nanoose Bay": "nanoose.html", "Parksville": "nanoose.html"}, SKIP=/^(A|BUTTON|INPUT|SCRIPT|STYLE|H1|TITLE)$/;
+  function run(){
+    var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT), n, jobs=[];
+    while(n=w.nextNode()){
+      var v=n.nodeValue; if(!v||!v.trim()) continue;
+      var p=n.parentElement; if(!p||SKIP.test(p.tagName)||p.closest('a')) continue;
+      var names=Object.keys(M).filter(function(t){return v.indexOf(t)>-1;});
+      if(names.length) jobs.push([n,v]);
+    }
+    jobs.forEach(function(j){
+      var node=j[0], v=j[1], frag=document.createDocumentFragment();
+      var parts=v.split(/(\s*[·|,]\s*)/);
+      var linked=false;
+      parts.forEach(function(part){
+        var key=part.trim();
+        if(M[key]){
+          var a=document.createElement('a');
+          a.href=M[key]; a.textContent=part;
+          a.style.color='var(--azure)';
+          frag.appendChild(a); linked=true;
+        } else frag.appendChild(document.createTextNode(part));
+      });
+      if(linked && node.parentNode) node.parentNode.replaceChild(frag,node);
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(run,80)});
+  else setTimeout(run,80);
+  setTimeout(run,800);
+})();
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

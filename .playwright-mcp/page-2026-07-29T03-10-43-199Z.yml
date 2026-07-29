@@ -1,0 +1,207 @@
+- generic [active] [ref=f723e1]:
+  - navigation [ref=f723e2]:
+    - generic [ref=f723e3]:
+      - link "ARCTRIPS" [ref=f723e4] [cursor=pointer]:
+        - /url: index.html
+      - list [ref=f723e5]:
+        - listitem [ref=f723e6]:
+          - link "Stays" [ref=f723e7] [cursor=pointer]:
+            - /url: search.html
+        - listitem [ref=f723e8]:
+          - link "Destinations" [ref=f723e9] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=f723e10]:
+          - link "Guides" [ref=f723e11] [cursor=pointer]:
+            - /url: search.html
+      - textbox "Search" [ref=f723e16]:
+        - /placeholder: Search Sidney
+      - link "Sign in" [ref=f723e17] [cursor=pointer]:
+        - /url: search.html
+  - navigation "Sidney" [ref=f723e18]:
+    - generic [ref=f723e19]:
+      - link "← Vancouver Island" [ref=f723e20] [cursor=pointer]:
+        - /url: region.html
+      - list [ref=f723e22]:
+        - listitem [ref=f723e23]:
+          - link "Overview" [ref=f723e24] [cursor=pointer]:
+            - /url: "#top"
+        - listitem [ref=f723e25]:
+          - link "Stays" [ref=f723e26] [cursor=pointer]:
+            - /url: search.html
+        - listitem [ref=f723e27]:
+          - link "Guides" [ref=f723e28] [cursor=pointer]:
+            - /url: search.html
+        - listitem [ref=f723e29]:
+          - link "All destinations" [ref=f723e30] [cursor=pointer]:
+            - /url: index.html
+      - link "Find a stay" [ref=f723e31] [cursor=pointer]:
+        - /url: search.html
+  - main [ref=f723e32]:
+    - navigation "Breadcrumb" [ref=f723e34]:
+      - link "Arc Trips" [ref=f723e35] [cursor=pointer]:
+        - /url: index.html
+      - generic [ref=f723e36]: /
+      - link "Vancouver Island" [ref=f723e37] [cursor=pointer]:
+        - /url: region.html
+      - generic [ref=f723e38]: /
+      - generic [ref=f723e39]: Sidney
+    - generic [ref=f723e40]:
+      - img "Sidney, Vancouver Island" [ref=f723e41]
+      - generic [ref=f723e44]:
+        - text: Vancouver Island
+        - heading "Sidney" [level=1] [ref=f723e45]
+        - paragraph [ref=f723e46]: The Butchart Gardens is a world-renowned National Historic Site of Canada, attracting over a million visitors annually to its 22-hectare (55-acre) estate. Originally a limestone quarry, the site was transformed into a series of themed gardens by Jennie Butchart starting in 1904.
+        - generic [ref=f723e47]:
+          - generic [ref=f723e48]:
+            - term [ref=f723e49]: Places written up
+            - definition [ref=f723e50]: "16"
+          - generic [ref=f723e51]:
+            - term [ref=f723e52]: With photographs
+            - definition [ref=f723e53]: "11"
+          - generic [ref=f723e54]:
+            - term [ref=f723e55]: Guides
+            - definition [ref=f723e56]: "1"
+    - navigation "Sections" [ref=f723e58]:
+      - link "Sidney" [ref=f723e59] [cursor=pointer]:
+        - /url: "#sidney"
+    - generic [ref=f723e61]:
+      - generic [ref=f723e62]:
+        - text: Sidney
+        - heading "Sidney" [level=2] [ref=f723e63]
+        - paragraph [ref=f723e64]: 16 places, written up one at a time
+      - generic [ref=f723e65]:
+        - article [ref=f723e66]:
+          - figure [ref=f723e67]:
+            - img "1. The Butchart Gardens, Sidney" [ref=f723e68]
+          - generic [ref=f723e69]:
+            - heading "1. The Butchart Gardens" [level=3] [ref=f723e70]
+            - paragraph [ref=f723e71]: The Butchart Gardens is a world-renowned National Historic Site of Canada, attracting over a million visitors annually to its 22-hectare (55-acre) estate. Originally a limestone quarry, the site was transformed into a series of themed gardens by Jennie Butchart starting in 1904.
+            - paragraph [ref=f723e72]: "The Sunken Garden: This is the most iconic part of the property. Descend the stairs to see the quarry floor, which has been reclaimed with vibrant flower beds, towering trees, and the Mound, a massive rock formation in the center that offers an elevated view of the garden floor."
+            - paragraph [ref=f723e73]: "The Ross Fountain: Installed in 1964 to celebrate the 60th anniversary of the gardens, this fountain features water displays that reach heights of 21 meters (70 feet). It is particularly impressive during summer evening illuminations."
+        - article [ref=f723e74]:
+          - figure [ref=f723e75]:
+            - img "2. Sidney Spit (part of Gulf Islands National Park Reserve), Sidney" [ref=f723e76]
+          - generic [ref=f723e77]:
+            - heading "2. Sidney Spit (part of Gulf Islands National Park Reserve)" [level=3] [ref=f723e78]
+            - paragraph [ref=f723e79]: Sidney Spit is part of the Gulf Islands National Park Reserve, located at the northern end of Sidney Island. Accessible only by boat or a seasonal passenger ferry, it is famous for its disappearing sandy spit and unique tidal ecosystem.
+            - paragraph [ref=f723e80]: "The Sandy Spit: At low tide, a narrow finger of white sand stretches nearly two kilometers into the Salish Sea. It is a premier spot for walking between the waves, though visitors must keep an eye on the rising tide to avoid being cut off from the main island."
+            - paragraph [ref=f723e81]: "Birdwatching: The salt marshes and lagoons are a critical stopover for migratory shorebirds. It is one of the best locations in the region to spot Brant geese and purple martins during the spring migration."
+        - article [ref=f723e82]:
+          - figure [ref=f723e83]:
+            - img "3. Whale Watching and Marine Tours, Sidney" [ref=f723e84]
+          - generic [ref=f723e85]:
+            - heading "3. Whale Watching and Marine Tours" [level=3] [ref=f723e86]
+            - paragraph [ref=f723e87]: Sidney and the Saanich Peninsula serve as a premier gateway to the Salish Sea, offering direct access to the feeding grounds of orcas, humpbacks, and a diverse array of marine wildlife. Because these tours depart further north than those in downtown Victoria, they often reach the Gulf Islands more quickly, providing more time for actual wildlife viewing.
+            - paragraph [ref=f723e88]: Whale Watching & Eco-Tours
+            - paragraph [ref=f723e89]: Sidney Whale Watching is a First Nations-owned and operated company that has served the Peninsula for over 20 years. They emphasize an indigenous perspective on the local waters and the W̱SÁNEĆ peoples' connection to the land and sea.
+        - article [ref=f723e90]:
+          - figure [ref=f723e91]:
+            - img "4. Fishing Trip, Sidney" [ref=f723e92]
+          - generic [ref=f723e93]:
+            - heading "4. Fishing Trip" [level=3] [ref=f723e94]
+            - paragraph [ref=f723e95]: Sidney is widely considered a premier destination for saltwater angling, offering access to some of the calmest and most productive waters on the West Coast. The region's unique geography provides year-round salmon fishing, protected from the open swells of the Pacific.
+            - paragraph [ref=f723e96]: Where to Fish and What to Catch
+            - paragraph [ref=f723e97]: "Sidney Channel and Coal Island: These local waters are hotspots for Winter Chinook (also known as Springs). Local experts often focus on the currents around Coal Island and Fairfax Point, where the movement of water attracts baitfish and hungry salmon."
+        - article [ref=f723e98]:
+          - figure [ref=f723e99]:
+            - img "5. Sidney Waterfront, Sidney" [ref=f723e100]
+          - generic [ref=f723e101]:
+            - heading "5. Sidney Waterfront" [level=3] [ref=f723e102]
+            - paragraph [ref=f723e103]: The Sidney Waterfront is a scenic stretch along the Salish Sea that blends public art, marine education, and nautical history. The centerpiece is a 2.5-kilometer paved walkway that is completely flat and barrier-free, offering expansive views of the Gulf Islands and Mount Baker.
+            - paragraph [ref=f723e104]: "Shaw Centre for the Salish Sea: This award-winning aquarium focuses exclusively on the local ecosystem. Visitors often highlight the giant Pacific octopus and the unique collection of Coast Salish art integrated into the exhibits."
+            - paragraph [ref=f723e105]: "The Sidney Sculpture Walk: As you walk the shoreline, you will encounter a rotating gallery of outdoor sculptures. These range from abstract steel works to life-sized bronze figures, all positioned to use the ocean as a natural backdrop."
+        - article [ref=f723e106]:
+          - figure [ref=f723e107]:
+            - img "6. Beacon Avenue and Downtown Sidney, Sidney" [ref=f723e108]
+          - generic [ref=f723e109]:
+            - heading "6. Beacon Avenue and Downtown Sidney" [level=3] [ref=f723e110]
+            - paragraph [ref=f723e111]: Beacon Avenue serves as the primary artery of downtown Sidney, sloping gently from the highway down to the Salish Sea. This tree-lined thoroughfare is the centerpiece of Canada's only Booktown, where a dense concentration of independent shops and cafes creates a nostalgic, small-town atmosphere.
+            - paragraph [ref=f723e112]: "The Booktown Experience: You can spend hours exploring several unique bookstores within a few blocks, ranging from the multi-roomed Tanner's Books to specialty shops focusing on rare and antiquarian titles."
+            - paragraph [ref=f723e113]: "Artisanal Boutiques: The street is characterized by a lack of major chains, favoring local galleries, clothing boutiques, and gift shops that feature West Coast craftsmanship."
+        - article [ref=f723e114]:
+          - figure [ref=f723e115]:
+            - img "7. ȽÁU, WELṈEW̱ / John Dean Provincial Park, Sidney" [ref=f723e116]
+          - generic [ref=f723e117]:
+            - heading "7. ȽÁU, WELṈEW̱ / John Dean Provincial Park" [level=3] [ref=f723e118]
+            - paragraph [ref=f723e119]: ȽÁU,WELṈEW̱/John Dean Provincial Park, situated atop Mount Newton, is a place of profound spiritual significance and natural beauty. It was the first provincial park on Vancouver Island donated from private land and holds a sacred place in the history of the W̱SÁNEĆ people, whose name for the mountain means place of refuge.
+            - paragraph [ref=f723e120]: "Panoramic Viewpoints: The park is famous for its pick-your-own vistas. Looking east, you can see across the Saanich Peninsula toward the Gulf Islands and Mount Baker; looking west, the views stretch over the Saanich Inlet toward the Malahat and Cowichan Valley."
+            - paragraph [ref=f723e121]: "Old-Growth Douglas Fir: It is one of the few places on the southern peninsula where you can still walk through significant stands of old-growth forest, with some Douglas fir trees estimated to be over 400 years old."
+        - article [ref=f723e122]:
+          - heading "8. Island View Beach Regional Park" [level=3] [ref=f723e123]
+          - generic [ref=f723e124]:
+            - paragraph [ref=f723e125]: Island View Beach Regional Park is an expansive coastal destination on the eastern shore of the Saanich Peninsula. Known for its long sandy shoreline and unique dune ecosystem, it offers some of the best unobstructed views of Haro Strait and the San Juan Islands.
+            - paragraph [ref=f723e126]: "The Shoreline Walk: A flat, easy trail follows the coastline for several kilometers. It is a favorite for those who enjoy a mix of sandy beach walking and stabilized gravel paths, providing a constant view of the water and passing marine traffic."
+            - paragraph [ref=f723e127]: "Birdwatching and Wildlife: The park's diverse habitat, including salt marshes, dunes, and coastal bluffs, makes it a hotspot for birders. You can often spot bald eagles, ospreys, and various migratory shorebirds along the water's edge."
+        - article [ref=f723e128]:
+          - figure [ref=f723e129]:
+            - img "9. Victoria Butterfly Gardens, Sidney" [ref=f723e130]
+          - generic [ref=f723e131]:
+            - heading "9. Victoria Butterfly Gardens" [level=3] [ref=f723e132]
+            - paragraph [ref=f723e133]: Victoria Butterfly Gardens is a vibrant, 12,000-square-foot indoor tropical jungle located in Brentwood Bay, just minutes from The Butchart Gardens. It offers a fully immersive experience where thousands of tropical butterflies fly freely among visitors in a temperature-controlled environment designed to mimic a rainforest.
+            - paragraph [ref=f723e134]: "The Butterfly Experience: Encounter up to 70 different species of butterflies. You can observe their entire life cycle, from the pupae in the nursery to the adults feeding on fruit trays and nectar plants throughout the facility."
+            - paragraph [ref=f723e135]: "Tropical Inhabitants: Beyond butterflies, the gardens are home to a diverse array of tropical animals. Look for Caribbean flamingos, koi in the large pond, tropical birds like macaws and parrots, and a variety of reptiles including iguanas and tortoises."
+        - article [ref=f723e136]:
+          - heading "10. BC Aviation Museum" [level=3] [ref=f723e137]
+          - generic [ref=f723e138]:
+            - paragraph [ref=f723e139]: The BC Aviation Museum is a premier heritage destination located on the edge of the Victoria International Airport in North Saanich. Spanning three large hangars, it preserves the rich history of flight in British Columbia through an extensive collection of over 30 aircraft and thousands of artifacts.
+            - paragraph [ref=f723e140]: "The Lancaster Bomber: One of the museum's most significant projects is the ongoing restoration of the Avro Lancaster FM213. It is one of only a few remaining in the world, and visitors can often see volunteers actively working on its preservation."
+            - paragraph [ref=f723e141]: "Vickers Viscount: You can step inside this classic 1950s turboprop airliner, which served as a flagship for Trans-Canada Air Lines. The interior is meticulously maintained to reflect the golden age of commercial flight."
+        - article [ref=f723e142]:
+          - figure [ref=f723e143]:
+            - img "11. Lochside Regional Trail, Sidney" [ref=f723e144]
+          - generic [ref=f723e145]:
+            - heading "11. Lochside Regional Trail" [level=3] [ref=f723e146]
+            - paragraph [ref=f723e147]: The Lochside Regional Trail is a 29-kilometer multi-use pathway that stretches from the Swartz Bay Ferry Terminal in North Saanich to downtown Victoria. Built on a former railway line, it connects urban neighborhoods with the rolling farmland and coastal vistas of the Saanich Peninsula.
+            - paragraph [ref=f723e148]: "The Flavour Trail Sections: As the trail winds through Central Saanich, it passes through lush agricultural land. You can stop at various farm stands, markets, and cideries located just meters off the path."
+            - paragraph [ref=f723e149]: "Coastal Views at Tulista Park: In Sidney, the trail runs directly along the waterfront at Tulista Park, providing clear views across the Haro Strait toward the San Juan Islands."
+        - article [ref=f723e150]:
+          - figure [ref=f723e151]:
+            - img "12. Roberts Bay and the Shoal Harbour Migratory Bird Sanctuary, Sidney" [ref=f723e152]
+          - generic [ref=f723e153]:
+            - heading "12. Roberts Bay and the Shoal Harbour Migratory Bird Sanctuary" [level=3] [ref=f723e154]
+            - paragraph [ref=f723e155]: The Roberts Bay - Shoal Harbour Migratory Bird Sanctuary is a vital ecological area located just north of downtown Sidney. This sheltered bay provides a tranquil environment for both wildlife and visitors, acting as a crucial wintering ground for thousands of waterfowl and shorebirds.
+            - paragraph [ref=f723e156]: "Birdwatching: As a federally protected sanctuary, this area is a premier destination for spotting species such as Buffleheads, Harlequin Ducks, and Great Blue Herons. The intertidal mudflats are particularly active during the spring and fall migrations."
+            - paragraph [ref=f723e157]: "Resthaven Linear Park Walk: A well-maintained path at Resthaven Linear Park follows the shoreline, offering level walking surfaces and multiple vantage points over the harbour. It is a popular spot for those seeking a quieter alternative to the main Sidney waterfront."
+        - article [ref=f723e158]:
+          - heading "13. Coles Bay Regional Park" [level=3] [ref=f723e159]
+          - generic [ref=f723e160]:
+            - paragraph [ref=f723e161]: Coles Bay Regional Park is a serene, 3.6-hectare coastal retreat located on the Saanich Inlet in North Saanich. This park is particularly valued for its quiet, woodland trails that lead to a sheltered, pebbly beach, offering a more intimate experience than the larger regional parks.
+            - paragraph [ref=f723e162]: "The Beach: The sheltered cove is ideal for beachcombing, exploring tide pools at low tide, or simply enjoying the tranquil views across the Saanich Inlet toward the Malahat."
+            - paragraph [ref=f723e163]: "Forest Trails: A network of short, easy walking paths winds through a lush forest of Douglas fir, arbutus, and cedar trees, providing a cool and shaded environment even on warm days."
+        - article [ref=f723e164]:
+          - heading "14. G.B. Church and HMCS Mackenzie" [level=3] [ref=f723e165]
+          - generic [ref=f723e166]:
+            - paragraph [ref=f723e167]: The waters near Sidney are home to two of British Columbia's most celebrated artificial reefs, managed by the Artificial Reef Society of BC. Both sites are accessible by boat and offer divers a chance to see significant marine colonization on historical vessels.
+            - paragraph [ref=f723e168]: Artificial reef G.B. Church
+            - paragraph [ref=f723e169]: The G.B. Church is a 175-foot coastal freighter that was scuttled in 1991 off the coast of Portland Island near Sidney. It was the first vessel sunk by the Artificial Reef Society and has since become one of the most popular dive sites in the region.
+        - article [ref=f723e170]:
+          - heading "15. Wineries, Breweries and Distilleries" [level=3] [ref=f723e171]
+          - generic [ref=f723e172]:
+            - paragraph [ref=f723e173]: Sidney and the surrounding Saanich Peninsula have developed a sophisticated tasting trail that ranges from waterfront distilleries to pastoral farmgate wineries. Many of these locations are easily accessible via the Lochside Regional Trail, making them popular stops for cycling-based tours.
+            - paragraph [ref=f723e174]: Victoria Distillers is one of Canada’s oldest artisan distilleries, now operating out of a striking glass-walled facility on the Sidney waterfront.
+            - paragraph [ref=f723e175]: "Empress 1908 Gin: They are best known for this award-winning, indigo-colored gin, which was created in collaboration with Victoria's iconic Empress Hotel."
+        - article [ref=f723e176]:
+          - figure [ref=f723e177]:
+            - img "16. Golfing, Sidney" [ref=f723e178]
+          - generic [ref=f723e179]:
+            - heading "16. Golfing" [level=3] [ref=f723e180]
+            - paragraph [ref=f723e181]: While Sidney itself is a compact seaside town, it serves as the central hub for some of the most scenic golf courses on the Saanich Peninsula. The region's mild climate allows for year-round play, often with stunning views of the Salish Sea and the Olympic Mountains.
+            - paragraph [ref=f723e182]: Premier Golf Courses Nearby
+            - paragraph [ref=f723e183]: "Ardmore Golf Course: A local favorite for a quicker round, this 9-hole course in North Saanich is beautifully maintained. It is particularly popular for its relaxed atmosphere and walkable flat terrain, making it ideal for a morning game before heading into downtown Sidney."
+    - generic [ref=f723e185]:
+      - heading "Keep going" [level=2] [ref=f723e186]
+      - navigation "Next" [ref=f723e187]:
+        - link "Vancouver Island All the towns" [ref=f723e188] [cursor=pointer]:
+          - /url: region.html
+          - generic [ref=f723e189]: Vancouver Island
+          - generic [ref=f723e190]: All the towns
+        - link "Stays in Sidney Search what is open" [ref=f723e191] [cursor=pointer]:
+          - /url: search.html
+          - generic [ref=f723e192]: Stays in Sidney
+          - generic [ref=f723e193]: Search what is open
+        - link "All destinations Every town we cover" [ref=f723e194] [cursor=pointer]:
+          - /url: index.html
+          - generic [ref=f723e195]: All destinations
+          - generic [ref=f723e196]: Every town we cover
+  - contentinfo [ref=f723e197]:
+    - generic [ref=f723e198]: © 2026 Arc Trips. Prices in CAD, before taxes and fees.

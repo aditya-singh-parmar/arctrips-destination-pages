@@ -1,0 +1,312 @@
+- generic [active] [ref=f753e1]:
+  - navigation [ref=f753e2]:
+    - generic [ref=f753e3]:
+      - link "ARCTRIPS" [ref=f753e4] [cursor=pointer]:
+        - /url: index.html
+      - list [ref=f753e5]:
+        - listitem [ref=f753e6]:
+          - link "Stays" [ref=f753e7] [cursor=pointer]:
+            - /url: search.html?in=ucluelet
+        - listitem [ref=f753e8]:
+          - link "Destinations" [ref=f753e9] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=f753e10]:
+          - link "Guides" [ref=f753e11] [cursor=pointer]:
+            - /url: search.html
+      - generic [ref=f753e12]:
+        - textbox "Search" [ref=f753e16]:
+          - /placeholder: Search Ucluelet
+        - generic [ref=f753e17]: /
+      - link "Sign in" [ref=f753e18] [cursor=pointer]:
+        - /url: search.html?in=ucluelet
+  - navigation "Ucluelet" [ref=f753e19]:
+    - generic [ref=f753e20]:
+      - link "← Ucluelet" [ref=f753e21] [cursor=pointer]:
+        - /url: region.html
+      - list [ref=f753e23]:
+        - listitem [ref=f753e24]:
+          - link "Overview" [ref=f753e25] [cursor=pointer]:
+            - /url: region.html
+        - listitem [ref=f753e26]:
+          - link "Things to do" [ref=f753e27] [cursor=pointer]:
+            - /url: things-to-do.html
+        - listitem [ref=f753e28]:
+          - link "Restaurants" [ref=f753e29] [cursor=pointer]:
+            - /url: "#top"
+        - listitem [ref=f753e30]:
+          - link "Stays" [ref=f753e31] [cursor=pointer]:
+            - /url: search.html?in=ucluelet
+      - link "Find a stay" [ref=f753e32] [cursor=pointer]:
+        - /url: search.html?in=ucluelet
+  - main [ref=f753e33]:
+    - navigation "Breadcrumb" [ref=f753e35]:
+      - link "Arc Trips" [ref=f753e36] [cursor=pointer]:
+        - /url: index.html
+      - generic [ref=f753e37]: /
+      - link "Canada" [ref=f753e38] [cursor=pointer]:
+        - /url: country.html
+      - generic [ref=f753e39]: /
+      - link "British Columbia" [ref=f753e40] [cursor=pointer]:
+        - /url: province.html
+      - generic [ref=f753e41]: /
+      - link "Vancouver Island" [ref=f753e42] [cursor=pointer]:
+        - /url: region.html
+      - generic [ref=f753e43]: /
+      - link "Ucluelet" [ref=f753e44] [cursor=pointer]:
+        - /url: region.html
+      - generic [ref=f753e45]: /
+      - link "Things to do" [ref=f753e46] [cursor=pointer]:
+        - /url: things-to-do.html
+      - generic [ref=f753e47]: /
+      - generic [ref=f753e48]: Restaurants
+    - generic [ref=f753e49]:
+      - img "Restaurants in Ucluelet" [ref=f753e50]
+      - generic [ref=f753e53]:
+        - text: Ucluelet, Vancouver Island
+        - heading "Restaurants in Ucluelet" [level=1] [ref=f753e54]
+        - paragraph [ref=f753e55]: Discover the best restaurants in Ucluelet, British Columbia. Find seafood, fine dining, fish and chips, brunch, coffee, casual eats, local finds, and slow food on Vancouver Island’s west coast.
+        - generic [ref=f753e56]:
+          - generic [ref=f753e57]:
+            - term [ref=f753e58]: Places written up
+            - definition [ref=f753e59]: "15"
+          - generic [ref=f753e60]:
+            - term [ref=f753e61]: With photographs
+            - definition [ref=f753e62]: "1"
+    - generic [ref=f753e65]:
+      - article [ref=f753e66]:
+        - generic [ref=f753e67]:
+          - heading "Pluvio Restaurant + Rooms" [level=3] [ref=f753e68]
+          - paragraph [ref=f753e69]: Pluvio is one of the best-known restaurants in Ucluelet. It is a fine dining restaurant and small boutique inn on Peninsula Road.
+          - paragraph [ref=f753e70]: Pluvio is one of the best-known restaurants in Ucluelet. It is a fine dining restaurant and small boutique inn on Peninsula Road.
+          - paragraph [ref=f753e71]: This is the place to choose for a special dinner, anniversary meal, date night, or food-focused trip. The restaurant celebrates local products, seasonal ingredients, and the natural setting of Ucluelet and Vancouver Island.
+          - generic [ref=f753e72]:
+            - generic [ref=f753e73]: Fine dining
+            - generic [ref=f753e74]: Special occasions
+            - generic [ref=f753e75]: Seasonal tasting menus
+            - generic [ref=f753e76]: Local and wild ingredients
+            - generic [ref=f753e77]: Date night
+            - generic [ref=f753e78]: Food lovers
+          - paragraph [ref=f753e79]: Good to know. Reservations are strongly recommended. This is one of the most sought-after dining experiences in Ucluelet.
+      - article [ref=f753e80]:
+        - generic [ref=f753e81]:
+          - heading "Heartwood Kitchen" [level=3] [ref=f753e82]
+          - paragraph [ref=f753e83]: Heartwood Kitchen is a cozy Ucluelet favorite for breakfast, brunch, and comfort food made with care. It is a good choice if you want a relaxed meal in town before hiking, kayaking, or exploring the c
+          - paragraph [ref=f753e84]: Heartwood Kitchen is a cozy Ucluelet favorite for breakfast, brunch, and comfort food made with care. It is a good choice if you want a relaxed meal in town before hiking, kayaking, or exploring the coast.
+          - paragraph [ref=f753e85]: The menu focuses on scratch-made food and local ingredients. It is especially good for people who want a warm, welcoming meal rather than something too formal.
+          - generic [ref=f753e86]:
+            - generic [ref=f753e87]: Breakfast
+            - generic [ref=f753e88]: Brunch
+            - generic [ref=f753e89]: Coffee
+            - generic [ref=f753e90]: Casual lunch
+            - generic [ref=f753e91]: Comfort food
+            - generic [ref=f753e92]: Families
+            - generic [ref=f753e93]: Rainy mornings
+          - paragraph [ref=f753e94]: Good to know. This is a popular local spot, so it can get busy during peak travel season.
+      - article [ref=f753e95]:
+        - figure [ref=f753e96]:
+          - img "Floathouse Patio & Grill, Ucluelet" [ref=f753e97]
+        - generic [ref=f753e98]:
+          - heading "Floathouse Patio & Grill" [level=3] [ref=f753e99]
+          - paragraph [ref=f753e100]: Floathouse Patio & Grill is a popular harbourfront restaurant in Ucluelet. It sits near the small craft harbour and is a good choice if you want seafood, casual dining, and water views.
+          - paragraph [ref=f753e101]: Floathouse Patio & Grill is a popular harbourfront restaurant in Ucluelet. It sits near the small craft harbour and is a good choice if you want seafood, casual dining, and water views.
+          - paragraph [ref=f753e102]: The setting is a big part of the experience. You can eat while looking out at boats, harbour activity, and the coastal scenery.
+          - generic [ref=f753e103]:
+            - generic [ref=f753e104]: Harbour views
+            - generic [ref=f753e105]: Seafood
+            - generic [ref=f753e106]: Casual dinner
+            - generic [ref=f753e107]: Lunch
+            - generic [ref=f753e108]: Families
+            - generic [ref=f753e109]: Drinks by the water
+          - paragraph [ref=f753e110]: Good to know. This is a good pick when you want a relaxed meal with a strong Ucluelet harbour feel.
+      - article [ref=f753e111]:
+        - generic [ref=f753e112]:
+          - heading "Cedar Grill" [level=3] [ref=f753e113]
+          - paragraph [ref=f753e114]: Cedar Grill is a casual restaurant in Ucluelet with a menu that works for many types of travelers. It is a practical choice for families, groups, and visitors who want a reliable sit-down meal.
+          - paragraph [ref=f753e115]: Cedar Grill is a casual restaurant in Ucluelet with a menu that works for many types of travelers. It is a practical choice for families, groups, and visitors who want a reliable sit-down meal.
+          - paragraph [ref=f753e116]: It is often a good option when you want something easy, filling, and central.
+          - generic [ref=f753e117]:
+            - generic [ref=f753e118]: Casual dinner
+            - generic [ref=f753e119]: Families
+            - generic [ref=f753e120]: Groups
+            - generic [ref=f753e121]: Comfort food
+            - generic [ref=f753e122]: Pizza and pub-style meals
+            - generic [ref=f753e123]: Easy town dining
+          - paragraph [ref=f753e124]: Good to know. This is a useful choice when you need a flexible menu that works for different tastes.
+      - article [ref=f753e125]:
+        - generic [ref=f753e126]:
+          - heading "Big Beach Bar & Lounge" [level=3] [ref=f753e127]
+          - paragraph [ref=f753e128]: Big Beach Bar & Lounge is a good choice if you want drinks, a relaxed meal, and a coastal resort setting. It is connected with the Black Rock Oceanfront Resort area, close to Big Beach and the Wild Pa
+          - paragraph [ref=f753e129]: Big Beach Bar & Lounge is a good choice if you want drinks, a relaxed meal, and a coastal resort setting. It is connected with the Black Rock Oceanfront Resort area, close to Big Beach and the Wild Pacific Trail.
+          - paragraph [ref=f753e130]: This is a good stop after a walk, especially if you want oceanfront atmosphere without leaving town.
+          - generic [ref=f753e131]:
+            - generic [ref=f753e132]: Drinks
+            - generic [ref=f753e133]: Casual dinner
+            - generic [ref=f753e134]: Lounge food
+            - generic [ref=f753e135]: Oceanfront atmosphere
+            - generic [ref=f753e136]: Couples
+            - generic [ref=f753e137]: After-hike meals
+          - paragraph [ref=f753e138]: Good to know. Pair it with a walk near Big Beach or the Wild Pacific Trail.
+      - article [ref=f753e139]:
+        - generic [ref=f753e140]:
+          - heading "Currents Restaurant" [level=3] [ref=f753e141]
+          - paragraph [ref=f753e142]: Currents Restaurant is another dining option connected with Black Rock Oceanfront Resort. It is a good choice for travelers looking for a more polished meal with west coast views and a quieter atmosph
+          - paragraph [ref=f753e143]: Currents Restaurant is another dining option connected with Black Rock Oceanfront Resort. It is a good choice for travelers looking for a more polished meal with west coast views and a quieter atmosphere.
+          - generic [ref=f753e144]:
+            - generic [ref=f753e145]: Resort dining
+            - generic [ref=f753e146]: Ocean views
+            - generic [ref=f753e147]: Dinner
+            - generic [ref=f753e148]: Couples
+            - generic [ref=f753e149]: Special meals
+            - generic [ref=f753e150]: West coast atmosphere
+          - paragraph [ref=f753e151]: Good to know. Check current hours and seasonal openings before planning your meal.
+      - article [ref=f753e152]:
+        - generic [ref=f753e153]:
+          - heading "Ucluelet Brewing Company" [level=3] [ref=f753e154]
+          - paragraph [ref=f753e155]: Ucluelet Brewing Company is a fun stop for craft beer, casual food, and harbour views. It is located in a former church, which gives it a unique local feel.
+          - paragraph [ref=f753e156]: Ucluelet Brewing Company is a fun stop for craft beer, casual food, and harbour views. It is located in a former church, which gives it a unique local feel.
+          - paragraph [ref=f753e157]: This is a good place to relax after hiking the Wild Pacific Trail, kayaking, fishing, or beach exploring.
+          - generic [ref=f753e158]:
+            - generic [ref=f753e159]: Craft beer
+            - generic [ref=f753e160]: Casual meals
+            - generic [ref=f753e161]: Snacks
+            - generic [ref=f753e162]: Harbour views
+            - generic [ref=f753e163]: Groups
+            - generic [ref=f753e164]: Relaxed evenings
+          - paragraph [ref=f753e165]: Good to know. It has a lively but relaxed feel and is a good choice for people who want drinks with a local touch.
+      - article [ref=f753e166]:
+        - generic [ref=f753e167]:
+          - heading "Abbondanza Wood Fired Pizza" [level=3] [ref=f753e168]
+          - paragraph [ref=f753e169]: Abbondanza is a good choice when you want pizza in Ucluelet. It serves wood-fired pizza and works well for families, groups, and casual nights.
+          - paragraph [ref=f753e170]: Abbondanza is a good choice when you want pizza in Ucluelet. It serves wood-fired pizza and works well for families, groups, and casual nights.
+          - paragraph [ref=f753e171]: Pizza is also a useful option if you want something easy after a long outdoor day.
+          - generic [ref=f753e172]:
+            - generic [ref=f753e173]: Wood-fired pizza
+            - generic [ref=f753e174]: Casual dinner
+            - generic [ref=f753e175]: Families
+            - generic [ref=f753e176]: Groups
+            - generic [ref=f753e177]: Takeout-style meals
+            - generic [ref=f753e178]: Easy comfort food
+          - paragraph [ref=f753e179]: Good to know. Popular casual spots can sell out or have changing hours, so check before going.
+      - article [ref=f753e180]:
+        - generic [ref=f753e181]:
+          - heading "Papi’s Cantina" [level=3] [ref=f753e182]
+          - paragraph [ref=f753e183]: Papi’s Cantina is a Mexican restaurant and cocktail bar in Ucluelet. It is a good option if you want tacos, Mexican flavors, drinks, and a casual night out.
+          - paragraph [ref=f753e184]: Papi’s Cantina is a Mexican restaurant and cocktail bar in Ucluelet. It is a good option if you want tacos, Mexican flavors, drinks, and a casual night out.
+          - paragraph [ref=f753e185]: It brings variety to the Ucluelet food scene, especially if you want something other than seafood or pub food.
+          - generic [ref=f753e186]:
+            - generic [ref=f753e187]: Mexican food
+            - generic [ref=f753e188]: Tacos
+            - generic [ref=f753e189]: Cocktails
+            - generic [ref=f753e190]: Casual dinner
+            - generic [ref=f753e191]: Groups
+            - generic [ref=f753e192]: A fun evening meal
+          - paragraph [ref=f753e193]: Good to know. A good choice when you want bold flavors and a relaxed restaurant setting.
+      - article [ref=f753e194]:
+        - generic [ref=f753e195]:
+          - heading "Ukee Poke" [level=3] [ref=f753e196]
+          - paragraph [ref=f753e197]: Ukee Poke is a casual, healthy choice near the Tofino-Ucluelet junction area. It is good for a quick lunch, light dinner, or takeout before a beach or park stop.
+          - paragraph [ref=f753e198]: Ukee Poke is a casual, healthy choice near the Tofino-Ucluelet junction area. It is good for a quick lunch, light dinner, or takeout before a beach or park stop.
+          - paragraph [ref=f753e199]: Poke bowls are a nice fit for west coast travel because they feel fresh, customizable, and easy to eat on the go.
+          - generic [ref=f753e200]:
+            - generic [ref=f753e201]: Poke bowls
+            - generic [ref=f753e202]: Healthy lunch
+            - generic [ref=f753e203]: Takeout
+            - generic [ref=f753e204]: Casual dinner
+            - generic [ref=f753e205]: Quick meals
+            - generic [ref=f753e206]: Fresh flavors
+          - paragraph [ref=f753e207]: Good to know. This is a good option when you want something lighter than fish and chips or pizza.
+      - article [ref=f753e208]:
+        - generic [ref=f753e209]:
+          - heading "Ukee Dogs Eatery" [level=3] [ref=f753e210]
+          - paragraph [ref=f753e211]: Ukee Dogs Eatery is a casual local stop known for hot dogs, tacos, burritos, and coffee. It is simple, relaxed, and useful when you want a quick bite.
+          - paragraph [ref=f753e212]: Ukee Dogs Eatery is a casual local stop known for hot dogs, tacos, burritos, and coffee. It is simple, relaxed, and useful when you want a quick bite.
+          - paragraph [ref=f753e213]: This is not fine dining, but it can be exactly what you need after a walk or before heading out for the day.
+          - generic [ref=f753e214]:
+            - generic [ref=f753e215]: Quick meals
+            - generic [ref=f753e216]: Hot dogs
+            - generic [ref=f753e217]: Tacos
+            - generic [ref=f753e218]: Burritos
+            - generic [ref=f753e219]: Casual snacks
+            - generic [ref=f753e220]: Coffee
+          - paragraph [ref=f753e221]: Good to know. Great for a relaxed, no-fuss meal.
+      - article [ref=f753e222]:
+        - generic [ref=f753e223]:
+          - heading "Ukee Snack Shack" [level=3] [ref=f753e224]
+          - paragraph [ref=f753e225]: Ukee Snack Shack is a family-owned comfort food stop with smash burgers, donairs, fries, onion rings, and other quick meals. It also offers many gluten-free options.
+          - paragraph [ref=f753e226]: Ukee Snack Shack is a family-owned comfort food stop with smash burgers, donairs, fries, onion rings, and other quick meals. It also offers many gluten-free options.
+          - paragraph [ref=f753e227]: This is a good choice for travelers who want something casual, filling, and easy.
+          - generic [ref=f753e228]:
+            - generic [ref=f753e229]: Smash burgers
+            - generic [ref=f753e230]: Donairs
+            - generic [ref=f753e231]: Fries
+            - generic [ref=f753e232]: Quick meals
+            - generic [ref=f753e233]: Gluten-free options
+            - generic [ref=f753e234]: Family-friendly comfort food
+          - paragraph [ref=f753e235]: Good to know. A useful pick when you want simple comfort food rather than seafood.
+      - article [ref=f753e236]:
+        - generic [ref=f753e237]:
+          - heading "Zoe’s Bakery & Cafe" [level=3] [ref=f753e238]
+          - paragraph [ref=f753e239]: Zoe’s Bakery & Cafe is a popular stop for baked goods, breakfast, lunch, coffee, and sweet treats. It is a good choice before a hike, kayak tour, or drive through Pacific Rim National Park.
+          - paragraph [ref=f753e240]: Zoe’s Bakery & Cafe is a popular stop for baked goods, breakfast, lunch, coffee, and sweet treats. It is a good choice before a hike, kayak tour, or drive through Pacific Rim National Park.
+          - generic [ref=f753e241]:
+            - generic [ref=f753e242]: Coffee
+            - generic [ref=f753e243]: Baked goods
+            - generic [ref=f753e244]: Breakfast
+            - generic [ref=f753e245]: Lunch
+            - generic [ref=f753e246]: Pastries
+            - generic [ref=f753e247]: Grab-and-go food
+          - paragraph [ref=f753e248]: Good to know. Good for a casual morning stop or a simple lunch.
+      - article [ref=f753e249]:
+        - generic [ref=f753e250]:
+          - heading "Barkley Cafe" [level=3] [ref=f753e251]
+          - paragraph [ref=f753e252]: Barkley Cafe is a good local-style cafe stop for coffee, breakfast, lunch, and a relaxed small-town feel. It is useful for travelers who want a casual meal before exploring Ucluelet.
+          - paragraph [ref=f753e253]: Barkley Cafe is a good local-style cafe stop for coffee, breakfast, lunch, and a relaxed small-town feel. It is useful for travelers who want a casual meal before exploring Ucluelet.
+          - generic [ref=f753e254]:
+            - generic [ref=f753e255]: Coffee
+            - generic [ref=f753e256]: Breakfast
+            - generic [ref=f753e257]: Lunch
+            - generic [ref=f753e258]: Sandwiches
+            - generic [ref=f753e259]: Casual cafe meals
+            - generic [ref=f753e260]: Easy town stop
+          - paragraph [ref=f753e261]: Good to know. A good option when you want something simple and comfortable.
+      - article [ref=f753e262]:
+        - generic [ref=f753e263]:
+          - heading "Blackberry Cove Marketplace" [level=3] [ref=f753e264]
+          - paragraph [ref=f753e265]: Blackberry Cove Marketplace is useful if you want deli items, groceries, snacks, or picnic food. It is not just a restaurant stop, but it is worth including because many visitors need easy food for hi
+          - paragraph [ref=f753e266]: Blackberry Cove Marketplace is useful if you want deli items, groceries, snacks, or picnic food. It is not just a restaurant stop, but it is worth including because many visitors need easy food for hikes, beach days, and road trips.
+          - generic [ref=f753e267]:
+            - generic [ref=f753e268]: Picnic supplies
+            - generic [ref=f753e269]: Snacks
+            - generic [ref=f753e270]: Deli items
+            - generic [ref=f753e271]: Groceries
+            - generic [ref=f753e272]: Road trip food
+            - generic [ref=f753e273]: Easy takeout-style options
+          - paragraph [ref=f753e274]: Good to know. Stop here before heading to the Wild Pacific Trail, beaches, or Pacific Rim National Park.
+    - generic [ref=f753e276]:
+      - heading "More on restaurants" [level=2] [ref=f753e277]
+      - navigation [ref=f753e278]:
+        - link "Ucluelet Restaurants restaurants" [ref=f753e279] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f753e280]: Ucluelet Restaurants
+          - generic [ref=f753e281]: restaurants
+        - link "Restaurants FAQs restaurants" [ref=f753e282] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f753e283]: Restaurants FAQs
+          - generic [ref=f753e284]: restaurants
+    - generic [ref=f753e286]:
+      - heading "Keep going" [level=2] [ref=f753e287]
+      - navigation [ref=f753e288]:
+        - link "Everything to do in Ucluelet All the subjects" [ref=f753e289] [cursor=pointer]:
+          - /url: things-to-do.html
+          - generic [ref=f753e290]: Everything to do in Ucluelet
+          - generic [ref=f753e291]: All the subjects
+        - link "Ucluelet The town" [ref=f753e292] [cursor=pointer]:
+          - /url: region.html
+          - generic [ref=f753e293]: Ucluelet
+          - generic [ref=f753e294]: The town
+        - link "Stays Search what is open" [ref=f753e295] [cursor=pointer]:
+          - /url: search.html?in=ucluelet
+          - generic [ref=f753e296]: Stays
+          - generic [ref=f753e297]: Search what is open
+  - contentinfo [ref=f753e298]:
+    - generic [ref=f753e299]: © 2026 Arc Trips. Prices in CAD, before taxes and fees.

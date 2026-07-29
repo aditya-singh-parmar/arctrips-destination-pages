@@ -1,0 +1,450 @@
+<!doctype html><html lang="en-CA"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quebec City, Arc Trips</title>
+<meta name="description" content="Quebec City, Quebec. 40 places written up, 39 with photographs.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_system.css">
+<style>
+:focus-visible{outline:2px solid var(--azure);outline-offset:3px}
+.btn,.nav-links a,.crumb a{min-height:44px;display:inline-flex;align-items:center}
+.crumb{font-size:.9rem}.label--n{color:var(--n600)}
+.thero{position:relative;min-height:min(62vh,560px);display:flex;align-items:flex-end;overflow:hidden;background:var(--navy)}
+.thero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.thero__v{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,51,86,.12) 0%,rgba(11,51,86,.7) 62%,rgba(11,51,86,.95) 100%)}
+.thero__in{position:relative;width:100%;padding-block:clamp(30px,4vw,56px)}
+.thero h1{color:#fff;font-size:clamp(2.8rem,7vw,5.2rem);letter-spacing:-.045em;line-height:.96}
+.thero p{color:rgba(255,255,255,.9);max-width:56ch;margin-top:18px;font-size:1.06rem;line-height:1.6}
+.tfacts{display:flex;gap:clamp(20px,4vw,44px);margin-top:26px;flex-wrap:wrap}
+.tfacts dt{font-size:.9rem;color:rgba(255,255,255,.75);font-weight:600}
+.tfacts dd{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;color:#fff;letter-spacing:-.04em;margin-top:4px;font-variant-numeric:tabular-nums}
+.sechead{max-width:60ch;margin-bottom:clamp(24px,3vw,38px)}
+.sechead h2{margin-top:8px}.cnt{color:var(--n600);margin-top:8px;font-size:.95rem}
+.places{display:grid;gap:clamp(44px,5.5vw,84px)}
+/* Photo entries: the image takes half the row, so it reads as a photograph rather
+   than a thumbnail. Alternating sides gives the page rhythm down the scroll. */
+.pl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,3.4vw,48px);align-items:center}
+.pl:nth-child(even) .pl__m{order:2}
+@media(max-width:820px){.pl{grid-template-columns:1fr;gap:20px}.pl:nth-child(even) .pl__m{order:0}}
+.pl__m{margin:0;border-radius:var(--r);overflow:hidden;background:var(--n100);aspect-ratio:4/3}
+.pl__m img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.pl:hover .pl__m img{transform:scale(1.035)}
+/* No-photo entries: name on the left, prose on the right, so the row still spans
+   the full measure instead of leaving half the page empty. */
+.pl--solo{grid-template-columns:minmax(0,.42fr) minmax(0,1fr);align-items:start}
+.pl--solo .pl__b{max-width:68ch}
+.solo__h{font-size:clamp(1.35rem,2.2vw,1.75rem);font-weight:800;letter-spacing:-.026em;color:var(--navy);
+  position:sticky;top:150px;align-self:start}
+@media(max-width:820px){.pl--solo{grid-template-columns:1fr}.solo__h{position:static}}
+.pl__b h3{font-size:clamp(1.35rem,2.2vw,1.75rem);font-weight:800;letter-spacing:-.026em;margin-bottom:14px}
+.pl__b p{margin-top:0;margin-bottom:14px;color:var(--n700);line-height:1.68;max-width:62ch;font-size:1.02rem}
+.pl__b p:last-of-type{margin-bottom:0}
+.pl__n{margin-top:18px;border-left:0;background:var(--n50);padding:14px 18px;border-radius:var(--r-sm);font-size:.97rem}
+.pl__n b{color:var(--navy)}
+.jump{display:flex;gap:8px;flex-wrap:wrap;padding:16px 0;border-block:1px solid var(--n150)}
+.jump a{font-size:.9rem;font-weight:600;color:var(--n600);padding:8px 14px;border-radius:var(--r-sm);background:var(--n50);min-height:40px;display:inline-flex;align-items:center}
+.jump a:hover{background:var(--a100);color:var(--azure)}
+</style></head><body>
+<span id="top" aria-hidden="true"></span>
+<nav class="top"><div class="wrap nav-in">
+  <a class="brand" href="index.html">ARCTRIPS</a>
+  <ul class="nav-links"><li><a href="search.html?in=quebec-city">Stays</a></li><li><a href="index.html" aria-current="page">Destinations</a></li><li><a href="region.html">Vancouver Island</a></li></ul>
+  <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input placeholder="Search Quebec City" aria-label="Search"><kbd>/</kbd></label>
+  <a class="btn btn--ink btn--sm" href="search.html?in=quebec-city">Sign in</a>
+</div></nav>
+<nav class="placebar" aria-label="Quebec City"><div class="wrap placebar-in">
+  <a class="placebar__back" href="country.html"><span class="n">&larr; Canada</span></a>
+  <ul class="placebar__links">
+    <li><a href="#top" aria-current="page">Overview</a></li>
+    <li><a href="search.html?in=quebec-city">Stays</a></li>
+    <li><a href="country.html">Canada</a></li>
+    <li><a href="index.html">All destinations</a></li>
+  </ul>
+  <a class="btn btn--primary btn--sm placebar__cta" href="search.html?in=quebec-city">Find a stay</a>
+</div></nav>
+<main id="main">
+<div class="wrap"><nav class="crumb" aria-label="Breadcrumb">
+  <a href="index.html">Arc Trips</a><span class="sep">/</span>
+  <a class="lvl-deep" href="country.html">Canada</a><span class="sep lvl-deep">/</span>
+  <span class="lvl-deep">Quebec</span><span class="sep lvl-deep">/</span>
+  
+  <span aria-current="page">Quebec City</span>
+</nav></div>
+<header class="thero">
+  <img src="media/quebec-city/image12.jpg" alt="Quebec City, Quebec">
+  <div class="thero__v"></div>
+  <div class="thero__in"><div class="wrap">
+    <span class="label" style="color:var(--a300)">Quebec</span>
+    <h1>Quebec City</h1>
+    <p>The Fairmont Le Château Frontenac is not just a hotel; it is the soul of Quebec City’s skyline. Perched dramatically on Cap Diamant, it holds the Guinness World Record as the most photographed hotel in the world.</p>
+    <dl class="tfacts">
+      <div><dt>Places written up</dt><dd class="tnum">40</dd></div>
+      <div><dt>With photographs</dt><dd class="tnum">39</dd></div>
+      <div><dt>Guides</dt><dd class="tnum">1</dd></div>
+    </dl>
+  </div></div>
+</header>
+<div class="wrap"><nav class="jump" aria-label="Sections">
+  <a href="#world-known-landmarks">World-Known Landmarks</a><a href="#art-and-history-lovers">Art and History Lovers</a><a href="#outdoor-attractions">Outdoor Attractions</a><a href="#other-interesting-places">Other Interesting Places</a>
+</nav></div>
+
+<section class="sec" id="world-known-landmarks"><div class="wrap">
+  <div class="sechead"><span class="label label--n">World-Known Landmarks</span>
+    <h2>World-Known Landmarks</h2><p class="cnt">10 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image12.jpg" alt="1. Château Frontenac, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>1. Château Frontenac</h3>
+        <p>The Fairmont Le Château Frontenac is not just a hotel; it is the soul of Quebec City’s skyline. Perched dramatically on Cap Diamant, it holds the Guinness World Record as the most photographed hotel in the world.</p><p>Opened in 1893, the Château was the brainchild of William Van Horne, president of the Canadian Pacific Railway. His goal was simple: to create a destination so luxurious that wealthy travelers would take his trains just to stay there. American architect Bruce Price designed the hotel in the Châteauesque style, drawing inspiration from the castles of France’s Loire Valley. It is named after Louis de Buade, Count of Frontenac, a flamboyant governor of New France who successfully defended the colony against British attacks in the late 17th century.</p><p>Take a Guided Tour: Since the hotel is private property, a guided tour is the only way to see off-limits areas like the executive boardrooms and the grand ballrooms. Tours are led by guides portraying historical figures such as Elizabeth Taylor (the guide, not the actress) or the sister of Sarah Bernhardt. Tours run roughly 60 minutes and typically start at the Frontenac kiosk on Dufferin Terrace.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image16.jpg" alt="2. Old Québec, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>2. Old Québec</h3>
+        <p>Old Quebec (Vieux-Québec) is a UNESCO World Heritage treasure and the only fortified city in North America. Walking through its gates feels like stepping into 17th-century Europe, with narrow cobblestone streets, stone houses, and towering spires overlooking the St. Lawrence River.</p><p>Walk the Fortifications: Stretching nearly 4.6 kilometers around the Upper Town, the Fortifications of Québec National Historic Site offers a unique perspective on the city's military history. You can walk along the top of the walls for great views of the surrounding neighborhoods.</p><p>Explore Place Royale: Often called the birthplace of French America, this picturesque square is where Samuel de Champlain founded the city in 1608. It is home to the Notre-Dame-des-Victoires Church, the oldest stone church in North America.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image13.jpg" alt="3. Plains of Abraham, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>3. Plains of Abraham</h3>
+        <p>The Plains of Abraham is Canada's first national historic park and one of the world's most significant urban parks. This vast green space was the site of the 1759 battle between the French and British empires that decided the fate of North America, and today it serves as a central park for Quebec City residents and visitors. The park offers a blend of heavy history and year-round outdoor recreation across its 98 hectares.</p><p>Plains of Abraham Museum: This is the best starting point for visitors. It features an immersive Battles exhibition that uses 360-degree projections to put you in the middle of the historical conflict, along with archaeological artifacts found on the grounds.</p><p>Joan of Arc Garden: A masterpiece of landscape architecture, this sunken garden combines classical French and English styles. It is famous for its vibrant floral displays and the equestrian statue of Joan of Arc at its center.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image10.jpg" alt="4. Citadelle of Québechttps://www.istockphoto.com/photo/fort-gm175527056-20919279, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>4. Citadelle of Québechttps://www.istockphoto.com/photo/fort-gm175527056-20919279</h3>
+        <p>The Citadelle of Québec is the largest British-built fortress in North America and remains an active garrison of the Royal 22e Régiment. Perched atop Cap Diamant, this star-shaped fortification is an integral part of the city's defensive walls and offers a deep dive into Canada's military heritage.</p><p>Changing of the Guard: During the summer months, visitors can witness this traditional ceremony featuring the regimental mascot, a goat named Batisse.</p><p>Royal 22e Régiment Museum: Located within the walls, the museum displays a vast collection of medals, uniforms, and artifacts that trace the history of the regiment from the 17th century to modern-day missions.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image18.jpg" alt="5. Notre Dame De Québec Basilica Cathedral, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>5. Notre Dame De Québec Basilica Cathedral</h3>
+        <p>The La Basilique-Cathédrale Notre-Dame de Québec is a monumental pillar of North American history, standing as the oldest Catholic parish in North America. Founded in 1647, this UNESCO World Heritage monument is the mother church of the first Catholic diocese in Canada and the United States, serving as the spiritual heart of Old Quebec for over 350 years.</p><p>Architectural Highlights: The cathedral is a masterpiece of Neoclassical design, though its interior leans heavily into gleaming Baroque splendor. Despite enduring multiple fires and shellings throughout history, it has been faithfully restored to its mid-19th-century grandeur.</p><p>Gilded Altar: Visitors are often struck by the spectacular golden baldachin that arches over the altar, designed as a miniature homage to the one found in St. Peter’s Basilica in Rome.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image39.jpg" alt="6. Terrasse Dufferin, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>6. Terrasse Dufferin</h3>
+        <p>Dufferin Terrace (Terrasse Dufferin) is a world-famous wooden boardwalk that serves as the balcony of Quebec City. Built in 1879, it wraps around the base of the Fairmont Le Château Frontenac, offering spectacular panoramic views of the St. Lawrence River, the island of Orléans, and the Lower Town.</p><p>Historical Foundations: Beneath the wooden planks of the terrace lies the Saint-Louis Forts and Châteaux National Historic Site, where you can explore the archaeological remains of the residences used by French and British governors.</p><p>Iconic Recreation: During the winter months, the terrace hosts the historic Les Glissades de la Terrasse, a massive wooden toboggan slide where sleds can reach speeds of up to 70 km/h.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image3.jpg" alt="7. Place Royale, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>7. Place Royale</h3>
+        <p>Place Royale is often described as the birthplace of French America, marking the exact spot where Samuel de Champlain founded the city in 1608. This cobblestone square in the Lower Town is a living museum of 17th and 18th-century architecture, having been meticulously restored to its New France-era appearance.</p><p>Notre-Dame-des-Victoires Church: The centerpiece of the square is the oldest stone church in North America. Visitors often notice the small model of a ship hanging from the ceiling, a traditional votive offering for the protection of sailors.</p><p>Bust of Louis XIV: A bronze statue of the Sun King stands in the center of the plaza, commemorating the monarch who helped the colony flourish during the 17th century.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image21.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr&gt;&lt;w:sz w:val=&quot;22&quot;/&gt;&lt;w:szCs w:val=&quot;22&quot;/&gt;&lt;/w:rPr&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_9srw67rgk3o7&quot; w:id=&quot;12&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;12&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;8. Montmorency Falls Parkhttps://www.istockphoto.com/photo/montmorency-falls-gm140377685-2586886, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr&gt;&lt;w:sz w:val=&quot;22&quot;/&gt;&lt;w:szCs w:val=&quot;22&quot;/&gt;&lt;/w:rPr&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_9srw67rgk3o7&quot; w:id=&quot;12&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;12&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;8. Montmorency Falls Parkhttps://www.istockphoto.com/photo/montmorency-falls-gm140377685-2586886</h3>
+        <p>Montmorency Falls Park (Parc de la Chute-Montmorency) is a breathtaking natural monument located just 15 minutes from Old Quebec. The waterfall itself is 83 meters high, a full 30 meters taller than Niagara Falls, dominating the landscape where the Montmorency River cascades into the St. Lawrence. The park offers a variety of ways to experience the sheer power of the water, ranging from leisurely strolls to high-adrenaline activities.</p><p>Suspension Bridge: A pedestrian bridge spans directly over the crest of the falls, providing a dizzying and heart-pounding view of the water plummeting into the basin below.</p><p>Panoramic Staircase: For those looking for a workout, a 487-step wooden staircase clings to the side of the cliff, offering multiple landing platforms for photography at different heights.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image38.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_k138q0wctra6&quot; w:id=&quot;13&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;13&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;9. Fortifications of Québec National Historic Site, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_k138q0wctra6&quot; w:id=&quot;13&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;13&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;9. Fortifications of Québec National Historic Site</h3>
+        <p>The Fortifications of Québec National Historic Site is a massive defensive system that encircles the Upper Town of Old Quebec. As the only remaining fortified city in North America north of Mexico, these walls, gates, and bastions are a testament to nearly three centuries of military history, originally built by the French and later strengthened by the British to defend against American invasions.</p><p>Scenic Ramparts: The site features 4.6 kilometers of stone walls that visitors can walk along, offering a unique birds-eye view of the historic district on one side and the modern city on the other.</p><p>Gates of the City: You can explore the iconic gates, such as Porte Saint-Louis and Porte Saint-Jean, which serve as the grand entrances to the Old City and provide excellent backdrops for photography.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image33.jpg" alt="10. Quartier Petit Champlain, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>10. Quartier Petit Champlain</h3>
+        <p>Quartier Petit Champlain is widely considered one of the most beautiful and historic commercial districts in North America. Located at the foot of the cliff beneath the Château Frontenac, this pedestrian-only neighborhood features narrow cobblestone streets lined with restored stone houses that date back to the 17th century.</p><p>Originally a small riverside village for fur traders and merchants, it has transformed into a vibrant hub for local artisans, boutique shopping, and intimate dining. The district is particularly famous for its Old World European atmosphere, which is enhanced by flowering balconies in the summer and elaborate light displays during the winter months.</p><p>Breakneck Steps (Escalier Casse-Cou): These are the city's oldest stairs, built in 1635. They provide a dramatic entrance to the district from the Upper Town and offer a classic vantage point for photography of the narrow street below.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="art-and-history-lovers"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Art and History Lovers</span>
+    <h2>Art and History Lovers</h2><p class="cnt">10 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image14.jpg" alt="1. Musée de la Civilisation, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>1. Musée de la Civilisation</h3>
+        <p>The Museum of Civilization (Musée de la civilisation) is the most popular museum in Quebec City, known for its participatory and highly interactive approach to history and culture. Located in the heart of the Old Port, it blends sleek modern architecture by Moshe Safdie with the historic vaults of the 18th-century Maison Chevalier, creating a space where visitors literally walk over layers of the city's archaeological past. The museum typically hosts about ten original exhibitions at a time, ranging from deep historical dives to global pop culture.</p><p>This Is Our Story: A major permanent exhibition that explores the history and current realities of the 11 First Nations and Inuit peoples in Quebec through 450 significant objects and personal narratives.</p><p>In Other Words, Québec: The museum's largest-ever exhibition, which uses six themed zones to tell the story of how Quebec society has evolved from its roots to the present day.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image8.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;0&quot; w:before=&quot;0&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_833s594n1ui7&quot; w:id=&quot;18&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;18&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;2. Musée National des Beaux-Arts du Québec (MNBAQ), Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;0&quot; w:before=&quot;0&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_833s594n1ui7&quot; w:id=&quot;18&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;18&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;2. Musée National des Beaux-Arts du Québec (MNBAQ)</h3>
+        <p>The Musée national des beaux-arts du Québec (MNBAQ) is a world-class art complex situated on the edge of the Plains of Abraham. It consists of four distinct pavilions that represent a bridge between the city’s past and its modern artistic vision. It is the premier institution for the study and promotion of Quebec art from the 17th century to the present day.</p><p>Pierre Lassonde Pavilion: The newest addition (opened in 2016), this glass-and-steel masterpiece is the museum's grand entrance. It houses contemporary art collections and features a stunning cantilevered staircase that has become a favorite spot for architecture photography.</p><p>Charles Baillairgé Pavilion: Originally built as a prison in the 19th century, this historic stone building now houses galleries. You can still see some of the original jail cells, which have been preserved to provide a hauntingly beautiful contrast to the art.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image32.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr&gt;&lt;w:color w:val=&quot;434343&quot;/&gt;&lt;w:sz w:val=&quot;28&quot;/&gt;&lt;w:szCs w:val=&quot;28&quot;/&gt;&lt;/w:rPr&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_73831qfuqdpq&quot; w:id=&quot;20&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;20&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;3. Morrin Centre, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr&gt;&lt;w:color w:val=&quot;434343&quot;/&gt;&lt;w:sz w:val=&quot;28&quot;/&gt;&lt;w:szCs w:val=&quot;28&quot;/&gt;&lt;/w:rPr&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_73831qfuqdpq&quot; w:id=&quot;20&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;20&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;3. Morrin Centre</h3>
+        <p>The Morrin Centre is one of Quebec City's most fascinating hidden gems, serving as a vibrant English-language cultural hub in a predominantly French-speaking city. This National Historic Site has lived multiple lives over its 200-year history: first as a grim public jail, then as the city's first English-language college, and finally as the home of the oldest learned society in Canada.</p><p>Victorian Library: Step into a room that feels like a scene from a film, featuring floor-to-ceiling wooden bookshelves, a winding staircase, and a collection of over 27,000 books, some dating back to the 16th century.</p><p>Discovery Tour: Walk through sinister iron-barred jail cells and decipher the graffiti carved into the original floorboards by 19th-century inmates.</p>
+        <p class="pl__n"><b>Good to know.</b> Note that some of the more graphic tours focusing on capital punishment are not recommended for children under 12.</p>
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image35.jpg" alt="4. Théâtre Capitole, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>4. Théâtre Capitole</h3>
+        <p>The Théâtre Capitole is a premier performing-arts landmark located in the heart of Old Quebec, right at Place d’Youville. Since its opening in 1903, this Beaux-Arts style masterpiece has served as a cultural cornerstone, hosting world-class musicians, Broadway-style musicals, and theatrical productions in a setting that evokes the glamour of the early 20th century. The theater is part of a larger complex known as Le Capitole de Québec, which offers a full evening of entertainment and luxury.</p><p>Grand Theater Hall: Step inside to admire the opulent interior, featuring red velvet seating, gold leaf accents, and a majestic chandelier. It provides an intimate yet grand atmosphere for live performances.</p><p>Le Capitole Hotel: The building also houses a five-star luxury hotel, allowing guests to stay in the same historic structure where they see their shows.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image2.jpg" alt="5. Musée du Fort, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>5. Musée du Fort</h3>
+        <p>The Musée du Fort is a unique historical attraction located directly across from the Château Frontenac. Unlike traditional museums filled with glass cases, this venue focuses on a singular, high-impact storytelling experience that explains why Quebec City’s geography made it the most coveted strategic point in North America. The centerpiece of the museum is a massive, 400-square-foot scale model of the city and its surrounding landscape as it appeared in 1750.</p><p>Sound and Light Show: Visitors watch a 30-minute immersive presentation where the scale model comes to life with lights, sound effects, and narration to depict the six major sieges of Quebec, including the famous Battle of the Plains of Abraham.</p><p>Strategic Geography: The show highlights how the Gibraltar of the Americas was defended and attacked, making it an excellent educational primer before you visit the actual battlefields or the Citadelle.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image9.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_p917a6365suv&quot; w:id=&quot;25&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;25&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;6. Parliament Buildinghttps://www.istockphoto.com/photo/parliament-building-quebec-city-canada-gm1358679492-432229438, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_p917a6365suv&quot; w:id=&quot;25&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;25&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;6. Parliament Buildinghttps://www.istockphoto.com/photo/parliament-building-quebec-city-canada-gm1358679492-432229438</h3>
+        <p>The Parliament Building in Quebec City is an architectural masterpiece and the seat of the provincial government. Its design reflects French Renaissance influences, making it one of the most stunning legislative buildings in Canada.</p><p>This location's significance stems from its role as the heart of Quebec's political life and its accessibility to the public through guided tours. The central fountain and meticulously landscaped gardens add to its charm, making it a perfect spot for both history enthusiasts and photographers.</p><p>The Parliament Building (Hôtel du Parlement) is the seat of the National Assembly of Quebec and one of the most significant architectural landmarks in the province. Completed in 1886, this Second Empire-style masterpiece was inspired by the Louvre in Paris and serves as a grand tribute to the history of the Founding Peoples of Quebec. The building is famous for its ornate facade, which functions as a stone history book of the region. While it is a working political site, the interior is open to the public and offers some of the most luxurious decor in the city.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image7.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr&gt;&lt;w:sz w:val=&quot;22&quot;/&gt;&lt;w:szCs w:val=&quot;22&quot;/&gt;&lt;/w:rPr&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_t2hao0l6d5un&quot; w:id=&quot;26&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;26&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;7. Cathedral of the Holy Trinityhttps://www.istockphoto.com/photo/cathedral-of-the-holy-trinity-quebec-city-canada-gm1290760805-386076798, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr&gt;&lt;w:sz w:val=&quot;22&quot;/&gt;&lt;w:szCs w:val=&quot;22&quot;/&gt;&lt;/w:rPr&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_t2hao0l6d5un&quot; w:id=&quot;26&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;26&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;7. Cathedral of the Holy Trinityhttps://www.istockphoto.com/photo/cathedral-of-the-holy-trinity-quebec-city-canada-gm1290760805-386076798</h3>
+        <p>The Cathedral of the Holy Trinity is a landmark of immense historical significance, being the first Anglican cathedral built outside the British Isles. Completed in 1804, it was modeled after London's famous St Martin-in-the-Fields and serves as a striking example of Palladian architecture in the heart of Old Quebec. This site offers a unique perspective on the British influence in Quebec following the conquest, blending religious solemnity with royal history.</p><p>The Royal Gift: King George III personally donated the cathedral’s silver communion service, which is still considered a national treasure.</p><p>Architecture: The interior features magnificent box pews made of oak imported from the Royal Forests of Windsor, along with a grand organ built in London in 1804.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image24.jpg" alt="8. Basilique Sainte-Anne-de-Beaupré, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>8. Basilique Sainte-Anne-de-Beaupré</h3>
+        <p>The Basilique Sainte-Anne-de-Beaupré, located about 30 kilometers east of Quebec City, is one of the eight national shrines of Canada and a world-renowned pilgrimage site. Dedicated to Saint Anne, the grandmother of Jesus, the shrine has been credited with many miracles of healing, drawing over a million visitors annually.</p><p>The current basilica is a masterpiece of Neo-Romanesque architecture, built in the early 20th century to replace a series of previous chapels and churches dating back to 1658.</p><p>The Miraculous Statue: Inside the basilica, you will find the polychrome wood statue of Saint Anne, which is a focal point for pilgrims.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image1.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr&gt;&lt;w:color w:val=&quot;434343&quot;/&gt;&lt;w:sz w:val=&quot;28&quot;/&gt;&lt;w:szCs w:val=&quot;28&quot;/&gt;&lt;/w:rPr&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_lmnr67ru2xkn&quot; w:id=&quot;28&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;28&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;9. La Fresque des Québécois, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr&gt;&lt;w:color w:val=&quot;434343&quot;/&gt;&lt;w:sz w:val=&quot;28&quot;/&gt;&lt;w:szCs w:val=&quot;28&quot;/&gt;&lt;/w:rPr&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_lmnr67ru2xkn&quot; w:id=&quot;28&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;28&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;9. La Fresque des Québécois</h3>
+        <p>La Fresque des Québécois is perhaps the most famous of Quebec City’s many &quot;trompe-l'œil&quot; (deceive the eye) murals. Located at the foot of Côte de la Montagne (29 Rue Notre-Dame) near Place Royale, this 420-square-meter masterpiece transforms a flat wall into a vivid, three-dimensional window into 400 years of history. The mural is designed to be explored up close, as it is packed with intricate details and hidden symbols.</p><p>Identify the Legends: Look for about 15 key historical figures seamlessly integrated into the scene. You’ll see Samuel de Champlain standing proudly at the center, Jacques Cartier peeking from a third-story window, and the pioneer Louis Jolliet descending the stairs.</p><p>Cultural Icons: Modern figures are also present, including the legendary singer-songwriter Félix Leclerc and Thérèse Casgrain, a leader in the women's suffrage movement in Quebec.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image25.jpg" alt="10. Fresque du Petit-Champlain, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>10. Fresque du Petit-Champlain</h3>
+        <p>The Fresque du Petit-Champlain is a stunning mural located at the western end of the historic Quartier Petit Champlain. Painted in 2001, this massive artwork uses the trompe-l'œil technique to depict the daily life and hardships of the neighborhood’s past inhabitants, specifically focusing on the district's history as a bustling port and working-class hub.</p><p>Historical Narrative: The mural illustrates key events from the waterfront's history, including the tragic 1759 fire during the Siege of Quebec and the devastating rockslides of 1889 that altered the landscape of the area.</p><p>Life at the Port: You can see depictions of sailors, longshoremen, and merchants at work, highlighting the district’s 19th-century role as one of the busiest shipping ports in North America.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="outdoor-attractions"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Outdoor Attractions</span>
+    <h2>Outdoor Attractions</h2><p class="cnt">10 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image37.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;0&quot; w:before=&quot;0&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_nbtjlewolybv&quot; w:id=&quot;31&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;31&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;1. Jacques‑Cartier National Park, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;0&quot; w:before=&quot;0&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_nbtjlewolybv&quot; w:id=&quot;31&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;31&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;1. Jacques‑Cartier National Park</h3>
+        <p>Parc national de la Jacques-Cartier is a breathtaking 670-square-kilometer wilderness area located just 30 minutes north of Quebec City. It protects one of the province's most beautiful glacial valleys, characterized by a massive 550-meter-deep trench through which the Jacques-Cartier River winds. The park is famous for its extensive network of over 100 kilometers of hiking trails and its vibrant river-based recreation.</p><p>Les Loups Trail: Widely considered the park's crown jewel, this challenging 11-kilometer round-trip hike leads to two spectacular observation decks. From the summit, you are rewarded with an iconic panoramic view of the deep fractures in the Laurentian massif and the winding river below.</p><p>River Adventures: During the warmer months, the Jacques-Cartier River becomes a playground for canoeing, kayaking, and mini-rafting. The river offers everything from calm, family-friendly stretches to thrilling Class I and II rapids for those seeking a bit more adrenaline.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;0&quot; w:before=&quot;0&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_d9g8ls7gza0g&quot; w:id=&quot;34&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;34&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr/&gt;&lt;w:drawing&gt;&lt;wp:inline distB=&quot;114300&quot; distT=&quot;114300&quot; distL=&quot;114300&quot; distR=&quot;114300&quot;&gt;&lt;wp:extent cx=&quot;5602264&quot; cy=&quot;3722989&quot;/&gt;&lt;wp:effectExtent b=&quot;0&quot; l=&quot;0&quot; r=&quot;0&quot; t=&quot;0&quot;/&gt;&lt;wp:docPr id=&quot;35&quot; name=&quot;image36.jpg&quot;/&gt;&lt;a:graphic&gt;&lt;a:graphicData uri=&quot;http://schemas.openxmlformats.org/drawingml/2006/picture&quot;&gt;&lt;pic:pic&gt;&lt;pic:nvPicPr&gt;&lt;pic:cNvPr id=&quot;0&quot; name=&quot;image36.jpg&quot;/&gt;&lt;pic:cNvPicPr preferRelativeResize=&quot;0&quot;/&gt;&lt;/pic:nvPicPr&gt;&lt;pic:blipFill&gt;&lt;a:blip r:embed=&quot;rId51&quot;/&gt;&lt;a:srcRect b=&quot;0&quot; l=&quot;0&quot; r=&quot;0&quot; t=&quot;0&quot;/&gt;&lt;a:stretch&gt;&lt;a:fillRect/&gt;&lt;/a:stretch&gt;&lt;/pic:blipFill&gt;&lt;pic:spPr&gt;&lt;a:xfrm&gt;&lt;a:off x=&quot;0&quot; y=&quot;0&quot;/&gt;&lt;a:ext cx=&quot;5602264&quot; cy=&quot;3722989&quot;/&gt;&lt;/a:xfrm&gt;&lt;a:prstGeom prst=&quot;rect&quot;/&gt;&lt;a:ln/&gt;&lt;/pic:spPr&gt;&lt;/pic:pic&gt;&lt;/a:graphicData&gt;&lt;/a:graphic&gt;&lt;/wp:inline&gt;&lt;/w:drawing&gt;&lt;/w:r&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;.</h3>
+      <div class="pl__b">
+        
+        <p>The St. Lawrence River is the lifeblood of Quebec City, and its waterfront has been transformed into a series of interconnected parks and pathways. The experience shifts from the historic, bustling atmosphere of the Vieux-Port (Old Port) to the modern, expansive natural environment of the Promenade Samuel-De Champlain. Together, they offer over 10 kilometers of continuous shoreline access for walking, cycling, and recreation.</p><p>The Vieux-Port area serves as the gateway to the river, where the city's maritime history meets modern leisure. It is a vibrant hub especially active in the summer when cruise ships dock and local festivals take over the piers. The Promenade Samuel-De Champlain is a 6.8-kilometer linear park that reclaims former industrial land for public use. It is widely praised for its award-winning architectural design and its ability to connect urban life with the coastal ecosystem.</p><p>Antique District: The streets surrounding the port, particularly Rue Saint-Paul, are famous for their concentration of antique shops and art galleries.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image28.jpg" alt="3. Île d'Orléans, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>3. Île d'Orléans</h3>
+        <p>Often called the Garden of Quebec, Île d'Orléans is a lush island in the St. Lawrence River that serves as a living museum of French-Canadian heritage. The island is divided into six distinct parishes, each maintaining its own rural character, historic churches, and century-old stone houses. A drive along the 67-kilometer Chemin Royal (Royal Road) allows visitors to loop the entire island, stopping at roadside stands, artisanal boutiques, and picturesque villages.</p><p>Paradise for Foodies: The island is a primary source of fresh produce for Quebec City, famous for its fertile soil and centuries-old farming traditions. From mid-June to mid-October, the island is at its liveliest with harvest festivals and pick-your-own activities.</p><p>Black Currant Delights: At Cassis Monna &amp; Filles, visitors can taste award-winning black currant liqueurs and syrups, or enjoy their famous vanilla and cassis swirl soft-serve on a terrace overlooking the vineyards.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image19.jpg" alt="4. Domaine de Maizerets, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>4. Domaine de Maizerets</h3>
+        <p>Domaine de Maizerets is a 27-hectare historical park that serves as a hidden oasis for both nature lovers and history buffs. Located in the Limoilou district, this sprawling estate dates back to the 17th century and offers a perfect blend of manicured gardens, wild wetlands, and heritage architecture centered around a grand historic chateau.</p><p>Arboretum and Wetlands: The park features a diverse arboretum with thousands of trees and shrubs, as well as a protected marshland area where visitors can observe local bird species from specialized blinds.</p><p>Observation Tower: A multi-story wooden tower provides a tree-top view of the estate, the surrounding city, and the nearby St. Lawrence River.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image29.jpg" alt="5. Bois-de-Coulonge Park, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>5. Bois-de-Coulonge Park</h3>
+        <p>Bois-de-Coulonge Park is a prestigious historical estate that served as the official residence for Quebec's Lieutenant Governors for over a century. Today, it is a magnificent 24-hectare public park that blends horticultural excellence with heritage, offering some of the most refined garden landscapes in the city.</p><p>Horticultural Splendor: The park is renowned for its meticulously designed flower beds, a Victorian-style greenhouse, and an arboretum that features a diverse collection of rare and centennial trees.</p><p>Historic Footprints: While the main residence was tragically destroyed by fire in 1966, several historic outbuildings remain, including the guardhouse, the stables, and the former laundry, which now serve as interpretive centers or administrative offices.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image30.jpg" alt="6. Chauveau Park, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>6. Chauveau Park</h3>
+        <p>Chauveau Park is a massive urban wilderness area in the Duberger-Les Saules district, serving as one of Quebec City's largest and most diverse natural escapes. Spanning over 120 hectares, the park follows the winding Saint-Charles River, providing a lush corridor for both high-energy sports and quiet nature observation.</p><p>Saint-Charles River Trails: The park is a major hub for the Sentier linéaire de la rivière Saint-Charles, featuring scenic hiking and biking trails that hug the riverbanks and cross picturesque footbridges.</p><p>Soccer and Sports Hub: It is a premier destination for local athletes, boasting multiple high-quality soccer fields and a large indoor soccer stadium (Stade Chauveau) that allows for year-round play.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image22.jpg" alt="7. Place D’Youville, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>7. Place D’Youville</h3>
+        <p>Place d'Youville serves as a vibrant bridge between the historic walled city and the modern neighborhoods of Quebec. Located just outside the Porte Saint-Jean, this public square is a year-round gathering spot that hosts major festivals, open-air performances, and seasonal recreation.</p><p>Public Skating Rink: During the winter months, the square features a popular refrigerated outdoor skating rink. It is renowned for its festive atmosphere, often accompanied by music and colorful light displays reflecting off the nearby fortifications.</p><p>Cultural Hub: The square is flanked by significant cultural institutions, including the Théâtre Capitole and the Palais Montcalm, making it the heart of the city's performing arts scene.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image23.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr&gt;&lt;w:color w:val=&quot;434343&quot;/&gt;&lt;w:sz w:val=&quot;28&quot;/&gt;&lt;w:szCs w:val=&quot;28&quot;/&gt;&lt;/w:rPr&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_mzrdt6d0odtf&quot; w:id=&quot;46&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;46&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;8. Cap-Blanc Stairway, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr&gt;&lt;w:color w:val=&quot;434343&quot;/&gt;&lt;w:sz w:val=&quot;28&quot;/&gt;&lt;w:szCs w:val=&quot;28&quot;/&gt;&lt;/w:rPr&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_mzrdt6d0odtf&quot; w:id=&quot;46&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;46&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;8. Cap-Blanc Stairway</h3>
+        <p>The Cap-Blanc Stairs (Escalier du Cap-Blanc) is a legendary architectural feature of Quebec City, holding the title of the longest stairway in the city. Connecting the historic Quartier Petit Champlain area at the base of the cliff to the Plains of Abraham at the top, this wooden structure is both a vital transit link and a popular destination for fitness enthusiasts.</p><p>Originally built in the mid-19th century to allow workers living in the lower town to reach the factories and shipyards on the heights, the current wooden structure dates back to a complete reconstruction in the late 20th century. It offers a grueling but rewarding climb through a lush, forested cliffside.</p><p>Impressive Scale: The stairway consists of 398 steps divided into multiple flights, spanning a significant vertical elevation that provides a intense physical challenge.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image17.jpg" alt="9. Mont-Sainte-Anne, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>9. Mont-Sainte-Anne</h3>
+        <p>Mont-Sainte-Anne is a world-class outdoor destination located just 40 kilometers east of Quebec City. Known as one of the most versatile mountain resorts in North America, it offers a dramatic landscape where the Laurentian Mountains meet the St. Lawrence River, providing year-round activities that range from elite-level skiing to premier mountain biking.</p><p>Exceptional Skiing and Snowboarding: The resort boasts 71 trails spread across three sides of the mountain, including one of the most significant vertical drops in the region. Visitors often praise the La Crête trail for its spectacular views of the St. Lawrence River as you descend.</p><p>Mountain Biking Mecca: In the summer, the mountain transforms into a global hub for mountain biking, having hosted numerous UCI World Cups. It features an extensive network of cross-country trails and adrenaline-pumping downhill runs for all skill levels.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image4.jpg" alt="10. Canyon Sainte-Anne, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>10. Canyon Sainte-Anne</h3>
+        <p>Canyon Sainte-Anne is a breathtaking natural attraction carved into a 1.2-billion-year-old rock formation. Located just a few minutes past the Basilique Sainte-Anne-de-Beaupré, it features a dramatic 74-meter waterfall, higher than Niagara Falls, thundering into a narrow, rocky gorge.</p><p>The site is designed for visitors to experience the canyon from multiple heights and perspectives, making it one of the most exciting natural stops on the Beaupré Coast.</p><p>Suspension Bridges: The canyon is crossed by three suspension bridges, including one that hangs 60 meters above the abyss, offering a heart-pounding view of the rushing water directly beneath your feet.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="other-interesting-places"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Other Interesting Places</span>
+    <h2>Other Interesting Places</h2><p class="cnt">10 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image5.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_yfrvivwwwwu&quot; w:id=&quot;51&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;51&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;1. Île d'Orléans Bridge, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_yfrvivwwwwu&quot; w:id=&quot;51&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;51&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;1. Île d'Orléans Bridge</h3>
+        <p>The Pont de l'Île-d'Orléans is the sole road link between the mainland and the pastoral paradise of Île d'Orléans. This iconic suspension bridge, which opened in 1935, is a feat of engineering that spans the North Channel of the St. Lawrence River, offering one of the most scenic (and nerve-wracking) drives in the province.</p><p>Architectural Gateway: The bridge is a suspension-style structure with a central span that sits high enough to allow maritime traffic to pass underneath. Its slender, green-painted towers have become a symbol of the region.</p><p>View: As you drive toward the island, you are treated to a magnificent panorama: the Montmorency Falls thundering on your left and the silhouette of Quebec City and the Château Frontenac fading in your rearview mirror.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image6.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_s6xkahgi423l&quot; w:id=&quot;53&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;53&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;2. Gare du Palais, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_s6xkahgi423l&quot; w:id=&quot;53&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;53&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;2. Gare du Palais</h3>
+        <p>The Gare du Palais is more than just a transit hub; it is an architectural masterpiece designated as a National Historic Site of Canada. Built in 1915 by the Canadian Pacific Railway, its design was inspired by the Châteauesque style of the nearby Château Frontenac, featuring steep turrets and grand masonry that make it one of the most beautiful train stations in North America.</p><p>The station serves as the city's primary link for VIA Rail train services and Intercar bus routes, connecting Quebec City to Montreal and beyond.</p><p>Grand Architecture: The interior is just as impressive as the facade, boasting a massive stained-glass window that depicts the history of the region and a soaring waiting hall with intricate woodwork.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image34.jpg" alt="3. Rue du Trésor, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>3. Rue du Trésor</h3>
+        <p>Rue du Tresor is one of Old Quebec's most charming and narrow pedestrian alleys, famously known as the Artist's Alley. Tucked between the Place d’Armes and the Basilica-Cathedral Notre-Dame de Québec, this vibrant open-air gallery has been a staple of the city's art scene since the 1960s, providing a platform for local creators to showcase their work directly to passersby.</p><p>Open-Air Gallery: The walls of the alley are lined with various forms of art, including colorful watercolors, intricate etchings, and classic oil paintings. Visitors can watch artists at work and purchase original pieces or high-quality prints as unique souvenirs.</p><p>Themed Artwork: Much of the art features iconic Quebec City landmarks, such as the Château Frontenac and the city's historic gates, captured in different seasons and artistic styles.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image11.jpg" alt="4. Fontaine de Tourny, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>4. Fontaine de Tourny</h3>
+        <p>The Fontaine de Tourny is a magnificent centerpiece located directly in front of the Parliament Building at the Place de l'Assemblée-Nationale. Originally created by French sculptor Mathurin Moreau, this monumental fountain was a gift to Quebec City from the Simons family to celebrate the city's 400th anniversary in 2008. Its presence adds a touch of European elegance to the legislative heart of the province.</p><p>Award-Winning History: The fountain won a gold medal at the 1855 Paris World Exhibition. Before finding its permanent home in Quebec, it graced the city of Bordeaux, France, for over a century.</p><p>Intricate Design: Standing nearly 7 meters tall, the fountain features 43 water jets and is adorned with detailed figures of children holding hands, reflecting the artistic style of the mid-19th century.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image26.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_7iw7wq76mqj9&quot; w:id=&quot;58&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;58&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;5. Old Port, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr/&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_7iw7wq76mqj9&quot; w:id=&quot;58&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;58&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;5. Old Port</h3>
+        <p>The Old Port of Quebec (Vieux-Port) is a historic maritime district where the city’s colonial past meets a vibrant, modern lifestyle. Once one of the busiest ports in the world during the 19th century, it has evolved into a scenic destination characterized by its massive grain elevators, bustling marinas, and a relaxed atmosphere perfect for a leisurely stroll.</p><p>Public Markets and Artisans: The area is home to the Grand Marché de Québec (formerly the Old Port Market), where you can find local seasonal produce, maple products, and artisanal cheeses.</p><p>Maritime History: It serves as a major docking point for international cruise ships, and visitors can explore the Musée naval de Québec to learn about the river's military history.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image41.jpg" alt="6. Saint-Roch District, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>6. Saint-Roch District</h3>
+        <p>Often described as the Williamsburg of Quebec City, Saint-Roch is a former industrial and working-class district that has undergone a massive revitalization to become the city's hippest neighborhood. Located in the Lower Town, it is a vibrant hub where historic brick warehouses now house tech startups, avant-garde art galleries, and some of the most innovative culinary spots in the province.</p><p>The neighborhood's lifeblood is Rue Saint-Joseph Est, a bustling commercial artery that reclaimed its title as a premier shopping and dining destination.</p><p>Trendy Shopping: The street is lined with independent boutiques, high-end kitchenware stores, and local fashion designers, offering a sharp contrast to the souvenir shops of the Old City.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image31.jpg" alt="7. Escalier Casse-Cou, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>7. Escalier Casse-Cou</h3>
+        <p>The Escalier Casse-Cou (Breakneck Steps) is Quebec City’s oldest stairway, dating back to 1635. Connecting the Côte de la Montagne in the Upper Town to the world-famous Rue du Petit-Champlain below, these 59 steps are an essential part of the city's vertical landscape and a favorite spot for photographers.</p><p>A Fearsome Reputation: The name was coined by British tour guides in the 19th century due to the stairway's steepness. Despite the ominous title, no serious neck-breaking incidents have been recorded, and the current structure, rebuilt in the late 1960s, is wide, sturdy, and safe.</p><p>Centuries of Travel: Long before it was a tourist landmark, this route was a simple path established by Samuel de Champlain to connect his residence at the top of the cliff with the trading post below. Over the centuries, it was known as the Beggars' Stairs and the Champlain Stairs.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image27.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr&gt;&lt;w:color w:val=&quot;434343&quot;/&gt;&lt;w:sz w:val=&quot;28&quot;/&gt;&lt;w:szCs w:val=&quot;28&quot;/&gt;&lt;/w:rPr&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_p4qz2vlw0u6e&quot; w:id=&quot;63&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;63&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;8. Aquarium du Québec, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr&gt;&lt;w:color w:val=&quot;434343&quot;/&gt;&lt;w:sz w:val=&quot;28&quot;/&gt;&lt;w:szCs w:val=&quot;28&quot;/&gt;&lt;/w:rPr&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_p4qz2vlw0u6e&quot; w:id=&quot;63&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;63&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;8. Aquarium du Québec</h3>
+        <p>The Aquarium of Quebec is a massive marine park located near the Quebec bridges, offering a deep dive into the underwater worlds of the Atlantic and Pacific oceans, as well as the St. Lawrence River. Spanning 16 hectares, it is home to approximately 10,000 animals across 300 different species.</p><p>Awesome Ocean: A highlight for many visitors is the underwater tunnel, where you can walk through a giant tank and see sharks, rays, and colorful fish swimming all around you.</p><p>Arctic Encounters: The outdoor section features impressive habitats for polar bears, walruses, and seals, allowing you to observe these majestic animals both above and below the water line.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image40.jpg" alt="&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr&gt;&lt;w:color w:val=&quot;434343&quot;/&gt;&lt;w:sz w:val=&quot;28&quot;/&gt;&lt;w:szCs w:val=&quot;28&quot;/&gt;&lt;/w:rPr&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_deimhuibvna4&quot; w:id=&quot;64&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;64&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;9. Grande Allée, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>&lt;w:left w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:bottom w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:right w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;w:between w:space=&quot;0&quot; w:sz=&quot;0&quot; w:val=&quot;nil&quot;/&gt;&lt;/w:pBdr&gt;&lt;w:shd w:fill=&quot;auto&quot; w:val=&quot;clear&quot;/&gt;&lt;w:spacing w:after=&quot;80&quot; w:before=&quot;320&quot; w:line=&quot;276&quot; w:lineRule=&quot;auto&quot;/&gt;&lt;w:ind w:left=&quot;0&quot; w:right=&quot;0&quot; w:firstLine=&quot;0&quot;/&gt;&lt;w:jc w:val=&quot;left&quot;/&gt;&lt;w:rPr&gt;&lt;w:color w:val=&quot;434343&quot;/&gt;&lt;w:sz w:val=&quot;28&quot;/&gt;&lt;w:szCs w:val=&quot;28&quot;/&gt;&lt;/w:rPr&gt;&lt;/w:pPr&gt;&lt;w:bookmarkStart w:colFirst=&quot;0&quot; w:colLast=&quot;0&quot; w:name=&quot;_deimhuibvna4&quot; w:id=&quot;64&quot;/&gt;&lt;w:bookmarkEnd w:id=&quot;64&quot;/&gt;&lt;w:r w:rsidDel=&quot;00000000&quot; w:rsidR=&quot;00000000&quot; w:rsidRPr=&quot;00000000&quot;&gt;&lt;w:rPr&gt;&lt;w:rtl w:val=&quot;0&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t xml:space=&quot;preserve&quot;&gt;9. Grande Allée</h3>
+        <p>Often called the Champs-Élysées of Quebec City, Grande Allée is a prestigious boulevard that serves as the city's premier destination for nightlife, upscale dining, and major celebrations. Lined with majestic 19th-century Victorian townhomes and towering trees, the street transforms from a historic residential corridor into a high-energy entertainment district as you move toward the city walls.</p><p>Social Heart of the City: The section near the Parliament is famous for its vibrant terraces that spill out onto the sidewalk, creating a lively atmosphere where locals and visitors gather for drinks and people-watching.</p><p>Architectural Grandeur: The boulevard is characterized by its Grande Allée style architecture, opulent stone houses that once belonged to Quebec's elite, many of which have been meticulously converted into restaurants, boutiques, and hotels.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/quebec-city/image20.jpg" alt="10. Funiculaire du Vieux-Québec, Quebec City"></figure>
+      
+      <div class="pl__b">
+        <h3>10. Funiculaire du Vieux-Québec</h3>
+        <p>The Funiculaire du Vieux-Québec is a historic inclined elevator that has been saving travelers' legs since 1879. It glides along a 45-degree track, linking the Upper Town’s Dufferin Terrace to the Lower Town's Quartier Petit Champlain.</p><p>A Scenic Shortcut: The ride covers 64 meters (210 feet) in about 30 seconds, providing a panoramic glass bubble view of the St. Lawrence River and the rooftops of the Lower Town.</p><p>Historic Foundations: The Lower Town entrance is located within the House of Louis Jolliet, built in 1683. Jolliet was the famous Quebec-born explorer who mapped the Mississippi River.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <h2>Keep going</h2>
+  <nav class="siblings" style="margin-top:20px" aria-label="Next">
+    <a class="sib" href="country.html"><span class="sib__n">Canada</span><span class="sib__m">All the towns</span></a>
+    <a class="sib" href="search.html?in=quebec-city"><span class="sib__n">Stays in Quebec City</span><span class="sib__m">Search what is open</span></a>
+    <a class="sib" href="index.html"><span class="sib__n">All destinations</span><span class="sib__m">Every town we cover</span></a>
+  </nav>
+</div></section>
+</main>
+<footer class="f"><div class="wrap fbase">&copy; 2026 Arc Trips. Prices in CAD, before taxes and fees.</div></footer>
+<script src="_nav.js"></script>
+</body></html>

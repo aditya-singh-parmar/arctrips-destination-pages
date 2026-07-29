@@ -1,0 +1,179 @@
+- generic [active] [ref=f710e1]:
+  - navigation [ref=f710e2]:
+    - generic [ref=f710e3]:
+      - link "ARCTRIPS" [ref=f710e4] [cursor=pointer]:
+        - /url: index.html
+      - list [ref=f710e5]:
+        - listitem [ref=f710e6]:
+          - link "Stays" [ref=f710e7] [cursor=pointer]:
+            - /url: search.html
+        - listitem [ref=f710e8]:
+          - link "Destinations" [ref=f710e9] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=f710e10]:
+          - link "Guides" [ref=f710e11] [cursor=pointer]:
+            - /url: search.html
+      - textbox "Search" [ref=f710e16]:
+        - /placeholder: Search Shawnigan Lake
+      - link "Sign in" [ref=f710e17] [cursor=pointer]:
+        - /url: search.html
+  - navigation "Shawnigan Lake" [ref=f710e18]:
+    - generic [ref=f710e19]:
+      - link "← Vancouver Island" [ref=f710e20] [cursor=pointer]:
+        - /url: region.html
+      - list [ref=f710e22]:
+        - listitem [ref=f710e23]:
+          - link "Overview" [ref=f710e24] [cursor=pointer]:
+            - /url: "#top"
+        - listitem [ref=f710e25]:
+          - link "Stays" [ref=f710e26] [cursor=pointer]:
+            - /url: search.html
+        - listitem [ref=f710e27]:
+          - link "Guides" [ref=f710e28] [cursor=pointer]:
+            - /url: search.html
+        - listitem [ref=f710e29]:
+          - link "All destinations" [ref=f710e30] [cursor=pointer]:
+            - /url: index.html
+      - link "Find a stay" [ref=f710e31] [cursor=pointer]:
+        - /url: search.html
+  - main [ref=f710e32]:
+    - navigation "Breadcrumb" [ref=f710e34]:
+      - link "Arc Trips" [ref=f710e35] [cursor=pointer]:
+        - /url: index.html
+      - generic [ref=f710e36]: /
+      - link "Vancouver Island" [ref=f710e37] [cursor=pointer]:
+        - /url: region.html
+      - generic [ref=f710e38]: /
+      - generic [ref=f710e39]: Shawnigan Lake
+    - generic [ref=f710e40]:
+      - img "Shawnigan Lake, Vancouver Island" [ref=f710e41]
+      - generic [ref=f710e44]:
+        - text: Vancouver Island
+        - heading "Shawnigan Lake" [level=1] [ref=f710e45]
+        - paragraph [ref=f710e46]: The Kinsol Trestle is one of the most remarkable landmarks in the Shawnigan Lake area and a centerpiece of Vancouver Island’s rail-to-trail heritage. Standing 44 meters high and stretching 187 meters across the Koksilah River, it is one of the tallest free-standing timber rail trestle structures in.
+        - generic [ref=f710e47]:
+          - generic [ref=f710e48]:
+            - term [ref=f710e49]: Places written up
+            - definition [ref=f710e50]: "12"
+          - generic [ref=f710e51]:
+            - term [ref=f710e52]: With photographs
+            - definition [ref=f710e53]: "9"
+          - generic [ref=f710e54]:
+            - term [ref=f710e55]: Guides
+            - definition [ref=f710e56]: "1"
+    - navigation "Sections" [ref=f710e58]:
+      - link "Shawnigan Lake" [ref=f710e59] [cursor=pointer]:
+        - /url: "#shawnigan-lake"
+    - generic [ref=f710e61]:
+      - generic [ref=f710e62]:
+        - text: Shawnigan Lake
+        - heading "Shawnigan Lake" [level=2] [ref=f710e63]
+        - paragraph [ref=f710e64]: 12 places, written up one at a time
+      - generic [ref=f710e65]:
+        - article [ref=f710e66]:
+          - figure [ref=f710e67]:
+            - img "1. Kinsol Trestle, Shawnigan Lake" [ref=f710e68]
+          - generic [ref=f710e69]:
+            - heading "1. Kinsol Trestle" [level=3] [ref=f710e70]
+            - paragraph [ref=f710e71]: The Kinsol Trestle is one of the most remarkable landmarks in the Shawnigan Lake area and a centerpiece of Vancouver Island’s rail-to-trail heritage. Standing 44 meters high and stretching 187 meters across the Koksilah River, it is one of the tallest free-standing timber rail trestle structures in the world.
+            - paragraph [ref=f710e72]: "The Cowichan Valley Trail: The trestle is a highlight of this multi-use trail system. The approach from the main parking lot is a relatively flat, well-maintained 1.2-kilometer walk through a lush forest, making it accessible for families, cyclists, and dog walkers."
+            - paragraph [ref=f710e73]: "Architectural Marvel: Originally completed in 1920 to transport old-growth timber, the structure was extensively restored and reopened in 2011. Visitors can now walk across the sturdy wooden decking and peer down through the intricate timber Howe trusses to the river below."
+        - article [ref=f710e74]:
+          - figure [ref=f710e75]:
+            - img "2. Shawnigan Lake, Shawnigan Lake" [ref=f710e76]
+          - generic [ref=f710e77]:
+            - heading "2. Shawnigan Lake" [level=3] [ref=f710e78]
+            - paragraph [ref=f710e79]: Shawnigan Lake is a prominent freshwater destination on southern Vancouver Island, stretching roughly 7 kilometers in length. Known as a centerpiece of the warm land, the lake's sheltered position often allows surface water temperatures to become comfortable for swimming by mid-summer, making it a primary recreation hub for both residents and visitors.
+            - paragraph [ref=f710e80]: West Shawnigan Lake Provincial Park serves as the primary day-use area on the lake's western shore, offering a sanctuary of Douglas fir and arbutus forest. The park features a designated swimming area marked with floats, providing a secure spot for families to enjoy the water. Large grassy fields and established picnic tables make it a preferred location for full-day outings and large group gatherings.
+            - paragraph [ref=f710e81]: Shawnigan Wharf Park is the vibrant heart of the lake's social scene, located just steps from the village center. This park includes a public wharf, a sandy beach, and an enclosed swimming area, alongside a beach volleyball court for active visitors.It serves as a major entry point for motorized watercraft, though the area remains highly organized to ensure the safety of swimmers and paddlers.
+        - article [ref=f710e82]:
+          - figure [ref=f710e83]:
+            - img "3. Cowichan Valley Trail, Shawnigan Lake" [ref=f710e84]
+          - generic [ref=f710e85]:
+            - heading "3. Cowichan Valley Trail" [level=3] [ref=f710e86]
+            - paragraph [ref=f710e87]: The Cowichan Valley Trail is a multi-use trail system that forms a major portion of the Trans Canada Trail on Vancouver Island. Stretching over 120 kilometers, it follows the gentle grade of decommissioned rail lines, connecting communities from the Malahat summit north to Shawnigan Lake, west to Lake Cowichan, and further north through Duncan and Chemainus.
+            - paragraph [ref=f710e88]: Key Trail Segments and Experience
+            - paragraph [ref=f710e89]: "The Historic Trestle Route: The most popular section runs between Shawnigan Lake and the Kinsol Trestle. This part of the trail is wide, flat, and surfaced with crushed gravel, making it ideal for casual cyclists and families."
+        - article [ref=f710e90]:
+          - figure [ref=f710e91]:
+            - img "4. West Shawnigan Lake Park, Shawnigan Lake" [ref=f710e92]
+          - generic [ref=f710e93]:
+            - heading "4. West Shawnigan Lake Park" [level=3] [ref=f710e94]
+            - paragraph [ref=f710e95]: West Shawnigan Lake Provincial Park is a primary day-use destination on the western shore of Shawnigan Lake, offering a quieter alternative to the busier beaches near the village. The park is characterized by its transition from old-growth Douglas fir forest to a series of rocky and sandy access points along the water.
+            - paragraph [ref=f710e96]: "Shoreline Recreation: The park features a designated swimming area marked with floats, providing a secure environment for families. The beach is a mix of small pebbles and sand, suitable for launching paddleboards or kayaks to explore the lake's western bays."
+            - paragraph [ref=f710e97]: "Forest Trails: A network of short, accessible trails winds through the forest of large Douglas firs and arbutus trees. These paths provide a cool, shaded retreat from the sun and are popular for brief nature walks."
+        - article [ref=f710e98]:
+          - figure [ref=f710e99]:
+            - img "5. Old Baldy Mountain, Shawnigan Lake" [ref=f710e100]
+          - generic [ref=f710e101]:
+            - heading "5. Old Baldy Mountain" [level=3] [ref=f710e102]
+            - paragraph [ref=f710e103]: Old Baldy Mountain is a popular hiking destination on the eastern side of Shawnigan Lake, known for providing some of the most accessible and rewarding panoramic views in the South Cowichan region. Managed as part of Old Baldy Mountain Park, the peak offers a sweeping perspective of the lake, the surrounding valley, and the distant Saanich Inlet.
+            - paragraph [ref=f710e104]: "The Summit Hike: The primary trail is a relatively short but steep ascent that gains roughly 150 meters in elevation. Most hikers reach the summit in 20 to 30 minutes, where they are met with wide rock bluffs that serve as natural viewing platforms."
+            - paragraph [ref=f710e105]: "The Famous Swing: For many years, a wooden swing hung from a large arbutus tree at the summit was a local icon and a favorite photography spot. While its presence can vary due to maintenance, the bluff remains a primary gathering point for sunset watchers."
+        - article [ref=f710e106]:
+          - figure [ref=f710e107]:
+            - img "6. Shawnigan Wharf Park, Shawnigan Lake" [ref=f710e108]
+          - generic [ref=f710e109]:
+            - heading "6. Shawnigan Wharf Park" [level=3] [ref=f710e110]
+            - paragraph [ref=f710e111]: Shawnigan Wharf Park is the primary social and recreational hub of the lake, located directly adjacent to the Shawnigan Lake village center. It is highly regarded for its accessibility and range of facilities that cater to both active water sports and relaxed lakeside lounging.
+            - paragraph [ref=f710e112]: "The Swimming Wharf: A major draw for locals and visitors, the large wooden wharf features a designated swimming area. It is a popular spot for jumping into the lake during the warmer summer months."
+            - paragraph [ref=f710e113]: "Sand Beach and Volleyball: The park offers a sandy beach area that is ideal for children to play, along with a full-sized beach volleyball court that frequently hosts casual community games."
+        - article [ref=f710e114]:
+          - figure [ref=f710e115]:
+            - img "7. Shawnigan Village, Shawnigan Lake" [ref=f710e116]
+          - generic [ref=f710e117]:
+            - heading "7. Shawnigan Village" [level=3] [ref=f710e118]
+            - paragraph [ref=f710e119]: Shawnigan Village is the charming heart of the community, serving as a hub for local culture, dining, and history just steps from the eastern shore of the lake. The village is characterized by its walkable layout and a mix of historic buildings and modern amenities that cater to the recreational lifestyle of the region.
+            - paragraph [ref=f710e120]: "Local Culinary Scene: The village is home to several popular spots like Shawnigan House Coffee + Chocolate, known for its artisan sweets, and THREE B'S CAFE, a favored local destination for breakfast and lunch."
+            - paragraph [ref=f710e121]: "Cultural Landmarks: The Shawnigan Lake Museum is centrally located, offering insights into the area's pioneer and logging history."
+        - article [ref=f710e122]:
+          - heading "8. Shawnigan Lake Museum" [level=3] [ref=f710e123]
+          - generic [ref=f710e124]:
+            - paragraph [ref=f710e125]: The Shawnigan Lake Museum is a community-driven institution that preserves the diverse history of the region, from its Indigenous roots to its development as a major logging and recreational hub. Recently undergoing significant expansions, the museum serves as a vibrant cultural center located in the heart of the village.
+            - paragraph [ref=f710e126]: "EJ Hughes Gallery: A dedicated space showcases the life and work of the renowned Canadian artist EJ Hughes, who lived and painted in the Shawnigan Lake area for many years."
+            - paragraph [ref=f710e127]: "Pioneer Life: Exhibits detailed the lives of early settlers, featuring artifacts from the old logging camps, a restored historic schoolroom, and personal items from the families who first established the community."
+        - article [ref=f710e128]:
+          - heading "9. Mason’s Beach Park" [level=3] [ref=f710e129]
+          - generic [ref=f710e130]:
+            - paragraph [ref=f710e131]: Masons Beach Park is a small, family-oriented lakeside park located on the north end of Shawnigan Lake. It serves as a quieter community spot for those who want to avoid the larger crowds at the central village docks or the main provincial park.
+            - paragraph [ref=f710e132]: "Quiet Swimming: The park features a small, sandy-to-pebbly beach area that provides easy entry into the water. It is a favored spot for local families with younger children due to the typically calm water conditions in this corner of the lake."
+            - paragraph [ref=f710e133]: "Paddling Launch: Because it is less congested, it is an excellent place to launch a paddleboard or kayak to explore the northern shoreline or head toward the deeper center of the lake."
+        - article [ref=f710e134]:
+          - heading "10. Old Mill Park" [level=3] [ref=f710e135]
+          - generic [ref=f710e136]:
+            - paragraph [ref=f710e137]: Old Mill Park is a tranquil community park located on the eastern shore of Shawnigan Lake. Built on the former site of a historic sawmill, the park features a beautifully landscaped setting that blends industrial history with scenic waterfront access, offering a more serene atmosphere than the busier central beaches.
+            - paragraph [ref=f710e138]: "Historic Sawmill Legacy: Interpretive signage throughout the park provides insights into the site's history as an active sawmill, explaining how the timber industry shaped the early community of Shawnigan Lake."
+            - paragraph [ref=f710e139]: "Swimming and Sunbathing: A small, pebbly beach area provides a quiet spot for a dip in the lake. The water here is generally calm, making it a favorite for those looking for a peaceful swim."
+        - article [ref=f710e140]:
+          - figure [ref=f710e141]:
+            - 'img "11. Nearby Worthwhile Stop: Malahat SkyWalk, Shawnigan Lake" [ref=f710e142]'
+          - generic [ref=f710e143]:
+            - 'heading "11. Nearby Worthwhile Stop: Malahat SkyWalk" [level=3] [ref=f710e144]'
+            - paragraph [ref=f710e145]: The Malahat SkyWalk is a premier attraction located approximately 20 kilometers south of Shawnigan Lake, roughly a 23-minute drive via Shawnigan Lake Road and the Trans-Canada Highway. This accessible adventure destination offers a high-elevation perspective of the Finlayson Arm and the broader Salish Sea.
+            - paragraph [ref=f710e146]: The experience centers on a 600-meter elevated wooden boardwalk that leads through a forest of Arbutus and Douglas fir trees, culminating in a striking ten-story spiral tower.
+            - paragraph [ref=f710e147]: "The Spiral Tower: Visitors ascend a gentle 32-meter ramp to reach a sightseeing platform 250 meters above sea level, providing 360-degree views of the Olympic Mountains and Mt. Baker."
+        - article [ref=f710e148]:
+          - figure [ref=f710e149]:
+            - img "12. Short scenic day trips around the South Cowichan area, Shawnigan Lake" [ref=f710e150]
+          - generic [ref=f710e151]:
+            - heading "12. Short scenic day trips around the South Cowichan area" [level=3] [ref=f710e152]
+            - paragraph [ref=f710e153]: The South Cowichan region offers a variety of scenic day trips that blend coastal charm, agricultural heritage, and temperate rainforest landscapes, all within a short drive from Shawnigan Lake.
+            - paragraph [ref=f710e154]: Coastal and Marine Adventures
+            - paragraph [ref=f710e155]: Cowichan Bay is a historic waterfront village located about 15 minutes north, famous for its colorful buildings on stilts and active fishing harbor. Stroll the 1-kilometer oceanfront strip lined with artisan shops, local seafood restaurants, and a traditional maritime museum. The bay is a prime spot for renting kayaks or booking whale-watching tours to see orcas, eagles, and river otters in their natural habitat.
+    - generic [ref=f710e157]:
+      - heading "Keep going" [level=2] [ref=f710e158]
+      - navigation "Next" [ref=f710e159]:
+        - link "Vancouver Island All the towns" [ref=f710e160] [cursor=pointer]:
+          - /url: region.html
+          - generic [ref=f710e161]: Vancouver Island
+          - generic [ref=f710e162]: All the towns
+        - link "Stays in Shawnigan Lake Search what is open" [ref=f710e163] [cursor=pointer]:
+          - /url: search.html
+          - generic [ref=f710e164]: Stays in Shawnigan Lake
+          - generic [ref=f710e165]: Search what is open
+        - link "All destinations Every town we cover" [ref=f710e166] [cursor=pointer]:
+          - /url: index.html
+          - generic [ref=f710e167]: All destinations
+          - generic [ref=f710e168]: Every town we cover
+  - contentinfo [ref=f710e169]:
+    - generic [ref=f710e170]: © 2026 Arc Trips. Prices in CAD, before taxes and fees.

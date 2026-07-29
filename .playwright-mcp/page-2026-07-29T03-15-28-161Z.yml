@@ -1,0 +1,1111 @@
+- generic [active] [ref=f743e1]:
+  - link "Skip to content" [ref=f743e2] [cursor=pointer]:
+    - /url: "#main"
+  - generic:
+    - img:
+      - generic:
+        - generic: "14"
+        - generic: "9"
+        - generic: "22"
+        - generic: "31"
+        - generic: "17"
+        - generic: "6"
+        - generic: "11"
+        - generic: "26"
+        - generic: "19"
+        - generic: "8"
+        - generic: "24"
+        - generic: "13"
+        - generic: "28"
+        - generic: "5"
+        - generic: "16"
+  - navigation [ref=f743e3]:
+    - generic [ref=f743e4]:
+      - link "Arctrips" [ref=f743e5] [cursor=pointer]:
+        - /url: index.html
+      - list [ref=f743e6]:
+        - listitem [ref=f743e7]:
+          - link "Stays" [ref=f743e8] [cursor=pointer]:
+            - /url: search.html?in=tofino
+        - listitem [ref=f743e9]:
+          - link "Destinations" [ref=f743e10] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=f743e11]:
+          - link "Guides" [ref=f743e12] [cursor=pointer]:
+            - /url: search.html
+      - search [ref=f743e13]:
+        - generic [ref=f743e17]: Go to a place, a beach, a trail or a guide
+        - searchbox "Go to a place, a beach, a trail or a guide" [ref=f743e18]
+        - generic [ref=f743e19]: /
+      - link "Sign in" [ref=f743e20] [cursor=pointer]:
+        - /url: not-found.html
+  - generic [ref=f743e22]:
+    - link "← Tofino" [ref=f743e23] [cursor=pointer]:
+      - /url: tofino.html
+    - list [ref=f743e25]:
+      - listitem [ref=f743e26]:
+        - link "Overview" [ref=f743e27] [cursor=pointer]:
+          - /url: tofino.html
+      - listitem [ref=f743e28]:
+        - link "Things to do" [ref=f743e29] [cursor=pointer]:
+          - /url: things-to-do.html
+      - listitem [ref=f743e30]:
+        - link "Areas" [ref=f743e31] [cursor=pointer]:
+          - /url: long-beach.html
+      - listitem [ref=f743e32]:
+        - link "Plan" [ref=f743e33] [cursor=pointer]:
+          - /url: plan.html
+      - listitem [ref=f743e34]:
+        - link "Guides" [ref=f743e35] [cursor=pointer]:
+          - /url: guide.html
+    - link "See 134 stays" [ref=f743e36] [cursor=pointer]:
+      - /url: search.html?in=tofino
+  - main [ref=f743e37]:
+    - navigation "Breadcrumb" [ref=f743e39]:
+      - list [ref=f743e40]:
+        - listitem [ref=f743e41]:
+          - link "Canada" [ref=f743e42] [cursor=pointer]:
+            - /url: country.html
+        - listitem [ref=f743e43]: /
+        - listitem [ref=f743e44]:
+          - link "British Columbia" [ref=f743e45] [cursor=pointer]:
+            - /url: province.html
+        - listitem [ref=f743e46]: /
+        - listitem [ref=f743e47]:
+          - link "Guides" [ref=f743e48] [cursor=pointer]:
+            - /url: search.html
+        - listitem [ref=f743e49]: /
+        - listitem [ref=f743e50]:
+          - link "Tofino" [ref=f743e51] [cursor=pointer]:
+            - /url: tofino.html
+        - listitem [ref=f743e52]: /
+        - listitem [ref=f743e53]:
+          - link "Things to do" [ref=f743e54] [cursor=pointer]:
+            - /url: things-to-do.html
+        - listitem [ref=f743e55]: /
+        - listitem [ref=f743e56]: Whale watching
+    - generic [ref=f743e58]:
+      - generic [ref=f743e59]:
+        - text: Things to do in Tofino
+        - heading "Whale watching in Tofino Gray whales north from March, humpbacks all summer. Six places to watch from, four of them free and on foot." [level=1] [ref=f743e60]:
+          - text: Whale watching in
+          - generic [ref=f743e61]: Tofino
+          - generic [ref=f743e64]: Gray whales north from March, humpbacks all summer. Six places to watch from, four of them free and on foot.
+        - generic [ref=f743e65]:
+          - link "When should you go" [ref=f743e66] [cursor=pointer]:
+            - /url: "#best-time"
+          - link "The six places" [ref=f743e67] [cursor=pointer]:
+            - /url: "#where"
+        - generic [ref=f743e68]:
+          - generic [ref=f743e69]:
+            - term [ref=f743e70]: Season
+            - definition [ref=f743e71]: Mar to Oct
+          - generic [ref=f743e72]:
+            - term [ref=f743e73]: Places
+            - definition [ref=f743e74]: "6"
+          - generic [ref=f743e75]:
+            - term [ref=f743e76]: Guides
+            - definition [ref=f743e77]: "8"
+          - generic [ref=f743e78]:
+            - term [ref=f743e79]: Questions
+            - definition [ref=f743e80]: "24"
+          - generic [ref=f743e81]:
+            - term [ref=f743e82]: Typical tour
+            - definition [ref=f743e83]: 2.5to 3 h
+      - generic [ref=f743e84]:
+        - figure "A blow against the rainforest" [ref=f743e92]:
+          - img "A whale blowing hard beside a rock shoreline hung with rainforest" [ref=f743e93]
+        - figure "A zodiac out of Ucluelet Harbour" [ref=f743e95]:
+          - img "An orca surfacing beside a red zodiac carrying passengers in survival suits" [ref=f743e96]
+        - figure "A fluke, meaning a deeper dive" [ref=f743e98]:
+          - img "A humpback fluke lifting above the water in front of a forested shoreline" [ref=f743e99]
+    - generic [ref=f743e102]:
+      - generic [ref=f743e103]:
+        - generic [ref=f743e104]: Tide today at Tofino Harbour
+        - paragraph [ref=f743e105]:
+          - generic [ref=f743e106]: Low 06:14, 0.8 m
+          - generic [ref=f743e107]: High 12:38, 3.1 m
+          - generic [ref=f743e108]: Low 18:52, 1.2 m
+          - generic [ref=f743e109]: Sunset 21:07
+      - generic [ref=f743e110]:
+        - generic [ref=f743e111]: Tide today at Ucluelet Harbour
+        - paragraph [ref=f743e112]:
+          - generic [ref=f743e113]: Low 06:02, 0.7 m
+          - generic [ref=f743e114]: High 12:26, 3 m
+          - generic [ref=f743e115]: Low 18:40, 1.1 m
+          - generic [ref=f743e116]: Sunset 21:05
+      - paragraph [ref=f743e117]: "Why it matters: at low water Long Beach doubles in width, and the rock shelves below the Amphitrite Point lighthouse open up, which is where the shore watching is done."
+    - navigation "On this page" [ref=f743e119]:
+      - link "When to go" [ref=f743e120] [cursor=pointer]:
+        - /url: "#best-time"
+      - link "The six places" [ref=f743e121] [cursor=pointer]:
+        - /url: "#where"
+      - link "Boats and cost" [ref=f743e122] [cursor=pointer]:
+        - /url: "#boats"
+      - link "What to bring" [ref=f743e123] [cursor=pointer]:
+        - /url: "#kit"
+      - link "The guides" [ref=f743e124] [cursor=pointer]:
+        - /url: "#reading"
+      - link "Questions" [ref=f743e125] [cursor=pointer]:
+        - /url: "#faq"
+    - generic [ref=f743e127]:
+      - generic [ref=f743e128]:
+        - generic [ref=f743e129]:
+          - text: Why here
+          - heading "The whales are not visiting the town" [level=2] [ref=f743e130]
+          - paragraph [ref=f743e131]: They are working a stretch of coast that happens to have two towns on it. This is what that stretch is, and why it holds them.
+        - link "All nine subjects in Tofino" [ref=f743e132] [cursor=pointer]:
+          - /url: things-to-do.html
+      - generic [ref=f743e133]:
+        - generic [ref=f743e134]:
+          - img "Several whale blows hanging over the water below a dark forested hillside" [ref=f743e136]
+          - generic [ref=f743e137]:
+            - generic [ref=f743e138]: Clayoquot Sound
+            - generic [ref=f743e140]: Open Pacific, sheltered inlets, islands
+            - generic [ref=f743e142]: 321 blocks of writing
+          - heading "The whales come for the food, and the food is here" [level=3] [ref=f743e143]
+          - paragraph [ref=f743e144]: "Tofino sits beside Clayoquot Sound, a rich coastal area with ocean, islands, beaches, rainforest and rocky shorelines. It is one of the best places on Vancouver Island to see wild animals, and the reason is structural: the shelf here pushes cold water up, the cold water feeds the herring and the krill, and everything larger follows."
+          - paragraph [ref=f743e145]: Gray whales pass on their way from the calving lagoons in Baja California to the feeding grounds off Alaska. Humpbacks stay to feed through the summer. Orcas turn up when they turn up. The same water holds sea lions, harbour seals, sea otters, bald eagles, and a seabird passage twice a year.
+          - paragraph [ref=f743e146]: Forty minutes south, Ucluelet faces Barkley Sound and the Broken Group Islands. That is the quieter half of the same shelf, and it is where five of the six places in this guide sit.
+        - generic [ref=f743e147]:
+          - link "An orca surfacing beside a small whale watching boat Ucluelet 4 questions answered Whale Watching in Ucluelet" [ref=f743e148] [cursor=pointer]:
+            - /url: guide.html
+            - img "An orca surfacing beside a small whale watching boat" [ref=f743e150]
+            - generic [ref=f743e151]:
+              - generic [ref=f743e152]:
+                - generic [ref=f743e153]: Ucluelet
+                - generic [ref=f743e155]: 4 questions answered
+              - heading "Whale Watching in Ucluelet" [level=4] [ref=f743e156]
+          - link "An orca surfacing beside a red zodiac carrying passengers in survival suits Ucluelet 4 questions answered Whale Watching Tours in Ucluelet" [ref=f743e157] [cursor=pointer]:
+            - /url: guide.html
+            - img "An orca surfacing beside a red zodiac carrying passengers in survival suits" [ref=f743e159]
+            - generic [ref=f743e160]:
+              - generic [ref=f743e161]:
+                - generic [ref=f743e162]: Ucluelet
+                - generic [ref=f743e164]: 4 questions answered
+              - heading "Whale Watching Tours in Ucluelet" [level=4] [ref=f743e165]
+          - 'link "A humpback fluke lifting above the water in front of a forested shoreline Ucluelet 4 questions answered Whales in Ucluelet: The Spring Migration Explained" [ref=f743e166] [cursor=pointer]':
+            - /url: guide.html
+            - img "A humpback fluke lifting above the water in front of a forested shoreline" [ref=f743e168]
+            - generic [ref=f743e169]:
+              - generic [ref=f743e170]:
+                - generic [ref=f743e171]: Ucluelet
+                - generic [ref=f743e173]: 4 questions answered
+              - 'heading "Whales in Ucluelet: The Spring Migration Explained" [level=4] [ref=f743e174]'
+      - generic [ref=f743e175]:
+        - generic [ref=f743e176]:
+          - term [ref=f743e177]: Season
+          - definition [ref=f743e178]: 8months
+          - paragraph [ref=f743e179]: March to October, when the boats run out of both harbours.
+        - generic [ref=f743e180]:
+          - term [ref=f743e181]: Whales you might see
+          - definition [ref=f743e182]: "3"
+          - paragraph [ref=f743e183]: Gray, humpback and orca, in that order of reliability.
+        - generic [ref=f743e184]:
+          - term [ref=f743e185]: Stays in Tofino
+          - definition [ref=f743e186]: 134from $320
+          - paragraph [ref=f743e187]: Bookable tonight, plus 158 more in Ucluelet.
+    - generic [ref=f743e190]:
+      - generic [ref=f743e191]:
+        - generic [ref=f743e192]:
+          - text: Month by month
+          - heading "When should you go?" [level=2] [ref=f743e193]
+          - paragraph [ref=f743e194]: March to October, and the answer changes inside that. Gray whales March to May, humpbacks July to September, and no boats at all from November to February.
+        - link "Plan the trip" [ref=f743e195] [cursor=pointer]:
+          - /url: plan.html
+      - paragraph [ref=f743e196]: Pick a month below. Each column is how much rain that month gets on average, in millimetres, so the tall ones are the wet ones.
+      - group "Choose a month" [ref=f743e197]:
+        - button "January, 489 millimetres of rain" [ref=f743e198] [cursor=pointer]:
+          - generic [ref=f743e199]: "489"
+          - generic [ref=f743e202]: Jan
+        - button "February, 368 millimetres of rain" [ref=f743e203] [cursor=pointer]:
+          - generic [ref=f743e204]: "368"
+          - generic [ref=f743e207]: Feb
+        - button "March, 337 millimetres of rain" [ref=f743e208] [cursor=pointer]:
+          - generic [ref=f743e209]: "337"
+          - generic [ref=f743e212]: Mar
+        - button "April, 213 millimetres of rain" [ref=f743e213] [cursor=pointer]:
+          - generic [ref=f743e214]: "213"
+          - generic [ref=f743e217]: Apr
+        - button "May, 132 millimetres of rain" [ref=f743e218] [cursor=pointer]:
+          - generic [ref=f743e219]: "132"
+          - generic [ref=f743e222]: May
+        - button "June, 102 millimetres of rain" [ref=f743e223] [cursor=pointer]:
+          - generic [ref=f743e224]: "102"
+          - generic [ref=f743e227]: Jun
+        - button "July, 66 millimetres of rain" [pressed] [ref=f743e228] [cursor=pointer]:
+          - generic [ref=f743e229]: "66"
+          - generic [ref=f743e232]: Jul
+        - button "August, 82 millimetres of rain" [ref=f743e233] [cursor=pointer]:
+          - generic [ref=f743e234]: "82"
+          - generic [ref=f743e237]: Aug
+        - button "September, 152 millimetres of rain" [ref=f743e238] [cursor=pointer]:
+          - generic [ref=f743e239]: "152"
+          - generic [ref=f743e242]: Sep
+        - button "October, 396 millimetres of rain" [ref=f743e243] [cursor=pointer]:
+          - generic [ref=f743e244]: "396"
+          - generic [ref=f743e247]: Oct
+        - button "November, 500 millimetres of rain" [ref=f743e248] [cursor=pointer]:
+          - generic [ref=f743e249]: "500"
+          - generic [ref=f743e252]: Nov
+        - button "December, 490 millimetres of rain" [ref=f743e253] [cursor=pointer]:
+          - generic [ref=f743e254]: "490"
+          - generic [ref=f743e257]: Dec
+      - paragraph [ref=f743e258]:
+        - generic [ref=f743e259]: Wettest month November, 500 mm
+        - generic [ref=f743e260]: Driest month July, 66 mm
+      - generic [ref=f743e261]:
+        - generic [ref=f743e262]:
+          - text: The season
+          - paragraph [ref=f743e263]: Long days
+          - paragraph [ref=f743e264]: Sixteen hours of light and the water finally warm enough to stay in.
+        - generic [ref=f743e265]:
+          - generic [ref=f743e266]:
+            - term [ref=f743e267]: Average high
+            - definition [ref=f743e268]: 18.1°
+          - generic [ref=f743e269]:
+            - term [ref=f743e270]: Rain
+            - definition [ref=f743e271]: 66mm
+          - generic [ref=f743e272]:
+            - term [ref=f743e273]: Rain days
+            - definition [ref=f743e274]: 9of 31
+        - paragraph [ref=f743e275]: July averages 18.1°C by day and 66 mm of rain across 9 of its 31 days. The dry window. Long light, water warm enough to stay in, and every boat in both harbours running.
+      - generic [ref=f743e276]:
+        - heading "What the water is doing in July" [level=3] [ref=f743e277]
+        - paragraph [ref=f743e278]: "The driest month of the year here: 66 mm of rain across 9 days. Calmest water of the season, humpbacks feeding, every boat in both harbours running."
+        - generic [ref=f743e279]:
+          - link "The six places to watch from" [ref=f743e280] [cursor=pointer]:
+            - /url: "#where"
+          - link "The spot index, effort and road time" [ref=f743e281] [cursor=pointer]:
+            - /url: "#index"
+      - paragraph [ref=f743e282]: What is in the water in July
+      - table [ref=f743e283]:
+        - rowgroup [ref=f743e284]:
+          - row [ref=f743e285]:
+            - columnheader "In the water" [ref=f743e286]
+            - columnheader "Months" [ref=f743e287]
+            - columnheader "Where you watch from" [ref=f743e288]
+        - rowgroup [ref=f743e289]:
+          - row [ref=f743e290]:
+            - cell "Humpback whale Arrive late spring, most common July to September, still feeding into early fall." [ref=f743e291]:
+              - generic [ref=f743e292]: Humpback whale
+              - generic [ref=f743e293]: Arrive late spring, most common July to September, still feeding into early fall.
+            - cell [ref=f743e294]:
+              - img "Humpback whale, in the water May to October" [ref=f743e295]:
+                - generic [ref=f743e296]: J
+                - generic [ref=f743e297]: F
+                - generic [ref=f743e298]: M
+                - generic [ref=f743e299]: A
+                - generic [ref=f743e300]: M
+                - generic [ref=f743e301]: J
+                - generic [ref=f743e302]: J
+                - generic [ref=f743e303]: A
+                - generic [ref=f743e304]: S
+                - generic [ref=f743e305]: O
+                - generic [ref=f743e306]: "N"
+                - generic [ref=f743e307]: D
+            - cell "Boat" [ref=f743e308]
+          - row [ref=f743e309]:
+            - cell "Orca Possible whenever a boat is out. Never predictable, and no operator will promise you one." [ref=f743e310]:
+              - generic [ref=f743e311]: Orca
+              - generic [ref=f743e312]: Possible whenever a boat is out. Never predictable, and no operator will promise you one.
+            - cell [ref=f743e313]:
+              - img "Orca, in the water March to October" [ref=f743e314]:
+                - generic [ref=f743e315]: J
+                - generic [ref=f743e316]: F
+                - generic [ref=f743e317]: M
+                - generic [ref=f743e318]: A
+                - generic [ref=f743e319]: M
+                - generic [ref=f743e320]: J
+                - generic [ref=f743e321]: J
+                - generic [ref=f743e322]: A
+                - generic [ref=f743e323]: S
+                - generic [ref=f743e324]: O
+                - generic [ref=f743e325]: "N"
+                - generic [ref=f743e326]: D
+            - cell "Boat" [ref=f743e327]
+          - row [ref=f743e328]:
+            - cell "Tour boats running March to October. Two and a half to three hours, covered boat or zodiac." [ref=f743e329]:
+              - generic [ref=f743e330]: Tour boats running
+              - generic [ref=f743e331]: March to October. Two and a half to three hours, covered boat or zodiac.
+            - cell [ref=f743e332]:
+              - img "Tour boats running, in the water March to October" [ref=f743e333]:
+                - generic [ref=f743e334]: J
+                - generic [ref=f743e335]: F
+                - generic [ref=f743e336]: M
+                - generic [ref=f743e337]: A
+                - generic [ref=f743e338]: M
+                - generic [ref=f743e339]: J
+                - generic [ref=f743e340]: J
+                - generic [ref=f743e341]: A
+                - generic [ref=f743e342]: S
+                - generic [ref=f743e343]: O
+                - generic [ref=f743e344]: "N"
+                - generic [ref=f743e345]: D
+            - cell "Coming soon Stays from $320" [ref=f743e346]:
+              - generic [ref=f743e347]: Coming soon
+              - text: Stays from $320
+          - row [ref=f743e348]:
+            - cell "Sea lions and harbour seals Hauled out on the rock islets in Barkley Sound, and in the harbour all year." [ref=f743e349]:
+              - generic [ref=f743e350]: Sea lions and harbour seals
+              - generic [ref=f743e351]: Hauled out on the rock islets in Barkley Sound, and in the harbour all year.
+            - cell [ref=f743e352]:
+              - img "Sea lions and harbour seals, in the water all year" [ref=f743e353]:
+                - generic [ref=f743e354]: J
+                - generic [ref=f743e355]: F
+                - generic [ref=f743e356]: M
+                - generic [ref=f743e357]: A
+                - generic [ref=f743e358]: M
+                - generic [ref=f743e359]: J
+                - generic [ref=f743e360]: J
+                - generic [ref=f743e361]: A
+                - generic [ref=f743e362]: S
+                - generic [ref=f743e363]: O
+                - generic [ref=f743e364]: "N"
+                - generic [ref=f743e365]: D
+            - cell "Shore or boat" [ref=f743e366]
+          - row [ref=f743e367]:
+            - cell "Sea otters The kelp beds around the Broken Group Islands, all year." [ref=f743e368]:
+              - generic [ref=f743e369]: Sea otters
+              - generic [ref=f743e370]: The kelp beds around the Broken Group Islands, all year.
+            - cell [ref=f743e371]:
+              - img "Sea otters, in the water all year" [ref=f743e372]:
+                - generic [ref=f743e373]: J
+                - generic [ref=f743e374]: F
+                - generic [ref=f743e375]: M
+                - generic [ref=f743e376]: A
+                - generic [ref=f743e377]: M
+                - generic [ref=f743e378]: J
+                - generic [ref=f743e379]: J
+                - generic [ref=f743e380]: A
+                - generic [ref=f743e381]: S
+                - generic [ref=f743e382]: O
+                - generic [ref=f743e383]: "N"
+                - generic [ref=f743e384]: D
+            - cell "Boat or kayak" [ref=f743e385]
+          - row [ref=f743e386]:
+            - cell "Bald eagles Over the harbour, the trail and the treeline, all year." [ref=f743e387]:
+              - generic [ref=f743e388]: Bald eagles
+              - generic [ref=f743e389]: Over the harbour, the trail and the treeline, all year.
+            - cell [ref=f743e390]:
+              - img "Bald eagles, in the water all year" [ref=f743e391]:
+                - generic [ref=f743e392]: J
+                - generic [ref=f743e393]: F
+                - generic [ref=f743e394]: M
+                - generic [ref=f743e395]: A
+                - generic [ref=f743e396]: M
+                - generic [ref=f743e397]: J
+                - generic [ref=f743e398]: J
+                - generic [ref=f743e399]: A
+                - generic [ref=f743e400]: S
+                - generic [ref=f743e401]: O
+                - generic [ref=f743e402]: "N"
+                - generic [ref=f743e403]: D
+            - cell "Shore" [ref=f743e404]
+          - row [ref=f743e405]:
+            - cell "In their own window, and here is when" [ref=f743e406]
+          - row [ref=f743e407]:
+            - cell "Gray whale Northbound from Baja to the Arctic. Main run March to May, early birds in February, a few linger into early summer." [ref=f743e408]:
+              - generic [ref=f743e409]: Gray whale
+              - generic [ref=f743e410]: Northbound from Baja to the Arctic. Main run March to May, early birds in February, a few linger into early summer.
+            - cell [ref=f743e411]:
+              - img "Gray whale, in the water February to June" [ref=f743e412]:
+                - generic [ref=f743e413]: J
+                - generic [ref=f743e414]: F
+                - generic [ref=f743e415]: M
+                - generic [ref=f743e416]: A
+                - generic [ref=f743e417]: M
+                - generic [ref=f743e418]: J
+                - generic [ref=f743e419]: J
+                - generic [ref=f743e420]: A
+                - generic [ref=f743e421]: S
+                - generic [ref=f743e422]: O
+                - generic [ref=f743e423]: "N"
+                - generic [ref=f743e424]: D
+            - cell [ref=f743e425]:
+              - button "Peaks Feb to Jun" [ref=f743e426] [cursor=pointer]
+          - row [ref=f743e429]:
+            - cell "Seabirds and shorebirds Spring and fall passage, thousands at a time across the Long Beach sand." [ref=f743e430]:
+              - generic [ref=f743e431]: Seabirds and shorebirds
+              - generic [ref=f743e432]: Spring and fall passage, thousands at a time across the Long Beach sand.
+            - cell [ref=f743e433]:
+              - img "Seabirds and shorebirds, in the water March to May, and September to November" [ref=f743e434]:
+                - generic [ref=f743e435]: J
+                - generic [ref=f743e436]: F
+                - generic [ref=f743e437]: M
+                - generic [ref=f743e438]: A
+                - generic [ref=f743e439]: M
+                - generic [ref=f743e440]: J
+                - generic [ref=f743e441]: J
+                - generic [ref=f743e442]: A
+                - generic [ref=f743e443]: S
+                - generic [ref=f743e444]: O
+                - generic [ref=f743e445]: "N"
+                - generic [ref=f743e446]: D
+            - cell [ref=f743e447]:
+              - button "Peaks Mar to May, and Sep to Nov" [ref=f743e448] [cursor=pointer]
+      - generic [ref=f743e451]:
+        - paragraph [ref=f743e452]: All 6 places in this guide are worth the drive in July, four of them without booking anything.
+        - generic [ref=f743e453]:
+          - link "Wild Pacific Trail" [ref=f743e454] [cursor=pointer]:
+            - /url: guide.html
+          - link "Amphitrite Point Lighthouse" [ref=f743e455] [cursor=pointer]:
+            - /url: guide.html
+          - link "Ucluelet Harbour" [ref=f743e456] [cursor=pointer]:
+            - /url: guide.html
+          - link "Pacific Rim National Park Reserve" [ref=f743e457] [cursor=pointer]:
+            - /url: long-beach.html
+          - link "Barkley Sound" [ref=f743e458] [cursor=pointer]:
+            - /url: guide.html
+          - link "Broken Group Islands" [ref=f743e459] [cursor=pointer]:
+            - /url: guide.html
+      - paragraph [ref=f743e460]: Rainfall is the Environment and Climate Change Canada average for the Tofino station.
+      - status [ref=f743e461]: Showing July. Boats are running.
+    - generic [ref=f743e462]:
+      - img "A small tour boat crossing calm water below a forested island held in sea mist" [ref=f743e463]
+      - generic [ref=f743e465]:
+        - text: Live on this coast tonight
+        - paragraph [ref=f743e466]:
+          - generic [ref=f743e467]: "292"
+          - text: stays, and no operator listed until we have been out on the boat.
+        - paragraph [ref=f743e468]: 134 places in Tofino and 158 in Ucluelet, from $320 a night, bookable now. We are signing whale watching operators in both towns, and we will not put a price or a name on this page before we have paid it ourselves.
+        - link "Tell me when the boats go live" [ref=f743e469] [cursor=pointer]:
+          - /url: "#notify"
+    - generic [ref=f743e471]:
+      - generic [ref=f743e472]:
+        - generic [ref=f743e473]:
+          - text: Where to watch
+          - heading "Six places, written up one at a time" [level=2] [ref=f743e474]
+          - paragraph [ref=f743e475]: Four of them you can walk to and watch from for nothing. Two need a boat. Five sit on the Ucluelet side of the park, forty minutes south of Tofino on the one road.
+        - link "Long Beach, the area page" [ref=f743e476] [cursor=pointer]:
+          - /url: long-beach.html
+      - group "Narrow the six places" [ref=f743e477]:
+        - button "All six places 6" [pressed] [ref=f743e478] [cursor=pointer]
+        - button "From land 4" [ref=f743e479] [cursor=pointer]
+        - button "By boat 2" [ref=f743e480] [cursor=pointer]
+        - button "Clear" [ref=f743e481] [cursor=pointer]
+      - generic [ref=f743e482]:
+        - article [ref=f743e483]:
+          - img "A bench on the Wild Pacific Trail looking through wind-bent trees to the open Pacific at sunset" [ref=f743e485]
+          - generic [ref=f743e486]:
+            - generic [ref=f743e487]: From land
+            - generic [ref=f743e489]: Ucluelet
+            - generic [ref=f743e491]: 40 min south
+          - heading "Wild Pacific Trail" [level=3] [ref=f743e492]
+          - paragraph [ref=f743e493]: The Wild Pacific Trail is one of the best places in Ucluelet to watch wildlife from land. It follows the rocky coast and gives you one ocean viewpoint after another.
+          - paragraph [ref=f743e494]: You may see whales offshore, eagles flying above the trees, sea lions on rocks, seals in the water, cormorants near the shore, and many types of coastal bird.
+          - paragraph [ref=f743e495]: Good for Whale watching from shore, bald eagles, sea lions and seals, and 4 more.
+          - paragraph [ref=f743e496]:
+            - generic [ref=f743e497]: Good to know. Bring binoculars. Wildlife may be far from shore.
+          - link "Read the write-up" [ref=f743e498] [cursor=pointer]:
+            - /url: guide.html
+        - article [ref=f743e499]:
+          - img "Amphitrite Point Lighthouse on the grass above the rocks, with benches facing the water" [ref=f743e501]
+          - generic [ref=f743e502]:
+            - generic [ref=f743e503]: From land
+            - generic [ref=f743e505]: Ucluelet
+            - generic [ref=f743e507]: 40 min south
+          - heading "Amphitrite Point Lighthouse" [level=3] [ref=f743e508]
+          - paragraph [ref=f743e509]: Amphitrite Point Lighthouse is the most famous stop on the Wild Pacific Trail. It has wide ocean views and is a good place to watch for whales, sea lions, seals and birds.
+          - paragraph [ref=f743e510]: In spring you have a real chance of migrating gray whales offshore. In any other season you still get eagles, seals, sea lions and seabirds.
+          - paragraph [ref=f743e511]: Good for Whale watching from land, ocean views, photography, and 3 more.
+          - paragraph [ref=f743e512]:
+            - generic [ref=f743e513]: Good to know. Stay on marked paths and away from wet rocks. Large waves can be dangerous.
+          - link "Read the write-up" [ref=f743e514] [cursor=pointer]:
+            - /url: guide.html
+        - article [ref=f743e515]:
+          - img "Fishing boats and floats in Ucluelet Harbour with cloud sitting on the hills behind" [ref=f743e517]
+          - generic [ref=f743e518]:
+            - generic [ref=f743e519]: From land
+            - generic [ref=f743e521]: Ucluelet
+            - generic [ref=f743e523]: 40 min south
+          - heading "Ucluelet Harbour" [level=3] [ref=f743e524]
+          - paragraph [ref=f743e525]: Ucluelet Harbour is a good place to look for wildlife close to town. You may see seals, eagles, gulls, cormorants, river otters and shorebirds.
+          - paragraph [ref=f743e526]: It is also where many of the wildlife and whale watching tours depart from.
+          - paragraph [ref=f743e527]: Good for Easy wildlife watching, boat tour departures, seals, and 3 more.
+          - paragraph [ref=f743e528]:
+            - generic [ref=f743e529]: Good to know. Watch for boat traffic and keep a safe distance from docks and working harbour areas.
+          - link "Read the write-up" [ref=f743e530] [cursor=pointer]:
+            - /url: guide.html
+        - article [ref=f743e531]:
+          - img "Shorebirds lifting off the wet sand at Long Beach with the park mountains behind" [ref=f743e533]
+          - generic [ref=f743e534]:
+            - generic [ref=f743e535]: From land
+            - generic [ref=f743e537]: Between the towns
+            - generic [ref=f743e539]: 20 min south
+          - heading "Pacific Rim National Park Reserve" [level=3] [ref=f743e540]
+          - paragraph [ref=f743e541]: The park takes in the Long Beach Unit, the Broken Group Islands and the West Coast Trail area, protecting coastal rainforest, beaches and marine ecosystems.
+          - paragraph [ref=f743e542]: Wildlife here may include black bears, wolves, cougars, deer, whales, seals, sea lions, shorebirds and many other coastal species.
+          - paragraph [ref=f743e543]: Good for Whale watching from viewpoints, bird watching, beach wildlife, and 4 more.
+          - paragraph [ref=f743e544]:
+            - generic [ref=f743e545]: Good to know. You may need a national park pass if you stop in the park.
+          - link "Open the Long Beach area page" [ref=f743e546] [cursor=pointer]:
+            - /url: long-beach.html
+        - article [ref=f743e547]:
+          - img "Sea lions hauled out on a rock islet in Barkley Sound with mountains behind" [ref=f743e549]
+          - generic [ref=f743e550]:
+            - generic [ref=f743e551]: By boat
+            - generic [ref=f743e553]: Boat from Ucluelet
+            - generic [ref=f743e555]: 40 min south, then a boat
+          - heading "Barkley Sound" [level=3] [ref=f743e556]
+          - paragraph [ref=f743e557]: "Barkley Sound is the top wildlife watching area near Ucluelet: islands, channels, rocky shores, kelp beds and sheltered water."
+          - paragraph [ref=f743e558]: This is where most boat and kayak trips go, and it is the gateway to the Broken Group Islands.
+          - paragraph [ref=f743e559]: Good for Whales, sea lions, seals, and 5 more.
+          - paragraph [ref=f743e560]:
+            - generic [ref=f743e561]: Good to know. The best way to explore Barkley Sound wildlife is by guided boat or kayak tour.
+          - link "Read the write-up" [ref=f743e562] [cursor=pointer]:
+            - /url: guide.html
+        - article [ref=f743e563]:
+          - img "Islands of the Broken Group silhouetted in sea mist at sunset" [ref=f743e565]
+          - generic [ref=f743e566]:
+            - generic [ref=f743e567]: By boat
+            - generic [ref=f743e569]: Boat from Ucluelet
+            - generic [ref=f743e571]: 40 min south, then a boat
+          - heading "Broken Group Islands" [level=3] [ref=f743e572]
+          - paragraph [ref=f743e573]: "The Broken Group Islands sit inside Barkley Sound as part of Pacific Rim National Park Reserve: forested islands, shell beaches, sheltered channels, reefs and rocky outcrops."
+          - paragraph [ref=f743e574]: It is the best paddling wildlife on this coast. Seals, sea lions, sea otters, bald eagles, seabirds and shorebirds, with whales in the water nearby.
+          - paragraph [ref=f743e575]: Good for Kayak wildlife watching, boat tours, sea otters, and 4 more.
+          - paragraph [ref=f743e576]:
+            - generic [ref=f743e577]: Good to know. The Broken Group Islands are boat-access only. Plan ahead if you are kayaking or camping.
+          - link "Read the write-up" [ref=f743e578] [cursor=pointer]:
+            - /url: guide.html
+    - generic [ref=f743e580]:
+      - generic [ref=f743e581]:
+        - generic [ref=f743e582]:
+          - text: The six places side by side
+          - heading "How hard is it, and how far?" [level=2] [ref=f743e583]
+          - paragraph [ref=f743e584]: The same six places as a table, for the morning you are deciding in the car park rather than reading in bed.
+        - link "Search everything in Tofino" [ref=f743e585] [cursor=pointer]:
+          - /url: search.html?in=tofino
+      - table [ref=f743e587]:
+        - rowgroup [ref=f743e588]:
+          - row [ref=f743e589]:
+            - columnheader "Place" [ref=f743e590]
+            - columnheader "Watch from" [ref=f743e591]
+            - columnheader "Effort" [ref=f743e592]
+            - columnheader "From Tofino by road" [ref=f743e593]
+        - rowgroup [ref=f743e594]:
+          - row [ref=f743e595]:
+            - cell "Wild Pacific Trail Ucluelet" [ref=f743e596]:
+              - link "Wild Pacific Trail" [ref=f743e598] [cursor=pointer]:
+                - /url: guide.html
+              - generic [ref=f743e599]: Ucluelet
+            - cell "Land, no booking" [ref=f743e600]
+            - cell "Easy walking" [ref=f743e601]
+            - cell "40 min south" [ref=f743e602]
+          - row [ref=f743e603]:
+            - cell "Amphitrite Point Lighthouse Ucluelet" [ref=f743e604]:
+              - link "Amphitrite Point Lighthouse" [ref=f743e606] [cursor=pointer]:
+                - /url: guide.html
+              - generic [ref=f743e607]: Ucluelet
+            - cell "Land, no booking" [ref=f743e608]
+            - cell "Marked cliff paths" [ref=f743e609]
+            - cell "40 min south" [ref=f743e610]
+          - row [ref=f743e611]:
+            - cell "Ucluelet Harbour Ucluelet" [ref=f743e612]:
+              - link "Ucluelet Harbour" [ref=f743e614] [cursor=pointer]:
+                - /url: guide.html
+              - generic [ref=f743e615]: Ucluelet
+            - cell "Land, no booking" [ref=f743e616]
+            - cell "Flat, five minutes from a coffee" [ref=f743e617]
+            - cell "40 min south" [ref=f743e618]
+          - row [ref=f743e619]:
+            - cell "Pacific Rim National Park Reserve Between the towns" [ref=f743e620]:
+              - link "Pacific Rim National Park Reserve" [ref=f743e622] [cursor=pointer]:
+                - /url: long-beach.html
+              - generic [ref=f743e623]: Between the towns
+            - cell "Land, no booking" [ref=f743e624]
+            - cell "Viewpoints and boardwalk trails" [ref=f743e625]
+            - cell "20 min south" [ref=f743e626]
+          - row [ref=f743e627]:
+            - cell "Barkley Sound Boat from Ucluelet" [ref=f743e628]:
+              - link "Barkley Sound" [ref=f743e630] [cursor=pointer]:
+                - /url: guide.html
+              - generic [ref=f743e631]: Boat from Ucluelet
+            - cell "Boat or kayak" [ref=f743e632]
+            - cell "Guided boat or kayak tour" [ref=f743e633]
+            - cell "40 min south, then a boat" [ref=f743e634]
+          - row [ref=f743e635]:
+            - cell "Broken Group Islands Boat from Ucluelet" [ref=f743e636]:
+              - link "Broken Group Islands" [ref=f743e638] [cursor=pointer]:
+                - /url: guide.html
+              - generic [ref=f743e639]: Boat from Ucluelet
+            - cell "Boat or kayak" [ref=f743e640]
+            - cell "Boat access only" [ref=f743e641]
+            - cell "40 min south, then a boat" [ref=f743e642]
+      - paragraph [ref=f743e643]: Effort is taken from each write-up, not graded by us. Four of the six are free and on foot.
+    - generic [ref=f743e644]:
+      - generic [ref=f743e645]:
+        - generic [ref=f743e646]:
+          - text: Photographs
+          - heading "Thirteen photos from these two guides" [level=2] [ref=f743e647]
+        - paragraph [ref=f743e648]: Eight from Tofino, five from Ucluelet. Nothing here is stock.
+      - generic [ref=f743e649]:
+        - figure "Tofino guide A humpback fluke lifting clear of the water in front of a forested headland" [ref=f743e650]:
+          - img "A humpback fluke lifting clear of the water in front of a forested headland" [ref=f743e651]
+          - generic [ref=f743e652]:
+            - generic [ref=f743e653]: Tofino guide
+            - text: A humpback fluke lifting clear of the water in front of a forested headland
+        - figure "Tofino guide Several whale blows hanging over the water below a dark forested hillside" [ref=f743e654]:
+          - img "Several whale blows hanging over the water below a dark forested hillside" [ref=f743e655]
+          - generic [ref=f743e656]:
+            - generic [ref=f743e657]: Tofino guide
+            - text: Several whale blows hanging over the water below a dark forested hillside
+        - figure "Tofino guide Two whale blows and a surfacing back on calm water in front of the treeline" [ref=f743e658]:
+          - img "Two whale blows and a surfacing back on calm water in front of the treeline" [ref=f743e659]
+          - generic [ref=f743e660]:
+            - generic [ref=f743e661]: Tofino guide
+            - text: Two whale blows and a surfacing back on calm water in front of the treeline
+        - figure "Tofino guide A gray whale exhaling, the spray hanging over its mottled back in open water" [ref=f743e662]:
+          - img "A gray whale exhaling, the spray hanging over its mottled back in open water" [ref=f743e663]
+          - generic [ref=f743e664]:
+            - generic [ref=f743e665]: Tofino guide
+            - text: A gray whale exhaling, the spray hanging over its mottled back in open water
+        - figure "Tofino guide Three orcas surfacing together, dorsal fins and blows against a forested shore" [ref=f743e666]:
+          - img "Three orcas surfacing together, dorsal fins and blows against a forested shore" [ref=f743e667]
+          - generic [ref=f743e668]:
+            - generic [ref=f743e669]: Tofino guide
+            - text: Three orcas surfacing together, dorsal fins and blows against a forested shore
+        - figure "Tofino guide A whale blowing hard beside a rock shoreline hung with rainforest" [ref=f743e670]:
+          - img "A whale blowing hard beside a rock shoreline hung with rainforest" [ref=f743e671]
+          - generic [ref=f743e672]:
+            - generic [ref=f743e673]: Tofino guide
+            - text: A whale blowing hard beside a rock shoreline hung with rainforest
+        - figure "Tofino guide A gray whale surfacing close in, its mottled back breaking the water off a driftwood beach" [ref=f743e674]:
+          - img "A gray whale surfacing close in, its mottled back breaking the water off a driftwood beach" [ref=f743e675]
+          - generic [ref=f743e676]:
+            - generic [ref=f743e677]: Tofino guide
+            - text: A gray whale surfacing close in, its mottled back breaking the water off a driftwood beach
+        - figure "Tofino guide A pod of orcas travelling on flat water with the mainland mountains behind" [ref=f743e678]:
+          - img "A pod of orcas travelling on flat water with the mainland mountains behind" [ref=f743e679]
+          - generic [ref=f743e680]:
+            - generic [ref=f743e681]: Tofino guide
+            - text: A pod of orcas travelling on flat water with the mainland mountains behind
+        - figure "Ucluelet guide An orca surfacing beside a small whale watching boat" [ref=f743e682]:
+          - img "An orca surfacing beside a small whale watching boat" [ref=f743e683]
+          - generic [ref=f743e684]:
+            - generic [ref=f743e685]: Ucluelet guide
+            - text: An orca surfacing beside a small whale watching boat
+        - figure "Ucluelet guide A small tour boat crossing calm water below a forested island held in sea mist" [ref=f743e686]:
+          - img "A small tour boat crossing calm water below a forested island held in sea mist" [ref=f743e687]
+          - generic [ref=f743e688]:
+            - generic [ref=f743e689]: Ucluelet guide
+            - text: A small tour boat crossing calm water below a forested island held in sea mist
+        - figure "Ucluelet guide Two orcas surfacing near a moored boat below a low rocky shore" [ref=f743e690]:
+          - img "Two orcas surfacing near a moored boat below a low rocky shore" [ref=f743e691]
+          - generic [ref=f743e692]:
+            - generic [ref=f743e693]: Ucluelet guide
+            - text: Two orcas surfacing near a moored boat below a low rocky shore
+        - figure "Ucluelet guide An orca surfacing beside a red zodiac carrying passengers in survival suits" [ref=f743e694]:
+          - img "An orca surfacing beside a red zodiac carrying passengers in survival suits" [ref=f743e695]
+          - generic [ref=f743e696]:
+            - generic [ref=f743e697]: Ucluelet guide
+            - text: An orca surfacing beside a red zodiac carrying passengers in survival suits
+        - figure "Ucluelet guide A humpback fluke lifting above the water in front of a forested shoreline" [ref=f743e698]:
+          - img "A humpback fluke lifting above the water in front of a forested shoreline" [ref=f743e699]
+          - generic [ref=f743e700]:
+            - generic [ref=f743e701]: Ucluelet guide
+            - text: A humpback fluke lifting above the water in front of a forested shoreline
+    - generic [ref=f743e703]:
+      - generic [ref=f743e705]:
+        - text: Boats and cost
+        - heading "Three kinds of boat, one honest note about price" [level=2] [ref=f743e706]
+        - paragraph [ref=f743e707]: Tours run March to October, most of them two and a half to three hours. Operators pick the route on the day from weather, swell and the last few days of sightings, so nobody sells you a fixed itinerary.
+      - generic [ref=f743e708]:
+        - generic [ref=f743e709]:
+          - heading "Covered boat" [level=3] [ref=f743e710]
+          - paragraph [ref=f743e711]: Better for comfort, families and cooler days. You are out of the wind and the spray, and you can sit down for three hours without regretting it.
+          - paragraph [ref=f743e712]:
+            - generic [ref=f743e713]: Best for
+            - text: Families, cool days, long trips
+        - generic [ref=f743e714]:
+          - heading "Zodiac" [level=3] [ref=f743e715]
+          - paragraph [ref=f743e716]: Faster, open air, and a rougher ride. Better for travellers who want the adventure version and are happy in a survival suit on the open Pacific.
+          - paragraph [ref=f743e717]:
+            - generic [ref=f743e718]: Best for
+            - text: Speed and open air
+        - generic [ref=f743e719]:
+          - heading "Small or private charter" [level=3] [ref=f743e720]
+          - paragraph [ref=f743e721]: Better for photographers and for groups who want the boat to stop where they want it to stop. Fewer people at the rail, more say in the route.
+          - paragraph [ref=f743e722]:
+            - generic [ref=f743e723]: Best for
+            - text: Photographers and groups
+      - generic [ref=f743e724]:
+        - generic [ref=f743e725]:
+          - heading "What it costs" [level=3] [ref=f743e726]
+          - paragraph [ref=f743e727]: We do not publish an operator price until we have paid it ourselves. Every Tofino and Ucluelet operator sets its own rate by boat type, season and group size, and a number copied from a website in February is wrong by June.
+          - paragraph [ref=f743e728]: "The one number we do stand behind is the stay: 134 places in Tofino, from $320 a night, and 158 more in Ucluelet forty minutes down the road."
+        - generic [ref=f743e729]:
+          - heading "Booking on Arc Trips" [level=3] [ref=f743e730]
+          - paragraph [ref=f743e731]: Whale watching is not bookable here yet. We are signing operators in both towns and will not list one until we have been out on the boat.
+          - paragraph [ref=f743e732]: "Until then the honest path is the one below: leave an address and we will write once, on the day the first boat goes live. The stays are live now."
+          - paragraph [ref=f743e733]:
+            - link "Get told when boats go live" [ref=f743e734] [cursor=pointer]:
+              - /url: "#notify"
+    - generic [ref=f743e738]:
+      - generic [ref=f743e740]:
+        - text: What to bring
+        - heading "Six things, and one of them is the difference" [level=2] [ref=f743e741]
+        - paragraph [ref=f743e742]: The water is colder than the forecast you read at breakfast, and it is always windier at the rail than on the dock.
+      - generic [ref=f743e743]:
+        - generic [ref=f743e744]:
+          - term [ref=f743e745]: Binoculars
+          - definition [ref=f743e746]: "The single biggest upgrade to a day from shore. Straight out of the Wild Pacific Trail write-up: bring binoculars, wildlife may be far from shore."
+        - generic [ref=f743e747]:
+          - term [ref=f743e748]: A waterproof shell
+          - definition [ref=f743e749]: Tofino records rain on 22 days in January and still 9 in July. A shell is never the wrong call here.
+        - generic [ref=f743e750]:
+          - term [ref=f743e751]: Warm layers under it
+          - definition [ref=f743e752]: The August average high is 18.6 degrees on land. On the water, moving, it is not.
+        - generic [ref=f743e753]:
+          - term [ref=f743e754]: Something for motion
+          - definition [ref=f743e755]: The open Pacific has swell most days. If you are prone to it, take something before you board rather than after.
+        - generic [ref=f743e756]:
+          - term [ref=f743e757]: A national park pass
+          - definition [ref=f743e758]: You may need one if you stop in Pacific Rim National Park Reserve, which is most of the coast between the two towns.
+        - generic [ref=f743e759]:
+          - term [ref=f743e760]: Sunglasses and sunscreen
+          - definition [ref=f743e761]: Flat grey water reflects hard, and the three hours you spend squinting at the horizon are the three hours you get burned.
+    - generic [ref=f743e763]:
+      - generic [ref=f743e765]:
+        - text: Safety
+        - heading "Four rules, each one lifted from a place in this guide" [level=2] [ref=f743e766]
+        - paragraph [ref=f743e767]: Nothing here is theoretical. Every line is the note attached to one of the six write-ups above.
+      - generic [ref=f743e768]:
+        - generic [ref=f743e769]:
+          - heading "Stay off wet rock" [level=3] [ref=f743e770]
+          - paragraph [ref=f743e771]: At Amphitrite Point, stay on the marked paths and away from wet rock. Large waves can be dangerous, and the ones that reach the path arrive without a set warning you.
+        - generic [ref=f743e772]:
+          - heading "Give wildlife the distance" [level=3] [ref=f743e773]
+          - paragraph [ref=f743e774]: In Pacific Rim National Park Reserve, give wildlife space, store food properly and never feed animals. Black bears work the same shoreline you are walking.
+        - generic [ref=f743e775]:
+          - heading "The harbour is a workplace" [level=3] [ref=f743e776]
+          - paragraph [ref=f743e777]: In Ucluelet Harbour, watch for boat traffic and keep a safe distance from the docks and the working areas. The fleet is not on holiday.
+        - generic [ref=f743e778]:
+          - heading "Boat access means boat access" [level=3] [ref=f743e779]
+          - paragraph [ref=f743e780]: The Broken Group Islands are reachable only by water. Plan ahead if you are paddling or camping, and treat the crossing as the serious part of the day.
+    - generic [ref=f743e782]:
+      - generic [ref=f743e783]:
+        - text: The reading
+        - heading "Eight guides sit under this subject" [level=2] [ref=f743e784]
+        - paragraph [ref=f743e785]: Two towns, one subject, eight separate pieces of writing. Six of them carry their own questions, which is where the twenty-four answers below come from.
+        - link "Open the guide index" [ref=f743e786] [cursor=pointer]:
+          - /url: guide.html
+      - generic [ref=f743e787]:
+        - link "01 An orca surfacing beside a small whale watching boat Whale Watching in Ucluelet Best time and what you might see, from the base with the shortest run to Barkley Sound. Ucluelet 4 questions answered" [ref=f743e788] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f743e789]: "01"
+          - img "An orca surfacing beside a small whale watching boat" [ref=f743e791]
+          - generic [ref=f743e792]:
+            - heading "Whale Watching in Ucluelet" [level=3] [ref=f743e793]
+            - paragraph [ref=f743e794]: Best time and what you might see, from the base with the shortest run to Barkley Sound.
+            - generic [ref=f743e795]:
+              - generic [ref=f743e796]: Ucluelet
+              - generic [ref=f743e798]: 4 questions answered
+        - link "02 An orca surfacing beside a red zodiac carrying passengers in survival suits Whale Watching Tours in Ucluelet What to expect, how to choose between a covered boat and a zodiac, and booking tips. Ucluelet 4 questions answered" [ref=f743e799] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f743e800]: "02"
+          - img "An orca surfacing beside a red zodiac carrying passengers in survival suits" [ref=f743e802]
+          - generic [ref=f743e803]:
+            - heading "Whale Watching Tours in Ucluelet" [level=3] [ref=f743e804]
+            - paragraph [ref=f743e805]: What to expect, how to choose between a covered boat and a zodiac, and booking tips.
+            - generic [ref=f743e806]:
+              - generic [ref=f743e807]: Ucluelet
+              - generic [ref=f743e809]: 4 questions answered
+        - 'link "03 A humpback fluke lifting above the water in front of a forested shoreline Whales in Ucluelet: The Spring Migration Explained Why spring is the one to plan around, and where the grays are coming from. Ucluelet 4 questions answered" [ref=f743e810] [cursor=pointer]':
+          - /url: guide.html
+          - generic [ref=f743e811]: "03"
+          - img "A humpback fluke lifting above the water in front of a forested shoreline" [ref=f743e813]
+          - generic [ref=f743e814]:
+            - 'heading "Whales in Ucluelet: The Spring Migration Explained" [level=3] [ref=f743e815]'
+            - paragraph [ref=f743e816]: Why spring is the one to plan around, and where the grays are coming from.
+            - generic [ref=f743e817]:
+              - generic [ref=f743e818]: Ucluelet
+              - generic [ref=f743e820]: 4 questions answered
+        - link "04 A humpback fluke lifting clear of the water in front of a forested headland Whale Tails, Blows, and Backs What you are actually seeing on the water, and what a fluke means when it goes up. Tofino and Ucluelet 4 questions answered" [ref=f743e821] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f743e822]: "04"
+          - img "A humpback fluke lifting clear of the water in front of a forested headland" [ref=f743e824]
+          - generic [ref=f743e825]:
+            - heading "Whale Tails, Blows, and Backs" [level=3] [ref=f743e826]
+            - paragraph [ref=f743e827]: What you are actually seeing on the water, and what a fluke means when it goes up.
+            - generic [ref=f743e828]:
+              - generic [ref=f743e829]: Tofino and Ucluelet
+              - generic [ref=f743e831]: 4 questions answered
+        - link "05 Two whale blows and a surfacing back on calm water in front of the treeline Whale watching FAQs, Tofino The four questions the Tofino guide gets asked most, answered in its own words. Tofino 4 questions answered" [ref=f743e832] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f743e833]: "05"
+          - img "Two whale blows and a surfacing back on calm water in front of the treeline" [ref=f743e835]
+          - generic [ref=f743e836]:
+            - heading "Whale watching FAQs, Tofino" [level=3] [ref=f743e837]
+            - paragraph [ref=f743e838]: The four questions the Tofino guide gets asked most, answered in its own words.
+            - generic [ref=f743e839]:
+              - generic [ref=f743e840]: Tofino
+              - generic [ref=f743e842]: 4 questions answered
+        - link "06 Two orcas surfacing near a moored boat below a low rocky shore Whale watching FAQs, Ucluelet What you can see, from where, and whether you need a boat to see it. Ucluelet 4 questions answered" [ref=f743e843] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f743e844]: "06"
+          - img "Two orcas surfacing near a moored boat below a low rocky shore" [ref=f743e846]
+          - generic [ref=f743e847]:
+            - heading "Whale watching FAQs, Ucluelet" [level=3] [ref=f743e848]
+            - paragraph [ref=f743e849]: What you can see, from where, and whether you need a boat to see it.
+            - generic [ref=f743e850]:
+              - generic [ref=f743e851]: Ucluelet
+              - generic [ref=f743e853]: 4 questions answered
+        - 'link "07 A small boat on open water off the west coast of Vancouver Island Wildlife Tours in Tofino Whales, bears and seabirds: the tours worth booking out of the north harbour. Tofino No questions attached" [ref=f743e854] [cursor=pointer]':
+          - /url: guide.html
+          - generic [ref=f743e855]: "07"
+          - img "A small boat on open water off the west coast of Vancouver Island" [ref=f743e857]
+          - generic [ref=f743e858]:
+            - heading "Wildlife Tours in Tofino" [level=3] [ref=f743e859]
+            - paragraph [ref=f743e860]: "Whales, bears and seabirds: the tours worth booking out of the north harbour."
+            - generic [ref=f743e861]:
+              - generic [ref=f743e862]: Tofino
+              - generic [ref=f743e864]: No questions attached
+        - link "08 An empty stretch of sand on the west coast of Vancouver Island Wildlife Watching in Ucluelet Gray whales on migration, sea lions on the islets, and the spring seabird return. Ucluelet No questions attached" [ref=f743e865] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f743e866]: "08"
+          - img "An empty stretch of sand on the west coast of Vancouver Island" [ref=f743e868]
+          - generic [ref=f743e869]:
+            - heading "Wildlife Watching in Ucluelet" [level=3] [ref=f743e870]
+            - paragraph [ref=f743e871]: Gray whales on migration, sea lions on the islets, and the spring seabird return.
+            - generic [ref=f743e872]:
+              - generic [ref=f743e873]: Ucluelet
+              - generic [ref=f743e875]: No questions attached
+    - generic [ref=f743e877]:
+      - generic [ref=f743e879]:
+        - text: Questions
+        - heading "Twenty-four things people ask before they book" [level=2] [ref=f743e880]
+        - paragraph [ref=f743e881]: Every answer below is the answer in the guide it came from, and that guide is named under each one.
+      - generic [ref=f743e882]:
+        - group [ref=f743e883]:
+          - generic "What is the best month for whale watching in Tofino?" [ref=f743e884] [cursor=pointer]
+          - paragraph [ref=f743e885]: March to May is one of the best times for gray whales. Summer and early fall can also be great for humpbacks, gray whales, orcas, sea otters, sea lions, and other wildlife.
+          - generic [ref=f743e886]: From Whale watching FAQs, Tofino
+        - group [ref=f743e887]:
+          - generic "Can you see whales in Tofino without a tour?" [ref=f743e888] [cursor=pointer]
+          - paragraph [ref=f743e889]: Yes, sometimes whales can be seen from shore. But a guided boat tour gives you a much better chance of seeing whales and learning about them.
+          - generic [ref=f743e890]: From Whale watching FAQs, Tofino
+        - group [ref=f743e891]:
+          - generic "What is the best time of day for whale watching?" [ref=f743e892] [cursor=pointer]
+        - group [ref=f743e893]:
+          - generic "Is a zodiac or covered boat better for whale watching?" [ref=f743e894] [cursor=pointer]
+        - group [ref=f743e895]:
+          - generic "What does it mean when a whale blows?" [ref=f743e896] [cursor=pointer]
+        - group [ref=f743e897]:
+          - generic "What does a whale tail mean?" [ref=f743e898] [cursor=pointer]
+        - group [ref=f743e899]:
+          - generic "Why do whales show their backs?" [ref=f743e900] [cursor=pointer]
+        - group [ref=f743e901]:
+          - generic "Does seeing a fluke mean the whale is leaving?" [ref=f743e902] [cursor=pointer]
+        - group [ref=f743e903]:
+          - generic "What whales migrate past Ucluelet in spring?" [ref=f743e904] [cursor=pointer]
+        - group [ref=f743e905]:
+          - generic "When is the gray whale migration in Ucluelet?" [ref=f743e906] [cursor=pointer]
+        - group [ref=f743e907]:
+          - generic "Why do gray whales migrate past Ucluelet?" [ref=f743e908] [cursor=pointer]
+        - group [ref=f743e909]:
+          - generic "Is March a good time for whale watching in Ucluelet?" [ref=f743e910] [cursor=pointer]
+        - group [ref=f743e911]:
+          - generic "Are whale watching tours in Ucluelet worth it?" [ref=f743e912] [cursor=pointer]
+        - group [ref=f743e913]:
+          - generic "What is the best whale watching tour in Ucluelet?" [ref=f743e914] [cursor=pointer]
+        - group [ref=f743e915]:
+          - generic "When do whale watching tours run in Ucluelet?" [ref=f743e916] [cursor=pointer]
+        - group [ref=f743e917]:
+          - generic "How long are Ucluelet whale watching tours?" [ref=f743e918] [cursor=pointer]
+        - group [ref=f743e919]:
+          - generic "Is Ucluelet good for wildlife watching?" [ref=f743e920] [cursor=pointer]
+        - group [ref=f743e921]:
+          - generic "What animals can you see in Ucluelet?" [ref=f743e922] [cursor=pointer]
+        - group [ref=f743e923]:
+          - generic "Can you see whales from Ucluelet?" [ref=f743e924] [cursor=pointer]
+        - group [ref=f743e925]:
+          - generic "Where is the best place to see whales from shore in Ucluelet?" [ref=f743e926] [cursor=pointer]
+        - group [ref=f743e927]:
+          - generic "Is Ucluelet good for whale watching?" [ref=f743e928] [cursor=pointer]
+        - group [ref=f743e929]:
+          - generic "What whales can you see in Ucluelet?" [ref=f743e930] [cursor=pointer]
+        - group [ref=f743e931]:
+          - generic "When is the best time for whale watching in Ucluelet?" [ref=f743e932] [cursor=pointer]
+        - group [ref=f743e933]:
+          - generic "Can you see gray whales in Ucluelet?" [ref=f743e934] [cursor=pointer]
+    - generic [ref=f743e936]:
+      - generic [ref=f743e938]:
+        - text: Tofino or Ucluelet
+        - heading "Same whales, different water" [level=2] [ref=f743e939]
+        - paragraph [ref=f743e940]: Forty minutes apart on the same road, facing the same ocean. For this one subject the difference is real, and it is about what the boat can reach.
+      - generic [ref=f743e941]:
+        - generic [ref=f743e942]:
+          - text: Tofino
+          - heading "Clayoquot Sound and the open coast" [level=3] [ref=f743e943]
+          - paragraph [ref=f743e944]: "Boats work north and west into Clayoquot Sound: islands, inlets, and the open Pacific off Vargas and Flores. It is the bigger town, with more to do on the day the sea is too rough to sail."
+          - generic [ref=f743e945]:
+            - generic [ref=f743e946]:
+              - term [ref=f743e947]: Stays
+              - definition [ref=f743e948]: 134 from $320
+            - generic [ref=f743e949]:
+              - term [ref=f743e950]: Rain in January
+              - definition [ref=f743e951]: 489 mm
+            - generic [ref=f743e952]:
+              - term [ref=f743e953]: Rain in July
+              - definition [ref=f743e954]: 66 mm
+        - generic [ref=f743e955]:
+          - text: Ucluelet
+          - heading "Barkley Sound and the Broken Group" [level=3] [ref=f743e956]
+          - paragraph [ref=f743e957]: Boats run south into Barkley Sound, the Broken Group Islands and the kelp beds around them. It is the quieter town, and five of the six places in this guide are on its side of the park.
+          - generic [ref=f743e958]:
+            - generic [ref=f743e959]:
+              - term [ref=f743e960]: Stays
+              - definition [ref=f743e961]: 158 from $320
+            - generic [ref=f743e962]:
+              - term [ref=f743e963]: Rain in January
+              - definition [ref=f743e964]: 452 mm
+            - generic [ref=f743e965]:
+              - term [ref=f743e966]: Rain in July
+              - definition [ref=f743e967]: 62 mm
+      - paragraph [ref=f743e968]: Stay in Tofino and drive down for the boat, or stay in Ucluelet and walk to the lighthouse before breakfast. The whales do not know which town you booked.
+    - generic [ref=f743e971]:
+      - generic [ref=f743e972]:
+        - text: Other things to do here
+        - heading "Whale watching is one of nine subjects in Tofino" [level=2] [ref=f743e973]
+        - paragraph [ref=f743e974]: The other eight are hiking, kayaking, beaches, surfing, storm watching, birding, fishing and eating.
+      - link "See all nine" [ref=f743e975] [cursor=pointer]:
+        - /url: things-to-do.html
+    - generic [ref=f743e977]:
+      - generic [ref=f743e978]:
+        - img "A pod of orcas travelling on flat water with the mainland mountains behind" [ref=f743e979]
+        - generic [ref=f743e980]:
+          - text: Coming soon on Arc Trips
+          - heading "One email, on the day the first boat goes live" [level=2] [ref=f743e981]
+          - paragraph [ref=f743e982]: We are signing whale watching operators in Tofino and Ucluelet now. You will hear from us once about it, not four times.
+          - generic [ref=f743e983]:
+            - generic [ref=f743e984]: Email address
+            - textbox "Email address" [ref=f743e985]:
+              - /placeholder: you@example.com
+            - button "Tell me when boats go live" [ref=f743e986] [cursor=pointer]
+          - generic [ref=f743e987]:
+            - checkbox "Yes, tell me when whale watching opens in Tofino. You can unsubscribe from any email, and we never pass your address on." [ref=f743e988]
+            - text: Yes, tell me when whale watching opens in Tofino. You can unsubscribe from any email, and we never pass your address on.
+      - generic [ref=f743e989]:
+        - generic [ref=f743e990]:
+          - text: Live now instead
+          - heading "Somewhere to stay while you wait for March" [level=2] [ref=f743e991]
+          - paragraph [ref=f743e992]: 134 in Tofino and 158 in Ucluelet, bookable tonight. Two on each side, because five of the six places are on Ucluelet's.
+        - link "All 292 stays" [ref=f743e993] [cursor=pointer]:
+          - /url: search.html?in=tofino
+      - generic [ref=f743e994]:
+        - link [ref=f743e995] [cursor=pointer]:
+          - /url: search.html?in=tofino
+          - img "A timber cabin standing alone on a forested headland above the water" [ref=f743e997]
+          - heading "Coastal Bed-Cliff Cottage with Private Beach & Firepit" [level=3] [ref=f743e998]
+          - paragraph [ref=f743e999]: Tofino · 3 beds · 2 baths · 4.9 rated
+          - paragraph [ref=f743e1000]: $420 a night
+        - link [ref=f743e1001] [cursor=pointer]:
+          - /url: search.html?in=tofino
+          - img "Houses set back in the trees above a rocky shoreline with mountains behind" [ref=f743e1003]
+          - heading "Riverside Cabin Retreat with Hot Tub & Forest Views" [level=3] [ref=f743e1004]
+          - paragraph [ref=f743e1005]: Tofino · 3 beds · 2 baths · 4.9 rated
+          - paragraph [ref=f743e1006]: $420 a night
+        - link [ref=f743e1007] [cursor=pointer]:
+          - /url: search.html?in=tofino
+          - img "A long table set for dinner on a deck above the ocean at sunset" [ref=f743e1009]
+          - heading "Alpine Timber Chalet with Mountain Hot Tub & Stargazing Deck" [level=3] [ref=f743e1010]
+          - paragraph [ref=f743e1011]: Ucluelet · 3 beds · 2 baths · 4.9 rated
+          - paragraph [ref=f743e1012]: $385 a night
+        - link [ref=f743e1013] [cursor=pointer]:
+          - /url: search.html?in=tofino
+          - img "A brass key on a leather fob resting on a linen bedspread" [ref=f743e1015]
+          - heading "Modern Lakeside Villa with Rooftop Lounge & Marina Access" [level=3] [ref=f743e1016]
+          - paragraph [ref=f743e1017]: Ucluelet · 3 beds · 2 baths · 4.9 rated
+          - paragraph [ref=f743e1018]: $450 a night
+    - generic [ref=f743e1020]:
+      - text: Keep going
+      - generic [ref=f743e1021]:
+        - link [ref=f743e1022] [cursor=pointer]:
+          - /url: guide.html
+          - text: Next in this guide
+          - heading "Whale Tails, Blows, and Backs" [level=3] [ref=f743e1023]
+          - paragraph [ref=f743e1024]: What you are actually seeing on the water, and what a fluke means when it goes up. Four questions answered.
+          - generic [ref=f743e1025]: Read it
+        - link [ref=f743e1028] [cursor=pointer]:
+          - /url: long-beach.html
+          - text: More in Tofino
+          - heading "Long Beach" [level=3] [ref=f743e1029]
+          - paragraph [ref=f743e1030]: The open sand between the two towns, the park viewpoints, and the shorebird passage that crosses it twice a year.
+          - generic [ref=f743e1031]: Open the area
+        - link [ref=f743e1034] [cursor=pointer]:
+          - /url: search.html?in=tofino
+          - text: The booking path
+          - heading "Stays in Tofino" [level=3] [ref=f743e1035]
+          - paragraph [ref=f743e1036]: 134 places from $320 a night, with the storm season rates still the lowest of the year.
+          - generic [ref=f743e1037]: Search stays
+  - contentinfo [ref=f743e1040]:
+    - generic [ref=f743e1041]:
+      - generic [ref=f743e1042]:
+        - generic [ref=f743e1043]:
+          - text: Arctrips
+          - paragraph [ref=f743e1044]: Stays and guides on the west coast of Vancouver Island, written by people who go there.
+        - generic [ref=f743e1045]:
+          - heading "Destinations" [level=5] [ref=f743e1046]
+          - list [ref=f743e1047]:
+            - listitem [ref=f743e1048]:
+              - link "Tofino" [ref=f743e1049] [cursor=pointer]:
+                - /url: tofino.html
+            - listitem [ref=f743e1050]:
+              - link "Guides" [ref=f743e1051] [cursor=pointer]:
+                - /url: search.html
+            - listitem [ref=f743e1052]:
+              - link "British Columbia" [ref=f743e1053] [cursor=pointer]:
+                - /url: province.html
+            - listitem [ref=f743e1054]:
+              - link "Canada" [ref=f743e1055] [cursor=pointer]:
+                - /url: country.html
+        - generic [ref=f743e1056]:
+          - heading "In Tofino" [level=5] [ref=f743e1057]
+          - list [ref=f743e1058]:
+            - listitem [ref=f743e1059]:
+              - link "All nine subjects" [ref=f743e1060] [cursor=pointer]:
+                - /url: things-to-do.html
+            - listitem [ref=f743e1061]:
+              - link "Whale watching" [ref=f743e1062] [cursor=pointer]:
+                - /url: "#top"
+            - listitem [ref=f743e1063]:
+              - link "Long Beach" [ref=f743e1064] [cursor=pointer]:
+                - /url: long-beach.html
+            - listitem [ref=f743e1065]:
+              - link "Search everything" [ref=f743e1066] [cursor=pointer]:
+                - /url: search.html?in=tofino
+        - generic [ref=f743e1067]:
+          - heading "Plan" [level=5] [ref=f743e1068]
+          - list [ref=f743e1069]:
+            - listitem [ref=f743e1070]:
+              - link "When to go" [ref=f743e1071] [cursor=pointer]:
+                - /url: plan.html
+            - listitem [ref=f743e1072]:
+              - link "Getting there" [ref=f743e1073] [cursor=pointer]:
+                - /url: plan.html
+            - listitem [ref=f743e1074]:
+              - link "Where to stay" [ref=f743e1075] [cursor=pointer]:
+                - /url: search.html?in=tofino
+            - listitem [ref=f743e1076]:
+              - link "What to pack" [ref=f743e1077] [cursor=pointer]:
+                - /url: guide.html
+        - generic [ref=f743e1078]:
+          - heading "Arc Trips" [level=5] [ref=f743e1079]
+          - list [ref=f743e1080]:
+            - listitem [ref=f743e1081]:
+              - link "About us" [ref=f743e1082] [cursor=pointer]:
+                - /url: not-found.html
+            - listitem [ref=f743e1083]:
+              - link "List your place" [ref=f743e1084] [cursor=pointer]:
+                - /url: not-found.html
+            - listitem [ref=f743e1085]:
+              - link "Fishing charters" [ref=f743e1086] [cursor=pointer]:
+                - /url: search.html?in=tofino
+            - listitem [ref=f743e1087]:
+              - link "Contact" [ref=f743e1088] [cursor=pointer]:
+                - /url: not-found.html
+      - generic [ref=f743e1089]:
+        - generic [ref=f743e1090]: © 2026 Arc Trips
+        - generic [ref=f743e1091]: Prices in CAD, before taxes and fees

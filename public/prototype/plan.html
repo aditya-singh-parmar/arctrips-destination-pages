@@ -1,0 +1,1127 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>When should you go to Tofino? Arc Trips</title>
+<meta name="description" content="Every month of the year in Tofino with the real climate numbers, what is at its best when, nine things to settle before you go, and the rooms that are open in all twelve.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_system.css">
+<style>
+/* ── Page-scoped only. Tokens from _system.css, no new colour values. ────────
+      Season colour is neutral by decision: navy fills an in-season month, grey
+      leaves it empty, and on the navy panel the same idea runs in white
+      transparencies. Emerald survives on the live booking pill and nowhere
+      else. Everything here is either an accessibility floor, a component the
+      system does not carry, or an on-dark correction.
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* ═══ floors: 44px targets, visible focus, and nothing under 14px. The body
+       root is 17px, so .88rem is the smallest size on this page. ═══ */
+:focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:var(--r-sm)}
+.almanac :focus-visible,.proof :focus-visible{outline-color:var(--a300)}
+.btn{min-height:44px;white-space:nowrap}
+nav.top .btn{flex:none}
+.brand,.nav-links a{display:inline-flex;align-items:center;min-height:44px}
+.search{height:44px}
+.search input{align-self:stretch}
+.search kbd{font-size:.88rem}
+.btn--sm{font-size:.88rem}
+.tide-read{font-size:.88rem}
+.fnote{font-size:.88rem}
+.kmeta{font-size:.88rem}
+.kmeta .k{font-size:.88rem;letter-spacing:.06em}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* body>*:not(.chart) sets position:relative at higher specificity than a bare
+   class, so the out-of-flow page elements are qualified with body>. */
+body>.skip{position:absolute;left:var(--gut);top:-60px;z-index:99;background:var(--navy);color:var(--paper);
+  padding:13px 18px;border-radius:0 0 var(--r-sm) var(--r-sm);font-weight:600;font-size:.94rem;transition:top .18s var(--ease)}
+body>.skip:focus{top:0}
+/* n500 is 3.7:1 on paper, so anything carrying meaning moves to n600 */
+.label--n,.dest__meta,.kmeta,.fnote,.fbase,.who span{color:var(--n600)}
+.label{font-size:.88rem;letter-spacing:.1em}
+.crumb{font-size:.88rem;padding-block:22px 10px}
+.jumprow a{min-height:44px;font-size:.9rem}
+.pill{font-size:.88rem;letter-spacing:.05em;padding:5px 11px}
+.led th{font-size:.88rem;letter-spacing:.1em}
+.led__w{font-size:.88rem}
+.sib__m{font-size:.88rem}
+.plate figcaption{font-size:.88rem}
+.fgrid h5{font-size:.88rem;letter-spacing:.1em}
+.fgrid ul{gap:2px;color:var(--n600);font-size:.94rem}
+.fgrid ul a{display:inline-block;padding-block:12px}
+.fbase{font-size:.9rem}
+
+/* ═══ nav. The global row is Stays, Destinations, Vancouver Island on every
+       page, so the region is one click from anywhere. The place bar carries
+       the town and its five sections, and nothing else. ═══ */
+.finder{margin-left:auto;flex:1 1 auto;min-width:0;max-width:clamp(200px,30vw,400px);display:flex}
+.finder .search{margin-left:0;width:100%;min-width:0}
+.placebar__cta{display:inline-flex}
+@media(max-width:760px){.placebar__cta{display:none}}
+/* Vancouver Island must stay reachable in one tap at every width, so the nav
+   sheds the search box, then the sign-in chip, before it sheds a link. */
+@media(max-width:860px){.nav-in{gap:12px}.finder{display:none}}
+@media(max-width:620px){
+  nav.top .btn--ink{display:none}
+  .nav-in{gap:10px}
+  .nav-links{gap:10px;font-size:.88rem}
+  .brand{font-size:.92rem}
+}
+.placebar__back .n{font-size:1.02rem;font-weight:700;color:var(--navy);line-height:1.15}
+
+/* ═══ hero. The page opens with the question it answers, in plain words. ═══ */
+.hero{padding-block:clamp(20px,3vw,40px) clamp(44px,5vw,76px)}
+.hero h1{font-size:clamp(2.6rem,6.4vw,5rem);font-weight:800;line-height:.98;letter-spacing:-.04em;max-width:14ch}
+.hero .lede{font-size:clamp(1.08rem,1.4vw,1.28rem);font-weight:400;max-width:48ch;margin-top:24px}
+.hero-cta{margin-top:30px}
+.btn--lg{padding:16px 30px;font-size:1rem}
+.hero-mob{display:none}
+@media(max-width:760px){.hero-mob{display:inline-flex}}
+.hero-note{margin-top:26px;padding-top:20px;border-top:1px solid var(--n150);font-size:.94rem;color:var(--n600);max-width:48ch;line-height:1.6}
+.hero-note b{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+/* the collage escapes the container and runs off the right edge of the screen */
+@media(min-width:1080px){
+  .hero>.wrap{max-width:none;margin-inline:0;padding-right:0;
+    padding-left:max(var(--gut),calc((100vw - var(--wrap))/2 + var(--gut)))}
+  .hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.18fr);gap:clamp(34px,5vw,80px)}
+  .collage{aspect-ratio:1/.82}
+  .coast{inset:-6% 0 -6% -4%}
+  .p2{width:47%}
+}
+@media(max-width:1079px){.hero-grid{align-items:start}}
+@media(max-width:940px){.hero-grid{grid-template-columns:minmax(0,1fr)}.collage{min-height:0;max-width:620px}}
+@media(max-width:560px){.collage{aspect-ratio:1/.88}}
+
+/* ═══ the tide strip says what it is, then why it matters ═══ */
+.tide-in .label{color:var(--azure)}
+.tide-read b{white-space:nowrap}
+.tide-why{flex-basis:100%;font-size:.9rem;color:var(--n600);line-height:1.5}
+
+/* ═══ the twelve month board ═══ */
+.sec--m{padding-block:clamp(44px,5vw,76px) clamp(40px,4.4vw,64px)}
+.mhead{display:grid;grid-template-columns:minmax(140px,1.2fr) 120px 130px 110px 150px 112px;
+  gap:0 20px;padding-bottom:11px;border-bottom:1px solid var(--n200);
+  font-size:.88rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--n600)}
+@media(max-width:1000px){.mhead{display:none}}
+.mboard{display:flex;flex-direction:column}
+.mrow{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px;align-items:center;width:100%;text-align:left;
+  padding:16px 12px;border-bottom:1px solid var(--n150);border-radius:var(--r-sm);
+  transition:background .18s var(--ease)}
+.mrow:hover{background:var(--n50)}
+.mrow[data-sel]{background:var(--a100)}
+.mrow[data-sel] .mrow__n{color:var(--azure)}
+@media(min-width:1001px){
+  .mrow{grid-template-columns:minmax(140px,1.2fr) 120px 130px 110px 150px 112px;gap:0 20px}
+}
+.mrow__m{display:flex;flex-direction:column;gap:3px;grid-column:1/-1}
+@media(min-width:1001px){.mrow__m{grid-column:auto}}
+.mrow__n{font-size:clamp(1.34rem,2vw,1.62rem);font-weight:800;color:var(--navy);letter-spacing:-.032em;line-height:1.06}
+.mrow__s{font-size:.88rem;font-weight:600;color:var(--n600)}
+.mfig{display:flex;flex-direction:column;gap:3px;min-width:0}
+.mfig__k{font-size:.88rem;font-weight:600;color:var(--n600)}
+@media(min-width:1001px){.mfig__k{display:none}}
+.mfig__v{font-size:1.06rem;font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums;letter-spacing:-.018em}
+.mfig__v .u{font-size:.88rem;font-weight:600;color:var(--n600)}
+/* the bar is that month's real rainfall against the wettest month of the year */
+.mrain{height:7px;border-radius:3px;background:var(--n100);margin-top:6px;overflow:hidden}
+.mrain i{display:block;height:100%;background:var(--a300);width:var(--w)}
+.mrow[data-sel] .mrain i{background:var(--azure)}
+.mbest{display:flex;flex-direction:column;gap:2px;min-width:0;grid-column:1/-1}
+@media(min-width:1001px){.mbest{grid-column:auto}}
+.mbest b{font-size:1.06rem;font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums}
+.mbest span{font-size:.88rem;color:var(--n600);line-height:1.4}
+.mgo{grid-column:1/-1;font-size:.88rem;font-weight:700;color:var(--azure);display:inline-flex;align-items:center;
+  gap:7px;min-height:44px}
+@media(min-width:1001px){.mgo{grid-column:auto;justify-content:flex-end;text-align:right}}
+.mgo svg{width:13px;height:13px;transition:transform .2s var(--ease)}
+.mrow:hover .mgo svg{transform:translateX(3px)}
+.msrc{font-size:.88rem;color:var(--n600);line-height:1.6;max-width:70ch;margin-top:22px;padding-top:18px;
+  border-top:1px solid var(--n150)}
+
+/* ═══ the compare panel, inside the locked navy almanac ═══ */
+.sec--c{padding-block:0 clamp(52px,5.6vw,88px)}
+.almanac{padding:clamp(28px,4.4vw,68px)}
+.almanac h2{font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-.04em}
+.almanac .head{margin-bottom:clamp(22px,2.8vw,34px)}
+.almanac .head p{font-size:1.01rem;max-width:48ch}
+.sel{display:flex;align-items:center;gap:9px;font-size:.88rem;color:rgba(255,255,255,.8);font-weight:600}
+.sel select{min-height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.42);background:none;color:var(--paper);
+  font-family:inherit;font-size:.94rem;font-weight:700;padding:0 15px}
+.sel select option{color:var(--n900);background:var(--paper)}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.2vw,28px)}
+@media(max-width:860px){.vs{grid-template-columns:1fr}}
+.mcard{border:1px solid rgba(255,255,255,.24);border-radius:var(--r);padding:clamp(20px,2.6vw,30px);
+  display:flex;flex-direction:column;gap:15px}
+.mcard--a{border-color:var(--a300)}
+.mcard__h{display:block}
+.mcard__h .sel{margin-top:12px}
+.mcard h3{font-size:clamp(2rem,3.6vw,3rem);font-weight:800;letter-spacing:-.042em;line-height:.98}
+.mcard__s{font-size:1rem;color:rgba(255,255,255,.8);line-height:1.55;max-width:44ch}
+@media(min-width:1100px){.mcard__s{min-height:3.2em}}
+.mcard__s b{color:var(--paper);font-weight:700}
+.bignums{display:grid;grid-template-columns:repeat(4,auto);gap:clamp(12px,2vw,26px);justify-content:start}
+.bignums dt{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.72)}
+.bignums dd{font-size:clamp(1.5rem,2.3vw,2rem);font-weight:800;color:var(--paper);letter-spacing:-.038em;line-height:1;
+  margin-top:6px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bignums dd small{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.72);margin-left:4px}
+@media(max-width:600px){.bignums{grid-template-columns:repeat(2,1fr);gap:15px 12px;justify-content:stretch}
+  .bignums dd{font-size:1.55rem}}
+.mcard__u{font-size:.94rem;color:rgba(255,255,255,.8);line-height:1.55}
+.mcard__u:last-of-type{margin-top:auto}
+.mcard__u b{color:var(--paper);font-weight:700;font-variant-numeric:tabular-nums}
+.sum{font-size:clamp(1.06rem,1.6vw,1.3rem);color:var(--paper);font-weight:600;line-height:1.45;
+  margin:clamp(24px,3vw,34px) 0 clamp(10px,1.4vw,16px);max-width:60ch;letter-spacing:-.014em}
+.sum b{font-size:1.4em;font-weight:800;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.ledkey{font-size:.94rem;color:rgba(255,255,255,.74);line-height:1.55;max-width:62ch;
+  margin-bottom:clamp(14px,1.8vw,20px)}
+.led tbody tr{animation:rowin .3s var(--ease) both;animation-delay:calc(var(--i,0)*22ms)}
+@keyframes rowin{from{opacity:0;transform:translateY(7px)}}
+.gsep td{padding:26px 0 6px!important;border-bottom:0!important;font-size:.88rem;font-weight:700;
+  color:rgba(255,255,255,.72)}
+.led__b{font-size:.9rem}
+.jump{display:inline-flex;align-items:center;gap:7px;min-height:44px;font-size:.9rem;font-weight:700;
+  color:var(--a300);transition:color .2s var(--ease)}
+.jump:hover{color:var(--paper)}
+.jump svg{width:13px;height:13px;flex:none}
+.almanac .btn--ghost{border-color:rgba(255,255,255,.4);color:var(--paper)}
+.almanac .btn--ghost:hover{border-color:var(--paper);background:rgba(255,255,255,.09)}
+.almanac__legend{border-top:1px solid rgba(255,255,255,.16);padding-top:20px;display:block;margin-top:clamp(20px,2.4vw,30px);
+  color:rgba(255,255,255,.72);line-height:1.6;max-width:70ch;font-size:.9rem}
+
+/* the season strip. No hue anywhere in it: filled is navy on paper and a white
+   wash on the navy panel, empty is grey, and the current month keeps its ring. */
+.mon{display:grid;grid-template-columns:repeat(12,1fr);gap:2px;min-width:0}
+.mon i{width:auto;min-width:0;height:26px;border-radius:3px;font-size:.88rem;font-weight:600;
+  background:var(--n100);color:var(--n600)}
+.mon i[data-on]{background:var(--navy);color:#fff;font-weight:700}
+.almanac .mon i{background:rgba(255,255,255,.06);color:rgba(255,255,255,.6)}
+.almanac .mon i[data-on]{background:rgba(255,255,255,.14);color:#fff;font-weight:700}
+.almanac .mon i[data-now]{outline:1.5px solid #fff;outline-offset:1.5px}
+@media(max-width:800px){
+  .led thead{display:none}
+  .led tbody tr{display:block;padding-block:17px;border-bottom:1px solid rgba(255,255,255,.12)}
+  .led tbody tr:last-child{border-bottom:0}
+  .led td{display:block;border-bottom:0;padding:0}
+  .led__mon{display:block;margin-top:13px}
+  .led__b{text-align:left;margin-top:11px;white-space:normal}
+  .gsep{padding-block:0!important;border-bottom:0!important}
+}
+
+/* ═══ the full-bleed band. One image escapes the container. ═══ */
+.proof{position:relative;min-height:min(70vh,600px);display:flex;align-items:center;overflow:hidden;
+  margin-block:0 clamp(52px,6vw,92px)}
+.proof img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.proof__veil{position:absolute;inset:0;background:linear-gradient(92deg,rgba(11,51,86,.94) 0%,rgba(11,51,86,.8) 48%,rgba(11,51,86,.3) 100%)}
+.proof>.wrap{width:100%}
+.proof__in{position:relative}
+.proof__n{font-size:clamp(1.6rem,3.2vw,2.7rem);font-weight:700;color:var(--paper);letter-spacing:-.035em;
+  line-height:1.1;max-width:18ch}
+.proof__n b{font-size:clamp(3.2rem,9vw,7rem);font-weight:800;display:block;letter-spacing:-.05em;line-height:.9}
+.proof__d{color:rgba(255,255,255,.85);max-width:46ch;margin-top:20px;font-size:1.02rem}
+.proof__cta{margin-top:30px;border-color:rgba(255,255,255,.44);color:var(--paper)}
+.proof__cta:hover{border-color:var(--paper);background:rgba(255,255,255,.1)}
+
+/* ═══ the nine planning topics ═══ */
+.sec--t{padding-block:0 clamp(48px,5vw,76px)}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,20px)}
+@media(max-width:940px){.tgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.tgrid{grid-template-columns:1fr}}
+.topic{display:flex;flex-direction:column;gap:10px;padding:clamp(20px,2.2vw,28px);border:1px solid var(--n150);
+  border-radius:var(--r);background:var(--paper);transition:border-color .22s var(--ease),box-shadow .22s var(--ease);
+  animation:tin .3s var(--ease) both;animation-delay:calc(var(--i,0)*24ms)}
+@keyframes tin{from{opacity:0;transform:translateY(8px)}}
+.topic:hover{border-color:var(--a300);box-shadow:0 14px 30px -20px rgba(11,51,86,.4)}
+.topic h3{font-size:1.3rem}
+.topic p{font-size:.96rem;color:var(--n600);line-height:1.56}
+/* the first card is wider than the rest, so the grid is not nine equal tiles */
+@media(min-width:941px){
+  .topic--lead{grid-column:span 2;display:grid;grid-template-columns:1.06fr 1fr;
+    column-gap:clamp(26px,3.4vw,48px);row-gap:11px;align-content:start}
+  .topic--lead>:nth-child(1){grid-area:1/1}
+  .topic--lead>:nth-child(2){grid-area:2/1}
+  .topic--lead>:nth-child(3){grid-area:3/1}
+  .topic--lead>:nth-child(4){grid-area:1/2/4/3;align-self:center}
+  .topic--lead>:nth-child(5){grid-area:4/1/5/3;padding-top:12px}
+  .topic--lead h3{font-size:clamp(1.6rem,2.6vw,2.1rem)}
+}
+.topic p.topic__n{font-size:clamp(2.2rem,3.6vw,3.1rem);font-weight:800;color:var(--navy);letter-spacing:-.045em;
+  line-height:1;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;flex-wrap:wrap;gap:0 9px}
+.topic--lead p.topic__n{font-size:clamp(3rem,5.4vw,4.6rem)}
+.topic p.topic__n small{font-size:.88rem;font-weight:600;color:var(--n600);line-height:1.4}
+.topic__go{margin-top:auto;padding-top:4px;font-size:.9rem;font-weight:700;color:var(--azure);
+  display:inline-flex;align-items:center;gap:7px;min-height:36px}
+.topic__go svg{width:13px;height:13px;transition:transform .22s var(--ease)}
+.topic:hover .topic__go svg{transform:translateX(3px)}
+.topic__f{display:inline-flex;align-items:center;align-self:flex-start;gap:6px;font-size:.88rem;font-weight:700;
+  color:var(--navy);background:var(--n100);padding:5px 11px;border-radius:999px}
+.rank{font-size:1rem;color:var(--n700);margin:0 0 clamp(18px,2.2vw,26px);max-width:66ch;line-height:1.6}
+.rank b{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+
+/* ═══ the places rail, a list rather than another card grid ═══ */
+.sec--p{padding-block:0 clamp(48px,5vw,76px)}
+.rgrid{display:grid;grid-template-columns:repeat(2,1fr);column-gap:clamp(26px,3.4vw,54px)}
+@media(max-width:760px){.rgrid{grid-template-columns:1fr}}
+.ritem__t{font-size:.88rem;color:var(--n600);font-weight:600;margin-top:3px}
+.ritem__b{font-size:.88rem;color:var(--n600);line-height:1.5;margin-top:5px}
+
+/* ═══ the questions, straight out of the guide FAQs ═══ */
+.sec--q{padding-block:0 clamp(48px,5vw,76px)}
+.qgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(18px,2.4vw,34px);align-items:start}
+.qgroup{border-top:2px solid var(--navy);padding-top:14px}
+.qgroup h3{font-size:1.06rem;display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.qgroup h3 span{font-size:.88rem;font-weight:600;color:var(--n600);font-variant-numeric:tabular-nums}
+.qi{border-bottom:1px solid var(--n150)}
+.qi summary{list-style:none;cursor:pointer;display:flex;gap:10px;align-items:flex-start;padding:13px 0;
+  font-size:.96rem;font-weight:600;color:var(--navy);line-height:1.45;min-height:44px}
+.qi summary::-webkit-details-marker{display:none}
+.qi summary::after{content:"+";margin-left:auto;font-size:1.14rem;font-weight:700;color:var(--azure);line-height:1.2}
+.qi[open] summary::after{content:"\2013"}
+.qi p{font-size:.94rem;color:var(--n700);line-height:1.62;padding-bottom:15px;max-width:56ch}
+
+/* ═══ the stays module: one feature plus a real price ledger ═══ */
+.sec--s{padding-block:0 clamp(48px,5vw,76px)}
+.stay{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1.25fr);gap:clamp(24px,3.4vw,52px);align-items:start}
+@media(max-width:900px){.stay{grid-template-columns:1fr}}
+.stay__m{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:var(--n100);
+  box-shadow:0 18px 42px -20px rgba(11,51,86,.34)}
+.stay__m img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.stayfeat:hover .stay__m img{transform:scale(1.045)}
+.stayfeat h3{font-size:clamp(1.4rem,2.2vw,1.9rem);font-weight:800;letter-spacing:-.03em;margin-top:18px}
+.stay__p{font-size:clamp(2.2rem,3.6vw,3rem);font-weight:800;color:var(--navy);letter-spacing:-.045em;
+  font-variant-numeric:tabular-nums;margin-top:12px;line-height:1}
+.stay__p span{font-size:.88rem;font-weight:600;color:var(--n600)}
+.ledger2{width:100%;border-collapse:collapse}
+.ledger2 th{text-align:left;font-size:.88rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--n600);padding-bottom:11px;border-bottom:1px solid var(--n200)}
+.ledger2 td{padding:14px 0;border-bottom:1px solid var(--n150);vertical-align:top;font-size:.94rem;color:var(--n600)}
+.ledger2 tr:last-child td{border-bottom:0}
+.ledger2 .l__t{font-size:1rem;font-weight:700;color:var(--navy);letter-spacing:-.014em;line-height:1.3}
+.ledger2 .l__w{font-size:.88rem;color:var(--n600);margin-top:3px}
+.ledger2 .l__p{text-align:right;white-space:nowrap;font-size:1.14rem;font-weight:800;color:var(--navy);
+  font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.ledger2 .l__p span{display:block;font-size:.88rem;font-weight:600;color:var(--n600);margin-top:3px}
+@media(max-width:520px){.ledger2 thead{display:none}
+  .ledger2 tr{display:grid;grid-template-columns:1fr auto;gap:6px 14px;padding-block:14px;border-bottom:1px solid var(--n150)}
+  .ledger2 td{border-bottom:0;padding:0}}
+
+/* ═══ the island roster. Built for twelve towns, not two: published ones get
+       a real tile with counts, the rest a compact honest list. ═══ */
+.sec--i{padding-block:0 clamp(44px,4.6vw,70px)}
+.topic p.topic__n small,.mfig__v .u,.mbest span,.bignums dd small,.stay__p span,
+.ledger2 .l__p span,.qgroup h3 span,.mcard__s,.mcard__u,.sum span{letter-spacing:normal}
+.sub{font-size:1.02rem;font-weight:700;color:var(--navy);margin-bottom:12px}
+.sub--2{margin-top:clamp(24px,3vw,34px)}
+.siblings{background:var(--paper)}
+.sib{box-shadow:0 0 0 1px var(--n150)}
+.sib__m b{color:var(--navy);font-weight:700}
+.roster{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.roster a{display:flex;align-items:center;min-height:48px;padding:12px 16px;border:1px solid var(--n150);
+  border-radius:var(--r-sm);background:var(--paper);font-size:.96rem;font-weight:600;color:var(--n700);
+  transition:border-color .18s var(--ease),color .18s var(--ease)}
+.roster a:hover{border-color:var(--navy);color:var(--navy)}
+
+/* ═══ the three next steps ═══ */
+.sec--n{padding-block:0 clamp(56px,6vw,90px)}
+.next{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.4vw,30px)}
+@media(max-width:820px){.next{grid-template-columns:1fr}}
+.nextc{display:flex;flex-direction:column;gap:9px;padding-top:20px;border-top:2px solid var(--navy)}
+.nextc h3{font-size:1.16rem}
+.nextc p{font-size:.94rem;color:var(--n600);line-height:1.56}
+.nextc a.topic__go{margin-top:6px;min-height:44px}
+footer.f{margin-top:0}
+
+/* two sticky rows ride above the page, so anchored sections stop clear of them */
+main [id]{scroll-margin-top:146px}
+</style>
+</head>
+<body>
+<span id="top" aria-hidden="true"></span>
+
+<a class="skip" href="#main">Skip to content</a>
+<div class="jumpbar" id="jumpbar" aria-hidden="true"></div>
+
+<!-- the chart ground: contours and depth soundings -->
+<div class="chart" aria-hidden="true">
+<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none">
+  <g stroke="var(--a200)" stroke-width="1" opacity=".72">
+    <path d="M-40 250 C160 200 300 300 420 280 C560 258 640 150 800 170 C960 190 1050 300 1200 280 C1330 262 1420 200 1500 220"/>
+    <path d="M-40 300 C170 250 310 350 430 330 C570 308 650 205 810 225 C970 245 1060 350 1210 330 C1340 312 1425 255 1500 275"/>
+    <path d="M-40 355 C180 305 320 402 440 385 C580 365 665 262 820 282 C980 302 1070 402 1220 385 C1350 368 1430 312 1500 332"/>
+    <path d="M-60 620 C140 585 260 660 400 640 C540 620 620 545 760 560 C900 575 1000 655 1140 640 C1280 625 1380 570 1500 590"/>
+    <path d="M-60 672 C150 638 275 712 415 692 C555 672 632 600 772 615 C912 630 1010 706 1150 692 C1290 678 1385 622 1500 642"/>
+    <path d="M-60 726 C160 692 290 764 430 744 C570 724 645 654 785 669 C925 684 1020 758 1160 744 C1300 730 1390 675 1500 695"/>
+  </g>
+  <g fill="var(--azure)" font-family="Inter" font-weight="600" font-size="9" opacity=".26">
+    <text x="200" y="215">14</text><text x="512" y="268">9</text><text x="700" y="163">22</text>
+    <text x="900" y="196">31</text><text x="1140" y="292">17</text><text x="288" y="386">6</text>
+    <text x="620" y="270">11</text><text x="1010" y="360">26</text><text x="120" y="600">19</text>
+    <text x="480" y="646">8</text><text x="700" y="556">24</text><text x="1050" y="662">13</text>
+    <text x="1330" y="586">28</text><text x="352" y="712">5</text><text x="860" y="742">16</text>
+  </g>
+</svg>
+</div>
+
+<!-- Global nav. Identical on every page: Stays, Destinations, Vancouver Island.
+     The region stays one click away from anywhere in the tree. -->
+<nav class="top"><div class="wrap nav-in">
+  <a class="brand" href="index.html">Arctrips</a>
+  <ul class="nav-links">
+    <li><a href="search.html?in=tofino">Stays</a></li>
+    <li><a href="index.html">Destinations</a></li>
+    <li><a href="search.html">Guides</a></li>
+  </ul>
+  <div class="finder">
+    <form class="search" role="search" action="search.html" method="get">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
+      <label class="vh" for="q">Go to a place, a beach, a trail or a guide</label>
+      <input id="q" name="q" type="search" placeholder="Tofino, Long Beach, Wild Pacific Trail" autocomplete="off">
+      <kbd>/</kbd>
+    </form>
+  </div>
+  <a class="btn btn--ink btn--sm" href="not-found.html">Sign in</a>
+</div></nav>
+
+<!-- The place bar. Identical on every Tofino page: back to the town, the same
+     five sections in the same order, and the booking path. -->
+<div class="placebar"><div class="wrap placebar-in">
+  <a class="placebar__back" href="tofino.html"><span class="n">&larr; Tofino</span></a>
+  <ul class="placebar__links">
+    <li><a href="tofino.html">Overview</a></li>
+    <li><a href="things-to-do.html">Things to do</a></li>
+    <li><a href="long-beach.html">Areas</a></li>
+    <li><a href="#top" aria-current="page">Plan</a></li>
+    <li><a href="guide.html">Guides</a></li>
+  </ul>
+  <a class="btn btn--primary btn--sm placebar__cta" href="search.html?in=tofino">134 stays</a>
+</div></div>
+
+<main id="main">
+
+<nav class="wrap crumb" aria-label="Breadcrumb">
+  <a class="lvl-deep" href="index.html">Arc Trips</a>
+  <span class="sep lvl-deep" aria-hidden="true">/</span>
+  <a class="lvl-deep" href="country.html">Canada</a>
+  <span class="sep lvl-deep" aria-hidden="true">/</span>
+  <a class="lvl-deep" href="province.html">British Columbia</a>
+  <span class="sep lvl-deep" aria-hidden="true">/</span>
+  <a href="region.html">Vancouver Island</a>
+  <span class="sep" aria-hidden="true">/</span>
+  <a href="tofino.html">Tofino</a>
+  <span class="sep" aria-hidden="true">/</span>
+  <span aria-current="page">Plan</span>
+</nav>
+
+<header class="hero"><div class="wrap hero-grid">
+  <div>
+    <h1>When should you go to Tofino?</h1>
+    <p class="lede">Any month works. July is the driest and warmest, February brings the biggest storms, and the rooms are open in all twelve. Below is every month with the real numbers.</p>
+    <div class="hero-cta">
+      <a class="btn btn--primary btn--lg hero-mob" href="search.html?in=tofino">Search 134 stays</a>
+      <a class="btn btn--ghost btn--lg" href="#months">See every month</a>
+    </div>
+    <p class="hero-note" id="heroNote"></p>
+  </div>
+
+  <div class="collage">
+    <div class="coast" aria-hidden="true">
+      <svg viewBox="0 0 520 480" fill="none">
+        <path d="M40 120 C110 92 150 150 210 140 C268 130 300 70 360 88 C420 106 452 168 500 150" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M20 300 C96 268 140 336 205 322 C270 308 306 244 372 262 C438 280 470 344 512 326" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M10 400 C90 372 136 434 204 420 C272 406 312 348 380 366" stroke="currentColor" stroke-width="1.4"/>
+        <circle cx="120" cy="212" r="2.6" fill="currentColor"/><circle cx="392" cy="196" r="2.6" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <figure class="plate p1">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_760,h_1000/guides/tofino/storm-watching/_category-1" alt="Heavy surf breaking against the Tofino shore under winter cloud">
+      <figcaption>February, 368 mm of rain</figcaption>
+    </figure>
+    <figure class="plate p2">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_780,h_560/guides/tofino/beaches/long-beach-1" alt="The long open sand of Long Beach in Pacific Rim National Park Reserve">
+      <figcaption>July, 66 mm of rain</figcaption>
+    </figure>
+    <figure class="plate p3">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_680,h_520/guides/tofino/hiking/tonquin-trail-1" alt="Boardwalk steps through rainforest on the Tonquin Trail in Tofino">
+      <figcaption>Tonquin Trail, open all year</figcaption>
+    </figure>
+
+    <svg class="seal" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+      <circle cx="50" cy="50" r="46" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="50" cy="50" r="38" stroke="currentColor" stroke-width=".8" stroke-dasharray="2 4"/>
+      <path d="M50 20 L56 46 L82 50 L56 54 L50 80 L44 54 L18 50 L44 46 Z" fill="currentColor" opacity=".55"/>
+      <text x="50" y="14" text-anchor="middle" font-size="7" font-weight="700" fill="currentColor" letter-spacing="1.4">N</text>
+    </svg>
+  </div>
+</div></header>
+
+<!-- today's real tides for Tofino Harbour, said in plain words -->
+<div class="tide"><div class="wrap tide-in">
+  <span class="label" id="tideStation">Tide today at Tofino Harbour</span>
+  <div class="tide-wave" aria-hidden="true">
+    <svg viewBox="0 0 400 26" fill="none" preserveAspectRatio="none">
+      <path d="M0 18 C34 6 62 6 96 18 C130 30 158 30 192 18 C226 6 254 6 288 18 C322 30 350 30 384 18 L400 15" stroke="currentColor" stroke-width="1.6"/>
+    </svg>
+  </div>
+  <p class="tide-read" id="tideRead"></p>
+  <p class="tide-why">Why it matters: Long Beach doubles in width at low water.</p>
+</div></div>
+
+<div class="wrap">
+  <nav class="jumprow" id="jumprow" aria-label="On this page">
+    <a href="#months">Every month</a>
+    <a href="#compare">Compare two</a>
+    <a href="#topics">What to settle</a>
+    <a href="#questions">Questions</a>
+    <a href="#stays">Stays</a>
+  </nav>
+</div>
+
+<section class="sec sec--m" id="months"><div class="wrap">
+  <div class="head">
+    <div>
+      <h2>Every month, at a glance</h2>
+      <p>Average high and low, rainfall, and what is at its best. Each rain bar compares that month with the wettest.</p>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="guide.html">Read the when to go guide</a>
+  </div>
+
+  <div class="mhead" aria-hidden="true">
+    <span>Month</span><span>High and low</span><span>Rain</span><span>Rain days</span><span>At their best</span><span>Compare</span>
+  </div>
+  <div class="mboard" id="mboard"></div>
+  <p class="msrc">Climate normals for the Tofino station, seeded for this prototype.</p>
+</div></section>
+
+<section class="sec sec--c" id="compare"><div class="wrap">
+  <div class="almanac">
+    <div class="head">
+      <div>
+        <h2 id="cTitle">Which month, though?</h2>
+        <p>Pick any two months and read them side by side. Same numbers on both sides.</p>
+      </div>
+      <a class="btn btn--ghost btn--sm" href="things-to-do.html">Everything worth doing</a>
+    </div>
+
+    <div class="vs">
+      <article class="mcard mcard--a">
+        <div class="mcard__h">
+          <div>
+            <span class="label" id="aSeason"></span>
+            <h3 id="aName" style="margin-top:8px"></h3>
+          </div>
+          <p class="sel"><label for="apick">This month</label><select id="apick"></select></p>
+        </div>
+        <p class="mcard__s" id="aClaim"></p>
+        <dl class="bignums" id="aNums"></dl>
+        <p class="mcard__u" id="aOnCount"></p>
+        <p class="mcard__u" id="aOnly"></p>
+      </article>
+
+      <article class="mcard mcard--b">
+        <div class="mcard__h">
+          <div>
+            <span class="label" id="bSeason"></span>
+            <h3 id="bName" style="margin-top:8px"></h3>
+          </div>
+          <p class="sel"><label for="bpick">Against</label><select id="bpick"></select></p>
+        </div>
+        <p class="mcard__s" id="bClaim"></p>
+        <dl class="bignums" id="bNums"></dl>
+        <p class="mcard__u" id="bOnCount"></p>
+        <p class="mcard__u" id="bOnly"></p>
+      </article>
+    </div>
+
+    <p class="sum" id="sum"></p>
+    <p class="ledkey">Each strip below is the twelve months, January on the left. A filled block means that month is in season.</p>
+
+    <table class="led">
+      <thead><tr><th>Subject in Tofino</th><th class="led__mon">In season</th><th style="text-align:right">Booking</th></tr></thead>
+      <tbody id="ledger"></tbody>
+    </table>
+
+    <p class="almanac__legend">Stays are live on Arc Trips. Charters hand off to ArcTrips Fishing. Water tours are being added.</p>
+    <p class="vh" role="status" aria-live="polite" id="live"></p>
+  </div>
+</div></section>
+
+<section class="proof">
+  <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_2400,h_1100/guides/tofino/storm-watching/_category-1" alt="Heavy Pacific swell breaking along the Tofino shoreline in winter">
+  <div class="proof__veil"></div>
+  <div class="wrap proof__in">
+    <p class="proof__n"><b class="tnum">3,327</b> millimetres of rain a year.</p>
+    <p class="proof__d">More than half of it lands in the four months of storm season. That is why the rainforest is a rainforest, and why the room with the window facing the water is the product.</p>
+    <a class="btn btn--ghost btn--lg proof__cta" href="things-to-do.html">Eight places to watch it from</a>
+  </div>
+</section>
+
+<section class="sec sec--t" id="topics"><div class="wrap">
+  <div class="head">
+    <div>
+      <h2>Nine things to settle</h2>
+      <p>Answered from the Tofino guides, the listings and the climate record.</p>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="guide.html">All 18 Tofino articles</a>
+  </div>
+
+  <p class="label label--n" style="margin-bottom:4px">Who is travelling</p>
+  <div class="filterrow" role="group" aria-label="Order the topics for a traveller" id="chips"></div>
+  <p class="rank" id="rankline"></p>
+
+  <div class="tgrid" id="tgrid"></div>
+</div></section>
+
+<section class="sec sec--p" id="places"><div class="wrap">
+  <div class="head">
+    <div>
+      <h2 id="railTitle">Places to start with</h2>
+      <p id="railSub"></p>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="things-to-do.html">All 73 places</a>
+  </div>
+  <div class="rgrid" id="rail"></div>
+</div></section>
+
+<section class="sec sec--q" id="questions"><div class="wrap">
+  <div class="head">
+    <div>
+      <h2>Questions people ask</h2>
+      <p id="qDek"></p>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="search.html?in=tofino">Search the guides</a>
+  </div>
+  <div class="qgrid" id="qgrid"></div>
+</div></section>
+
+<section class="sec sec--s" id="stays"><div class="wrap">
+  <div class="head">
+    <div>
+      <h2>134 rooms, open in every month</h2>
+      <p id="stayLine"></p>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="search.html?in=tofino">Search every stay</a>
+  </div>
+  <div class="stay">
+    <a class="stayfeat" href="search.html?in=tofino" id="stayFeat"></a>
+    <div>
+      <table class="ledger2" id="stayTable">
+        <thead><tr><th>Stay</th><th style="text-align:right">Price</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p class="msrc" id="stayNote"></p>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec sec--i" id="island"><div class="wrap">
+  <div class="head">
+    <div>
+      <h2>Vancouver Island</h2>
+      <p>Twelve towns on the island. Two are published in full, ten are being written.</p>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="region.html">Open Vancouver Island</a>
+  </div>
+  <h3 class="sub">Published</h3>
+  <nav class="siblings" aria-label="Published towns" id="pubTowns"></nav>
+  <h3 class="sub sub--2">Being written</h3>
+  <nav class="roster" aria-label="Towns being written" id="soonTowns"></nav>
+</div></section>
+
+<section class="sec sec--n"><div class="wrap">
+  <div class="head"><div>
+    <h2>Three ways on from here</h2>
+  </div></div>
+  <div class="next">
+    <div class="nextc">
+      <h3>Best time to stay in Tofino and Ucluelet</h3>
+      <p>The month by month guide the board above is built from, across both towns on the same road.</p>
+      <a class="topic__go" href="guide.html">Read the guide
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="nextc">
+      <h3>Things to do in Tofino</h3>
+      <p>Seventy-three places across nine subjects, each one written up after going.</p>
+      <a class="topic__go" href="things-to-do.html">Open things to do
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="nextc">
+      <h3>Canada, town by town</h3>
+      <p>Eight provinces and twenty-six towns in the tree, two of them published so far.</p>
+      <a class="topic__go" href="country.html">Open Canada
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</div></section>
+
+</main>
+
+<footer class="f"><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <span class="fbrand">Arctrips</span>
+      <p class="fnote">Stays and guides on the west coast of Vancouver Island, written by people who go there.</p>
+    </div>
+    <div><h5>Destinations</h5><ul>
+      <li><a href="tofino.html">Tofino</a></li><li><a href="search.html">Guides</a></li>
+      <li><a href="province.html">British Columbia</a></li><li><a href="country.html">Canada</a></li></ul></div>
+    <div><h5>Things to do</h5><ul>
+      <li><a href="things-to-do.html">All nine subjects</a></li><li><a href="whale-watching.html">Whale watching</a></li>
+      <li><a href="long-beach.html">Long Beach</a></li><li><a href="search.html?in=tofino">Search everything</a></li></ul></div>
+    <div><h5>Plan</h5><ul>
+      <li><a href="#top">When to go</a></li><li><a href="guide.html">Getting there</a></li>
+      <li><a href="search.html?in=tofino">Where to stay</a></li><li><a href="guide.html">What to pack</a></li></ul></div>
+    <div><h5>Arc Trips</h5><ul>
+      <li><a href="not-found.html">About us</a></li><li><a href="not-found.html">List your place</a></li>
+      <li><a href="search.html?in=tofino">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
+  </div>
+  <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees</span></div>
+</div></footer>
+
+<script type="application/json" id="plan-data">{"town":{"name":"Tofino","stays":134,"places":73,"guides":9,"articles":18},"ucluelet":{"stays":158,"places":54,"guides":6},"corpus":{"destinations":5,"guides":15,"places":127,"articles":31,"listings":12},"climate":[{"hi":8.6,"lo":2.6,"mm":489,"days":22},{"hi":9.3,"lo":2.3,"mm":368,"days":19},{"hi":10.4,"lo":3.1,"mm":337,"days":21},{"hi":12.3,"lo":4.3,"mm":213,"days":18},{"hi":14.6,"lo":6.7,"mm":132,"days":15},{"hi":16.3,"lo":9.1,"mm":102,"days":13},{"hi":18.1,"lo":10.9,"mm":66,"days":9},{"hi":18.6,"lo":11.1,"mm":82,"days":10},{"hi":17.5,"lo":9.3,"mm":152,"days":12},{"hi":13.9,"lo":6.9,"mm":396,"days":20},{"hi":10.3,"lo":4.4,"mm":500,"days":23},{"hi":8.4,"lo":2.7,"mm":490,"days":23}],"climateU":[{"hi":8.4,"lo":2.8,"mm":452,"days":22},{"hi":9.1,"lo":2.5,"mm":341,"days":19},{"hi":10.2,"lo":3.3,"mm":312,"days":20},{"hi":12,"lo":4.5,"mm":198,"days":17},{"hi":14.2,"lo":6.9,"mm":124,"days":14},{"hi":15.9,"lo":9.3,"mm":96,"days":12},{"hi":17.6,"lo":11.1,"mm":62,"days":9},{"hi":18.1,"lo":11.3,"mm":78,"days":10},{"hi":17,"lo":9.5,"mm":143,"days":12},{"hi":13.6,"lo":7.1,"mm":368,"days":20},{"hi":10.1,"lo":4.6,"mm":463,"days":23},{"hi":8.2,"lo":2.9,"mm":455,"days":22}],"seasons":{"storm":{"months":[11,12,1,2],"name":"Storm season","claim":"The Pacific throws everything it has at the coast, and people book rooms to watch it."},"green":{"months":[3,4,10],"name":"The green months","claim":"The coast between the storms and the crowds, at half the price."},"long":{"months":[5,6,7,8,9],"name":"Long days","claim":"Sixteen hours of light and the water finally warm enough to stay in."}},"tide":{"station":"Tofino Harbour","low1":"06:14","low1m":0.8,"high1":"12:38","high1m":3.1,"low2":"18:52","low2m":1.2,"sunset":"21:07"},"bestMonths":{"beaches":[5,6,7,8,9],"surfing":[1,2,3,4,9,10,11,12],"kayaking":[5,6,7,8,9],"fishing":[5,6,7,8,9],"boating":[5,6,7,8,9],"hot-springs":[1,2,3,4,5,6,7,8,9,10,11,12],"whale-watching":[3,4,5,6,7,8,9,10],"birding":[3,4,5,9,10,11],"storm-watching":[11,12,1,2],"parks":[4,5,6,7,8,9,10],"hiking":[4,5,6,7,8,9,10],"mountain-biking":[5,6,7,8,9],"skiing":[12,1,2,3],"camping":[5,6,7,8,9],"restaurants":[1,2,3,4,5,6,7,8,9,10,11,12],"markets":[5,6,7,8,9],"breweries":[1,2,3,4,5,6,7,8,9,10,11,12],"landmarks":[1,2,3,4,5,6,7,8,9,10,11,12],"arts-history":[1,2,3,4,5,6,7,8,9,10,11,12],"events":[3,4,5,6,7,8],"when-to-go":[1,2,3,4,5,6,7,8,9,10,11,12],"getting-around":[1,2,3,4,5,6,7,8,9,10,11,12]},"places":[{"n":"Mackenzie Beach / tinwis Beach","c":"kayaking","h":"guides/tofino/kayaking/mackenzie-beach-tinwis-beach-1","g":["Beginner kayaking","Families","Short paddles","Calm water practice","Paddleboarding","Watching the coast from the water"],"b":"Mackenzie Beach, also known as tinwis Beach, is one of the calmer paddling areas near Tofino. It is more sheltered than the open surf beaches, so it can be a good place for easy kayaking.","k":"It is still ocean water, so check wind and weather before going out. Stay close to shore if you are new."},{"n":"Wolf in the Fog","c":"restaurants","h":null,"g":["Special dinners","Local seafood","Cocktails","Date night","Sharing plates","A true Tofino food experience"],"b":"Wolf in the Fog is one of the most famous restaurants in Tofino. It is a good choice for a special dinner, a date night, or a meal that feels very connected to the west coast.","k":"Book ahead if you can. This is one of the most popular restaurants in town."},{"n":"Tonquin Trail","c":"hiking","h":"guides/tofino/hiking/tonquin-trail-1","g":["Easy hiking","Families","Forest views","Beach access","Sunset views","Photography","A walk close to town"],"b":"The Tonquin Trail is one of the best easy trails in Tofino. It starts near the village and leads through coastal forest to Tonquin Beach, Third Beach, and Middle Beach.","k":"The trail can be muddy after rain, and there are stairs in some areas. Wear shoes with good grip."},{"n":"Public Viewing Points","c":"storm-watching","h":null,"g":[],"b":"","k":""},{"n":"Chesterman Beach","c":"beaches","h":"guides/tofino/beaches/chesterman-beach-1","g":["Long beach walks","Beginner surf lessons","Sunset photos","Sandcastles","Tide pools at low tide","Watching surfers"],"b":"Chesterman Beach is one of the most loved beaches in Tofino. It is long, sandy, and easy to enjoy. It is close to town and popular with walkers, surfers, families, and photographers.","k":"Always check the tide before walking toward Frank Island. The water can come in and cover the sandspit."},{"n":"Tonquin Beach Trail","c":"hiking","h":"guides/tofino/hiking/tonquin-beach-trail-1","g":["Short walks","Sunset views","Picnics","Quiet beach time","A quick nature stop near town"],"b":"If you do not want to walk the full Tonquin Trail, you can make a shorter visit to Tonquin Beach. This is one of the closest beach walks to Tofino village.","k":"The beach is smaller than Chesterman or Cox Bay, so it may feel more closed in at high tide."},{"n":"Cox Bay","c":"storm-watching","h":null,"g":[],"b":"Cox Bay is one of the most famous storm-watching spots in Tofino. It is wide, open, and exposed to the Pacific Ocean. This makes it a great place to see large waves roll in. On stormy days.","k":"Stay far back from the water. Waves can reach higher up the beach than expected."},{"n":"Cox Bay","c":"beaches","h":"guides/tofino/beaches/cox-bay-1","g":["Surfing","Watching surfers","Sunset views","Beach walks","Photography","Storm watching in winter"],"b":"Cox Bay is one of the best beaches in Tofino for surfing. It is wide, open, and faces the Pacific Ocean. Because of this, it often gets strong and steady waves.","k":"Cox Bay can have powerful waves and currents. Beginners should go with a surf school or choose calmer conditions."},{"n":"Kennedy Lake","c":"kayaking","h":"guides/tofino/kayaking/kennedy-lake-1","g":["Freshwater kayaking","Canoeing","Paddleboarding","Families","Calm lake views","A break from ocean wind and waves"],"b":"Kennedy Lake is not in Tofino town, but it is close enough to include in a Tofino kayaking guide. It is a freshwater lake near Tofino and Ucluelet.","k":"Lakes can still get windy. Check conditions before paddling far from shore."},{"n":"The Pointe Restaurant","c":"restaurants","h":"guides/tofino/restaurants/the-pointe-restaurant-1","g":["Ocean views","Fine dining","Special occasions","West coast seafood","Sunset or storm watching from indoors","A slower, more elegant meal"],"b":"The Pointe Restaurant is one of the best places in Tofino for ocean-view dining. It is located at the Wickaninnish Inn, near Chesterman Beach, and is known for its wide Pacific Ocean views.","k":"This is one of the more upscale dining options in Tofino. Check dress expectations and book ahead."},{"n":"Tofino Harbour and Sheltered Inlet Waters","c":"kayaking","h":"guides/tofino/kayaking/tofino-harbour-and-sheltered-inlet-waters-1","g":["Short guided trips","First-time sea kayaking","Calm paddling","Island views","Learning basic kayak skills"],"b":"The sheltered waters near Tofino Harbour are often used for short guided kayak trips. These areas can offer calm paddling, island views, and an easy way to see Tofino from the water.","k":"Watch for boat traffic and follow your guide’s instructions."},{"n":"Long Beach","c":"beaches","h":"guides/tofino/beaches/long-beach-1","g":["Long walks","Big beach views","Surfing","Storm watching","Photography","Visiting Pacific Rim National Park Reserve"],"b":"Long Beach is one of the most famous beaches on Vancouver Island. It is part of Pacific Rim National Park Reserve, between Tofino and Ucluelet.","k":"You may need a national park pass when stopping in this area. Follow Parks Canada signs, closures, and beach safety rules."},{"n":"Shelter Restaurant","c":"restaurants","h":null,"g":["Waterfront dining","Families","Seafood","Casual dinner","Groups","Rainy day meals"],"b":"Shelter Restaurant is a popular waterfront spot near Tofino Resort + Marina. It is a great choice if you want a relaxed meal with local seafood, burgers, bowls, and a cozy coastal feel.","k":"It can get busy, especially in summer and at dinner time."},{"n":"Chesterman Beach","c":"storm-watching","h":null,"g":[],"b":"Chesterman Beach is a favorite place for beach walks and storm watching. It is close to town and easy to access. The beach is long, sandy, and scenic. On stormy days, you can watch waves.","k":"Watch the tide. Parts of the beach may be harder to walk during high tide."},{"n":"Third Beach and Middle Beach Walk","c":"hiking","h":"guides/tofino/hiking/third-beach-and-middle-beach-walk-1","g":["Quiet beach stops","Forest-to-beach scenery","Photography","Short hikes","Less crowded views"],"b":"Third Beach and Middle Beach are small beaches along the Tonquin Trail. They are less famous than Tonquin Beach, but they are worth visiting if you want a quieter walk.","k":"Beach access can be a little rough in places. Watch your step, especially after rain."},{"n":"Long Beach","c":"storm-watching","h":null,"g":[],"b":"Long Beach is part of Pacific Rim National Park Reserve. It is one of the most famous beaches on Vancouver Island. It is wide, long, and open to the ocean. This makes it a powerful place to.","k":"You may need a park pass. Always follow Parks Canada safety signs and closures."},{"n":"Ombré Restaurant","c":"restaurants","h":null,"g":["Creative dining","Small plates","Date night","Cocktails","Local flavors","A relaxed but elevated meal"],"b":"Ombré is a newer Tofino dining option connected to the team behind Wolf in the Fog. It has a more relaxed feel but still focuses on creative food and local flavor.","k":"Check current hours and reservation options before going."},{"n":"Tinwis Beach, formerly Mackenzie Beach","c":"beaches","h":"guides/tofino/beaches/tinwis-beach-formerly-mackenzie-beach-1","g":["Families","Calmer beach days","Paddleboarding in gentle conditions","Tide pools","Relaxing","Staying near beachfront resorts"],"b":"Tinwis Beach, formerly known as Mackenzie Beach, is a calmer and more sheltered beach near Tofino. It does not face the open ocean as directly as Cox Bay or Long Beach, so the water is.","k":"The beach is now officially called tinwis, pronounced “ti-nu-wis.” Some maps and visitors may still use the older name, Mackenzie Beach."},{"n":"Multi-Use Path in Tofino","c":"hiking","h":"guides/tofino/hiking/multi-use-path-in-tofino-1","g":["Walking","Running","Biking","Families","Getting around town","Easy outdoor time"],"b":"Tofino also has a local multi-use path that is good for walking, running, and biking. This is not a wilderness hike, but it is useful if you want a safe and easy way to move around without.","k":"Share the path with bikes, walkers, and runners. Stay to the right and be aware of faster users."},{"n":"Meares Island and Big Tree Trail","c":"kayaking","h":"guides/tofino/kayaking/meares-island-and-big-tree-trail-1","g":["Guided day tours","Kayaking and hiking","Big Tree Trail","Old-growth forest","Wildlife watching","First-time paddlers with a guide"],"b":"Meares Island is one of the most popular kayaking trips from Tofino. Many tours paddle from Tofino toward Meares Island, then include a walk on the Big Tree Trail.","k":"The paddle may look short, but tides, wind, and boat traffic matter. Go with a guide if you are new."},{"n":"Tonquin Beach","c":"beaches","h":"guides/tofino/beaches/tonquin-beach-1","g":["Short walks","Quiet beach time","Picnics","Sunset views","Forest-and-beach scenery"],"b":"Tonquin Beach is a smaller beach close to the village of Tofino. You reach it by walking a short forest trail. It feels quieter and more hidden than the big surf beaches.","k":"The trail can be wet or muddy after rain. Wear shoes with good grip."},{"n":"Cox Bay Lookout","c":"hiking","h":"guides/tofino/hiking/cox-bay-lookout-1","g":["Ocean views","Photos","Sunset views","A short adventure","Seeing Cox Bay from above"],"b":"Cox Bay Lookout is one of the most popular viewpoint walks near Tofino. The trail is short, but it can be steep, muddy, and slippery.","k":"This is not a polished boardwalk trail. It can be muddy and rough. Wear proper shoes and avoid it if conditions are very slippery."},{"n":"Wickaninnish Beach and Kwisitis Visitor Centre","c":"storm-watching","h":null,"g":[],"b":"The  Kwisitis Visitor Centre area is a good choice if you want a safer, more comfortable storm watching spot. The viewing deck gives you a strong view of the beach and waves.","k":"This is a good option when the beach itself feels too rough."},{"n":"Lemmens Inlet","c":"kayaking","h":"guides/tofino/kayaking/lemmens-inlet-1","g":["Protected water","Wildlife watching","Calm paddling","Forest and mountain views","Longer guided day tours","Beginners who want a quieter route"],"b":"Lemmens Inlet is one of the best protected kayaking areas near Tofino. It is inside Clayoquot Sound and is known for calmer water, forested shorelines, tidal flats, and wildlife.","k":"It is still affected by tide and weather. A guide can choose the best route for the day."},{"n":"ROAR Tofino","c":"restaurants","h":null,"g":["Live-fire cooking","Dinner with friends","Local ingredients","Cocktails","A warm and lively atmosphere","Hotel Zed guests"],"b":"ROAR is located at Hotel Zed Tofino and is known for live-fire cooking. The food is warm, bold, and inspired by local ingredients and west coast stories.","k":"ROAR is a good pick if you want a restaurant that feels modern but still relaxed."},{"n":"Tacofino Original Truck","c":"restaurants","h":"guides/tofino/restaurants/tacofino-original-truck-1","g":["Fish tacos","Burritos","Lunch","Takeout","Surf-day food","Budget-friendly meals"],"b":"Tacofino is one of the most famous food stops in Tofino. The original food truck is known for fish tacos, burritos, and west coast Mexican-style food.","k":"Lines can be long in peak season. Go early or outside busy meal times if you can."},{"n":"Radar Hill Trail","c":"hiking","h":"guides/tofino/hiking/radar-hill-trail-1","g":["Easy walking","Ocean and forest views","A quick stop","Families","Photography","Visitors with limited time"],"b":"Radar Hill is in Pacific Rim National Park Reserve, between Tofino and Ucluelet. It is one of the easiest viewpoints near Tofino and a good stop if you want a short walk with a big reward.","k":"This is more of a short viewpoint walk than a long hike. You may need a national park pass when stopping in this area."},{"n":"Tonquin Beach","c":"storm-watching","h":null,"g":[],"b":"Tonquin Beach is smaller and more sheltered than the larger surf beaches. It is reached by a forest trail from town.","k":"Wear proper shoes because the trail can be muddy."},{"n":"Grice Bay","c":"kayaking","h":"guides/tofino/kayaking/grice-bay-1","g":["Calm inlet paddling","Bird watching","Photography","Wildlife viewing","Quiet nature time","Kayaking away from the busier town beaches"],"b":"Grice Bay is on the sheltered inlet side near Pacific Rim National Park Reserve. It is not an open Pacific beach. It is calmer and better for paddling, bird watching, and quiet nature time.","k":"Check park rules, parking, and launch access before you go."},{"n":"Middle Beach","c":"beaches","h":"guides/tofino/beaches/middle-beach-1","g":["Quiet views","Photography","Short walks","Relaxing near the ocean"],"b":"Middle Beach is a smaller beach area near Chesterman Beach. It has a more tucked-away feel, with rocky edges, forest, and ocean views.","k":"Check tide and wave conditions before walking near rocks."},{"n":"Clayoquot Sound","c":"kayaking","h":"guides/tofino/kayaking/clayoquot-sound-1","g":["Classic Tofino kayaking","Wildlife watching","Island views","Guided day tours","Multi-day trips","Rainforest shorelines"],"b":"Clayoquot Sound is the main sea kayaking area around Tofino. It includes islands, inlets, coves, channels, rocky shores, mudflats, and rainforest.","k":"Clayoquot Sound is large. Some parts are calm and protected. Other parts are exposed and remote."},{"n":"Rosie Bay","c":"beaches","h":"guides/tofino/beaches/rosie-bay-1","g":["Quiet exploring","Low tide walks","Photography","A break from busier beaches"],"b":"At low tide, you may find interesting rocks, sand, and small pools. It is also a scenic area for photos.","k":"Be careful near rocks and changing tides."},{"n":"Pettinger Point","c":"storm-watching","h":"guides/tofino/storm-watching/pettinger-point-1","g":[],"b":"Accessible via a trail from Cox Bay, this headland offers a spectacular vantage point where waves explode into white spray against the cliffs.","k":""},{"n":"Rainforest Trail","c":"hiking","h":"guides/tofino/hiking/rainforest-trail-1","g":["First-time visitors","Families","Rainy days","Big trees","Boardwalk photos","Easy rainforest exploring"],"b":"The Rainforest Trail is in the Pacific Rim National Park Reserve. It is one of the best short walks near Tofino if you want to see the classic west coast rainforest.","k":"The boardwalk can be slippery when wet. You may need a national park pass when stopping in this area."},{"n":"Wildside Grill","c":"restaurants","h":null,"g":["Fish and chips","Seafood","Burgers","Casual lunch","Family meals","Quick bites after the beach"],"b":"Wildside Grill is a local favorite for fish and chips, seafood, burgers, and casual west coast comfort food.","k":"It is located in the Live to Surf plaza area, which is handy if you are staying or exploring outside the village center."},{"n":"Oceanfront Resorts and Cabins","c":"storm-watching","h":"guides/tofino/storm-watching/oceanfront-resorts-and-cabins-1","g":[],"b":"One of the best ways to storm watch in Tofino is from inside. Many oceanfront hotels, cabins, and resorts have large windows facing the water.","k":""},{"n":"Ucluelet Harbour","c":"kayaking","h":"guides/tofino/kayaking/ucluelet-harbour-1","g":["Calm paddling","Guided tours","Day trips from Tofino","Wildlife watching","Harbour views"],"b":"Ucluelet is near Tofino and can be a good kayaking day trip. The harbour and nearby protected waters can offer calm paddling, wildlife watching, and island views.","k":"Conditions still change with wind and tide. Local guidance is helpful."},{"n":"Shed Tofino","c":"restaurants","h":null,"g":["Burgers","Bowls","Casual dinner","Family meals","Downtown dining","Drinks with friends"],"b":"Shed is a casual restaurant in downtown Tofino. It is known for burgers, bowls, drinks, and a relaxed west coast feel.","k":"Shed is a good “safe choice” when people in your group want different things."},{"n":"Wickaninnish Beach","c":"beaches","h":"guides/tofino/beaches/wickaninnish-beach-1","g":["Storm watching","Big ocean views","Photography","Sunset watching","Learning about the coast","Visiting the Kwisitis Visitor Centre"],"b":"Wickaninnish Beach is in Pacific Rim National Park Reserve, closer to the Ucluelet side of the Long Beach area. It is one of the best places near Tofino for big ocean views and storm.","k":"This beach can feel very open and exposed. Stay far back from the water during storms and high tide."},{"n":"Shorepine Bog Trail","c":"hiking","h":"guides/tofino/hiking/shorepine-bog-trail-1","g":["Easy walking","Families","Short stops","Rainy days","Learning about bog ecosystems","Bird watching"],"b":"The Shorepine Bog Trail is a short and easy boardwalk trail in Pacific Rim National Park Reserve. It feels very different from the deep rainforest trails.","k":"Stay on the boardwalk to protect the fragile bog plants."},{"n":"Rhino Coffee House","c":"restaurants","h":null,"g":["Coffee","Breakfast","Donuts","Bagels","Sandwiches","A local morning stop"],"b":"Rhino Coffee House is one of the best-known coffee shops in Tofino. It is popular with locals and visitors for coffee, breakfast, sandwiches, bagels, and donuts.","k":"It can get busy in the morning, but it is worth adding to your Tofino food list."},{"n":"Spruce Fringe Trail","c":"hiking","h":"guides/tofino/hiking/spruce-fringe-trail-1","g":["Short forest walks","Beach access","Nature photos","A quieter stop","Exploring near Combers Beach"],"b":"Spruce Fringe Trail is a short forest trail in Pacific Rim National Park Reserve. It is often linked with Combers Beach because it gives access toward the Combers Beach area.","k":"Trail access and nearby beach rules can change. Check Parks Canada updates before visiting, especially if you plan to bring a dog."},{"n":"Florencia Bay","c":"beaches","h":"guides/tofino/beaches/florencia-bay-1","g":["Quiet beach walks","Sand cliff views","Photography","Low-tide exploring","A less crowded beach visit"],"b":"Florencia Bay is also in Pacific Rim National Park Reserve. It is closer to Ucluelet than Tofino, but it is still a great stop on a Tofino beach trip.","k":"The stairs and trail can feel longer on the way back up. Wear comfortable shoes and check the tide before walking far."},{"n":"Barkley Sound","c":"kayaking","h":"guides/tofino/kayaking/barkley-sound-1","g":["Sea kayaking","Island hopping","Multi-day trips","Wildlife watching","Kayak camping","More experienced paddlers"],"b":"Barkley Sound is near Ucluelet and Bamfield, south of Tofino. It is one of the best kayaking areas on Vancouver Island.","k":"This area needs more planning than a short Tofino paddle. Check weather, route, camping rules, and water access."},{"n":"Combers Beach","c":"beaches","h":"guides/tofino/beaches/combers-beach-1","g":["Long beach walks","Quiet nature time","Photography","Storm watching from a safe distance","A wilder beach feel"],"b":"Combers Beach is part of Pacific Rim National Park Reserve. It is not a town beach, but it is one of the wilder beaches near Tofino.","k":"Dog rules and access rules can change in Pacific Rim National Park Reserve. Check current Parks Canada updates before visiting with a dog."},{"n":"Nuu-chah-nulth Trail","c":"hiking","h":"guides/tofino/hiking/nuu-chah-nulth-trail-1","g":["Rainforest walking","Ocean views","Learning","Photography","A longer nature walk","Visitors who want more than a quick stop"],"b":"The Nuu-chah-nulth Trail is in Pacific Rim National Park Reserve. It connects rainforest, boardwalks, beach views, and cultural learning.","k":"Expect stairs, boardwalks, and uneven sections. Give yourself enough time and wear proper shoes."},{"n":"Broken Group Islands","c":"kayaking","h":"guides/tofino/kayaking/broken-group-islands-1","g":["Multi-day kayaking","Island camping","Wildlife viewing","Sheltered channels","Experienced paddlers","Guided trips"],"b":"The Broken Group Islands are in Barkley Sound and are part of Pacific Rim National Park Reserve. They are one of the best-known sea kayaking destinations in British Columbia.","k":"The Broken Group Islands are accessed by boat, and camping or overnight trips require planning and reservations."},{"n":"Tofitian Cafe","c":"restaurants","h":null,"g":["Coffee","Tea","Morning stops","Local atmosphere","Simple breakfast bites","Pre-surf fuel"],"b":"Tofitian Cafe is a long-time Tofino coffee spot. It has a local feel and is a good place for coffee, tea, and a slower start to the day.","k":"This is a good place if you want a classic Tofino cafe feel."},{"n":"South Beach Trail","c":"hiking","h":"guides/tofino/hiking/south-beach-trail-1","g":["Short hikes","Rocky coast views","Photography","Ocean sounds","A stop near the visitor centre","Pairing with Wickaninnish Beach"],"b":"South Beach Trail is in Pacific Rim National Park Reserve near the Kwisitis Visitor Centre and Wickaninnish Beach. It is a short coastal trail with a strong west coast feel.","k":"South Beach is better for viewing than swimming. Stay back from waves and wet rocks, especially during high tide or stormy weather."},{"n":"Schooner Cove","c":"beaches","h":"guides/tofino/beaches/schooner-cove-1","g":["Forest and beach views","Quiet exploring","Nature photos","Peaceful walks","A less crowded beach stop"],"b":"Schooner Cove is also in Pacific Rim National Park Reserve, closer to the Tofino end of the Long Beach area.","k":"Trail and beach access can change in national park areas. Check current Parks Canada updates before planning your visit."},{"n":"Driftwood Café","c":"restaurants","h":"guides/tofino/restaurants/driftwood-caf-1","g":["Coffee near Chesterman Beach","Brunch","Light meals","Beach-day snacks","A relaxed resort cafe feel"],"b":"Driftwood Café is located at the Wickaninnish Inn near Chesterman Beach. It is a good choice for coffee, breakfast, brunch, or a light meal close to the beach.","k":"It is a nice stop before or after a walk on Chesterman Beach."},{"n":"Vargas Island and Ahous Bay","c":"kayaking","h":"guides/tofino/kayaking/vargas-island-and-ahous-bay-1","g":["Multi-day kayaking","Wilderness camping","Remote beaches","Wildlife watching","Kayak-and-hike trips","Intermediate to advanced paddlers","Guided adventure trips"],"b":"Vargas Island is close to Tofino and is one of the best nearby areas for paddling, wilderness camping, and remote beach exploring. It can be reached by kayak, water taxi, or guided.","k":"Vargas Island is not a casual beginner paddle unless you are on a guided tour. The west side and Ahous Bay can be exposed, so check weather, swell, tides, camping rules, and local advice before going."},{"n":"Tofino Coffee Roasting Co.","c":"restaurants","h":null,"g":["Locally roasted coffee","Pastries","A quiet coffee stop","Coffee lovers","Takeaway drinks"],"b":"Tofino Coffee Roasting Co. is a locally owned cafe and roastery. It is a good choice if you care about good coffee and want something simple, warm, and local.","k":"This is a good stop for people who want coffee that feels more craft-focused."},{"n":"Long Beach Hike","c":"hiking","h":"guides/tofino/hiking/long-beach-hike-1","g":["Long beach walks","Surf watching","Photography","Storm watching from a safe distance","Easy coastal exploring","Big Pacific Ocean views"],"b":"Long Beach is not a formal hike in the same way as a forest trail, but it is one of the best long beach walks near Tofino. It is part of Pacific Rim National Park Reserve and is one of the.","k":"Check tide times before walking far. Stay away from large waves and never turn your back on the ocean."},{"n":"Flores Island / Wild Side Trail Route","c":"kayaking","h":"guides/tofino/kayaking/flores-island-wild-side-trail-route-1","g":["Kayak and hike trips","Remote beaches","Wilderness camping","Wildlife watching","Experienced paddlers","Multi-day adventures"],"b":"Flores Island is north of Tofino in Clayoquot Sound. It is known for the Wild Side Trail, remote beaches, old-growth forest, and wilderness camping.","k":"Flores Island is not a casual day paddle for most visitors. You may need water taxi access, local permissions, stewardship fees, camping plans, and current route information."},{"n":"Grice Bay","c":"beaches","h":"guides/tofino/beaches/grice-bay-1","g":["Kayaking","Paddle trips","Bird watching","Calm water views","A quiet nature stop"],"b":"Grice Bay is different from the other beaches on this list. It is not a big open Pacific Ocean surf beach. It is a sheltered bay on the calmer inlet side near Tofino and Pacific Rim.","k":"Choose Grice Bay for calm inlet scenery, not for surfing or storm watching."},{"n":"Kennedy Lake","c":"beaches","h":"guides/tofino/beaches/kennedy-lake-1","g":["Freshwater lake views","Kayaking or canoeing","Paddleboarding in calm conditions","Quiet nature time","Photography","A break from windy ocean beaches","Quick Beach Guide","Beach · Location · Best For"],"b":"Kennedy Lake is not a beach in Tofino town, and it is not an open Pacific Ocean beach. It is a large freshwater lake near Tofino and Ucluelet, close to Pacific Rim National Park Reserve.","k":"Kennedy Lake is best for calm-water activities, not surfing or storm watching. Conditions can still change, so check the weather and wind before paddling."},{"n":"Rafael Point","c":"kayaking","h":"guides/tofino/kayaking/rafael-point-1","g":["Advanced sea kayaking","Remote outer-coast travel","Wildlife watching from a distance","Expedition planning","Experienced guided trips"],"b":"Rafael Point is in the Flores Island area and is part of the wilder outer coast of Clayoquot Sound. It is relevant for serious sea kayakers because it sits in a more exposed, remote setting.","k":"Treat Rafael Point as an advanced or expert route area, not a casual kayaking stop."},{"n":"Combers Beach Trail","c":"hiking","h":"guides/tofino/hiking/combers-beach-trail-1","g":["Beach walks","Quiet nature time","Photography","Wild coastal scenery","A less crowded stop"],"b":"Combers Beach Trail is a short trail in Pacific Rim National Park Reserve that leads to a wild beach. It is a good choice if you want a quiet beach walk and a more natural feel.","k":"Check current park access and dog rules before visiting. Tide and seasonal rules can affect your visit."},{"n":"Harbourview Coffeehouse","c":"restaurants","h":null,"g":["Waterfront coffee","Kayaking days","Light snacks","A quiet view","Simple local finds"],"b":"Harbourview Coffeehouse is a small waterfront coffee stop connected with Tofino Sea Kayaking. It is a lovely place for coffee before or after a kayaking trip.","k":"This is a nice hidden-gem option if you are already near the harbour."},{"n":"Schooner Cove Trail","c":"hiking","h":"guides/tofino/hiking/schooner-cove-trail-1","g":["Forest walks","Beach access","Quiet exploring","Nature photos","A less busy trail stop"],"b":"Schooner Cove Trail is another trail in Pacific Rim National Park Reserve. It is known for forest-to-beach scenery and a quieter feel.","k":"Check current Parks Canada updates before planning this trail."},{"n":"Hot Springs Cove","c":"kayaking","h":"guides/tofino/kayaking/hot-springs-cove-1","g":["Multi-day kayak trips","Guided expeditions","Remote coastal scenery","Camping adventures","A special west coast experience"],"b":"Hot Springs Cove is north of Tofino and is usually reached by boat or float plane. Some longer kayak adventures include Hot Springs Cove as part of a guided multi-day trip.","k":"This route needs planning, good weather, and local knowledge."},{"n":"Mizu Mizu Café","c":"restaurants","h":null,"g":["Matcha","Coffee","Pastries","Slow mornings","Light meals","A cozy cafe stop"],"b":"Mizu Mizu Café has a calm Japanese-inspired cafe feel. It is good for slow mornings, matcha, pastries, grilled sandwiches, and thoughtful small finds.","k":"Good for travelers who enjoy quiet, simple, and thoughtful spaces."},{"n":"Tofino Brewing Company","c":"restaurants","h":"guides/tofino/restaurants/tofino-brewing-company-1","g":["Craft beer","Flights","Casual drinks","Après-surf","Rainy afternoons","Local beer fans"],"b":"Tofino Brewing Company is a popular stop for craft beer. It is a good place to try a flight, enjoy a pint, or grab beer to go.","k":"Check current hours before visiting, especially outside summer."},{"n":"ʔapsčiik t̓ašii Multi-Use Pathway","c":"hiking","h":"guides/tofino/hiking/apsc-iik-t-as-ii-multi-use-pathway-1","g":["Biking","Walking","Running","Longer active days","Families with bikes","Exploring Pacific Rim National Park"],"b":"ʔapsčiik t̓ašii, pronounced “ups-cheek ta-shee,” is a paved multi-use pathway in Pacific Rim National Park Reserve. It runs through the Long Beach Unit and connects many points of.","k":"The path is paved, but there are some hills and curves. Bring water and plan your return route."},{"n":"Long Beach and the Open Pacific Coast","c":"kayaking","h":"guides/tofino/kayaking/long-beach-and-the-open-pacific-coast-1","g":["Expert sea kayakers only","Surf kayaking in the right conditions","Open-coast skills practice","Experienced paddlers with local knowledge"],"b":"Long Beach is part of Pacific Rim National Park Reserve. It is famous for surfing, beach walks, and big ocean views. But for most visitors, it is not a regular kayaking spot.","k":"Most visitors should enjoy Long Beach from shore, not from a kayak. Choose sheltered areas like Lemmens Inlet, Meares Island, Grice Bay, Mackenzie/tinwis Beach, or Kennedy Lake for easier paddling."},{"n":"Tofino Distillery","c":"restaurants","h":null,"g":["Craft spirits","Tastings","Rainy day stops","Cocktail fans","Local gifts","Small-group visits"],"b":"Tofino Distillery is a good stop for craft spirits and small cocktail tasters. It is known for organic spirits and seasonal tasting room drinks.","k":"Plan a safe ride if you are tasting."},{"n":"Tofino Inlet","c":"kayaking","h":null,"g":["Calm water","Inlet scenery","Wildlife","Guided paddles","Longer day trips"],"b":"Tofino Inlet is part of the wider sheltered water system near Tofino. It can be used for scenic paddling, guided tours, and wildlife viewing.","k":"Go with a guide if you are not familiar with local tides, channels, and weather."},{"n":"Big Tree Trail on Meares Island","c":"hiking","h":"guides/tofino/hiking/big-tree-trail-on-meares-island-1","g":["Big trees","Old-growth forest","Nature lovers","Guided trips","Photography","A special half-day adventure"],"b":"Big Tree Trail is on Meares Island, not in Tofino town. To visit, you usually need a water taxi or guided trip from Tofino.","k":"Plan ahead because you need boat access. Wear good shoes because the trail can be wet and uneven."},{"n":"Lone Cone Trail","c":"hiking","h":"guides/tofino/hiking/lone-cone-trail-1","g":["Experienced hikers","Big views","A hard workout","Adventure travelers","A full or half-day hiking plan"],"b":"Lone Cone is also on Meares Island. It is much harder than most trails near Tofino. It is a steep hike with a viewpoint at the top.","k":"This is a steep and challenging hike. You need boat access, proper shoes, water, and enough time."},{"n":"Fortune Channel","c":"kayaking","h":null,"g":["Longer sea kayaking trips","Forested shorelines","Wildlife","Experienced paddlers","Guided tours"],"b":"Fortune Channel is a paddling area in Clayoquot Sound near Meares Island. It is more remote than the short harbour paddles and can be part of longer guided routes.","k":"This is better for paddlers with some experience or those joining a guided trip."},{"n":"Bedwell Sound and Remote Inlets","c":"kayaking","h":null,"g":["Remote scenery","Multi-day kayaking","Wildlife watching","Wilderness camping","Guided expeditions"],"b":"Bedwell Sound and nearby remote inlets are part of the larger Clayoquot Sound paddling area. These are best for guided trips, multi-day routes, and experienced paddlers.","k":"These are not beginner day trips. Plan carefully and go with local knowledge."},{"n":"Wild Side Trail on Flores Island","c":"hiking","h":"guides/tofino/hiking/wild-side-trail-on-flores-island-1","g":["Remote beach hiking","Wilderness scenery","Backpacking","Kayak-and-hike trips","Wildlife watching","Experienced hikers","A special Tofino-area adventure"],"b":"The Wild Side Trail is one of the most special hikes near Tofino. It is on Flores Island in Clayoquot Sound and starts near the village of Ahousaht.","k":"Plan ahead. You may need water taxi transport, local permissions or stewardship fees, camping plans, and current trail information. This is not a casual town trail like Tonquin Trail."}],"guides":[{"c":"fishing","n":"Fishing","h":"thomas-lipke-M12HGHNVJ2s-unsplash_nttcvc","l":"Salmon and halibut charters run out of Tofino harbour most of the year, with guides who know the banks and the tides.","b":1,"p":0},{"c":"beaches","n":"Beaches","h":"guides/tofino/beaches/_category-1","l":"Tofino is famous for its beaches. They are wide, wild, and full of west coast beauty. You will find soft sand, big waves, driftwood, rainforest, rocky points, and long views of the Pacific.","b":29,"p":8},{"c":"surfing","n":"Surfing","h":"guides/tofino/surfing/_category-1","l":"Tofino is known as the surf capital of Canada. It sits on the west coast of Vancouver Island, facing the open Pacific Ocean. This means the waves can be strong, steady, and fun all year.","b":84,"p":6},{"c":"whale-watching","n":"Whale watching","h":"guides/tofino/whale-watching/_category-1","l":"Tofino is one of the best places on Vancouver Island to see wild animals. It sits beside Clayoquot Sound, a rich coastal area with ocean, islands, beaches, rainforest, and rocky shorelines.","b":153,"p":8},{"c":"birding","n":"Birding & wildlife","h":"guides/tofino/birding/_category-1","l":"Discover common seabirds in Tofino, British Columbia. Learn how to spot gulls, cormorants, murres, auklets, puffins, oystercatchers, ducks, loons, grebes, and other coastal.","b":338,"p":8},{"c":"storm-watching","n":"Storm watching","h":"guides/tofino/storm-watching/_category-1","l":"Tofino is not just a summer beach town. In winter, it becomes one of the best places in Canada to watch storms.","b":23,"p":6},{"c":"hiking","n":"Hiking & trails","h":"guides/tofino/hiking/_category-1","l":"Explore the best trails in Tofino and nearby Pacific Rim National Park. Find easy rainforest walks, beach trails, ocean viewpoints, family-friendly paths, and hiking safety.","b":31,"p":8},{"c":"restaurants","n":"Restaurants","h":"guides/tofino/restaurants/_category-1","l":"Discover the best restaurants in Tofino, from seafood and tacos to fine dining, coffee shops, local bakeries, and slow food experiences. Find where to eat for breakfast.","b":84,"p":6},{"c":"kayaking","n":"Kayaking & paddling","h":"guides/tofino/kayaking/_category-1","l":"Kayaking in Tofino is one of the best ways to explore Clayoquot Sound, calm inlets, islands, rainforest, and wildlife. Learn where to kayak, when to go, what to expect, and.","b":132,"p":8}],"faqs":[{"c":"camping","s":"tofino-ucluelet-campgrounds","q":"What is the best campground in Tofino?","a":"Surf Grove is a top choice for Cox Bay surf access. Bella Pacifica is a classic family-friendly beach campground on tinwis/Mackenzie Beach. Crystal Cove is best for RV campers who want a resort-style stay."},{"c":"camping","s":"tofino-ucluelet-campgrounds","q":"What is the best campground in Ucluelet?","a":"Ucluelet Campground is the most convenient option if you want to stay in town. Wya Point is better if you want a quieter beachfront nature stay outside town."},{"c":"camping","s":"tofino-ucluelet-campgrounds","q":"Can you camp on the beach in Tofino?","a":"You should only camp in official campgrounds or designated backcountry sites. Do not camp on public beaches, parking lots, roadsides, or random pullouts."},{"c":"camping","s":"tofino-ucluelet-campgrounds","q":"Do you need reservations for Tofino campgrounds?","a":"Yes, reservations are strongly recommended. Summer sites can book months ahead."},{"c":"surfing","s":"tofino-surfing-faq","q":"What Is a Rip Current?","a":"A rip current is a strong flow of water that moves away from shore. It can pull swimmers and surfers farther out. If you get caught in one, do not fight it. Stay calm. Float, hold your board, and paddle or swim sideways, parallel to the beach. Once you are out of the current, come back toward shore. If you are not sure about the water, do not go in. Ask a surf school or local surf shop for advice."},{"c":"surfing","s":"tofino-surfing-faq","q":"Can beginners surf in Tofino?","a":"Yes. Tofino is one of the best places in Canada for beginner surf lessons. Start with a surf school so you learn the right beach, gear, and safety steps."},{"c":"surfing","s":"tofino-surfing-faq","q":"Can Kids Learn to Surf in Tofino?","a":"Yes, many kids can learn to surf in Tofino. Surf schools often offer family or kid-friendly lessons. The right age depends on the child, the surf school, and the ocean conditions that day. Kids should be comfortable in water and able to listen to safety instructions. A private or family lesson may be best for younger children."},{"c":"surfing","s":"tofino-surfing-faq","q":"Which beach is best for beginner surfing in Tofino?","a":"Chesterman Beach is a popular choice for beginners and lessons. Cox Bay and Long Beach can also be good when conditions are calm."},{"c":"kayaking","s":"tofino-kayaking-faq","q":"Is Tofino Good for Beginner Kayaking?","a":"Yes, Tofino can be great for beginner kayaking, especially with a guide. Many tours use calm, sheltered waters instead of open surf beaches. This makes the trip easier and safer for first-time paddlers. A guide can help you with paddling, steering, tide timing, wildlife rules, and local conditions. Beginners should choose: A guided tour A calm inlet route A tandem kayak if nervous A half-day trip Good weather and."},{"c":"kayaking","s":"tofino-kayaking-faq","q":"Is Kayaking in Tofino Good for Kids?","a":"Yes, kayaking can be good for kids when conditions are calm and the trip is guided. For families, a tandem kayak is often best. A child can sit with an adult, and the guide can choose a shorter route. Family-friendly kayak trips are usually: Shorter Guided In sheltered water Done in good weather Focused on easy paddling and wildlife Ask the tour company about age rules before booking."},{"c":"kayaking","s":"tofino-kayaking-faq","q":"What Is Better: Kayaking or Paddleboarding in Tofino?","a":"Both are fun, but they are different. Kayaking is better for longer trips, wildlife viewing, and cooler weather. You sit lower in the boat, and it is often easier to travel farther. Paddleboarding is better on very calm water. It can be fun on Kennedy Lake, sheltered bays, or calm inlet areas. It is not a good choice for rough water, strong wind, or open surf beaches unless you are experienced. For most first-time."},{"c":"kayaking","s":"tofino-kayaking-faq","q":"Where is the best place to kayak in Tofino?","a":"Clayoquot Sound is the classic kayaking area. Meares Island is also popular because you can combine kayaking with the Big Tree Trail."},{"c":"birding","s":"tofino-birding-faq","q":"What seabirds can you see in Tofino?","a":"You may see gulls, cormorants, common murres, rhinoceros auklets, pigeon guillemots, tufted puffins, shearwaters, sea ducks, loons, grebes, black oystercatchers, and bald eagles."},{"c":"birding","s":"tofino-birding-faq","q":"Can you see puffins in Tofino?","a":"Yes, tufted puffins may be seen near Tofino, especially on summer boat tours near offshore rocks and islands. They are not usually easy to see from town beaches."},{"c":"birding","s":"tofino-birding-faq","q":"What is the most common bird in Tofino?","a":"Gulls, cormorants, bald eagles, and shorebirds are among the easiest coastal birds for visitors to notice. The exact “most common” bird depends on season and habitat."},{"c":"birding","s":"tofino-birding-faq","q":"What are the black birds on the rocks in Tofino?","a":"They may be cormorants, black oystercatchers, or pigeon guillemots. Cormorants have long necks and often hold their wings open. Black oystercatchers have bright orange-red bills. Pigeon guillemots are smaller and may show white wing patches."},{"c":"storm-watching","s":"tofino-storm-watching-faq","q":"Is storm watching in Tofino dangerous?","a":"It can be dangerous if you get too close to the ocean. Watch from a safe distance, avoid wet rocks, and never turn your back on the waves."},{"c":"storm-watching","s":"tofino-storm-watching-faq","q":"What Are King Tides?","a":"King tides are extra high tides. In Tofino, they can happen around the full moon or new moon. During storm season, king tides can make the ocean rise much higher than normal. This can make beach entrances unsafe. It can also make some beach walks impossible. If you are storm watching during a king tide, choose a safe viewpoint instead of walking close to the water."},{"c":"storm-watching","s":"tofino-storm-watching-faq","q":"What Should You Wear for Storm Watching in Tofino?","a":"To enjoy storm watching, dress for rain, wind, and cold air. You do not need fancy clothes, but you do need warm and waterproof layers. Bring or wear: Waterproof rain jacket Waterproof pants Warm sweater or fleece Hat or toque Gloves Warm socks Waterproof boots Extra dry clothes Small backpack Phone in a waterproof case Umbrellas are not very useful in strong wind. A good rain jacket is better."},{"c":"storm-watching","s":"tofino-storm-watching-faq","q":"Can You Walk on the Beach During a Storm?","a":"Sometimes, but not always. A beach walk can be safe during light rain, low tide, and calmer conditions. But during strong storms, high tide, or large waves, it is better to watch from a safe viewpoint. Before walking on the beach, ask: Is the tide coming in? Are waves reaching high up the beach? Are there logs near the water? Is the wind too strong? Is this beach open? Can I get back safely? If you are not sure, do."},{"c":"restaurants","s":"tofino-restaurants-faq","q":"What is the best restaurant in Tofino?","a":"Many visitors consider Wolf in the Fog one of the best restaurants in Tofino because it focuses on local seafood, foraged ingredients, cocktails, and west coast flavor. The Pointe Restaurant is another top choice for fine dining and ocean views."},{"c":"restaurants","s":"tofino-restaurants-faq","q":"Do you need reservations in Tofino?","a":"Yes, reservations are a good idea for dinner, especially in summer, on weekends, and at popular restaurants."},{"c":"restaurants","s":"tofino-restaurants-faq","q":"Is Tofino expensive for food?","a":"Tofino can be expensive because it is remote and popular. You can save money by mixing food trucks, cafes, takeout, and a few special sit-down meals."},{"c":"restaurants","s":"tofino-restaurants-faq","q":"Are there vegetarian options in Tofino?","a":"Yes. Many restaurants and cafes offer vegetarian options. Look at Shed, Tacofino, ROAR, Ombré, Basic Goodness Pizzeria, and local cafes."},{"c":"beaches","s":"tofino-beaches-faq","q":"What is the nicest beach in Tofino?","a":"Many people think Chesterman Beach is the nicest beach in Tofino because it is long, sandy, scenic, and easy to enjoy. Cox Bay and Long Beach are also favorites."},{"c":"beaches","s":"tofino-beaches-faq","q":"What is the best beach in Tofino for surfing?","a":"Cox Bay is one of the best beaches for surfing. Chesterman Beach and Long Beach are also popular surf spots, depending on conditions."},{"c":"beaches","s":"tofino-beaches-faq","q":"What is the best beach in Tofino for families?","a":"Tinwis Beach and Chesterman Beach are good choices for families. tinwis is more sheltered, while Chesterman has lots of space for walking and playing."},{"c":"beaches","s":"tofino-beaches-faq","q":"Can you swim in Tofino?","a":"Yes, but the water is cold and the ocean can be strong. Most people wear wetsuits. There are no lifeguards, so be careful."},{"c":"whale-watching","s":"tofino-whale-watching-faq","q":"What is the best month for whale watching in Tofino?","a":"March to May is one of the best times for gray whales. Summer and early fall can also be great for humpbacks, gray whales, orcas, sea otters, sea lions, and other wildlife."},{"c":"whale-watching","s":"tofino-whale-watching-faq","q":"Can you see whales in Tofino without a tour?","a":"Yes, sometimes whales can be seen from shore. But a guided boat tour gives you a much better chance of seeing whales and learning about them."},{"c":"whale-watching","s":"tofino-whale-watching-faq","q":"What is the best time of day for whale watching?","a":"There is no perfect time every day. Tour operators choose routes based on weather, swell, and recent sightings. Morning trips may have calmer water, but wildlife can be active at different times."},{"c":"whale-watching","s":"tofino-whale-watching-faq","q":"Is a zodiac or covered boat better for whale watching?","a":"A covered boat is better for comfort, families, and cooler days. A zodiac is better for travelers who want a faster, more open-air adventure."},{"c":"hiking","s":"tofino-hiking-faq","q":"What is the best easy trail in Tofino?","a":"The Tonquin Trail is one of the best easy trails in Tofino because it is close to town and includes forest, beaches, and ocean views."},{"c":"hiking","s":"tofino-hiking-faq","q":"What is the best rainforest trail near Tofino?","a":"The Rainforest Trail in Pacific Rim National Park Reserve is one of the best rainforest trails near Tofino. It has boardwalks, huge trees, ferns, moss, and a classic west coast forest feel."},{"c":"hiking","s":"tofino-hiking-faq","q":"Are Tofino trails good for kids?","a":"Yes, many Tofino trails are good for kids. Tonquin Trail, Shorepine Bog Trail, Rainforest Trail, and South Beach Trail are good choices. Keep kids close near stairs, beaches, cliffs, and slippery boardwalks."},{"c":"hiking","s":"tofino-hiking-faq","q":"Can you walk from Tofino to the beach?","a":"Yes. Tonquin Trail is one of the easiest ways to walk from Tofino village to a beach. Some other beaches are easier to reach by car or bike."},{"c":"whale-watching","s":"whale-tails-blows-and-backs","q":"What does it mean when a whale blows?","a":"A blow means the whale has surfaced to breathe. It is often the first sign people see during whale watching."},{"c":"whale-watching","s":"whale-tails-blows-and-backs","q":"What does a whale tail mean?","a":"If a whale lifts its tail fluke before disappearing, it usually means the whale is making a deeper dive."},{"c":"whale-watching","s":"whale-tails-blows-and-backs","q":"Why do whales show their backs?","a":"Whales show their backs when they surface to breathe, travel, or prepare for another dive. This is one of the most common things to see on a whale watching tour."},{"c":"whale-watching","s":"whale-tails-blows-and-backs","q":"Does seeing a fluke mean the whale is leaving?","a":"Not always. A fluke usually means the whale is diving deeper. It may surface again nearby after several minutes, or it may come up farther away."}],"articles":[{"s":"tofino-wildlife-tours","t":"Wildlife Tours in Tofino","e":"Whales, bears, and seabirds: the tours worth booking.","c":"whale-watching","h":"thomas-lipke-M12HGHNVJ2s-unsplash_nttcvc","f":0},{"s":"tofino-restaurants","t":"Where to Eat in Tofino","e":"From fish tacos to tasting menus, the town's essential tables.","c":"restaurants","h":"arc-trips/pillar-connection","f":0},{"s":"pacific-rim-whale-festival-guide","t":"Pacific Rim Whale Festival Guide","e":"The spring festival that marks the gray whale migration through Clayoquot Sound.","c":"events","h":"guides/tofino/events/_category-1","f":0},{"s":"tofino-ucluelet-campgrounds","t":"Tofino & Ucluelet Campgrounds","e":"Where to pitch a tent between the two towns.","c":"camping","h":"james-wheeler-YZfDg2L0lUs-unsplash_ino74q","f":4},{"s":"best-time-to-stay-tofino-ucluelet","t":"Best Time to Stay in Ucluelet or Tofino","e":"Weather, prices, and what to see across the seasons.","c":"when-to-go","h":"guides/tofino/when-to-go/_category-1","f":0},{"s":"tofino-beaches","t":"The Best Beaches in Tofino","e":"Long Beach, Cox Bay, Chesterman: where to find surf, sand, and sunset walks.","c":"beaches","h":"guides/tofino/beaches/_category-1","f":0},{"s":"tofino-surfing","t":"Surfing in Tofino","e":"Canada's surf capital: breaks, seasons, and where to rent a board.","c":"surfing","h":"guides/tofino/surfing/_category-1","f":0},{"s":"tofino-kayaking","t":"Kayaking in Tofino","e":"Paddle Clayoquot Sound past islands, inlets, and old-growth shoreline.","c":"kayaking","h":"condor-wei-TiLEEXohfsY-unsplash_v7ja5f","f":0},{"s":"tofino-storm-watching","t":"Storm Watching in Tofino","e":"Why winter is the dramatic season on the exposed Pacific coast.","c":"storm-watching","h":"guides/tofino/storm-watching/_category-1","f":0},{"s":"tofino-surfing-faq","t":"Surfing FAQs","e":"What Is a Rip Current?","c":"surfing","h":"guides/tofino/surfing/_category-1","f":4},{"s":"tofino-kayaking-faq","t":"Kayaking FAQs","e":"Is Tofino Good for Beginner Kayaking?","c":"kayaking","h":"guides/tofino/kayaking/_category-1","f":4},{"s":"tofino-birding-faq","t":"Birding FAQs","e":"What seabirds can you see in Tofino?","c":"birding","h":"guides/tofino/birding/_category-1","f":4},{"s":"tofino-storm-watching-faq","t":"Storm watching FAQs","e":"Is storm watching in Tofino dangerous?","c":"storm-watching","h":"guides/tofino/storm-watching/_category-1","f":4},{"s":"tofino-restaurants-faq","t":"Restaurants FAQs","e":"What is the best restaurant in Tofino?","c":"restaurants","h":"guides/tofino/restaurants/_category-1","f":4},{"s":"tofino-beaches-faq","t":"Beaches FAQs","e":"What is the nicest beach in Tofino?","c":"beaches","h":"guides/tofino/beaches/_category-1","f":4},{"s":"tofino-whale-watching-faq","t":"Whale watching FAQs","e":"What is the best month for whale watching in Tofino?","c":"whale-watching","h":"guides/tofino/whale-watching/_category-1","f":4},{"s":"tofino-hiking-faq","t":"Hiking FAQs","e":"What is the best easy trail in Tofino?","c":"hiking","h":"guides/tofino/hiking/_category-1","f":4},{"s":"whale-tails-blows-and-backs","t":"Whale Tails, Blows, and Backs","e":"What you're actually seeing on the water.","c":"whale-watching","h":"guides/tofino/whale-watching/_category-1","f":4}],"listings":[{"t":"Cozy Mountain Chalet with Sauna, Fireplace & Trails Nearby","city":"tofino","h":"arcstudio/zczetpngmabknruslfwn","p":320,"rooms":2,"beds":3,"baths":2,"r":4.9,"loc":"Tofino, British Columbia"},{"t":"Historic Old-Town Loft with Stone Walls & River Views","city":"ucluelet","h":"arcstudio/wnrrcrf4lnalgzbjvsz8","p":320,"rooms":2,"beds":3,"baths":2,"r":4.9,"loc":"Ucluelet, British Columbia"},{"t":"Alpine Timber Chalet with Mountain Hot Tub & Stargazing Deck","city":"ucluelet","h":"arc-trips/pillar-connection","p":385,"rooms":2,"beds":3,"baths":2,"r":4.9,"loc":"Ucluelet, British Columbia"},{"t":"Riverside Cabin Retreat with Hot Tub & Forest Views","city":"tofino","h":"arcstudio/mg8epie7gzlpfb1bn7jo","p":420,"rooms":2,"beds":3,"baths":2,"r":4.9,"loc":"Tofino, British Columbia"},{"t":"Coastal Bed-Cliff Cottage with Private Beach & Firepit","city":"tofino","h":"arc-trips/curated-cabin","p":420,"rooms":2,"beds":3,"baths":2,"r":4.9,"loc":"Canmore, Alberta"},{"t":"Modern Lakeside Villa with Rooftop Lounge & Marina Access","city":"ucluelet","h":"arc-trips/founding-key","p":450,"rooms":2,"beds":3,"baths":2,"r":4.9,"loc":"Ucluelet, British Columbia"},{"t":"Lakefront Cottage with Private Dock & Canoes Included","city":"tofino","h":"arcstudio/galleries/dayhike-trail-1","p":500,"rooms":2,"beds":3,"baths":2,"r":4.9,"loc":"Tofino, British Columbia"}]}</script>
+<script>
+const PLAN = JSON.parse(document.getElementById("plan-data").textContent);
+
+/* ── helpers ─────────────────────────────────────────────────────────────── */
+const MON = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const SHORT = MON.map((m) => m.slice(0,3));
+const DIM = [31,28,31,30,31,30,31,31,30,31,30,31];
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const cld = (id,w,h) => `https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_${w},h_${h}/${id}`;
+const arrow = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>`;
+/* one or more names already contain the word and, so the serial and is dropped
+   rather than printing "camping and events and festivals" */
+const listOf = (a) => a.length < 2 ? (a[0] || "")
+  : a.some((x) => / and /.test(x)) ? a.join(", ")
+  : a.slice(0,-1).join(", ") + " and " + a[a.length-1];
+/* names are capped at three: a longer run is a directory dump, not a sentence */
+const listCap = (a,n) => a.length <= n ? listOf(a)
+  : listOf(a.slice(0,n)) + `, and ${a.length - n} more`;
+const num = (n) => n.toLocaleString("en-CA");
+
+const CATN = {
+  "beaches":"Beaches","surfing":"Surfing","kayaking":"Kayaking","fishing":"Fishing","boating":"Boating",
+  "hot-springs":"Hot springs","whale-watching":"Whale watching","birding":"Birding","storm-watching":"Storm watching",
+  "parks":"Parks","hiking":"Hiking","mountain-biking":"Mountain biking","skiing":"Skiing","camping":"Camping",
+  "restaurants":"Restaurants","markets":"Markets","breweries":"Breweries","landmarks":"Landmarks",
+  "arts-history":"Arts and history","events":"Events","when-to-go":"When to go","getting-around":"Getting around"
+};
+const TAXN = Object.keys(PLAN.bestMonths).length;
+const CLI = PLAN.climate;
+const MAXMM = Math.max(...CLI.map((x) => x.mm));
+const MINMM = Math.min(...CLI.map((x) => x.mm));
+const TOTMM = CLI.reduce((s,x) => s + x.mm, 0);
+
+const seasonFor = (m) => Object.values(PLAN.seasons).find((s) => s.months.includes(m));
+const inSeason = (m) => Object.entries(PLAN.bestMonths).filter(([,mm]) => mm.includes(m)).map(([c]) => c);
+
+function windows(months){
+  const on = new Set(months);
+  if (on.size === 12) return [];
+  const runs = [];
+  for (let m = 1; m <= 12; m++){
+    if (!on.has(m)) continue;
+    const prev = m === 1 ? 12 : m - 1;
+    if (on.has(prev)) continue;
+    let end = m, n = 0;
+    while (on.has(end) && n < 12){ const nx = end === 12 ? 1 : end + 1; if (!on.has(nx)) break; end = nx; n++; }
+    runs.push([m, end]);
+  }
+  return runs;
+}
+const windowText = (months) => {
+  const r = windows(months);
+  if (!r.length) return "all year";
+  return r.map(([a,b]) => a === b ? MON[a-1] : `${SHORT[a-1]} to ${SHORT[b-1]}`).join(", and ");
+};
+const windowLong = (months) => {
+  const r = windows(months);
+  if (!r.length) return "in season all year";
+  return "in season " + r.map(([a,b]) => a === b ? MON[a-1] : `${MON[a-1]} to ${MON[b-1]}`).join(", and ");
+};
+
+/* ── what the corpus can count about itself ──────────────────────────────── */
+const P = PLAN.places;
+const catCount = {};
+P.forEach((p) => catCount[p.c] = (catCount[p.c] || 0) + 1);
+const PCATS = Object.keys(catCount);
+const noted = P.filter((p) => p.k).length;
+const waterNotes = P.filter((p) => p.k && /tide|current|water|wave|swell|surf|cold|wind|ocean|rip/i.test(p.k)).length;
+const dogPlaces = P.filter((p) => /dog/i.test(JSON.stringify(p)));
+const freePlaces = (catCount.beaches || 0) + (catCount.hiking || 0) + (catCount["storm-watching"] || 0);
+const cheapest = Math.min(...PLAN.listings.map((l) => l.p));
+const placesInSeason = (m) => PCATS.filter((c) => (PLAN.bestMonths[c] || []).includes(m))
+  .reduce((s,c) => s + catCount[c], 0);
+
+/* the profile matchers read the guides' own "good for" wording, so every count
+   on a chip is a real count of write-ups, never a bucket we invented */
+const PROFILES = [
+  { id:"anyone", label:"Anyone", who:"a first look", re:null,
+    order:["when","stay","getting","pack","budget","kids","access","safety","dogs"],
+    line:"a good place to start" },
+  { id:"families", label:"Families", who:"a trip with kids",
+    re:/famil|kid|tide pool|sandcastle|beginner|calm|shelter/i,
+    order:["kids","stay","safety","when","pack","budget","getting","access","dogs"],
+    line:"named for families and tide pools" },
+  { id:"couples", label:"Couples", who:"two of you",
+    re:/sunset|date night|cocktail|fine dining|special (dinner|occasion)|elegant|romantic|a quiet view|slower, more elegant/i,
+    order:["when","stay","budget","pack","getting","safety","access","kids","dogs"],
+    line:"sunsets and long dinners" },
+  { id:"first", label:"First timers", who:"a first visit",
+    re:/first-time|first time|beginner|guided|easy|short|classic|popular|learning/i,
+    order:["when","getting","stay","pack","safety","budget","kids","access","dogs"],
+    line:"easy, guided or first time" },
+  { id:"budget", label:"On a budget", who:"a cheaper week",
+    re:/budget|takeout|casual|picnic|snack|quick bite|donut|bagel|fish and chips|tacos|burritos|coffee|surf-day food|simple/i,
+    order:["budget","when","stay","pack","getting","safety","kids","access","dogs"],
+    line:"cheap eats and free beaches" },
+  { id:"accessible", label:"Easier going", who:"short, level walking",
+    re:/easy walking|boardwalk|short walk|short stop|short forest|short hike|quick stop|quick nature|easy outdoor|multi-use path|limited time|easy rainforest|easy coastal/i,
+    order:["access","getting","stay","when","safety","pack","kids","budget","dogs"],
+    line:"boardwalks and short walks" }
+];
+const matches = (p, prof) => !prof.re || prof.re.test(p.g.join(" | ")) || prof.re.test(p.b || "");
+const forProfile = (id) => { const prof = PROFILES.find((x) => x.id === id); return P.filter((p) => matches(p, prof)); };
+const COUNT = {}; PROFILES.forEach((prof) => COUNT[prof.id] = forProfile(prof.id).length);
+
+/* ── the nine planning topics. Two lines each, no more. ──────────────────── */
+const monthCounts = MON.map((_,i) => inSeason(i+1).length);
+const leanest = Math.min(...monthCounts);
+
+const TOPICS = [
+  { id:"when", t:"When to go", k:"Timing", n:12, u:"months, all of them open",
+    p:`Even the leanest month has ${leanest} of the ${TAXN} subjects at their best. Nothing is closed for the season.`,
+    href:"#months", go:"See every month" },
+  { id:"getting", t:"Getting there", k:"Arriving", n:40, u:"minutes from Ucluelet",
+    p:`One road in. Highway 4 crosses the island, then north to Tofino or south to Ucluelet.`,
+    href:"region.html", go:"Vancouver Island" },
+  { id:"stay", t:"Where to stay", k:"Rooms", n:PLAN.town.stays, u:"stays in Tofino",
+    p:`From $${cheapest} a night, bookable in every month. Ucluelet adds ${PLAN.ucluelet.stays} rooms forty minutes away.`,
+    href:"search.html?in=tofino", go:"Search stays" },
+  { id:"pack", t:"What to pack", k:"Kit", n:num(TOTMM), u:"mm of rain a year",
+    p:`Waterproofs are not a winter item here. Even July records ${CLI[6].mm} mm across ${CLI[6].days} days.`,
+    href:"guide.html", go:"Read the guide" },
+  { id:"budget", t:"What it costs", k:"Budget", n:freePlaces, u:`of ${P.length} places cost nothing`,
+    p:`The beaches, trails and storm viewpoints are free to walk into. The spend is the room and the table.`,
+    href:"search.html?in=tofino", go:"Price up a stay" },
+  { id:"kids", t:"With kids", k:"Families", n:COUNT.families, u:"places named for families",
+    p:`Tide pools at Chesterman Beach, calm water at Mackenzie Beach, and the short boardwalk trails.`,
+    href:"long-beach.html", go:"Start at Long Beach" },
+  { id:"access", t:"Accessibility", k:"Access", n:COUNT.accessible, u:"easy or short walks",
+    p:`These are written up as boardwalk, easy walking or a short stop. Surfaces and parking are not audited yet.`,
+    href:"things-to-do.html", go:"See which ones" },
+  { id:"safety", t:"Staying safe", k:"Water", n:waterNotes, u:"notes about water",
+    p:`${noted} places carry a Good to know line, and most of them are about rip currents, cold and the tide.`,
+    href:"long-beach.html", go:"Read a real one" },
+  { id:"dogs", t:"With a dog", k:"Dogs", n:dogPlaces.length, u:"write-ups mention dogs",
+    p:`All three are inside Pacific Rim National Park Reserve, where the rules change. Check Parks Canada first.`,
+    href:"guide.html", go:"What we do know" }
+];
+
+/* the Tofino subjects: nine guides plus the two article-backed ones */
+const CTA = {
+  "beaches":{k:"free",t:"Free to visit"}, "hiking":{k:"free",t:"Free to walk"},
+  "surfing":{k:"free",t:"Free to paddle out"}, "birding":{k:"free",t:"Free to visit"},
+  "restaurants":{k:"free",t:"Book direct, not through us"},
+  "storm-watching":{k:"stay",t:"Stays from $" + cheapest},
+  "kayaking":{k:"soon",t:"Coming soon"}, "whale-watching":{k:"soon",t:"Coming soon"},
+  "fishing":{k:"sister",t:"ArcTrips Fishing"},
+  "camping":{k:"free",t:"Book with the campground"}, "events":{k:"free",t:"Free, some ticketed"}
+};
+const faqByCat = {};
+PLAN.faqs.forEach((f) => (faqByCat[f.c] = faqByCat[f.c] || []).push(f));
+const SUBJECTS = PLAN.guides.map((g) => ({
+  cat:g.c, name:g.n, places:catCount[g.c] || 0, blocks:g.b, photos:g.p,
+  faqs:(faqByCat[g.c] || []).length, months:PLAN.bestMonths[g.c] || [], cta:CTA[g.c]
+})).concat(["camping","events"].map((c) => {
+  const a = PLAN.articles.find((x) => x.c === c);
+  return { cat:c, name:c === "camping" ? "Camping" : "Events and festivals", places:0, blocks:0, photos:0,
+    faqs:(faqByCat[c] || []).length, months:PLAN.bestMonths[c] || [], cta:CTA[c], article:a };
+}));
+SUBJECTS.forEach((s) => s.name = s.name.replace(/ & /g, " and "));
+const tofinoOn = (m) => SUBJECTS.filter((s) => s.months.includes(m));
+/* twenty-one of the seventy-three write-ups have no photograph of their own
+   yet, so they borrow their subject's category photograph and say so in alt */
+const CATHERO = {}; PLAN.guides.forEach((g) => CATHERO[g.c] = g.h);
+
+/* ── state ───────────────────────────────────────────────────────────────── */
+let month = 2, other = 7, profile = "anyone";
+
+/* ── static furniture ────────────────────────────────────────────────────── */
+function paintStatic(){
+  const t = PLAN.tide;
+  $("#tideStation").textContent = "Tide today at " + t.station;
+  $("#tideRead").innerHTML =
+    `<span>Low <b>${t.low1}</b>, ${t.low1m} m</span><span>High <b>${t.high1}</b>, ${t.high1m} m</span>` +
+    `<span>Low <b>${t.low2}</b>, ${t.low2m} m</span><span>Sunset <b>${t.sunset}</b></span>`;
+
+  $("#heroNote").innerHTML =
+    `<b>${P.length}</b> places written up in Tofino, <b>${PLAN.faqs.length}</b> questions answered, ` +
+    `<b>${PLAN.town.stays}</b> rooms to sleep in.`;
+
+  $("#qDek").textContent =
+    `All of them lifted from a Tofino guide, with the answer that guide gives.`;
+
+  $("#apick").innerHTML = MON.map((m,i) => `<option value="${i+1}">${m}</option>`).join("");
+  $("#bpick").innerHTML = MON.map((m,i) => `<option value="${i+1}">${m}</option>`).join("");
+}
+
+/* ── the twelve month board. Every month is a row, at full strength, in
+      calendar order, and nothing is dimmed or withheld. ─────────────────── */
+function paintBoard(){
+  $("#mboard").innerHTML = CLI.map((c,i) => {
+    const m = i + 1, s = seasonFor(m), on = inSeason(m);
+    const sel = m === month;
+    return `<button class="mrow" type="button" data-m="${m}" aria-pressed="${sel}" ${sel ? 'data-sel="true"' : ""}
+      aria-label="${MON[i]}, ${c.hi} degrees, ${c.mm} millimetres of rain, ${on.length} things at their best. Put it in the comparison.">
+      <span class="mrow__m"><span class="mrow__n">${MON[i]}</span><span class="mrow__s">${esc(s.name)}</span></span>
+      <span class="mfig"><span class="mfig__k">High and low</span>
+        <span class="mfig__v tnum">${c.hi}&deg; <span class="u">/ ${c.lo}&deg;</span></span></span>
+      <span class="mfig"><span class="mfig__k">Rain</span>
+        <span class="mfig__v tnum">${c.mm} <span class="u">mm</span></span>
+        <span class="mrain"><i style="--w:${(c.mm/MAXMM*100).toFixed(1)}%"></i></span></span>
+      <span class="mfig"><span class="mfig__k">Rain days</span>
+        <span class="mfig__v tnum">${c.days} <span class="u">of ${DIM[i]}</span></span></span>
+      <span class="mbest"><b class="tnum">${on.length} of ${TAXN}</b><span>things at their best</span></span>
+      <span class="mgo">${sel ? "Comparing" : "Compare"}${arrow}</span>
+    </button>`;
+  }).join("");
+}
+
+/* ── the comparison: same treatment both sides, the trade in numbers ────── */
+function paintCard(side, m, otherM){
+  const c = CLI[m-1], oc = CLI[otherM-1];
+  const s = seasonFor(m);
+  /* Tofino's own eleven subjects, not the twenty-two in the taxonomy: this is
+     a Tofino page, and it should never name skiing or hot springs as on here */
+  const on = tofinoOn(m), off = tofinoOn(otherM).map((x) => x.cat);
+  const only = on.filter((x) => !off.includes(x.cat));
+  const twin = side === "b" && seasonFor(otherM).name === s.name;
+  const dT = Math.abs(c.hi - oc.hi).toFixed(1);
+  const dMm = Math.abs(c.mm - oc.mm);
+
+  $(`#${side}Season`).textContent = s.name;
+  $(`#${side}Name`).textContent = MON[m-1];
+  $(`#${side}Claim`).innerHTML = twin
+    ? `Also ${s.name.toLowerCase().replace("the ","")}, and <b>${dT} degrees ${c.hi >= oc.hi ? "warmer" : "cooler"}, ${dMm} mm ${c.mm <= oc.mm ? "drier" : "wetter"}</b> than ${MON[otherM-1]}.`
+    : esc(s.claim);
+  $(`#${side}Nums`).innerHTML =
+    `<div><dt>Average high</dt><dd>${c.hi}&deg;</dd></div>` +
+    `<div><dt>Average low</dt><dd>${c.lo}&deg;</dd></div>` +
+    `<div><dt>Rain</dt><dd>${c.mm}<small>mm</small></dd></div>` +
+    `<div><dt>Rain days</dt><dd>${c.days}<small>of ${DIM[m-1]}</small></dd></div>`;
+  $(`#${side}OnCount`).innerHTML =
+    `<b>${on.length}</b> of the ${SUBJECTS.length} things Tofino publishes are at their best in ${MON[m-1]}.`;
+  $(`#${side}Only`).innerHTML = only.length
+    ? `On here and not in ${MON[otherM-1]}: <b>${esc(listCap(only.map((x) => x.name.toLowerCase()), 3))}</b>.`
+    : `Everything ${MON[otherM-1]} has, ${MON[m-1]} has too.`;
+}
+
+function paintCompare(){
+  paintCard("a", month, other);
+  paintCard("b", other, month);
+  const a = placesInSeason(month), b = placesInSeason(other);
+  $("#sum").innerHTML =
+    `<b>${a}</b> places are at their best in ${MON[month-1]}, <b>${b}</b> in ${MON[other-1]}.`;
+  $("#live").textContent = `Comparing ${MON[month-1]} with ${MON[other-1]}.`;
+}
+
+/* ── the subject ledger, ranked for the chosen month, never gated ────────── */
+function paintLedger(){
+  const rows = SUBJECTS.slice().sort((x,y) => {
+    const X = x.months.includes(month), Y = y.months.includes(month);
+    if (X !== Y) return X ? -1 : 1;
+    if (X) return x.months.length - y.months.length || y.places - x.places;
+    return y.places - x.places;
+  });
+  let sep = false, i = 0;
+  $("#ledger").innerHTML = rows.map((s) => {
+    const live = s.months.includes(month);
+    let head = "";
+    if (!live && !sep){ sep = true; head = `<tr class="gsep"><td colspan="3">Best in another month</td></tr>`; }
+    const cells = MON.map((mn,k) =>
+      `<i ${s.months.includes(k+1) ? "data-on" : ""} ${k === month-1 ? "data-now" : ""}>${mn[0]}</i>`).join("");
+    let book;
+    if (!live){
+      book = `<button class="jump" type="button" data-m="${windows(s.months)[0][0]}">Best ${esc(windowText(s.months))}${arrow}</button>`;
+    } else if (s.cta.k === "soon"){
+      book = `<span class="pill pill--soon">Coming soon</span> <b>Stays from $${cheapest}</b>`;
+    } else if (s.cta.k === "sister"){
+      book = `<span class="pill pill--go">Book</span> <b>ArcTrips Fishing</b>`;
+    } else if (s.cta.k === "stay"){
+      book = `<span class="pill pill--go">Book</span> <b>Stays from $${cheapest}</b>`;
+    } else {
+      book = `<b>${esc(s.cta.t)}</b>`;
+    }
+    const where = s.places ? `${s.places} places written up`
+      : s.faqs ? `${s.faqs} questions answered` : `Guide published`;
+    return head + `<tr style="--i:${i++}">
+      <td><div class="led__s">${esc(s.name)}</div><div class="led__w">${esc(where)}</div></td>
+      <td class="led__mon"><div class="mon" role="img" aria-label="${esc(s.name)}, ${esc(windowLong(s.months))}">${cells}</div></td>
+      <td class="led__b">${book}</td></tr>`;
+  }).join("");
+}
+
+/* ── topics, filters and the places rail. The chips reorder the nine topics,
+      they never remove one. ─────────────────────────────────────────────── */
+function paintChips(){
+  $("#chips").innerHTML = PROFILES.map((p) =>
+    `<button type="button" data-p="${p.id}" aria-pressed="${p.id === profile}">${esc(p.label)}<span class="ct tnum">${COUNT[p.id]}</span></button>`
+  ).join("") + `<button class="clear" type="button" data-clear>Reset</button>`;
+}
+
+function paintTopics(){
+  const p = PROFILES.find((x) => x.id === profile);
+  const rows = p.order.map((id) => TOPICS.find((t) => t.id === id));
+  $("#tgrid").innerHTML = rows.map((t,i) =>
+    `<a class="topic${i === 0 ? " topic--lead" : ""}" href="${t.href}" style="--i:${i}">
+      ${i === 0 && profile !== "anyone" ? `<span class="topic__f">First for ${esc(p.who)}</span>` : `<span class="label label--n">${esc(t.k)}</span>`}
+      <h3>${esc(t.t)}</h3>
+      <p class="topic__n tnum">${t.n}<small>${esc(t.u)}</small></p>
+      <p>${t.p}</p>
+      <span class="topic__go">${esc(t.go)}${arrow}</span>
+    </a>`).join("");
+
+  $("#rankline").innerHTML = profile === "anyone"
+    ? `Nine topics, in the order most people read them. Pick who is travelling and they reorder.`
+    : `Ordered for ${esc(p.who)}. <b>${COUNT[profile]}</b> of the <b>${P.length}</b> Tofino write-ups suit it.`;
+
+  const places = forProfile(profile).slice(0, 6);
+  $("#railTitle").textContent = profile === "anyone" ? "Places to start with" : `Written up for ${p.who}`;
+  $("#railSub").textContent = `Six of ${COUNT[profile]} places, ${p.line}.`;
+  $("#rail").innerHTML = places.map((pl) => {
+    const cn = CATN[pl.c] || pl.c;
+    const tag = pl.g[0] || `${cn} in Tofino`;
+    const own = Boolean(pl.h);
+    const alt = own ? `${pl.n}, ${cn.toLowerCase()} in Tofino` : `${cn} in Tofino, from the subject guide`;
+    return `<a class="ritem" href="things-to-do.html">
+      <div class="ritem__m"><img src="${cld(pl.h || CATHERO[pl.c],300,225)}" alt="${esc(alt)}" loading="lazy"></div>
+      <div>
+        <div class="kmeta" style="margin-top:0"><span class="k">${esc(cn)}</span></div>
+        <h4>${esc(pl.n)}</h4>
+        <p class="ritem__t">${esc(tag)}</p>
+        <p class="ritem__b">${esc(pl.b)}</p>
+      </div>
+    </a>`;
+  }).join("");
+}
+
+/* ── the questions people actually ask, six subjects deep ────────────────── */
+function paintQuestions(){
+  const cats = Object.keys(faqByCat).sort((a,b) => faqByCat[b].length - faqByCat[a].length).slice(0,6);
+  $("#qgrid").innerHTML = cats.map((c) => {
+    const rows = faqByCat[c];
+    return `<div class="qgroup">
+      <h3>${esc(CATN[c] || c)} <span class="tnum">${rows.length} question${rows.length > 1 ? "s" : ""}</span></h3>
+      ${rows.map((f) => `<details class="qi"><summary>${esc(f.q.replace(/\s+$/,""))}</summary><p>${esc(f.a)}</p></details>`).join("")}
+    </div>`;
+  }).join("");
+}
+
+/* ── the stays module, from the real listing rows ────────────────────────── */
+function paintStays(){
+  const rows = PLAN.listings.slice().sort((a,b) => a.p - b.p || a.t.localeCompare(b.t));
+  const tof = rows.filter((l) => l.city === "tofino");
+  const feat = tof[0];
+  const where = (l) => l.city === "tofino" ? "Tofino" : "Ucluelet";
+  /* the listing rows carry shuffled hero ids, a charter photo on a chalet, so
+     the feature takes lodging photography from the same Cloudinary library */
+  const FEATIMG = ["arc-trips/curated-cabin", "A timber cabin standing alone above a forested shoreline"];
+  $("#stayFeat").innerHTML =
+    `<div class="stay__m"><img src="${cld(FEATIMG[0],1100,830)}" alt="${esc(FEATIMG[1])}"></div>
+     <h3>${esc(feat.t)}</h3>
+     <p class="stay__p tnum">$${feat.p} <span>a night, CAD</span></p>
+     <p class="dest__meta tnum">${feat.rooms} bedrooms &middot; ${feat.beds} beds &middot; ${feat.r} rated &middot; ${where(feat)}</p>`;
+
+  $("#stayTable tbody").innerHTML = rows.slice(1,7).map((l) =>
+    `<tr>
+      <td><div class="l__t">${esc(l.t)}</div>
+        <div class="l__w tnum">${where(l)} &middot; ${l.rooms} bedrooms &middot; ${l.r} rated</div></td>
+      <td class="l__p">$${l.p}<span>a night</span></td>
+    </tr>`).join("");
+
+  const hi = Math.max(...rows.map((l) => l.p));
+  $("#stayLine").innerHTML =
+    `The same rooms are bookable in all twelve months above, from $${cheapest} to $${hi} a night.`;
+  $("#stayNote").innerHTML =
+    `Prices in CAD, before taxes and fees.`;
+}
+
+/* ── the island roster. Built for twelve towns, not two. ─────────────────── */
+const SOON_TOWNS = ["Victoria","Nanaimo","Campbell River","Parksville","Qualicum Beach",
+  "Sooke","Sidney","Chemainus","Nanoose Bay","Shawnigan Lake"];
+
+function paintIsland(){
+  const pub = [
+    { n:"Tofino", m:`${P.length} places &middot; ${PLAN.guides.length} guides &middot; ${PLAN.town.stays} stays`, h:"tofino.html" },
+    { n:"Ucluelet", m:`${PLAN.ucluelet.places} places &middot; ${PLAN.ucluelet.guides} guides &middot; ${PLAN.ucluelet.stays} stays`, h:"region.html" }
+  ];
+  $("#pubTowns").innerHTML = pub.map((t) =>
+    `<a class="sib" href="${t.h}"><span class="sib__n">${esc(t.n)}</span><span class="sib__m tnum">${t.m}</span></a>`).join("");
+  $("#soonTowns").innerHTML = SOON_TOWNS.map((n) =>
+    `<a href="region.html">${esc(n)}</a>`).join("");
+}
+
+/* ── wire up ─────────────────────────────────────────────────────────────── */
+function setMonth(m){
+  if (m === other) other = month;
+  month = m;
+  $("#apick").value = String(month);
+  $("#bpick").value = String(other);
+  paintBoard(); paintCompare(); paintLedger();
+}
+
+paintStatic(); paintChips(); paintTopics(); paintBoard(); paintQuestions(); paintStays(); paintIsland();
+$("#apick").value = String(month);
+$("#bpick").value = String(other);
+paintCompare(); paintLedger();
+
+$("#mboard").addEventListener("click", (e) => {
+  const b = e.target.closest(".mrow"); if (!b) return;
+  setMonth(Number(b.dataset.m));
+  document.getElementById("compare").scrollIntoView({ behavior:"smooth", block:"start" });
+});
+$("#apick").addEventListener("change", (e) => setMonth(Number(e.target.value)));
+$("#bpick").addEventListener("change", (e) => {
+  const v = Number(e.target.value);
+  other = v === month ? (month === 2 ? 7 : 2) : v;
+  $("#bpick").value = String(other);
+  paintCompare();
+});
+$("#ledger").addEventListener("click", (e) => {
+  const b = e.target.closest(".jump"); if (!b) return;
+  setMonth(Number(b.dataset.m));
+  document.getElementById("compare").scrollIntoView({ behavior:"smooth", block:"start" });
+});
+$("#chips").addEventListener("click", (e) => {
+  const b = e.target.closest("button"); if (!b) return;
+  profile = b.dataset.clear !== undefined ? "anyone" : b.dataset.p;
+  document.querySelectorAll("#chips button[data-p]").forEach((x) => x.setAttribute("aria-pressed", String(x.dataset.p === profile)));
+  paintTopics();
+});
+addEventListener("keydown", (e) => {
+  if (e.key === "/" && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)){
+    e.preventDefault(); $(".search input").focus();
+  }
+});
+
+/* the reading-progress hairline and the current in-page section */
+const secs = [...document.querySelectorAll("#jumprow a")].map((a) => ({ a, el: document.querySelector(a.getAttribute("href")) }));
+function onScroll(){
+  const h = document.documentElement;
+  const p = h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight);
+  $("#jumpbar").style.width = (p * 100).toFixed(2) + "%";
+  let cur = null;
+  secs.forEach((s) => { if (s.el && s.el.getBoundingClientRect().top <= 200) cur = s; });
+  secs.forEach((s) => s.a === (cur && cur.a) ? s.a.setAttribute("aria-current","true") : s.a.removeAttribute("aria-current"));
+}
+addEventListener("scroll", onScroll, { passive:true });
+onScroll();
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

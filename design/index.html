@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Arc Trips, destination page concepts</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0E1116; --pan:#161B22; --pan2:#1C222B;
+  --ink:#E6EAF0; --ink2:#8B95A5; --ink3:#7C879A;
+  --line:rgba(230,234,240,.10); --line2:rgba(230,234,240,.18);
+  --az:#4A9BE0; --em:#4FBF9A; --am:#E8A33D;
+  --nav:296px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased;display:grid;grid-template-columns:var(--nav) 1fr;overflow:hidden}
+em,i{font-style:normal;font-weight:600}
+a{color:inherit}
+
+/* ---------- sidebar ---------- */
+.side{background:var(--pan);border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0}
+.brand{padding:20px 20px 16px;border-bottom:1px solid var(--line)}
+.brand h1{font-size:14px;font-weight:700;letter-spacing:-.01em}
+.brand p{font-size:11.5px;color:var(--ink2);margin-top:5px;line-height:1.5}
+.scroll{flex:1;overflow-y:auto;padding:8px 0 32px}
+.scroll::-webkit-scrollbar{width:9px}
+.scroll::-webkit-scrollbar-thumb{background:var(--line2);border-radius:9px;border:3px solid var(--pan)}
+
+.grp{padding:18px 20px 7px}
+.grp b{display:block;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink3);font-weight:600}
+.grp span{display:block;font-size:11.5px;color:var(--ink2);margin-top:5px;line-height:1.5}
+
+.item{display:block;width:100%;text-align:left;background:none;border:0;cursor:pointer;font-family:inherit;
+  color:var(--ink2);padding:9px 20px 9px 20px;border-left:2px solid transparent;transition:background .15s,color .15s}
+.item:hover{background:rgba(230,234,240,.045);color:var(--ink)}
+.item.on{background:rgba(74,155,224,.11);border-left-color:var(--az);color:var(--ink)}
+.item .n{display:flex;gap:9px;align-items:baseline}
+.item .k{font-size:10.5px;font-weight:700;color:var(--ink3);min-width:20px;letter-spacing:.04em}
+.item.on .k{color:var(--az)}
+.item .t{font-size:13.5px;font-weight:500;line-height:1.35}
+.item .d{font-size:11.5px;color:var(--ink3);margin:3px 0 0 29px;line-height:1.45}
+.item.sub .t{font-size:12.5px;font-weight:400}
+.item.gal{color:var(--ink3)}
+.item.gal .t{font-size:12.5px}
+
+/* ---------- main ---------- */
+.main{display:flex;flex-direction:column;min-width:0;min-height:0}
+.top{display:flex;align-items:center;gap:14px;padding:0 18px;height:56px;flex:0 0 56px;
+  border-bottom:1px solid var(--line);background:var(--pan)}
+.now{min-width:0;flex:1}
+.now h2{font-size:14px;font-weight:600;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.now p{font-size:11.5px;color:var(--ink2);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.seg{display:flex;gap:2px;background:var(--pan2);border:1px solid var(--line);border-radius:8px;padding:2px;flex:0 0 auto}
+.seg button{background:none;border:0;color:var(--ink2);font-family:inherit;font-size:12px;font-weight:500;
+  padding:6px 12px;border-radius:6px;cursor:pointer;transition:background .15s,color .15s}
+.seg button:hover{color:var(--ink)}
+.seg button.on{background:var(--ink);color:var(--bg);font-weight:600}
+.open{flex:0 0 auto;font-size:12.5px;color:var(--az);text-decoration:none;font-weight:500;white-space:nowrap;
+  border:1px solid var(--line2);border-radius:8px;padding:7px 13px;transition:background .15s}
+.open:hover{background:rgba(74,155,224,.12)}
+.arrows{display:flex;gap:2px;flex:0 0 auto}
+.arrows button{background:var(--pan2);border:1px solid var(--line);color:var(--ink2);width:32px;height:32px;
+  border-radius:8px;cursor:pointer;font-family:inherit;font-size:15px;line-height:1;transition:background .15s,color .15s}
+.arrows button:hover{background:rgba(230,234,240,.09);color:var(--ink)}
+
+.stage{flex:1;position:relative;background:#0a0d11;overflow:auto;display:flex;justify-content:center}
+#view{border:0;background:#fff;width:100%;height:100%;display:block;flex:0 0 auto}
+.stage.fixed{padding:22px 0}
+.stage.fixed #view{box-shadow:0 0 0 1px var(--line2),0 24px 60px rgba(0,0,0,.6);border-radius:6px;height:calc(100% - 44px)}
+
+.hint{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);font-size:11px;color:var(--ink3);
+  background:rgba(14,17,22,.9);border:1px solid var(--line);border-radius:999px;padding:6px 14px;
+  pointer-events:none;transition:opacity .5s;backdrop-filter:blur(8px)}
+
+@media(max-width:900px){
+  body{grid-template-columns:1fr;grid-template-rows:auto 1fr}
+  .side{border-right:0;border-bottom:1px solid var(--line);max-height:42vh}
+  .top{flex-wrap:wrap;height:auto;flex:0 0 auto;padding:12px 14px;gap:10px}
+  .now{flex:1 0 100%}
+}
+</style>
+</head>
+<body>
+
+<nav class="side">
+  <div class="brand">
+    <h1>Destination page concepts</h1>
+    <p>19 screens across three explorations, 24 to 27 July 2026.</p>
+  </div>
+  <div class="scroll" id="nav"></div>
+</nav>
+
+<div class="main">
+  <div class="top">
+    <div class="arrows">
+      <button id="prev" title="Previous (left arrow)">&#8249;</button>
+      <button id="next" title="Next (right arrow)">&#8250;</button>
+    </div>
+    <div class="now"><h2 id="title">Loading</h2><p id="sub"></p></div>
+    <div class="seg" id="widths">
+      <button data-w="0" class="on">Fit</button>
+      <button data-w="1440">1440</button>
+      <button data-w="390">390</button>
+    </div>
+    <a class="open" id="open" href="#" target="_blank" rel="noopener">Open full screen</a>
+  </div>
+  <div class="stage" id="stage">
+    <iframe id="view" title="Concept preview"></iframe>
+    <div class="hint" id="hint">Arrow keys to move between concepts</div>
+  </div>
+</div>
+
+<script>
+const SETS = [
+  {
+    label: 'Set 1, art direction',
+    note: '24 July. Same Tofino page and whale watching article in all three. Only the look changes.',
+    items: [
+      {k:'A', t:'Editorial Luxury',    d:'Warm paper, film grain, Fraunces serif', p:'concepts/a-editorial.html'},
+      {k:'B', t:'Soft Structuralism',  d:'White, huge Inter, bento grid, sticky booking rail', p:'concepts/b-marketplace.html'},
+      {k:'C', t:'Immersive Cinematic', d:'Near black, full bleed, Space Grotesk', p:'concepts/c-immersive.html'},
+      {k:'', t:'Compare all three side by side', gal:true, p:'concepts/index.html'}
+    ]
+  },
+  {
+    label: 'Set 2, information architecture',
+    note: '24 July. Identical theme and components. Only the structure changes. Superseded by the shipped tree.',
+    items: [
+      {k:'S1', t:'Flat',             d:'One undivided grid of 13 guides, then stays', p:'structure/s1-flat.html'},
+      {k:'S2', t:'Grouped by intent', d:'Four labelled groups plus a sticky jump bar', p:'structure/s2-grouped.html'},
+      {k:'S3', t:'Trip-shaped',      d:'Four questions in the order people ask them', p:'structure/s3-trip.html'},
+      {k:'', t:'Compare all three side by side', gal:true, p:'structure/index.html'},
+      {k:'', t:'S1 clickable, destinations', sub:true, p:'structure/s1/destinations.html'},
+      {k:'', t:'S1 clickable, Tofino',       sub:true, p:'structure/s1/tofino.html'},
+      {k:'', t:'S1 clickable, things to do', sub:true, p:'structure/s1/things-to-do.html'},
+      {k:'', t:'S1 clickable, whale watching', sub:true, p:'structure/s1/whale-watching.html'}
+    ]
+  },
+  {
+    label: 'Set 3, the destinations index',
+    note: '27 July. Locked palette and Inter throughout. What differs is what the page leads with.',
+    items: [
+      {k:'A', t:'The Almanac',   d:'Leads with the calendar. We know when to go', p:'concepts/2026-07-27/a-almanac.html'},
+      {k:'B', t:'The Atlas',     d:'Leads with geography, then compares. We help you choose', p:'concepts/2026-07-27/b-atlas.html'},
+      {k:'C', t:'The Dossier',   d:'Leads with the reading. We wrote the book', p:'concepts/2026-07-27/c-dossier.html'},
+      {k:'D', t:'Destinations home', d:'Built on the reference layout', p:'concepts/2026-07-27/d-destinations-home.html'},
+      {k:'E', t:'Destinations on-brand', d:'Know the place before you go', p:'concepts/2026-07-27/e-destinations-onbrand.html'},
+      {k:'F', t:'Experience',    d:'Clickable, wired to the real corpus', p:'concepts/2026-07-27/f-experience.html'},
+      {k:'', t:'Read the three-way writeup', gal:true, p:'concepts/2026-07-27/index.html'}
+    ]
+  }
+];
+
+const flat = [];
+const navEl = document.getElementById('nav');
+
+SETS.forEach(set => {
+  const g = document.createElement('div');
+  g.className = 'grp';
+  g.innerHTML = '<b></b><span></span>';
+  g.querySelector('b').textContent = set.label;
+  g.querySelector('span').textContent = set.note;
+  navEl.appendChild(g);
+
+  set.items.forEach(it => {
+    const i = flat.length;
+    const b = document.createElement('button');
+    b.className = 'item' + (it.sub ? ' sub' : '') + (it.gal ? ' gal' : '');
+    b.dataset.i = i;
+    const row = document.createElement('div');
+    row.className = 'n';
+    const k = document.createElement('span'); k.className = 'k'; k.textContent = it.k || '';
+    const t = document.createElement('span'); t.className = 't'; t.textContent = it.t;
+    row.append(k, t);
+    b.appendChild(row);
+    if (it.d) { const d = document.createElement('div'); d.className = 'd'; d.textContent = it.d; b.appendChild(d); }
+    b.addEventListener('click', () => go(i));
+    navEl.appendChild(b);
+    flat.push({...it, set: set.label, el: b});
+  });
+});
+
+const view = document.getElementById('view');
+const stage = document.getElementById('stage');
+const hint = document.getElementById('hint');
+let cur = -1;
+
+function indexForHash() {
+  return flat.findIndex(f => f.p === decodeURIComponent(location.hash.slice(1)));
+}
+
+function go(i, push = true) {
+  if (i < 0 || i >= flat.length || i === cur) return;
+  const it = flat[i];
+  if (cur >= 0) flat[cur].el.classList.remove('on');
+  it.el.classList.add('on');
+  cur = i;
+  view.src = it.p;
+  document.getElementById('title').textContent = (it.k ? it.k + '. ' : '') + it.t;
+  document.getElementById('sub').textContent = it.set + (it.d ? ' · ' + it.d : '');
+  document.getElementById('open').href = it.p;
+  if (push && location.hash.slice(1) !== it.p) history.replaceState(null, '', '#' + it.p);
+  it.el.scrollIntoView({block: 'nearest'});
+}
+
+document.getElementById('prev').addEventListener('click', () => go(cur - 1));
+document.getElementById('next').addEventListener('click', () => go(cur + 1));
+
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT' || e.metaKey || e.ctrlKey) return;
+  if (e.key === 'ArrowLeft')  { go(cur - 1); e.preventDefault(); }
+  if (e.key === 'ArrowRight') { go(cur + 1); e.preventDefault(); }
+});
+
+document.getElementById('widths').addEventListener('click', e => {
+  const btn = e.target.closest('button');
+  if (!btn) return;
+  [...e.currentTarget.children].forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  const w = +btn.dataset.w;
+  if (w) { view.style.width = w + 'px'; stage.classList.add('fixed'); }
+  else   { view.style.width = '100%';   stage.classList.remove('fixed'); }
+});
+
+window.addEventListener('hashchange', () => {
+  const i = indexForHash();
+  if (i >= 0) go(i, false);
+});
+
+const start = indexForHash();
+go(start >= 0 ? start : 0, false);
+setTimeout(() => { hint.style.opacity = '0'; }, 4200);
+</script>
+</body>
+</html>

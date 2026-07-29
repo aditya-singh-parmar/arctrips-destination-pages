@@ -1,0 +1,263 @@
+- generic [active] [ref=f762e1]:
+  - link "Skip to content" [ref=f762e2] [cursor=pointer]:
+    - /url: "#main"
+  - navigation [ref=f762e3]:
+    - generic [ref=f762e4]:
+      - link "Arctrips" [ref=f762e5] [cursor=pointer]:
+        - /url: index.html
+      - list [ref=f762e6]:
+        - listitem [ref=f762e7]:
+          - link "Stays" [ref=f762e8] [cursor=pointer]:
+            - /url: search.html
+        - listitem [ref=f762e9]:
+          - link "Destinations" [ref=f762e10] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=f762e11]:
+          - link "Guides" [ref=f762e12] [cursor=pointer]:
+            - /url: search.html
+      - search [ref=f762e13]:
+        - generic [ref=f762e17]: Search stays, towns and guides
+        - searchbox "Search stays, towns and guides" [ref=f762e18]
+        - generic [ref=f762e19]: /
+      - link "Sign in" [ref=f762e20] [cursor=pointer]:
+        - /url: "#top"
+  - navigation "Tofino" [ref=f762e21]:
+    - generic [ref=f762e22]:
+      - link "← Tofino" [ref=f762e23] [cursor=pointer]:
+        - /url: tofino.html
+      - list [ref=f762e25]:
+        - listitem [ref=f762e26]:
+          - link "Overview" [ref=f762e27] [cursor=pointer]:
+            - /url: tofino.html
+        - listitem [ref=f762e28]:
+          - link "Things to do" [ref=f762e29] [cursor=pointer]:
+            - /url: things-to-do.html
+        - listitem [ref=f762e30]:
+          - link "Areas" [ref=f762e31] [cursor=pointer]:
+            - /url: long-beach.html
+        - listitem [ref=f762e32]:
+          - link "Plan" [ref=f762e33] [cursor=pointer]:
+            - /url: plan.html
+        - listitem [ref=f762e34]:
+          - link "Guides" [ref=f762e35] [cursor=pointer]:
+            - /url: guide.html
+      - link "Find a stay" [ref=f762e36] [cursor=pointer]:
+        - /url: search.html
+  - main [ref=f762e37]:
+    - navigation "Breadcrumb" [ref=f762e39]:
+      - link "Destinations" [ref=f762e40] [cursor=pointer]:
+        - /url: index.html
+      - generic [ref=f762e41]: ›
+      - link "Canada" [ref=f762e42] [cursor=pointer]:
+        - /url: country.html
+      - generic [ref=f762e43]: ›
+      - link "British Columbia" [ref=f762e44] [cursor=pointer]:
+        - /url: province.html
+      - generic [ref=f762e45]: ›
+      - link "Vancouver Island" [ref=f762e46] [cursor=pointer]:
+        - /url: region.html
+      - generic [ref=f762e47]: ›
+      - link "Tofino" [ref=f762e48] [cursor=pointer]:
+        - /url: tofino.html
+      - generic [ref=f762e49]: ›
+      - link "Things to do" [ref=f762e50] [cursor=pointer]:
+        - /url: things-to-do.html
+      - generic [ref=f762e51]: ›
+      - generic [ref=f762e52]: Not found
+    - generic [ref=f762e54]:
+      - text: Page not found
+      - heading "There is no page at that address" [level=1] [ref=f762e55]
+      - paragraph [ref=f762e56]: It was either never written or never existed. Search everything we publish, or start from one of the towns below.
+      - search [ref=f762e57]:
+        - generic [ref=f762e58]:
+          - generic [ref=f762e62]: Search every town, guide, place, article and stay
+          - searchbox "Search every town, guide, place, article and stay" [ref=f762e63]
+          - button "Search" [ref=f762e64] [cursor=pointer]
+        - paragraph [ref=f762e65]: "Everything we publish is searchable from here: 185 pages in all."
+        - list
+    - generic [ref=f762e67]:
+      - paragraph [ref=f762e68]: That address is real as far as Things to do, but nothing on Arc Trips is called ziplining.
+      - link "See every destination" [ref=f762e69] [cursor=pointer]:
+        - /url: index.html
+    - generic [ref=f762e73]:
+      - img "Clayoquot Sound and its forested islands north of Tofino, seen from the air" [ref=f762e75]
+      - generic [ref=f762e76]:
+        - heading "Try Tofino instead" [level=2] [ref=f762e77]
+        - paragraph [ref=f762e78]: It is the nearest town to the address you asked for. Storm-swept beaches, old-growth rainforest, and the best surf on the Pacific coast.
+        - generic [ref=f762e79]:
+          - generic [ref=f762e80]:
+            - term [ref=f762e81]: Places
+            - definition [ref=f762e82]: "73"
+          - generic [ref=f762e83]:
+            - term [ref=f762e84]: Subjects
+            - definition [ref=f762e85]: "9"
+          - generic [ref=f762e86]:
+            - term [ref=f762e87]: Stays
+            - definition [ref=f762e88]: "134"
+          - generic [ref=f762e89]:
+            - term [ref=f762e90]: From
+            - definition [ref=f762e91]: $320
+        - generic [ref=f762e92]:
+          - link "Open Tofino" [ref=f762e93] [cursor=pointer]:
+            - /url: tofino.html
+          - link "Things to do there" [ref=f762e94] [cursor=pointer]:
+            - /url: things-to-do.html
+    - generic [ref=f762e96]:
+      - generic [ref=f762e97]:
+        - generic [ref=f762e98]:
+          - heading "Where do you want to go?" [level=2] [ref=f762e99]
+          - paragraph [ref=f762e100]: Two towns are written up in full today. The rest are named here so you can see what is coming, and where.
+        - link "All destinations" [ref=f762e101] [cursor=pointer]:
+          - /url: index.html
+      - generic [ref=f762e102]:
+        - generic [ref=f762e103]:
+          - heading "Vancouver Island" [level=3] [ref=f762e104]
+          - generic [ref=f762e105]: 12 towns, 2 written, in British Columbia
+          - link "Open Vancouver Island" [ref=f762e106] [cursor=pointer]:
+            - /url: region.html
+          - list [ref=f762e107]:
+            - listitem [ref=f762e108]:
+              - link "Tofino" [ref=f762e109] [cursor=pointer]:
+                - /url: tofino.html
+              - generic [ref=f762e110]: 73 places
+            - listitem [ref=f762e111]:
+              - link "Ucluelet" [ref=f762e112] [cursor=pointer]:
+                - /url: region.html
+              - generic [ref=f762e113]: 54 places
+            - listitem [ref=f762e114]: Victoria
+            - listitem [ref=f762e115]: Nanaimo
+            - listitem [ref=f762e116]: Campbell River
+            - listitem [ref=f762e117]: Parksville
+            - listitem [ref=f762e118]: Qualicum Beach
+            - listitem [ref=f762e119]: Sooke
+            - listitem [ref=f762e120]: Sidney
+            - listitem [ref=f762e121]: Chemainus
+            - listitem [ref=f762e122]: Nanoose Bay
+            - listitem [ref=f762e123]: Shawnigan Lake
+        - generic [ref=f762e124]:
+          - heading "Mainland British Columbia" [level=3] [ref=f762e125]
+          - generic [ref=f762e126]: 4 towns, written next, in British Columbia
+          - link "Open British Columbia" [ref=f762e127] [cursor=pointer]:
+            - /url: province.html
+          - list [ref=f762e128]:
+            - listitem [ref=f762e129]: Vancouver
+            - listitem [ref=f762e130]: Squamish
+            - listitem [ref=f762e131]: Whistler
+            - listitem [ref=f762e132]: Nelson
+        - generic [ref=f762e133]:
+          - heading "Alberta" [level=3] [ref=f762e134]
+          - generic [ref=f762e135]: 3 towns, written next, in Canada
+          - list [ref=f762e136]:
+            - listitem [ref=f762e137]: Banff
+            - listitem [ref=f762e138]: Jasper
+            - listitem [ref=f762e139]: Edmonton
+        - generic [ref=f762e140]:
+          - heading "Saskatchewan" [level=3] [ref=f762e141]
+          - generic [ref=f762e142]: 1 town, written next, in Canada
+          - list [ref=f762e143]:
+            - listitem [ref=f762e144]: Saskatoon
+        - generic [ref=f762e145]:
+          - heading "Ontario" [level=3] [ref=f762e146]
+          - generic [ref=f762e147]: 3 towns, written next, in Canada
+          - list [ref=f762e148]:
+            - listitem [ref=f762e149]: Toronto
+            - listitem [ref=f762e150]: Niagara Falls
+            - listitem [ref=f762e151]: Ottawa
+        - generic [ref=f762e152]:
+          - heading "Quebec" [level=3] [ref=f762e153]
+          - generic [ref=f762e154]: 2 towns, written next, in Canada
+          - list [ref=f762e155]:
+            - listitem [ref=f762e156]: Montreal
+            - listitem [ref=f762e157]: Quebec City
+        - generic [ref=f762e158]:
+          - heading "Atlantic Canada" [level=3] [ref=f762e159]
+          - generic [ref=f762e160]: 3 towns, written next, in Canada
+          - list [ref=f762e161]:
+            - listitem [ref=f762e162]: Halifax
+            - listitem [ref=f762e163]: Charlottetown
+            - listitem [ref=f762e164]: St John's
+    - generic [ref=f762e167]:
+      - link [ref=f762e168] [cursor=pointer]:
+        - /url: tofino.html
+        - heading "Tofino, place by place" [level=3] [ref=f762e169]
+        - paragraph [ref=f762e170]: Nine subjects and 73 named places on the outer coast.
+        - generic [ref=f762e171]: Open the town
+      - link [ref=f762e174] [cursor=pointer]:
+        - /url: plan.html
+        - heading "When should you go?" [level=3] [ref=f762e175]
+        - paragraph [ref=f762e176]: What the coast is like in each of the twelve months.
+        - generic [ref=f762e177]: Read the plan
+      - link [ref=f762e180] [cursor=pointer]:
+        - /url: search.html
+        - heading "Somewhere to stay" [level=3] [ref=f762e181]
+        - paragraph [ref=f762e182]: 292 stays in both towns, from $320 a night in CAD.
+        - generic [ref=f762e183]: Search stays
+  - contentinfo [ref=f762e186]:
+    - generic [ref=f762e187]:
+      - generic [ref=f762e188]:
+        - generic [ref=f762e189]:
+          - text: Arctrips
+          - paragraph [ref=f762e190]: Stays and guides on the west coast of Vancouver Island, written by people who go there.
+        - generic [ref=f762e191]:
+          - heading "Destinations" [level=5] [ref=f762e192]
+          - list [ref=f762e193]:
+            - listitem [ref=f762e194]:
+              - link "Tofino" [ref=f762e195] [cursor=pointer]:
+                - /url: tofino.html
+            - listitem [ref=f762e196]:
+              - link "Guides" [ref=f762e197] [cursor=pointer]:
+                - /url: search.html
+            - listitem [ref=f762e198]:
+              - link "British Columbia" [ref=f762e199] [cursor=pointer]:
+                - /url: province.html
+            - listitem [ref=f762e200]:
+              - link "Canada" [ref=f762e201] [cursor=pointer]:
+                - /url: country.html
+        - generic [ref=f762e202]:
+          - heading "Things to do" [level=5] [ref=f762e203]
+          - list [ref=f762e204]:
+            - listitem [ref=f762e205]:
+              - link "All nine subjects" [ref=f762e206] [cursor=pointer]:
+                - /url: things-to-do.html
+            - listitem [ref=f762e207]:
+              - link "Whale watching" [ref=f762e208] [cursor=pointer]:
+                - /url: whale-watching.html
+            - listitem [ref=f762e209]:
+              - link "Long Beach" [ref=f762e210] [cursor=pointer]:
+                - /url: long-beach.html
+            - listitem [ref=f762e211]:
+              - link "Search everything" [ref=f762e212] [cursor=pointer]:
+                - /url: search.html
+        - generic [ref=f762e213]:
+          - heading "Plan" [level=5] [ref=f762e214]
+          - list [ref=f762e215]:
+            - listitem [ref=f762e216]:
+              - link "When to go" [ref=f762e217] [cursor=pointer]:
+                - /url: plan.html
+            - listitem [ref=f762e218]:
+              - link "Getting there" [ref=f762e219] [cursor=pointer]:
+                - /url: plan.html
+            - listitem [ref=f762e220]:
+              - link "Where to stay" [ref=f762e221] [cursor=pointer]:
+                - /url: search.html
+            - listitem [ref=f762e222]:
+              - link "What to pack" [ref=f762e223] [cursor=pointer]:
+                - /url: guide.html
+        - generic [ref=f762e224]:
+          - heading "Arc Trips" [level=5] [ref=f762e225]
+          - list [ref=f762e226]:
+            - listitem [ref=f762e227]:
+              - link "About us" [ref=f762e228] [cursor=pointer]:
+                - /url: "#top"
+            - listitem [ref=f762e229]:
+              - link "List your place" [ref=f762e230] [cursor=pointer]:
+                - /url: "#top"
+            - listitem [ref=f762e231]:
+              - link "Fishing charters" [ref=f762e232] [cursor=pointer]:
+                - /url: search.html
+            - listitem [ref=f762e233]:
+              - link "Contact" [ref=f762e234] [cursor=pointer]:
+                - /url: "#top"
+      - generic [ref=f762e235]:
+        - generic [ref=f762e236]: © 2026 Arc Trips
+        - generic [ref=f762e237]: Prices in CAD, before taxes and fees

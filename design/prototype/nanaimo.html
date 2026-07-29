@@ -1,0 +1,360 @@
+<!doctype html><html lang="en-CA"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nanaimo, Arc Trips</title>
+<meta name="description" content="Nanaimo, Vancouver Island. 27 places written up, 21 with photographs.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_system.css">
+<style>
+:focus-visible{outline:2px solid var(--azure);outline-offset:3px}
+.btn,.nav-links a,.crumb a{min-height:44px;display:inline-flex;align-items:center}
+.crumb{font-size:.9rem}.label--n{color:var(--n600)}
+.thero{position:relative;min-height:min(62vh,560px);display:flex;align-items:flex-end;overflow:hidden;background:var(--navy)}
+.thero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.thero__v{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,51,86,.12) 0%,rgba(11,51,86,.7) 62%,rgba(11,51,86,.95) 100%)}
+.thero__in{position:relative;width:100%;padding-block:clamp(30px,4vw,56px)}
+.thero h1{color:#fff;font-size:clamp(2.8rem,7vw,5.2rem);letter-spacing:-.045em;line-height:.96}
+.thero p{color:rgba(255,255,255,.9);max-width:56ch;margin-top:18px;font-size:1.06rem;line-height:1.6}
+.tfacts{display:flex;gap:clamp(20px,4vw,44px);margin-top:26px;flex-wrap:wrap}
+.tfacts dt{font-size:.9rem;color:rgba(255,255,255,.75);font-weight:600}
+.tfacts dd{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;color:#fff;letter-spacing:-.04em;margin-top:4px;font-variant-numeric:tabular-nums}
+.sechead{max-width:60ch;margin-bottom:clamp(24px,3vw,38px)}
+.sechead h2{margin-top:8px}.cnt{color:var(--n600);margin-top:8px;font-size:.95rem}
+.places{display:grid;gap:clamp(44px,5.5vw,84px)}
+/* Photo entries: the image takes half the row, so it reads as a photograph rather
+   than a thumbnail. Alternating sides gives the page rhythm down the scroll. */
+.pl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,3.4vw,48px);align-items:center}
+.pl:nth-child(even) .pl__m{order:2}
+@media(max-width:820px){.pl{grid-template-columns:1fr;gap:20px}.pl:nth-child(even) .pl__m{order:0}}
+.pl__m{margin:0;border-radius:var(--r);overflow:hidden;background:var(--n100);aspect-ratio:4/3}
+.pl__m img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.pl:hover .pl__m img{transform:scale(1.035)}
+/* No-photo entries: name on the left, prose on the right, so the row still spans
+   the full measure instead of leaving half the page empty. */
+.pl--solo{grid-template-columns:minmax(0,.42fr) minmax(0,1fr);align-items:start}
+.pl--solo .pl__b{max-width:68ch}
+.solo__h{font-size:clamp(1.35rem,2.2vw,1.75rem);font-weight:800;letter-spacing:-.026em;color:var(--navy);
+  position:sticky;top:150px;align-self:start}
+@media(max-width:820px){.pl--solo{grid-template-columns:1fr}.solo__h{position:static}}
+.pl__b h3{font-size:clamp(1.35rem,2.2vw,1.75rem);font-weight:800;letter-spacing:-.026em;margin-bottom:14px}
+.pl__b p{margin-top:0;margin-bottom:14px;color:var(--n700);line-height:1.68;max-width:62ch;font-size:1.02rem}
+.pl__b p:last-of-type{margin-bottom:0}
+.pl__n{margin-top:18px;border-left:0;background:var(--n50);padding:14px 18px;border-radius:var(--r-sm);font-size:.97rem}
+.pl__n b{color:var(--navy)}
+.jump{display:flex;gap:8px;flex-wrap:wrap;padding:16px 0;border-block:1px solid var(--n150)}
+.jump a{font-size:.9rem;font-weight:600;color:var(--n600);padding:8px 14px;border-radius:var(--r-sm);background:var(--n50);min-height:40px;display:inline-flex;align-items:center}
+.jump a:hover{background:var(--a100);color:var(--azure)}
+</style></head><body>
+<span id="top" aria-hidden="true"></span>
+<nav class="top"><div class="wrap nav-in">
+  <a class="brand" href="index.html">ARCTRIPS</a>
+  <ul class="nav-links"><li><a href="search.html?in=nanaimo">Stays</a></li><li><a href="index.html" aria-current="page">Destinations</a></li><li><a href="region.html">Vancouver Island</a></li></ul>
+  <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input placeholder="Search Nanaimo" aria-label="Search"><kbd>/</kbd></label>
+  <a class="btn btn--ink btn--sm" href="search.html?in=nanaimo">Sign in</a>
+</div></nav>
+<nav class="placebar" aria-label="Nanaimo"><div class="wrap placebar-in">
+  <a class="placebar__back" href="region.html"><span class="n">&larr; Vancouver Island</span></a>
+  <ul class="placebar__links">
+    <li><a href="#top" aria-current="page">Overview</a></li>
+    <li><a href="search.html?in=nanaimo">Stays</a></li>
+    <li><a href="region.html">Vancouver Island</a></li>
+    <li><a href="index.html">All destinations</a></li>
+  </ul>
+  <a class="btn btn--primary btn--sm placebar__cta" href="search.html?in=nanaimo">Find a stay</a>
+</div></nav>
+<main id="main">
+<div class="wrap"><nav class="crumb" aria-label="Breadcrumb">
+  <a href="index.html">Arc Trips</a><span class="sep">/</span>
+  <a class="lvl-deep" href="country.html">Canada</a><span class="sep lvl-deep">/</span>
+  <a class="lvl-deep" href="province.html">British Columbia</a><span class="sep lvl-deep">/</span>
+  <a href="region.html">Vancouver Island</a><span class="sep">/</span>
+  <span aria-current="page">Nanaimo</span>
+</nav></div>
+<header class="thero">
+  <img src="media/nanaimo/image11.jpg" alt="Nanaimo, Vancouver Island">
+  <div class="thero__v"></div>
+  <div class="thero__in"><div class="wrap">
+    <span class="label" style="color:var(--a300)">Vancouver Island</span>
+    <h1>Nanaimo</h1>
+    <p>Saysutshun (Newcastle Island Marine) Park is a unique island park located just a few hundred meters off the Nanaimo harbor. Accessible only by water, this marine provincial park is rich in Snuneymuxw First Nation history and offers a tranquil escape from the city with its varied landscapes of.</p>
+    <dl class="tfacts">
+      <div><dt>Places written up</dt><dd class="tnum">27</dd></div>
+      <div><dt>With photographs</dt><dd class="tnum">21</dd></div>
+      <div><dt>Guides</dt><dd class="tnum">1</dd></div>
+    </dl>
+  </div></div>
+</header>
+<div class="wrap"><nav class="jump" aria-label="Sections">
+  <a href="#waterfront-harbour-island-experiences">Waterfront, Harbour &amp; Island Experiences</a><a href="#scenic-parks-beaches-nature-spots">Scenic Parks, Beaches &amp; Nature Spots</a><a href="#hiking-outdoor-adventure">Hiking &amp; Outdoor Adventure</a><a href="#arts-culture-entertainment">Arts, Culture &amp; Entertainment</a><a href="#food-drink-experiences">Food &amp; Drink Experiences</a><a href="#nearby-side-trips">Nearby Side Trips</a>
+</nav></div>
+
+<section class="sec" id="waterfront-harbour-island-experiences"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Waterfront, Harbour &amp; Island Experiences</span>
+    <h2>Waterfront, Harbour &amp; Island Experiences</h2><p class="cnt">7 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/nanaimo/image11.jpg" alt="Saysutshun (Newcastle Island Marine Provincial Park), Nanaimo"></figure>
+      
+      <div class="pl__b">
+        <h3>Saysutshun (Newcastle Island Marine Provincial Park)</h3>
+        <p>Saysutshun (Newcastle Island Marine) Park is a unique island park located just a few hundred meters off the Nanaimo harbor. Accessible only by water, this marine provincial park is rich in Snuneymuxw First Nation history and offers a tranquil escape from the city with its varied landscapes of sandstone cliffs and forested trails.</p><p>Snuneymuxw Cultural Experience: Visitors can explore the island's deep Indigenous roots through interpretive signage or by booking cultural tours. The island remains a place of spiritual and historical significance to the Snuneymuxw people.</p><p>Trail Network: The island features an extensive 22-kilometer trail system. The 6-kilometer perimeter trail is particularly popular, offering consistent views of the Salish Sea, the Coastal Mountains, and Nanaimo's waterfront.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/nanaimo/image26.jpg" alt="Harbourfront Walkway, Nanaimo"></figure>
+      
+      <div class="pl__b">
+        <h3>Harbourfront Walkway</h3>
+        <p>The Harbourfront Walkway is a scenic, multi-use pathway that stretches along Nanaimo's shoreline, offering a seamless connection between the city’s downtown core and its vibrant marine environment. This paved promenade is a favorite for both residents and visitors, providing constant views of the Nanaimo Harbour, Saysutshun (Newcastle Island Marine) Park, and the constant activity of seaplanes and ferries.</p><p>The walkway serves as a central artery for exploring the waterfront, passing through several key landmarks and offering numerous spots to stop and enjoy the maritime atmosphere.</p><p>Scenic Strolling: The path is well-maintained and relatively flat, making it ideal for a leisurely walk, morning run, or sunset stroll while watching the boats navigate the harbor basin.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/nanaimo/image14.jpg" alt="Whale watching and marine tours, Nanaimo"></figure>
+      
+      <div class="pl__b">
+        <h3>Whale watching and marine tours</h3>
+        <p>Nanaimo is a premier departure point for exploring the nutrient-rich waters of the Salish Sea, where sightings of humpback whales, orcas, and sea lions are highly frequent. Most tours operate out of the downtown boat basin, providing immediate access to the diverse marine ecosystems surrounding the local islands.</p><p>Whale Sightings: Tours primarily focus on spotting Humpback whales and Bigg’s (Transient) Orcas. Many operators offer a sightings guarantee, providing a complimentary return trip if whales are not spotted during your excursion.</p><p>Diverse Marine Wildlife: Beyond whales, you are likely to see Steller and California sea lions, harbor seals, porpoises, and a variety of seabirds like bald eagles and cormorants.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/nanaimo/image7.jpg" alt="Fishing, Nanaimo"></figure>
+      
+      <div class="pl__b">
+        <h3>Fishing</h3>
+        <p>Nanaimo is a premier destination for anglers, offering a diverse range of opportunities that span from calm freshwater lakes to the productive saltwaters of the Salish Sea. Whether you are looking for a casual afternoon at a local dock or a deep-sea excursion, the region provides year-round action.</p><p>Saltwater Fishing: The waters around Departure Bay and the Five Finger Island area are renowned for Chinook (King) and Coho (Silver) salmon. In the winter months, anglers often target winter springs (resident Chinook) which provide consistent activity when migratory runs are lower.</p><p>Freshwater Lakes: Nanaimo features several urban lakes that are regularly stocked by the Freshwater Fisheries Society of BC. Westwood Lake and Colliery Dam Park are top choices for catching Rainbow and Cutthroat trout, offering easy shore access and dedicated fishing piers.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/nanaimo/image24.jpg" alt="Kayaking, Boating, and Harbour Activities, Nanaimo"></figure>
+      
+      <div class="pl__b">
+        <h3>Kayaking, Boating, and Harbour Activities</h3>
+        <p>The waters surrounding Nanaimo are a primary draw for outdoor enthusiasts, offering a mix of sheltered harbor paddling, expansive island exploration, and deep-sea adventures. The unique geography of the Nanaimo Harbour and nearby islands creates a diverse marine playground for both motorized and human-powered vessels.</p><p>The Nanaimo coastline is ideal for kayaking, with the sheltered passage between the downtown core and Saysutshun (Newcastle Island Marine) Park serving as a popular route.</p><p>Island Hopping: Kayakers can easily cross the harbor to explore the shoreline of Saysutshun (Newcastle Island) and Protection Island. The waters are generally calm, but paddlers should remain alert for the frequent seaplane and ferry traffic.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/nanaimo/image33.jpg" alt="Protection Island, Nanaimo"></figure>
+      
+      <div class="pl__b">
+        <h3>Protection Island</h3>
+        <p>Protection Island is a small, primarily residential island located just a few hundred meters across the harbor from downtown Nanaimo. Known for its quirky atmosphere, golf-cart-filled streets, and the fact that it is home to Canada’s only floating pub, it offers a distinct pace of life that feels far removed from the city.</p><p>The Dinghy Dock Pub: This is the island's most famous landmark. The Dinghy Dock Pub &amp; Restaurant is a registered floating vessel permanently moored to the island. It features a family-friendly section, an outdoor patio with harbor views, and even a fishing hole in the floor of the dock.</p><p>Island Exploration: With no public cars allowed, the island is best explored on foot or by bicycle. The narrow, tree-lined roads lead past unique island homes and quiet community gardens, offering a peaceful glimpse into island living.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/nanaimo/image4.jpg" alt="Gabriola Island, Nanaimo"></figure>
+      
+      <div class="pl__b">
+        <h3>Gabriola Island</h3>
+        <p>Gabriola Island, known as the Isle of the Arts, is located just a 20-minute ferry ride from downtown Nanaimo. It is the northernmost of the Gulf Islands and is celebrated for its high density of world-class artists, unique sandstone formations, and rugged coastal scenery.</p><p>The Malaspina Galleries: These spectacular sandstone formations are the island's most iconic natural feature. The ocean has carved a massive, curved overhang into the shoreline cliffs, creating a natural gallery that looks like a frozen stone wave.</p><p>Artisan Galleries and Studios: The island is home to over 70 artist studios. Visitors can follow the Yellow Flag studio tour to visit local painters, potters, and weavers in their creative spaces, especially during the annual Thanksgiving Studio Tour.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="scenic-parks-beaches-nature-spots"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Scenic Parks, Beaches &amp; Nature Spots</span>
+    <h2>Scenic Parks, Beaches &amp; Nature Spots</h2><p class="cnt">7 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/nanaimo/image28.jpg" alt="Pipers Lagoon Park, Nanaimo"></figure>
+      
+      <div class="pl__b">
+        <h3>Pipers Lagoon Park</h3>
+        <p>Pipers Lagoon Park is one of Nanaimo’s most scenic waterfront destinations, known for its unique geography that includes a large tidal lagoon, rugged rock formations, and views of the Georgia Strait. It is a favorite spot for beachcombing, photography, and witnessing dramatic coastal sunrises and sunsets.</p><p>Beach and Lagoon Exploration: At low tide, the large lagoon becomes a haven for exploration. Visitors can walk along the sandbar that separates the quiet lagoon from the more active waves of the open ocean.</p><p>Scenic Lookouts: A network of well-worn trails leads up onto the rocky headlands. These elevated paths offer panoramic vistas of Shack Island, famous for its historic colorful fishing shacks, and the distant Coast Mountains on the mainland.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/nanaimo/image23.jpg" alt="Neck Point Park, Nanaimo"></figure>
+      
+      <div class="pl__b">
+        <h3>Neck Point Park</h3>
+        <p>Neck Point Park is a 36-acre waterfront park in North Nanaimo, recognized for its diverse coastal scenery that includes rugged cliffs, pebble beaches, and winding oak-strewn paths. It is widely considered one of the city's best locations for photography and marine wildlife viewing due to its position jutting out into the Salish Sea.</p><p>Scenic Viewpoints: A network of boardwalks and gravel trails leads to several neck points, such as Sunset Bluff and Last Beach. These elevated lookouts provide unobstructed views of the Winchelsea Islands and the mainland mountains.</p><p>Whale and Wildlife Watching: Because the park extends into the deep water of the Georgia Strait, it is a prime land-based spot for spotting orcas, humpback whales, and sea lions, especially during migratory seasons.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/nanaimo/image32.jpg" alt="Maffeo Sutton Park, Nanaimo"></figure>
+      
+      <div class="pl__b">
+        <h3>Maffeo Sutton Park</h3>
+        <p>Maffeo Sutton Park serves as Nanaimo's signature waterfront gathering place, acting as the anchor for the downtown shoreline. It is a multi-use space that hosts the city's major festivals and serves as the primary gateway for those heading to the nearby islands.</p><p>Island Access: The park is the departure point for the Saysutshun Newcastle Island Ferry. Visitors often use the park as a staging area before heading across the passage for hiking or camping.</p><p>Recreation and Play: It features an expansive, modern playground and an outdoor covered stage that frequently hosts live music and community events during the summer months.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/nanaimo/image18.jpg" alt="Westwood Lake Park, Nanaimo"></figure>
+      
+      <div class="pl__b">
+        <h3>Westwood Lake Park</h3>
+        <p>Westwood Lake Park is one of Nanaimo’s most popular year-round recreation destinations, nestled at the base of Mount Benson. Centered around a sprawling freshwater lake, the park offers a scenic mix of sandy beaches, dense forest, and a well-maintained trail system that appeals to swimmers, runners, and nature lovers alike.</p><p>The Perimeter Trail: A roughly 6-kilometer loop circles the lake, providing a relatively flat and well-groomed path. It is widely considered one of the best running and walking trails in the city, offering constant views of the water and the surrounding foothills.</p><p>Swimming and Sunbathing: The park features two main beaches. The primary beach near the entrance is wide and sandy, equipped with a designated swimming area that is frequently monitored by lifeguards during the summer months.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/nanaimo/image39.jpg" alt="Bowen Park, Nanaimo"></figure>
+      
+      <div class="pl__b">
+        <h3>Bowen Park</h3>
+        <p>Bowen Park is a sprawling 36-hectare natural oasis located just minutes from downtown Nanaimo. It serves as a central hub for both active recreation and peaceful nature walks, following the scenic curves of the Millstone River.</p><p>The Waterfall and Duck Pond: A highlight of the park is the scenic waterfall on the Millstone River, easily accessible via paved and gravel trails. Nearby, a large duck pond provides a tranquil spot for families and photographers.</p><p>Rhododendron Garden: The park features a stunning garden with over 350 species of rhododendrons, which create a vibrant display of color during the peak blooming season in late spring.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/nanaimo/image20.jpg" alt="Jack Point and Biggs Park, Nanaimo"></figure>
+      
+      <div class="pl__b">
+        <h3>Jack Point and Biggs Park</h3>
+        <p>Jack Point and Biggs Park is a stunning 13-hectare coastal park located on the southern tip of the Nanaimo estuary. It is celebrated for its dramatic sandstone formations and panoramic views of the Northumberland Channel, the downtown skyline, and the mountains of the mainland.</p><p>The park features a relatively easy 2.5-kilometer loop trail that winds through a mix of coastal forest and exposed rocky bluffs.</p><p>Sandstone Galleries: Much like Gabriola Island, the shoreline here has been sculpted by the wind and sea into intricate, honeycomb-like formations and smooth sandstone shelves that are perfect for exploring at low tide.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/nanaimo/image22.jpg" alt="Colliery Dam Park, Nanaimo"></figure>
+      
+      <div class="pl__b">
+        <h3>Colliery Dam Park</h3>
+        <p>Colliery Dam Park is a historic and scenic 18-hectare park in South Nanaimo that features two distinct lakes, Upper and Lower Colliery Dams, connected by a network of forested trails and rushing waterfalls. Built in the 1910s by the Western Fuel Company to supply water for coal washing, the dams now form the centerpiece of one of the city's most beloved multi-use natural areas.</p><p>Lakeside Trails: A well-maintained loop trail circles both the upper and lower dams, offering a mix of flat gravel sections and more rugged forest paths. The trail features several wooden bridges and viewpoints overlooking the water and the spillways.</p><p>Freshwater Fishing: The lower dam is a popular spot for freshwater angling and is frequently stocked with Rainbow Trout. A dedicated fishing pier provides easy access for families and shore-based fishers.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="hiking-outdoor-adventure"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Hiking &amp; Outdoor Adventure</span>
+    <h2>Hiking &amp; Outdoor Adventure</h2><p class="cnt">6 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/nanaimo/image3.jpg" alt="Ammonite Falls, Nanaimo"></figure>
+      
+      <div class="pl__b">
+        <h3>Ammonite Falls</h3>
+        <p>Ammonite Falls is a signature natural attraction within Benson Creek Falls Regional Park on the western edge of Nanaimo. This picturesque waterfall cascades over a series of layered sandstone ledges into a deep ravine, offering a classic Vancouver Island rainforest experience.</p><p>The Waterfall: The main draw is the 10-meter falls, which are particularly powerful in the spring or after heavy rainfall. The rock formations surrounding the water are embedded with marine fossils, giving the falls their name.</p><p>Forest Hiking: The trail to the falls winds through a second-growth forest of Douglas fir and Western Red Cedar. Recent infrastructure improvements, including a staircase and a viewing platform, have made reaching the falls significantly safer than the old rope assist scramble.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/nanaimo/image2.jpg" alt="Sugarloaf Mountain Park, Nanaimo"></figure>
+      
+      <div class="pl__b">
+        <h3>Sugarloaf Mountain Park</h3>
+        <p>Sugarloaf Mountain Park is a popular local hiking destination in South Nanaimo, centered around a rocky hilltop that offers one of the most accessible viewpoints in the city. While smaller than the major provincial parks, it provides a high-impact panoramic reward for a relatively short ascent.</p><p>The Summit View: The primary attraction is the rocky summit, which offers clear, sweeping views of Departure Bay, the downtown Nanaimo skyline, and the mountains of the mainland across the Salish Sea.</p><p>The Stairs: A well-maintained wooden staircase leads visitors through a mix of Garry oak and arbutus trees to the peak. This infrastructure makes the steep climb manageable for most fitness levels and provides a stable path during wetter weather.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/nanaimo/image10.jpg" alt="Mount Benson, Nanaimo"></figure>
+      
+      <div class="pl__b">
+        <h3>Mount Benson</h3>
+        <p>Mount Benson (Te’tuxw’tun) is the most prominent natural landmark in Nanaimo, rising over 1,000 meters to form the city's dramatic mountain backdrop. Primarily contained within Mt. Benson Regional Park, this massive undeveloped area is the go-to destination for hikers seeking a challenging ascent and some of the most expansive views on Vancouver Island.</p><p>Summit Panorama: Reaching the top rewards you with 360-degree views that include the Salish Sea, the Sunshine Coast, the North Shore mountains near Vancouver, and even Mt. Baker on exceptionally clear days. Looking inland, you can see the rugged wilderness toward Port Alberni.</p><p>Witchcraft Lake Access: The most popular route to the summit begins at the edge of Witchcraft Lake. The trail crosses a scenic floating boardwalk and wooden bridge before beginning a steady, steep climb through diverse forest zones.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">WildPlay Nanaimo</h3>
+      <div class="pl__b">
+        
+        <p>WildPlay Nanaimo is an outdoor adventure park situated along the banks of the Nanaimo River. It is a destination for those seeking high-adrenaline activities in a forested setting, featuring a variety of aerial obstacles and gravity-based challenges.</p><p>Bungy Jumping: This location is home to one of the most famous bungy jumps in North America, where participants leap from a 46-meter (150-foot) trestle bridge above the Nanaimo River.</p><p>Primal Swing: A massive pendulum-style swing that launches guests from the bridge, reaching speeds of up to 140 km/h as they arc through the river canyon.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Diving</h3>
+      <div class="pl__b">
+        
+        <p>Nanaimo is widely recognized as one of the premier cold-water diving destinations in the world. The combination of nutrient-rich currents, massive artificial reefs, and diverse marine life, from giant Pacific octopuses to inquisitive sea lions, makes it a bucket-list location for scuba enthusiasts.</p><p>The Artificial Reefs (Wreck Diving)</p><p>Nanaimo is home to three significant shipwrecks, all scuttled by the Artificial Reef Society of BC to create thriving marine habitats.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Golfing</h3>
+      <div class="pl__b">
+        
+        <p>Nanaimo is a prominent hub for golfers on Vancouver Island, offering a variety of courses that cater to different skill levels while taking advantage of the region's mild climate and coastal scenery. Whether you are looking for a championship-level challenge or a casual nine-hole round, the city provides several high-quality options that remain playable year-round.</p><p>Nanaimo Golf Club is a semi-private, 18-hole par 72 course recognized for its exceptional conditioning and panoramic views of Departure Bay.</p><p>Course Design: Stretching 6,700 yards from the championship tees, the layout features strategic bunkers, majestic evergreen trees, and fast greens that provide a solid test for low-handicap players.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="arts-culture-entertainment"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Arts, Culture &amp; Entertainment</span>
+    <h2>Arts, Culture &amp; Entertainment</h2><p class="cnt">5 places, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl pl--solo">
+      
+      <h3 class="solo__h">Nanaimo Museum</h3>
+      <div class="pl__b">
+        
+        <p>The Nanaimo Museum serves as the city's premier cultural anchor, located in the heart of downtown within the Vancouver Island Conference Centre. It offers an immersive look into the regional history, transitioning from the traditions of the Snuneymuxw First Nation to the gritty industrial era of coal mining.</p><p>The Coal Mine Exhibit: This is the museum’s centerpiece, a realistic walk-through replica of a 1920s coal mine. It features tight passages and low ceilings that effectively convey the challenging conditions faced by Nanaimo’s early miners.</p><p>Nanaimo Bar History: As a pillar of local culture, the museum hosts a dedicated display about the world-famous dessert. You can view the original recipe and learn about the local contest that helped cement its status as a Canadian icon.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Nanaimo Art Gallery</h3>
+      <div class="pl__b">
+        
+        <p>The Nanaimo Art Gallery is a contemporary public art museum located in the heart of downtown Nanaimo. It serves as a creative hub for the region, focusing on thought-provoking exhibitions and community-driven art education.</p><p>Rotating Exhibitions: The gallery features a dynamic schedule of exhibitions that highlight local, national, and international artists. These installations often explore themes relevant to Vancouver Island’s history, environment, and social landscape.</p><p>The Art Store: A dedicated space within the gallery offers unique, handcrafted pieces from local artisans, including ceramics, jewelry, and prints, making it an excellent stop for high-quality regional gifts.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/nanaimo/image8.jpg" alt="Port Theatre, Nanaimo"></figure>
+      
+      <div class="pl__b">
+        <h3>Port Theatre</h3>
+        <p>The Port Theatre is Nanaimo's premier performing arts center, serving as a cultural cornerstone for the central island since 1998. This 800-seat facility is celebrated for its excellent acoustics and intimate atmosphere, ensuring there isn't a bad seat in the house.</p><p>Diverse Performances: The theater hosts a wide variety of events, ranging from the Vancouver Island Symphony and international touring acts to community theater, contemporary dance, and high-profile keynote speakers.</p><p>Artistic Innovation: Beyond traditional performances, the venue often facilitates residencies and workshops, supporting local artists and fostering creative growth within the Nanaimo arts community.</p>
+        
+      </div>
+    </article><article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/nanaimo/image21.jpg" alt="Old City Quarter, Nanaimo"></figure>
+      
+      <div class="pl__b">
+        <h3>Old City Quarter</h3>
+        <p>Old City Quarter is a historic revitalized district located just a few blocks uphill from the Nanaimo waterfront. It is characterized by its late 19th and early 20th-century architecture, colorful storefronts, and a high concentration of independent boutiques and locally owned eateries.</p><p>Heritage Architecture: The district is home to some of the city's oldest buildings, which have been carefully restored to house modern shops. Walking through the area feels like a step back in time, with brick facades and intricate wood detailing.</p><p>Specialty Shopping: The quarter is known for its unique retail landscape, featuring everything from rare bookstores and antique shops to modern fashion boutiques and specialty kitchenware.</p>
+        
+      </div>
+    </article><article class="pl pl--solo">
+      
+      <h3 class="solo__h">Live Music Scene</h3>
+      <div class="pl__b">
+        
+        <p>Nanaimo has a diverse music scene that ranges from intimate indie stages to energetic pub settings and larger cultural venues. The city's landscape supports everything from emerging local singer-songwriters to touring national acts.</p><p>The Queen's is often cited as the city's primary live music destination, known for its energetic atmosphere and historic setting. This venue features a rustic, cozy interior and is a popular spot for dancing. It regularly hosts a mix of independent bands, rock acts, and community events, often pairing the music with a menu of tavern fare and Chinese cuisine.</p><p>The Globe Live Studio provides a dedicated space for original music and all-ages shows in the downtown core. It is a go-to for all-ages indie, alt-rock, and punk performances, making it an important hub for the local youth and underground music scenes. The schedule often includes album release parties, local school of rock showcases, and tribute nights.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="food-drink-experiences"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Food &amp; Drink Experiences</span>
+    <h2>Food &amp; Drink Experiences</h2><p class="cnt">1 place, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/nanaimo/image34.jpg" alt="Nanaimo Bar Trail, Nanaimo"></figure>
+      
+      <div class="pl__b">
+        <h3>Nanaimo Bar Trail</h3>
+        <p>The Nanaimo Bar Trail is a self-guided culinary tour featuring over 30 stops, each offering a unique take on the city's legendary no-bake dessert. The experience ranges from classic chocolate-and-custard squares to creative interpretations like deep-fried rolls, cocktails, and even themed spa treatments.</p><p>The Nanaimo Museum serves as the official starting point for many, housing the official recipe by Joyce Hardcastle and a permanent exhibit on the dessert's history. You can even sit on the museum's signature Nanaimo Bar-shaped benches for a photo.</p><p>Classic Creations: Red's Bakery is a local favorite for the traditional version, often cited for its perfect balance of a rich cocoa-crumb base and velvety custard.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" id="nearby-side-trips"><div class="wrap">
+  <div class="sechead"><span class="label label--n">Nearby Side Trips</span>
+    <h2>Nearby Side Trips</h2><p class="cnt">1 place, written up one at a time</p></div>
+  <div class="places">
+    <article class="pl">
+      <figure class="pl__m"><img loading="lazy" src="media/nanaimo/image25.jpg" alt="Ladysmith - Transfer Beach, Nanaimo"></figure>
+      
+      <div class="pl__b">
+        <h3>Ladysmith - Transfer Beach</h3>
+        <p>Transfer Beach Park is a central community hub in Ladysmith, located approximately 23 kilometers south of Nanaimo, roughly a 20-minute drive via the Trans-Canada Highway. Known for having some of the warmest ocean swimming waters north of San Francisco, this sprawling waterfront park offers a blend of natural beauty and extensive family amenities.</p><p>The Amphitheatre: A stunning seaside amphitheatre serves as a primary venue for live concerts, community festivals, and even logger sports during the summer months.</p><p>Family Recreation: The park is exceptionally well-equipped for children, featuring a large playground, a seasonal water park (spray park), and expansive open green spaces perfect for frisbee or soccer.</p>
+        
+      </div>
+    </article>
+  </div>
+</div></section>
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <h2>Keep going</h2>
+  <nav class="siblings" style="margin-top:20px" aria-label="Next">
+    <a class="sib" href="region.html"><span class="sib__n">Vancouver Island</span><span class="sib__m">All the towns</span></a>
+    <a class="sib" href="search.html?in=nanaimo"><span class="sib__n">Stays in Nanaimo</span><span class="sib__m">Search what is open</span></a>
+    <a class="sib" href="index.html"><span class="sib__n">All destinations</span><span class="sib__m">Every town we cover</span></a>
+  </nav>
+</div></section>
+</main>
+<footer class="f"><div class="wrap fbase">&copy; 2026 Arc Trips. Prices in CAD, before taxes and fees.</div></footer>
+<script src="_nav.js"></script>
+</body></html>

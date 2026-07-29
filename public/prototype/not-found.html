@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Page not found, Arc Trips</title>
+<meta name="description" content="That page is not on Arc Trips. Search everything we publish, or start from Tofino and the towns being written next.">
+<meta name="robots" content="noindex,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_system.css">
+<style>
+/* Page-scoped only, built from _system.css tokens. No new colour values, and
+   no green on this page at all: nothing here is a season or a live booking. */
+
+/* Floors: 44px targets, and nothing on this page reads below 14px. Several
+   system classes sit under that, so they are lifted here rather than edited. */
+.btn{min-height:44px;white-space:nowrap}
+.btn--sm{font-size:.9rem}
+nav.top .btn{flex:none}
+.brand,.nav-links a{display:inline-flex;align-items:center;min-height:44px}
+.search{height:44px}
+.search input{align-self:stretch}
+.search kbd{font-size:.88rem}
+.crumb{font-size:.9rem}
+.crumb a{padding-block:11px}
+.label{font-size:.88rem;letter-spacing:.1em}
+.fgrid h5{font-size:.88rem}
+.fnote{font-size:.92rem}
+.fbase{font-size:.88rem}
+.fgrid ul{gap:2px;font-size:.94rem}
+.fgrid ul a{display:inline-block;padding-block:12px}
+.head p{font-size:1rem}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+body>.skip{position:absolute;left:var(--gut);top:-60px;z-index:99;background:var(--navy);color:var(--paper);
+  padding:13px 18px;border-radius:0 0 var(--r-sm) var(--r-sm);font-weight:600;font-size:.95rem;transition:top .18s var(--ease)}
+body>.skip:focus{top:0}
+[id]{scroll-margin-top:136px}
+@media(max-width:760px){[id]{scroll-margin-top:64px}}
+.sec--tight{padding-block:clamp(34px,4.4vw,60px)}
+
+/* Hero: one column, one job. The search field is the only primary on the page. */
+.hero{padding-block:clamp(30px,4vw,56px) clamp(26px,3.2vw,42px)}
+.hero h1{font-size:clamp(2.3rem,5vw,3.9rem);max-width:17ch;line-height:1.05;margin-top:12px}
+.hero .lede{max-width:54ch;margin-top:18px}
+
+.find{margin-top:clamp(24px,3vw,34px);max-width:660px}
+.find__f{display:flex;align-items:center;gap:12px;height:62px;border:1.5px solid var(--n200);
+  border-radius:999px;padding:0 8px 0 22px;background:var(--paper);
+  box-shadow:0 12px 30px -20px rgba(11,51,86,.4);
+  transition:border-color .2s var(--ease),box-shadow .2s var(--ease)}
+.find__f:focus-within{border-color:var(--azure);box-shadow:0 0 0 3px var(--a100)}
+.find__f>svg{width:19px;height:19px;color:var(--n500);flex:none}
+.find__f input{flex:1;min-width:0;border:0;outline:0;background:none;font:inherit;
+  font-size:1.02rem;color:var(--n900);align-self:stretch}
+.find__f input::placeholder{color:var(--n600)}
+.find__n{font-size:.94rem;color:var(--n600);margin-top:13px;padding-left:6px;line-height:1.55;max-width:56ch}
+.find__n b{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+.hits{list-style:none;margin-top:14px;border-top:1px solid var(--n150)}
+.hits:empty{border-top:0;margin-top:0}
+.hits li{border-bottom:1px solid var(--n150)}
+.hits a{display:grid;grid-template-columns:64px 1fr auto;gap:16px;align-items:center;
+  min-height:64px;padding-block:10px}
+.hits__m{border-radius:var(--r-sm);overflow:hidden;aspect-ratio:4/3;background:var(--n100)}
+.hits__m img{width:100%;height:100%;object-fit:cover}
+.hits b{display:block;font-size:1rem;font-weight:700;color:var(--navy);letter-spacing:-.012em;line-height:1.3}
+.hits span{display:block;font-size:.88rem;color:var(--n600);margin-top:2px}
+.hits a:hover b{color:var(--azure)}
+.hits__go{font-size:.88rem;font-weight:700;color:var(--azure);white-space:nowrap}
+@media(max-width:520px){.hits a{grid-template-columns:52px 1fr}.hits__go{display:none}}
+@media(max-width:480px){.find__f{height:56px;padding-left:18px}}
+
+/* One plain sentence about the address that was asked for. No chips, no
+   legend, no colour coding: it says in words how far it got. */
+.said{display:flex;align-items:baseline;gap:clamp(10px,2vw,20px);flex-wrap:wrap;padding-block:16px}
+.said p{font-size:1rem;color:var(--n700);line-height:1.6;max-width:76ch}
+.said b{color:var(--navy);font-weight:700}
+.said a{color:var(--azure);font-weight:700;white-space:nowrap;min-height:44px;display:inline-flex;align-items:center}
+
+/* The town we think you wanted, on the navy panel so it reads as the answer. */
+.nearest{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:clamp(22px,3.4vw,46px);align-items:center}
+@media(max-width:760px){.nearest{grid-template-columns:1fr}}
+.nearest__m{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3.4;background:var(--a800)}
+.nearest__m img{width:100%;height:100%;object-fit:cover}
+.nearest h2{font-size:clamp(1.7rem,2.6vw,2.3rem)}
+.nearest p{color:rgba(255,255,255,.85);margin-top:12px;font-size:1.02rem;line-height:1.6;max-width:52ch}
+.nearest__f{display:flex;gap:clamp(18px,3vw,34px);flex-wrap:wrap;margin-top:22px;padding-top:18px;
+  border-top:1px solid rgba(255,255,255,.2)}
+.nearest__f dt{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.7)}
+.nearest__f dd{font-size:1.5rem;font-weight:800;color:var(--paper);letter-spacing:-.03em;margin-top:3px;font-variant-numeric:tabular-nums}
+.nearest__cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.almanac .btn--ghost{border-color:rgba(255,255,255,.45);color:var(--paper)}
+.almanac .btn--ghost:hover{border-color:var(--paper);background:rgba(255,255,255,.1)}
+.almanac :focus-visible{outline-color:var(--a300)}
+
+/* The roster. Built for the whole corpus, not for two towns: grouped by
+   region, counted, written ones are links, the rest are named honestly. */
+.roster{columns:242px 4;column-gap:clamp(22px,3vw,38px)}
+.rgroup{break-inside:avoid;margin-bottom:clamp(24px,3vw,34px)}
+.rgroup h3{font-size:1.1rem}
+.rgroup .c{display:block;font-size:.92rem;color:var(--n600);margin-top:5px;font-variant-numeric:tabular-nums}
+.rgroup .open{display:inline-flex;align-items:center;min-height:44px;font-size:.92rem;font-weight:700;color:var(--azure)}
+.rgroup ul{list-style:none;margin-top:8px}
+.rgroup li{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;
+  padding-block:9px;border-top:1px solid var(--n150);font-size:.98rem;color:var(--n700)}
+.rgroup li a{color:var(--navy);font-weight:700;display:inline-flex;align-items:center;align-self:stretch;min-height:44px}
+.rgroup li a:hover{color:var(--azure)}
+.rgroup .ct{font-size:.9rem;color:var(--n600);white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* Three fixed slots, so the page cannot end on a footer. */
+.kg{border-top:2px solid var(--navy);padding-top:clamp(26px,3vw,36px);display:grid;
+  grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,40px)}
+@media(max-width:820px){.kg{grid-template-columns:1fr;gap:0}}
+.kg>a{display:block;padding-block:4px}
+@media(max-width:820px){.kg>a{padding-block:20px;border-bottom:1px solid var(--n150)}.kg>a:last-child{border-bottom:0}}
+.kg h3{font-size:1.24rem}
+.kg a:hover h3{color:var(--azure)}
+.kg p{font-size:.98rem;color:var(--n600);margin-top:8px;line-height:1.5}
+.kg .go{display:inline-flex;align-items:center;gap:8px;margin-top:10px;min-height:44px;
+  font-size:.94rem;font-weight:700;color:var(--azure)}
+.kg .go svg{width:14px;height:14px}
+footer.f{margin-top:0}
+</style>
+</head>
+<body>
+<span id="top" aria-hidden="true"></span>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- the chart ground: contour lines only -->
+<div class="chart" aria-hidden="true">
+<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none">
+  <g stroke="var(--a200)" stroke-width="1" opacity=".72">
+    <path d="M-40 250 C160 200 300 300 420 280 C560 258 640 150 800 170 C960 190 1050 300 1200 280 C1330 262 1420 200 1500 220"/>
+    <path d="M-40 300 C170 250 310 350 430 330 C570 308 650 205 810 225 C970 245 1060 350 1210 330 C1340 312 1425 255 1500 275"/>
+    <path d="M-40 355 C180 305 320 402 440 385 C580 365 665 262 820 282 C980 302 1070 402 1220 385 C1350 368 1430 312 1500 332"/>
+    <path d="M-60 620 C140 585 260 660 400 640 C540 620 620 545 760 560 C900 575 1000 655 1140 640 C1280 625 1380 570 1500 590"/>
+    <path d="M-60 672 C150 638 275 712 415 692 C555 672 632 600 772 615 C912 630 1010 706 1150 692 C1290 678 1385 622 1500 642"/>
+    <path d="M-60 726 C160 692 290 764 430 744 C570 724 645 654 785 669 C925 684 1020 758 1160 744 C1300 730 1390 675 1500 695"/>
+  </g>
+</svg>
+</div>
+
+<!-- Global nav, identical on every page: Stays, Destinations, Vancouver Island. -->
+<nav class="top"><div class="wrap nav-in">
+  <a class="brand" href="index.html">Arctrips</a>
+  <ul class="nav-links">
+    <li><a href="search.html">Stays</a></li>
+    <li><a href="index.html">Destinations</a></li>
+    <li><a href="search.html">Guides</a></li>
+  </ul>
+  <form class="search" role="search" action="search.html" method="get">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
+    <label class="vh" for="q">Search stays, towns and guides</label>
+    <input id="q" name="q" type="search" placeholder="Long Beach, Lone Cone, Wolf in the Fog">
+    <kbd>/</kbd>
+  </form>
+  <a class="btn btn--ink btn--sm" href="#top">Sign in</a>
+</div></nav>
+
+<!-- Place bar, identical on every page below Tofino. -->
+<nav class="placebar" aria-label="Tofino"><div class="wrap placebar-in">
+  <a class="placebar__back" href="tofino.html"><span class="n">&larr; Tofino</span></a>
+  <ul class="placebar__links">
+    <li><a href="tofino.html">Overview</a></li>
+    <li><a href="things-to-do.html">Things to do</a></li>
+    <li><a href="long-beach.html">Areas</a></li>
+    <li><a href="plan.html">Plan</a></li>
+    <li><a href="guide.html">Guides</a></li>
+  </ul>
+  <a class="btn btn--ghost btn--sm placebar__cta" href="search.html">Find a stay</a>
+</div></nav>
+
+<main id="main">
+
+<div class="wrap">
+  <nav class="crumb" id="crumb" aria-label="Breadcrumb"></nav>
+</div>
+
+<header class="hero"><div class="wrap">
+  <span class="label">Page not found</span>
+  <h1>There is no page at that address</h1>
+  <p class="lede">It was either never written or never existed. Search everything we publish, or start from one of the towns below.</p>
+
+  <form class="find" id="find" role="search" action="search.html" method="get">
+    <div class="find__f">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <label class="vh" for="bigq">Search every town, guide, place, article and stay</label>
+      <input id="bigq" name="q" type="search" autocomplete="off" spellcheck="false"
+             placeholder="Long Beach, storm watching, Ucluelet, hot tub"
+             aria-describedby="findnote" aria-controls="hits">
+      <button class="btn btn--primary" type="submit">Search</button>
+    </div>
+    <p class="find__n" id="findnote"></p>
+    <ul class="hits" id="hits" aria-live="polite"></ul>
+  </form>
+</div></header>
+
+<!-- What was asked for, said in one sentence. -->
+<div class="tide"><div class="wrap said">
+  <p id="said"></p>
+  <a href="index.html" id="saidlink">See every destination</a>
+</div></div>
+
+<section class="sec sec--tight" id="nearest"><div class="wrap">
+  <div class="almanac">
+    <div class="nearest" id="nearestcard"></div>
+  </div>
+</div></section>
+
+<section class="sec sec--tight" id="towns" style="padding-top:0"><div class="wrap">
+  <div class="head">
+    <div>
+      <h2>Where do you want to go?</h2>
+      <p>Two towns are written up in full today. The rest are named here so you can see what is coming, and where.</p>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="index.html">All destinations</a>
+  </div>
+  <div class="roster" id="roster"></div>
+</div></section>
+
+<section class="sec sec--tight" style="padding-top:0"><div class="wrap">
+  <div class="kg">
+    <a href="tofino.html">
+      <h3>Tofino, place by place</h3>
+      <p>Nine subjects and 73 named places on the outer coast.</p>
+      <span class="go">Open the town <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="plan.html">
+      <h3>When should you go?</h3>
+      <p>What the coast is like in each of the twelve months.</p>
+      <span class="go">Read the plan <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="search.html">
+      <h3>Somewhere to stay</h3>
+      <p>292 stays in both towns, from $320 a night in CAD.</p>
+      <span class="go">Search stays <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+</div></section>
+
+</main>
+
+<footer class="f"><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <span class="fbrand">Arctrips</span>
+      <p class="fnote">Stays and guides on the west coast of Vancouver Island, written by people who go there.</p>
+    </div>
+    <div><h5>Destinations</h5><ul>
+      <li><a href="tofino.html">Tofino</a></li><li><a href="search.html">Guides</a></li>
+      <li><a href="province.html">British Columbia</a></li><li><a href="country.html">Canada</a></li></ul></div>
+    <div><h5>Things to do</h5><ul>
+      <li><a href="things-to-do.html">All nine subjects</a></li><li><a href="whale-watching.html">Whale watching</a></li>
+      <li><a href="long-beach.html">Long Beach</a></li><li><a href="search.html">Search everything</a></li></ul></div>
+    <div><h5>Plan</h5><ul>
+      <li><a href="plan.html">When to go</a></li><li><a href="plan.html">Getting there</a></li>
+      <li><a href="search.html">Where to stay</a></li><li><a href="guide.html">What to pack</a></li></ul></div>
+    <div><h5>Arc Trips</h5><ul>
+      <li><a href="#top">About us</a></li><li><a href="#top">List your place</a></li>
+      <li><a href="search.html">Fishing charters</a></li><li><a href="#top">Contact</a></li></ul></div>
+  </div>
+  <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees</span></div>
+</div></footer>
+
+<script>
+/* Read out of corpus.json at build time and inlined so the page opens straight
+   off the file system. Only the search index and the two live towns use it. */
+const DATA = {"towns":[{"s":"tofino","n":"Tofino","href":"tofino.html","hero":"arcstudio/wnrrcrf4lnalgzbjvsz8","alt":"Clayoquot Sound and its forested islands north of Tofino, seen from the air","sf":"Storm-swept beaches, old-growth rainforest, and the best surf on the Pacific coast.","guides":9,"places":73,"stays":134,"from":320,"subs":["fishing","beaches","surfing","whale-watching","birding","storm-watching","hiking","restaurants","kayaking"]},{"s":"ucluelet","n":"Ucluelet","href":"region.html","hero":"arcstudio/dtz692xbgvvwjopu7vcs","alt":"The forested peninsula at Ucluelet with open water on three sides","sf":"Tofino's quieter neighbour, wrapped by the Wild Pacific Trail.","guides":6,"places":54,"stays":158,"from":320,"subs":["fishing","hiking","kayaking","whale-watching","birding","restaurants"]}],"places":[{"n":"Ucluelet Harbour","s":"ucluelet-harbour","c":"kayaking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/kayaking/ucluelet-harbour-1","g":6},{"n":"Mackenzie Beach / tinwis Beach","s":"mackenzie-beach-tinwis-beach","c":"kayaking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/kayaking/mackenzie-beach-tinwis-beach-1","g":6},{"n":"Wolf in the Fog","s":"wolf-in-the-fog","c":"restaurants","t":"tofino","u":"things-to-do.html","h":"guides/tofino/restaurants/_category-1","g":6},{"n":"Tonquin Trail","s":"tonquin-trail","c":"hiking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/hiking/tonquin-trail-1","g":7},{"n":"Public Viewing Points","s":"public-viewing-points","c":"storm-watching","t":"tofino","u":"things-to-do.html","h":"guides/tofino/storm-watching/_category-1","g":0},{"n":"Wild Pacific Trail","s":"wild-pacific-trail","c":"whale-watching","t":"ucluelet","u":"whale-watching.html","h":"guides/ucluelet/whale-watching/wild-pacific-trail-1","g":7},{"n":"Wild Pacific Trail","s":"wild-pacific-trail","c":"hiking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/hiking/wild-pacific-trail-1","g":8},{"n":"Pluvio Restaurant + Rooms","s":"pluvio-restaurant-rooms","c":"restaurants","t":"ucluelet","u":"region.html","h":"arcstudio/mg8epie7gzlpfb1bn7jo","g":6},{"n":"Chesterman Beach","s":"chesterman-beach","c":"beaches","t":"tofino","u":"long-beach.html","h":"guides/tofino/beaches/chesterman-beach-1","g":6},{"n":"Inner Harbour and Shoreline Paddles","s":"inner-harbour-and-shoreline-paddles","c":"kayaking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/kayaking/inner-harbour-and-shoreline-paddles-1","g":6},{"n":"Tonquin Beach Trail","s":"tonquin-beach-trail","c":"hiking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/hiking/tonquin-beach-trail-1","g":5},{"n":"Heartwood Kitchen","s":"heartwood-kitchen","c":"restaurants","t":"ucluelet","u":"region.html","h":"arcstudio/mg8epie7gzlpfb1bn7jo","g":7},{"n":"Cox Bay","s":"cox-bay","c":"storm-watching","t":"tofino","u":"things-to-do.html","h":"guides/tofino/storm-watching/_category-1","g":0},{"n":"Cox Bay","s":"cox-bay","c":"beaches","t":"tofino","u":"long-beach.html","h":"guides/tofino/beaches/cox-bay-1","g":6},{"n":"Lighthouse Loop","s":"lighthouse-loop","c":"hiking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/hiking/lighthouse-loop-1","g":7},{"n":"Kennedy Lake","s":"kennedy-lake","c":"kayaking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/kayaking/kennedy-lake-1","g":6},{"n":"The Pointe Restaurant","s":"the-pointe-restaurant","c":"restaurants","t":"tofino","u":"things-to-do.html","h":"guides/tofino/restaurants/the-pointe-restaurant-1","g":6},{"n":"Amphitrite Point Lighthouse","s":"amphitrite-point-lighthouse","c":"whale-watching","t":"ucluelet","u":"whale-watching.html","h":"guides/ucluelet/whale-watching/amphitrite-point-lighthouse-1","g":6},{"n":"Tofino Harbour and Sheltered Inlet Waters","s":"tofino-harbour-and-sheltered-inlet-waters","c":"kayaking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/kayaking/tofino-harbour-and-sheltered-inlet-waters-1","g":5},{"n":"Long Beach","s":"long-beach","c":"beaches","t":"tofino","u":"long-beach.html","h":"guides/tofino/beaches/long-beach-1","g":6},{"n":"Ucluelet Harbour","s":"ucluelet-harbour","c":"whale-watching","t":"ucluelet","u":"whale-watching.html","h":"guides/ucluelet/whale-watching/ucluelet-harbour-1","g":6},{"n":"Floathouse Patio & Grill","s":"floathouse-patio-grill","c":"restaurants","t":"ucluelet","u":"region.html","h":"guides/ucluelet/restaurants/floathouse-patio-grill-1","g":6},{"n":"Shelter Restaurant","s":"shelter-restaurant","c":"restaurants","t":"tofino","u":"things-to-do.html","h":"guides/tofino/restaurants/_category-1","g":6},{"n":"Chesterman Beach","s":"chesterman-beach","c":"storm-watching","t":"tofino","u":"things-to-do.html","h":"guides/tofino/storm-watching/_category-1","g":0},{"n":"Little Beach Area","s":"little-beach-area","c":"kayaking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/kayaking/little-beach-area-1","g":4},{"n":"Third Beach and Middle Beach Walk","s":"third-beach-and-middle-beach-walk","c":"hiking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/hiking/third-beach-and-middle-beach-walk-1","g":5},{"n":"Big Beach Park Trail","s":"big-beach-park-trail","c":"hiking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/hiking/big-beach-park-trail-1","g":6},{"n":"Artist Loops","s":"artist-loops","c":"hiking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/hiking/artist-loops-1","g":6},{"n":"Barkley Sound","s":"barkley-sound","c":"whale-watching","t":"ucluelet","u":"whale-watching.html","h":"guides/ucluelet/whale-watching/barkley-sound-1","g":8},{"n":"Cedar Grill","s":"cedar-grill","c":"restaurants","t":"ucluelet","u":"region.html","h":"arcstudio/mg8epie7gzlpfb1bn7jo","g":6},{"n":"Grice Bay","s":"grice-bay","c":"kayaking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/kayaking/grice-bay-1","g":6},{"n":"Long Beach","s":"long-beach","c":"storm-watching","t":"tofino","u":"things-to-do.html","h":"guides/tofino/storm-watching/_category-1","g":0},{"n":"Ombré Restaurant","s":"ombr-restaurant","c":"restaurants","t":"tofino","u":"things-to-do.html","h":"guides/tofino/restaurants/_category-1","g":6},{"n":"Tinwis Beach, formerly Mackenzie Beach","s":"tinwis-beach-formerly-mackenzie-beach","c":"beaches","t":"tofino","u":"long-beach.html","h":"guides/tofino/beaches/tinwis-beach-formerly-mackenzie-beach-1","g":6},{"n":"Multi-Use Path in Tofino","s":"multi-use-path-in-tofino","c":"hiking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/hiking/multi-use-path-in-tofino-1","g":6},{"n":"Meares Island and Big Tree Trail","s":"meares-island-and-big-tree-trail","c":"kayaking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/kayaking/meares-island-and-big-tree-trail-1","g":6},{"n":"Tonquin Beach","s":"tonquin-beach","c":"beaches","t":"tofino","u":"long-beach.html","h":"guides/tofino/beaches/tonquin-beach-1","g":5},{"n":"Cox Bay Lookout","s":"cox-bay-lookout","c":"hiking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/hiking/cox-bay-lookout-1","g":5},{"n":"Broken Group Islands","s":"broken-group-islands","c":"whale-watching","t":"ucluelet","u":"whale-watching.html","h":"guides/ucluelet/whale-watching/broken-group-islands-1","g":7},{"n":"Ancient Cedars Trail","s":"ancient-cedars-trail","c":"hiking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/hiking/ancient-cedars-trail-1","g":6},{"n":"Kennedy Lake","s":"kennedy-lake","c":"kayaking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/kayaking/kennedy-lake-1","g":6},{"n":"Wickaninnish Beach and Kwisitis Visitor Centre","s":"wickaninnish-beach-and-kwisitis-visitor-centre","c":"storm-watching","t":"tofino","u":"things-to-do.html","h":"guides/tofino/storm-watching/_category-1","g":0},{"n":"Lemmens Inlet","s":"lemmens-inlet","c":"kayaking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/kayaking/lemmens-inlet-1","g":6},{"n":"Big Beach Bar & Lounge","s":"big-beach-bar-lounge","c":"restaurants","t":"ucluelet","u":"region.html","h":"arcstudio/mg8epie7gzlpfb1bn7jo","g":6},{"n":"ROAR Tofino","s":"roar-tofino","c":"restaurants","t":"tofino","u":"things-to-do.html","h":"guides/tofino/restaurants/_category-1","g":6},{"n":"Pacific Rim National Park Reserve","s":"pacific-rim-national-park-reserve","c":"whale-watching","t":"ucluelet","u":"whale-watching.html","h":"guides/ucluelet/whale-watching/pacific-rim-national-park-reserve-1","g":7},{"n":"Tacofino Original Truck","s":"tacofino-original-truck","c":"restaurants","t":"tofino","u":"things-to-do.html","h":"guides/tofino/restaurants/tacofino-original-truck-1","g":6},{"n":"Radar Hill Trail","s":"radar-hill-trail","c":"hiking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/hiking/radar-hill-trail-1","g":6},{"n":"Tonquin Beach","s":"tonquin-beach","c":"storm-watching","t":"tofino","u":"things-to-do.html","h":"guides/tofino/storm-watching/_category-1","g":0},{"n":"Grice Bay","s":"grice-bay","c":"kayaking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/kayaking/grice-bay-1","g":6},{"n":"Currents Restaurant","s":"currents-restaurant","c":"restaurants","t":"ucluelet","u":"region.html","h":"arcstudio/mg8epie7gzlpfb1bn7jo","g":6},{"n":"Bog Interpretive Loop","s":"bog-interpretive-loop","c":"hiking","t":"ucluelet","u":"region.html","h":"arcstudio/galleries/dayhike-trail-1","g":6},{"n":"Middle Beach","s":"middle-beach","c":"beaches","t":"tofino","u":"long-beach.html","h":"guides/tofino/beaches/middle-beach-1","g":4},{"n":"Barkley Sound","s":"barkley-sound","c":"kayaking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/kayaking/barkley-sound-1","g":7},{"n":"Clayoquot Sound","s":"clayoquot-sound","c":"kayaking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/kayaking/clayoquot-sound-1","g":6},{"n":"Ucluelet Brewing Company","s":"ucluelet-brewing-company","c":"restaurants","t":"ucluelet","u":"region.html","h":"arcstudio/mg8epie7gzlpfb1bn7jo","g":6},{"n":"Rosie Bay","s":"rosie-bay","c":"beaches","t":"tofino","u":"long-beach.html","h":"guides/tofino/beaches/rosie-bay-1","g":4},{"n":"Pettinger Point","s":"pettinger-point","c":"storm-watching","t":"tofino","u":"things-to-do.html","h":"guides/tofino/storm-watching/pettinger-point-1","g":0},{"n":"Rainforest Trail","s":"rainforest-trail","c":"hiking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/hiking/rainforest-trail-1","g":6},{"n":"Wildside Grill","s":"wildside-grill","c":"restaurants","t":"tofino","u":"things-to-do.html","h":"guides/tofino/restaurants/_category-1","g":6},{"n":"Spring Cove Mudflats","s":"spring-cove-mudflats","c":"hiking","t":"ucluelet","u":"region.html","h":"arcstudio/galleries/dayhike-trail-1","g":6},{"n":"Wya Point Area","s":"wya-point-area","c":"kayaking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/kayaking/_category-1","g":6},{"n":"Terrace Beach Trail","s":"terrace-beach-trail","c":"hiking","t":"ucluelet","u":"region.html","h":"arcstudio/galleries/dayhike-trail-1","g":5},{"n":"Abbondanza Wood Fired Pizza","s":"abbondanza-wood-fired-pizza","c":"restaurants","t":"ucluelet","u":"region.html","h":"arcstudio/mg8epie7gzlpfb1bn7jo","g":6},{"n":"Secret Beach and Toquaht Bay","s":"secret-beach-and-toquaht-bay","c":"kayaking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/kayaking/_category-1","g":6},{"n":"Oceanfront Resorts and Cabins","s":"oceanfront-resorts-and-cabins","c":"storm-watching","t":"tofino","u":"things-to-do.html","h":"guides/tofino/storm-watching/oceanfront-resorts-and-cabins-1","g":0},{"n":"Ucluelet Harbour","s":"ucluelet-harbour","c":"kayaking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/kayaking/ucluelet-harbour-1","g":5},{"n":"Shed Tofino","s":"shed-tofino","c":"restaurants","t":"tofino","u":"things-to-do.html","h":"guides/tofino/restaurants/_category-1","g":6},{"n":"Wickaninnish Beach","s":"wickaninnish-beach","c":"beaches","t":"tofino","u":"long-beach.html","h":"guides/tofino/beaches/wickaninnish-beach-1","g":6},{"n":"Shorepine Bog Trail","s":"shorepine-bog-trail","c":"hiking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/hiking/shorepine-bog-trail-1","g":6},{"n":"Papi’s Cantina","s":"papis-cantina","c":"restaurants","t":"ucluelet","u":"region.html","h":"arcstudio/mg8epie7gzlpfb1bn7jo","g":6},{"n":"Rhino Coffee House","s":"rhino-coffee-house","c":"restaurants","t":"tofino","u":"things-to-do.html","h":"guides/tofino/restaurants/_category-1","g":6},{"n":"Spruce Fringe Trail","s":"spruce-fringe-trail","c":"hiking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/hiking/spruce-fringe-trail-1","g":5},{"n":"Broken Group Islands","s":"broken-group-islands","c":"kayaking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/kayaking/broken-group-islands-1","g":7},{"n":"Florencia Bay","s":"florencia-bay","c":"beaches","t":"tofino","u":"long-beach.html","h":"guides/tofino/beaches/florencia-bay-1","g":5},{"n":"Barkley Sound","s":"barkley-sound","c":"kayaking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/kayaking/barkley-sound-1","g":6},{"n":"Little Beach Trail","s":"little-beach-trail","c":"hiking","t":"ucluelet","u":"region.html","h":"arcstudio/galleries/dayhike-trail-1","g":6},{"n":"Rainforest Trail","s":"rainforest-trail","c":"hiking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/hiking/rainforest-trail-1","g":6},{"n":"Combers Beach","s":"combers-beach","c":"beaches","t":"tofino","u":"long-beach.html","h":"guides/tofino/beaches/combers-beach-1","g":5},{"n":"Effingham Island Area","s":"effingham-island-area","c":"kayaking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/kayaking/_category-1","g":6},{"n":"Nuu-chah-nulth Trail","s":"nuu-chah-nulth-trail","c":"hiking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/hiking/nuu-chah-nulth-trail-1","g":6},{"n":"Ukee Poke","s":"ukee-poke","c":"restaurants","t":"ucluelet","u":"region.html","h":"arcstudio/mg8epie7gzlpfb1bn7jo","g":6},{"n":"Broken Group Islands","s":"broken-group-islands","c":"kayaking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/kayaking/broken-group-islands-1","g":6},{"n":"Tofitian Cafe","s":"tofitian-cafe","c":"restaurants","t":"tofino","u":"things-to-do.html","h":"guides/tofino/restaurants/_category-1","g":6},{"n":"South Beach Trail","s":"south-beach-trail","c":"hiking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/hiking/south-beach-trail-1","g":6},{"n":"Ukee Dogs Eatery","s":"ukee-dogs-eatery","c":"restaurants","t":"ucluelet","u":"region.html","h":"arcstudio/mg8epie7gzlpfb1bn7jo","g":6},{"n":"Schooner Cove","s":"schooner-cove","c":"beaches","t":"tofino","u":"long-beach.html","h":"guides/tofino/beaches/schooner-cove-1","g":5},{"n":"Shorepine Bog Trail","s":"shorepine-bog-trail","c":"hiking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/hiking/shorepine-bog-trail-1","g":6},{"n":"Driftwood Café","s":"driftwood-caf","c":"restaurants","t":"tofino","u":"things-to-do.html","h":"guides/tofino/restaurants/driftwood-caf-1","g":5},{"n":"Turret Island Area","s":"turret-island-area","c":"kayaking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/kayaking/turret-island-area-1","g":6},{"n":"Vargas Island and Ahous Bay","s":"vargas-island-and-ahous-bay","c":"kayaking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/kayaking/vargas-island-and-ahous-bay-1","g":7},{"n":"Tofino Coffee Roasting Co.","s":"tofino-coffee-roasting-co","c":"restaurants","t":"tofino","u":"things-to-do.html","h":"guides/tofino/restaurants/_category-1","g":5},{"n":"Long Beach Hike","s":"long-beach-hike","c":"hiking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/hiking/long-beach-hike-1","g":6},{"n":"Flores Island / Wild Side Trail Route","s":"flores-island-wild-side-trail-route","c":"kayaking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/kayaking/flores-island-wild-side-trail-route-1","g":6},{"n":"Grice Bay","s":"grice-bay","c":"beaches","t":"tofino","u":"long-beach.html","h":"guides/tofino/beaches/grice-bay-1","g":5},{"n":"Ukee Snack Shack","s":"ukee-snack-shack","c":"restaurants","t":"ucluelet","u":"region.html","h":"arcstudio/mg8epie7gzlpfb1bn7jo","g":6},{"n":"South Beach Trail","s":"south-beach-trail","c":"hiking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/hiking/south-beach-trail-1","g":6},{"n":"Clarke Island Area","s":"clarke-island-area","c":"kayaking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/kayaking/clarke-island-area-1","g":6},{"n":"Kennedy Lake","s":"kennedy-lake","c":"beaches","t":"tofino","u":"long-beach.html","h":"guides/tofino/beaches/kennedy-lake-1","g":8},{"n":"Rafael Point","s":"rafael-point","c":"kayaking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/kayaking/rafael-point-1","g":5},{"n":"Combers Beach Trail","s":"combers-beach-trail","c":"hiking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/hiking/combers-beach-trail-1","g":5},{"n":"Harbourview Coffeehouse","s":"harbourview-coffeehouse","c":"restaurants","t":"tofino","u":"things-to-do.html","h":"guides/tofino/restaurants/_category-1","g":5},{"n":"Nuu-chah-nulth Trail","s":"nuu-chah-nulth-trail","c":"hiking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/hiking/nuu-chah-nulth-trail-1","g":6},{"n":"Zoe’s Bakery & Cafe","s":"zoes-bakery-cafe","c":"restaurants","t":"ucluelet","u":"region.html","h":"arcstudio/mg8epie7gzlpfb1bn7jo","g":6},{"n":"Loudoun Channel","s":"loudoun-channel","c":"kayaking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/kayaking/loudoun-channel-1","g":5},{"n":"Schooner Cove Trail","s":"schooner-cove-trail","c":"hiking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/hiking/schooner-cove-trail-1","g":5},{"n":"Hot Springs Cove","s":"hot-springs-cove","c":"kayaking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/kayaking/hot-springs-cove-1","g":5},{"n":"Willowbrae Trail","s":"willowbrae-trail","c":"hiking","t":"ucluelet","u":"region.html","h":"arcstudio/galleries/dayhike-trail-1","g":6},{"n":"Mizu Mizu Café","s":"mizu-mizu-caf","c":"restaurants","t":"tofino","u":"things-to-do.html","h":"guides/tofino/restaurants/_category-1","g":6},{"n":"Barkley Cafe","s":"barkley-cafe","c":"restaurants","t":"ucluelet","u":"region.html","h":"arcstudio/mg8epie7gzlpfb1bn7jo","g":6},{"n":"Tofino Brewing Company","s":"tofino-brewing-company","c":"restaurants","t":"tofino","u":"things-to-do.html","h":"guides/tofino/restaurants/tofino-brewing-company-1","g":6},{"n":"Halfmoon Bay Trail","s":"halfmoon-bay-trail","c":"hiking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/hiking/halfmoon-bay-trail-1","g":5},{"n":"ʔapsčiik t̓ašii Multi-Use Pathway","s":"apsc-iik-t-as-ii-multi-use-pathway","c":"hiking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/hiking/apsc-iik-t-as-ii-multi-use-pathway-1","g":6},{"n":"Long Beach and the Open Pacific Coast","s":"long-beach-and-the-open-pacific-coast","c":"kayaking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/kayaking/long-beach-and-the-open-pacific-coast-1","g":4},{"n":"Blackberry Cove Marketplace","s":"blackberry-cove-marketplace","c":"restaurants","t":"ucluelet","u":"region.html","h":"arcstudio/mg8epie7gzlpfb1bn7jo","g":6},{"n":"Florencia Bay Trail","s":"florencia-bay-trail","c":"hiking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/hiking/florencia-bay-trail-1","g":6},{"n":"Tofino Distillery","s":"tofino-distillery","c":"restaurants","t":"tofino","u":"things-to-do.html","h":"guides/tofino/restaurants/_category-1","g":6},{"n":"Tofino Inlet","s":"tofino-inlet","c":"kayaking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/kayaking/_category-1","g":5},{"n":"Big Tree Trail on Meares Island","s":"big-tree-trail-on-meares-island","c":"hiking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/hiking/big-tree-trail-on-meares-island-1","g":6},{"n":"Radar Hill","s":"radar-hill","c":"hiking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/hiking/radar-hill-1","g":6},{"n":"Lone Cone Trail","s":"lone-cone-trail","c":"hiking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/hiking/lone-cone-trail-1","g":5},{"n":"Fortune Channel","s":"fortune-channel","c":"kayaking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/kayaking/_category-1","g":5},{"n":"Bedwell Sound and Remote Inlets","s":"bedwell-sound-and-remote-inlets","c":"kayaking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/kayaking/_category-1","g":5},{"n":"Wild Side Trail on Flores Island","s":"wild-side-trail-on-flores-island","c":"hiking","t":"tofino","u":"things-to-do.html","h":"guides/tofino/hiking/wild-side-trail-on-flores-island-1","g":7},{"n":"ʔapsčiik t̓ašii Multi-Use Pathway","s":"apsc-iik-t-as-ii-multi-use-pathway","c":"hiking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/hiking/apsc-iik-t-as-ii-multi-use-pathway-1","g":6},{"n":"West Coast Trail","s":"west-coast-trail","c":"hiking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/hiking/west-coast-trail-1","g":5},{"n":"Broken Group Islands Walks","s":"broken-group-islands-walks","c":"hiking","t":"ucluelet","u":"region.html","h":"guides/ucluelet/hiking/broken-group-islands-walks-1","g":6}],"guides":[{"n":"Fishing","c":"fishing","t":"tofino","b":1,"p":0,"u":"things-to-do.html","h":"thomas-lipke-M12HGHNVJ2s-unsplash_nttcvc"},{"n":"Fishing","c":"fishing","t":"ucluelet","b":1,"p":0,"u":"region.html","h":"thomas-lipke-M12HGHNVJ2s-unsplash_nttcvc"},{"n":"Beaches","c":"beaches","t":"tofino","b":29,"p":8,"u":"long-beach.html","h":"guides/tofino/beaches/_category-1"},{"n":"Surfing","c":"surfing","t":"tofino","b":84,"p":6,"u":"things-to-do.html","h":"guides/tofino/surfing/_category-1"},{"n":"Whale watching","c":"whale-watching","t":"tofino","b":153,"p":8,"u":"whale-watching.html","h":"guides/tofino/whale-watching/_category-1"},{"n":"Birding and wildlife","c":"birding","t":"tofino","b":338,"p":8,"u":"things-to-do.html","h":"guides/tofino/birding/_category-1"},{"n":"Storm watching","c":"storm-watching","t":"tofino","b":23,"p":6,"u":"things-to-do.html","h":"guides/tofino/storm-watching/_category-1"},{"n":"Hiking and trails","c":"hiking","t":"tofino","b":31,"p":8,"u":"things-to-do.html","h":"guides/tofino/hiking/_category-1"},{"n":"Restaurants","c":"restaurants","t":"tofino","b":84,"p":6,"u":"things-to-do.html","h":"guides/tofino/restaurants/_category-1"},{"n":"Hiking and trails","c":"hiking","t":"ucluelet","b":129,"p":8,"u":"region.html","h":"arcstudio/galleries/dayhike-trail-1"},{"n":"Kayaking and paddling","c":"kayaking","t":"ucluelet","b":151,"p":8,"u":"region.html","h":"guides/ucluelet/kayaking/_category-1"},{"n":"Whale watching","c":"whale-watching","t":"ucluelet","b":168,"p":5,"u":"whale-watching.html","h":"guides/ucluelet/whale-watching/_category-1"},{"n":"Birding and wildlife","c":"birding","t":"ucluelet","b":329,"p":8,"u":"region.html","h":"guides/ucluelet/birding/_category-1"},{"n":"Restaurants","c":"restaurants","t":"ucluelet","b":72,"p":1,"u":"region.html","h":"arcstudio/mg8epie7gzlpfb1bn7jo"},{"n":"Kayaking and paddling","c":"kayaking","t":"tofino","b":132,"p":8,"u":"things-to-do.html","h":"guides/tofino/kayaking/_category-1"}],"arts":[{"n":"Wildlife Tours in Tofino","c":"whale-watching","t":"Tofino","f":0,"u":"whale-watching.html","h":"thomas-lipke-M12HGHNVJ2s-unsplash_nttcvc"},{"n":"Where to Eat in Tofino","c":"restaurants","t":"Tofino","f":0,"u":"guide.html","h":"arc-trips/pillar-connection"},{"n":"Ucluelet Hiking Guide","c":"hiking","t":"Ucluelet","f":0,"u":"hiking-ucluelet.html","h":"arcstudio/galleries/dayhike-trail-1"},{"n":"Kayaking in Ucluelet","c":"kayaking","t":"Ucluelet","f":0,"u":"kayaking-ucluelet.html","h":"guides/ucluelet/kayaking/_category-1"},{"n":"Wildlife Watching in Ucluelet","c":"whale-watching","t":"Ucluelet","f":0,"u":"whale-watching.html","h":"james-wheeler-YZfDg2L0lUs-unsplash_ino74q"},{"n":"Ucluelet Restaurants","c":"restaurants","t":"Ucluelet","f":0,"u":"restaurants-ucluelet.html","h":"arcstudio/mg8epie7gzlpfb1bn7jo"},{"n":"Pacific Rim Whale Festival Guide","c":"events","t":"Tofino and Ucluelet","f":0,"u":"guide.html","h":"guides/tofino/events/_category-1"},{"n":"Tofino & Ucluelet Campgrounds","c":"camping","t":"Tofino and Ucluelet","f":4,"u":"things-to-do.html","h":"james-wheeler-YZfDg2L0lUs-unsplash_ino74q"},{"n":"How to Choose a Vacation Rental on Vancouver Island","c":"when-to-go","t":"Vancouver Island","f":0,"u":"plan.html","h":"guides/vancouver-island/when-to-go/_category-1"},{"n":"Whale Watching Tours in Ucluelet","c":"whale-watching","t":"Ucluelet","f":4,"u":"whale-watching.html","h":"guides/ucluelet/whale-watching/_category-1"},{"n":"Whales in Ucluelet: The Spring Migration Explained","c":"whale-watching","t":"Ucluelet","f":4,"u":"whale-watching.html","h":"guides/ucluelet/whale-watching/_category-1"},{"n":"Best Time to Stay in Ucluelet or Tofino","c":"when-to-go","t":"Tofino and Ucluelet","f":0,"u":"plan.html","h":"guides/tofino/when-to-go/_category-1"},{"n":"The Best Beaches in Tofino","c":"beaches","t":"Tofino","f":0,"u":"beaches-tofino.html","h":"guides/tofino/beaches/_category-1"},{"n":"Surfing in Tofino","c":"surfing","t":"Tofino","f":0,"u":"things-to-do.html","h":"guides/tofino/surfing/_category-1"},{"n":"Kayaking in Tofino","c":"kayaking","t":"Tofino","f":0,"u":"guide.html","h":"condor-wei-TiLEEXohfsY-unsplash_v7ja5f"},{"n":"Storm Watching in Tofino","c":"storm-watching","t":"Tofino","f":0,"u":"storm-watching-tofino.html","h":"guides/tofino/storm-watching/_category-1"},{"n":"Surfing FAQs","c":"surfing","t":"Tofino","f":4,"u":"guide.html","h":"guides/tofino/surfing/_category-1"},{"n":"Kayaking FAQs","c":"kayaking","t":"Tofino","f":4,"u":"guide.html","h":"guides/tofino/kayaking/_category-1"},{"n":"Birding FAQs","c":"birding","t":"Tofino","f":4,"u":"guide.html","h":"guides/tofino/birding/_category-1"},{"n":"Storm watching FAQs","c":"storm-watching","t":"Tofino","f":4,"u":"guide.html","h":"guides/tofino/storm-watching/_category-1"},{"n":"Restaurants FAQs","c":"restaurants","t":"Tofino","f":4,"u":"guide.html","h":"guides/tofino/restaurants/_category-1"},{"n":"Kayaking FAQs","c":"kayaking","t":"Ucluelet","f":4,"u":"guide.html","h":"guides/ucluelet/kayaking/_category-1"},{"n":"Birding FAQs","c":"birding","t":"Ucluelet","f":4,"u":"guide.html","h":"guides/ucluelet/birding/_category-1"},{"n":"Beaches FAQs","c":"beaches","t":"Tofino","f":4,"u":"long-beach.html","h":"guides/tofino/beaches/_category-1"},{"n":"Whale watching FAQs","c":"whale-watching","t":"Tofino","f":4,"u":"whale-watching.html","h":"guides/tofino/whale-watching/_category-1"},{"n":"Hiking FAQs","c":"hiking","t":"Tofino","f":4,"u":"guide.html","h":"guides/tofino/hiking/_category-1"},{"n":"Hiking FAQs","c":"hiking","t":"Ucluelet","f":4,"u":"guide.html","h":"arcstudio/galleries/dayhike-trail-1"},{"n":"Whale watching FAQs","c":"whale-watching","t":"Ucluelet","f":4,"u":"whale-watching.html","h":"guides/ucluelet/whale-watching/_category-1"},{"n":"Restaurants FAQs","c":"restaurants","t":"Ucluelet","f":4,"u":"guide.html","h":"arcstudio/mg8epie7gzlpfb1bn7jo"},{"n":"Whale Tails, Blows, and Backs","c":"whale-watching","t":"Tofino and Ucluelet","f":4,"u":"whale-watching.html","h":"guides/tofino/whale-watching/_category-1"},{"n":"Whale Watching in Ucluelet","c":"whale-watching","t":"Ucluelet","f":4,"u":"whale-watching-ucluelet.html","h":"guides/ucluelet/whale-watching/_category-1"}],"stays":[{"n":"Cozy Mountain Chalet with Sauna, Fireplace & Trails Nearby","t":"tofino","p":320,"r":2,"b":3,"ba":2,"g":4.9,"h":"arcstudio/zczetpngmabknruslfwn"},{"n":"Historic Old-Town Loft with Stone Walls & River Views","t":"ucluelet","p":320,"r":2,"b":3,"ba":2,"g":4.9,"h":"arcstudio/wnrrcrf4lnalgzbjvsz8"},{"n":"Alpine Timber Chalet with Mountain Hot Tub & Stargazing Deck","t":"ucluelet","p":385,"r":2,"b":3,"ba":2,"g":4.9,"h":"arc-trips/pillar-connection"},{"n":"Riverside Cabin Retreat with Hot Tub & Forest Views","t":"tofino","p":420,"r":2,"b":3,"ba":2,"g":4.9,"h":"arcstudio/mg8epie7gzlpfb1bn7jo"},{"n":"Riverside Cabin Retreat with Hot Tub & Forest Views","t":"tofino","p":420,"r":2,"b":3,"ba":2,"g":4.9,"h":"andrea-davis-44f42VRbGQg-unsplash_q9h9op"},{"n":"Coastal Bed-Cliff Cottage with Private Beach & Firepit","t":"tofino","p":420,"r":2,"b":3,"ba":2,"g":4.9,"h":"arc-trips/curated-cabin"},{"n":"Riverside Cabin Retreat with Hot Tub & Forest Views","t":"tofino","p":420,"r":2,"b":3,"ba":2,"g":4.9,"h":"andrea-davis-44f42VRbGQg-unsplash_q9h9op"},{"n":"Riverside Cabin Retreat with Hot Tub & Forest Views","t":"tofino","p":420,"r":2,"b":3,"ba":2,"g":4.9,"h":"arc-trips/curated-cabin"},{"n":"Riverside Cabin Retreat with Hot Tub & Forest Views","t":"tofino","p":420,"r":2,"b":3,"ba":2,"g":4.9,"h":"arcstudio/njajgzfo6gdfxbpxmtst"},{"n":"Riverside Cabin Retreat with Hot Tub & Forest Views","t":"tofino","p":420,"r":2,"b":3,"ba":2,"g":4.9,"h":"arcstudio/njajgzfo6gdfxbpxmtst"},{"n":"Modern Lakeside Villa with Rooftop Lounge & Marina Access","t":"ucluelet","p":450,"r":2,"b":3,"ba":2,"g":4.9,"h":"arc-trips/founding-key"},{"n":"Lakefront Cottage with Private Dock & Canoes Included","t":"tofino","p":500,"r":2,"b":3,"ba":2,"g":4.9,"h":"arcstudio/galleries/dayhike-trail-1"}],"clim":{"tofino":[{"hi":8.6,"lo":2.6,"mm":489,"days":22},{"hi":9.3,"lo":2.3,"mm":368,"days":19},{"hi":10.4,"lo":3.1,"mm":337,"days":21},{"hi":12.3,"lo":4.3,"mm":213,"days":18},{"hi":14.6,"lo":6.7,"mm":132,"days":15},{"hi":16.3,"lo":9.1,"mm":102,"days":13},{"hi":18.1,"lo":10.9,"mm":66,"days":9},{"hi":18.6,"lo":11.1,"mm":82,"days":10},{"hi":17.5,"lo":9.3,"mm":152,"days":12},{"hi":13.9,"lo":6.9,"mm":396,"days":20},{"hi":10.3,"lo":4.4,"mm":500,"days":23},{"hi":8.4,"lo":2.7,"mm":490,"days":23}],"ucluelet":[{"hi":8.4,"lo":2.8,"mm":452,"days":22},{"hi":9.1,"lo":2.5,"mm":341,"days":19},{"hi":10.2,"lo":3.3,"mm":312,"days":20},{"hi":12,"lo":4.5,"mm":198,"days":17},{"hi":14.2,"lo":6.9,"mm":124,"days":14},{"hi":15.9,"lo":9.3,"mm":96,"days":12},{"hi":17.6,"lo":11.1,"mm":62,"days":9},{"hi":18.1,"lo":11.3,"mm":78,"days":10},{"hi":17,"lo":9.5,"mm":143,"days":12},{"hi":13.6,"lo":7.1,"mm":368,"days":20},{"hi":10.1,"lo":4.6,"mm":463,"days":23},{"hi":8.2,"lo":2.9,"mm":455,"days":22}]},"seasons":{"storm":{"months":[11,12,1,2],"name":"Storm season","claim":"The Pacific throws everything it has at the coast, and people book rooms to watch it."},"green":{"months":[3,4,10],"name":"The green months","claim":"The coast between the storms and the crowds, at half the price."},"long":{"months":[5,6,7,8,9],"name":"Long days","claim":"Sixteen hours of light and the water finally warm enough to stay in."}},"catn":{"beaches":"Beaches","surfing":"Surfing","kayaking":"Kayaking and paddling","fishing":"Fishing","whale-watching":"Whale watching","birding":"Birding and wildlife","storm-watching":"Storm watching","hiking":"Hiking and trails","restaurants":"Restaurants","events":"Events","camping":"Camping","when-to-go":"When to go"},"months":{"beaches":[5,6,7,8,9],"surfing":[1,2,3,4,9,10,11,12],"kayaking":[5,6,7,8,9],"fishing":[5,6,7,8,9],"boating":[5,6,7,8,9],"hot-springs":[1,2,3,4,5,6,7,8,9,10,11,12],"whale-watching":[3,4,5,6,7,8,9,10],"birding":[3,4,5,9,10,11],"storm-watching":[11,12,1,2],"parks":[4,5,6,7,8,9,10],"hiking":[4,5,6,7,8,9,10],"mountain-biking":[5,6,7,8,9],"skiing":[12,1,2,3],"camping":[5,6,7,8,9],"restaurants":[1,2,3,4,5,6,7,8,9,10,11,12],"markets":[5,6,7,8,9],"breweries":[1,2,3,4,5,6,7,8,9,10,11,12],"landmarks":[1,2,3,4,5,6,7,8,9,10,11,12],"arts-history":[1,2,3,4,5,6,7,8,9,10,11,12],"events":[3,4,5,6,7,8],"when-to-go":[1,2,3,4,5,6,7,8,9,10,11,12],"getting-around":[1,2,3,4,5,6,7,8,9,10,11,12]}};
+
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const cld = (id, w, h) => `https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_${w},h_${h}/${id}`;
+const TOWN = { tofino:"Tofino", ucluelet:"Ucluelet" };
+const catName = (c) => DATA.catn[c] || c;
+
+/* ── the tree the asked address is walked against ────────────────────────── */
+const TREE = {
+  destinations:{ l:"Destinations", u:"index.html" },
+  canada:{ l:"Canada", u:"country.html" },
+  "british-columbia":{ l:"British Columbia", u:"province.html" },
+  "vancouver-island":{ l:"Vancouver Island", u:"region.html" },
+  tofino:{ l:"Tofino", u:"tofino.html" },
+  ucluelet:{ l:"Ucluelet", u:"region.html" },
+  "things-to-do":{ l:"Things to do", u:"things-to-do.html" },
+  plan:{ l:"Plan", u:"plan.html" },
+  guides:{ l:"Guides", u:"guide.html" },
+  "travel-guides":{ l:"Travel guides", u:"guide.html" }
+};
+for (const g of DATA.guides) TREE[g.c] = { l:catName(g.c), u:g.u };
+for (const p of DATA.places) TREE[p.s] = { l:p.n, u:p.u };
+
+/* ── the breadcrumb, and one sentence about how far the address got ─────── */
+function paintTrail(){
+  const asked = (new URLSearchParams(location.search).get("path") ||
+    "/destinations/canada/british-columbia/vancouver-island/tofino/things-to-do/ziplining")
+    .split("/").filter(Boolean).slice(0, 8);
+
+  let live = true;
+  const rows = asked.map((seg) => {
+    const node = live ? TREE[seg.toLowerCase()] : null;
+    if (!node) live = false;
+    return { seg, node };
+  });
+
+  const ok = rows.filter((r) => r.node);
+  const lastOk = ok[ok.length - 1];
+  const firstBad = rows.find((r) => !r.node);
+
+  const deep = Math.max(0, ok.length - 2);
+  $("#crumb").innerHTML = ok.map((r, i) => {
+    const d = i < deep ? " lvl-deep" : "";
+    return `<a class="${d.trim()}" href="${r.node.u}">${esc(r.node.l)}</a>` +
+           `<span class="sep${d}" aria-hidden="true">&rsaquo;</span>`;
+  }).join("") + `<span aria-current="page">Not found</span>`;
+
+  $("#said").innerHTML = lastOk
+    ? `That address is real as far as <b>${esc(lastOk.node.l)}</b>` +
+      (firstBad
+        ? `, but nothing on Arc Trips is called <b>${esc(firstBad.seg)}</b>.`
+        : `, but nothing has been written below it yet.`)
+    : `Nothing in that address matches a place on Arc Trips.`;
+
+  const askedSlug = rows.map((r) => r.seg.toLowerCase())
+    .find((s) => DATA.towns.some((t) => t.s === s));
+  paintNearest(DATA.towns.find((t) => t.s === askedSlug) || DATA.towns[0]);
+}
+
+/* ── the town you were probably headed for ───────────────────────────────── */
+function paintNearest(t){
+  $("#nearestcard").innerHTML = `
+    <div class="nearest__m"><img src="${cld(t.hero, 720, 612)}" alt="${esc(t.alt)}"></div>
+    <div>
+      <h2>Try ${esc(t.n)} instead</h2>
+      <p>It is the nearest town to the address you asked for. ${esc(t.sf)}</p>
+      <dl class="nearest__f">
+        <div><dt>Places</dt><dd>${t.places}</dd></div>
+        <div><dt>Subjects</dt><dd>${t.guides}</dd></div>
+        <div><dt>Stays</dt><dd>${t.stays}</dd></div>
+        <div><dt>From</dt><dd>$${t.from}</dd></div>
+      </dl>
+      <div class="nearest__cta">
+        <a class="btn btn--ghost" href="${t.href}">Open ${esc(t.n)}</a>
+        <a class="btn btn--ghost" href="things-to-do.html">Things to do there</a>
+      </div>
+    </div>`;
+}
+
+/* ── the roster: every town in the corpus, grouped, counted, honest ─────── */
+const ROSTER = [
+  { g:"Vancouver Island", p:"British Columbia", open:"region.html", ol:"Open Vancouver Island", t:[
+      { n:"Tofino", u:"tofino.html", m:"73 places" },
+      { n:"Ucluelet", u:"region.html", m:"54 places" },
+      "Victoria", "Nanaimo", "Campbell River", "Parksville", "Qualicum Beach",
+      "Sooke", "Sidney", "Chemainus", "Nanoose Bay", "Shawnigan Lake" ] },
+  { g:"Mainland British Columbia", p:"British Columbia", open:"province.html", ol:"Open British Columbia",
+    t:["Vancouver", "Squamish", "Whistler", "Nelson"] },
+  { g:"Alberta", p:"Canada", t:["Banff", "Jasper", "Edmonton"] },
+  { g:"Saskatchewan", p:"Canada", t:["Saskatoon"] },
+  { g:"Ontario", p:"Canada", t:["Toronto", "Niagara Falls", "Ottawa"] },
+  { g:"Quebec", p:"Canada", t:["Montreal", "Quebec City"] },
+  { g:"Atlantic Canada", p:"Canada", t:["Halifax", "Charlottetown", "St John's"] }
+];
+
+function paintRoster(){
+  $("#roster").innerHTML = ROSTER.map((grp) => {
+    const live = grp.t.filter((x) => typeof x === "object").length;
+    return `<div class="rgroup">
+      <h3>${esc(grp.g)}</h3>
+      <span class="c">${grp.t.length} ${grp.t.length === 1 ? "town" : "towns"}, ${live ? live + " written" : "written next"}, in ${esc(grp.p)}</span>
+      ${grp.open ? `<a class="open" href="${grp.open}">${esc(grp.ol)}</a>` : ""}
+      <ul>${grp.t.map((x) => typeof x === "object"
+        ? `<li><a href="${x.u}">${esc(x.n)}</a><span class="ct">${esc(x.m)}</span></li>`
+        : `<li>${esc(x)}</li>`).join("")}</ul>
+    </div>`;
+  }).join("");
+}
+
+/* ── the field. Everything in the corpus is reachable from it. ──────────── */
+const INDEX = [
+  ...DATA.towns.map((t) => ({ n:t.n, k:"Town in British Columbia", h:t.hero, u:t.href, a:t.alt })),
+  { n:"Vancouver Island", k:"Region, 2 towns written", h:DATA.towns[0].hero, u:"region.html",
+    a:"The outer coast of Vancouver Island seen from the air" },
+  { n:"British Columbia", k:"Province, 1 region written", h:"guides/tofino/when-to-go/_category-1", u:"province.html",
+    a:"Low evening light across a wide west coast beach" },
+  { n:"Canada", k:"Country", h:"guides/vancouver-island/when-to-go/_category-1", u:"country.html",
+    a:"A long empty beach on the Canadian Pacific coast at dusk" },
+  ...DATA.places.map((p) => ({ n:p.n, k:`${catName(p.c)} in ${TOWN[p.t]}`, h:p.h, u:p.u,
+    a:`Photograph of ${p.n}, ${catName(p.c).toLowerCase()} in ${TOWN[p.t]}` })),
+  ...DATA.guides.map((g) => ({ n:g.n, k:`Guide, ${TOWN[g.t]}`, h:g.h, u:g.u,
+    a:`Photograph from the ${g.n} guide to ${TOWN[g.t]}` })),
+  ...DATA.arts.map((a) => ({ n:a.n, k:`Article, ${a.t}`, h:a.h, u:a.u,
+    a:`Photograph from the article ${a.n}` })),
+  ...(() => { const s = new Set();
+    return DATA.stays.filter((l) => !s.has(l.n) && s.add(l.n))
+      .map((l) => ({ n:l.n, k:`Stay in ${TOWN[l.t]}, from $${l.p}`, h:l.h, u:"search.html",
+        a:`Photograph of a stay in ${TOWN[l.t]}: ${l.n}` })); })()
+];
+
+function score(item, q){
+  const n = item.n.toLowerCase(), k = item.k.toLowerCase();
+  if (n.startsWith(q)) return 0;
+  if (n.includes(q)) return 1;
+  if (k.includes(q)) return 2;
+  return -1;
+}
+function paintHits(){
+  const q = $("#bigq").value.trim().toLowerCase();
+  const note = $("#findnote"), list = $("#hits");
+
+  if (q.length < 2){
+    list.innerHTML = "";
+    note.innerHTML = `Everything we publish is searchable from here: <b>${INDEX.length}</b> pages in all.`;
+    return;
+  }
+
+  const hits = INDEX
+    .map((it) => ({ it, s: score(it, q) }))
+    .filter((r) => r.s >= 0)
+    .sort((a,b) => a.s - b.s || a.it.n.localeCompare(b.it.n));
+
+  if (!hits.length){
+    list.innerHTML = "";
+    note.innerHTML = `Nothing here is called <b>${esc($("#bigq").value.trim())}</b> yet. Press Search to look again.`;
+    return;
+  }
+
+  const top = hits.slice(0, 6);
+  note.innerHTML = `<b>${hits.length}</b> ${hits.length === 1 ? "match" : "matches"}` +
+    (hits.length > top.length ? `, the closest ${top.length} here` : " here") + `. Press Search for everything.`;
+  list.innerHTML = top.map(({ it }) =>
+    `<li><a href="${it.u}">
+      <span class="hits__m"><img src="${cld(it.h, 128, 96)}" alt="${esc(it.a)}" loading="lazy"></span>
+      <span><b>${esc(it.n)}</b><span>${esc(it.k)}</span></span>
+      <span class="hits__go">Open</span>
+    </a></li>`).join("");
+}
+
+paintTrail();
+paintRoster();
+paintHits();
+
+$("#bigq").addEventListener("input", paintHits);
+$("#find").addEventListener("submit", (e) => {
+  if (!$("#bigq").value.trim()){ e.preventDefault(); $("#bigq").focus(); }
+});
+addEventListener("keydown", (e) => {
+  if (e.key === "/" && !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)){
+    e.preventDefault(); $("#bigq").focus();
+  }
+});
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

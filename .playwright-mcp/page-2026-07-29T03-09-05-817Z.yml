@@ -1,0 +1,489 @@
+- generic [active] [ref=f711e1]:
+  - link "Skip to content" [ref=f711e2] [cursor=pointer]:
+    - /url: "#main"
+  - generic:
+    - img:
+      - generic:
+        - generic: "14"
+        - generic: "9"
+        - generic: "22"
+        - generic: "31"
+        - generic: "17"
+        - generic: "6"
+        - generic: "11"
+        - generic: "26"
+        - generic: "19"
+        - generic: "8"
+        - generic: "24"
+        - generic: "13"
+        - generic: "28"
+        - generic: "5"
+        - generic: "16"
+  - navigation [ref=f711e3]:
+    - generic [ref=f711e4]:
+      - link "Arctrips" [ref=f711e5] [cursor=pointer]:
+        - /url: index.html
+      - list [ref=f711e6]:
+        - listitem [ref=f711e7]:
+          - link "Stays" [ref=f711e8] [cursor=pointer]:
+            - /url: search.html
+        - listitem [ref=f711e9]:
+          - link "Destinations" [ref=f711e10] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=f711e11]:
+          - link "Guides" [ref=f711e12] [cursor=pointer]:
+            - /url: search.html
+  - navigation "British Columbia" [ref=f711e13]:
+    - generic [ref=f711e14]:
+      - link "← Canada" [ref=f711e15] [cursor=pointer]:
+        - /url: country.html
+      - list [ref=f711e17]:
+        - listitem [ref=f711e18]:
+          - link "Vancouver Island" [ref=f711e19] [cursor=pointer]:
+            - /url: "#island"
+        - listitem [ref=f711e20]:
+          - link "Towns" [ref=f711e21] [cursor=pointer]:
+            - /url: "#towns"
+        - listitem [ref=f711e22]:
+          - link "Island guides" [ref=f711e23] [cursor=pointer]:
+            - /url: "#guides"
+        - listitem [ref=f711e24]:
+          - link "Rest of BC" [ref=f711e25] [cursor=pointer]:
+            - /url: "#regions"
+        - listitem [ref=f711e26]:
+          - link "When to go" [ref=f711e27] [cursor=pointer]:
+            - /url: "#when"
+  - main [ref=f711e28]:
+    - navigation "Breadcrumb" [ref=f711e30]:
+      - link "Arc Trips" [ref=f711e31] [cursor=pointer]:
+        - /url: index.html
+      - generic [ref=f711e32]: /
+      - link "Canada" [ref=f711e33] [cursor=pointer]:
+        - /url: country.html
+      - generic [ref=f711e34]: /
+      - generic [ref=f711e35]: British Columbia
+    - generic [ref=f711e37]:
+      - generic [ref=f711e38]:
+        - heading "British Columbia" [level=1] [ref=f711e39]
+        - paragraph [ref=f711e40]: "Four regions, sixteen towns. One of them is finished end to end, and it is the reason to come here first: Vancouver Island."
+        - generic [ref=f711e41]:
+          - link "Open Vancouver Island" [ref=f711e42] [cursor=pointer]:
+            - /url: region.html
+          - link "Search stays" [ref=f711e43] [cursor=pointer]:
+            - /url: search.html
+        - generic [ref=f711e44]:
+          - generic [ref=f711e45]:
+            - term [ref=f711e46]: Regions
+            - definition [ref=f711e47]: "4"
+          - generic [ref=f711e48]:
+            - term [ref=f711e49]: Towns
+            - definition [ref=f711e50]: "16"
+          - generic [ref=f711e51]:
+            - term [ref=f711e52]: Places
+            - definition [ref=f711e53]: 1,154
+          - generic [ref=f711e54]:
+            - term [ref=f711e55]: Guides
+            - definition [ref=f711e56]: "46"
+      - generic [ref=f711e57]:
+        - figure "Tofino, from above the inlet" [ref=f711e65]:
+          - img "A small town on a forested inlet seen from the air, with a boat wake crossing the channel and mountains behind" [ref=f711e66]
+        - figure "The outer coast, seen from the trail" [ref=f711e68]:
+          - img "Rocky reefs and open ocean seen through coastal spruce from a shoreline trail" [ref=f711e69]
+        - figure "Wide sand, low tide" [ref=f711e71]:
+          - img "A long empty sand beach at low tide backed by an eroded bluff and wind-bent trees" [ref=f711e72]
+    - generic [ref=f711e74]:
+      - img "A rocky headland with houses set back in the forest, low sun on the water and a mountain ridge behind" [ref=f711e75]
+      - generic [ref=f711e76]:
+        - text: The region we have finished
+        - heading "Vancouver Island" [level=2] [ref=f711e77]
+        - paragraph [ref=f711e78]: Twelve towns from Victoria north to Campbell River, 666 places written up one at a time, and 22 guides finished. It is 58 per cent of everything Arc Trips has written in this province.
+        - generic [ref=f711e79]:
+          - generic [ref=f711e80]:
+            - term [ref=f711e81]: Towns
+            - definition [ref=f711e82]: "12"
+          - generic [ref=f711e83]:
+            - term [ref=f711e84]: Places written up
+            - definition [ref=f711e85]: "666"
+          - generic [ref=f711e86]:
+            - term [ref=f711e87]: Guides finished
+            - definition [ref=f711e88]: "22"
+        - generic [ref=f711e89]:
+          - link "Open the region" [ref=f711e90] [cursor=pointer]:
+            - /url: region.html
+          - link "Start in Tofino" [ref=f711e91] [cursor=pointer]:
+            - /url: tofino.html
+    - generic [ref=f711e93]:
+      - generic [ref=f711e94]:
+        - generic [ref=f711e95]:
+          - heading "All twelve towns on the island" [level=2] [ref=f711e96]
+          - paragraph [ref=f711e97]: Ordered by how much is written, not by size. The bar is that town's share of the 666 places.
+        - link "Search stays on the island" [ref=f711e98] [cursor=pointer]:
+          - /url: search.html
+      - list [ref=f711e99]:
+        - listitem [ref=f711e100]:
+          - link "Tofino Long Beach, Chesterman Beach, Cox Bay, the Tonquin Trail, Wolf in the Fog. Eleven guides, from surfing to storm watching. 232 places" [ref=f711e101] [cursor=pointer]:
+            - /url: tofino.html
+            - generic [ref=f711e102]:
+              - generic [ref=f711e103]: Tofino
+              - generic [ref=f711e104]: Long Beach, Chesterman Beach, Cox Bay, the Tonquin Trail, Wolf in the Fog. Eleven guides, from surfing to storm watching.
+            - generic [ref=f711e105]:
+              - generic [ref=f711e106]: "232"
+              - generic [ref=f711e107]: places
+        - listitem [ref=f711e112]:
+          - link "Ucluelet The Wild Pacific Trail, the Lighthouse Loop, Big Beach, Pluvio and Heartwood. Nine guides, and the spring whale migration in full. 197 places" [ref=f711e113] [cursor=pointer]:
+            - /url: region.html
+            - generic [ref=f711e114]:
+              - generic [ref=f711e115]: Ucluelet
+              - generic [ref=f711e116]: The Wild Pacific Trail, the Lighthouse Loop, Big Beach, Pluvio and Heartwood. Nine guides, and the spring whale migration in full.
+            - generic [ref=f711e117]:
+              - generic [ref=f711e118]: "197"
+              - generic [ref=f711e119]: places
+        - listitem [ref=f711e124]:
+          - link "Victoria The Butchart Gardens, the Inner Harbour, the Royal BC Museum, Dallas Road, Esquimalt Lagoon. 79 places" [ref=f711e125] [cursor=pointer]:
+            - /url: victoria.html
+            - generic [ref=f711e126]:
+              - generic [ref=f711e127]: Victoria
+              - generic [ref=f711e128]: The Butchart Gardens, the Inner Harbour, the Royal BC Museum, Dallas Road, Esquimalt Lagoon.
+            - generic [ref=f711e129]:
+              - generic [ref=f711e130]: "79"
+              - generic [ref=f711e131]: places
+        - listitem [ref=f711e136]:
+          - link "Sooke Sooke Potholes, East Sooke Regional Park, Whiffin Spit, Sheringham Point Lighthouse. 30 places" [ref=f711e137] [cursor=pointer]:
+            - /url: sooke.html
+            - generic [ref=f711e138]:
+              - generic [ref=f711e139]: Sooke
+              - generic [ref=f711e140]: Sooke Potholes, East Sooke Regional Park, Whiffin Spit, Sheringham Point Lighthouse.
+            - generic [ref=f711e141]:
+              - generic [ref=f711e142]: "30"
+              - generic [ref=f711e143]: places
+        - listitem [ref=f711e148]:
+          - link "Parksville Rathtrevor Beach Provincial Park, Parksville Beach, and the whale and wildlife trips out of the bay. 28 places" [ref=f711e149] [cursor=pointer]:
+            - /url: nanoose.html
+            - generic [ref=f711e150]:
+              - generic [ref=f711e151]: Parksville
+              - generic [ref=f711e152]: Rathtrevor Beach Provincial Park, Parksville Beach, and the whale and wildlife trips out of the bay.
+            - generic [ref=f711e153]:
+              - generic [ref=f711e154]: "28"
+              - generic [ref=f711e155]: places
+        - listitem [ref=f711e160]:
+          - link "Nanaimo Saysutshun, the Harbourfront Walkway, whale and marine tours, and the fishing off Departure Bay. 27 places" [ref=f711e161] [cursor=pointer]:
+            - /url: nanaimo.html
+            - generic [ref=f711e162]:
+              - generic [ref=f711e163]: Nanaimo
+              - generic [ref=f711e164]: Saysutshun, the Harbourfront Walkway, whale and marine tours, and the fishing off Departure Bay.
+            - generic [ref=f711e165]:
+              - generic [ref=f711e166]: "27"
+              - generic [ref=f711e167]: places
+        - listitem [ref=f711e172]:
+          - link "Nanoose Bay Moorecroft Regional Park, Notch Hill, Fairwinds Marina, Beachcomber Regional Park. 16 places" [ref=f711e173] [cursor=pointer]:
+            - /url: nanoose.html
+            - generic [ref=f711e174]:
+              - generic [ref=f711e175]: Nanoose Bay
+              - generic [ref=f711e176]: Moorecroft Regional Park, Notch Hill, Fairwinds Marina, Beachcomber Regional Park.
+            - generic [ref=f711e177]:
+              - generic [ref=f711e178]: "16"
+              - generic [ref=f711e179]: places
+        - listitem [ref=f711e184]:
+          - link "Sidney Sidney Spit in the Gulf Islands National Park Reserve, the Butchart Gardens, and the Saanich Peninsula. 16 places" [ref=f711e185] [cursor=pointer]:
+            - /url: sidney.html
+            - generic [ref=f711e186]:
+              - generic [ref=f711e187]: Sidney
+              - generic [ref=f711e188]: Sidney Spit in the Gulf Islands National Park Reserve, the Butchart Gardens, and the Saanich Peninsula.
+            - generic [ref=f711e189]:
+              - generic [ref=f711e190]: "16"
+              - generic [ref=f711e191]: places
+        - listitem [ref=f711e196]:
+          - link "Chemainus The murals, the Chemainus Theatre Festival, the galleries, and the harbour views. 15 places" [ref=f711e197] [cursor=pointer]:
+            - /url: chemainus.html
+            - generic [ref=f711e198]:
+              - generic [ref=f711e199]: Chemainus
+              - generic [ref=f711e200]: The murals, the Chemainus Theatre Festival, the galleries, and the harbour views.
+            - generic [ref=f711e201]:
+              - generic [ref=f711e202]: "15"
+              - generic [ref=f711e203]: places
+        - listitem [ref=f711e208]:
+          - link "Campbell River Discovery Passage, Tyee Spit, the Maritime Heritage Centre, cold water diving. 14 places" [ref=f711e209] [cursor=pointer]:
+            - /url: campbell-river.html
+            - generic [ref=f711e210]:
+              - generic [ref=f711e211]: Campbell River
+              - generic [ref=f711e212]: Discovery Passage, Tyee Spit, the Maritime Heritage Centre, cold water diving.
+            - generic [ref=f711e213]:
+              - generic [ref=f711e214]: "14"
+              - generic [ref=f711e215]: places
+        - listitem [ref=f711e220]:
+          - link "Shawnigan Lake The Kinsol Trestle, the lake itself, the Cowichan Valley Trail, West Shawnigan Lake Park. 12 places" [ref=f711e221] [cursor=pointer]:
+            - /url: shawnigan-lake.html
+            - generic [ref=f711e222]:
+              - generic [ref=f711e223]: Shawnigan Lake
+              - generic [ref=f711e224]: The Kinsol Trestle, the lake itself, the Cowichan Valley Trail, West Shawnigan Lake Park.
+            - generic [ref=f711e225]:
+              - generic [ref=f711e226]: "12"
+              - generic [ref=f711e227]: places
+        - listitem [ref=f711e232]:
+          - link "Qualicum Beach Named on the island beach guide and written up inside the Parksville guide, which it shares. Shared with Parksville" [ref=f711e233] [cursor=pointer]:
+            - /url: nanoose.html
+            - generic [ref=f711e234]:
+              - generic [ref=f711e235]: Qualicum Beach
+              - generic [ref=f711e236]: Named on the island beach guide and written up inside the Parksville guide, which it shares.
+            - generic [ref=f711e237]:
+              - generic [ref=f711e238]: Shared
+              - generic [ref=f711e239]: with Parksville
+    - generic [ref=f711e242]:
+      - figure "Thirteen beaches are named in the island beach guide, from Long Beach to Botanical Beach" [ref=f711e243]:
+        - img "Wet sand and shallow surf running out to a headland, with a forested bluff on the right" [ref=f711e244]
+      - figure "Twelve kayaking areas, from the Broken Group Islands to Johnstone Strait" [ref=f711e246]:
+        - img "Four paddlers in drysuits standing beside a sea kayak on a wide surf beach, mountains behind" [ref=f711e247]
+      - figure "Ten whale watching towns, from Victoria north to Port McNeill" [ref=f711e249]:
+        - img "A floatplane wing over a wide tidal channel between forested shores and small islands" [ref=f711e250]
+    - generic [ref=f711e252]:
+      - generic [ref=f711e254]:
+        - generic [ref=f711e255]:
+          - heading "Seven guides written across the whole island" [level=2] [ref=f711e256]
+          - paragraph [ref=f711e257]: These do not belong to any one town, so they sit at this level. Each one names its places, and the names are what you are reading below.
+        - link "All island guides" [ref=f711e258] [cursor=pointer]:
+          - /url: guide.html
+      - generic [ref=f711e260]:
+        - link "Island wide Best Beaches on Vancouver Island Long Beach, Chesterman Beach, Cox Bay, Mackenzie Beach, Wickaninnish Beach, Florencia Bay, Big Beach, and more 13 beaches named" [ref=f711e261] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f711e262]: Island wide
+          - heading "Best Beaches on Vancouver Island" [level=3] [ref=f711e263]
+          - paragraph [ref=f711e264]: Long Beach, Chesterman Beach, Cox Bay, Mackenzie Beach, Wickaninnish Beach, Florencia Bay, Big Beach, and more
+          - generic [ref=f711e265]: 13 beaches named
+        - link "Island wide Best Day Hikes on Vancouver Island Wild Pacific Trail, Rainforest Trails A and B, South Beach and Nuu-chah-nulth Trail, Mystic Beach, Sombrio Beach, Botanical Beach, East Sooke Coast Trail, and more 12 trails named" [ref=f711e266] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f711e267]: Island wide
+          - heading "Best Day Hikes on Vancouver Island" [level=3] [ref=f711e268]
+          - paragraph [ref=f711e269]: Wild Pacific Trail, Rainforest Trails A and B, South Beach and Nuu-chah-nulth Trail, Mystic Beach, Sombrio Beach, Botanical Beach, East Sooke Coast Trail, and more
+          - generic [ref=f711e270]: 12 trails named
+        - link "Island wide Best Kayaking Spots on Vancouver Island Broken Group Islands, Ucluelet and Barkley Sound, Tofino and Clayoquot Sound, Johnstone Strait, Telegraph Cove, Quadra Island and the Discovery Islands, Gulf Islands, and more 12 paddles named" [ref=f711e271] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f711e272]: Island wide
+          - heading "Best Kayaking Spots on Vancouver Island" [level=3] [ref=f711e273]
+          - paragraph [ref=f711e274]: Broken Group Islands, Ucluelet and Barkley Sound, Tofino and Clayoquot Sound, Johnstone Strait, Telegraph Cove, Quadra Island and the Discovery Islands, Gulf Islands, and more
+          - generic [ref=f711e275]: 12 paddles named
+        - link "Island wide Best Overnight Hikes on Vancouver Island West Coast Trail, Juan de Fuca Trail, North Coast Trail, Cape Scott Trail, Nootka Trail, Della Falls Trail, Bedwell Lake and Cream Lake, and more 10 routes named" [ref=f711e276] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f711e277]: Island wide
+          - heading "Best Overnight Hikes on Vancouver Island" [level=3] [ref=f711e278]
+          - paragraph [ref=f711e279]: West Coast Trail, Juan de Fuca Trail, North Coast Trail, Cape Scott Trail, Nootka Trail, Della Falls Trail, Bedwell Lake and Cream Lake, and more
+          - generic [ref=f711e280]: 10 routes named
+        - link "Island wide Best Places for Whale Watching on Vancouver Island Victoria, Sooke, Ucluelet, Tofino, Telegraph Cove, Port McNeill, Campbell River, and more 10 towns named" [ref=f711e281] [cursor=pointer]:
+          - /url: whale-watching.html
+          - generic [ref=f711e282]: Island wide
+          - heading "Best Places for Whale Watching on Vancouver Island" [level=3] [ref=f711e283]
+          - paragraph [ref=f711e284]: Victoria, Sooke, Ucluelet, Tofino, Telegraph Cove, Port McNeill, Campbell River, and more
+          - generic [ref=f711e285]: 10 towns named
+        - 'link "Island wide Vancouver Island: Best Mountain Biking Spots Cumberland and Comox Valley, Nanaimo, Cowichan Valley, Campbell River, Parksville Qualicum Beach and Hammerfest, Victoria and Hartland Mountain Bike Park, Mount Washington, and more 9 riding areas named" [ref=f711e286] [cursor=pointer]':
+          - /url: guide.html
+          - generic [ref=f711e287]: Island wide
+          - 'heading "Vancouver Island: Best Mountain Biking Spots" [level=3] [ref=f711e288]'
+          - paragraph [ref=f711e289]: Cumberland and Comox Valley, Nanaimo, Cowichan Valley, Campbell River, Parksville Qualicum Beach and Hammerfest, Victoria and Hartland Mountain Bike Park, Mount Washington, and more
+          - generic [ref=f711e290]: 9 riding areas named
+        - 'link "Island wide How to Choose a Vacation Rental on Vancouver Island Pick the right region before you pick the rental · Decide what matters more: view, beach access, town access or seclusion · Match the rental to the season · Check whether the listing is legal and properly registered · Read for layout, not just style · Think about travel logistics before you book · Budget for the real total, not the nightly rate · Choose amenities that fit Vancouver Island travel · Read reviews for patterns, not praise · Check safety and disruption planning 10 checks named" [ref=f711e291] [cursor=pointer]':
+          - /url: guide.html
+          - generic [ref=f711e292]: Island wide
+          - heading "How to Choose a Vacation Rental on Vancouver Island" [level=3] [ref=f711e293]
+          - paragraph [ref=f711e294]: "Pick the right region before you pick the rental · Decide what matters more: view, beach access, town access or seclusion · Match the rental to the season · Check whether the listing is legal and properly registered · Read for layout, not just style · Think about travel logistics before you book · Budget for the real total, not the nightly rate · Choose amenities that fit Vancouver Island travel · Read reviews for patterns, not praise · Check safety and disruption planning"
+          - generic [ref=f711e295]: 10 checks named
+    - generic [ref=f711e298]:
+      - text: The rest of British Columbia
+      - heading "Three more regions, told straight" [level=2] [ref=f711e299]
+      - paragraph [ref=f711e300]: Four towns off the island have their places counted and their stays searchable, but the guides are still being sectioned. Here is exactly how much of each one exists today.
+      - list [ref=f711e301]:
+        - listitem [ref=f711e302]:
+          - generic [ref=f711e303]:
+            - heading "Sea to Sky" [level=3] [ref=f711e304]
+            - paragraph [ref=f711e305]: The highway north out of Vancouver, and the two towns on it. 336 places, 13 guides.
+          - generic [ref=f711e306]:
+            - link "Whistler 219" [ref=f711e307] [cursor=pointer]:
+              - /url: whistler.html
+              - text: Whistler
+              - generic [ref=f711e308]: "219"
+            - link "Squamish 117" [ref=f711e309] [cursor=pointer]:
+              - /url: squamish.html
+              - text: Squamish
+              - generic [ref=f711e310]: "117"
+        - listitem [ref=f711e311]:
+          - generic [ref=f711e312]:
+            - heading "Lower Mainland" [level=3] [ref=f711e313]
+            - paragraph [ref=f711e314]: The city itself, its beaches and the mountains behind it. 139 places, 9 guides.
+          - link "Vancouver 139" [ref=f711e316] [cursor=pointer]:
+            - /url: vancouver.html
+            - text: Vancouver
+            - generic [ref=f711e317]: "139"
+        - listitem [ref=f711e318]:
+          - generic [ref=f711e319]:
+            - heading "Kootenays" [level=3] [ref=f711e320]
+            - paragraph [ref=f711e321]: Mountain towns, deep snow, and the lake fishing that made them known. 13 places, 2 guides.
+          - link "Nelson 13" [ref=f711e323] [cursor=pointer]:
+            - /url: nelson.html
+            - text: Nelson
+            - generic [ref=f711e324]: "13"
+    - generic [ref=f711e326]:
+      - generic [ref=f711e327]:
+        - generic [ref=f711e328]:
+          - heading "When should you go?" [level=2] [ref=f711e329]
+          - paragraph [ref=f711e330]: The island guides name four seasons, not twelve months. Each one is a different trip at a different price.
+        - link "Plan the trip" [ref=f711e331] [cursor=pointer]:
+          - /url: plan.html
+      - list [ref=f711e332]:
+        - listitem [ref=f711e333]:
+          - generic [ref=f711e334]:
+            - heading "Whales, value and a fresh start" [level=3] [ref=f711e335]
+            - paragraph [ref=f711e336]: March to May. The gray whale migration passes, the rooms are still cheap, and the coast wakes up.
+          - img "March to May" [ref=f711e337]:
+            - generic [ref=f711e338]: J
+            - generic [ref=f711e339]: F
+            - generic [ref=f711e340]: M
+            - generic [ref=f711e341]: A
+            - generic [ref=f711e342]: M
+            - generic [ref=f711e343]: J
+            - generic [ref=f711e344]: J
+            - generic [ref=f711e345]: A
+            - generic [ref=f711e346]: S
+            - generic [ref=f711e347]: O
+            - generic [ref=f711e348]: "N"
+            - generic [ref=f711e349]: D
+        - listitem [ref=f711e350]:
+          - generic [ref=f711e351]:
+            - heading "The peak season" [level=3] [ref=f711e352]
+            - paragraph [ref=f711e353]: July to August. Long days, warm water on the sheltered beaches, and every tour running.
+          - img "July to August" [ref=f711e354]:
+            - generic [ref=f711e355]: J
+            - generic [ref=f711e356]: F
+            - generic [ref=f711e357]: M
+            - generic [ref=f711e358]: A
+            - generic [ref=f711e359]: M
+            - generic [ref=f711e360]: J
+            - generic [ref=f711e361]: J
+            - generic [ref=f711e362]: A
+            - generic [ref=f711e363]: S
+            - generic [ref=f711e364]: O
+            - generic [ref=f711e365]: "N"
+            - generic [ref=f711e366]: D
+        - listitem [ref=f711e367]:
+          - generic [ref=f711e368]:
+            - heading "Quieter beaches, surfing and a slower pace" [level=3] [ref=f711e369]
+            - paragraph [ref=f711e370]: September to October. The crowds go, the surf comes back, and the light gets low and long.
+          - img "September to October" [ref=f711e371]:
+            - generic [ref=f711e372]: J
+            - generic [ref=f711e373]: F
+            - generic [ref=f711e374]: M
+            - generic [ref=f711e375]: A
+            - generic [ref=f711e376]: M
+            - generic [ref=f711e377]: J
+            - generic [ref=f711e378]: J
+            - generic [ref=f711e379]: A
+            - generic [ref=f711e380]: S
+            - generic [ref=f711e381]: O
+            - generic [ref=f711e382]: "N"
+            - generic [ref=f711e383]: D
+        - listitem [ref=f711e384]:
+          - generic [ref=f711e385]:
+            - heading "Storm watching" [level=3] [ref=f711e386]
+            - paragraph [ref=f711e387]: November to February. The cheapest months and the loudest. People come for the weather, not in spite of it.
+          - img "November to February" [ref=f711e388]:
+            - generic [ref=f711e389]: J
+            - generic [ref=f711e390]: F
+            - generic [ref=f711e391]: M
+            - generic [ref=f711e392]: A
+            - generic [ref=f711e393]: M
+            - generic [ref=f711e394]: J
+            - generic [ref=f711e395]: J
+            - generic [ref=f711e396]: A
+            - generic [ref=f711e397]: S
+            - generic [ref=f711e398]: O
+            - generic [ref=f711e399]: "N"
+            - generic [ref=f711e400]: D
+      - paragraph [ref=f711e401]: "The ring marks this month. Right now it is July, which the guides put in the peak season. The four named seasons leave June uncovered: they are the changeover, and the guides do not claim them."
+    - generic [ref=f711e404]:
+      - link [ref=f711e405] [cursor=pointer]:
+        - /url: region.html
+        - text: Next, one level down
+        - heading "Vancouver Island" [level=3] [ref=f711e406]
+        - paragraph [ref=f711e407]: Twelve towns, 666 places and 22 guides, one level down.
+        - generic [ref=f711e408]: Open the region
+      - link [ref=f711e411] [cursor=pointer]:
+        - /url: tofino.html
+        - text: The town with the most written up
+        - heading "Tofino, place by place" [level=3] [ref=f711e412]
+        - paragraph [ref=f711e413]: 232 places written up, more than any other town in British Columbia.
+        - generic [ref=f711e414]: Open the town
+      - link [ref=f711e417] [cursor=pointer]:
+        - /url: search.html
+        - text: The booking path
+        - heading "Stays in British Columbia" [level=3] [ref=f711e418]
+        - paragraph [ref=f711e419]: Everything bookable across the sixteen towns, in CAD, before taxes and fees.
+        - generic [ref=f711e420]: Search stays
+  - contentinfo [ref=f711e423]:
+    - generic [ref=f711e424]:
+      - generic [ref=f711e425]:
+        - generic [ref=f711e426]:
+          - text: Arctrips
+          - paragraph [ref=f711e427]: Stays and guides on Vancouver Island, written by people who go there.
+        - generic [ref=f711e428]:
+          - heading "Vancouver Island" [level=5] [ref=f711e429]
+          - list [ref=f711e430]:
+            - listitem [ref=f711e431]:
+              - link "Tofino" [ref=f711e432] [cursor=pointer]:
+                - /url: tofino.html
+            - listitem [ref=f711e433]:
+              - link "Victoria" [ref=f711e434] [cursor=pointer]:
+                - /url: victoria.html
+            - listitem [ref=f711e435]:
+              - link "Nanaimo" [ref=f711e436] [cursor=pointer]:
+                - /url: nanaimo.html
+            - listitem [ref=f711e437]:
+              - link "Long Beach" [ref=f711e438] [cursor=pointer]:
+                - /url: long-beach.html
+            - listitem [ref=f711e439]:
+              - link "The whole island" [ref=f711e440] [cursor=pointer]:
+                - /url: region.html
+        - generic [ref=f711e441]:
+          - heading "Things to do" [level=5] [ref=f711e442]
+          - list [ref=f711e443]:
+            - listitem [ref=f711e444]:
+              - link "All subjects" [ref=f711e445] [cursor=pointer]:
+                - /url: things-to-do.html
+            - listitem [ref=f711e446]:
+              - link "Whale watching" [ref=f711e447] [cursor=pointer]:
+                - /url: whale-watching.html
+            - listitem [ref=f711e448]:
+              - link "Island guides" [ref=f711e449] [cursor=pointer]:
+                - /url: guide.html
+            - listitem [ref=f711e450]:
+              - link "Search everything" [ref=f711e451] [cursor=pointer]:
+                - /url: search.html
+        - generic [ref=f711e452]:
+          - heading "Plan" [level=5] [ref=f711e453]
+          - list [ref=f711e454]:
+            - listitem [ref=f711e455]:
+              - link "When to go" [ref=f711e456] [cursor=pointer]:
+                - /url: plan.html
+            - listitem [ref=f711e457]:
+              - link "Getting there" [ref=f711e458] [cursor=pointer]:
+                - /url: plan.html
+            - listitem [ref=f711e459]:
+              - link "Where to stay" [ref=f711e460] [cursor=pointer]:
+                - /url: search.html
+            - listitem [ref=f711e461]:
+              - link "Canada" [ref=f711e462] [cursor=pointer]:
+                - /url: country.html
+        - generic [ref=f711e463]:
+          - heading "Arc Trips" [level=5] [ref=f711e464]
+          - list [ref=f711e465]:
+            - listitem [ref=f711e466]:
+              - link "About us" [ref=f711e467] [cursor=pointer]:
+                - /url: not-found.html
+            - listitem [ref=f711e468]:
+              - link "List your place" [ref=f711e469] [cursor=pointer]:
+                - /url: not-found.html
+            - listitem [ref=f711e470]:
+              - link "Fishing charters" [ref=f711e471] [cursor=pointer]:
+                - /url: search.html
+            - listitem [ref=f711e472]:
+              - link "Contact" [ref=f711e473] [cursor=pointer]:
+                - /url: not-found.html
+      - generic [ref=f711e474]:
+        - generic [ref=f711e475]: © 2026 Arc Trips
+        - generic [ref=f711e476]: Prices in CAD, before taxes and fees

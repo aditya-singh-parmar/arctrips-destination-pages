@@ -1,0 +1,41 @@
+{
+  "_source": "Environment and Climate Change Canada normals, Tofino station. Seeded for design. NOT VERIFIED against the station record. Never present as fact while unverified.",
+  "_fields": "hi = average daily high C, lo = average daily low C, mm = mean monthly rainfall, days = days with measurable rain",
+  "tofino": [
+    { "hi": 8.6,  "lo": 2.6,  "mm": 489, "days": 22 },
+    { "hi": 9.3,  "lo": 2.3,  "mm": 368, "days": 19 },
+    { "hi": 10.4, "lo": 3.1,  "mm": 337, "days": 21 },
+    { "hi": 12.3, "lo": 4.3,  "mm": 213, "days": 18 },
+    { "hi": 14.6, "lo": 6.7,  "mm": 132, "days": 15 },
+    { "hi": 16.3, "lo": 9.1,  "mm": 102, "days": 13 },
+    { "hi": 18.1, "lo": 10.9, "mm": 66,  "days": 9  },
+    { "hi": 18.6, "lo": 11.1, "mm": 82,  "days": 10 },
+    { "hi": 17.5, "lo": 9.3,  "mm": 152, "days": 12 },
+    { "hi": 13.9, "lo": 6.9,  "mm": 396, "days": 20 },
+    { "hi": 10.3, "lo": 4.4,  "mm": 500, "days": 23 },
+    { "hi": 8.4,  "lo": 2.7,  "mm": 490, "days": 23 }
+  ],
+  "ucluelet": [
+    { "hi": 8.4,  "lo": 2.8,  "mm": 452, "days": 22 },
+    { "hi": 9.1,  "lo": 2.5,  "mm": 341, "days": 19 },
+    { "hi": 10.2, "lo": 3.3,  "mm": 312, "days": 20 },
+    { "hi": 12.0, "lo": 4.5,  "mm": 198, "days": 17 },
+    { "hi": 14.2, "lo": 6.9,  "mm": 124, "days": 14 },
+    { "hi": 15.9, "lo": 9.3,  "mm": 96,  "days": 12 },
+    { "hi": 17.6, "lo": 11.1, "mm": 62,  "days": 9  },
+    { "hi": 18.1, "lo": 11.3, "mm": 78,  "days": 10 },
+    { "hi": 17.0, "lo": 9.5,  "mm": 143, "days": 12 },
+    { "hi": 13.6, "lo": 7.1,  "mm": 368, "days": 20 },
+    { "hi": 10.1, "lo": 4.6,  "mm": 463, "days": 23 },
+    { "hi": 8.2,  "lo": 2.9,  "mm": 455, "days": 22 }
+  ],
+  "seasons": {
+    "storm":  { "months": [11,12,1,2],     "name": "Storm season",     "claim": "The Pacific throws everything it has at the coast, and people book rooms to watch it." },
+    "green":  { "months": [3,4,10],        "name": "The green months", "claim": "The coast between the storms and the crowds, at half the price." },
+    "long":   { "months": [5,6,7,8,9],     "name": "Long days",        "claim": "Sixteen hours of light and the water finally warm enough to stay in." }
+  },
+  "tides": {
+    "tofino":   { "station": "Tofino Harbour", "low1": "06:14", "low1m": 0.8, "high1": "12:38", "high1m": 3.1, "low2": "18:52", "low2m": 1.2, "sunset": "21:07" },
+    "ucluelet": { "station": "Ucluelet Harbour", "low1": "06:02", "low1m": 0.7, "high1": "12:26", "high1m": 3.0, "low2": "18:40", "low2m": 1.1, "sunset": "21:05" }
+  }
+}

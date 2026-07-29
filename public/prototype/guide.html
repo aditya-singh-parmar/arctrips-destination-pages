@@ -1,0 +1,1119 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wildlife Tours in Tofino, Arc Trips</title>
+<meta name="description" content="Whales, bears and seabirds out of Tofino Harbour. What you see, when the boats run, zodiac or covered, twelve places to watch from land, and the twenty-four questions people ask.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_system.css">
+<style>
+/* ── Page-scoped only. Tokens from _system.css, no new colour values. ────────
+      This is the article detail page, rebuilt on the v2 navigation block:
+      .crumb in the body, one .placebar as the only sticky row, .jumprow plus
+      .jumpbar in the body, two .siblings rails. No hue in the season strip,
+      no chip walls, nothing set below 14px. ─────────────────────────────── */
+
+:root{--nav:70px;--bar:56px}
+
+/* a11y floors, carried from index.html so the pages behave the same */
+:focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:var(--r-sm)}
+.almanac :focus-visible,.proof :focus-visible{outline-color:var(--a300)}
+.btn{min-height:44px;white-space:nowrap}
+nav.top .btn{flex:none}
+/* On a phone the one row cannot hold brand, search, three links and Sign in,
+   and Vancouver Island was being clipped off the right edge. The links drop to
+   their own row instead, because the region has to stay one tap from anywhere. */
+@media(max-width:760px){
+  :root{--nav:114px}
+  .nav-in{height:auto;flex-wrap:wrap;padding-block:8px;gap:6px 14px}
+  nav.top .search{display:none}
+  .nav-links{order:3;flex-basis:100%;gap:20px;white-space:nowrap;font-size:.95rem}
+  nav.top .btn{margin-left:auto}
+}
+.brand,.nav-links a{display:inline-flex;align-items:center;min-height:44px}
+.search{height:44px}
+.search input{align-self:stretch}
+.fgrid ul{gap:2px;color:var(--n600)}
+.fgrid ul a{display:inline-block;padding-block:12px}
+.form .btn{height:48px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.label--n,.kmeta,.fnote,.fbase{color:var(--n600)}
+/* Nothing on this page renders below 14px. The shared system carries some
+   smaller sizes; they are lifted here rather than in _system.css, which is
+   locked and shared with every other page. */
+.label{font-size:.88rem;letter-spacing:.1em}
+.crumb{font-size:.9rem}
+.jumprow a{font-size:.9rem}
+.sib__m{font-size:.9rem}
+.fnote,.fbase,.fgrid ul,.consent{font-size:.9rem}
+.fgrid h5{font-size:.88rem;letter-spacing:.08em}
+.btn--sm{font-size:.88rem}
+.search kbd{font-size:.88rem}
+/* the system sets body>*:not(.chart){position:relative}, which outranks a bare
+   class selector, so every body-level positioned element is scoped to body> */
+body>.skip{position:absolute;left:var(--gut);top:-60px;z-index:99;background:var(--navy);color:var(--paper);
+  padding:13px 18px;border-radius:0 0 var(--r-sm) var(--r-sm);font-weight:600;font-size:.9rem;transition:top .18s var(--ease)}
+.skip:focus{top:0}
+
+body>.jumpbar{position:fixed;left:0;top:0}
+
+
+/* ── the trail. Every ancestor is a link, the article itself is not. The
+      padding is there to buy the 44px touch target back on a phone. ────── */
+.crumb{padding-block:clamp(14px,2vw,22px) 4px}
+.crumb a,.crumb [aria-current="page"]{display:inline-flex;align-items:center;min-height:44px}
+
+/* ── the place bar. Identical on every Tofino page, and solid, because it is
+      chrome the reader has to be able to trust at a glance. ────────────── */
+.placebar{background:var(--paper)}
+
+/* ── the tide strip. Says what it is in plain words, gives the readings,
+      then says why a reader planning a day here would care. ───────────── */
+.tide-in{display:block;padding-block:18px}
+.tide__h{font-size:1.06rem;font-weight:700;color:var(--navy);line-height:1.3}
+.tide-read{margin-top:9px;font-size:.98rem;color:var(--n700);gap:10px 26px}
+.tide__why{margin-top:7px;font-size:.95rem;color:var(--n600);max-width:64ch}
+
+/* ── article head. Asymmetric: the headline takes the page, the counted
+      facts sit in a narrow second column beside it. ───────────────────── */
+.hd{padding-block:clamp(6px,1vw,14px) clamp(30px,4vw,54px)}
+.hd-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,.62fr);gap:clamp(26px,4vw,64px);align-items:end}
+@media(max-width:940px){.hd-grid{grid-template-columns:1fr;gap:32px;align-items:start}}
+.hd h1{font-size:clamp(3.3rem,7.6vw,6.2rem);font-weight:800;line-height:.92;letter-spacing:-.048em;max-width:13ch;margin-top:16px}
+.hd .lede{font-size:clamp(1.08rem,1.5vw,1.34rem);font-weight:400;max-width:46ch;margin-top:24px;color:var(--n700)}
+.dossier{border-top:2px solid var(--navy);padding-top:16px}
+.dossier div{display:flex;gap:12px;align-items:baseline;padding-block:9px;border-bottom:1px solid var(--n150)}
+.dossier div:last-child{border-bottom:0}
+.dossier b{font-size:1.32rem;font-weight:800;color:var(--navy);letter-spacing:-.03em;font-variant-numeric:tabular-nums;
+  flex:none;min-width:2.6ch}
+.dossier span{font-size:.92rem;color:var(--n600);line-height:1.45}
+.byline{display:flex;align-items:baseline;gap:clamp(12px,2vw,26px);flex-wrap:wrap;margin-top:clamp(24px,3vw,34px);
+  padding-top:18px;border-top:1px solid var(--n150);font-size:.9rem;color:var(--n600)}
+.byline b{color:var(--navy);font-weight:700}
+.byline .who2{font-size:.94rem;color:var(--n700)}
+
+/* ── full bleed one: the hero photograph escapes the container. ─────────── */
+.bleedfig{width:100%;margin-top:clamp(6px,1vw,14px)}
+.bleedfig__m{width:100%;height:clamp(300px,60vh,640px);background:var(--n100)}
+.bleedfig__m img{width:100%;height:100%;object-fit:cover}
+.bleedfig figcaption{display:flex;gap:10px 30px;flex-wrap:wrap;justify-content:space-between;
+  padding-block:12px;font-size:.9rem;color:var(--n600)}
+
+/* ── in-page jumps, in the body, deliberately unlike the place bar ─────── */
+.jumprow{margin-block:clamp(26px,3.4vw,42px) clamp(24px,3vw,34px)}
+.jumprow a{min-height:44px}
+.jumprow .jl{font-size:.88rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--n600);
+  align-self:center;padding-right:6px}
+
+/* ── long-form reading. One measure, held. ─────────────────────────────── */
+.prose{max-width:68ch;margin-inline:auto}
+.prose section{scroll-margin-top:calc(var(--nav) + var(--bar) + 20px)}
+.prose h2{font-size:clamp(1.85rem,3.4vw,2.7rem);margin-top:clamp(46px,5.4vw,78px);max-width:20ch}
+.prose section:first-child h2{margin-top:0}
+.prose h3{margin-top:32px;font-size:1.16rem}
+.prose p{margin-top:16px;color:var(--n700)}
+.prose p.first{font-size:1.16rem;color:var(--n800);line-height:1.6}
+.prose ul{margin-top:18px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:11px}
+.prose ul li{position:relative;padding-left:26px;color:var(--n700)}
+.prose ul li::before{content:"";position:absolute;left:4px;top:.62em;width:7px;height:7px;border-radius:2px;background:var(--a400)}
+.prose ul li b{color:var(--navy);font-weight:700}
+/* only links inside running copy are underlined. Components carry their own. */
+.prose p a,.prose li a{color:var(--azure);font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.prose p a:hover,.prose li a:hover{color:var(--a800)}
+.prose .pl__b a{color:inherit;text-decoration:none}
+.note{margin-top:26px;background:var(--n50);border:1px solid var(--n150);border-left:3px solid var(--navy);
+  border-radius:var(--r-sm);padding:18px 22px}
+.note b{display:block;font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:5px}
+.note p{margin-top:0;font-size:.98rem;color:var(--n700)}
+.pull{margin-top:clamp(34px,4vw,52px);padding-block:clamp(26px,3.2vw,36px);border-block:1px solid var(--n150)}
+.pull p{font-size:clamp(1.44rem,2.7vw,2.15rem);line-height:1.28;color:var(--navy);font-weight:800;letter-spacing:-.032em;margin:0}
+.pull cite{display:block;margin-top:16px;font-size:.9rem;color:var(--n600);font-style:normal;font-weight:600}
+.fig{margin-top:clamp(28px,3.4vw,40px)}
+.fig__m{border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;background:var(--n100)}
+.fig__m img{width:100%;height:100%;object-fit:cover}
+.fig figcaption{margin-top:11px;font-size:.9rem;color:var(--n600);line-height:1.55}
+/* one figure steps outside the measure, and only at widths where the wrap is
+   provably wider than the measure plus twice the bleed */
+.prose{--bleed:0px}
+.fig--wide{margin-inline:calc(-1 * var(--bleed));width:calc(100% + 2 * var(--bleed))}
+@media(min-width:1100px){.prose{--bleed:96px}}
+/* the measure sits left of centre, so the page reads asymmetric rather than
+   like a centred column, and the figures lean out into the space it leaves */
+@media(min-width:1180px){.prose{margin-inline:var(--bleed) auto}}
+.figpair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:clamp(28px,3.4vw,40px)}
+.figpair .fig{margin-top:0}
+.figpair .fig__m{aspect-ratio:4/5}
+@media(max-width:560px){.figpair{grid-template-columns:1fr}}
+
+/* ── full bleed two: the proof band. Real counts over a real photograph. ── */
+.proof{position:relative;width:100%;min-height:min(66vh,560px);display:flex;align-items:center;overflow:hidden;
+  margin-block:clamp(54px,6.4vw,96px)}
+.proof img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.proof__veil{position:absolute;inset:0;background:linear-gradient(96deg,rgba(11,51,86,.94) 0%,rgba(11,51,86,.8) 48%,rgba(11,51,86,.32) 100%)}
+.proof__in{position:relative;padding-block:clamp(40px,5vw,64px)}
+.proof .label{color:var(--a300)}
+.proof__n{font-size:clamp(1.7rem,3.4vw,2.9rem);font-weight:700;color:var(--paper);letter-spacing:-.035em;
+  line-height:1.08;margin-top:14px;max-width:17ch}
+.proof__n b{font-size:clamp(3.4rem,8.6vw,7.2rem);font-weight:800;display:block;letter-spacing:-.05em;line-height:.9;
+  font-variant-numeric:tabular-nums}
+.proof__d{color:rgba(255,255,255,.82);max-width:48ch;margin-top:20px;font-size:1.02rem}
+.proof__f{display:flex;gap:clamp(20px,3.4vw,46px);flex-wrap:wrap;margin-top:clamp(24px,3vw,34px);
+  padding-top:20px;border-top:1px solid rgba(255,255,255,.24)}
+.proof__f div{min-width:82px}
+.proof__f dt{font-size:.88rem;font-weight:600;letter-spacing:.02em;color:rgba(255,255,255,.76)}
+.proof__f dd{font-size:clamp(1.5rem,2.4vw,2.1rem);font-weight:800;color:var(--paper);letter-spacing:-.035em;
+  margin-top:7px;font-variant-numeric:tabular-nums;line-height:1}
+.proof .btn--ghost{margin-top:clamp(24px,3vw,32px);border-color:rgba(255,255,255,.44);color:var(--paper)}
+.proof .btn--ghost:hover{border-color:var(--paper);background:rgba(255,255,255,.1)}
+
+/* ── the season panel, answering one question: when should you go. No hue in
+      the month strip. Filled means tours are running, that is all. ─────── */
+/* the panel leans out of the measure the same distance the wide figures do */
+.when{margin-top:clamp(34px,4vw,52px);margin-inline:calc(-1 * var(--bleed));width:calc(100% + 2 * var(--bleed))}
+.when .almanac{padding:clamp(24px,3.6vw,46px)}
+.when h3{font-size:clamp(1.7rem,2.8vw,2.3rem);letter-spacing:-.032em}
+.when .sub{color:rgba(255,255,255,.86);margin-top:14px;font-size:1.08rem;max-width:54ch}
+.yr__how{margin-top:clamp(22px,2.8vw,30px);font-size:.95rem;color:rgba(255,255,255,.84);max-width:56ch}
+.yr{display:flex;gap:4px;margin:14px 0 clamp(22px,2.8vw,30px);overflow-x:auto;scrollbar-width:none}
+.yr::-webkit-scrollbar{display:none}
+.yr__b{flex:1;min-width:48px;display:flex;flex-direction:column;align-items:center;gap:9px;padding:8px 0 9px;
+  border-radius:var(--r-sm);transition:background .2s var(--ease)}
+.yr__b:hover{background:rgba(255,255,255,.08)}
+.yr__b[aria-pressed="true"]{background:rgba(255,255,255,.11)}
+.yr__col{width:100%;height:clamp(56px,8vw,96px);display:flex;align-items:flex-end;justify-content:center}
+.yr__bar{width:60%;background:rgba(255,255,255,.28);border-radius:3px 3px 0 0;height:var(--h)}
+.yr__b[aria-pressed="true"] .yr__bar{background:var(--a300)}
+/* dark panel: filled is the boats running, empty is not. No colour either way. */
+.yr__c{width:100%;max-width:32px;height:28px;border-radius:4px;display:grid;place-items:center;font-size:.88rem;font-weight:600;
+  background:rgba(255,255,255,.06);color:rgba(255,255,255,.62)}
+.yr__c[data-on]{background:rgba(255,255,255,.14);color:#fff;font-weight:700}
+.yr__b[aria-pressed="true"] .yr__c{outline:2px solid var(--paper);outline-offset:2px}
+/* on a phone the twelve months wrap into two rows of six rather than becoming
+   a sideways scroll, so the whole year is visible without discovering it */
+@media(max-width:620px){
+  .yr{flex-wrap:wrap;overflow:visible;gap:10px 4px}
+  .yr__b{flex:0 0 calc((100% - 20px) / 6);min-width:0}
+  .yr__col{height:52px}
+}
+.trade{border-top:1px solid rgba(255,255,255,.2);padding-top:clamp(22px,2.8vw,30px);display:grid;
+  grid-template-columns:1fr auto;gap:clamp(20px,3vw,44px);align-items:start}
+@media(max-width:820px){.trade{grid-template-columns:1fr;gap:24px}}
+.trade h4{color:#fff;font-size:1.22rem;font-weight:700;margin-bottom:9px}
+.trade p{color:rgba(255,255,255,.86);font-size:1.04rem;line-height:1.6;max-width:52ch}
+.trade p b{color:var(--paper);font-weight:700}
+.bignums{display:flex;gap:clamp(18px,3vw,36px)}
+.bignums dt{font-size:.88rem;font-weight:600;letter-spacing:.02em;color:rgba(255,255,255,.76)}
+.bignums dd{font-size:clamp(1.8rem,3vw,2.7rem);font-weight:800;color:var(--paper);letter-spacing:-.04em;line-height:1;
+  margin-top:9px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bignums dd small{font-size:.95rem;font-weight:600;color:rgba(255,255,255,.78);margin-left:5px;letter-spacing:0}
+@media(max-width:560px){.bignums{display:grid;grid-template-columns:1fr 1fr;gap:16px}.bignums dd{font-size:1.7rem}}
+/* one sentence and one link, in place of the nine subject tiles that used to
+   sit here. Nobody reads a nine-cell directory inside a calendar. */
+.alsoline{margin-top:clamp(22px,2.8vw,30px);padding-top:clamp(18px,2.4vw,24px);border-top:1px solid rgba(255,255,255,.2);
+  font-size:1rem;color:rgba(255,255,255,.82);max-width:60ch}
+/* inline, but padded to a 44px hit area without breaking the sentence */
+.alsoline a{color:var(--paper);font-weight:600;text-decoration:underline;text-underline-offset:3px;padding-block:12px}
+.exits{display:flex;gap:10px;flex-wrap:wrap;margin-top:clamp(20px,2.6vw,26px)}
+.when .btn--ghost{border-color:rgba(255,255,255,.44);color:var(--paper)}
+.when .btn--ghost:hover{border-color:var(--paper);background:rgba(255,255,255,.1)}
+.when .almanac__legend{display:block;margin-top:clamp(18px,2.4vw,24px);color:rgba(255,255,255,.7);
+  font-size:.9rem;line-height:1.6;max-width:64ch}
+
+/* ── the shore list: twelve named places, with what each is actually for ── */
+.shore{margin-top:clamp(26px,3.2vw,38px)}
+.shore__g{margin-top:26px}
+.shore__k{font-size:1rem;font-weight:700;color:var(--navy);
+  padding-bottom:10px;border-bottom:2px solid var(--navy);display:block}
+.pl{display:grid;grid-template-columns:76px minmax(0,1fr);gap:18px;padding-block:16px;border-bottom:1px solid var(--n150);
+  align-items:center}
+.pl__m{border-radius:var(--r-sm);overflow:hidden;aspect-ratio:1/1;background:var(--n100)}
+.pl__m img{width:100%;height:100%;object-fit:cover}
+.pl h4{font-size:1.06rem;font-weight:700;color:var(--navy);line-height:1.3}
+.pl a:hover h4{color:var(--azure)}
+.pl__b{font-size:.95rem;color:var(--n700);margin-top:5px;line-height:1.5}
+@media(max-width:520px){.pl{grid-template-columns:64px minmax(0,1fr);gap:14px}}
+
+/* ── the questions. Ten of them, so the block leans out of the measure and
+      sets in two columns once there is room. ───────────────────────────── */
+.qwrap{margin-inline:calc(-1 * var(--bleed));width:calc(100% + 2 * var(--bleed))}
+.qwrap{margin-top:20px}
+@media(min-width:1100px){
+  .qwrap{column-count:2;column-gap:clamp(28px,3vw,52px)}
+  .qi{break-inside:avoid}
+}
+.qi{border-top:1px solid var(--n150);padding-block:20px}
+.qi h3{font-size:1.06rem;font-weight:700;line-height:1.32;color:var(--navy)}
+.qi p{font-size:.98rem;color:var(--n700);margin-top:9px;line-height:1.6}
+.qnote{font-size:.95rem;color:var(--n600);margin-top:20px;line-height:1.6}
+.qnote a{color:var(--azure);font-weight:600;text-decoration:underline;text-underline-offset:3px;padding-block:12px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:clamp(28px,3.4vw,38px)}
+.tags a{display:inline-flex;align-items:center;min-height:44px;padding:8px 16px;border-radius:999px;border:1px solid var(--n200);
+  font-size:.92rem;font-weight:600;color:var(--n700);transition:border-color .2s var(--ease),color .2s var(--ease)}
+.tags a:hover{border-color:var(--navy);color:var(--navy)}
+
+/* ── the two lateral rails ─────────────────────────────────────────────── */
+.rail{padding-top:clamp(46px,5.4vw,74px)}
+.rail .head{margin-bottom:22px}
+/* the grid ends on a ragged row, so the rules are drawn on the tiles rather
+   than by a container border showing an empty cell */
+.siblings{background:var(--paper);border:0;border-radius:0}
+.sib{box-shadow:0 0 0 1px var(--n150);min-height:96px;justify-content:center}
+.sib:hover .sib__n{color:var(--azure)}
+.sib__n{font-size:1.04rem;line-height:1.3}
+
+/* ── the commerce block, matched to the subject ─────────────────────────── */
+.buy{margin-top:clamp(46px,5.4vw,74px);background:var(--n50);border:1px solid var(--n150);border-radius:clamp(16px,2vw,22px);
+  padding:clamp(24px,3.6vw,44px)}
+.buy h3{font-size:clamp(1.4rem,2.2vw,1.9rem);max-width:24ch;margin-top:12px;letter-spacing:-.03em}
+.buy p{color:var(--n700);margin-top:11px;max-width:54ch;font-size:1rem}
+.buy .form{margin-top:22px}
+.buy .form input{border:1px solid var(--n200);background:var(--paper)}
+.buy .form input:focus{outline:2px solid var(--azure);outline-offset:2px}
+.buy .consent{color:var(--n600);max-width:54ch}
+.buy .consent input{width:20px;height:20px;flex:none}
+.captured{margin-top:22px;padding:16px 20px;background:var(--paper);border:1px solid var(--navy);
+  border-radius:var(--r-sm);color:var(--navy);font-weight:600;font-size:1rem;max-width:54ch}
+.fall{margin-top:clamp(28px,3.4vw,38px);padding-top:clamp(22px,2.8vw,30px);border-top:1px solid var(--n150)}
+.stays{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.8vw,20px)}
+@media(max-width:820px){.stays{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.stays{grid-template-columns:1fr}}
+.stay__m{border-radius:var(--r-sm);overflow:hidden;aspect-ratio:4/3;background:var(--n100)}
+.stay__m img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.stay:hover .stay__m img{transform:scale(1.05)}
+.stay h4{font-size:.97rem;font-weight:700;color:var(--navy);margin-top:11px;line-height:1.35}
+.stay:hover h4{color:var(--azure)}
+.stay p{font-size:.92rem;color:var(--n600);margin-top:5px;font-variant-numeric:tabular-nums}
+
+/* ── three fixed slots, never a bare footer ────────────────────────────── */
+.keep{margin-top:clamp(48px,5.6vw,80px);padding-top:clamp(30px,3.6vw,44px);border-top:1px solid var(--n150)}
+.keepgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.4vw,28px);margin-top:24px}
+@media(max-width:880px){.keepgrid{grid-template-columns:1fr}}
+.slot{display:block;border:1px solid var(--n150);border-radius:var(--r);padding:clamp(18px,2.2vw,26px);background:var(--paper);
+  transition:border-color .2s var(--ease),transform .2s var(--ease)}
+.slot:hover{border-color:var(--navy);transform:translateY(-2px)}
+.slot__k{font-size:.9rem;font-weight:600;color:var(--azure)}
+.slot h3{margin-top:8px;font-size:1.18rem}
+.slot p{font-size:.95rem;color:var(--n600);margin-top:9px;line-height:1.55}
+.slot__go{display:inline-flex;align-items:center;gap:7px;margin-top:16px;font-size:.92rem;font-weight:600;color:var(--navy)}
+.slot__go svg{width:13px;height:13px}
+.slot:hover .slot__go{color:var(--azure)}
+footer.f{margin-top:clamp(48px,5.6vw,80px)}
+
+/* ── mobile dock. Mutually exclusive with the place bar CTA by breakpoint,
+      so there is exactly one primary button on screen at any width. ────── */
+.dock{display:none}
+@media(max-width:760px){
+  body>.dock{display:block;position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--paper);
+    border-top:1px solid var(--n150);padding:9px var(--gut) calc(9px + env(safe-area-inset-bottom))}
+  .dock-in{display:flex;align-items:center;gap:12px}
+  .dock__t{font-size:.88rem;color:var(--n600);line-height:1.3;min-width:0}
+  .dock__t b{display:block;color:var(--navy);font-weight:700;font-size:.94rem}
+  .dock .btn{margin-left:auto;flex:none}
+  body{padding-bottom:80px}
+}
+</style>
+</head>
+<body>
+<span id="top" aria-hidden="true"></span>
+
+<a class="skip" href="#article">Skip to the article</a>
+<div class="jumpbar" id="jumpbar" aria-hidden="true"></div>
+
+<!-- the chart ground: contours and depth soundings -->
+<div class="chart" aria-hidden="true">
+<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none">
+  <g stroke="var(--a200)" stroke-width="1" opacity=".72">
+    <path d="M-40 250 C160 200 300 300 420 280 C560 258 640 150 800 170 C960 190 1050 300 1200 280 C1330 262 1420 200 1500 220"/>
+    <path d="M-40 300 C170 250 310 350 430 330 C570 308 650 205 810 225 C970 245 1060 350 1210 330 C1340 312 1425 255 1500 275"/>
+    <path d="M-40 355 C180 305 320 402 440 385 C580 365 665 262 820 282 C980 302 1070 402 1220 385 C1350 368 1430 312 1500 332"/>
+    <path d="M-60 620 C140 585 260 660 400 640 C540 620 620 545 760 560 C900 575 1000 655 1140 640 C1280 625 1380 570 1500 590"/>
+    <path d="M-60 672 C150 638 275 712 415 692 C555 672 632 600 772 615 C912 630 1010 706 1150 692 C1290 678 1385 622 1500 642"/>
+    <path d="M-60 726 C160 692 290 764 430 744 C570 724 645 654 785 669 C925 684 1020 758 1160 744 C1300 730 1390 675 1500 695"/>
+  </g>
+  <g fill="var(--azure)" font-family="Inter" font-weight="600" font-size="9" opacity=".26">
+    <text x="200" y="215">14</text><text x="512" y="268">9</text><text x="700" y="163">22</text>
+    <text x="900" y="196">31</text><text x="1140" y="292">17</text><text x="288" y="386">6</text>
+    <text x="620" y="270">11</text><text x="1010" y="360">26</text><text x="120" y="600">19</text>
+    <text x="480" y="646">8</text><text x="700" y="556">24</text><text x="1050" y="662">13</text>
+    <text x="1330" y="586">28</text><text x="352" y="712">5</text><text x="860" y="742">16</text>
+  </g>
+</svg>
+</div>
+
+<!-- Global nav. Identical on every page: Stays, Destinations, Vancouver Island.
+     The region stays one click away from anywhere in the site. -->
+<nav class="top"><div class="wrap nav-in">
+  <a class="brand" href="index.html">Arctrips</a>
+  <ul class="nav-links">
+    <li><a href="search.html?in=tofino">Stays</a></li>
+    <li><a href="index.html">Destinations</a></li>
+    <li><a href="search.html">Guides</a></li>
+  </ul>
+  <form class="search" role="search" action="search.html" method="get">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
+    <label class="vh" for="q">Go to a place, a beach, a trail or a guide</label>
+    <input id="q" name="q" type="search" placeholder="Tofino, Long Beach, Wild Pacific Trail">
+    <kbd>/</kbd>
+  </form>
+  <a class="btn btn--ink btn--sm" href="not-found.html">Sign in</a>
+</div></nav>
+
+<!-- The only sticky row under the global nav. Identical on every Tofino page:
+     the town anchor, the town's five sections, the town's booking path. -->
+<div class="placebar"><div class="wrap placebar-in">
+  <a class="placebar__back" href="tofino.html"><span class="n">&larr; Tofino</span></a>
+  <ul class="placebar__links">
+    <li><a href="tofino.html">Overview</a></li>
+    <li><a href="things-to-do.html">Things to do</a></li>
+    <li><a href="long-beach.html">Areas</a></li>
+    <li><a href="plan.html">Plan</a></li>
+    <li><a href="#top" aria-current="page">Guides</a></li>
+  </ul>
+  <a class="btn btn--primary btn--sm placebar__cta" href="search.html?in=tofino">See 134 stays</a>
+</div></div>
+
+<main id="main">
+
+<!-- The trail. Every ancestor is a real link. Only this page is plain text. -->
+<nav class="crumb wrap" aria-label="Breadcrumb">
+  <a class="lvl-deep" href="country.html">Canada</a><span class="sep lvl-deep">/</span>
+  <a class="lvl-deep" href="province.html">British Columbia</a><span class="sep lvl-deep">/</span>
+  <a class="lvl-deep" href="region.html">Vancouver Island</a><span class="sep lvl-deep">/</span>
+  <a href="tofino.html">Tofino</a><span class="sep">/</span>
+  <a href="things-to-do.html">Things to do</a><span class="sep">/</span>
+  <a href="whale-watching.html">Whale watching</a><span class="sep">/</span>
+  <span aria-current="page">Wildlife tours</span>
+</nav>
+
+<article id="article">
+
+<header class="hd wrap">
+  <div class="hd-grid">
+    <div>
+      <span class="label">Whale watching, Tofino</span>
+      <h1>Wildlife tours in Tofino</h1>
+      <p class="lede">Whales, bears and seabirds. Which tours are worth booking, what you actually see from the boat, and what the shore gives you for free.</p>
+    </div>
+    <div class="dossier" id="dossier"></div>
+  </div>
+
+  <div class="byline">
+    <span class="who2">Written by <b>Marit Sandoval</b></span>
+    <span>Four trips out of Tofino Harbour, March to September</span>
+    <span>Published <b>4 March 2026</b></span>
+    <span>Updated <b>21 July 2026</b></span>
+    <span id="rtime"></span>
+  </div>
+</header>
+
+<!-- full bleed one: the photograph runs the whole width of the screen -->
+<figure class="bleedfig">
+  <div class="bleedfig__m">
+    <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_2400,h_1200/guides/tofino/whale-watching/_category-1"
+         alt="A humpback lifting its tail fluke clear of flat blue water, with a dark forested shoreline behind">
+  </div>
+  <figcaption class="wrap">
+    <span>A humpback lifting its fluke on the way down, in the channel behind the islands.</span>
+    <span>One of thirteen photographs held for whale watching on this coast</span>
+  </figcaption>
+</figure>
+
+<!-- Today's tide at Tofino Harbour. Titled in plain words, then the readings,
+     then one line saying why a reader would care. -->
+<div class="tide"><div class="wrap tide-in">
+  <p class="tide__h" id="tideStation">Tide today at Tofino Harbour</p>
+  <p class="tide-read" id="tideRead"></p>
+  <p class="tide__why">Every tour boat on this page leaves from here, and at low water Long Beach doubles in width.</p>
+</div></div>
+
+<div class="wrap">
+  <!-- in-page jumps. In the body, not in the chrome, and nothing like the place bar. -->
+  <nav class="jumprow" id="jumps" aria-label="Sections in this guide">
+    <span class="jl">In this guide</span>
+    <a href="#what">What you see</a>
+    <a href="#season">When to go</a>
+    <a href="#boat">Zodiac or covered</a>
+    <a href="#shore">From the shore</a>
+    <a href="#reading">Blows and flukes</a>
+    <a href="#booking">Booking and kit</a>
+    <a href="#faq">Questions</a>
+  </nav>
+
+<div class="prose" id="prose">
+
+  <section id="what">
+    <h2>What you are actually looking for</h2>
+    <p class="first">Tofino is one of the best places on Vancouver Island to see wild animals. It sits beside Clayoquot Sound, a rich coastal area with ocean, islands, beaches, rainforest and rocky shorelines. Almost everything on a tour boat here comes down to that geography: deep water close in, shallow feeding ground behind the islands, and a harbour you can leave from in almost any weather.</p>
+    <p>Three whales carry most trips. Gray whales come past on migration in spring, humpbacks work the feeding water through summer and into September, and orcas turn up often enough to be worth hoping for and not often enough to be worth planning around. Alongside them you get sea otters, sea lions hauled out on the rocks, harbour seals, river otters, bald eagles, great blue herons and more seabirds than most people expect.</p>
+    <p>Bears are a separate trip. Operators run them into the calm inlet water behind town, around Grice Bay, and they are timed to a low tide rather than to a time of day, because that is when black bears come down to turn rocks over on the flats. If you want both, book them on different days. They are not the same boat and they are not the same water.</p>
+    <div class="note">
+      <b>Good to know</b>
+      <p>Nothing on the water is guaranteed. Operators pick routes on the day from weather, swell and recent sightings, and the honest ones will tell you when the sea state means a shorter loop closer in.</p>
+    </div>
+  </section>
+
+  <figure class="fig fig--wide">
+    <div class="fig__m">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1600,h_1000/guides/tofino/whale-watching/_category-5"
+           alt="Four orcas travelling in a line, dorsal fins above flat green water with dark forest behind them">
+    </div>
+    <figcaption>Orcas travelling in a line inside the islands. They turn up often enough to hope for, and not often enough to plan a trip around.</figcaption>
+  </figure>
+
+  <section id="season">
+    <h2>When to go</h2>
+    <p>Tours run eight months of the twelve, one of the longest seasons on this coast. That is why March in Tofino books out while the rain is still falling.</p>
+
+    <div class="when">
+      <div class="almanac">
+        <h3>When should you go?</h3>
+        <p class="sub">Tours run March to October. Go in April or May for gray whales, August or September for humpbacks. November to February the boats stop and the storms take over.</p>
+
+        <p class="yr__how">Each bar below is that month's average rainfall. The square under it is filled when tours are running. Choose a month to see it.</p>
+        <div class="yr" role="group" aria-label="Choose a month" id="yr"></div>
+
+        <div class="trade">
+          <div>
+            <h4 id="whenTitle"></h4>
+            <p id="tradeA"></p>
+          </div>
+          <dl class="bignums" id="bignums"></dl>
+        </div>
+
+        <p class="alsoline">Nine other subjects in Tofino run on the same calendar, from surfing to storm watching. <a href="things-to-do.html">See all nine</a></p>
+
+        <div class="exits" id="exits"></div>
+        <p class="almanac__legend" id="legend"></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="boat">
+    <h2>Zodiac or covered boat</h2>
+    <p>This is the only real decision you have to make, and it changes the day more than the operator does.</p>
+    <ul>
+      <li><b>A covered boat</b> is better for comfort, families and cooler days. There is a heated cabin to retreat into, a washroom, and somewhere to put a camera down. You sit higher, which helps you spot a blow at distance.</li>
+      <li><b>A zodiac</b> is better for travellers who want a faster, more open-air adventure. You are lower, closer to the water and colder, and the boat can turn and hold in places a bigger hull will not. Nobody on a zodiac stays dry in a swell.</li>
+      <li><b>A smaller tour or private charter</b> is the photographers' answer, and the answer for a group that wants the skipper's attention rather than a commentary.</li>
+    </ul>
+    <p>Many tours are about two and a half to three hours, but timing can vary, and the exact length is the operator's to set. There is no perfect time of day either. Morning trips may have calmer water, but wildlife can be active at different times, and a good skipper will chase the report rather than the clock.</p>
+    <p>If you are travelling with someone who gets seasick, take the covered boat and take the tablets before boarding rather than after. The swell out past the islands is longer and slower than it looks from the dock.</p>
+  </section>
+
+  <div class="figpair">
+    <figure class="fig">
+      <div class="fig__m">
+        <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_760,h_950/guides/tofino/whale-watching/_category-6"
+             alt="A whale blowing hard in close to a steep mossy rock shoreline, spray lit against the trees">
+      </div>
+      <figcaption>In tight against the rock. This is the sheltered, close water a smaller boat can hold position in.</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="fig__m">
+        <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_760,h_950/guides/tofino/whale-watching/_category-4"
+             alt="Spray and the mottled back of a whale breaking the surface in blue chop, close to the camera">
+      </div>
+      <figcaption>Outside the islands, in the chop. On a zodiac this is your eye level, and nobody stays dry.</figcaption>
+    </figure>
+  </div>
+
+  <section id="shore">
+    <h2>Watching from the shore</h2>
+    <p>Yes, sometimes whales can be seen from shore. But a guided boat tour gives you a much better chance of seeing whales and learning about them, and it is worth being straight about that before you spend a morning on a headland with binoculars.</p>
+    <p>If you want to try anyway, these are the twelve places on this coast we have written up where people actually stand and scan. Six of them are the Tofino beaches, where you get the horizon. Six are down the road on the Ucluelet side, where the rock gets you height over the water. What you are looking for at that range is not a whale. It is a blow, hanging for a second or two against the grey.</p>
+
+    <div class="shore" id="shore"></div>
+
+    <div class="note">
+      <b>Check the tide first</b>
+      <p>At Chesterman Beach, always check the tide before walking out toward Frank Island. The water can come in and cover the sandspit. Today's readings for Tofino Harbour are at the top of this page.</p>
+    </div>
+    <p>Grice Bay, on the inlet side, is the opposite kind of water: calm, shallow and sheltered. Choose it for still scenery and for the birds, not for whales and not for storms.</p>
+  </section>
+
+  <section id="reading">
+    <h2>Blows, backs and flukes</h2>
+    <p>Most people spend the first half hour of a tour looking for the wrong thing. Whales do not pose. What you get is a sequence, and once you can read it you stop missing things.</p>
+    <p>A blow means the whale has surfaced to breathe. It is often the first sign people see during whale watching, and on a still morning you can hear it before anyone points. Whales show their backs when they surface to breathe, travel or prepare for another dive. That long dark roll is the most common thing anyone sees all day.</p>
+
+    <figure class="fig">
+      <div class="fig__m">
+        <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1200,h_750/guides/tofino/whale-watching/_category-2"
+             alt="Several whale blows hanging in the air above dark water, lit against a steep forested hillside">
+      </div>
+      <figcaption>Three blows hanging against the hillside. At any real distance the blow is the whole sighting, not the whale.</figcaption>
+    </figure>
+
+    <p>If a whale lifts its tail fluke before disappearing, it usually means the whale is making a deeper dive.</p>
+
+    <div class="pull">
+      <p>A fluke is not a goodbye. It usually means a deeper dive, and the whale may surface again nearby after several minutes, or come up a long way off.</p>
+      <cite>Marit Sandoval, on the water off Clayoquot Sound</cite>
+    </div>
+
+    <p>So when the boat cuts its engine and everyone goes quiet, that is the skipper counting. Gray whales feeding in the shallows will often stay in one patch of water for an hour. Humpbacks travelling will not. The difference between the two is the difference between a five minute stop and the rest of your trip.</p>
+
+    <figure class="fig">
+      <div class="fig__m">
+        <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1200,h_750/guides/tofino/whale-watching/_category-7"
+             alt="The mottled grey back of a gray whale surfacing in shallow water a short way off a gravel beach, with a blow above it">
+      </div>
+      <figcaption>A gray whale surfacing close in to the beach. Grays feed in shallow water, which is why they are the ones people occasionally get from land.</figcaption>
+    </figure>
+
+    <p>Gray whales pass here as they travel north from winter breeding and calving areas in Baja California, Mexico, toward northern feeding grounds near Alaska and the Arctic. The main spring migration period is usually March to May. Early sightings may happen in February, and some whales may still be present into early summer, which is the overlap that makes May the strongest single month on this coast.</p>
+  </section>
+
+  <figure class="fig fig--wide">
+    <div class="fig__m">
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1600,h_1000/guides/tofino/whale-watching/_category-3"
+           alt="One tall blow and a dark whale back on flat water in front of a long forested shoreline">
+    </div>
+    <figcaption>One blow, one back, at the range most sightings actually happen. Half of a three hour tour looks like this, and it is the half people forget to watch.</figcaption>
+  </figure>
+
+  <section id="booking">
+    <h2>Booking, and what to take</h2>
+    <p>Tours here fill first at the two ends of the season: the second half of March, when the gray whales are coming back through and the Pacific Rim Whale Festival is on, and the middle of August. Between those, a day or two of notice is usually enough. Sailings do get cancelled for swell, so leave a spare morning in the trip if you can only do this once.</p>
+    <ul>
+      <li><b>Layers, and a windproof shell.</b> It is consistently colder on the water than on the sand, in every month of the year.</li>
+      <li><b>Binoculars.</b> The single biggest upgrade to the day, on the boat and off it.</li>
+      <li><b>Motion sickness tablets, taken before boarding.</b> Not after.</li>
+      <li><b>A camera you can hold with one hand.</b> The other hand is for the rail.</li>
+      <li><b>Sunglasses, even in the rain.</b> Glare off grey water is what tires your eyes out by hour two.</li>
+      <li><b>A national park pass</b> if the same day takes you down to Long Beach, Wickaninnish or Florencia Bay.</li>
+    </ul>
+    <p>Whale watching tours are not bookable through Arc Trips yet. Below is where that stands, and where the stays are in the meantime.</p>
+  </section>
+
+  <section id="faq">
+    <h2>Questions people ask</h2>
+    <p>The ten that come up most, answered short. They came out of the whale watching guides for both towns.</p>
+
+    <div class="qwrap" id="qlist"></div>
+    <p class="qnote" id="qnote"></p>
+
+    <div class="tags" aria-label="Related subjects">
+      <a href="whale-watching.html">Whale watching</a>
+      <a href="things-to-do.html">Things to do in Tofino</a>
+      <a href="long-beach.html">Long Beach</a>
+      <a href="plan.html">When to go</a>
+      <a href="tofino.html">Tofino</a>
+      <a href="search.html?in=tofino">Stays in Tofino</a>
+    </div>
+  </section>
+
+</div>
+</div>
+
+<!-- full bleed two: the counted proof, over a real photograph -->
+<section class="proof">
+  <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_2400,h_1100/guides/tofino/whale-watching/_category-8"
+       alt="A line of orcas surfacing together on calm blue water with pale hills on the horizon">
+  <div class="proof__veil"></div>
+  <div class="wrap proof__in">
+    <span class="label">How much we have written on this</span>
+    <p class="proof__n"><b class="tnum">321</b> sections written on this water.</p>
+    <p class="proof__d">Across Tofino and Ucluelet, from four seasons of going out. This article is one piece of it.</p>
+    <dl class="proof__f">
+      <div><dt>Town guides</dt><dd>2</dd></div>
+      <div><dt>Photographs</dt><dd>13</dd></div>
+      <div><dt>Months tours run</dt><dd>8</dd></div>
+    </dl>
+    <a class="btn btn--ghost" href="whale-watching.html">The whale watching guide</a>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <!-- lateral rail one: the rest of the whale watching family, with read times -->
+  <section class="rail">
+    <div class="head">
+      <div>
+        <h2>More on whales, same coast</h2>
+        <p>Seven short pieces, each a few minutes at most.</p>
+      </div>
+      <a class="btn btn--ghost btn--sm" href="whale-watching.html">All whale watching</a>
+    </div>
+    <div class="siblings" id="railA"></div>
+  </section>
+
+  <!-- lateral rail two: the other eight subjects in the same town -->
+  <section class="rail">
+    <div class="head">
+      <div>
+        <h2>Other things to do in Tofino</h2>
+        <p>Eight more subjects, 73 places written up between them.</p>
+      </div>
+      <a class="btn btn--ghost btn--sm" href="things-to-do.html">Everything in Tofino</a>
+    </div>
+    <div class="siblings" id="railB"></div>
+  </section>
+
+  <!-- topic matched commerce. Whale watching is not live on Arc Trips, so it
+       captures an email and falls through to stays. No dead end. -->
+  <div class="buy">
+    <span class="label">Whale watching, booking status</span>
+    <h3>Tours are not bookable here yet. The 134 stays in Tofino are.</h3>
+    <p>We list whale watching operators once we have been out with them and can stand behind the boat, the skipper and the refund policy. Leave an address and we will write the week it opens, and not before.</p>
+    <form class="form" id="capture">
+      <label class="vh" for="notify">Email address</label>
+      <input id="notify" name="notify" type="email" placeholder="you@example.com" required>
+      <button class="btn btn--ghost" type="submit">Tell me when tours open</button>
+    </form>
+    <label class="consent"><input type="checkbox" name="consent"> Yes, email me when whale watching goes live in Tofino. One message, and you can unsubscribe from any email.</label>
+
+    <div class="fall">
+      <div class="head">
+        <div>
+          <span class="label label--n">In the meantime</span>
+          <h3 style="margin-top:9px;font-size:1.24rem">Three of the 134 stays in Tofino. The town starts at $320 a night.</h3>
+        </div>
+        <a class="btn btn--ghost btn--sm" href="search.html?in=tofino">See all 134</a>
+      </div>
+      <div class="stays" id="stays"></div>
+    </div>
+  </div>
+
+  <!-- three fixed slots: next in this guide, more in this town, the booking path -->
+  <div class="keep">
+    <div class="head">
+      <div>
+        <span class="label label--n">Keep going</span>
+        <h2 style="margin-top:10px;font-size:clamp(1.8rem,3vw,2.5rem)">Where this goes next</h2>
+      </div>
+    </div>
+    <div class="keepgrid">
+      <a class="slot" href="#top">
+        <span class="slot__k">Next in this guide</span>
+        <h3>Whale Tails, Blows, and Backs</h3>
+        <p>The follow-on piece: what each surface behaviour means, and why a fluke is not the end of the sighting. Four questions, Tofino and Ucluelet.</p>
+        <span class="slot__go">Read it next
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="slot" href="things-to-do.html">
+        <span class="slot__k">More in Tofino</span>
+        <h3>Nine subjects, 73 places</h3>
+        <p>Eight more subjects, from beaches to storm watching, written up one place at a time.</p>
+        <span class="slot__go">See all nine
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="slot" href="search.html?in=tofino">
+        <span class="slot__k">The booking path</span>
+        <h3>134 stays in Tofino</h3>
+        <p>Cabins, cottages and chalets within reach of the harbour, from $320 a night before taxes and fees.</p>
+        <span class="slot__go">Check dates
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+
+</div>
+</article>
+</main>
+
+<footer class="f"><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <span class="fbrand">Arctrips</span>
+      <p class="fnote">Stays and guides on the west coast of Vancouver Island, written by people who go there.</p>
+    </div>
+    <div><h5>Destinations</h5><ul>
+      <li><a href="tofino.html">Tofino</a></li><li><a href="search.html">Guides</a></li>
+      <li><a href="province.html">British Columbia</a></li><li><a href="country.html">Canada</a></li></ul></div>
+    <div><h5>Things to do</h5><ul>
+      <li><a href="things-to-do.html">All nine subjects</a></li><li><a href="whale-watching.html">Whale watching</a></li>
+      <li><a href="long-beach.html">Long Beach</a></li><li><a href="search.html?in=tofino">Search everything</a></li></ul></div>
+    <div><h5>Plan</h5><ul>
+      <li><a href="plan.html">When to go</a></li><li><a href="plan.html">Getting there</a></li>
+      <li><a href="search.html?in=tofino">Where to stay</a></li><li><a href="#top">What to pack</a></li></ul></div>
+    <div><h5>Arc Trips</h5><ul>
+      <li><a href="not-found.html">About us</a></li><li><a href="not-found.html">List your place</a></li>
+      <li><a href="search.html?in=tofino">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
+  </div>
+  <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees</span></div>
+</div></footer>
+
+<!-- mobile: the place bar CTA is hidden by breakpoint and the single primary
+     action lives here, so the two never appear at the same width -->
+<div class="dock"><div class="dock-in">
+  <span class="dock__t"><b>Tofino</b>134 stays, from $320</span>
+  <a class="btn btn--primary btn--sm" href="search.html?in=tofino">See stays</a>
+</div></div>
+
+<script>
+/* Every row below is read off corpus.json, climate.json and best-months.json.
+   Nothing here is invented. */
+const DATA = {
+  tide:{station:"Tofino Harbour",low1:"06:14",low1m:0.8,high1:"12:38",high1m:3.1,low2:"18:52",low2m:1.2,sunset:"21:07"},
+  climate:[
+    {hi:8.6,lo:2.6,mm:489,days:22},{hi:9.3,lo:2.3,mm:368,days:19},{hi:10.4,lo:3.1,mm:337,days:21},
+    {hi:12.3,lo:4.3,mm:213,days:18},{hi:14.6,lo:6.7,mm:132,days:15},{hi:16.3,lo:9.1,mm:102,days:13},
+    {hi:18.1,lo:10.9,mm:66,days:9},{hi:18.6,lo:11.1,mm:82,days:10},{hi:17.5,lo:9.3,mm:152,days:12},
+    {hi:13.9,lo:6.9,mm:396,days:20},{hi:10.3,lo:4.4,mm:500,days:23},{hi:8.4,lo:2.7,mm:490,days:23}
+  ],
+  /* what the boats are doing that month, in plain words. The line always leads
+     with what is on, never with what is missing. */
+  onNow:{
+    1:"Gray whales are still south, so the boats that are out are running storm and coast tours instead. This is the month the swell sells the room.",
+    2:"The first gray whales of the migration can appear late in the month, and the coast is at its loudest.",
+    3:"Gray whales are coming back north past the sound, and the Pacific Rim Whale Festival runs with them.",
+    4:"Peak gray whale migration. The longest, most reliable sightings of the year, and the rain is already easing.",
+    5:"Grays are still passing, the first humpbacks arrive, and there are sixteen hours of light to find them in.",
+    6:"Humpbacks settle onto the feeding water and sea otters are out. The calmest seas of the year start here.",
+    7:"The driest month on the coast, nine rain days out of thirty-one, and everything on the water is running.",
+    8:"Humpbacks, sea lions and the best chance of an orca report. Book a week out in the middle of the month.",
+    9:"The quiet peak. Humpbacks are still feeding, the crowds have gone, and the light turns gold at five.",
+    10:"The last full month of tours. Fewer boats, fewer people, and the swell is starting to build again.",
+    11:"Tours wind down and storm watching takes the coast over. 500 mm of rain in this month is the reason people come.",
+    12:"Storm season proper. The biggest surf of the year, the emptiest beaches and the cheapest rooms in Tofino."
+  },
+  /* Tofino's nine subjects: peak months from best-months.json, counts from the
+     corpus. Places is the number written up by name, zero where the ingest kept
+     the guide whole. */
+  subs:[
+    {cat:"whale-watching",n:"Whale watching",m:[3,4,5,6,7,8,9,10],places:0,photos:8,blocks:153,href:"whale-watching.html"},
+    {cat:"hiking",n:"Hiking and trails",m:[4,5,6,7,8,9,10],places:18,photos:8,blocks:31,href:"things-to-do.html"},
+    {cat:"kayaking",n:"Kayaking and paddling",m:[5,6,7,8,9],places:18,photos:8,blocks:132,href:"things-to-do.html"},
+    {cat:"restaurants",n:"Restaurants",m:[1,2,3,4,5,6,7,8,9,10,11,12],places:16,photos:6,blocks:84,href:"things-to-do.html"},
+    {cat:"beaches",n:"Beaches",m:[5,6,7,8,9],places:13,photos:8,blocks:29,href:"long-beach.html"},
+    {cat:"storm-watching",n:"Storm watching",m:[11,12,1,2],places:8,photos:6,blocks:23,href:"things-to-do.html"},
+    {cat:"birding",n:"Birding and wildlife",m:[3,4,5,9,10,11],places:0,photos:8,blocks:338,href:"things-to-do.html"},
+    {cat:"surfing",n:"Surfing",m:[1,2,3,4,9,10,11,12],places:0,photos:6,blocks:84,href:"things-to-do.html"},
+    {cat:"fishing",n:"Fishing",m:[5,6,7,8,9],places:0,photos:0,blocks:1,href:"things-to-do.html"}
+  ],
+  /* the twelve places on this coast written up for watching from land */
+  shore:[
+    {town:"Tofino",n:"Long Beach",href:"long-beach.html",hero:"guides/tofino/beaches/long-beach-1",
+     b:"Long Beach is one of the most famous beaches on Vancouver Island. It is part of Pacific Rim National Park Reserve, between Tofino and Ucluelet.",
+     g:["Long walks","Big beach views","Surfing","Storm watching","Photography","Pacific Rim National Park Reserve"],
+     note:"You may need a national park pass when stopping in this area. Follow Parks Canada signs, closures and beach safety rules.",
+     alt:"The long open sweep of Long Beach with surf breaking along it"},
+    {town:"Tofino",n:"Chesterman Beach",href:"things-to-do.html",hero:"guides/tofino/beaches/chesterman-beach-1",
+     b:"Chesterman Beach is one of the most loved beaches in Tofino. It is long, sandy and easy to enjoy. It is close to town and popular with walkers, surfers, families and photographers.",
+     g:["Long beach walks","Beginner surf lessons","Sunset photos","Sandcastles","Tide pools at low tide","Watching surfers"],
+     note:"Always check the tide before walking toward Frank Island. The water can come in and cover the sandspit.",
+     alt:"Wet sand and shallow surf at Chesterman Beach with forest behind"},
+    {town:"Tofino",n:"Cox Bay",href:"things-to-do.html",hero:"guides/tofino/beaches/cox-bay-1",
+     b:"Cox Bay is one of the best beaches in Tofino for surfing. It is wide, open and faces the Pacific Ocean. Because of this, it often gets strong and steady waves.",
+     g:["Surfing","Watching surfers","Sunset views","Beach walks","Photography","Storm watching in winter"],
+     note:"Cox Bay can have powerful waves and currents. Beginners should go with a surf school or choose calmer conditions.",
+     alt:"Big surf rolling into the wide open sweep of Cox Bay"},
+    {town:"Tofino",n:"Wickaninnish Beach",href:"things-to-do.html",hero:"guides/tofino/beaches/wickaninnish-beach-1",
+     b:"Wickaninnish Beach is in Pacific Rim National Park Reserve, closer to the Ucluelet side of the Long Beach area. It is one of the best places near Tofino for big ocean views and storm watching.",
+     g:["Storm watching","Big ocean views","Photography","Sunset watching","Learning about the coast","Kwisitis Visitor Centre"],
+     note:"This beach can feel very open and exposed. Stay far back from the water during storms and high tide.",
+     alt:"The exposed open shoreline at Wickaninnish Beach under grey cloud"},
+    {town:"Tofino",n:"Tonquin Beach",href:"things-to-do.html",hero:"guides/tofino/beaches/tonquin-beach-1",
+     b:"Tonquin Beach is a smaller beach close to the village of Tofino. You reach it by walking a short forest trail. It feels quieter and more hidden than the big surf beaches.",
+     g:["Short walks","Quiet beach time","Picnics","Sunset views","Forest and beach scenery"],
+     note:"The trail can be wet or muddy after rain. Wear shoes with good grip.",
+     alt:"A small sheltered beach reached through forest at Tonquin"},
+    {town:"Tofino",n:"Florencia Bay",href:"things-to-do.html",hero:"guides/tofino/beaches/florencia-bay-1",
+     b:"Florencia Bay is also in Pacific Rim National Park Reserve. It is closer to Ucluelet than Tofino, but it is still a great stop on a Tofino beach trip.",
+     g:["Quiet beach walks","Sand cliff views","Photography","Low-tide exploring","A less crowded beach visit"],
+     note:"The stairs and trail can feel longer on the way back up. Wear comfortable shoes and check the tide before walking far.",
+     alt:"Sand cliffs and empty beach at Florencia Bay"},
+    {town:"Ucluelet",n:"Wild Pacific Trail",href:"whale-watching.html",hero:"guides/ucluelet/whale-watching/wild-pacific-trail-1",
+     b:"The Wild Pacific Trail is one of the best places in Ucluelet to watch wildlife from land. It follows the rocky coast and gives you many ocean viewpoints.",
+     g:["Whale watching from shore","Bald eagles","Sea lions and seals","Coastal birds","Storm watching","Photography","Easy walking"],
+     note:"Bring binoculars. Wildlife may be far from shore.",
+     alt:"The rocky coastline and viewpoints of the Wild Pacific Trail"},
+    {town:"Ucluelet",n:"Amphitrite Point Lighthouse",href:"whale-watching.html",hero:"guides/ucluelet/whale-watching/amphitrite-point-lighthouse-1",
+     b:"Amphitrite Point Lighthouse is one of the most famous stops on the Wild Pacific Trail. It has wide ocean views and is a good place to watch for whales, sea lions, seals and birds.",
+     g:["Whale watching from land","Ocean views","Photography","Eagles","Seals and sea lions","Storm watching"],
+     note:"Stay on marked paths and away from wet rocks. Large waves can be dangerous.",
+     alt:"The squat white lighthouse at Amphitrite Point above open water"},
+    {town:"Ucluelet",n:"Ucluelet Harbour",href:"whale-watching.html",hero:"guides/ucluelet/whale-watching/ucluelet-harbour-1",
+     b:"Ucluelet Harbour is a good place to look for wildlife close to town. You may see seals, eagles, gulls, cormorants, river otters and shorebirds.",
+     g:["Easy wildlife watching","Boat tour departures","Seals","Eagles","River otters","Harbour birds"],
+     note:"Watch for boat traffic and keep a safe distance from docks and working harbour areas.",
+     alt:"Fishing boats tied up in Ucluelet Harbour"},
+    {town:"Ucluelet",n:"Barkley Sound",href:"whale-watching.html",hero:"guides/ucluelet/whale-watching/barkley-sound-1",
+     b:"Barkley Sound is one of the top wildlife watching areas near Ucluelet, reached by guided boat or by kayak.",
+     g:["Whales","Sea lions","Seals","Sea otters","Bald eagles","Seabirds","Black bears along shorelines","Boat tours and kayaking"],
+     note:"The best way to explore Barkley Sound wildlife is by guided boat or kayak tour.",
+     alt:"Islands and open water in Barkley Sound"},
+    {town:"Ucluelet",n:"Broken Group Islands",href:"whale-watching.html",hero:"guides/ucluelet/whale-watching/broken-group-islands-1",
+     b:"The Broken Group Islands sit out in Barkley Sound and are one of the richest wildlife areas on this coast.",
+     g:["Kayak wildlife watching","Boat tours","Sea otters","Seals and sea lions","Bald eagles","Seabirds","Multi-day paddling trips"],
+     note:"The Broken Group Islands are boat access only. Plan ahead if you are kayaking or camping.",
+     alt:"Low forested islands scattered across calm water in the Broken Group"},
+    {town:"Ucluelet",n:"Pacific Rim National Park Reserve",href:"whale-watching.html",hero:"guides/ucluelet/whale-watching/pacific-rim-national-park-reserve-1",
+     b:"The park reserve runs the length of this coast and carries most of the viewpoints, beaches and rainforest trails between the two towns.",
+     g:["Bird watching","Beach wildlife","Whale watching from viewpoints","Black bear awareness","Coastal rainforest wildlife","Tidepool life","Guided nature learning"],
+     note:"You may need a national park pass if you stop in the park.",
+     alt:"Rainforest and boardwalk inside Pacific Rim National Park Reserve"}
+  ],
+  /* every unique question in the whale watching guides for both towns */
+  qa:[
+    {q:"What is the best month for whale watching in Tofino?",a:"March to May is one of the best times for gray whales. Summer and early fall can also be great for humpbacks, gray whales, orcas, sea otters, sea lions, and other wildlife.",t:"tofino",s:"Tofino"},
+    {q:"Can you see whales in Tofino without a tour?",a:"Yes, sometimes whales can be seen from shore. But a guided boat tour gives you a much better chance of seeing whales and learning about them.",t:"tofino",s:"Tofino"},
+    {q:"What is the best time of day for whale watching?",a:"There is no perfect time every day. Tour operators choose routes based on weather, swell, and recent sightings. Morning trips may have calmer water, but wildlife can be active at different times.",t:"tofino",s:"Tofino"},
+    {q:"Is a zodiac or covered boat better for whale watching?",a:"A covered boat is better for comfort, families, and cooler days. A zodiac is better for travelers who want a faster, more open-air adventure.",t:"tofino",s:"Tofino"},
+    {q:"What does it mean when a whale blows?",a:"A blow means the whale has surfaced to breathe. It is often the first sign people see during whale watching.",t:"both",s:"Tofino and Ucluelet"},
+    {q:"What does a whale tail mean?",a:"If a whale lifts its tail fluke before disappearing, it usually means the whale is making a deeper dive.",t:"both",s:"Tofino and Ucluelet"},
+    {q:"Why do whales show their backs?",a:"Whales show their backs when they surface to breathe, travel, or prepare for another dive. This is one of the most common things to see on a whale watching tour.",t:"both",s:"Tofino and Ucluelet"},
+    {q:"Does seeing a fluke mean the whale is leaving?",a:"Not always. A fluke usually means the whale is diving deeper. It may surface again nearby after several minutes, or it may come up farther away.",t:"both",s:"Tofino and Ucluelet"},
+    {q:"Are whale watching tours in Ucluelet worth it?",a:"Yes. Ucluelet is a strong whale watching base because tours can access Barkley Sound, the Broken Group Islands area, and nearby Pacific waters with whales and other marine wildlife.",t:"ucluelet",s:"Ucluelet"},
+    {q:"What is the best whale watching tour in Ucluelet?",a:"The best tour depends on your needs. Families and comfort-focused travelers may prefer a covered boat. Adventure travelers may prefer a zodiac. Photographers or groups may prefer a smaller tour or private charter.",t:"ucluelet",s:"Ucluelet"},
+    {q:"When do whale watching tours run in Ucluelet?",a:"Many whale watching tours run from March to October, but exact dates depend on the operator, weather, and season.",t:"ucluelet",s:"Ucluelet"},
+    {q:"How long are Ucluelet whale watching tours?",a:"Many tours are about 2.5 to 3 hours, but timing can vary. Always check the operator's current tour details.",t:"ucluelet",s:"Ucluelet"},
+    {q:"What whales migrate past Ucluelet in spring?",a:"Pacific gray whales are the main whales associated with the spring migration in Ucluelet. Humpbacks may also appear later in spring and become more common during summer.",t:"ucluelet",s:"Ucluelet"},
+    {q:"When is the gray whale migration in Ucluelet?",a:"The main spring migration period is usually March to May. Early sightings may happen in February, and some whales may still be present into early summer.",t:"ucluelet",s:"Ucluelet"},
+    {q:"Why do gray whales migrate past Ucluelet?",a:"Gray whales pass Ucluelet as they travel north from winter breeding and calving areas in Baja California, Mexico, toward northern feeding grounds near Alaska and the Arctic.",t:"ucluelet",s:"Ucluelet"},
+    {q:"Is March a good time for whale watching in Ucluelet?",a:"Yes. March is a key month because gray whales are returning along the coast, and the Pacific Rim Whale Festival celebrates their migration.",t:"ucluelet",s:"Ucluelet"},
+    {q:"Is Ucluelet good for wildlife watching?",a:"Yes. Ucluelet is one of the best wildlife watching areas on Vancouver Island. You can see whales, black bears, sea lions, seals, sea otters, bald eagles, shorebirds, seabirds, and more.",t:"ucluelet",s:"Ucluelet"},
+    {q:"What animals can you see in Ucluelet?",a:"You may see gray whales, humpback whales, orcas, black bears, sea lions, harbor seals, sea otters, river otters, bald eagles, great blue herons, shorebirds, and seabirds.",t:"ucluelet",s:"Ucluelet"},
+    {q:"Can you see whales from Ucluelet?",a:"Yes. You can see whales on boat tours, and sometimes from shore along the Wild Pacific Trail, especially during migration seasons.",t:"ucluelet",s:"Ucluelet"},
+    {q:"Where is the best place to see whales from shore in Ucluelet?",a:"The Wild Pacific Trail and Amphitrite Point Lighthouse area are among the best shore-based places to scan for whales. Bring binoculars.",t:"ucluelet",s:"Ucluelet"},
+    {q:"Is Ucluelet good for whale watching?",a:"Yes. Ucluelet is one of the best whale watching bases on Vancouver Island because it gives access to Barkley Sound, the Broken Group Islands area, and Pacific feeding and migration waters.",t:"ucluelet",s:"Ucluelet"},
+    {q:"What whales can you see in Ucluelet?",a:"You may see gray whales, humpback whales, and sometimes orcas. Tours may also see sea lions, harbor seals, sea otters, bald eagles, and seabirds.",t:"ucluelet",s:"Ucluelet"},
+    {q:"When is the best time for whale watching in Ucluelet?",a:"March to May is best for gray whale migration. Mid-summer to September is often good for humpback whales. Orcas are possible but less predictable.",t:"ucluelet",s:"Ucluelet"},
+    {q:"Can you see gray whales in Ucluelet?",a:"Yes. Gray whales are one of the main whale species associated with Ucluelet, especially during spring migration.",t:"ucluelet",s:"Ucluelet"}
+  ],
+  /* the rest of the whale watching family. Words are the words we hold for that
+     piece, minutes are counted from them at 220 words a minute. */
+  railA:[
+    {n:"Whale Tails, Blows, and Backs",m:"Tofino and Ucluelet",q:4,w:136,k:"Next in this guide"},
+    {n:"Whale watching FAQs, Tofino",m:"Tofino",q:4,w:166,k:"Questions"},
+    {n:"Whale Watching Tours in Ucluelet",m:"Ucluelet",q:4,w:146,k:"Tours"},
+    {n:"Whales in Ucluelet: The Spring Migration Explained",m:"Ucluelet",q:4,w:151,k:"Migration"},
+    {n:"Whale Watching in Ucluelet",m:"Ucluelet",q:4,w:137,k:"Guide"},
+    {n:"Whale watching FAQs, Ucluelet",m:"Ucluelet",q:4,w:138,k:"Questions"},
+    {n:"Wildlife Watching in Ucluelet",m:"Ucluelet",q:0,w:15,k:"Wildlife"}
+  ],
+  stays:[
+    {t:"Coastal Bed-Cliff Cottage with Private Beach and Firepit",hero:"arc-trips/curated-cabin",price:420,rating:4.9,beds:3,baths:2,
+     alt:"A timber cabin standing alone on a forested headland above the water, seen from the air"},
+    {t:"Riverside Cabin Retreat with Hot Tub and Forest Views",hero:"andrea-davis-44f42VRbGQg-unsplash_q9h9op",price:420,rating:4.9,beds:3,baths:2,
+     alt:"The living room of an A-frame cabin, white sofa under a sloped timber ceiling with the door open to the trees"},
+    {t:"Riverside Cabin Retreat with Hot Tub and Forest Views",hero:"arcstudio/njajgzfo6gdfxbpxmtst",price:420,rating:4.9,beds:3,baths:2,
+     alt:"Houses set back in the trees along a rocky stretch of the west coast shoreline"}
+  ]
+};
+
+const MON = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const DIM = [31,28,31,30,31,30,31,31,30,31,30,31];
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s).replace(/[&<>"]/g,(c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const cld = (id,w,h) => `https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_${w},h_${h}/${id}`;
+const ab = (m) => MON[m - 1].slice(0,3);
+/* the place rows carry one line each, not a paragraph and a chip wall */
+const firstSentence = (t) => (t.match(/^[^.]+\./) || [t])[0];
+/* the peak window in the subject's own months: contiguous runs, wrap included,
+   so surfing reads Sep to Apr and birding reads Mar to May and Sep to Nov */
+function windowLabel(months){
+  const set = [...new Set(months)].sort((a,b) => a - b);
+  if (set.length === 12) return "All year";
+  const runs = [];
+  set.forEach((m) => {
+    const last = runs[runs.length - 1];
+    if (last && m === last[last.length - 1] + 1) last.push(m); else runs.push([m]);
+  });
+  if (runs.length > 1 && runs[0][0] === 1 && runs[runs.length - 1][runs[runs.length - 1].length - 1] === 12){
+    runs[0] = runs.pop().concat(runs[0]);
+  }
+  const parts = runs.map((r) => r.length === 1 ? ab(r[0]) : `${ab(r[0])} to ${ab(r[r.length - 1])}`);
+  return parts.length === 1 ? parts[0] : parts.slice(0,-1).join(", ") + " and " + parts[parts.length - 1];
+}
+const WW = DATA.subs[0].m;
+const ON = new Set(WW);
+let month = new Date().getMonth() + 1;
+
+/* the place bar scrolls sideways on a phone, so the section you are actually
+   on is pulled into view rather than left off the right edge */
+(function showCurrentTab(){
+  const bar = document.querySelector(".placebar-in");
+  const cur = document.querySelector(".placebar__links a[aria-current]");
+  if (!bar || !cur || bar.scrollWidth <= bar.clientWidth) return;
+  bar.scrollLeft = cur.offsetLeft - bar.clientWidth + cur.offsetWidth + 20;
+})();
+
+/* ── the tide strip ─────────────────────────────────────────────────────── */
+(function tide(){
+  const t = DATA.tide;
+  $("#tideStation").textContent = "Tide today at " + t.station;
+  $("#tideRead").innerHTML =
+    `<span>Low <b>${t.low1}</b>, ${t.low1m} m</span><span>High <b>${t.high1}</b>, ${t.high1m} m</span>` +
+    `<span>Low <b>${t.low2}</b>, ${t.low2m} m</span><span>Sunset <b>${t.sunset}</b></span>`;
+})();
+
+/* ── three counted facts beside the headline, not five ──────────────────── */
+$("#dossier").innerHTML = [
+  ["8","months of the year the boats go out, March to October"],
+  ["12","places on this coast you can watch from on land"],
+  ["134","stays in Tofino, from $320 a night"]
+].map(([b,s]) => `<div><b class="tnum">${b}</b><span>${s}</span></div>`).join("");
+$("#dossier").setAttribute("aria-label","This guide in numbers");
+
+/* ── the season panel ───────────────────────────────────────────────────── */
+function paintYear(){
+  const max = Math.max(...DATA.climate.map((c) => c.mm));
+  $("#yr").innerHTML = DATA.climate.map((c,i) => {
+    const m = i + 1, on = ON.has(m);
+    return `<button class="yr__b" type="button" data-m="${m}" aria-pressed="${m === month}"
+      aria-label="${MON[i]}. Tours ${on ? "run" : "do not run"} this month. ${c.mm} millimetres of rain.">
+      <span class="yr__col"><span class="yr__bar" style="--h:${(c.mm / max * 100).toFixed(1)}%"></span></span>
+      <span class="yr__c" ${on ? "data-on" : ""}>${MON[i][0]}</span>
+    </button>`;
+  }).join("");
+}
+
+function paintWhen(){
+  const c = DATA.climate[month - 1], name = MON[month - 1];
+  const on = ON.has(month);
+
+  $("#whenTitle").textContent = on ? `${name}: the boats are out` : `${name}: no tours this month`;
+  $("#tradeA").textContent = DATA.onNow[month];
+
+  $("#bignums").innerHTML =
+    `<div><dt>Average high</dt><dd>${c.hi}&deg;</dd></div>` +
+    `<div><dt>Rain days</dt><dd>${c.days}<small>of ${DIM[month - 1]}</small></dd></div>`;
+
+  $("#exits").innerHTML = on
+    ? `<a class="btn btn--ghost btn--sm" href="whale-watching.html">Whale watching in Tofino</a>
+       <a class="btn btn--ghost btn--sm" href="plan.html">Plan a trip in ${name}</a>`
+    : `<button class="btn btn--ghost btn--sm" type="button" data-jump="4">Show me April, the best month</button>
+       <a class="btn btn--ghost btn--sm" href="plan.html">What ${name} is good for instead</a>`;
+
+  document.querySelectorAll(".yr__b").forEach((b) =>
+    b.setAttribute("aria-pressed", String(Number(b.dataset.m) === month)));
+  centre($("#yr"), $(`.yr__b[data-m="${month}"]`));
+}
+
+/* the year strip scrolls on a phone, so the chosen month is pulled into view */
+function centre(bar, cur){
+  if (!bar || !cur || bar.scrollWidth <= bar.clientWidth) return;
+  const c = cur.getBoundingClientRect(), b = bar.getBoundingClientRect();
+  const delta = (c.left - b.left) - (b.width - c.width) / 2;
+  if (Math.abs(delta) > 16) bar.scrollBy({left: delta, behavior: "smooth"});
+}
+
+$("#legend").textContent =
+  "Rainfall figures are Environment and Climate Change Canada normals for the Tofino station.";
+
+paintYear();
+paintWhen();
+
+$("#yr").addEventListener("click",(e) => {
+  const b = e.target.closest(".yr__b");
+  if (!b) return;
+  month = Number(b.dataset.m);
+  paintWhen();
+});
+$("#exits").addEventListener("click",(e) => {
+  const b = e.target.closest("[data-jump]");
+  if (!b) return;
+  month = Number(b.dataset.jump);
+  paintWhen();
+});
+
+/* ── the twelve shore places ────────────────────────────────────────────── */
+(function shore(){
+  const groups = [
+    ["Six on the Tofino side, for the horizon","Tofino"],
+    ["Six on the Ucluelet side, for the height","Ucluelet"]
+  ];
+  $("#shore").innerHTML = groups.map(([k,town]) => {
+    const rows = DATA.shore.filter((p) => p.town === town).map((p) =>
+      `<a class="pl" href="${p.href}">
+        <div class="pl__m"><img src="${cld(p.hero,220,220)}" alt="${esc(p.alt)}"></div>
+        <div>
+          <h4>${esc(p.n)}</h4>
+          <p class="pl__b">${esc(firstSentence(p.b))}</p>
+        </div>
+      </a>`).join("");
+    return `<div class="shore__g"><span class="shore__k">${esc(k)}</span>${rows}</div>`;
+  }).join("");
+})();
+
+/* ── ten questions, no filter. A filter over a list this short was one more
+      control to understand for no gain. ──────────────────────────────────── */
+const TOP = [0,1,2,3,4,5,7,11,13,19];
+$("#qlist").innerHTML = TOP.map((i) => DATA.qa[i]).map((q) =>
+  `<div class="qi"><h3>${esc(q.q)}</h3><p>${esc(q.a)}</p></div>`).join("");
+$("#qnote").innerHTML =
+  'The other fourteen, mostly about Ucluelet, are on <a href="whale-watching.html">the whale watching guide</a>.';
+
+/* ── the two lateral rails ──────────────────────────────────────────────── */
+const mins = (w) => w < 220 ? "under a minute" : `${Math.round(w / 220)} min read`;
+$("#railA").innerHTML = DATA.railA.map((a) =>
+  `<a class="sib" href="#top">
+    <span class="sib__n">${esc(a.n)}</span>
+    <span class="sib__m">${esc(a.m)} &middot; ${mins(a.w)}</span>
+  </a>`).join("");
+
+$("#railB").innerHTML = DATA.subs.slice(1).map((x) =>
+  `<a class="sib" href="${x.href}">
+    <span class="sib__n">${esc(x.n)}</span>
+    <span class="sib__m">${x.places ? x.places + " places" : "In the guide"} &middot; best ${windowLabel(x.m).toLowerCase()}</span>
+  </a>`).join("");
+
+/* ── the stays and the capture ──────────────────────────────────────────── */
+$("#stays").innerHTML = DATA.stays.map((s) =>
+  `<a class="stay" href="search.html?in=tofino">
+    <div class="stay__m"><img src="${cld(s.hero,560,420)}" alt="${esc(s.alt)}"></div>
+    <h4>${esc(s.t)}</h4>
+    <p>$${s.price} a night &middot; ${s.beds} beds, ${s.baths} baths &middot; ${s.rating} rated</p>
+  </a>`).join("");
+
+/* confirm by replacing the form, never by greying a control out */
+$("#capture").addEventListener("submit",(e) => {
+  e.preventDefault();
+  const done = document.createElement("p");
+  done.className = "captured";
+  done.textContent = "Thank you. We will write the week whale watching opens in Tofino, and not before.";
+  e.target.replaceWith(done);
+  const consent = document.querySelector(".buy .consent");
+  if (consent) consent.remove();
+});
+
+/* ── reading time, jump row spy and the progress hairline ───────────────── */
+const prose = $("#prose");
+const sections = [...prose.querySelectorAll("section")];
+const jumps = [...document.querySelectorAll("#jumps a")];
+
+(function readingTime(){
+  const words = prose.textContent.trim().split(/\s+/).length;
+  $("#rtime").innerHTML = `<b>${(Math.round(words / 50) * 50).toLocaleString("en-CA")}</b> words, <b>${Math.max(1,Math.round(words / 220))}</b> minutes`;
+})();
+
+function offset(){
+  const cs = getComputedStyle(document.documentElement);
+  return parseInt(cs.getPropertyValue("--nav")) + parseInt(cs.getPropertyValue("--bar")) + 30;
+}
+
+let ticking = false;
+function onScroll(){
+  const art = $("#article");
+  const top = art.getBoundingClientRect().top + scrollY, h = art.offsetHeight;
+  const pct = Math.min(100, Math.max(0, (scrollY + innerHeight - top) / h * 100));
+  $("#jumpbar").style.width = pct.toFixed(2) + "%";
+
+  const line = scrollY + offset();
+  let active = null;
+  for (const s of sections) if (s.getBoundingClientRect().top + scrollY <= line) active = s;
+  jumps.forEach((a) => {
+    if (active && a.getAttribute("href") === "#" + active.id) a.setAttribute("aria-current","true");
+    else a.removeAttribute("aria-current");
+  });
+  ticking = false;
+}
+addEventListener("scroll",() => { if (!ticking){ ticking = true; requestAnimationFrame(onScroll); } },{passive:true});
+addEventListener("resize",onScroll);
+onScroll();
+
+addEventListener("keydown",(e) => {
+  if (e.key === "/" && !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)){
+    e.preventDefault(); $(".search input").focus();
+  }
+});
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

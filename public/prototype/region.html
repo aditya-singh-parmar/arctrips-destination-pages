@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vancouver Island, Arc Trips</title>
+<meta name="description" content="Vancouver Island on Arc Trips: eleven towns, 666 documented places, and seven island-wide guides covering beaches, day hikes, overnight routes, kayaking, whale watching, mountain biking and vacation rentals.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_system.css">
+<style>
+/* ── Page-scoped only. Tokens from _system.css, no new colour values, no hex.
+      (a) accessibility floors the locked system does not set: the 14px type
+          floor (body is 17px, so .88rem is the floor) and the 44px touch floor,
+      (b) the components a region page needs and the system does not carry:
+          the island-guide card, the town roster with its coverage meter, the
+          two-town ledger,
+      (c) corrections: coverage meters are navy on paper and white on the dark
+          band. Emerald does not appear on this page at all. ───────────────── */
+
+/* (a) a11y floors */
+.btn{min-height:44px;white-space:nowrap}
+nav.top .btn{flex:none}
+.brand,.nav-links a{display:inline-flex;align-items:center;min-height:44px}
+.search{height:44px}
+.search input{align-self:stretch}
+.fgrid ul{gap:2px}
+.fgrid ul a{display:inline-block;padding-block:12px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.label{font-size:.88rem;letter-spacing:.1em}
+.kmeta,.kmeta .k{font-size:.88rem}
+.fgrid h5{font-size:.88rem;letter-spacing:.1em}
+.search kbd{font-size:.88rem}
+.fbase,.fnote,.crumb{font-size:.88rem}
+.placebar__back .k{font-size:.88rem;letter-spacing:.1em}
+.hero-facts dt{font-size:.88rem;letter-spacing:.1em}
+/* n500 lands near 4.0:1 on paper, so every small label on this page is n600 */
+.glist dt,.vsonly h4,.vshead .k,.fgrid h5,.hero-facts dt,.fbase,.search kbd,
+.search input::placeholder,.search svg,.grouph span{color:var(--n600)}
+body>a.skip{position:absolute;left:var(--gut);top:-70px;z-index:99;background:var(--navy);color:var(--paper);
+  padding:13px 18px;border-radius:0 0 var(--r-sm) var(--r-sm);font-weight:600;font-size:.9rem;transition:top .18s var(--ease)}
+body>a.skip:focus{top:0}
+[id]{scroll-margin-top:144px}
+@media(max-width:760px){[id]{scroll-margin-top:80px}}
+
+@media(max-width:760px){
+  nav.top{position:static}
+  .nav-in{flex-wrap:wrap;height:auto;padding-block:10px;row-gap:2px;column-gap:12px}
+  .brand{order:1}
+  .search{order:2;flex:1;min-width:0}
+  nav.top .btn{order:3}
+  .nav-links{order:4;flex-basis:100%;justify-content:space-between;gap:10px}
+}
+.crumb{display:flex;flex-wrap:wrap;align-items:center;gap:0 8px;color:var(--n600);
+  padding-block:clamp(20px,2.6vw,30px) 10px;font-weight:500;line-height:1.5}
+.crumb a{position:relative;color:var(--n600)}
+.crumb a:hover{color:var(--azure)}
+.crumb a::after{content:"";position:absolute;inset:-10px 0}
+.crumb .sep{color:var(--n400)}
+.crumb [aria-current]{color:var(--navy);font-weight:700}
+
+/* (c) hero */
+.hero{padding-block:clamp(14px,1.8vw,26px) clamp(38px,4.6vw,66px)}
+.hero-grid{grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:clamp(30px,4.4vw,64px);align-items:end}
+.hero h1{font-size:clamp(2.7rem,6vw,4.7rem);max-width:12ch;letter-spacing:-.04em;line-height:1;margin-top:16px}
+.hero .lede{max-width:44ch;margin-top:22px}
+.hero-note{margin-top:18px;font-size:.98rem;color:var(--n600);max-width:52ch;line-height:1.62}
+.hero-note b{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.hero-shot{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3.1;background:var(--n100);
+  box-shadow:0 22px 46px -22px rgba(11,51,86,.36)}
+.hero-shot img{width:100%;height:100%;object-fit:cover}
+.hero-shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px;color:var(--paper);
+  font-size:.88rem;font-weight:600;background:linear-gradient(to top,rgba(11,51,86,.88),rgba(11,51,86,0))}
+@media(max-width:940px){.hero-grid{grid-template-columns:minmax(0,1fr)}.hero-shot{aspect-ratio:16/10}}
+/* the four totals run the full width under both columns, so they stay on one
+   line at 1440 instead of orphaning the fourth */
+.hero-facts{gap:clamp(18px,3vw,56px);margin-top:clamp(28px,3.4vw,44px)}
+.hero-facts div{min-width:0}
+
+/* (b) the island guide card. Seven cross-island subjects, the best writing on
+       the site, so they lead the page and carry their real place names. */
+.gwrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,1.6vw,20px)}
+@media(max-width:900px){.gwrap{grid-template-columns:minmax(0,1fr)}}
+.gcard{position:relative;display:flex;flex-direction:column;gap:12px;padding:clamp(20px,2.2vw,28px);
+  border:1px solid var(--n150);border-radius:var(--r);background:var(--paper);
+  transition:border-color .22s var(--ease),box-shadow .22s var(--ease)}
+.gcard:hover{border-color:var(--a300);box-shadow:0 16px 34px -22px rgba(11,51,86,.34)}
+.gcard--wide{grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  gap:0;align-items:stretch;padding:0;overflow:hidden}
+@media(max-width:900px){.gcard--wide{grid-template-columns:minmax(0,1fr)}}
+.gshot{position:relative;background:var(--n100);min-height:230px}
+.gshot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media(max-width:900px){.gshot{position:relative;aspect-ratio:16/9;min-height:0}}
+.gbody{display:flex;flex-direction:column;gap:12px;padding:clamp(20px,2.2vw,30px)}
+.gcard h3{font-size:clamp(1.16rem,1.6vw,1.4rem)}
+.gcard h3 a{color:var(--navy)}
+.gcard h3 a::after{content:"";position:absolute;inset:0}
+.gcard:hover h3 a{color:var(--azure)}
+.gmeta{display:flex;gap:6px 14px;flex-wrap:wrap;align-items:baseline;font-size:.88rem;color:var(--n600);
+  font-variant-numeric:tabular-nums}
+.gmeta b{color:var(--navy);font-weight:700}
+.gcard p.gtext{font-size:.98rem;line-height:1.6;color:var(--n700)}
+.glist{border-top:1px solid var(--n150);padding-top:12px;margin-top:auto}
+.glist dt{font-size:.88rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--n500)}
+.glist dd{font-size:.95rem;line-height:1.62;color:var(--navy);font-weight:500;margin-top:6px}
+.glist dd a{position:relative;z-index:2;color:var(--azure);font-weight:700;
+  text-decoration:underline;text-underline-offset:2px}
+
+/* (b) the town roster. One row per town: name, the real line from its guide,
+       its place count, and a meter at true relative width against Tofino. */
+.grouph{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  border-top:2px solid var(--navy);padding-top:12px;margin-top:clamp(28px,3.2vw,44px)}
+.grouph h3{font-size:1.14rem}
+.grouph span{font-size:.88rem;color:var(--n600);font-variant-numeric:tabular-nums}
+.trow{display:grid;grid-template-columns:minmax(150px,.95fr) minmax(0,1.55fr) minmax(130px,.6fr);
+  gap:10px clamp(16px,2.4vw,38px);align-items:center;padding:16px 0;border-bottom:1px solid var(--n150);
+  position:relative}
+.trow:hover{background:var(--n50)}
+.tname{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;min-width:0}
+.tname h4{font-size:1.14rem;font-weight:700;color:var(--navy);letter-spacing:-.014em}
+.trow:hover .tname h4{color:var(--azure)}
+.tname a::after{content:"";position:absolute;inset:0}
+.tag{font-size:.88rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:2px 9px;border-radius:999px;background:var(--navy);color:var(--paper);white-space:nowrap}
+.tag--q{background:var(--a100);color:var(--a800)}
+.tline{font-size:.95rem;line-height:1.58;color:var(--n700)}
+.tnums{display:flex;flex-direction:column;gap:7px;min-width:0}
+.tnums b{font-size:1.02rem;font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums}
+.tnums b small{font-size:.88rem;color:var(--n600);font-weight:500}
+.meter{height:6px;border-radius:3px;background:var(--n100);overflow:hidden}
+.meter i{display:block;height:100%;width:var(--w);background:var(--navy);border-radius:3px;font-style:normal}
+@media(max-width:820px){
+  .trow{grid-template-columns:minmax(0,1fr);padding:18px 0;gap:9px}
+  .tnums{flex-direction:row;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .tnums .meter{flex-basis:100%}
+}
+
+/* (b) the two-town ledger. Navy fill for the larger of each pair, never green. */
+.vs{border-top:1px solid var(--n150)}
+.vsrow{display:grid;grid-template-columns:minmax(120px,1.1fr) minmax(0,1fr) minmax(0,1fr);
+  gap:8px clamp(16px,2.4vw,34px);padding:14px 0;border-bottom:1px solid var(--n150);align-items:center}
+.vshead{border-bottom:2px solid var(--navy);padding-bottom:11px}
+.vshead strong{font-size:1.06rem;font-weight:800;color:var(--navy)}
+.vshead .k{font-size:.88rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--n500)}
+.vslab{font-size:.95rem;color:var(--n700);font-weight:500}
+.vscell b{font-size:1.06rem;font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums;display:block}
+.vscell .meter{margin-top:6px;max-width:180px}
+@media(max-width:620px){
+  .vsrow{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px 16px}
+  .vslab{grid-column:1 / -1}
+  /* every cell names its own town below 620, so the header row would repeat */
+  .vshead{display:none}
+  .vs{border-top:2px solid var(--navy)}
+  .vscell b::before{content:attr(data-t) " ";font-size:.88rem;font-weight:600;color:var(--n600)}
+}
+.vsonly{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,1.8vw,22px);margin-top:22px}
+@media(max-width:620px){.vsonly{grid-template-columns:minmax(0,1fr)}}
+.vsonly div{border:1px solid var(--n150);border-radius:var(--r-sm);padding:16px 18px}
+.vsonly h4{font-size:.88rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--n500)}
+.vsonly p{margin-top:7px;font-size:.98rem;color:var(--navy);font-weight:600;line-height:1.55}
+
+/* (b) the closing band */
+.band h2{color:var(--paper)}
+.band .label{color:var(--a300)}
+.band .btn--ghost{border-color:rgba(255,255,255,.5);color:var(--paper)}
+.band .btn--ghost:hover{border-color:var(--paper);background:rgba(255,255,255,.1)}
+.bandcta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.bandnums{display:flex;gap:clamp(20px,3vw,44px);margin-top:26px;padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.24);flex-wrap:wrap}
+.bandnums dt{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.76);letter-spacing:.04em}
+.bandnums dd{font-size:clamp(1.6rem,2.6vw,2.2rem);font-weight:800;color:var(--paper);letter-spacing:-.035em;
+  line-height:1.05;margin-top:5px;font-variant-numeric:tabular-nums}
+
+
+/* Below 760px the locked system hides .placebar__cta, which left this page with no
+   visible primary action. Promote the first hero button there instead of adding a
+   second primary at desktop. */
+@media(max-width:760px){
+  .hero-cta > a:first-child{background:var(--azure);color:#fff;border-color:var(--azure)}
+}
+</style>
+</head>
+<body>
+<span id="top" aria-hidden="true"></span>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- the chart ground, carried from the town pages so the island reads as the
+     same hand: contours and depth soundings in azure tints, behind everything -->
+<div class="chart" aria-hidden="true">
+<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none">
+  <g stroke="var(--a200)" stroke-width="1" opacity=".72">
+    <path d="M-40 250 C160 200 300 300 420 280 C560 258 640 150 800 170 C960 190 1050 300 1200 280 C1330 262 1420 200 1500 220"/>
+    <path d="M-40 300 C170 250 310 350 430 330 C570 308 650 205 810 225 C970 245 1060 350 1210 330 C1340 312 1425 255 1500 275"/>
+    <path d="M-40 355 C180 305 320 402 440 385 C580 365 665 262 820 282 C980 302 1070 402 1220 385 C1350 368 1430 312 1500 332"/>
+    <path d="M-60 620 C140 585 260 660 400 640 C540 620 620 545 760 560 C900 575 1000 655 1140 640 C1280 625 1380 570 1500 590"/>
+    <path d="M-60 672 C150 638 275 712 415 692 C555 672 632 600 772 615 C912 630 1010 706 1150 692 C1290 678 1385 622 1500 642"/>
+    <path d="M-60 726 C160 692 290 764 430 744 C570 724 645 654 785 669 C925 684 1020 758 1160 744 C1300 730 1390 675 1500 695"/>
+  </g>
+  <g fill="var(--azure)" font-family="Inter" font-weight="600" font-size="9" opacity=".26">
+    <text x="200" y="215">14</text><text x="512" y="268">9</text><text x="700" y="163">22</text>
+    <text x="900" y="196">31</text><text x="1140" y="292">17</text><text x="288" y="386">6</text>
+    <text x="620" y="270">11</text><text x="1010" y="360">26</text><text x="120" y="600">19</text>
+    <text x="480" y="646">8</text><text x="700" y="556">24</text><text x="1050" y="662">13</text>
+    <text x="1330" y="586">28</text><text x="352" y="712">5</text><text x="860" y="742">16</text>
+  </g>
+</svg>
+</div>
+
+<!-- Global nav, identical to the town pages. -->
+<nav class="top"><div class="wrap nav-in">
+  <a class="brand" href="index.html">Arctrips</a>
+  <ul class="nav-links">
+    <li><a href="search.html">Stays</a></li>
+    <li><a href="index.html">Destinations</a></li>
+    <li><a href="search.html">Guides</a></li>
+  </ul>
+  <form class="search" role="search" action="search.html" method="get">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
+    <label class="vh" for="q">Go to a town, a beach, a trail or a guide</label>
+    <input id="q" name="q" type="search" placeholder="Tofino, Wild Pacific Trail, Rathtrevor">
+    <kbd>/</kbd>
+  </form>
+  <a class="btn btn--ink btn--sm" href="not-found.html">Sign in</a>
+</div></nav>
+
+<!-- The place bar. Same shape as Tofino's: the parent anchor, this place's
+     sections, and the booking path. The one primary button on the screen. -->
+<nav class="placebar" aria-label="Vancouver Island"><div class="wrap placebar-in">
+  <a class="placebar__back" href="province.html"><span class="n">&larr; British Columbia</span></a>
+  <ul class="placebar__links">
+    <li><a href="#top" aria-current="page">Overview</a></li>
+    <li><a href="#guides">Island guides</a></li>
+    <li><a href="#towns">Towns</a></li>
+    <li><a href="#compare">Tofino or Ucluelet</a></li>
+    <li><a href="#next">Plan</a></li>
+  </ul>
+  <a class="btn btn--primary btn--sm placebar__cta" href="search.html">Find a stay</a>
+</div></nav>
+
+<main id="main">
+
+<div class="wrap">
+  <nav class="crumb" aria-label="Breadcrumb">
+    <a href="index.html">Arc Trips</a><span class="sep" aria-hidden="true">&rsaquo;</span>
+    <a href="country.html">Canada</a><span class="sep" aria-hidden="true">&rsaquo;</span>
+    <a href="province.html">British Columbia</a><span class="sep" aria-hidden="true">&rsaquo;</span>
+    <span aria-current="page">Vancouver Island</span>
+  </nav>
+</div>
+
+<header class="hero"><div class="wrap hero-grid">
+  <div>
+    <span class="label">Region, British Columbia</span>
+    <h1>Vancouver Island, end to end</h1>
+    <p class="lede">Eleven towns from Sooke to Campbell River, written up place by place, plus seven guides that cross every town line on the island.</p>
+    <p class="hero-note">Tofino and Ucluelet are finished and open. They sit <b>42 km</b> apart on the west coast and hold <b>429</b> of the island's documented places between them.</p>
+    <div class="hero-cta">
+      <a class="btn btn--ghost" href="#guides">The seven island guides</a>
+      <a class="btn btn--ghost" href="#towns">All eleven towns</a>
+    </div>
+  </div>
+
+  <figure class="hero-shot">
+    <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1600,h_900/james-wheeler-YZfDg2L0lUs-unsplash_ino74q" alt="A wide stretch of sand below a forested bluff on the west coast of Vancouver Island" width="1600" height="900">
+    <figcaption>The west coast, between Tofino and Ucluelet</figcaption>
+  </figure>
+</div>
+
+<div class="wrap">
+  <dl class="hero-facts">
+    <div><dt>Towns</dt><dd class="tnum">11</dd></div>
+    <div><dt>Documented places</dt><dd class="tnum">666</dd></div>
+    <div><dt>Guides</dt><dd class="tnum">22</dd></div>
+    <div><dt>Towns open now</dt><dd class="tnum">2</dd></div>
+    <div><dt>Island guides</dt><dd class="tnum">7</dd></div>
+  </dl>
+</div></header>
+
+<!-- ═══ 1. The island guides. Seven cross-island subjects that belong to no
+         single town, so they sit above the towns and carry the real names. ═══ -->
+<section class="sec" id="guides" style="padding-block:0 clamp(40px,4.6vw,68px)"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label">Written across the whole island</span>
+      <h2 style="margin-top:11px">The seven island guides</h2>
+      <p>Subjects that do not belong to any one town. Each guide names the places, puts them in order, and answers the questions people actually ask.</p>
+    </div>
+    <a class="btn btn--ghost" href="search.html">Search all guides</a>
+  </div>
+
+  <div class="gwrap">
+
+    <article class="gcard gcard--wide">
+      <div class="gshot">
+        <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1600,h_900/nicoline-mann-bIIK4mvsDZc-unsplash_vcyrwx" alt="A rocky headland where the rainforest meets open water on the Pacific Rim coast" width="1600" height="900">
+      </div>
+      <div class="gbody">
+        <span class="label">Beaches</span>
+        <h3><a href="guide.html">Best Beaches on Vancouver Island</a></h3>
+        <p class="gmeta"><b>13 beaches</b><span>9 questions answered</span><span>West, south and east coasts</span></p>
+        <p class="gtext">Discover the best beaches on Vancouver Island, from Long Beach, Chesterman Beach, and Rathtrevor Beach to Tribune Bay, Botanical Beach, China Beach, Mystic Beach, and more. Learn which beaches are best for surfing, swimming, tide pools, families, sunsets, and coastal walks.</p>
+        <dl class="glist">
+          <dt>The beaches, in order</dt>
+          <dd><a href="long-beach.html">Long Beach</a>, Chesterman Beach, Cox Bay, Mackenzie Beach, Wickaninnish Beach, Florencia Bay, Big Beach, Little Beach, Rathtrevor Beach, Parksville Beach, Qualicum Beach, Tribune Bay, Botanical Beach</dd>
+        </dl>
+      </div>
+    </article>
+
+    <article class="gcard">
+      <span class="label">Day hikes</span>
+      <h3><a href="guide.html">Best Day Hikes on Vancouver Island</a></h3>
+      <p class="gmeta"><b>12 trails</b><span>10 questions answered</span></p>
+      <p class="gtext">Discover the best day hikes on Vancouver Island, from easy rainforest walks and coastal trails to waterfall hikes, mountain viewpoints, and challenging alpine routes in Strathcona Provincial Park.</p>
+      <dl class="glist">
+        <dt>The trails</dt>
+        <dd>Wild Pacific Trail, Rainforest Trails A and B, South Beach and Nuu-chah-nulth Trail, Mystic Beach, Sombrio Beach, Botanical Beach, East Sooke Coast Trail, Mount Finlayson, Mount Work, Mount Tzouhalem, Mount Benson, Englishman River Falls</dd>
+      </dl>
+    </article>
+
+    <article class="gcard">
+      <span class="label">Overnight hikes</span>
+      <h3><a href="guide.html">Best Overnight Hikes on Vancouver Island</a></h3>
+      <p class="gmeta"><b>10 routes</b><span>10 questions answered</span></p>
+      <p class="gtext">Discover the best overnight hikes on Vancouver Island, from the West Coast Trail and Juan de Fuca Trail to Cape Scott, North Coast Trail, Nootka Trail, Della Falls, Bedwell Lake, and Forbidden Plateau. Learn distance, difficulty, highlights, camping notes, and planning tips.</p>
+      <dl class="glist">
+        <dt>The routes</dt>
+        <dd>West Coast Trail, Juan de Fuca Trail, North Coast Trail, Cape Scott Trail, Nootka Trail, Della Falls Trail, Bedwell Lake and Cream Lake, Forbidden Plateau and Circlet Lake, Elk River Trail and Landslide Lake, Flower Ridge</dd>
+      </dl>
+    </article>
+
+    <article class="gcard">
+      <span class="label">Kayaking</span>
+      <h3><a href="guide.html">Best Kayaking Spots on Vancouver Island</a></h3>
+      <p class="gmeta"><b>12 paddling areas</b><span>10 questions answered</span></p>
+      <p class="gtext">Discover the best kayaking spots on Vancouver Island, from the Broken Group Islands and Clayoquot Sound to Johnstone Strait, Quadra Island, Gulf Islands, Ucluelet, Tofino, and Great Central Lake. Learn where to paddle, what each area is best for, and tips for planning your trip.</p>
+      <dl class="glist">
+        <dt>The paddling areas</dt>
+        <dd>Broken Group Islands, Ucluelet and Barkley Sound, Tofino and Clayoquot Sound, Johnstone Strait, Telegraph Cove, Quadra Island and the Discovery Islands, Gulf Islands, Victoria and Oak Bay, Sooke Basin, Nanaimo and Newcastle Island, Great Central Lake, Campbell River and Discovery Passage</dd>
+      </dl>
+    </article>
+
+    <article class="gcard">
+      <span class="label">Whale watching</span>
+      <h3><a href="guide.html">Best Places for Whale Watching on Vancouver Island</a></h3>
+      <p class="gmeta"><b>10 places</b><span>10 questions answered</span></p>
+      <p class="gtext">Discover the best places for whale watching on Vancouver Island, including Victoria, Ucluelet, Tofino, Telegraph Cove, Campbell River, Sooke, Nanaimo, and Port McNeill. Learn what whales you might see, the best season, tour styles, and planning tips.</p>
+      <dl class="glist">
+        <dt>The places</dt>
+        <dd><a href="victoria.html">Victoria</a>, <a href="sooke.html">Sooke</a>, Ucluelet, <a href="tofino.html">Tofino</a>, Telegraph Cove, Port McNeill, <a href="campbell-river.html">Campbell River</a>, <a href="nanaimo.html">Nanaimo</a>, Parksville and Qualicum Beach Area, Port Renfrew and the Juan de Fuca Coast</dd>
+      </dl>
+    </article>
+
+    <article class="gcard">
+      <span class="label">Mountain biking</span>
+      <h3><a href="guide.html">Vancouver Island: Best Mountain Biking Spots</a></h3>
+      <p class="gmeta"><b>9 riding areas</b><span>10 questions answered</span><span>3 sample trips</span></p>
+      <p class="gtext">Discover the best mountain biking spots on Vancouver Island, from Cumberland and Nanaimo to Cowichan, Campbell River, Parksville, Victoria, and Mount Washington. Learn where to ride, what each area is best for, and tips for planning your trip.</p>
+      <dl class="glist">
+        <dt>The riding areas</dt>
+        <dd>Cumberland and Comox Valley, <a href="nanaimo.html">Nanaimo</a>, Cowichan Valley, <a href="campbell-river.html">Campbell River</a>, Parksville Qualicum Beach and Hammerfest, Victoria and Hartland Mountain Bike Park, Mount Washington, Hornby Island, Sooke and the South Island</dd>
+      </dl>
+    </article>
+
+    <article class="gcard">
+      <span class="label">Where to stay</span>
+      <h3><a href="guide.html">How to Choose a Vacation Rental on Vancouver Island</a></h3>
+      <p class="gmeta"><b>10 checks before you book</b><span>Best areas and booking tips</span></p>
+      <p class="gtext">Planning a Vancouver Island getaway? Learn how to choose the best vacation rental for your trip, including location, budget, and seasonal tips.</p>
+      <dl class="glist">
+        <dt>The ten checks</dt>
+        <dd>Pick the right region before you pick the rental, Decide what matters more between view, beach access, town access or seclusion, Match the rental to the season, Check whether the listing is legal and properly registered, Read for layout not just style, Think about travel logistics before you book, Budget for the real total, Choose amenities that fit Vancouver Island travel, Read reviews for patterns, Check safety and disruption planning</dd>
+      </dl>
+    </article>
+
+  </div>
+</div></section>
+
+<!-- ═══ 2. The towns, grouped by the part of the island they sit in. The meter
+         is each town's documented place count against Tofino's 232, at true
+         relative width. Navy fill, neutral track. ═══ -->
+<section class="sec" id="towns" style="padding-block:0 clamp(40px,4.6vw,68px)"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label">666 documented places</span>
+      <h2 style="margin-top:11px">Eleven towns, four parts of the island</h2>
+      <p>Every town below is researched and written. Two are published in full. The bar is the size of each town's library measured against Tofino's.</p>
+    </div>
+    <a class="btn btn--ghost" href="province.html">Rest of British Columbia</a>
+  </div>
+
+  <div class="grouph" style="margin-top:0">
+    <h3>West coast, the Pacific Rim</h3>
+    <span class="tnum">2 towns &middot; 429 places</span>
+  </div>
+
+  <div class="trow">
+    <div class="tname"><h4><a href="tofino.html">Tofino</a></h4><span class="tag">Open now</span></div>
+    <p class="tline">Perched on the wild west coast, framed by the Pacific Ocean, old-growth rainforest, and the vast beauty of Clayoquot Sound.</p>
+    <div class="tnums">
+      <b>232 places <small>and 11 guides</small></b>
+      <div class="meter"><i style="--w:100%"></i></div>
+    </div>
+  </div>
+
+  <div class="trow">
+    <div class="tname"><h4><a href="search.html">Ucluelet</a></h4><span class="tag">Open now</span></div>
+    <p class="tline">Rugged shoreline, temperate rainforest and a small harbour setting, wilder and quieter than better-known beach towns.</p>
+    <div class="tnums">
+      <b>197 places <small>and 9 guides</small></b>
+      <div class="meter"><i style="--w:85%"></i></div>
+    </div>
+  </div>
+
+  <div class="grouph">
+    <h3>South Island</h3>
+    <span class="tnum">4 towns &middot; 137 places</span>
+  </div>
+
+  <div class="trow">
+    <div class="tname"><h4><a href="victoria.html">Victoria</a></h4><span class="tag tag--q">Six guides written</span></div>
+    <p class="tline">The capital of British Columbia: colonial-era buildings, lush gardens, a scenic harbour and a mild coastal climate.</p>
+    <div class="tnums">
+      <b>79 places <small>and 6 guides</small></b>
+      <div class="meter"><i style="--w:34%"></i></div>
+    </div>
+  </div>
+
+  <div class="trow">
+    <div class="tname"><h4><a href="sooke.html">Sooke</a></h4></div>
+    <p class="tline">Rugged shoreline, forested hills and relaxed west coast character, a short drive from the busier streets of Victoria.</p>
+    <div class="tnums">
+      <b>30 places <small>and 1 guide</small></b>
+      <div class="meter"><i style="--w:13%"></i></div>
+    </div>
+  </div>
+
+  <div class="trow">
+    <div class="tname"><h4><a href="sidney.html">Sidney</a></h4></div>
+    <p class="tline">Good whale watching and a drier climate than the towns around it, on the Saanich Peninsula beside Butchart Gardens.</p>
+    <div class="tnums">
+      <b>16 places <small>and 1 guide</small></b>
+      <div class="meter"><i style="--w:7%"></i></div>
+    </div>
+  </div>
+
+  <div class="trow">
+    <div class="tname"><h4><a href="shawnigan-lake.html">Shawnigan Lake</a></h4><span class="tag tag--q">Inland</span></div>
+    <p class="tline">A peaceful inland escape in the South Cowichan region, known for freshwater beauty and forested surroundings.</p>
+    <div class="tnums">
+      <b>12 places <small>and 1 guide</small></b>
+      <div class="meter"><i style="--w:5%"></i></div>
+    </div>
+  </div>
+
+  <div class="grouph">
+    <h3>Central Island</h3>
+    <span class="tnum">4 towns &middot; 86 places</span>
+  </div>
+
+  <div class="trow">
+    <div class="tname"><h4><a href="search.html">Parksville</a></h4><span class="tag tag--q">With Qualicum Beach</span></div>
+    <p class="tline">Long sandy beaches and shallow warm water on the central east coast, the kind of place that makes it easy to slow down.</p>
+    <div class="tnums">
+      <b>28 places <small>and 1 guide</small></b>
+      <div class="meter"><i style="--w:12%"></i></div>
+    </div>
+  </div>
+
+  <div class="trow">
+    <div class="tname"><h4><a href="nanaimo.html">Nanaimo</a></h4></div>
+    <p class="tline">The Harbour City: ocean views, waterfront walks, nearby islands and the easiest crossing back to the mainland.</p>
+    <div class="tnums">
+      <b>27 places <small>and 1 guide</small></b>
+      <div class="meter"><i style="--w:12%"></i></div>
+    </div>
+  </div>
+
+  <div class="trow">
+    <div class="tname"><h4><a href="nanoose.html">Nanoose</a></h4></div>
+    <p class="tline">A quiet seaside community between Nanaimo and Parksville, with a sheltered bay, forested hills and a scenic shoreline.</p>
+    <div class="tnums">
+      <b>16 places <small>and 1 guide</small></b>
+      <div class="meter"><i style="--w:7%"></i></div>
+    </div>
+  </div>
+
+  <div class="trow">
+    <div class="tname"><h4><a href="chemainus.html">Chemainus</a></h4></div>
+    <p class="tline">Colourful murals, a seaside setting and a working theatre, in a former logging town on the east coast.</p>
+    <div class="tnums">
+      <b>15 places <small>and 1 guide</small></b>
+      <div class="meter"><i style="--w:6%"></i></div>
+    </div>
+  </div>
+
+  <div class="grouph">
+    <h3>North Island</h3>
+    <span class="tnum">1 town &middot; 14 places</span>
+  </div>
+
+  <div class="trow">
+    <div class="tname"><h4><a href="campbell-river.html">Campbell River</a></h4></div>
+    <p class="tline">Where dense coastal forest meets the sea on the east coast, with the water never far away and the scenery dramatic.</p>
+    <div class="tnums">
+      <b>14 places <small>and 1 guide</small></b>
+      <div class="meter"><i style="--w:6%"></i></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ═══ 3. Tofino or Ucluelet. Every figure below is counted off the published
+         corpus, not estimated. ═══ -->
+<section class="sec" id="compare" style="padding-block:0 clamp(40px,4.6vw,68px)"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label">42 km apart, about 40 minutes</span>
+      <h2 style="margin-top:11px">Tofino or Ucluelet?</h2>
+      <p>The two finished towns share a peninsula, a highway, a national park and a whale migration. They do not read the same.</p>
+    </div>
+    <a class="btn btn--ghost" href="tofino.html">Read Tofino in full</a>
+  </div>
+
+  <div class="vs">
+    <div class="vsrow vshead">
+      <span class="k">Counted off the corpus</span>
+      <strong>Tofino</strong>
+      <strong>Ucluelet</strong>
+    </div>
+
+    <div class="vsrow">
+      <span class="vslab">Documented places</span>
+      <div class="vscell"><b class="tnum" data-t="Tofino">232</b><div class="meter"><i style="--w:100%"></i></div></div>
+      <div class="vscell"><b class="tnum" data-t="Ucluelet">197</b><div class="meter"><i style="--w:85%"></i></div></div>
+    </div>
+
+    <div class="vsrow">
+      <span class="vslab">Written up in full, with photos</span>
+      <div class="vscell"><b class="tnum" data-t="Tofino">73</b><div class="meter"><i style="--w:100%"></i></div></div>
+      <div class="vscell"><b class="tnum" data-t="Ucluelet">54</b><div class="meter"><i style="--w:74%"></i></div></div>
+    </div>
+
+    <div class="vsrow">
+      <span class="vslab">Subject guides published</span>
+      <div class="vscell"><b class="tnum" data-t="Tofino">9</b><div class="meter"><i style="--w:100%"></i></div></div>
+      <div class="vscell"><b class="tnum" data-t="Ucluelet">6</b><div class="meter"><i style="--w:67%"></i></div></div>
+    </div>
+
+    <div class="vsrow">
+      <span class="vslab">Places to stay</span>
+      <div class="vscell"><b class="tnum" data-t="Tofino">134</b><div class="meter"><i style="--w:85%"></i></div></div>
+      <div class="vscell"><b class="tnum" data-t="Ucluelet">158</b><div class="meter"><i style="--w:100%"></i></div></div>
+    </div>
+
+    <div class="vsrow">
+      <span class="vslab">Trails written up</span>
+      <div class="vscell"><b class="tnum" data-t="Tofino">18</b><div class="meter"><i style="--w:90%"></i></div></div>
+      <div class="vscell"><b class="tnum" data-t="Ucluelet">20</b><div class="meter"><i style="--w:100%"></i></div></div>
+    </div>
+
+    <div class="vsrow">
+      <span class="vslab">Paddling spots written up</span>
+      <div class="vscell"><b class="tnum" data-t="Tofino">18</b><div class="meter"><i style="--w:100%"></i></div></div>
+      <div class="vscell"><b class="tnum" data-t="Ucluelet">13</b><div class="meter"><i style="--w:72%"></i></div></div>
+    </div>
+
+    <div class="vsrow">
+      <span class="vslab">Restaurants written up</span>
+      <div class="vscell"><b class="tnum" data-t="Tofino">16</b><div class="meter"><i style="--w:100%"></i></div></div>
+      <div class="vscell"><b class="tnum" data-t="Ucluelet">15</b><div class="meter"><i style="--w:94%"></i></div></div>
+    </div>
+
+    <div class="vsrow">
+      <span class="vslab">Nightly from, CAD</span>
+      <div class="vscell"><b class="tnum" data-t="Tofino">$320</b></div>
+      <div class="vscell"><b class="tnum" data-t="Ucluelet">$320</b></div>
+    </div>
+  </div>
+
+  <div class="vsonly">
+    <div>
+      <h4>Only in Tofino</h4>
+      <p>Beaches, 13 of them written up. Storm watching, 8 places, November to February.</p>
+    </div>
+    <div>
+      <h4>Only in Ucluelet</h4>
+      <p>Whale watching, 6 places, plus three guides on the spring gray whale migration.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ═══ 4. Next step ═══ -->
+<section class="sec" id="next" style="padding-block:0"><div class="wrap">
+  <div class="band">
+    <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1600,h_900/arcstudio/wnrrcrf4lnalgzbjvsz8" alt="The islands and inlets of Clayoquot Sound seen from the air above Tofino" width="1600" height="900">
+    <div class="band-in">
+      <span class="label">Start here</span>
+      <h2 style="margin-top:12px">Pick the town, then the week</h2>
+      <p>Tofino and Ucluelet are open now, with every beach, trail, paddle and table written up. The other nine towns are researched and land next.</p>
+      <div class="bandcta">
+        <a class="btn btn--ghost" href="tofino.html">Tofino, place by place</a>
+        <a class="btn btn--ghost" href="plan.html">When should you go?</a>
+      </div>
+      <dl class="bandnums">
+        <div><dt>Stays, both towns</dt><dd class="tnum">292</dd></div>
+        <div><dt>Guest rating</dt><dd class="tnum">4.9</dd></div>
+        <div><dt>Nightly from</dt><dd class="tnum">$320</dd></div>
+      </dl>
+    </div>
+  </div>
+</div></section>
+
+</main>
+
+<footer class="f"><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <span class="fbrand">Arctrips</span>
+      <p class="fnote">Stays and guides on Vancouver Island, written by people who go there.</p>
+    </div>
+    <div><h5>This island</h5><ul>
+      <li><a href="#guides">Island guides</a></li><li><a href="#towns">All eleven towns</a></li>
+      <li><a href="#compare">Tofino or Ucluelet</a></li><li><a href="search.html">Search everything</a></li></ul></div>
+    <div><h5>Up the tree</h5><ul>
+      <li><a href="province.html">British Columbia</a></li><li><a href="country.html">Canada</a></li>
+      <li><a href="search.html">Guides</a></li></ul></div>
+    <div><h5>Towns</h5><ul>
+      <li><a href="tofino.html">Tofino</a></li><li><a href="victoria.html">Victoria</a></li>
+      <li><a href="nanaimo.html">Nanaimo</a></li><li><a href="campbell-river.html">Campbell River</a></li>
+      <li><a href="sooke.html">Sooke</a></li></ul></div>
+    <div><h5>Arc Trips</h5><ul>
+      <li><a href="not-found.html">About us</a></li><li><a href="not-found.html">List your place</a></li>
+      <li><a href="search.html">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
+  </div>
+  <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees</span></div>
+</div></footer>
+
+<script src="_nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<!doctype html><meta charset=utf-8><title>sweep</title>
+<style>
+body{margin:0;background:#0d1117;font:11px system-ui;color:#eee;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:6px}
+figure{margin:0;background:#000}
+.f{width:100%;height:300px;overflow:hidden;position:relative;background:#fff}
+iframe{width:1440px;height:1500px;border:0;transform:scale(.222);transform-origin:0 0;position:absolute}
+figcaption{padding:3px 5px;font-weight:600;color:#9fd0ff}
+</style><body id=b><script>
+const P=['index','region','province','country','tofino','victoria','sooke','nanaimo','parksville','sidney','chemainus','nanoose','shawnigan-lake','campbell-river','things-to-do','whale-watching','beaches-tofino','hiking-tofino','kayaking-tofino','restaurants-tofino','storm-watching-tofino','hiking-ucluelet','kayaking-ucluelet','restaurants-ucluelet','whale-watching-ucluelet','long-beach','plan','guide','search','not-found','whistler','squamish','vancouver','nelson','banff','jasper','edmonton','saskatoon','montreal','quebec-city','ottawa','niagara-falls','halifax','charlottetown'];
+document.getElementById('b').innerHTML=P.map(p=>`<figure><div class="f"><iframe loading="eager" src="${p}.html"></iframe></div><figcaption>${p}</figcaption></figure>`).join('');
+</script>

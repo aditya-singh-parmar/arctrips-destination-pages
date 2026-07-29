@@ -1,0 +1,413 @@
+- generic [active] [ref=f732e1]:
+  - navigation [ref=f732e2]:
+    - generic [ref=f732e3]:
+      - link "ARCTRIPS" [ref=f732e4] [cursor=pointer]:
+        - /url: index.html
+      - list [ref=f732e5]:
+        - listitem [ref=f732e6]:
+          - link "Stays" [ref=f732e7] [cursor=pointer]:
+            - /url: search.html?in=ucluelet
+        - listitem [ref=f732e8]:
+          - link "Destinations" [ref=f732e9] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=f732e10]:
+          - link "Guides" [ref=f732e11] [cursor=pointer]:
+            - /url: search.html
+      - generic [ref=f732e12]:
+        - textbox "Search" [ref=f732e16]:
+          - /placeholder: Search Ucluelet
+        - generic [ref=f732e17]: /
+      - link "Sign in" [ref=f732e18] [cursor=pointer]:
+        - /url: search.html?in=ucluelet
+  - navigation "Ucluelet" [ref=f732e19]:
+    - generic [ref=f732e20]:
+      - link "← Ucluelet" [ref=f732e21] [cursor=pointer]:
+        - /url: region.html
+      - list [ref=f732e23]:
+        - listitem [ref=f732e24]:
+          - link "Overview" [ref=f732e25] [cursor=pointer]:
+            - /url: region.html
+        - listitem [ref=f732e26]:
+          - link "Things to do" [ref=f732e27] [cursor=pointer]:
+            - /url: things-to-do.html
+        - listitem [ref=f732e28]:
+          - link "Hiking & trails" [ref=f732e29] [cursor=pointer]:
+            - /url: "#top"
+        - listitem [ref=f732e30]:
+          - link "Stays" [ref=f732e31] [cursor=pointer]:
+            - /url: search.html?in=ucluelet
+      - link "Find a stay" [ref=f732e32] [cursor=pointer]:
+        - /url: search.html?in=ucluelet
+  - main [ref=f732e33]:
+    - navigation "Breadcrumb" [ref=f732e35]:
+      - link "Arc Trips" [ref=f732e36] [cursor=pointer]:
+        - /url: index.html
+      - generic [ref=f732e37]: /
+      - link "Canada" [ref=f732e38] [cursor=pointer]:
+        - /url: country.html
+      - generic [ref=f732e39]: /
+      - link "British Columbia" [ref=f732e40] [cursor=pointer]:
+        - /url: province.html
+      - generic [ref=f732e41]: /
+      - link "Vancouver Island" [ref=f732e42] [cursor=pointer]:
+        - /url: region.html
+      - generic [ref=f732e43]: /
+      - link "Ucluelet" [ref=f732e44] [cursor=pointer]:
+        - /url: region.html
+      - generic [ref=f732e45]: /
+      - link "Things to do" [ref=f732e46] [cursor=pointer]:
+        - /url: things-to-do.html
+      - generic [ref=f732e47]: /
+      - generic [ref=f732e48]: Hiking & trails
+    - generic [ref=f732e49]:
+      - img "Hiking & trails in Ucluelet" [ref=f732e50]
+      - generic [ref=f732e53]:
+        - text: Ucluelet, Vancouver Island
+        - heading "Hiking & trails in Ucluelet" [level=1] [ref=f732e54]
+        - paragraph [ref=f732e55]: Explore the best hikes in Ucluelet, British Columbia. Find easy coastal trails, rainforest walks, lighthouse views, Pacific Rim National Park hikes, family-friendly paths, and hiking safety tips.
+        - generic [ref=f732e56]:
+          - generic [ref=f732e57]:
+            - term [ref=f732e58]: Places written up
+            - definition [ref=f732e59]: "20"
+          - generic [ref=f732e60]:
+            - term [ref=f732e61]: With photographs
+            - definition [ref=f732e62]: "15"
+    - generic [ref=f732e65]:
+      - article [ref=f732e66]:
+        - figure [ref=f732e67]:
+          - img "Wild Pacific Trail, Ucluelet" [ref=f732e68]
+        - generic [ref=f732e69]:
+          - heading "Wild Pacific Trail" [level=3] [ref=f732e70]
+          - paragraph [ref=f732e71]: The Wild Pacific Trail is the most famous trail in Ucluelet. It follows the edge of the Ucluelet Peninsula and gives visitors dramatic views of the open Pacific Ocean, rocky shoreline, Barkley Sound,
+          - paragraph [ref=f732e72]: The Wild Pacific Trail is the most famous trail in Ucluelet. It follows the edge of the Ucluelet Peninsula and gives visitors dramatic views of the open Pacific Ocean, rocky shoreline, Barkley Sound, and the Broken Group Islands.
+          - paragraph [ref=f732e73]: This trail is one of the best reasons to visit Ucluelet. It is easy to follow, well-loved, and good for most visitors. You can walk just one short section or spend more time exploring different parts.
+          - generic [ref=f732e74]:
+            - generic [ref=f732e75]: Easy hiking
+            - generic [ref=f732e76]: Ocean views
+            - generic [ref=f732e77]: Storm watching
+            - generic [ref=f732e78]: Photography
+            - generic [ref=f732e79]: Families
+            - generic [ref=f732e80]: Bird watching
+            - generic [ref=f732e81]: Whale watching from shore
+            - generic [ref=f732e82]: Short walks or longer walks
+          - paragraph [ref=f732e83]: Good to know. Stay on the marked trail and behind safety barriers. The ocean is powerful, especially during storms and high tide.
+      - article [ref=f732e84]:
+        - figure [ref=f732e85]:
+          - img "Lighthouse Loop, Ucluelet" [ref=f732e86]
+        - generic [ref=f732e87]:
+          - heading "Lighthouse Loop" [level=3] [ref=f732e88]
+          - paragraph [ref=f732e89]: The Lighthouse Loop is the most popular section of the Wild Pacific Trail. It is a short loop near Amphitrite Point Lighthouse, at the southern end of Ucluelet.
+          - paragraph [ref=f732e90]: The Lighthouse Loop is the most popular section of the Wild Pacific Trail. It is a short loop near Amphitrite Point Lighthouse, at the southern end of Ucluelet.
+          - paragraph [ref=f732e91]: This trail gives you big ocean views without a hard hike. You can see rocky coastline, crashing waves, wind-shaped trees, and the lighthouse. It is one of the best short walks in Ucluelet for first-time visitors.
+          - generic [ref=f732e92]:
+            - generic [ref=f732e93]: First-time visitors
+            - generic [ref=f732e94]: Families
+            - generic [ref=f732e95]: Lighthouse views
+            - generic [ref=f732e96]: Ocean photos
+            - generic [ref=f732e97]: Storm watching
+            - generic [ref=f732e98]: Whale watching in season
+            - generic [ref=f732e99]: Short walks
+          - paragraph [ref=f732e100]: Good to know. This is one of the easiest and most rewarding walks in town. Bring a jacket because it can be windy.
+      - article [ref=f732e101]:
+        - figure [ref=f732e102]:
+          - img "Big Beach Park Trail, Ucluelet" [ref=f732e103]
+        - generic [ref=f732e104]:
+          - heading "Big Beach Park Trail" [level=3] [ref=f732e105]
+          - paragraph [ref=f732e106]: Big Beach Park is a small beach and park area in Ucluelet. It is a nice place for a short walk, picnic, or beach stop before or after hiking the Wild Pacific Trail.
+          - paragraph [ref=f732e107]: Big Beach Park is a small beach and park area in Ucluelet. It is a nice place for a short walk, picnic, or beach stop before or after hiking the Wild Pacific Trail.
+          - paragraph [ref=f732e108]: This area connects well with nearby Wild Pacific Trail sections. It is not a long hike, but it is useful for families and anyone who wants easy beach access.
+          - generic [ref=f732e109]:
+            - generic [ref=f732e110]: Short walks
+            - generic [ref=f732e111]: Beach access
+            - generic [ref=f732e112]: Picnics
+            - generic [ref=f732e113]: Families
+            - generic [ref=f732e114]: Sunset stops
+            - generic [ref=f732e115]: Tide watching
+          - paragraph [ref=f732e116]: Good to know. Watch the tide and stay back from slippery rocks.
+      - article [ref=f732e117]:
+        - figure [ref=f732e118]:
+          - img "Artist Loops, Ucluelet" [ref=f732e119]
+        - generic [ref=f732e120]:
+          - heading "Artist Loops" [level=3] [ref=f732e121]
+          - paragraph [ref=f732e122]: The Artist Loops are part of the Wild Pacific Trail system. These small loop sections lead to scenic viewpoints, benches, forest corners, and quiet spots for looking out over the coast.
+          - paragraph [ref=f732e123]: The Artist Loops are part of the Wild Pacific Trail system. These small loop sections lead to scenic viewpoints, benches, forest corners, and quiet spots for looking out over the coast.
+          - paragraph [ref=f732e124]: They are called Artist Loops because the views are perfect for sketching, painting, photography, or simply sitting still.
+          - generic [ref=f732e125]:
+            - generic [ref=f732e126]: Quiet viewpoints
+            - generic [ref=f732e127]: Benches
+            - generic [ref=f732e128]: Photography
+            - generic [ref=f732e129]: Slow walks
+            - generic [ref=f732e130]: Nature journaling
+            - generic [ref=f732e131]: Ocean views
+          - paragraph [ref=f732e132]: Good to know. These loops are short, but they make the trail feel richer and more peaceful.
+      - article [ref=f732e133]:
+        - figure [ref=f732e134]:
+          - img "Ancient Cedars Trail, Ucluelet" [ref=f732e135]
+        - generic [ref=f732e136]:
+          - heading "Ancient Cedars Trail" [level=3] [ref=f732e137]
+          - paragraph [ref=f732e138]: The Ancient Cedars Trail is a short forest section of the Wild Pacific Trail system. It is a good choice if you want a calmer rainforest walk instead of open ocean views.
+          - paragraph [ref=f732e139]: The Ancient Cedars Trail is a short forest section of the Wild Pacific Trail system. It is a good choice if you want a calmer rainforest walk instead of open ocean views.
+          - paragraph [ref=f732e140]: You can see large trees, moss, ferns, and thick west coast forest. It is easy, peaceful, and good for people who want to slow down.
+          - generic [ref=f732e141]:
+            - generic [ref=f732e142]: Forest walking
+            - generic [ref=f732e143]: Big trees
+            - generic [ref=f732e144]: Rainy days
+            - generic [ref=f732e145]: Families
+            - generic [ref=f732e146]: Quiet nature time
+            - generic [ref=f732e147]: Short hikes
+          - paragraph [ref=f732e148]: Good to know. The Wild Pacific Trail Society describes a stand of trees on the trail as over 800 years old, making this a special stop for rainforest lovers.
+      - article [ref=f732e149]:
+        - generic [ref=f732e150]:
+          - heading "Bog Interpretive Loop" [level=3] [ref=f732e151]
+          - paragraph [ref=f732e152]: The Bog Interpretive Loop is a short nature walk that shows a different side of Ucluelet. Instead of big ocean views, this route focuses on bog plants, wetland habitat, and small details in the landsc
+          - paragraph [ref=f732e153]: The Bog Interpretive Loop is a short nature walk that shows a different side of Ucluelet. Instead of big ocean views, this route focuses on bog plants, wetland habitat, and small details in the landscape.
+          - paragraph [ref=f732e154]: It is a good choice for curious visitors, families, and people who like learning about ecosystems.
+          - generic [ref=f732e155]:
+            - generic [ref=f732e156]: Easy walking
+            - generic [ref=f732e157]: Nature learning
+            - generic [ref=f732e158]: Kids
+            - generic [ref=f732e159]: Bog plants
+            - generic [ref=f732e160]: Photography
+            - generic [ref=f732e161]: A short stop
+          - paragraph [ref=f732e162]: Good to know. Stay on the trail to protect fragile plants.
+      - article [ref=f732e163]:
+        - generic [ref=f732e164]:
+          - heading "Spring Cove Mudflats" [level=3] [ref=f732e165]
+          - paragraph [ref=f732e166]: Spring Cove Mudflats is a quieter nature area in Ucluelet. It is a good place for bird watching, peaceful walking, and seeing a different habitat from the open ocean coast.
+          - paragraph [ref=f732e167]: Spring Cove Mudflats is a quieter nature area in Ucluelet. It is a good place for bird watching, peaceful walking, and seeing a different habitat from the open ocean coast.
+          - paragraph [ref=f732e168]: Mudflats are important feeding areas for birds, especially during migration. This is a good place to slow down and look closely.
+          - generic [ref=f732e169]:
+            - generic [ref=f732e170]: Bird watching
+            - generic [ref=f732e171]: Quiet nature time
+            - generic [ref=f732e172]: Families
+            - generic [ref=f732e173]: Easy walking
+            - generic [ref=f732e174]: Photography
+            - generic [ref=f732e175]: Learning about coastal habitats
+          - paragraph [ref=f732e176]: Good to know. Bring binoculars if you like birds.
+      - article [ref=f732e177]:
+        - generic [ref=f732e178]:
+          - heading "Terrace Beach Trail" [level=3] [ref=f732e179]
+          - paragraph [ref=f732e180]: Terrace Beach is a small beach in Ucluelet near the Wild Pacific Trail area. It is not a long hike, but it is a nice short beach walk or add-on stop.
+          - paragraph [ref=f732e181]: Terrace Beach is a small beach in Ucluelet near the Wild Pacific Trail area. It is not a long hike, but it is a nice short beach walk or add-on stop.
+          - paragraph [ref=f732e182]: The beach feels quieter and more tucked away than the larger beaches near Tofino. It can be a good place for photos, a calm break, or a quick nature stop.
+          - generic [ref=f732e183]:
+            - generic [ref=f732e184]: Short walks
+            - generic [ref=f732e185]: Quiet beach time
+            - generic [ref=f732e186]: Photography
+            - generic [ref=f732e187]: Families
+            - generic [ref=f732e188]: A peaceful stop near town
+          - paragraph [ref=f732e189]: Good to know. Check tide and wave conditions before exploring near rocks.
+      - article [ref=f732e190]:
+        - generic [ref=f732e191]:
+          - heading "Little Beach Trail" [level=3] [ref=f732e192]
+          - paragraph [ref=f732e193]: Little Beach is another easy beach stop in Ucluelet. It is close to town and works well for a short visit, especially if you do not want a long hike.
+          - paragraph [ref=f732e194]: Little Beach is another easy beach stop in Ucluelet. It is close to town and works well for a short visit, especially if you do not want a long hike.
+          - paragraph [ref=f732e195]: This is a good option for families, quick beach walks, and relaxed shoreline views.
+          - generic [ref=f732e196]:
+            - generic [ref=f732e197]: Easy beach access
+            - generic [ref=f732e198]: Families
+            - generic [ref=f732e199]: Short walks
+            - generic [ref=f732e200]: Picnics
+            - generic [ref=f732e201]: Calm shoreline views
+            - generic [ref=f732e202]: A quick stop
+          - paragraph [ref=f732e203]: Good to know. Like all west coast beaches, watch the tide and stay away from slippery rocks.
+      - article [ref=f732e204]:
+        - figure [ref=f732e205]:
+          - img "Rainforest Trail, Ucluelet" [ref=f732e206]
+        - generic [ref=f732e207]:
+          - heading "Rainforest Trail" [level=3] [ref=f732e208]
+          - paragraph [ref=f732e209]: The Rainforest Trail is one of the best short hikes near Ucluelet. It is in Pacific Rim National Park Reserve and is known for boardwalks, huge trees, moss, ferns, and deep green forest.
+          - paragraph [ref=f732e210]: The Rainforest Trail is one of the best short hikes near Ucluelet. It is in Pacific Rim National Park Reserve and is known for boardwalks, huge trees, moss, ferns, and deep green forest.
+          - paragraph [ref=f732e211]: There are two short loops on opposite sides of the highway. You can do one loop or both.
+          - generic [ref=f732e212]:
+            - generic [ref=f732e213]: Big trees
+            - generic [ref=f732e214]: Boardwalks
+            - generic [ref=f732e215]: Families
+            - generic [ref=f732e216]: Rainy days
+            - generic [ref=f732e217]: First-time visitors
+            - generic [ref=f732e218]: Easy rainforest photos
+          - paragraph [ref=f732e219]: Good to know. The boardwalk can be slippery when wet. Wear shoes with good grip.
+      - article [ref=f732e220]:
+        - figure [ref=f732e221]:
+          - img "Shorepine Bog Trail, Ucluelet" [ref=f732e222]
+        - generic [ref=f732e223]:
+          - heading "Shorepine Bog Trail" [level=3] [ref=f732e224]
+          - paragraph [ref=f732e225]: Shorepine Bog Trail is a short, flat boardwalk trail in Pacific Rim National Park Reserve. It feels very different from the Rainforest Trail.
+          - paragraph [ref=f732e226]: Shorepine Bog Trail is a short, flat boardwalk trail in Pacific Rim National Park Reserve. It feels very different from the Rainforest Trail.
+          - paragraph [ref=f732e227]: Instead of huge trees, you will see twisted shore pines, bog plants, moss, and open wetland scenery.
+          - generic [ref=f732e228]:
+            - generic [ref=f732e229]: Easy walking
+            - generic [ref=f732e230]: Kids
+            - generic [ref=f732e231]: Bog plants
+            - generic [ref=f732e232]: Short stops
+            - generic [ref=f732e233]: Rainy days
+            - generic [ref=f732e234]: Learning about wetlands
+          - paragraph [ref=f732e235]: Good to know. Stay on the boardwalk to protect the fragile bog.
+      - article [ref=f732e236]:
+        - figure [ref=f732e237]:
+          - img "South Beach Trail, Ucluelet" [ref=f732e238]
+        - generic [ref=f732e239]:
+          - heading "South Beach Trail" [level=3] [ref=f732e240]
+          - paragraph [ref=f732e241]: South Beach Trail starts near the Kwisitis Visitor Centre and Wickaninnish Beach area. It is a short coastal trail that leads through forest toward a rocky beach.
+          - paragraph [ref=f732e242]: South Beach Trail starts near the Kwisitis Visitor Centre and Wickaninnish Beach area. It is a short coastal trail that leads through forest toward a rocky beach.
+          - paragraph [ref=f732e243]: This trail is a good choice if you want a quick walk with strong ocean sounds and dramatic coastal views.
+          - generic [ref=f732e244]:
+            - generic [ref=f732e245]: Short hikes
+            - generic [ref=f732e246]: Rocky beach views
+            - generic [ref=f732e247]: Ocean sounds
+            - generic [ref=f732e248]: Photography
+            - generic [ref=f732e249]: A stop near the visitor centre
+            - generic [ref=f732e250]: Pairing with Wickaninnish Beach
+          - paragraph [ref=f732e251]: Good to know. South Beach is better for viewing than swimming. Stay back from waves and wet rocks.
+      - article [ref=f732e252]:
+        - figure [ref=f732e253]:
+          - img "Nuu-chah-nulth Trail, Ucluelet" [ref=f732e254]
+        - generic [ref=f732e255]:
+          - heading "Nuu-chah-nulth Trail" [level=3] [ref=f732e256]
+          - paragraph [ref=f732e257]: The Nuu-chah-nulth Trail is one of the more meaningful walks in Pacific Rim National Park Reserve. It connects rainforest, boardwalk, beach views, and cultural learning.
+          - paragraph [ref=f732e258]: The Nuu-chah-nulth Trail is one of the more meaningful walks in Pacific Rim National Park Reserve. It connects rainforest, boardwalk, beach views, and cultural learning.
+          - paragraph [ref=f732e259]: This trail is longer and more active than the shortest boardwalk walks, but it is still manageable for many visitors.
+          - generic [ref=f732e260]:
+            - generic [ref=f732e261]: Rainforest walking
+            - generic [ref=f732e262]: Ocean views
+            - generic [ref=f732e263]: Learning
+            - generic [ref=f732e264]: Photography
+            - generic [ref=f732e265]: A more active nature walk
+            - generic [ref=f732e266]: Visitors who want more than a quick stop
+          - paragraph [ref=f732e267]: Good to know. Expect stairs, boardwalks, and uneven sections. Take your time.
+      - article [ref=f732e268]:
+        - generic [ref=f732e269]:
+          - heading "Willowbrae Trail" [level=3] [ref=f732e270]
+          - paragraph [ref=f732e271]: Willowbrae Trail is closer to the Ucluelet side of Pacific Rim National Park Reserve. It leads through forest and connects toward Florencia Bay and Halfmoon Bay.
+          - paragraph [ref=f732e272]: Willowbrae Trail is closer to the Ucluelet side of Pacific Rim National Park Reserve. It leads through forest and connects toward Florencia Bay and Halfmoon Bay.
+          - paragraph [ref=f732e273]: This is a good trail if you want a more active walk and beach access. It has stairs, and the return walk can feel harder than the walk down.
+          - generic [ref=f732e274]:
+            - generic [ref=f732e275]: Forest walking
+            - generic [ref=f732e276]: Beach access
+            - generic [ref=f732e277]: Florencia Bay
+            - generic [ref=f732e278]: Halfmoon Bay
+            - generic [ref=f732e279]: Photography
+            - generic [ref=f732e280]: A quieter national park hike
+          - paragraph [ref=f732e281]: Good to know. Check tide times before spending time on the beach.
+      - article [ref=f732e282]:
+        - figure [ref=f732e283]:
+          - img "Halfmoon Bay Trail, Ucluelet" [ref=f732e284]
+        - generic [ref=f732e285]:
+          - heading "Halfmoon Bay Trail" [level=3] [ref=f732e286]
+          - paragraph [ref=f732e287]: Halfmoon Bay Trail branches from the Willowbrae area and leads down to a small, quiet beach. It is a beautiful stop if you want something calmer and less busy.
+          - paragraph [ref=f732e288]: Halfmoon Bay Trail branches from the Willowbrae area and leads down to a small, quiet beach. It is a beautiful stop if you want something calmer and less busy.
+          - paragraph [ref=f732e289]: The beach feels tucked away, but the stairs can make the return feel more tiring.
+          - generic [ref=f732e290]:
+            - generic [ref=f732e291]: Quiet beach stops
+            - generic [ref=f732e292]: Forest and shoreline scenery
+            - generic [ref=f732e293]: Photography
+            - generic [ref=f732e294]: A peaceful walk
+            - generic [ref=f732e295]: More active families
+          - paragraph [ref=f732e296]: Good to know. Be careful near driftwood and waves. Do not get trapped by rising tide.
+      - article [ref=f732e297]:
+        - figure [ref=f732e298]:
+          - img "Florencia Bay Trail, Ucluelet" [ref=f732e299]
+        - generic [ref=f732e300]:
+          - heading "Florencia Bay Trail" [level=3] [ref=f732e301]
+          - paragraph [ref=f732e302]: Florencia Bay is one of the most beautiful beaches near Ucluelet. It is known for a quiet feel, sand cliffs, and wide shoreline views.
+          - paragraph [ref=f732e303]: Florencia Bay is one of the most beautiful beaches near Ucluelet. It is known for a quiet feel, sand cliffs, and wide shoreline views.
+          - paragraph [ref=f732e304]: The trail to Florencia Bay includes forest and stairs. It is worth the effort if you want a beach that feels less busy than Long Beach.
+          - generic [ref=f732e305]:
+            - generic [ref=f732e306]: Quiet beach walks
+            - generic [ref=f732e307]: Sand cliff views
+            - generic [ref=f732e308]: Photography
+            - generic [ref=f732e309]: Low-tide exploring
+            - generic [ref=f732e310]: A less crowded national park beach
+            - generic [ref=f732e311]: A scenic stop near Ucluelet
+          - paragraph [ref=f732e312]: Good to know. The stairs can feel harder on the way back up. Wear comfortable shoes.
+      - article [ref=f732e313]:
+        - figure [ref=f732e314]:
+          - img "Radar Hill, Ucluelet" [ref=f732e315]
+        - generic [ref=f732e316]:
+          - heading "Radar Hill" [level=3] [ref=f732e317]
+          - paragraph [ref=f732e318]: Radar Hill is a short viewpoint stop in Pacific Rim National Park Reserve. It is not a long hike, but it is worth adding if you want a quick view and a little history.
+          - paragraph [ref=f732e319]: Radar Hill is a short viewpoint stop in Pacific Rim National Park Reserve. It is not a long hike, but it is worth adding if you want a quick view and a little history.
+          - paragraph [ref=f732e320]: The hill was used as a radar station during World War II. Today, visitors come for forest, ocean, and island views.
+          - generic [ref=f732e321]:
+            - generic [ref=f732e322]: Quick stops
+            - generic [ref=f732e323]: Easy walking
+            - generic [ref=f732e324]: Viewpoints
+            - generic [ref=f732e325]: Families
+            - generic [ref=f732e326]: History
+            - generic [ref=f732e327]: Photography
+          - paragraph [ref=f732e328]: Good to know. This is more of a viewpoint walk than a full hike.
+      - article [ref=f732e329]:
+        - figure [ref=f732e330]:
+          - img "ʔapsčiik t̓ašii Multi-Use Pathway, Ucluelet" [ref=f732e331]
+        - generic [ref=f732e332]:
+          - heading "ʔapsčiik t̓ašii Multi-Use Pathway" [level=3] [ref=f732e333]
+          - paragraph [ref=f732e334]: ʔapsčiik t̓ašii, pronounced “ups-cheek ta-shee,” is a paved multi-use pathway in Pacific Rim National Park Reserve. It runs through the Long Beach Unit and connects many areas between the Tofino and
+          - paragraph [ref=f732e335]: ʔapsčiik t̓ašii, pronounced “ups-cheek ta-shee,” is a paved multi-use pathway in Pacific Rim National Park Reserve. It runs through the Long Beach Unit and connects many areas between the Tofino and Ucluelet side of the park.
+          - paragraph [ref=f732e336]: It is good for walking, biking, and running. It is not a wilderness hike, but it is a great way to move through the park without driving to every stop.
+          - generic [ref=f732e337]:
+            - generic [ref=f732e338]: Walking
+            - generic [ref=f732e339]: Biking
+            - generic [ref=f732e340]: Running
+            - generic [ref=f732e341]: Families
+            - generic [ref=f732e342]: Longer active days
+            - generic [ref=f732e343]: Exploring Pacific Rim National Park
+          - paragraph [ref=f732e344]: Good to know. The path is paved, but there are hills and curves. Share the route with cyclists and other users.
+      - article [ref=f732e345]:
+        - figure [ref=f732e346]:
+          - img "West Coast Trail, Ucluelet" [ref=f732e347]
+        - generic [ref=f732e348]:
+          - heading "West Coast Trail" [level=3] [ref=f732e349]
+          - paragraph [ref=f732e350]: The West Coast Trail is part of Pacific Rim National Park Reserve, but it is very different from Ucluelet’s easy day hikes.
+          - paragraph [ref=f732e351]: The West Coast Trail is part of Pacific Rim National Park Reserve, but it is very different from Ucluelet’s easy day hikes.
+          - paragraph [ref=f732e352]: This is a famous multi-day backpacking route with mud, ladders, beach walking, tide timing, cable cars, and remote camping. It is not a casual day hike.
+          - generic [ref=f732e353]:
+            - generic [ref=f732e354]: Experienced hikers
+            - generic [ref=f732e355]: Multi-day backpacking
+            - generic [ref=f732e356]: Remote coastal travel
+            - generic [ref=f732e357]: Adventure trips
+            - generic [ref=f732e358]: Serious planning
+          - paragraph [ref=f732e359]: Good to know. You need permits, reservations, fitness, gear, and tide knowledge. This is not a beginner trail.
+      - article [ref=f732e360]:
+        - figure [ref=f732e361]:
+          - img "Broken Group Islands Walks, Ucluelet" [ref=f732e362]
+        - generic [ref=f732e363]:
+          - heading "Broken Group Islands Walks" [level=3] [ref=f732e364]
+          - paragraph [ref=f732e365]: The Broken Group Islands are in Barkley Sound and are part of Pacific Rim National Park Reserve. They are not regular hiking trails you drive to. They are reached by boat or kayak.
+          - paragraph [ref=f732e366]: The Broken Group Islands are in Barkley Sound and are part of Pacific Rim National Park Reserve. They are not regular hiking trails you drive to. They are reached by boat or kayak.
+          - paragraph [ref=f732e367]: If you are on a kayak camping trip or boat-supported visit, you may do short island walks near campsites or beaches.
+          - generic [ref=f732e368]:
+            - generic [ref=f732e369]: Kayak camping trips
+            - generic [ref=f732e370]: Short island exploring
+            - generic [ref=f732e371]: Wildlife watching
+            - generic [ref=f732e372]: Remote beach walks
+            - generic [ref=f732e373]: Experienced travelers
+            - generic [ref=f732e374]: Guided trips
+          - paragraph [ref=f732e375]: Good to know. These areas need planning, proper permits, and respect for park rules.
+    - generic [ref=f732e377]:
+      - heading "More on hiking & trails" [level=2] [ref=f732e378]
+      - navigation [ref=f732e379]:
+        - link "Ucluelet Hiking Guide hiking" [ref=f732e380] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f732e381]: Ucluelet Hiking Guide
+          - generic [ref=f732e382]: hiking
+        - link "Hiking FAQs hiking" [ref=f732e383] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f732e384]: Hiking FAQs
+          - generic [ref=f732e385]: hiking
+    - generic [ref=f732e387]:
+      - heading "Keep going" [level=2] [ref=f732e388]
+      - navigation [ref=f732e389]:
+        - link "Everything to do in Ucluelet All the subjects" [ref=f732e390] [cursor=pointer]:
+          - /url: things-to-do.html
+          - generic [ref=f732e391]: Everything to do in Ucluelet
+          - generic [ref=f732e392]: All the subjects
+        - link "Ucluelet The town" [ref=f732e393] [cursor=pointer]:
+          - /url: region.html
+          - generic [ref=f732e394]: Ucluelet
+          - generic [ref=f732e395]: The town
+        - link "Stays Search what is open" [ref=f732e396] [cursor=pointer]:
+          - /url: search.html?in=ucluelet
+          - generic [ref=f732e397]: Stays
+          - generic [ref=f732e398]: Search what is open
+  - contentinfo [ref=f732e399]:
+    - generic [ref=f732e400]: © 2026 Arc Trips. Prices in CAD, before taxes and fees.

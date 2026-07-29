@@ -1,0 +1,345 @@
+- generic [active] [ref=f715e1]:
+  - navigation [ref=f715e2]:
+    - generic [ref=f715e3]:
+      - link "ARCTRIPS" [ref=f715e4] [cursor=pointer]:
+        - /url: index.html
+      - list [ref=f715e5]:
+        - listitem [ref=f715e6]:
+          - link "Stays" [ref=f715e7] [cursor=pointer]:
+            - /url: search.html
+        - listitem [ref=f715e8]:
+          - link "Destinations" [ref=f715e9] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=f715e10]:
+          - link "Guides" [ref=f715e11] [cursor=pointer]:
+            - /url: search.html
+      - generic [ref=f715e12]:
+        - textbox "Search" [ref=f715e16]:
+          - /placeholder: Search Parksville
+        - generic [ref=f715e17]: /
+      - link "Sign in" [ref=f715e18] [cursor=pointer]:
+        - /url: search.html
+  - navigation "Parksville" [ref=f715e19]:
+    - generic [ref=f715e20]:
+      - link "← Vancouver Island" [ref=f715e21] [cursor=pointer]:
+        - /url: region.html
+      - list [ref=f715e23]:
+        - listitem [ref=f715e24]:
+          - link "Overview" [ref=f715e25] [cursor=pointer]:
+            - /url: "#top"
+        - listitem [ref=f715e26]:
+          - link "Stays" [ref=f715e27] [cursor=pointer]:
+            - /url: search.html
+        - listitem [ref=f715e28]:
+          - link "Guides" [ref=f715e29] [cursor=pointer]:
+            - /url: search.html
+        - listitem [ref=f715e30]:
+          - link "All destinations" [ref=f715e31] [cursor=pointer]:
+            - /url: index.html
+      - link "Find a stay" [ref=f715e32] [cursor=pointer]:
+        - /url: search.html
+  - main [ref=f715e33]:
+    - navigation "Breadcrumb" [ref=f715e35]:
+      - link "Arc Trips" [ref=f715e36] [cursor=pointer]:
+        - /url: index.html
+      - generic [ref=f715e37]: /
+      - link "Canada" [ref=f715e38] [cursor=pointer]:
+        - /url: country.html
+      - generic [ref=f715e39]: /
+      - link "British Columbia" [ref=f715e40] [cursor=pointer]:
+        - /url: province.html
+      - generic [ref=f715e41]: /
+      - link "Vancouver Island" [ref=f715e42] [cursor=pointer]:
+        - /url: region.html
+      - generic [ref=f715e43]: /
+      - generic [ref=f715e44]: Parksville
+    - generic [ref=f715e45]:
+      - img "Parksville, Vancouver Island" [ref=f715e46]
+      - generic [ref=f715e49]:
+        - text: Vancouver Island
+        - heading "Parksville" [level=1] [ref=f715e50]
+        - paragraph [ref=f715e51]: Rathtrevor Beach Provincial Park is one of the most iconic destinations on Vancouver Island. Characterized by its massive tidal range and ancient Douglas fir forests, it offers a distinct coastal experience that transitions from a woodland sanctuary to a vast sandy playground.
+        - generic [ref=f715e52]:
+          - generic [ref=f715e53]:
+            - term [ref=f715e54]: Places written up
+            - definition [ref=f715e55]: "28"
+          - generic [ref=f715e56]:
+            - term [ref=f715e57]: With photographs
+            - definition [ref=f715e58]: "20"
+          - generic [ref=f715e59]:
+            - term [ref=f715e60]: Guides
+            - definition [ref=f715e61]: "1"
+    - navigation "Sections" [ref=f715e63]:
+      - link "World-Class Sandy Beaches" [ref=f715e64] [cursor=pointer]:
+        - /url: "#world-class-sandy-beaches"
+      - link "Wildlife & Marine Experiences" [ref=f715e65] [cursor=pointer]:
+        - /url: "#wildlife-marine-experiences"
+      - link "Caves, Waterfalls & Natural Landmarks" [ref=f715e66] [cursor=pointer]:
+        - /url: "#caves-waterfalls-natural-landmarks"
+      - link "Forests, Gardens & Nature Parks" [ref=f715e67] [cursor=pointer]:
+        - /url: "#forests-gardens-nature-parks"
+      - link "Iconic Roadside Quirks" [ref=f715e68] [cursor=pointer]:
+        - /url: "#iconic-roadside-quirks"
+      - link "Local Artisans & Food" [ref=f715e69] [cursor=pointer]:
+        - /url: "#local-artisans-food"
+    - generic [ref=f715e71]:
+      - generic [ref=f715e72]:
+        - text: World-Class Sandy Beaches
+        - heading "World-Class Sandy Beaches" [level=2] [ref=f715e73]
+        - paragraph [ref=f715e74]: 3 places, written up one at a time
+      - generic [ref=f715e75]:
+        - article [ref=f715e76]:
+          - figure [ref=f715e77]:
+            - img "Rathtrevor Beach Provincial Park (Parksville), Parksville" [ref=f715e78]
+          - generic [ref=f715e79]:
+            - heading "Rathtrevor Beach Provincial Park (Parksville)" [level=3] [ref=f715e80]
+            - paragraph [ref=f715e81]: Rathtrevor Beach Provincial Park is one of the most iconic destinations on Vancouver Island. Characterized by its massive tidal range and ancient Douglas fir forests, it offers a distinct coastal experience that transitions from a woodland sanctuary to a vast sandy playground.
+            - paragraph [ref=f715e82]: "The Tidal Flats: This is the park's most famous feature. At low tide, the ocean recedes nearly a kilometer, exposing vast sandbars and shallow pools. It is perfect for long walks, sandcastle building, and discovering marine life like sand dollars and small crabs."
+            - paragraph [ref=f715e83]: "Warm Water Swimming: As the tide returns over the sun-baked sand, the water warms significantly. This makes Rathtrevor home to some of the warmest ocean swimming in British Columbia during the summer months."
+        - article [ref=f715e84]:
+          - figure [ref=f715e85]:
+            - img "Parksville Beach, Parksville" [ref=f715e86]
+          - generic [ref=f715e87]:
+            - heading "Parksville Beach" [level=3] [ref=f715e88]
+            - paragraph [ref=f715e89]: Parksville Community Park, often simply called Parksville Beach, is the vibrant heart of the city’s waterfront. While Rathtrevor offers a more rustic, forested escape, the Community Park is a high-energy hub designed for families, events, and active recreation.
+            - paragraph [ref=f715e90]: "The Parksville Beach Festival (Beachfest): This premier summer event features the world-class Quality Foods Sand Sculpting Exhibition, where professional artists from across the globe compete to create massive, intricate masterpieces that remain on display for five weeks following a mid-July competition, accompanied by live music, an artisan market, and special evening light up viewings."
+            - paragraph [ref=f715e91]: "Lions Ventureland Playground: This is one of the largest and most comprehensive outdoor playgrounds on Vancouver Island. It features a splash park, zip lines, and inclusive equipment, making it the ultimate stop for families."
+        - article [ref=f715e92]:
+          - figure [ref=f715e93]:
+            - img "Qualicum Beach, Parksville" [ref=f715e94]
+          - generic [ref=f715e95]:
+            - heading "Qualicum Beach" [level=3] [ref=f715e96]
+            - paragraph [ref=f715e97]: The beach at Qualicum Beach offers a more tranquil, natural alternative to the bustling park in Parksville, characterized by its long, curved shoreline and panoramic views of the distant Coast Mountains.
+            - paragraph [ref=f715e98]: "The Coastal Promenade: A 2-kilometer paved walkway runs parallel to the shoreline, offering a completely flat and accessible path for walking, cycling, or storm watching during the winter months."
+            - paragraph [ref=f715e99]: "Low Tide Exploration: While the upper beach is composed of smooth, colorful sea stones, the water recedes significantly at low tide to reveal wide, sandy flats. It is a premier spot for finding sand dollars and watching blue herons hunt in the shallow pools."
+    - generic [ref=f715e101]:
+      - generic [ref=f715e102]:
+        - text: Wildlife & Marine Experiences
+        - heading "Wildlife & Marine Experiences" [level=2] [ref=f715e103]
+        - paragraph [ref=f715e104]: 2 places, written up one at a time
+      - generic [ref=f715e105]:
+        - article [ref=f715e106]:
+          - figure [ref=f715e107]:
+            - img "Whale and Wildlife Adventure, Parksville" [ref=f715e108]
+          - generic [ref=f715e109]:
+            - heading "Whale and Wildlife Adventure" [level=3] [ref=f715e110]
+            - paragraph [ref=f715e111]: The Parksville and Qualicum Beach region serves as a premier gateway to the Salish Sea, offering a front-row seat to some of the most diverse marine and terrestrial wildlife in North America. While the beaches are the main draw, the deeper waters and surrounding estuaries provide a sanctuary for majestic predators and migratory species alike.
+            - paragraph [ref=f715e112]: "Whale Watching Tours: Several professional operators depart from nearby French Creek Marina and Deep Bay. These high-speed zodiac or covered vessel tours track Southern Resident and Transient (Biggs) Orcas, as well as massive Humpback whales, which are frequently seen breaching and tail-slapping in the Strait of Georgia."
+            - paragraph [ref=f715e113]: "The Brant Geese Migration: Every March and April, the region hosts the Brant Wildlife Festival. Thousands of these sea geese stop on the shores of Parksville and Qualicum Beach to feast on herring spawn during their long journey from Mexico to the Arctic."
+        - article [ref=f715e114]:
+          - figure [ref=f715e115]:
+            - 'img "French Creek Harbour: Fishing Charters and Wildlife Tours, Parksville" [ref=f715e116]'
+          - generic [ref=f715e117]:
+            - 'heading "French Creek Harbour: Fishing Charters and Wildlife Tours" [level=3] [ref=f715e118]'
+            - paragraph [ref=f715e119]: French Creek Harbour serves as the premier marine gateway for the Oceanside region. Positioned perfectly between Parksville and Qualicum Beach, this active working port is the primary departure point for those looking to explore the rich waters of the Salish Sea, whether for world-class angling or spectacular wildlife encounters.
+            - paragraph [ref=f715e120]: The harbour hosts a professional fleet of seasoned captains and guides who specialize in navigating the local currents and secret fishing spots.
+            - paragraph [ref=f715e121]: "World-Class Salmon and Halibut Fishing: Charters from French Creek offer access to some of the best fishing grounds on Vancouver Island. Depending on the season, anglers can target Chinook (King) and Coho salmon, or head further out for deep-water Pacific Halibut."
+    - generic [ref=f715e123]:
+      - generic [ref=f715e124]:
+        - text: Caves, Waterfalls & Natural Landmarks
+        - heading "Caves, Waterfalls & Natural Landmarks" [level=2] [ref=f715e125]
+        - paragraph [ref=f715e126]: 4 places, written up one at a time
+      - generic [ref=f715e127]:
+        - article [ref=f715e128]:
+          - figure [ref=f715e129]:
+            - img "Horne Lake Caves Provincial Park (Qualicum Beach), Parksville" [ref=f715e130]
+          - generic [ref=f715e131]:
+            - heading "Horne Lake Caves Provincial Park (Qualicum Beach)" [level=3] [ref=f715e132]
+            - paragraph [ref=f715e133]: Horne Lake Caves Provincial Park is one of British Columbia’s most unique protected areas, designed specifically to preserve a fragile underground ecosystem while offering some of the best cave exploration in Canada. Located at the end of a gravel road about 30 minutes west of Qualicum Beach, the park transitions from a lush lakeside forest to a hidden world of crystal formations and subterranean waterfalls.
+            - paragraph [ref=f715e134]: "Self-Guided Exploration: Visitors can explore Main Cave and Lower Main Cave at their own pace. These provide a great introduction to wild caving, though they still require sturdy footwear and a reliable light source."
+            - paragraph [ref=f715e135]: "Guided Adventure Tours: For those looking to go deeper, the park offers a variety of guided tours categorized by their physical demands and technical challenges, ranging from family-friendly walks to extreme"
+        - article [ref=f715e136]:
+          - figure [ref=f715e137]:
+            - img "Cathedral Grove (MacMillan Provincial Park), Parksville" [ref=f715e138]
+          - generic [ref=f715e139]:
+            - heading "Cathedral Grove (MacMillan Provincial Park)" [level=3] [ref=f715e140]
+            - paragraph [ref=f715e141]: Cathedral Grove, located within MacMillan Provincial Park, is one of the most accessible stands of giant Douglas fir trees in British Columbia. Situated on Highway 4 between Qualicum Beach and Port Alberni, it offers a rare opportunity to walk among living monuments that have stood for over 800 years.
+            - paragraph [ref=f715e142]: "Ancient Douglas Firs: The park is famous for its massive trees, some measuring more than 9 meters in circumference. The big tree on the southern network of trails is a primary highlight for visitors."
+            - paragraph [ref=f715e143]: "Western Red Cedars: While the Douglas firs dominate the skyline, the northern side of the highway features a lush grove of ancient Western Red Cedars growing along the shores of Cameron Lake."
+        - article [ref=f715e144]:
+          - figure [ref=f715e145]:
+            - img "Englishman River Falls Provincial Park, Parksville" [ref=f715e146]
+          - generic [ref=f715e147]:
+            - heading "Englishman River Falls Provincial Park" [level=3] [ref=f715e148]
+            - paragraph [ref=f715e149]: Englishman River Falls Provincial Park is a spectacular nature reserve located near Errington, just a short drive from Parksville. It is best known for its two distinct waterfalls set within a deep, rocky canyon and surrounded by a lush forest of Douglas fir, cedar, and hemlock.
+            - paragraph [ref=f715e150]: The park’s primary draw is the dramatic contrast between its upper and lower falls, connected by a well-maintained trail system.
+            - paragraph [ref=f715e151]: "The Upper Falls: A thunderous curtain of water that drops into a narrow, vertical-walled canyon. A sturdy footbridge directly over the falls provides a pulse-racing vantage point for photography and viewing the sheer power of the river."
+        - article [ref=f715e152]:
+          - figure [ref=f715e153]:
+            - img "Little Qualicum Falls Provincial Park, Parksville" [ref=f715e154]
+          - generic [ref=f715e155]:
+            - heading "Little Qualicum Falls Provincial Park" [level=3] [ref=f715e156]
+            - paragraph [ref=f715e157]: Little Qualicum Falls Provincial Park is a stunning natural area centered around the Little Qualicum River, where the water travels through a series of dramatic rock chasms. It is often visited alongside Cameron Lake and Cathedral Grove due to its proximity along the same highway corridor, offering a cooler, shaded environment dominated by old-growth Douglas fir and Western hemlock.
+            - paragraph [ref=f715e158]: "Upper and Lower Falls: A loop trail connects two distinct sets of waterfalls. The Upper Falls are characterized by a powerful drop into a deep, shaded basin, while the Lower Falls offer a wider, tiered cascade over ancient rock formations."
+            - paragraph [ref=f715e159]: "Canyon Trail: This 6-kilometer network of well-maintained paths follows the edge of the steep-walled gorge. Multiple wooden bridges and fenced lookout points provide safe, bird's-eye views of the rushing water and deep turquoise pools below."
+    - generic [ref=f715e161]:
+      - generic [ref=f715e162]:
+        - text: Forests, Gardens & Nature Parks
+        - heading "Forests, Gardens & Nature Parks" [level=2] [ref=f715e163]
+        - paragraph [ref=f715e164]: 10 places, written up one at a time
+      - generic [ref=f715e165]:
+        - article [ref=f715e166]:
+          - figure [ref=f715e167]:
+            - img "Milner Gardens & Woodland (Qualicum Beach), Parksville" [ref=f715e168]
+          - generic [ref=f715e169]:
+            - heading "Milner Gardens & Woodland (Qualicum Beach)" [level=3] [ref=f715e170]
+            - paragraph [ref=f715e171]: Milner Gardens & Woodland is a 70-acre wild garden and forest estate that offers a rare combination of horticultural sophistication and raw coastal beauty. Once a private retreat for the Milner family, it is now a public treasure managed by Vancouver Island University, serving as a center for both conservation and education.
+            - paragraph [ref=f715e172]: "The Heritage House: A centerpiece of the estate, this historic home once hosted members of the British Royal Family. It now serves as a quaint tea room where visitors can enjoy traditional afternoon tea with a view of the Salish Sea."
+            - paragraph [ref=f715e173]: "Ancient Douglas Fir Forest: The entrance to the gardens requires a walk through a majestic stand of old-growth forest, providing a dramatic transition from the outside world into the manicured garden spaces."
+        - article [ref=f715e174]:
+          - figure [ref=f715e175]:
+            - img "The Qualicum Beach Heritage Forest, Parksville" [ref=f715e176]
+          - generic [ref=f715e177]:
+            - heading "The Qualicum Beach Heritage Forest" [level=3] [ref=f715e178]
+            - paragraph [ref=f715e179]: The Qualicum Beach Heritage Forest is a 50-acre ecological jewel located just minutes from the town center. This rare remnant of the Coastal Douglas-fir ecosystem was saved by the community to preserve a living museum of the island’s ancient landscape, offering a cool, silent escape beneath a canopy of 400-year-old giants.
+            - paragraph [ref=f715e180]: "Ancient Tree Canopy: The forest is dominated by massive Douglas firs, Western Red Cedars, and Sitka spruces. Walking through the grove provides a sense of the scale of Vancouver Island’s original old-growth forests."
+            - paragraph [ref=f715e181]: "Extensive Trail Network: Over 2 kilometers of well-maintained, wide gravel paths crisscross the property. The trails are mostly level, making them ideal for a contemplative nature walk or a gentle jog."
+        - article [ref=f715e182]:
+          - figure [ref=f715e183]:
+            - img "Top Bridge Park (Parksville), Parksville" [ref=f715e184]
+          - generic [ref=f715e185]:
+            - heading "Top Bridge Park (Parksville)" [level=3] [ref=f715e186]
+            - paragraph [ref=f715e187]: Top Bridge Community Park is a dynamic junction of nature and recreation where the Englishman River carves through a canyon of sculpted sandstone. It serves as a vital trail link between the urban seaside and the cool, shaded woodlands of the river valley, offering a raw and rugged alternative to the manicured beaches nearby.
+            - paragraph [ref=f715e188]: "The Suspension Bridge: The iconic 81-meter pedestrian and cyclist bridge offers panoramic views of the river gorge, clear green water, and forested slopes."
+            - paragraph [ref=f715e189]: "Swimming and Cliff Jumping: Below the bridge, deep natural pools and smooth sandstone rock shelves create a premier secret swimming hole for locals during the summer."
+        - article [ref=f715e190]:
+          - heading "Moorecroft Regional Park" [level=3] [ref=f715e191]
+          - generic [ref=f715e192]:
+            - paragraph [ref=f715e193]: Moorecroft Regional Park is a serene 79-acre conservation area located in Nanoose Bay, just a short drive south of Parksville. Once a private summer camp, the park now offers a peaceful blend of secondary old-growth forest, sensitive wetlands, and a stunning cobble beach overlooking the Salish Sea.
+            - paragraph [ref=f715e194]: Visitors often appreciate this park for its quiet, contemplative atmosphere and the way it preserves the nostalgic feel of its history while protecting rare plant species.
+            - paragraph [ref=f715e195]: "Scenic Shoreline: The park features several hundred meters of waterfront with views across the Strait of Georgia toward Lasqueti and Texada Islands."
+        - article [ref=f715e196]:
+          - figure [ref=f715e197]:
+            - img "Town of Qualicum Beach - Waterfront Viewing Platform & Walkway, Parksville" [ref=f715e198]
+          - generic [ref=f715e199]:
+            - heading "Town of Qualicum Beach - Waterfront Viewing Platform & Walkway" [level=3] [ref=f715e200]
+            - paragraph [ref=f715e201]: The Qualicum Beach Waterfront Viewing Platform & Walkway is a central feature of the town’s shoreline, offering an elevated and accessible way to experience the Strait of Georgia. Unlike the rugged trails of nearby provincial parks, this infrastructure is designed for a polished, resort-style experience that emphasizes comfort and panoramic vistas.
+            - paragraph [ref=f715e202]: "The Elevated Viewing Platform: Located near the center of the promenade, this wooden structure provides a 180-degree view of the northern Gulf Islands and the snow-capped Coast Mountains on the mainland. It is a favorite spot for whale spotting and storm watching."
+            - paragraph [ref=f715e203]: "The 2km Paved Walkway: This wide, flat promenade runs the length of the beach. It is separated from the road by a landscaped buffer, making it a safe and scenic corridor for walking, jogging, or pushing a stroller."
+        - article [ref=f715e204]:
+          - figure [ref=f715e205]:
+            - img "Beachcomber Regional Park, Parksville" [ref=f715e206]
+          - generic [ref=f715e207]:
+            - heading "Beachcomber Regional Park" [level=3] [ref=f715e208]
+            - paragraph [ref=f715e209]: Beachcomber Regional Park is a hidden gem tucked away at the tip of the Beachcomber peninsula in Nanoose Bay. This compact, one-hectare park is cherished for its rugged shoreline and its position as a premier vantage point for observing the marine traffic and natural beauty of the Salish Sea. Visitors frequently highlight the park's tranquil environment and its spectacular views of the neighboring islands.
+            - paragraph [ref=f715e210]: "Coastal Vistas: The park offers clear, unobstructed views across the water to the Ballenas Islands and the distant Coast Mountains on the mainland."
+            - paragraph [ref=f715e211]: "Unique Shoreline: Unlike the long sandy stretches of Parksville, this beach is characterized by its sculpted sandstone formations, colorful sea stones, and plentiful driftwood."
+        - article [ref=f715e212]:
+          - figure [ref=f715e213]:
+            - img "Hamilton Marsh, Parksville" [ref=f715e214]
+          - generic [ref=f715e215]:
+            - heading "Hamilton Marsh" [level=3] [ref=f715e216]
+            - paragraph [ref=f715e217]: Hamilton Marsh is a massive 360-hectare wetland ecosystem located south of Qualicum Beach. Recently protected in its entirety through a significant community effort, it stands as the largest body of water in the French Creek watershed and is a vital sanctuary for both migratory and resident wildlife.
+            - paragraph [ref=f715e218]: "Birdwatching: Recognized as the most prolific waterfowl brood marsh on this part of the island, the area has recorded over 130 species of birds. It is a critical stopover for early migrant swallows and a diverse array of shorebirds."
+            - paragraph [ref=f715e219]: "Dragonfly Observation: The marsh is a known exceptional habitat for Odonata, with 30 species of dragonflies recorded to date. Mid-April is a peak time to witness dragonfly larvae emerging and unfurling their wings."
+        - article [ref=f715e220]:
+          - heading "Seaside Nature Park" [level=3] [ref=f715e221]
+          - generic [ref=f715e222]:
+            - paragraph [ref=f715e223]: Seaside Nature Park is a tranquil hidden gem located at the far western end of Qualicum Beach’s waterfront. Dedicated to the memory of Faye Smith, a celebrated local environmentalist and salmon advocate, this park serves as a quiet sanctuary for nature lovers looking to escape the busier sections of the main promenade.
+            - paragraph [ref=f715e224]: "Faye Smith Memorial Pavilion: The centerpiece of the park is a charming covered gazebo that provides a sheltered spot for rest and contemplation. It is surrounded by beautifully landscaped gardens maintained by local volunteers."
+            - paragraph [ref=f715e225]: "Elevated Bird-Watching Platform: A dedicated wooden platform offers an elevated 180-degree vantage point of the Salish Sea. This is a premier spot for photographers and birdwatchers, especially during the spring herring spawn when marine bird activity is at its peak."
+        - article [ref=f715e226]:
+          - heading "Grandon Creek" [level=3] [ref=f715e227]
+          - generic [ref=f715e228]:
+            - paragraph [ref=f715e229]: Grandon Creek offers a peaceful, wooded escape that connects the upper residential areas of Qualicum Beach to the shoreline. This shaded ravine is a favorite for locals seeking a quiet nature walk, characterized by its lush ferns, ancient trees, and the gentle sound of the creek that provides a vital habitat for returning salmon.
+            - paragraph [ref=f715e230]: "Salmon Spawning Viewing: In the late autumn, usually October and November, the lower sections of the creek become a site of intense activity as Coho and Chum salmon return to spawn. Local streamkeepers have worked extensively to install spawning pools and woody debris to help these fish navigate the current."
+            - paragraph [ref=f715e231]: "The Multi-Use Trail: A well-maintained trail, often referred to as the Grandon Creek / Laburnum Access, runs for approximately 1.2 kilometers through the ravine. It transitions from a wider, flatter path near the town side to a more rugged, forested singletrack as it climbs toward Laburnum Road."
+        - article [ref=f715e232]:
+          - heading "Saahtlam Park" [level=3] [ref=f715e233]
+          - generic [ref=f715e234]:
+            - paragraph [ref=f715e235]: Saahtlam Park is a quiet, forested green space located on the western edge of Qualicum Beach. It serves as a vital ecological corridor, protecting a stand of second-growth Douglas fir and providing a peaceful, less-traveled alternative to the town’s more prominent parks.
+            - paragraph [ref=f715e236]: "Forested Walking Trails: The park features a simple network of soft-surface trails that wind through a dense canopy of fir, cedar, and maple trees. It is an ideal spot for a short, meditative nature walk away from the sound of highway traffic."
+            - paragraph [ref=f715e237]: "Native Plant Identification: The understory is rich with native BC flora, including large sword ferns, salal, and Oregon grape. In the spring, you can often spot delicate wildflowers like trilliums emerging from the forest floor."
+    - generic [ref=f715e239]:
+      - generic [ref=f715e240]:
+        - text: Iconic Roadside Quirks
+        - heading "Iconic Roadside Quirks" [level=2] [ref=f715e241]
+        - paragraph [ref=f715e242]: 3 places, written up one at a time
+      - generic [ref=f715e243]:
+        - article [ref=f715e244]:
+          - figure [ref=f715e245]:
+            - img "Coombs / The Old Country Market (Goats on the Roof), Parksville" [ref=f715e246]
+          - generic [ref=f715e247]:
+            - heading "Coombs / The Old Country Market (Goats on the Roof)" [level=3] [ref=f715e248]
+            - paragraph [ref=f715e249]: The Old Country Market, world-famous for its goats on the roof, is a landmark destination in the small community of Coombs. What began as a humble roadside fruit stand in the 1970s has evolved into a sprawling complex of eclectic shops and international eateries, all anchored by the sight of grazing goats atop the sod-roofed main building.
+            - paragraph [ref=f715e250]: "The Famous Sod Roof: The main market building features a living grass roof where a resident family of goats spends the spring and summer months. This quirky architectural feature is a primary draw for photographers and families."
+            - paragraph [ref=f715e251]: "International Market: Inside the main building, you'll find a massive selection of gourmet imported foods, local cheeses, freshly baked breads, and unique kitchenware."
+        - article [ref=f715e252]:
+          - figure [ref=f715e253]:
+            - img "The Sandcastle Competition, Parksville" [ref=f715e254]
+          - generic [ref=f715e255]:
+            - heading "The Sandcastle Competition" [level=3] [ref=f715e256]
+            - paragraph [ref=f715e257]: The Parksville Beach Festival is a multi-week summer celebration that centers around the world-renowned Quality Foods Sand Sculpting Competition. This event transforms the waterfront of Parksville Community Park into a massive outdoor gallery, where master sculptors from around the globe compete to create intricate, gravity-defying works of art from just sand and water.
+            - paragraph [ref=f715e258]: "The Sculpting Competition: The festival traditionally begins with a pound up and several days of intense carving. Watching the artists use specialized tools to etch fine details and textures into massive sand blocks is a highlight for early-season visitors."
+            - paragraph [ref=f715e259]: "The Exhibition Gallery: Following the competition, the finished sculptures remain on display for several weeks. A gated boardwalk allows for close-up viewing, providing a clear perspective on the scale and technical difficulty of each piece."
+        - article [ref=f715e260]:
+          - figure [ref=f715e261]:
+            - img "Paradise Fun Park, Parksville" [ref=f715e262]
+          - generic [ref=f715e263]:
+            - heading "Paradise Fun Park" [level=3] [ref=f715e264]
+            - paragraph [ref=f715e265]: Paradise Fun Park is a long-standing family entertainment center in Parksville, known for its colorful, whimsical atmosphere and its prominent location near the waterfront. It serves as a classic stop for those looking for lighthearted competition and traditional seaside amusements.
+            - paragraph [ref=f715e266]: The park is designed around two primary 18-year-old mini-golf courses that offer distinct visual themes.
+            - paragraph [ref=f715e267]: "Two Miniature Golf Courses: Visitors can choose between the Turf 'n Surf course, which features water hazards and a nautical theme, or the Treasure Island course, which is filled with pirate-themed obstacles, caves, and a large Victorian-style castle."
+    - generic [ref=f715e269]:
+      - generic [ref=f715e270]:
+        - text: Local Artisans & Food
+        - heading "Local Artisans & Food" [level=2] [ref=f715e271]
+        - paragraph [ref=f715e272]: 6 places, written up one at a time
+      - generic [ref=f715e273]:
+        - article [ref=f715e274]:
+          - heading "Qualicum Beach Farmers’ Market" [level=3] [ref=f715e275]
+          - generic [ref=f715e276]:
+            - paragraph [ref=f715e277]: The Qualicum Beach Farmers' Market is a year-round community staple that transitions from a bustling outdoor street market in the summer to a cozy indoor gathering in the winter. It is widely regarded as one of the premier make, bake, or grow markets on Vancouver Island, ensuring that everything sold is produced locally by the vendors themselves.
+            - paragraph [ref=f715e278]: The market serves as the primary Saturday morning social hub for the region, offering a high density of local flavor and artisan craftsmanship.
+            - paragraph [ref=f715e279]: "Farm-Fresh Produce: Depending on the season, you’ll find everything from Nanoose Bay greens and berries to stump-grown mushrooms and organic root vegetables."
+        - article [ref=f715e280]:
+          - heading "Summer by the Sea Market (Parksville)" [level=3] [ref=f715e281]
+          - generic [ref=f715e282]:
+            - paragraph [ref=f715e283]: The Summer by the Sea Street Market is a vibrant Tuesday evening tradition that transforms the heart of downtown Parksville into a bustling open-air festival. Spanning four city blocks along Craig Street, it is one of the largest and most popular markets on Vancouver Island, attracting thousands of visitors each week with its eclectic mix of shopping, dining, and live entertainment.
+            - paragraph [ref=f715e284]: "Extensive Vendor Lineup: Over 150 vendors from across the island showcase a diverse range of products, including handcrafted jewelry, local fashion, artisanal soaps, organic produce, and unique home and garden decor."
+            - paragraph [ref=f715e285]: "Gourmet Street Food: A wide selection of food trucks and merchants offer everything from savory international cuisine to indulgent treats like locally made donuts and fresh-baked pastries."
+        - article [ref=f715e286]:
+          - 'heading "Morningstar Farm: Home to Little Qualicum Cheeseworks" [level=3] [ref=f715e287]'
+          - generic [ref=f715e288]:
+            - paragraph [ref=f715e289]: Morningstar Farm, the scenic home of Little Qualicum Cheeseworks, is a functional dairy farm and culinary destination located in Parksville. It offers a transparent look at local agriculture, where visitors can see the connection between the pasture and the finished artisanal products available in the farm gate shop.
+            - paragraph [ref=f715e290]: "Self-Guided Farm Tours: The farm is open for public exploration, allowing visitors to walk through the barns to see the dairy cows, calves, and often other farm animals like pigs and sheep."
+            - paragraph [ref=f715e291]: "Canada's First Milk ATM: A unique feature of the farm is the grass-fed milk dispenser, where visitors can purchase reusable glass bottles and fill them with fresh, cold milk directly from the source."
+        - article [ref=f715e292]:
+          - figure [ref=f715e293]:
+            - img "Qualicum Beach Downtown, Parksville" [ref=f715e294]
+          - generic [ref=f715e295]:
+            - heading "Qualicum Beach Downtown" [level=3] [ref=f715e296]
+            - paragraph [ref=f715e297]: The Qualicum Beach Downtown area, often referred to by locals as “The Village”, is characterized by its walkable, pedestrian-friendly streets and a distinct lack of franchise stores. The town has maintained a village atmosphere through careful planning, resulting in a charming commercial core filled with unique boutiques, galleries, and garden-lined sidewalks.
+            - paragraph [ref=f715e298]: The downtown core is designed for slow-paced exploration, with a high concentration of independent businesses.
+            - paragraph [ref=f715e299]: "Unplugged Shopping Experience: The village is famous for its independent retailers. You won't find major big-box stores here; instead, the streets are lined with curated bookstores, high-end toy shops, and clothing boutiques."
+        - article [ref=f715e300]:
+          - figure [ref=f715e301]:
+            - img "Parksville Downtown, Parksville" [ref=f715e302]
+          - generic [ref=f715e303]:
+            - heading "Parksville Downtown" [level=3] [ref=f715e304]
+            - paragraph [ref=f715e305]: The Parksville Downtown core serves as the commercial heart of the Oceanside region, blending a traditional main street feel with modern amenities. Unlike the strictly boutique nature of neighboring Qualicum Beach, Parksville’s downtown offers a mix of essential services, large retailers, and a growing collection of independent creative spaces.
+            - paragraph [ref=f715e306]: The downtown area is characterized by its accessibility to the shoreline and its diverse range of local businesses.
+            - paragraph [ref=f715e307]: "The Creative District: Recent years have seen a surge in artisan studios and galleries along the side streets, where visitors can find everything from custom jewelry and West Coast photography to locally made textiles."
+        - article [ref=f715e308]:
+          - heading "Mount Arrowsmith Brewing Company" [level=3] [ref=f715e309]
+          - generic [ref=f715e310]:
+            - paragraph [ref=f715e311]: Mount Arrowsmith Brewing Company is a multi-award-winning craft brewery located in the industrial area of Parksville. Named after the region’s most iconic mountain peak, it has quickly become a cornerstone of the local social scene, known for its commitment to high-quality ingredients and its welcoming, communal atmosphere. Visitors often highlight the brewery for its consistent quality and the lively, family-friendly vibe of its tasting room.
+            - paragraph [ref=f715e312]: "Award-Winning Brews: The brewery is home to the \"Best Beer in the World\" (World Beer Awards 2017) for its Blonde Ale, alongside a diverse rotation of IPAs, stouts, and seasonal harvests."
+            - paragraph [ref=f715e313]: "The Arrowsmith Pizzeria: Unlike many traditional tasting rooms, this location features a full-service stone pizza oven, serving thin-crust, artisan pies that are specifically designed to pair with their beer flight."
+    - generic [ref=f715e315]:
+      - heading "Keep going" [level=2] [ref=f715e316]
+      - navigation "Next" [ref=f715e317]:
+        - link "Vancouver Island All the towns" [ref=f715e318] [cursor=pointer]:
+          - /url: region.html
+          - generic [ref=f715e319]: Vancouver Island
+          - generic [ref=f715e320]: All the towns
+        - link "Stays in Parksville Search what is open" [ref=f715e321] [cursor=pointer]:
+          - /url: search.html
+          - generic [ref=f715e322]: Stays in Parksville
+          - generic [ref=f715e323]: Search what is open
+        - link "All destinations Every town we cover" [ref=f715e324] [cursor=pointer]:
+          - /url: index.html
+          - generic [ref=f715e325]: All destinations
+          - generic [ref=f715e326]: Every town we cover
+  - contentinfo [ref=f715e327]:
+    - generic [ref=f715e328]: © 2026 Arc Trips. Prices in CAD, before taxes and fees.

@@ -1,0 +1,232 @@
+- generic [active] [ref=f727e1]:
+  - navigation [ref=f727e2]:
+    - generic [ref=f727e3]:
+      - link "ARCTRIPS" [ref=f727e4] [cursor=pointer]:
+        - /url: index.html
+      - list [ref=f727e5]:
+        - listitem [ref=f727e6]:
+          - link "Stays" [ref=f727e7] [cursor=pointer]:
+            - /url: search.html
+        - listitem [ref=f727e8]:
+          - link "Destinations" [ref=f727e9] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=f727e10]:
+          - link "Guides" [ref=f727e11] [cursor=pointer]:
+            - /url: search.html
+      - textbox "Search" [ref=f727e16]:
+        - /placeholder: Search Nanoose
+      - link "Sign in" [ref=f727e17] [cursor=pointer]:
+        - /url: search.html
+  - navigation "Nanoose" [ref=f727e18]:
+    - generic [ref=f727e19]:
+      - link "← Vancouver Island" [ref=f727e20] [cursor=pointer]:
+        - /url: region.html
+      - list [ref=f727e22]:
+        - listitem [ref=f727e23]:
+          - link "Overview" [ref=f727e24] [cursor=pointer]:
+            - /url: "#top"
+        - listitem [ref=f727e25]:
+          - link "Stays" [ref=f727e26] [cursor=pointer]:
+            - /url: search.html
+        - listitem [ref=f727e27]:
+          - link "Guides" [ref=f727e28] [cursor=pointer]:
+            - /url: search.html
+        - listitem [ref=f727e29]:
+          - link "All destinations" [ref=f727e30] [cursor=pointer]:
+            - /url: index.html
+      - link "Find a stay" [ref=f727e31] [cursor=pointer]:
+        - /url: search.html
+  - main [ref=f727e32]:
+    - navigation "Breadcrumb" [ref=f727e34]:
+      - link "Arc Trips" [ref=f727e35] [cursor=pointer]:
+        - /url: index.html
+      - generic [ref=f727e36]: /
+      - link "Vancouver Island" [ref=f727e37] [cursor=pointer]:
+        - /url: region.html
+      - generic [ref=f727e38]: /
+      - generic [ref=f727e39]: Nanoose
+    - generic [ref=f727e40]:
+      - img "Nanoose, Vancouver Island" [ref=f727e41]
+      - generic [ref=f727e44]:
+        - text: Vancouver Island
+        - heading "Nanoose" [level=1] [ref=f727e45]
+        - paragraph [ref=f727e46]: Located on the eastern shores of Vancouver Island, Moorecroft Regional Park is a 34-hectare natural area that balances conservation with coastal recreation. Formerly a summer camp, the park now protects a diverse ecosystem ranging from Garry Oak meadows to rocky shorelines.
+        - generic [ref=f727e47]:
+          - generic [ref=f727e48]:
+            - term [ref=f727e49]: Places written up
+            - definition [ref=f727e50]: "16"
+          - generic [ref=f727e51]:
+            - term [ref=f727e52]: With photographs
+            - definition [ref=f727e53]: "8"
+          - generic [ref=f727e54]:
+            - term [ref=f727e55]: Guides
+            - definition [ref=f727e56]: "1"
+    - navigation "Sections" [ref=f727e58]:
+      - link "Top Attractions" [ref=f727e59] [cursor=pointer]:
+        - /url: "#top-attractions"
+      - link "Coastal & Nature Experiences" [ref=f727e60] [cursor=pointer]:
+        - /url: "#coastal-nature-experiences"
+      - link "Water & Marine Activities" [ref=f727e61] [cursor=pointer]:
+        - /url: "#water-marine-activities"
+      - link "Outdoor Adventure & Recreation" [ref=f727e62] [cursor=pointer]:
+        - /url: "#outdoor-adventure-recreation"
+      - link "Local Lifestyle & Scenic Exploring" [ref=f727e63] [cursor=pointer]:
+        - /url: "#local-lifestyle-scenic-exploring"
+    - generic [ref=f727e65]:
+      - generic [ref=f727e66]:
+        - text: Top Attractions
+        - heading "Top Attractions" [level=2] [ref=f727e67]
+        - paragraph [ref=f727e68]: 5 places, written up one at a time
+      - generic [ref=f727e69]:
+        - article [ref=f727e70]:
+          - figure [ref=f727e71]:
+            - img "Moorecroft Regional Park, Nanoose" [ref=f727e72]
+          - generic [ref=f727e73]:
+            - heading "Moorecroft Regional Park" [level=3] [ref=f727e74]
+            - paragraph [ref=f727e75]: Located on the eastern shores of Vancouver Island, Moorecroft Regional Park is a 34-hectare natural area that balances conservation with coastal recreation. Formerly a summer camp, the park now protects a diverse ecosystem ranging from Garry Oak meadows to rocky shorelines.
+            - paragraph [ref=f727e76]: "Coastal Exploration: Walk the shoreline at Cook Bay and Vesper Point. The rocky outcrops provide excellent views across the Salish Sea toward Lasqueti and Texada Islands."
+            - paragraph [ref=f727e77]: "Hike the Trail Network: A series of well-maintained, easy-loop trails wind through second-growth forest and wetlands. The Ms. Moore Loop and Skip's Trail are popular routes that offer a mix of forest canopy and ocean vistas."
+        - article [ref=f727e78]:
+          - figure [ref=f727e79]:
+            - img "The Notch Hill Loop/Notch Hill Park, Nanoose" [ref=f727e80]
+          - generic [ref=f727e81]:
+            - heading "The Notch Hill Loop/Notch Hill Park" [level=3] [ref=f727e82]
+            - paragraph [ref=f727e83]: Rising above the Nanoose Peninsula, Notch Hill Park offers one of the most rewarding vantage points on Central Vancouver Island. This 2.9-kilometer loop trail transitions from mossy forests to open summits, providing a bird's-eye view of the surrounding coastal geography.
+            - paragraph [ref=f727e84]: "The Double Summit: The Notch consists of two distinct viewpoints. The southern side overlooks Fairwinds Marina and Nanoose Bay, while the northern side offers a vast view of the Strait of Georgia and the distant Coast Mountains."
+            - paragraph [ref=f727e85]: "Arbutus and Garry Oak Groves: The trail climbs through a beautiful stand of Arbutus trees, known for their peeling cinnamon-colored bark, and rare Garry Oak meadows."
+        - article [ref=f727e86]:
+          - figure [ref=f727e87]:
+            - img "Fairwinds Marina & Schooner Cove, Nanoose" [ref=f727e88]
+          - generic [ref=f727e89]:
+            - heading "Fairwinds Marina & Schooner Cove" [level=3] [ref=f727e90]
+            - paragraph [ref=f727e91]: Nestled in the protected waters of Schooner Cove, Fairwinds Marina serves as the nautical heart of the Nanoose Peninsula. This full-service facility is a gateway to the Gulf Islands and the Sunshine Coast, blending modern maritime infrastructure with a relaxed, upscale village atmosphere.
+            - paragraph [ref=f727e92]: "Boating and Charters: The Schooner Cove marina features over 350 berths and can accommodate vessels up to 100 feet. It is a premier launching point for fishing expeditions or scenic cruises to nearby islands like Lasqueti and Texada. Beachcomber marina is quite a bit smaller and is inside a bay."
+            - paragraph [ref=f727e93]: "Dining at Nanoose Bay Cafe: Located at Fairwinds Landing, this restaurant offers West Coast-meets-Asian cuisine with panoramic views of the docks. The complex also includes a coffee shop for light fare and a marketplace for local artisan goods."
+        - article [ref=f727e94]:
+          - figure [ref=f727e95]:
+            - img "Beachcomber Regional Park, Nanoose" [ref=f727e96]
+          - generic [ref=f727e97]:
+            - heading "Beachcomber Regional Park" [level=3] [ref=f727e98]
+            - paragraph [ref=f727e99]: Located at the tip of the Nanoose Peninsula, Beachcomber Regional Park is a compact, 1-hectare gem known for its stunning panoramic views. It offers a more rugged, maritime feel compared to its larger neighbors, making it a favorite for those seeking a quick escape to the water’s edge.
+            - paragraph [ref=f727e100]: "Panoramic Ocean Views: The park’s primary draw is the unobstructed view of the Salish Sea, looking across to the mainland mountains and the nearby Ballenas Island group."
+            - paragraph [ref=f727e101]: "Tide Pool Exploration: During low tide, the rocky shoreline reveals a miniature world of marine life. You can find sea stars, anemones, and small crabs tucked into the crevices of the sandstone."
+        - article [ref=f727e102]:
+          - heading "Fairwinds Golf Club" [level=3] [ref=f727e103]
+          - generic [ref=f727e104]:
+            - paragraph [ref=f727e105]: Fairwinds Golf Club is a year-round, 18-hole championship course located on the scenic Nanoose Peninsula. Designed by architect Les Furber, the course is known for its strategic layout that integrates the natural coastal rainforest, ancient Douglas firs, and dramatic rock outcroppings.
+            - paragraph [ref=f727e106]: "Strategic Play: The course features contoured greens and tree-lined fairways that demand precision. It is widely recognized as a challenging yet rewarding layout for all skill levels."
+            - paragraph [ref=f727e107]: "Practice Facilities: Utilize the expansive practice area, which includes two large putting greens, a short-game area, and a year-round driving range with covered and heated stalls."
+    - generic [ref=f727e109]:
+      - generic [ref=f727e110]:
+        - text: Coastal & Nature Experiences
+        - heading "Coastal & Nature Experiences" [level=2] [ref=f727e111]
+        - paragraph [ref=f727e112]: 4 places, written up one at a time
+      - generic [ref=f727e113]:
+        - article [ref=f727e114]:
+          - figure [ref=f727e115]:
+            - img "Nanoose Bay Shorelines & Tide Pools, Nanoose" [ref=f727e116]
+          - generic [ref=f727e117]:
+            - heading "Nanoose Bay Shorelines & Tide Pools" [level=3] [ref=f727e118]
+            - paragraph [ref=f727e119]: The Nanoose Peninsula is defined by its rugged sandstone formations, sheltered coves, and expansive mudflats. Unlike the long sandy stretches found further north in Parksville, the shorelines here offer a more intricate landscape of rock pools and hidden pocket beaches that change dramatically with the shifting tides.
+            - paragraph [ref=f727e120]: "Tide Pool Discovery: The rocky shelves at Beachcomber Regional Park and Wall Beach are premier spots for viewing marine life. At low tide, the sandstone basins trap sea water, creating natural aquariums filled with purple sea stars, green anemones, sculpins, and shore crabs."
+            - paragraph [ref=f727e121]: "Blueback Beach Access: Descend the steep wooden staircase to reach this secluded local favorite. The beach features a mix of smooth pebbles and sand, framed by towering cliffs and arbutus trees, offering a sense of total isolation."
+        - article [ref=f727e122]:
+          - figure [ref=f727e123]:
+            - img "Bird-Watching within the Nanoose Estuary, Nanoose" [ref=f727e124]
+          - generic [ref=f727e125]:
+            - heading "Bird-Watching within the Nanoose Estuary" [level=3] [ref=f727e126]
+            - paragraph [ref=f727e127]: The Nanoose Bay Estuary and its surrounding coastlines form a critical part of the Little Qualicum Estuary to Nanoose Bay Important Bird Area (IBA). This region is a major stopover on the Pacific Flyway, particularly famous for the massive congregations of waterbirds and gulls that gather during the spring herring spawn.
+            - paragraph [ref=f727e128]: "Explore the Qualicum National Wildlife Area: The Qualicum National Wildlife Area Nanoose Bay unit protects over 80 hectares of salt marsh and mudflats. It is a premier location for viewing Trumpeter Swans in the winter and various shorebirds during migration."
+            - paragraph [ref=f727e129]: "Observe the Brant Migration: Between March and April, the estuary and nearby shorelines become a vital feeding ground for thousands of Brant Geese. The annual Brant Wildlife Festival celebrates this migration with guided viewing events."
+        - article [ref=f727e130]:
+          - heading "Enos Lake Trail" [level=3] [ref=f727e131]
+          - generic [ref=f727e132]:
+            - paragraph [ref=f727e133]: The Enos Lake Trail winds through the Fairwinds community, offering a peaceful loop around a freshwater lake. It serves as a vital corridor for local wildlife and provides a quiet alternative to the more popular coastal parks in the region.
+            - paragraph [ref=f727e134]: "Freshwater Ecosystem: The trail offers multiple viewpoints over Enos Lake, which is a significant habitat for the rare Enos Lake Stickleback. The calm waters often reflect the surrounding hills and forest."
+            - paragraph [ref=f727e135]: "Birdwatching: The marshy edges of the lake are prime territory for spotting kingfishers, herons, and various waterfowl. The surrounding woods are active with woodpeckers and songbirds."
+        - article [ref=f727e136]:
+          - heading "Nanoose Creek Falls Trail" [level=3] [ref=f727e137]
+          - generic [ref=f727e138]:
+            - paragraph [ref=f727e139]: The Nanoose Creek Falls Trail is a relatively short but immersive forest trek that leads to a series of three hidden waterfalls. This trail is a favorite for those seeking a lush, shaded environment and the tranquil sound of rushing water, particularly during the wetter months on Vancouver Island.
+            - paragraph [ref=f727e140]: "Discover the Triple Falls: The trail follows the path of Nanoose Creek, leading you past three distinct waterfall tiers. The lower falls are easily accessible, while the upper tiers require a bit more effort to reach."
+            - paragraph [ref=f727e141]: "Ancient Forest Canopy: Walk beneath a dense cover of Douglas fir and western red cedar. The area is rich with vibrant green ferns and moss-covered boulders, offering a classic West Coast rainforest aesthetic."
+    - generic [ref=f727e143]:
+      - generic [ref=f727e144]:
+        - text: Water & Marine Activities
+        - heading "Water & Marine Activities" [level=2] [ref=f727e145]
+        - paragraph [ref=f727e146]: 3 places, written up one at a time
+      - generic [ref=f727e147]:
+        - article [ref=f727e148]:
+          - heading "Kayaking Around the Winchelsea Islands" [level=3] [ref=f727e149]
+          - generic [ref=f727e150]:
+            - paragraph [ref=f727e151]: The Winchelsea Islands are part of a 19-island archipelago that offers some of the most scenic and wildlife-rich paddling on Central Vancouver Island. This area is known for its clear waters, unique sandstone formations, and the significant presence of marine mammals.
+            - paragraph [ref=f727e152]: "South Winchelsea Exploration: This island is a conservation area owned by the Land Conservancy of BC. It features a public dock and a single designated trail that allows visitors to explore its sensitive Garry Oak ecosystem without damaging the rare flora."
+            - paragraph [ref=f727e153]: "Sea Lion Watching: During the spring and fall, the rocky outcrops of the archipelago are frequent haul-out spots for California and Steller Sea Lions. Paddlers can often observe them splashing in the bays or basking on the rocks."
+        - article [ref=f727e154]:
+          - heading "Fishing Expeditions" [level=3] [ref=f727e155]
+          - generic [ref=f727e156]:
+            - paragraph [ref=f727e157]: Fishing in Nanoose Bay is deeply tied to the movement of the herring spawn and the complex geography of the Nanoose Peninsula. From the high-energy pursuit of Chinook salmon to the patient harvest of the shellfish reserve, the area provides a diverse range of opportunities for both shoreline and offshore anglers.
+            - paragraph [ref=f727e158]: "Target Chinook and Coho Salmon: The waters off the peninsula are prime feeding grounds. Chinook (King) salmon typically stage in front of Fairwinds Marina from mid-April through June, following the herring schools. Coho runs follow later in the summer and autumn."
+            - paragraph [ref=f727e159]: "Harvest from the Shellfish Reserve: The Qualicum National Wildlife Area Nanoose Bay unit includes a 23-hectare recreational shellfish reserve. This productive area is a local favorite for harvesting Manila and littleneck clams, as well as Pacific oysters."
+        - article [ref=f727e160]:
+          - heading "Scuba Diving (Madrona & Tyee Cove)" [level=3] [ref=f727e161]
+          - generic [ref=f727e162]:
+            - paragraph [ref=f727e163]: Nanoose Bay is widely regarded as one of the premier cold-water diving destinations on Vancouver Island. The unique underwater topography of the peninsula, characterized by dramatic vertical walls and sheltered rocky coves, provides a habitat for an extraordinary array of marine life, from giant Pacific octopuses to inquisitive sea lions.
+            - paragraph [ref=f727e164]: "Madrona Point Wall Dive: Madrona Scuba Diving Site is famous for its series of underwater ledges and a steep wall that drops significantly. Divers can explore crevices filled with wolf eels, cloud sponges, and clusters of prehistoric-looking grunt sculpins."
+            - paragraph [ref=f727e165]: "Macro Photography at Tyee Cove: Tyee Cove Diving Site is a shallow, protected bay ideal for macro enthusiasts. The rocky reef is home to colorful nudibranchs, delicate anemones, and juvenile rockfish, providing excellent lighting and calm conditions for photography."
+    - generic [ref=f727e167]:
+      - generic [ref=f727e168]:
+        - text: Outdoor Adventure & Recreation
+        - heading "Outdoor Adventure & Recreation" [level=2] [ref=f727e169]
+        - paragraph [ref=f727e170]: 3 places, written up one at a time
+      - generic [ref=f727e171]:
+        - article [ref=f727e172]:
+          - figure [ref=f727e173]:
+            - img "Cycling & Walking Local Scenic Routes, Nanoose" [ref=f727e174]
+          - generic [ref=f727e175]:
+            - heading "Cycling & Walking Local Scenic Routes" [level=3] [ref=f727e176]
+            - paragraph [ref=f727e177]: The Nanoose Peninsula is a favorite for cyclists and walkers who enjoy undulating terrain, quiet residential roads, and sudden bursts of ocean views. While the area lacks dedicated separated bike lanes, the low-traffic side roads and dedicated regional trails provide a scenic way to explore the community's natural beauty.
+            - paragraph [ref=f727e178]: "The Dolphin Drive Loop: This is the quintessential Nanoose Bay road route. Cyclists and walkers follow Dolphin Drive as it snakes along the northern edge of the peninsula, offering glimpses of the Schooner Cove marina and the coastal bluffs."
+            - paragraph [ref=f727e179]: "E&N Trail (Nanoose Section): Part of the regional trail system, this gravel path follows the historic railway corridor. It provides a relatively flat, forested route that connects the Nanoose Bay rest area toward the northern boundaries of Lantzville and Nanaimo."
+        - article [ref=f727e180]:
+          - figure [ref=f727e181]:
+            - img "Horseback riding at Paradise Acres Ranch, Nanoose" [ref=f727e182]
+          - generic [ref=f727e183]:
+            - heading "Horseback riding at Paradise Acres Ranch" [level=3] [ref=f727e184]
+            - paragraph [ref=f727e185]: Paradise Acres Ranch is a 125-acre working equestrian estate that offers a quintessential Vancouver Island ranch experience. Situated with panoramic views of Mount Arrowsmith and Mount Moriarty, the property serves as both a premier riding destination and a serene guest ranch.
+            - paragraph [ref=f727e186]: "Guided Trail Rides: Explore the ranch's extensive network of forested trails and open fields. Rides range from one-hour introductory loops to immersive four-hour excursions, all led by experienced guides."
+            - paragraph [ref=f727e187]: "Equestrian Lessons: Year-round programs are available for all skill levels, focusing on building strong foundations and effective communication with horses. Lessons are tailored for everyone from young children (starting at age 3) to seasoned riders."
+        - article [ref=f727e188]:
+          - heading "Skydive Vancouver Island" [level=3] [ref=f727e189]
+          - generic [ref=f727e190]:
+            - paragraph [ref=f727e191]: Operating out of a scenic drop zone in Nanoose Bay, Skydive Vancouver Island offers one of the most visually stunning skydiving experiences in Canada. The ascent and subsequent freefall provide a 360-degree panorama that includes the snow-capped Coast Mountains, the intricate network of the Gulf Islands, and the vast expanse of the Salish Sea.
+            - paragraph [ref=f727e192]: "Tandem Skydiving: This is the primary draw for visitors. Securely harnessed to a certified instructor, you experience a 40-second freefall from 10,000 feet, reaching speeds of up to 200 km/h before the parachute deployment."
+            - paragraph [ref=f727e193]: "Aerial Sightseeing: The 20-minute flight to altitude serves as a scenic tour in itself. From the aircraft windows, you can look directly down onto the Nanoose Peninsula, the Winchelsea Islands, and the lush forests of Central Vancouver Island."
+    - generic [ref=f727e195]:
+      - generic [ref=f727e196]:
+        - text: Local Lifestyle & Scenic Exploring
+        - heading "Local Lifestyle & Scenic Exploring" [level=2] [ref=f727e197]
+        - paragraph [ref=f727e198]: 1 place, written up one at a time
+      - article [ref=f727e200]:
+        - heading "Local Artisan Stops & Scenic Drives" [level=3] [ref=f727e201]
+        - generic [ref=f727e202]:
+          - paragraph [ref=f727e203]: The Nanoose Peninsula is home to a thriving community of artists and producers who integrate the island's natural beauty into their work. Exploring the area via its winding roads provides an intimate look at the studios and farms that define the region's rural and maritime character.
+          - paragraph [ref=f727e204]: Nanoose Bay Cafe features a dedicated Marketplace that serves as a central hub for Vancouver Island artisan goods. It is an ideal starting point for discovering the variety of crafts produced in the region.
+          - paragraph [ref=f727e205]: "Curated Selection: Find a range of BC-made food, preserves, and artisan goods alongside a selection of local wines, beers, and spirits."
+    - generic [ref=f727e207]:
+      - heading "Keep going" [level=2] [ref=f727e208]
+      - navigation "Next" [ref=f727e209]:
+        - link "Vancouver Island All the towns" [ref=f727e210] [cursor=pointer]:
+          - /url: region.html
+          - generic [ref=f727e211]: Vancouver Island
+          - generic [ref=f727e212]: All the towns
+        - link "Stays in Nanoose Search what is open" [ref=f727e213] [cursor=pointer]:
+          - /url: search.html
+          - generic [ref=f727e214]: Stays in Nanoose
+          - generic [ref=f727e215]: Search what is open
+        - link "All destinations Every town we cover" [ref=f727e216] [cursor=pointer]:
+          - /url: index.html
+          - generic [ref=f727e217]: All destinations
+          - generic [ref=f727e218]: Every town we cover
+  - contentinfo [ref=f727e219]:
+    - generic [ref=f727e220]: © 2026 Arc Trips. Prices in CAD, before taxes and fees.
