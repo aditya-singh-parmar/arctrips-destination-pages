@@ -369,7 +369,10 @@ body>.subjectbar,.subjectbar{position:sticky;top:128px;z-index:17;background:var
   body>.subjectbar,.subjectbar{position:static;top:auto}
   .subjectbar__l{display:none}
 }
-@media(max-width:760px){.placebar{top:0}.placebar__cta{display:none}}
+/* Same specificity trap as the rule above: a bare `.placebar` here loses to
+   `body>.placebar`, so the bar kept its 71px desktop offset on mobile and page
+   content scrolled visibly through the gap above it. Match the specificity. */
+@media(max-width:760px){body>.placebar,.placebar{top:0}.placebar__cta{display:none}}
 
 /* --- in-page jumps, in the body, deliberately unlike the place bar ------- */
 .jumprow{display:flex;gap:8px;flex-wrap:wrap;padding:14px 0;border-block:1px solid var(--n150);margin-block:8px 30px}

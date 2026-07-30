@@ -11,14 +11,14 @@ function n(slug: string, status: GeoStatus): GeoNode {
 
 describe("effectiveStatus", () => {
   it("is the node's own status when every ancestor is published", () => {
-    expect(effectiveStatus([n("canada", "published"), n("tofino", "published")])).toBe("published");
-    expect(effectiveStatus([n("canada", "published"), n("tofino", "coming_soon")])).toBe("coming_soon");
+    expect(effectiveStatus([n("bc", "published"), n("tofino", "published")])).toBe("published");
+    expect(effectiveStatus([n("bc", "published"), n("tofino", "coming_soon")])).toBe("coming_soon");
   });
 
   it("takes the most restrictive status in the chain", () => {
-    expect(effectiveStatus([n("canada", "hidden"), n("tofino", "published")])).toBe("hidden");
-    expect(effectiveStatus([n("canada", "archived"), n("tofino", "published")])).toBe("archived");
-    expect(effectiveStatus([n("canada", "published"), n("bc", "draft"), n("tofino", "published")])).toBe("draft");
+    expect(effectiveStatus([n("bc", "hidden"), n("tofino", "published")])).toBe("hidden");
+    expect(effectiveStatus([n("bc", "archived"), n("tofino", "published")])).toBe("archived");
+    expect(effectiveStatus([n("bc", "published"), n("vancouver-island", "draft"), n("tofino", "published")])).toBe("draft");
   });
 
   it("prefers archived over hidden over draft", () => {
@@ -33,8 +33,8 @@ describe("effectiveStatus", () => {
 
 describe("isTrailRenderable", () => {
   it("renders only when the whole chain is renderable", () => {
-    expect(isTrailRenderable([n("canada", "published"), n("tofino", "coming_soon")])).toBe(true);
-    expect(isTrailRenderable([n("canada", "hidden"), n("tofino", "published")])).toBe(false);
-    expect(isTrailRenderable([n("canada", "published"), n("tofino", "archived")])).toBe(false);
+    expect(isTrailRenderable([n("bc", "published"), n("tofino", "coming_soon")])).toBe(true);
+    expect(isTrailRenderable([n("bc", "hidden"), n("tofino", "published")])).toBe(false);
+    expect(isTrailRenderable([n("bc", "published"), n("tofino", "archived")])).toBe(false);
   });
 });

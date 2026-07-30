@@ -202,7 +202,7 @@ footer.f{margin-top:0}
 <!-- What was asked for, said in one sentence. -->
 <div class="tide"><div class="wrap said">
   <p id="said"></p>
-  <a href="index.html" id="saidlink">See every destination</a>
+  <a href="index.html" id="saidlink">All of British Columbia</a>
 </div></div>
 
 <section class="sec sec--tight" id="nearest"><div class="wrap">
@@ -217,7 +217,7 @@ footer.f{margin-top:0}
       <h2>Where do you want to go?</h2>
       <p>Two towns are written up in full today. The rest are named here so you can see what is coming, and where.</p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="index.html">All destinations</a>
+    <a class="btn btn--ghost btn--sm" href="index.html">British Columbia</a>
   </div>
   <div class="roster" id="roster"></div>
 </div></section>
@@ -252,7 +252,7 @@ footer.f{margin-top:0}
     </div>
     <div><h5>Destinations</h5><ul>
       <li><a href="tofino.html">Tofino</a></li><li><a href="search.html">Guides</a></li>
-      <li><a href="province.html">British Columbia</a></li><li><a href="country.html">Canada</a></li></ul></div>
+      <li><a href="index.html">British Columbia</a></li></ul></div>
     <div><h5>Things to do</h5><ul>
       <li><a href="things-to-do.html">All nine subjects</a></li><li><a href="whale-watching.html">Whale watching</a></li>
       <li><a href="long-beach.html">Long Beach</a></li><li><a href="search.html">Search everything</a></li></ul></div>
@@ -306,8 +306,10 @@ DATA.arts.forEach((a) => { a.u = ARTICLE_HREF(a.n, a.t); });
 /* ── the tree the asked address is walked against ────────────────────────── */
 const TREE = {
   destinations:{ l:"Destinations", u:"index.html" },
-  canada:{ l:"Canada", u:"country.html" },
-  "british-columbia":{ l:"British Columbia", u:"province.html" },
+  /* Canada was a level of this tree until 2026-07-30. It is deliberately absent
+     now, so an address that still names it stops there and says so. */
+  bc:{ l:"British Columbia", u:"index.html" },
+  "british-columbia":{ l:"British Columbia", u:"index.html" },
   "vancouver-island":{ l:"Vancouver Island", u:"region.html" },
   tofino:{ l:"Tofino", u:"tofino.html" },
   ucluelet:{ l:"Ucluelet", u:"ucluelet.html" },
@@ -322,7 +324,7 @@ for (const p of DATA.places) TREE[p.s] = { l:p.n, u:p.u };
 /* ── the breadcrumb, and one sentence about how far the address got ─────── */
 function paintTrail() {
   const asked = (new URLSearchParams(location.search).get("path") ||
-    "/destinations/canada/british-columbia/vancouver-island/tofino/things-to-do/ziplining")
+    "/destinations/british-columbia/vancouver-island/tofino/things-to-do/ziplining")
     .split("/").filter(Boolean).slice(0, 8);
 
   let live = true;
@@ -393,18 +395,20 @@ function paintNearest(t){
 
 /* ── the roster: every town in the corpus, grouped, counted, honest ─────── */
 const ROSTER = [
-  { g:"Vancouver Island", p:"British Columbia", open:"region.html", ol:"Open Vancouver Island", t:[
+  { g:"Vancouver Island", p:"in British Columbia", open:"region.html", ol:"Open Vancouver Island", t:[
       { n:"Tofino", u:"tofino.html", m:"73 places" },
       { n:"Ucluelet", u:"ucluelet.html", m:"54 places" },
       "Victoria", "Nanaimo", "Campbell River", "Parksville",
       "Sooke", "Sidney", "Chemainus", "Nanoose Bay", "Shawnigan Lake" ] },
-  { g:"Mainland British Columbia", p:"British Columbia", open:"province.html", ol:"Open British Columbia",
+  { g:"Mainland British Columbia", p:"in British Columbia", open:"index.html", ol:"Open British Columbia",
     t:["Vancouver", "Squamish", "Whistler", "Nelson"] },
-  { g:"Alberta", p:"Canada", t:["Banff", "Jasper", "Edmonton"] },
-  { g:"Saskatchewan", p:"Canada", t:["Saskatoon"] },
-  { g:"Ontario", p:"Canada", t:["Niagara Falls", "Ottawa"] },
-  { g:"Quebec", p:"Canada", t:["Montreal", "Quebec City"] },
-  { g:"Atlantic Canada", p:"Canada", t:["Halifax", "Charlottetown", "St John's"] }
+  /* Arc Trips publishes in British Columbia. These eleven carry real writing but
+     sit outside the tree, so they are grouped apart and counted apart. */
+  { g:"Alberta", p:"outside the published tree", t:["Banff", "Jasper", "Edmonton"] },
+  { g:"Saskatchewan", p:"outside the published tree", t:["Saskatoon"] },
+  { g:"Ontario", p:"outside the published tree", t:["Niagara Falls", "Ottawa"] },
+  { g:"Quebec", p:"outside the published tree", t:["Montreal", "Quebec City"] },
+  { g:"Atlantic Canada", p:"outside the published tree", t:["Halifax", "Charlottetown", "St John's"] }
 ];
 
 function paintRoster() {
@@ -412,7 +416,7 @@ function paintRoster() {
     const live = grp.t.filter((x) => typeof x === "object").length;
     return `<div class="rgroup">
       <h3>${esc(grp.g)}</h3>
-      <span class="c">${grp.t.length} ${grp.t.length === 1 ? "town" : "towns"}, ${live ? live + " written" : "written next"}, in ${esc(grp.p)}</span>
+      <span class="c">${grp.t.length} ${grp.t.length === 1 ? "town" : "towns"}, ${live ? live + " written" : "written next"}, ${esc(grp.p)}</span>
       ${grp.open ? `<a class="open" href="${grp.open}">${esc(grp.ol)}</a>` : ""}
       <ul>${grp.t.map((x) => typeof x === "object"
         ? `<li><a href="${x.u}">${esc(x.n)}</a><span class="ct">${esc(x.m)}</span></li>`
@@ -426,10 +430,8 @@ const INDEX = [
   ...DATA.towns.map((t) => ({ n:t.n, k:"Town in British Columbia", h:t.hero, u:t.href, a:t.alt })),
   { n:"Vancouver Island", k:"Region, 2 towns written", h:DATA.towns[0].hero, u:"region.html",
     a:"The outer coast of Vancouver Island seen from the air" },
-  { n:"British Columbia", k:"Province, 1 region written", h:"guides/tofino/when-to-go/_category-1", u:"province.html",
+  { n:"British Columbia", k:"The root, 1 region written", h:"guides/tofino/when-to-go/_category-1", u:"index.html",
     a:"Low evening light across a wide west coast beach" },
-  { n:"Canada", k:"Country", h:"guides/vancouver-island/when-to-go/_category-1", u:"country.html",
-    a:"A long empty beach on the Canadian Pacific coast at dusk" },
   ...DATA.places.map((p) => ({ n:p.n, k:`${catName(p.c)} in ${TOWN[p.t]}`, h:p.h, u:p.u,
     a:`Photograph of ${p.n}, ${catName(p.c).toLowerCase() } in ${TOWN[p.t]}` })),
   ...DATA.guides.map((g) => ({ n:g.n, k:`Guide, ${TOWN[g.t]}`, h:g.h, u:g.u,

@@ -195,7 +195,7 @@ export async function DestinationsLanding() {
                 />
               </span>
               <div className="hero__t">
-                <span className="hero__pill">Canada, British Columbia</span>
+                <span className="hero__pill">British Columbia</span>
                 <h1>Know the place before you go.</h1>
                 <p>
                   Guides to where we stay, written after we have been. What to do, when to go, and what it is

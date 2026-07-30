@@ -9,10 +9,11 @@ function n(slug: string, type: GeoNode["type"], parentId: string | null): GeoNod
   };
 }
 
-// canada > bc > { vancouver-island > tofino > long-beach , squamish }
+// bc > { vancouver-island > tofino > long-beach , squamish }
+// The root parents the province directly; the country segment left the tree on
+// 2026-07-30, see docs/qa/bc-root-contract.md.
 const NODES: GeoNode[] = [
-  n("canada", "country", null),
-  n("bc", "province", "canada"),
+  n("bc", "province", null),
   n("vancouver-island", "region", "bc"),
   n("tofino", "town", "vancouver-island"),
   n("long-beach", "area", "tofino"),
@@ -28,31 +29,30 @@ describe("resolveDestinationPath", () => {
   });
 
   it("resolves each geographic tier", async () => {
-    expect((await resolveDestinationPath(["canada"], lookup)).kind).toBe("geo");
-    const prov = await resolveDestinationPath(["canada", "bc"], lookup);
+    const prov = await resolveDestinationPath(["bc"], lookup);
     expect(prov.kind === "geo" && prov.node.type).toBe("province");
-    const region = await resolveDestinationPath(["canada", "bc", "vancouver-island"], lookup);
+    const region = await resolveDestinationPath(["bc", "vancouver-island"], lookup);
     expect(region.kind === "geo" && region.node.type).toBe("region");
   });
 
   it("resolves a town with a region in the path", async () => {
-    const r = await resolveDestinationPath(["canada", "bc", "vancouver-island", "tofino"], lookup);
+    const r = await resolveDestinationPath(["bc", "vancouver-island", "tofino"], lookup);
     expect(r.kind === "geo" && r.node.slug).toBe("tofino");
-    expect(r.kind === "geo" && r.trail.map((t) => t.slug)).toEqual(["canada", "bc", "vancouver-island", "tofino"]);
+    expect(r.kind === "geo" && r.trail.map((t) => t.slug)).toEqual(["bc", "vancouver-island", "tofino"]);
   });
 
   it("resolves a town with no region in the path", async () => {
-    const r = await resolveDestinationPath(["canada", "bc", "squamish"], lookup);
+    const r = await resolveDestinationPath(["bc", "squamish"], lookup);
     expect(r.kind === "geo" && r.node.type).toBe("town");
   });
 
   it("resolves an area", async () => {
-    const r = await resolveDestinationPath(["canada", "bc", "vancouver-island", "tofino", "long-beach"], lookup);
+    const r = await resolveDestinationPath(["bc", "vancouver-island", "tofino", "long-beach"], lookup);
     expect(r.kind === "geo" && r.node.type).toBe("area");
   });
 
   it("resolves the things-to-do index and a category page", async () => {
-    const base = ["canada", "bc", "vancouver-island", "tofino"];
+    const base = ["bc", "vancouver-island", "tofino"];
     expect((await resolveDestinationPath([...base, "things-to-do"], lookup)).kind).toBe("things-to-do");
     const cat = await resolveDestinationPath([...base, "things-to-do", "surfing"], lookup);
     expect(cat.kind === "category" && cat.categorySlug).toBe("surfing");
@@ -60,7 +60,7 @@ describe("resolveDestinationPath", () => {
   });
 
   it("resolves the plan index", async () => {
-    const r = await resolveDestinationPath(["canada", "bc", "squamish", "plan"], lookup);
+    const r = await resolveDestinationPath(["bc", "squamish", "plan"], lookup);
     expect(r.kind === "plan" && r.town.slug).toBe("squamish");
   });
 
@@ -70,27 +70,37 @@ describe("resolveDestinationPath", () => {
   });
 
   it("rejects reserved words anywhere but under a town", async () => {
-    expect((await resolveDestinationPath(["canada", "bc", "things-to-do"], lookup)).kind).toBe("not-found");
-    expect((await resolveDestinationPath(["canada", "plan"], lookup)).kind).toBe("not-found");
+    expect((await resolveDestinationPath(["bc", "things-to-do"], lookup)).kind).toBe("not-found");
+    expect((await resolveDestinationPath(["bc", "plan"], lookup)).kind).toBe("not-found");
   });
 
   it("rejects a category with no things-to-do segment", async () => {
-    const r = await resolveDestinationPath(["canada", "bc", "squamish", "surfing"], lookup);
+    const r = await resolveDestinationPath(["bc", "squamish", "surfing"], lookup);
     expect(r.kind).toBe("not-found");
   });
 
   it("rejects a skipped tier", async () => {
     expect((await resolveDestinationPath(["tofino"], lookup)).kind).toBe("not-found");
-    expect((await resolveDestinationPath(["canada", "tofino"], lookup)).kind).toBe("not-found");
+    expect((await resolveDestinationPath(["bc", "tofino"], lookup)).kind).toBe("not-found");
+  });
+
+  // The country segment left the tree on 2026-07-30. next.config.ts redirects
+  // the old URLs permanently; the resolver itself must know nothing about it,
+  // or /destinations/canada/bc would answer beside /destinations/bc.
+  it("rejects a path that still carries a country segment", async () => {
+    expect((await resolveDestinationPath(["canada"], lookup)).kind).toBe("not-found");
+    expect((await resolveDestinationPath(["canada", "bc"], lookup)).kind).toBe("not-found");
+    expect((await resolveDestinationPath(
+      ["canada", "bc", "vancouver-island", "tofino"], lookup)).kind).toBe("not-found");
   });
 
   it("rejects an unknown slug", async () => {
-    expect((await resolveDestinationPath(["canada", "bc", "nowhere"], lookup)).kind).toBe("not-found");
+    expect((await resolveDestinationPath(["bc", "nowhere"], lookup)).kind).toBe("not-found");
   });
 
   it("rejects a path past an area", async () => {
     const r = await resolveDestinationPath(
-      ["canada", "bc", "vancouver-island", "tofino", "long-beach", "extra"], lookup);
+      ["bc", "vancouver-island", "tofino", "long-beach", "extra"], lookup);
     expect(r.kind).toBe("not-found");
   });
 
@@ -106,47 +116,52 @@ describe("resolveGuidePath", () => {
   });
 
   it("resolves a town-scoped guide index", async () => {
-    const r = await resolveGuidePath(["canada", "bc", "squamish"], lookup);
+    const r = await resolveGuidePath(["bc", "squamish"], lookup);
     expect(r.kind === "index" && r.scope.slug).toBe("squamish");
   });
 
   it("prefers a region node over a guide slug at the same segment", async () => {
-    const r = await resolveGuidePath(["canada", "bc", "vancouver-island"], lookup);
+    const r = await resolveGuidePath(["bc", "vancouver-island"], lookup);
     expect(r.kind === "index" && r.scope.type).toBe("region");
   });
 
   it("resolves a province-scoped guide", async () => {
-    const r = await resolveGuidePath(["canada", "bc", "top-ski-mountains"], lookup);
+    const r = await resolveGuidePath(["bc", "top-ski-mountains"], lookup);
     expect(r.kind === "guide" && r.slug).toBe("top-ski-mountains");
     expect(r.kind === "guide" && r.scope.slug).toBe("bc");
   });
 
   it("resolves a region-scoped guide", async () => {
-    const r = await resolveGuidePath(["canada", "bc", "vancouver-island", "best-beaches"], lookup);
+    const r = await resolveGuidePath(["bc", "vancouver-island", "best-beaches"], lookup);
     expect(r.kind === "guide" && r.slug).toBe("best-beaches");
     expect(r.kind === "guide" && r.scope.type).toBe("region");
   });
 
   it("resolves a town-scoped guide with and without a region", async () => {
     const withRegion = await resolveGuidePath(
-      ["canada", "bc", "vancouver-island", "tofino", "getting-there"], lookup);
+      ["bc", "vancouver-island", "tofino", "getting-there"], lookup);
     expect(withRegion.kind === "guide" && withRegion.scope.slug).toBe("tofino");
-    const without = await resolveGuidePath(["canada", "bc", "squamish", "what-to-pack"], lookup);
+    const without = await resolveGuidePath(["bc", "squamish", "what-to-pack"], lookup);
     expect(without.kind === "guide" && without.scope.slug).toBe("squamish");
   });
 
   it("rejects a guide scoped above province", async () => {
-    expect((await resolveGuidePath(["canada", "some-guide"], lookup)).kind).toBe("not-found");
+    expect((await resolveGuidePath(["some-guide"], lookup)).kind).toBe("not-found");
+  });
+
+  it("rejects a guide path that still carries a country segment", async () => {
+    expect((await resolveGuidePath(["canada", "bc", "top-ski-mountains"], lookup)).kind)
+      .toBe("not-found");
   });
 
   it("rejects a guide slug that is not the last segment", async () => {
-    const r = await resolveGuidePath(["canada", "bc", "some-guide", "another"], lookup);
+    const r = await resolveGuidePath(["bc", "some-guide", "another"], lookup);
     expect(r.kind).toBe("not-found");
   });
 
   it("rejects a guide scoped to an area", async () => {
     const r = await resolveGuidePath(
-      ["canada", "bc", "vancouver-island", "tofino", "long-beach", "a-guide"], lookup);
+      ["bc", "vancouver-island", "tofino", "long-beach", "a-guide"], lookup);
     expect(r.kind).toBe("not-found");
   });
 });
@@ -154,7 +169,7 @@ describe("resolveGuidePath", () => {
 describe("guideBelongsToScope", () => {
   const tofino = n("tofino", "town", "vancouver-island");
   const island = n("vancouver-island", "region", "bc");
-  const bc = n("bc", "province", "canada");
+  const bc = n("bc", "province", null);
 
   it("places a town guide at its town only", () => {
     const a = { destinationSlug: "tofino", citySlugs: ["tofino"] };

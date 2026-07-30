@@ -37,7 +37,7 @@ export function CategoryCard({
   category: CategoryCardCategory;
   citySlug: string;
   /**
-   * Deep-tree base, e.g. `/destinations/canada/bc/vancouver-island/tofino/things-to-do`.
+   * Deep-tree base, e.g. `/destinations/bc/vancouver-island/tofino/things-to-do`.
    * Optional so any call site not yet migrated keeps its flat link.
    */
   basePath?: string;

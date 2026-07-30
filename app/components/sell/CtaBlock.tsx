@@ -33,7 +33,7 @@ export function CtaBlock({
 }: {
   cta: CtaResult;
   citySlug: string;
-  /** Deep-tree path for the city, e.g. /destinations/canada/bc/vancouver-island/tofino. */
+  /** Deep-tree path for the city, e.g. /destinations/bc/vancouver-island/tofino. */
   cityPath?: string;
 }) {
   const { primary, notify } = cta;

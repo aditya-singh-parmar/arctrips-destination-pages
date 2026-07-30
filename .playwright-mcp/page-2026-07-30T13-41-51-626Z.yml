@@ -1,0 +1,675 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - generic:
+    - img:
+      - generic:
+        - generic: "14"
+        - generic: "9"
+        - generic: "22"
+        - generic: "31"
+        - generic: "17"
+        - generic: "6"
+        - generic: "11"
+        - generic: "26"
+        - generic: "19"
+        - generic: "8"
+        - generic: "24"
+        - generic: "13"
+        - generic: "28"
+        - generic: "5"
+        - generic: "16"
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "ArcTrips" [ref=e5] [cursor=pointer]:
+        - /url: index.html
+      - list [ref=e7]:
+        - listitem [ref=e8]:
+          - link "Stays" [ref=e9] [cursor=pointer]:
+            - /url: search.html?in=tofino
+        - listitem [ref=e10]:
+          - link "Destinations" [ref=e11] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=e12]:
+          - link "Guides" [ref=e13] [cursor=pointer]:
+            - /url: search.html?q=&in=tofino
+      - search [ref=e14]:
+        - generic [ref=e18]: Go to a place, a beach, a trail or a guide
+        - searchbox "Go to a place, a beach, a trail or a guide" [ref=e19]
+        - generic [ref=e20]: /
+      - link "Sign in" [ref=e21] [cursor=pointer]:
+        - /url: not-found.html
+  - navigation "Tofino" [ref=e22]:
+    - generic [ref=e23]:
+      - link "← Vancouver Island" [ref=e24] [cursor=pointer]:
+        - /url: region.html
+      - list [ref=e26]:
+        - listitem [ref=e27]:
+          - link "Overview" [ref=e28] [cursor=pointer]:
+            - /url: "#top"
+        - listitem [ref=e29]:
+          - link "Things to do" [ref=e30] [cursor=pointer]:
+            - /url: things-to-do.html
+        - listitem [ref=e31]:
+          - link "Plan" [ref=e32] [cursor=pointer]:
+            - /url: plan.html
+        - listitem [ref=e33]:
+          - link "Guides" [ref=e34] [cursor=pointer]:
+            - /url: guide.html
+      - link "Find a stay" [ref=e35] [cursor=pointer]:
+        - /url: search.html?in=tofino
+  - main [ref=e36]:
+    - navigation "Breadcrumb" [ref=e38]:
+      - link "Arc Trips" [ref=e39] [cursor=pointer]:
+        - /url: index.html
+      - generic [ref=e40]: ›
+      - link "British Columbia" [ref=e41] [cursor=pointer]:
+        - /url: index.html
+      - generic [ref=e42]: ›
+      - link "Vancouver Island" [ref=e43] [cursor=pointer]:
+        - /url: region.html
+      - generic [ref=e44]: ›
+      - generic [ref=e45]: Tofino
+    - generic [ref=e47]:
+      - generic [ref=e48]:
+        - text: Clayoquot Sound, British Columbia
+        - heading [level=1] [ref=e49]:
+          - text: Tofino, written up
+          - generic [ref=e50]: place by place
+        - paragraph [ref=e53]: Storm-swept beaches, old-growth rainforest, and the best surf on the Pacific coast. The rainfall figures explain all three.
+        - paragraph [ref=e54]: 73 named places written up, 134 stays bookable tonight from $320 a night.
+        - generic [ref=e55]:
+          - link "All nine subjects" [ref=e56] [cursor=pointer]:
+            - /url: things-to-do.html
+          - link "Plan the trip" [ref=e57] [cursor=pointer]:
+            - /url: plan.html
+      - generic [ref=e58]:
+        - figure "Long Beach, Pacific Rim National Park Reserve" [ref=e66]:
+          - img "One walker alone on the wet sand at Long Beach in low mist" [ref=e67]
+        - figure "Meares Island, from Lemmens Inlet" [ref=e69]:
+          - img "Flat water in Lemmens Inlet with the forested slope of Meares Island behind" [ref=e70]
+        - figure "Storm season, November to February" [ref=e72]:
+          - img "A wave exploding against the headland in winter fog" [ref=e73]
+        - img [ref=e75]:
+          - generic [ref=e79]: "N"
+    - generic [ref=e81]:
+      - generic [ref=e82]: Tide today at Tofino Harbour
+      - paragraph [ref=e86]:
+        - generic [ref=e87]: Low 06:14
+        - generic [ref=e88]: High 12:38
+        - generic [ref=e89]: Low 18:52
+        - generic [ref=e90]: Sunset 21:07
+      - paragraph [ref=e91]: "Why it matters: Long Beach doubles in width at low water. The tide moves 2.3 m here, so walk the sand at low tide and watch the surf at high."
+    - generic [ref=e93]:
+      - generic [ref=e94]:
+        - text: Why go
+        - heading "A town the tide sets the timetable for" [level=2] [ref=e95]
+        - paragraph [ref=e96]: Tofino sits at the western edge of Vancouver Island, where the rainforest meets long stretches of open Pacific beach. It draws surfers, storm-watchers, and travellers looking for quiet time close to the water.
+        - paragraph [ref=e97]: Plan around the tides and the seasons. Summer brings calm mornings and warm evenings on the sand, while winter delivers dramatic storm watching and empty beaches. Whatever the season, the pace here rewards staying a few nights rather than passing through.
+        - link "Read the month by month guide" [ref=e98] [cursor=pointer]:
+          - /url: plan.html
+      - generic [ref=e99]:
+        - generic [ref=e100]:
+          - term [ref=e101]: Where it is
+          - definition [ref=e102]: The western edge of Vancouver Island, where the rainforest meets open Pacific beach.
+        - generic [ref=e103]:
+          - term [ref=e104]: Getting there
+          - definition [ref=e105]: Four hours from Nanaimo by road, and the last stretch is slow. Book the ferry first.
+        - generic [ref=e106]:
+          - term [ref=e107]: Driest month
+          - definition [ref=e108]: July, at 66 mm of rain.
+        - generic [ref=e109]:
+          - term [ref=e110]: Wettest month
+          - definition [ref=e111]: November, at 500 mm. That is the storm season people book for.
+        - generic [ref=e112]:
+          - term [ref=e113]: Rain in a year
+          - definition [ref=e114]: 3,327 mm across 205 days. Bring the shell.
+        - generic [ref=e115]:
+          - term [ref=e116]: Nearest town
+          - definition [ref=e117]: Ucluelet, forty minutes south on the same road.
+    - generic [ref=e120]:
+      - generic [ref=e121]:
+        - generic [ref=e122]:
+          - text: When should you go?
+          - heading "Any month, for a different reason" [level=2] [ref=e123]
+          - paragraph [ref=e124]: July and August are the driest and warmest. November to February is storm season, which is when the coast is at its most dramatic and rooms are cheapest. Right now it is July.
+        - link "See the full year" [ref=e125] [cursor=pointer]:
+          - /url: plan.html
+      - paragraph [ref=e126]: "Each column below is how much rain falls in that month. Taller means wetter: November is the wettest, July the driest. Tap a month to see what it is like."
+      - group "Choose a month" [ref=e127]:
+        - button "January, 489 millimetres of rain" [ref=e128] [cursor=pointer]:
+          - generic [ref=e131]: Jan
+        - button "February, 368 millimetres of rain" [ref=e132] [cursor=pointer]:
+          - generic [ref=e135]: Feb
+        - button "March, 337 millimetres of rain" [ref=e136] [cursor=pointer]:
+          - generic [ref=e139]: Mar
+        - button "April, 213 millimetres of rain" [ref=e140] [cursor=pointer]:
+          - generic [ref=e143]: Apr
+        - button "May, 132 millimetres of rain" [ref=e144] [cursor=pointer]:
+          - generic [ref=e147]: May
+        - button "June, 102 millimetres of rain" [ref=e148] [cursor=pointer]:
+          - generic [ref=e151]: Jun
+        - button "July, 66 millimetres of rain" [pressed] [ref=e152] [cursor=pointer]:
+          - generic [ref=e155]: Jul
+        - button "August, 82 millimetres of rain" [ref=e156] [cursor=pointer]:
+          - generic [ref=e159]: Aug
+        - button "September, 152 millimetres of rain" [ref=e160] [cursor=pointer]:
+          - generic [ref=e163]: Sep
+        - button "October, 396 millimetres of rain" [ref=e164] [cursor=pointer]:
+          - generic [ref=e167]: Oct
+        - button "November, 500 millimetres of rain" [ref=e168] [cursor=pointer]:
+          - generic [ref=e171]: Nov
+        - button "December, 490 millimetres of rain" [ref=e172] [cursor=pointer]:
+          - generic [ref=e175]: Dec
+      - generic [ref=e176]:
+        - generic [ref=e177]:
+          - text: The season
+          - paragraph [ref=e178]: Long days
+          - paragraph [ref=e179]: Sixteen hours of light and the water finally warm enough to stay in.
+        - generic [ref=e180]:
+          - generic [ref=e181]:
+            - term [ref=e182]: Average high
+            - definition [ref=e183]: 18.1°
+          - generic [ref=e184]:
+            - term [ref=e185]: Rain
+            - definition [ref=e186]: 66mm
+          - generic [ref=e187]:
+            - term [ref=e188]: Rain days
+            - definition [ref=e189]: 9of 31
+          - generic [ref=e190]:
+            - term [ref=e191]: Daylight
+            - definition [ref=e192]: 15h 37m
+        - paragraph [ref=e193]: "July: 18.1 degrees by day, 66 mm of rain. The dry window. Long light, water finally warm enough to stay in, and every boat in the harbour running."
+      - paragraph [ref=e194]: In July, 6 of the nine subjects are at their peak, starting with kayaking and beaches. The other 3 are still open.
+      - link "See what is on in July" [ref=e195] [cursor=pointer]:
+        - /url: plan.html
+      - paragraph [ref=e196]: Climate figures are Environment Canada normals for the Tofino station, seeded for design.
+    - generic [ref=e198]:
+      - generic [ref=e199]:
+        - generic [ref=e200]:
+          - text: Things to do
+          - heading "Nine subjects, best fit for July first" [level=2] [ref=e201]
+          - paragraph [ref=e202]: "Nothing here is closed in any month. The twelve squares on each card are the year: filled squares are the months that subject is at its best."
+        - link "The full index" [ref=e203] [cursor=pointer]:
+          - /url: things-to-do.html
+      - generic [ref=e204]:
+        - link "Two red kayaks on flat water below a forested hill In season now Kayaking and paddling 18 launches and routes Kayaking and paddling, in season May to September. July is the outlined square. In season now. The window runs May to September." [ref=e205] [cursor=pointer]:
+          - /url: kayaking-tofino.html
+          - generic [ref=e206]:
+            - img "Two red kayaks on flat water below a forested hill" [ref=e207]
+            - generic [ref=e208]: In season now
+          - heading "Kayaking and paddling" [level=3] [ref=e209]
+          - paragraph [ref=e210]: 18 launches and routes
+          - img "Kayaking and paddling, in season May to September. July is the outlined square." [ref=e211]
+          - paragraph [ref=e224]: In season now. The window runs May to September.
+        - link "Sunset light on the wet sand of a Tofino beach In season now Beaches 13 beaches written up Beaches, in season May to September. July is the outlined square. In season now. The window runs May to September." [ref=e225] [cursor=pointer]:
+          - /url: beaches-tofino.html
+          - generic [ref=e226]:
+            - img "Sunset light on the wet sand of a Tofino beach" [ref=e227]
+            - generic [ref=e228]: In season now
+          - heading "Beaches" [level=3] [ref=e229]
+          - paragraph [ref=e230]: 13 beaches written up
+          - img "Beaches, in season May to September. July is the outlined square." [ref=e231]
+          - paragraph [ref=e244]: In season now. The window runs May to September.
+        - link "Two anglers working a fish on a charter boat off Tofino In season now Fishing Salmon and halibut charters from the harbour Fishing, in season May to September. July is the outlined square. In season now. The window runs May to September." [ref=e245] [cursor=pointer]:
+          - /url: things-to-do.html#fishing
+          - generic [ref=e246]:
+            - img "Two anglers working a fish on a charter boat off Tofino" [ref=e247]
+            - generic [ref=e248]: In season now
+          - heading "Fishing" [level=3] [ref=e249]
+          - paragraph [ref=e250]: Salmon and halibut charters from the harbour
+          - img "Fishing, in season May to September. July is the outlined square." [ref=e251]
+          - paragraph [ref=e264]: In season now. The window runs May to September.
+        - link "A walker on a boardwalk trail through dense Tofino rainforest In season now Hiking and trails 18 walks written up Hiking and trails, in season April to October. July is the outlined square. In season now. The window runs April to October." [ref=e265] [cursor=pointer]:
+          - /url: hiking-tofino.html
+          - generic [ref=e266]:
+            - img "A walker on a boardwalk trail through dense Tofino rainforest" [ref=e267]
+            - generic [ref=e268]: In season now
+          - heading "Hiking and trails" [level=3] [ref=e269]
+          - paragraph [ref=e270]: 18 walks written up
+          - img "Hiking and trails, in season April to October. July is the outlined square." [ref=e271]
+          - paragraph [ref=e284]: In season now. The window runs April to October.
+        - link "A humpback fluke going down on flat water in front of the forest In season now Whale watching 8 questions answered in the guide Whale watching, in season March to October. July is the outlined square. In season now. The window runs March to October." [ref=e285] [cursor=pointer]:
+          - /url: whale-watching.html
+          - generic [ref=e286]:
+            - img "A humpback fluke going down on flat water in front of the forest" [ref=e287]
+            - generic [ref=e288]: In season now
+          - heading "Whale watching" [level=3] [ref=e289]
+          - paragraph [ref=e290]: 8 questions answered in the guide
+          - img "Whale watching, in season March to October. July is the outlined square." [ref=e291]
+          - paragraph [ref=e304]: In season now. The window runs March to October.
+        - link "A plate of local seafood and glasses of wine in a Tofino dining room In season now Restaurants 16 rooms written up Restaurants, in season all twelve months. July is the outlined square. In season now, and in every other month as well." [ref=e305] [cursor=pointer]:
+          - /url: restaurants-tofino.html
+          - generic [ref=e306]:
+            - img "A plate of local seafood and glasses of wine in a Tofino dining room" [ref=e307]
+            - generic [ref=e308]: In season now
+          - heading "Restaurants" [level=3] [ref=e309]
+          - paragraph [ref=e310]: 16 rooms written up
+          - img "Restaurants, in season all twelve months. July is the outlined square." [ref=e311]
+          - paragraph [ref=e324]: In season now, and in every other month as well.
+      - paragraph [ref=e325]: Better in other months, open today
+      - generic [ref=e326]:
+        - link [ref=e327] [cursor=pointer]:
+          - /url: storm-watching-tofino.html
+          - img "One figure on a grey beach as the surf breaks around the rock islets" [ref=e329]
+          - heading "Storm watching" [level=3] [ref=e330]
+          - paragraph [ref=e331]: 8 places to watch from
+          - img "Storm watching, in season November to February. July is the outlined square." [ref=e332]
+          - paragraph [ref=e345]: Its month is November to February, and the guide is open today.
+        - link [ref=e346] [cursor=pointer]:
+          - /url: things-to-do.html#surfing
+          - img "A surfer riding a wave at dusk off the Tofino coast" [ref=e348]
+          - heading "Surfing" [level=3] [ref=e349]
+          - paragraph [ref=e350]: 4 questions answered in the guide
+          - img "Surfing, in season September to April. July is the outlined square." [ref=e351]
+          - paragraph [ref=e364]: Its month is September to April, and the guide is open today.
+        - link [ref=e365] [cursor=pointer]:
+          - /url: things-to-do.html#birding
+          - img "A dense flock of shorebirds packed along the shoreline" [ref=e367]
+          - heading "Birding and wildlife" [level=3] [ref=e368]
+          - paragraph [ref=e369]: 4 questions answered in the guide
+          - img "Birding and wildlife, in season March to May, and September to November. July is the outlined square." [ref=e370]
+          - paragraph [ref=e383]: Its month is March to May, and September to November, and the guide is open today.
+    - generic [ref=e384]:
+      - img "An empty stretch of sand on the west coast of Vancouver Island under low cloud" [ref=e385]
+      - generic [ref=e387]:
+        - text: The Tofino index
+        - paragraph [ref=e388]:
+          - generic [ref=e389]: "73"
+          - text: places in this town, by name.
+        - paragraph [ref=e390]: Not scraped, not aggregated. Each one walked, photographed and written up, with its own season, its own good to know note, and the tags that say who it suits.
+        - generic [ref=e391]:
+          - generic [ref=e392]:
+            - term [ref=e393]: photographed on site
+            - definition [ref=e394]: "52"
+          - generic [ref=e395]:
+            - term [ref=e396]: carry a warning
+            - definition [ref=e397]: "70"
+          - generic [ref=e398]:
+            - term [ref=e399]: subjects covered
+            - definition [ref=e400]: "9"
+        - link "Search every one of them" [ref=e401] [cursor=pointer]:
+          - /url: search.html?in=tofino
+    - generic [ref=e403]:
+      - generic [ref=e404]:
+        - generic [ref=e405]:
+          - text: Beaches
+          - heading "Thirteen beaches, all different" [level=2] [ref=e406]
+          - paragraph [ref=e407]: Tofino is not one beach. The line under each one is the thing that catches people out.
+        - link "Start with Long Beach" [ref=e408] [cursor=pointer]:
+          - /url: long-beach.html
+      - generic [ref=e409]:
+        - link [ref=e410] [cursor=pointer]:
+          - /url: beaches-tofino.html
+          - img "Chesterman Beach near Tofino, photographed on site" [ref=e412]
+          - heading "Chesterman Beach" [level=3] [ref=e413]
+          - paragraph [ref=e414]: Good to know. Always check the tide before walking toward Frank Island. The water can come in and cover the sandspit.
+        - link [ref=e415] [cursor=pointer]:
+          - /url: beaches-tofino.html
+          - img "Cox Bay near Tofino, photographed on site" [ref=e417]
+          - heading "Cox Bay" [level=3] [ref=e418]
+          - paragraph [ref=e419]: Good to know. Cox Bay can have powerful waves and currents. Beginners should go with a surf school or choose calmer conditions.
+        - link [ref=e420] [cursor=pointer]:
+          - /url: long-beach.html
+          - img "Long Beach near Tofino, photographed on site" [ref=e422]
+          - heading "Long Beach" [level=3] [ref=e423]
+          - paragraph [ref=e424]: Good to know. You may need a national park pass when stopping in this area. Follow Parks Canada signs, closures, and beach safety rules.
+        - link [ref=e425] [cursor=pointer]:
+          - /url: beaches-tofino.html
+          - img "Tinwis Beach, formerly Mackenzie Beach near Tofino, photographed on site" [ref=e427]
+          - heading "Tinwis Beach, formerly Mackenzie Beach" [level=3] [ref=e428]
+          - paragraph [ref=e429]: Good to know. The beach is now officially called tinwis, pronounced “ti-nu-wis.” Some maps and visitors may still use the older name, Mackenzie Beach.
+        - link [ref=e430] [cursor=pointer]:
+          - /url: beaches-tofino.html
+          - img "Tonquin Beach near Tofino, photographed on site" [ref=e432]
+          - heading "Tonquin Beach" [level=3] [ref=e433]
+          - paragraph [ref=e434]: Good to know. The trail can be wet or muddy after rain. Wear shoes with good grip.
+        - link [ref=e435] [cursor=pointer]:
+          - /url: beaches-tofino.html
+          - img "Middle Beach near Tofino, photographed on site" [ref=e437]
+          - heading "Middle Beach" [level=3] [ref=e438]
+          - paragraph [ref=e439]: Good to know. Check tide and wave conditions before walking near rocks.
+        - link [ref=e440] [cursor=pointer]:
+          - /url: beaches-tofino.html
+          - img "Rosie Bay near Tofino, photographed on site" [ref=e442]
+          - heading "Rosie Bay" [level=3] [ref=e443]
+          - paragraph [ref=e444]: Good to know. Be careful near rocks and changing tides.
+        - link [ref=e445] [cursor=pointer]:
+          - /url: beaches-tofino.html
+          - img "Wickaninnish Beach near Tofino, photographed on site" [ref=e447]
+          - heading "Wickaninnish Beach" [level=3] [ref=e448]
+          - paragraph [ref=e449]: Good to know. This beach can feel very open and exposed. Stay far back from the water during storms and high tide.
+        - link [ref=e450] [cursor=pointer]:
+          - /url: beaches-tofino.html
+          - img "Florencia Bay near Tofino, photographed on site" [ref=e452]
+          - heading "Florencia Bay" [level=3] [ref=e453]
+          - paragraph [ref=e454]: Good to know. The stairs and trail can feel longer on the way back up. Wear comfortable shoes and check the tide before walking far.
+        - link [ref=e455] [cursor=pointer]:
+          - /url: beaches-tofino.html
+          - img "Combers Beach near Tofino, photographed on site" [ref=e457]
+          - heading "Combers Beach" [level=3] [ref=e458]
+          - paragraph [ref=e459]: Good to know. Dog rules and access rules can change in Pacific Rim National Park Reserve. Check current Parks Canada updates before visiting with a dog.
+        - link [ref=e460] [cursor=pointer]:
+          - /url: beaches-tofino.html
+          - img "Schooner Cove near Tofino, photographed on site" [ref=e462]
+          - heading "Schooner Cove" [level=3] [ref=e463]
+          - paragraph [ref=e464]: Good to know. Trail and beach access can change in national park areas. Check current Parks Canada updates before planning your visit.
+        - link [ref=e465] [cursor=pointer]:
+          - /url: beaches-tofino.html
+          - img "Grice Bay near Tofino, photographed on site" [ref=e467]
+          - heading "Grice Bay" [level=3] [ref=e468]
+          - paragraph [ref=e469]: Good to know. Choose Grice Bay for calm inlet scenery, not for surfing or storm watching.
+        - link [ref=e470] [cursor=pointer]:
+          - /url: beaches-tofino.html
+          - img "Kennedy Lake near Tofino, photographed on site" [ref=e472]
+          - heading "Kennedy Lake" [level=3] [ref=e473]
+          - paragraph [ref=e474]: Good to know. Kennedy Lake is best for calm-water activities, not surfing or storm watching. Conditions can still change, so check the weather and wind before paddling.
+    - generic [ref=e476]:
+      - generic [ref=e477]:
+        - generic [ref=e478]:
+          - text: Plan
+          - heading "Four things worth settling first" [level=2] [ref=e479]
+          - paragraph [ref=e480]: Tofino is a four hour drive from Nanaimo and the last stretch is slow. These are the decisions that change the trip.
+        - link "The full planning guide" [ref=e481] [cursor=pointer]:
+          - /url: plan.html
+      - generic [ref=e482]:
+        - link "When to go Every month has an answer Twelve months, the rain that comes with each, and what is at its peak. July is driest at 66 mm. November is wettest at 500 mm, which is the point." [ref=e483] [cursor=pointer]:
+          - /url: plan.html
+          - generic [ref=e484]: When to go
+          - heading "Every month has an answer" [level=3] [ref=e485]
+          - paragraph [ref=e486]: Twelve months, the rain that comes with each, and what is at its peak. July is driest at 66 mm. November is wettest at 500 mm, which is the point.
+        - link "Getting there The road in, and the ferry Highway 4 across the island, then the last forty minutes of coast road shared with Ucluelet. Book the ferry crossing before you book the room." [ref=e487] [cursor=pointer]:
+          - /url: plan.html
+          - generic [ref=e488]: Getting there
+          - heading "The road in, and the ferry" [level=3] [ref=e489]
+          - paragraph [ref=e490]: Highway 4 across the island, then the last forty minutes of coast road shared with Ucluelet. Book the ferry crossing before you book the room.
+        - link "Where to stay 134 stays, from $320 Oceanfront cabins, town rentals and forest cottages. Storm season rooms face the water on purpose." [ref=e491] [cursor=pointer]:
+          - /url: search.html?in=tofino
+          - generic [ref=e492]: Where to stay
+          - heading "134 stays, from $320" [level=3] [ref=e493]
+          - paragraph [ref=e494]: Oceanfront cabins, town rentals and forest cottages. Storm season rooms face the water on purpose.
+        - link "What to pack Rain gear, on 205 days Tofino has measurable rain on 205 days in an average year. Bring the shell, and stop thinking of it as bad weather." [ref=e495] [cursor=pointer]:
+          - /url: plan.html
+          - generic [ref=e496]: What to pack
+          - heading "Rain gear, on 205 days" [level=3] [ref=e497]
+          - paragraph [ref=e498]: Tofino has measurable rain on 205 days in an average year. Bring the shell, and stop thinking of it as bad weather.
+    - generic [ref=e500]:
+      - generic [ref=e501]:
+        - generic [ref=e502]:
+          - text: Stays
+          - heading "134 places to stay in Tofino" [level=2] [ref=e503]
+          - paragraph [ref=e504]: Four of them here, from $320 a night. Prices in CAD, before taxes and fees.
+        - link "See all 134" [ref=e505] [cursor=pointer]:
+          - /url: search.html?in=tofino
+      - list [ref=e506]:
+        - listitem [ref=e507]:
+          - link "A bright living room with a long sofa and windows onto the trees Cozy Mountain Chalet with Sauna, Fireplace and Trails Nearby 2 rooms · 3 beds · 2 baths · 4.9 out of 5 $320 a night" [ref=e508] [cursor=pointer]:
+            - /url: search.html?in=tofino
+            - img "A bright living room with a long sofa and windows onto the trees" [ref=e510]
+            - generic [ref=e511]:
+              - generic [ref=e512]: Cozy Mountain Chalet with Sauna, Fireplace and Trails Nearby
+              - generic [ref=e513]: 2 rooms · 3 beds · 2 baths · 4.9 out of 5
+            - generic [ref=e514]:
+              - text: $320
+              - generic [ref=e515]: a night
+        - listitem [ref=e516]:
+          - link "Cedar cabins set back in the trees above the shoreline Riverside Cabin Retreat with Hot Tub and Forest Views 2 rooms · 3 beds · 2 baths · 4.9 out of 5 $420 a night" [ref=e517] [cursor=pointer]:
+            - /url: search.html?in=tofino
+            - img "Cedar cabins set back in the trees above the shoreline" [ref=e519]
+            - generic [ref=e520]:
+              - generic [ref=e521]: Riverside Cabin Retreat with Hot Tub and Forest Views
+              - generic [ref=e522]: 2 rooms · 3 beds · 2 baths · 4.9 out of 5
+            - generic [ref=e523]:
+              - text: $420
+              - generic [ref=e524]: a night
+        - listitem [ref=e525]:
+          - link "Wooden chairs on a lawn above the breaking surf Coastal Bed-Cliff Cottage with Private Beach and Firepit 2 rooms · 3 beds · 2 baths · 4.9 out of 5 $420 a night" [ref=e526] [cursor=pointer]:
+            - /url: search.html?in=tofino
+            - img "Wooden chairs on a lawn above the breaking surf" [ref=e528]
+            - generic [ref=e529]:
+              - generic [ref=e530]: Coastal Bed-Cliff Cottage with Private Beach and Firepit
+              - generic [ref=e531]: 2 rooms · 3 beds · 2 baths · 4.9 out of 5
+            - generic [ref=e532]:
+              - text: $420
+              - generic [ref=e533]: a night
+        - listitem [ref=e534]:
+          - link "A single cabin on a forested shoreline, seen from the air Lakefront Cottage with Private Dock and Canoes Included 2 rooms · 3 beds · 2 baths · 4.9 out of 5 $500 a night" [ref=e535] [cursor=pointer]:
+            - /url: search.html?in=tofino
+            - img "A single cabin on a forested shoreline, seen from the air" [ref=e537]
+            - generic [ref=e538]:
+              - generic [ref=e539]: Lakefront Cottage with Private Dock and Canoes Included
+              - generic [ref=e540]: 2 rooms · 3 beds · 2 baths · 4.9 out of 5
+            - generic [ref=e541]:
+              - text: $500
+              - generic [ref=e542]: a night
+    - generic [ref=e544]:
+      - generic [ref=e545]:
+        - generic [ref=e546]:
+          - text: Guides
+          - heading "What we have written about Tofino" [level=2] [ref=e547]
+          - paragraph [ref=e548]: 18 guides written on the ground here. These six first.
+        - link "All Tofino guides" [ref=e549] [cursor=pointer]:
+          - /url: search.html?q=&in=tofino
+      - generic [ref=e550]:
+        - link "Heavy surf breaking over the rocks on a grey winter day Storm watching Tofino 8 places to watch from Storm Watching in Tofino Tofino is not just a summer beach town. In winter it becomes one of the best places in Canada to watch storms, and the rooms that face the water are booked for exactly that reason." [ref=e551] [cursor=pointer]:
+          - /url: search.html?q=Storm%20Watching%20in%20Tofino&in=tofino
+          - img "Heavy surf breaking over the rocks on a grey winter day" [ref=e553]
+          - generic [ref=e554]:
+            - generic [ref=e555]: Storm watching
+            - generic [ref=e557]: Tofino
+            - generic [ref=e559]: 8 places to watch from
+          - heading "Storm Watching in Tofino" [level=3] [ref=e560]
+          - paragraph [ref=e561]: Tofino is not just a summer beach town. In winter it becomes one of the best places in Canada to watch storms, and the rooms that face the water are booked for exactly that reason.
+        - generic [ref=e562]:
+          - link "Whale watching in Tofino Whale watching Tofino Wildlife Tours in Tofino" [ref=e563] [cursor=pointer]:
+            - /url: guide.html
+            - img "Whale watching in Tofino" [ref=e565]
+            - generic [ref=e566]:
+              - generic [ref=e567]:
+                - generic [ref=e568]: Whale watching
+                - generic [ref=e570]: Tofino
+              - heading "Wildlife Tours in Tofino" [level=4] [ref=e571]
+          - link "Restaurants in Tofino Restaurants Tofino Where to Eat in Tofino" [ref=e572] [cursor=pointer]:
+            - /url: search.html?q=Where%20to%20Eat%20in%20Tofino&in=tofino
+            - img "Restaurants in Tofino" [ref=e574]
+            - generic [ref=e575]:
+              - generic [ref=e576]:
+                - generic [ref=e577]: Restaurants
+                - generic [ref=e579]: Tofino
+              - heading "Where to Eat in Tofino" [level=4] [ref=e580]
+          - link "Events in Tofino Events Tofino Pacific Rim Whale Festival Guide" [ref=e581] [cursor=pointer]:
+            - /url: search.html?q=Pacific%20Rim%20Whale%20Festival%20Guide&in=tofino
+            - img "Events in Tofino" [ref=e583]
+            - generic [ref=e584]:
+              - generic [ref=e585]:
+                - generic [ref=e586]: Events
+                - generic [ref=e588]: Tofino
+              - heading "Pacific Rim Whale Festival Guide" [level=4] [ref=e589]
+          - link "When to go in Tofino When to go Tofino Best Time to Stay in Ucluelet or Tofino" [ref=e590] [cursor=pointer]:
+            - /url: search.html?q=Best%20Time%20to%20Stay%20in%20Ucluelet%20or%20Tofino&in=tofino
+            - img "When to go in Tofino" [ref=e592]
+            - generic [ref=e593]:
+              - generic [ref=e594]:
+                - generic [ref=e595]: When to go
+                - generic [ref=e597]: Tofino
+              - heading "Best Time to Stay in Ucluelet or Tofino" [level=4] [ref=e598]
+          - link "Beaches in Tofino Beaches Tofino The Best Beaches in Tofino" [ref=e599] [cursor=pointer]:
+            - /url: search.html?q=The%20Best%20Beaches%20in%20Tofino&in=tofino
+            - img "Beaches in Tofino" [ref=e601]
+            - generic [ref=e602]:
+              - generic [ref=e603]:
+                - generic [ref=e604]: Beaches
+                - generic [ref=e606]: Tofino
+              - heading "The Best Beaches in Tofino" [level=4] [ref=e607]
+      - paragraph [ref=e608]:
+        - text: There are 12 more Tofino guides, on surfing, hiking, camping and when to come.
+        - link "Read all of them" [ref=e609] [cursor=pointer]:
+          - /url: search.html?q=&in=tofino
+        - text: .
+    - generic [ref=e611]:
+      - generic [ref=e612]:
+        - generic [ref=e613]:
+          - text: Questions
+          - heading "The questions people actually ask" [level=2] [ref=e614]
+          - paragraph [ref=e615]: Six of them here, answered properly.
+        - link "All of them, by subject" [ref=e616] [cursor=pointer]:
+          - /url: plan.html
+      - generic [ref=e617]:
+        - generic [ref=e618]:
+          - generic [ref=e619]: Camping
+          - heading "What is the best campground in Tofino?" [level=3] [ref=e620]
+          - paragraph [ref=e621]: Surf Grove is a top choice for Cox Bay surf access. Bella Pacifica is a classic family-friendly beach campground on tinwis/Mackenzie Beach. Crystal Cove is best for RV campers who want a resort-style stay.
+        - generic [ref=e622]:
+          - generic [ref=e623]: Surfing
+          - heading "Can beginners surf in Tofino?" [level=3] [ref=e624]
+          - paragraph [ref=e625]: Yes. Tofino is one of the best places in Canada for beginner surf lessons. Start with a surf school so you learn the right beach, gear, and safety steps.
+        - generic [ref=e626]:
+          - generic [ref=e627]: Kayaking and paddling
+          - heading "Where is the best place to kayak in Tofino?" [level=3] [ref=e628]
+          - paragraph [ref=e629]: Clayoquot Sound is the classic kayaking area. Meares Island is also popular because you can combine kayaking with the Big Tree Trail.
+        - generic [ref=e630]:
+          - generic [ref=e631]: Birding and wildlife
+          - heading "Can you see puffins in Tofino?" [level=3] [ref=e632]
+          - paragraph [ref=e633]: Yes, tufted puffins may be seen near Tofino, especially on summer boat tours near offshore rocks and islands. They are not usually easy to see from town beaches.
+        - generic [ref=e634]:
+          - generic [ref=e635]: Storm watching
+          - heading "Is storm watching in Tofino dangerous?" [level=3] [ref=e636]
+          - paragraph [ref=e637]: It can be dangerous if you get too close to the ocean. Watch from a safe distance, avoid wet rocks, and never turn your back on the waves.
+        - generic [ref=e638]:
+          - generic [ref=e639]: Restaurants
+          - heading "What is the best restaurant in Tofino?" [level=3] [ref=e640]
+          - paragraph [ref=e641]: Many visitors consider Wolf in the Fog one of the best restaurants in Tofino because it focuses on local seafood, foraged ingredients, cocktails, and west coast flavor. The Pointe Restaurant is another top choice for fine dining and ocean views.
+      - paragraph [ref=e642]:
+        - text: Another 34 questions are answered inside the Tofino guides, grouped by subject.
+        - link "See all 40" [ref=e643] [cursor=pointer]:
+          - /url: plan.html
+        - text: .
+    - generic [ref=e645]:
+      - generic [ref=e647]:
+        - text: Where this sits
+        - heading "Tofino is one of eleven towns on Vancouver Island" [level=2] [ref=e648]
+        - paragraph [ref=e649]: Two are published so far. The rest are being walked. The island page is one click from the top of every page.
+      - navigation "Published towns and levels above" [ref=e650]:
+        - link "Tofino 73 places · 134 stays Published. You are here." [ref=e651] [cursor=pointer]:
+          - /url: "#top"
+          - generic [ref=e652]: Tofino
+          - generic [ref=e653]: 73 places · 134 stays
+          - generic [ref=e654]: Published. You are here.
+        - link "Ucluelet 54 places · 158 stays Published. Forty minutes south on the same road, quieter, same weather." [ref=e655] [cursor=pointer]:
+          - /url: ucluelet.html
+          - generic [ref=e656]: Ucluelet
+          - generic [ref=e657]: 54 places · 158 stays
+          - generic [ref=e658]: Published. Forty minutes south on the same road, quieter, same weather.
+        - link "Vancouver Island 11 towns · 2 published The region. Every island town lives here." [ref=e659] [cursor=pointer]:
+          - /url: region.html
+          - generic [ref=e660]: Vancouver Island
+          - generic [ref=e661]: 11 towns · 2 published
+          - generic [ref=e662]: The region. Every island town lives here.
+        - link "British Columbia 4 regions · 15 towns The province, including Whistler, Squamish and Vancouver." [ref=e663] [cursor=pointer]:
+          - /url: index.html
+          - generic [ref=e664]: British Columbia
+          - generic [ref=e665]: 4 regions · 15 towns
+          - generic [ref=e666]: The province, including Whistler, Squamish and Vancouver.
+      - generic [ref=e667]:
+        - heading "The other nine, not published yet" [level=3] [ref=e668]
+        - paragraph [ref=e669]: We publish a town only once someone has walked it, photographed it and written it up. Nothing here is a stub.
+        - list [ref=e670]:
+          - listitem [ref=e671]: Victoria
+          - listitem [ref=e672]: Nanaimo
+          - listitem [ref=e673]: Campbell River
+          - listitem [ref=e674]: Parksville
+          - listitem [ref=e675]: Shawnigan Lake
+          - listitem [ref=e676]: Sooke
+          - listitem [ref=e677]: Sidney
+          - listitem [ref=e678]: Chemainus
+          - listitem [ref=e679]: Nanoose Bay
+        - link "Open the Vancouver Island page" [ref=e680] [cursor=pointer]:
+          - /url: region.html
+    - generic [ref=e685]:
+      - link [ref=e686] [cursor=pointer]:
+        - /url: whale-watching.html
+        - text: Next in this town
+        - heading "Whale watching in Tofino" [level=3] [ref=e687]
+        - paragraph [ref=e688]: Grey whales from March, resident humpbacks through the summer. Which boat, and what you will actually see.
+        - generic [ref=e689]: Read the guide
+      - link [ref=e692] [cursor=pointer]:
+        - /url: things-to-do.html
+        - text: More in Tofino
+        - heading "All nine subjects, 73 places" [level=3] [ref=e693]
+        - paragraph [ref=e694]: Every beach, trail, launch and table we have walked in this town, in one searchable index.
+        - generic [ref=e695]: Open the index
+      - link [ref=e698] [cursor=pointer]:
+        - /url: search.html?in=tofino
+        - text: The booking path
+        - heading "134 stays in Tofino" [level=3] [ref=e699]
+        - paragraph [ref=e700]: From $320 a night in CAD, before taxes and fees. Storm season rooms face the water for a reason.
+        - generic [ref=e701]: Search stays
+  - contentinfo [ref=e704]:
+    - generic [ref=e705]:
+      - generic [ref=e706]:
+        - generic [ref=e707]:
+          - generic [ref=e708]: ArcTrips
+          - paragraph [ref=e710]: Stays and guides on the west coast of Vancouver Island, written by people who go there.
+        - generic [ref=e711]:
+          - heading "This town" [level=5] [ref=e712]
+          - list [ref=e713]:
+            - listitem [ref=e714]:
+              - link "Tofino overview" [ref=e715] [cursor=pointer]:
+                - /url: "#top"
+            - listitem [ref=e716]:
+              - link "Things to do" [ref=e717] [cursor=pointer]:
+                - /url: things-to-do.html
+            - listitem [ref=e718]:
+              - link "Long Beach" [ref=e719] [cursor=pointer]:
+                - /url: long-beach.html
+            - listitem [ref=e720]:
+              - link "Plan" [ref=e721] [cursor=pointer]:
+                - /url: plan.html
+            - listitem [ref=e722]:
+              - link "Guides" [ref=e723] [cursor=pointer]:
+                - /url: guide.html
+        - generic [ref=e724]:
+          - heading "Up the tree" [level=5] [ref=e725]
+          - list [ref=e726]:
+            - listitem [ref=e727]:
+              - link "Ucluelet" [ref=e728] [cursor=pointer]:
+                - /url: ucluelet.html
+            - listitem [ref=e729]:
+              - link "Vancouver Island" [ref=e730] [cursor=pointer]:
+                - /url: region.html
+            - listitem [ref=e731]:
+              - link "British Columbia" [ref=e732] [cursor=pointer]:
+                - /url: index.html
+        - generic [ref=e733]:
+          - heading "Subjects" [level=5] [ref=e734]
+          - list [ref=e735]:
+            - listitem [ref=e736]:
+              - link "Whale watching" [ref=e737] [cursor=pointer]:
+                - /url: whale-watching.html
+            - listitem [ref=e738]:
+              - link "Beaches" [ref=e739] [cursor=pointer]:
+                - /url: beaches-tofino.html
+            - listitem [ref=e740]:
+              - link "Hiking and trails" [ref=e741] [cursor=pointer]:
+                - /url: hiking-tofino.html
+            - listitem [ref=e742]:
+              - link "Search everything" [ref=e743] [cursor=pointer]:
+                - /url: search.html?in=tofino
+        - generic [ref=e744]:
+          - heading "Arc Trips" [level=5] [ref=e745]
+          - list [ref=e746]:
+            - listitem [ref=e747]:
+              - link "About us" [ref=e748] [cursor=pointer]:
+                - /url: not-found.html
+            - listitem [ref=e749]:
+              - link "List your place" [ref=e750] [cursor=pointer]:
+                - /url: not-found.html
+            - listitem [ref=e751]:
+              - link "Fishing charters" [ref=e752] [cursor=pointer]:
+                - /url: things-to-do.html#fishing
+            - listitem [ref=e753]:
+              - link "Contact" [ref=e754] [cursor=pointer]:
+                - /url: not-found.html
+      - generic [ref=e755]:
+        - generic [ref=e756]: © 2026 Arc Trips
+        - generic [ref=e757]: Prices in CAD, before taxes and fees.

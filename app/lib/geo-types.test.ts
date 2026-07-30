@@ -10,8 +10,7 @@ function node(slug: string, type: GeoNode["type"]): GeoNode {
 
 describe("isLegalChildType", () => {
   it("allows the canonical chain", () => {
-    expect(isLegalChildType(null, "country")).toBe(true);
-    expect(isLegalChildType("country", "province")).toBe(true);
+    expect(isLegalChildType(null, "province")).toBe(true);
     expect(isLegalChildType("province", "town")).toBe(true);
     expect(isLegalChildType("province", "region")).toBe(true);
     expect(isLegalChildType("region", "town")).toBe(true);
@@ -20,25 +19,33 @@ describe("isLegalChildType", () => {
 
   it("rejects skipped and inverted tiers", () => {
     expect(isLegalChildType(null, "town")).toBe(false);
-    expect(isLegalChildType("country", "town")).toBe(false);
+    expect(isLegalChildType(null, "region")).toBe(false);
     expect(isLegalChildType("region", "region")).toBe(false);
     expect(isLegalChildType("area", "area")).toBe(false);
     expect(isLegalChildType("town", "town")).toBe(false);
+  });
+
+  // Canada left the tree on 2026-07-30, see docs/qa/bc-root-contract.md. A
+  // historical country row cannot be walked into or out of.
+  it("keeps a country node out of the tree in both directions", () => {
+    expect(isLegalChildType(null, "country")).toBe(false);
+    expect(isLegalChildType("country", "province")).toBe(false);
+    expect(isLegalChildType("country", "town")).toBe(false);
   });
 });
 
 describe("geoPath", () => {
   it("builds a path without a region", () => {
-    const trail = [node("canada", "country"), node("bc", "province"), node("tofino", "town")];
-    expect(geoPath(trail)).toBe("/destinations/canada/bc/tofino");
+    const trail = [node("bc", "province"), node("tofino", "town")];
+    expect(geoPath(trail)).toBe("/destinations/bc/tofino");
   });
 
   it("builds a path with a region and an area", () => {
     const trail = [
-      node("canada", "country"), node("bc", "province"),
+      node("bc", "province"),
       node("vancouver-island", "region"), node("tofino", "town"), node("long-beach", "area"),
     ];
-    expect(geoPath(trail)).toBe("/destinations/canada/bc/vancouver-island/tofino/long-beach");
+    expect(geoPath(trail)).toBe("/destinations/bc/vancouver-island/tofino/long-beach");
   });
 
   it("returns the landing path for an empty trail", () => {
@@ -46,24 +53,24 @@ describe("geoPath", () => {
   });
 
   it("never emits a trailing slash", () => {
-    expect(geoPath([node("canada", "country")]).endsWith("/")).toBe(false);
+    expect(geoPath([node("bc", "province")]).endsWith("/")).toBe(false);
   });
 });
 
 describe("guidePath", () => {
   it("builds a town-scoped guide path", () => {
-    const trail = [node("canada", "country"), node("bc", "province"), node("tofino", "town")];
-    expect(guidePath(trail, "getting-there")).toBe("/travel-guides/canada/bc/tofino/getting-there");
+    const trail = [node("bc", "province"), node("tofino", "town")];
+    expect(guidePath(trail, "getting-there")).toBe("/travel-guides/bc/tofino/getting-there");
   });
 
   it("builds a province-scoped guide path", () => {
-    const trail = [node("canada", "country"), node("bc", "province")];
-    expect(guidePath(trail, "top-ski-mountains")).toBe("/travel-guides/canada/bc/top-ski-mountains");
+    const trail = [node("bc", "province")];
+    expect(guidePath(trail, "top-ski-mountains")).toBe("/travel-guides/bc/top-ski-mountains");
   });
 
   it("builds a scope index path when no guide slug is given", () => {
-    const trail = [node("canada", "country"), node("bc", "province"), node("tofino", "town")];
-    expect(guidePath(trail)).toBe("/travel-guides/canada/bc/tofino");
+    const trail = [node("bc", "province"), node("tofino", "town")];
+    expect(guidePath(trail)).toBe("/travel-guides/bc/tofino");
   });
 });
 

@@ -1,0 +1,418 @@
+- generic [active] [ref=f1e1]:
+  - navigation [ref=f1e2]:
+    - generic [ref=f1e3]:
+      - link "ArcTrips" [ref=f1e4] [cursor=pointer]:
+        - /url: index.html
+      - list [ref=f1e6]:
+        - listitem [ref=f1e7]:
+          - link "Stays" [ref=f1e8] [cursor=pointer]:
+            - /url: search.html?in=banff
+        - listitem [ref=f1e9]:
+          - link "Destinations" [ref=f1e10] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=f1e11]:
+          - link "Guides" [ref=f1e12] [cursor=pointer]:
+            - /url: search.html?in=banff
+      - generic [ref=f1e13]:
+        - textbox "Search" [ref=f1e17]:
+          - /placeholder: Search Banff
+        - generic [ref=f1e18]: /
+      - link "Sign in" [ref=f1e19] [cursor=pointer]:
+        - /url: search.html?in=banff
+  - navigation "Banff" [ref=f1e20]:
+    - generic [ref=f1e21]:
+      - link "← Arc Trips" [ref=f1e22] [cursor=pointer]:
+        - /url: index.html
+      - list [ref=f1e24]:
+        - listitem [ref=f1e25]:
+          - link "Overview" [ref=f1e26] [cursor=pointer]:
+            - /url: "#top"
+        - listitem [ref=f1e27]:
+          - link "Stays" [ref=f1e28] [cursor=pointer]:
+            - /url: search.html?in=banff
+        - listitem [ref=f1e29]:
+          - link "All destinations" [ref=f1e30] [cursor=pointer]:
+            - /url: index.html
+      - link "Find a stay" [ref=f1e31] [cursor=pointer]:
+        - /url: search.html?in=banff
+  - main [ref=f1e32]:
+    - generic [ref=f1e33]:
+      - navigation "Breadcrumb" [ref=f1e34]:
+        - link "Arc Trips" [ref=f1e35] [cursor=pointer]:
+          - /url: index.html
+        - generic [ref=f1e36]: /
+        - generic [ref=f1e37]: Banff
+      - paragraph [ref=f1e38]: Arc Trips publishes in British Columbia. Banff is not part of the published tree yet.
+    - generic [ref=f1e39]:
+      - img "Banff, Alberta" [ref=f1e40]
+      - generic [ref=f1e43]:
+        - text: Alberta
+        - heading "Banff" [level=1] [ref=f1e44]
+        - paragraph [ref=f1e45]: Lake Louise, often referred to as the Jewel of the Rockies, is known worldwide for its calm turquoise waters framed by mountains and the Fairmont Chateau hotel. The lake’s most famous feature is its vivid blue-green color. This isn't a trick of the light; it’s the result of rock flour, fine particles of glacial silt that remain suspended in the water.
+        - generic [ref=f1e46]:
+          - generic [ref=f1e47]:
+            - term [ref=f1e48]: Places written up
+            - definition [ref=f1e49]: "39"
+          - generic [ref=f1e50]:
+            - term [ref=f1e51]: With photographs
+            - definition [ref=f1e52]: "39"
+          - generic [ref=f1e53]:
+            - term [ref=f1e54]: Guides
+            - definition [ref=f1e55]: "1"
+    - navigation "Sections" [ref=f1e57]:
+      - link "World-Known Landmarks" [ref=f1e58] [cursor=pointer]:
+        - /url: "#world-known-landmarks"
+      - link "Art and History Lovers" [ref=f1e59] [cursor=pointer]:
+        - /url: "#art-and-history-lovers"
+      - link "Outdoor Attractions" [ref=f1e60] [cursor=pointer]:
+        - /url: "#outdoor-attractions"
+      - link "Other Interesting Places" [ref=f1e61] [cursor=pointer]:
+        - /url: "#other-interesting-places"
+    - generic [ref=f1e63]:
+      - generic [ref=f1e64]:
+        - text: World-Known Landmarks
+        - heading "World-Known Landmarks" [level=2] [ref=f1e65]
+        - paragraph [ref=f1e66]: 10 places
+      - generic [ref=f1e67]:
+        - article [ref=f1e68]:
+          - figure [ref=f1e69]:
+            - img "1. Lake Louise, Banff" [ref=f1e70]
+          - generic [ref=f1e71]:
+            - heading "1. Lake Louise" [level=3] [ref=f1e72]
+            - paragraph [ref=f1e73]: The mistake most people make is just standing at the shoreline, snapping a photo, and leaving. To truly experience Lake Louise, you have to move.
+            - paragraph [ref=f1e74]: "Shoreline Stroll (Easy): A flat, 2km paved trail that follows the water's edge. It gives you multiple angles of the Victoria Glacier and the Fairmont Chateau without much effort."
+        - article [ref=f1e75]:
+          - figure [ref=f1e76]:
+            - img "2. Moraine Lake, Banff" [ref=f1e77]
+          - generic [ref=f1e78]:
+            - heading "2. Moraine Lake" [level=3] [ref=f1e79]
+            - paragraph [ref=f1e80]: Moraine Lake, widely considered the most stunning alpine lake in the world, is famous for its electric blue waters tucked into the rugged Valley of the Ten Peaks. This view is so iconic it was once featured on the back of the Canadian $20 bill, earning it the nickname "The Twenty Dollar View."
+            - paragraph [ref=f1e81]: Like its neighbor Lake Louise, Moraine’s surreal color comes from rock flour, silt from grinding glaciers that stays suspended in the water and reflects the light. Because the lake is at a higher elevation, it stays frozen longer and reaches its most vibrant, Gatorade-blue peak in late June.
+            - paragraph [ref=f1e82]: "Rockpile Trail (Easy): This is the non-negotiable, 5-minute hike. Follow the stairs to the top of the natural dam for that famous postcard vista. It’s the best spot for photography, but be prepared to share the space with other travelers."
+        - article [ref=f1e83]:
+          - figure [ref=f1e84]:
+            - img "3. Banff Gondola, Banff" [ref=f1e85]
+          - generic [ref=f1e86]:
+            - heading "3. Banff Gondola" [level=3] [ref=f1e87]
+            - paragraph [ref=f1e88]: The Banff Gondola is the park’s premier high-altitude experience, whisking you to the summit of Sulphur Mountain in a scenic 8-minute ride. While many peaks in Banff require a grueling hike to reach the top, the gondola provides access to 360-degree views of six different mountain ranges and the sprawling Bow Valley below. At the summit, you'll find a state-of-the-art terminal that feels more like a mountain fortress, complete with interactive museums, fine dining, and a massive rooftop observation deck.
+            - paragraph [ref=f1e89]: "Sulphur Mountain Boardwalk (Easy): A 1km self-guided wooden walkway that leads you across the ridge to Sanson’s Peak. It’s relatively flat and offers the most famous views of the town of Banff and the Fairmont Banff Springs hotel far below."
+            - paragraph [ref=f1e90]: "Cosmic Ray Station & Weather Observatory: At the end of the boardwalk, you can visit the historic 1903 weather station. It’s a National Historic Site and a window into the rugged life of early mountain meteorologists."
+        - article [ref=f1e91]:
+          - figure [ref=f1e92]:
+            - img "4. Bow Falls, Banff" [ref=f1e93]
+          - generic [ref=f1e94]:
+            - heading "4. Bow Falls" [level=3] [ref=f1e95]
+            - paragraph [ref=f1e96]: Bow Falls is one of the most powerful and easily accessible natural landmarks in Banff National Park. Unlike the towering, vertical drops of the high alpine, Bow Falls is a wide, thundering cascade where the emerald Bow River drops 30 feet over a ledge of ancient limestone. It gained Hollywood fame in the 1950s as a filming location for Marilyn Monroe’s River of No Return, and today it remains a must-visit for its raw energy and the iconic view it offers of the Castle in the Rockies towering in the background.
+            - paragraph [ref=f1e97]: "Main Viewpoint (Easy): Located right next to the parking area, this spot gives you a front-row seat to the falls. The sound is immense, and on windy days, you’ll feel a refreshing mist from the churning water."
+            - paragraph [ref=f1e98]: "Bow River Trail (Easy): A scenic 1.2km walk from the town of Banff. This forested trail follows the river and provides several quiet benches where you can watch the water transition from a calm turquoise stream to the crashing falls."
+        - article [ref=f1e99]:
+          - figure [ref=f1e100]:
+            - img "5. Peyto Lake, Banff" [ref=f1e101]
+          - generic [ref=f1e102]:
+            - heading "5. Peyto Lake" [level=3] [ref=f1e103]
+            - paragraph [ref=f1e104]: Peyto Lake is a world-renowned glacier-fed waterway nestled in the Waputik Range of the Canadian Rockies. It is famous for its vibrant, surreal turquoise color and its distinct shape, which many visitors observe resembles the head of a wolf when viewed from above. The lake's brilliant hue is caused by rock flour reflecting the blue-green spectrum of sunlight.
+            - paragraph [ref=f1e105]: "Bow Summit Viewpoint (Easy): This is the most popular spot to see the lake. A short, paved uphill walk from the parking lot leads to a wooden viewing platform that offers the classic wolf's head vista."
+            - paragraph [ref=f1e106]: "Peyto Lake Panorama Overlook (Moderate): For those looking to escape the main crowds, a slightly longer trail continues past the main platform to a more rugged, open rocky area. It provides a wider, unobstructed panorama of the lake and the Mistaya Valley."
+        - article [ref=f1e107]:
+          - figure [ref=f1e108]:
+            - img "6. Lake Minnewanka, Banff" [ref=f1e109]
+          - generic [ref=f1e110]:
+            - heading "6. Lake Minnewanka" [level=3] [ref=f1e111]
+            - paragraph [ref=f1e112]: Lake Minnewanka, known to the Stoney Nakoda First Nations as the Water of the Spirits, is the largest lake in Banff National Park. Spanning 21 kilometers in length, this glacial giant is steeped in folklore and natural beauty. Unlike many of the smaller alpine lakes in the region, Minnewanka is deep, mysterious, and famously home to a submerged resort town from the early 20th century, which now serves as a haunting underwater playground for scuba divers.
+            - paragraph [ref=f1e113]: Minnewanka is the only lake in the park that allows limited power boating, making it a hub for water-based activities that you won't find at Lake Louise or Moraine.
+            - paragraph [ref=f1e114]: "Lake Minnewanka Cruise: This is the most popular way to see the lake. A guided boat tour takes you deep into the jagged mountains of the Devil's Gap, where you can learn about the local legends and the history of the sunken village of Minnewanka Landing."
+        - article [ref=f1e115]:
+          - figure [ref=f1e116]:
+            - img "7. Banff Upper Hot Springs, Banff" [ref=f1e117]
+          - generic [ref=f1e118]:
+            - heading "7. Banff Upper Hot Springs" [level=3] [ref=f1e119]
+            - paragraph [ref=f1e120]: Banff Upper Hot Springs is a premier relaxation destination located at an elevation of 1,585 meters, making it the highest thermal mineral spring in Canada. This historic site offers visitors the chance to soak in naturally heated, mineral-rich waters while enjoying sweeping views of Mount Rundle and the Bow Valley.
+            - paragraph [ref=f1e121]: The springs are housed in a beautifully preserved 1930s-style bathhouse, providing a nostalgic atmosphere that celebrates the early days of alpine tourism in the Rockies.
+            - paragraph [ref=f1e122]: "Mineral-Rich Waters: The water is 100% natural and contains a unique blend of sulfate, calcium, bicarbonate, magnesium, and sodium, typically maintained at a soothing temperature between 37°C and 40°C (98°F to 104°F)."
+        - article [ref=f1e123]:
+          - figure [ref=f1e124]:
+            - img "8. Sunshine Meadows, Banff" [ref=f1e125]
+          - generic [ref=f1e126]:
+            - heading "8. Sunshine Meadows" [level=3] [ref=f1e127]
+            - paragraph [ref=f1e128]: Sunshine Meadows, often described as the most stunning alpine setting in the Canadian Rockies, sits on the Continental Divide at an elevation of roughly 2,220 meters. This high-altitude plateau is famous for its wide-open meadows that burst into a sea of wildflowers in the summer and turn a fiery gold during the larch season in autumn. Because it is accessed via a gondola and shuttle from the Banff Sunshine Village base, you are essentially transported directly into the high alpine without the grueling thousand-meter climb usually required to see such vistas.
+            - paragraph [ref=f1e129]: The trail network here is designed to be accessible, offering top-of-the-world views with relatively gentle elevation changes.
+            - paragraph [ref=f1e130]: "Standish Viewing Deck: After taking the Standish Chairlift, a short walk leads you to this platform. It offers a 360-degree panorama of three alpine lakes, Rock Isle, Larix, and Grizzly, framed by towering peaks like Mount Assiniboine, the Matterhorn of the Rockies."
+        - article [ref=f1e131]:
+          - figure [ref=f1e132]:
+            - img "9. Johnston Canyon, Banff" [ref=f1e133]
+          - generic [ref=f1e134]:
+            - heading "9. Johnston Canyon" [level=3] [ref=f1e135]
+            - paragraph [ref=f1e136]: Johnston Canyon is one of the most popular and dramatic natural attractions in Banff National Park, famous for its deep limestone chasms and thundering waterfalls. This landmark features a unique system of steel catwalks built directly into the canyon walls, allowing you to walk suspended over the rushing waters of Johnston Creek. It offers a spectacular, close-up look at the power of water erosion and is accessible to hikers of various skill levels.
+            - paragraph [ref=f1e137]: The canyon is essentially a tiered experience, with most visitors choosing between two primary turnaround points.
+            - paragraph [ref=f1e138]: "Lower Falls (Easy): A relatively flat 1.1km walk leads to the Lower Falls. Here, you can cross a footbridge for a head-on view or walk through a short rock tunnel to feel the mist and hear the roar of the water from just a few feet away."
+        - article [ref=f1e139]:
+          - figure [ref=f1e140]:
+            - img "10. Banff Avenue, Banff" [ref=f1e141]
+          - generic [ref=f1e142]:
+            - heading "10. Banff Avenue" [level=3] [ref=f1e143]
+            - paragraph [ref=f1e144]: Banff Avenue is the vibrant, bustling heart of the Banff townsite. More than just a street, it is a world-famous thoroughfare that perfectly aligns with the massive peaks of Cascade Mountain, creating one of the most photographed urban vistas in North America. Lined with mountain-style architecture, it serves as the central hub for shopping, dining, and nightlife within the park, offering a lively mountain town atmosphere that stays active year-round.
+            - paragraph [ref=f1e145]: "Cascade View: The iconic money shot is looking north down the center of the avenue toward Cascade Mountain. The street was specifically designed to frame this peak, and it is a must-do photo for every visitor."
+            - paragraph [ref=f1e146]: "Shopping & Galleries: From high-end outdoor gear shops like Helly Hansen and Patagonia to local art at the Canada House Gallery, the street is a treasure trove for shoppers. You’ll also find plenty of classic Banff souvenirs like maple syrup and indigenous-made jewelry."
+    - generic [ref=f1e148]:
+      - generic [ref=f1e149]:
+        - text: Art and History Lovers
+        - heading "Art and History Lovers" [level=2] [ref=f1e150]
+        - paragraph [ref=f1e151]: 9 places
+      - generic [ref=f1e152]:
+        - article [ref=f1e153]:
+          - figure [ref=f1e154]:
+            - img "1. Cave and Basin National Historic Site, Banff" [ref=f1e155]
+          - generic [ref=f1e156]:
+            - heading "1. Cave and Basin National Historic Site" [level=3] [ref=f1e157]
+            - paragraph [ref=f1e158]: The Cave and Basin National Historic Site is celebrated as the birthplace of Canada's national parks system. Located at the site of natural thermal mineral springs on Sulphur Mountain, it holds deep cultural and spiritual significance for many Indigenous nations who have gathered here for thousands of years. Today, it serves as a gathering place to share stories of conservation and the connection between people and the land.
+            - paragraph [ref=f1e159]: "Cave and Basin: You can walk through a rock tunnel into the natural grotto to see the bubbling thermal waters and smell the rich minerals (and the distinctive rotten egg sulphur scent) that first drew railway workers here in 1883."
+            - paragraph [ref=f1e160]: "Discovery Boardwalk: This raised wooden walkway leads you up the hillside past smaller thermal pools and streams, offering informational displays about the unique local ecosystem."
+        - article [ref=f1e161]:
+          - figure [ref=f1e162]:
+            - img "2. Banff Park Museum, Banff" [ref=f1e163]
+          - generic [ref=f1e164]:
+            - heading "2. Banff Park Museum" [level=3] [ref=f1e165]
+            - paragraph [ref=f1e166]: The Banff Park Museum National Historic Site is the oldest natural history museum in Western Canada and serves as a fascinating museum of a museum. It offers a glimpse into how the natural world was understood and displayed during the Victorian era, housed within a magnificent log structure that is a landmark in its own right.
+            - paragraph [ref=f1e167]: "Victorian Architecture: The building itself, constructed in 1903, is a masterpiece of the railway pagoda style, featuring intricate Douglas Fir woodwork and a grand sky-lit atrium."
+            - paragraph [ref=f1e168]: "Natural History Collection: Visitors can explore over 5,000 vintage taxidermy specimens, including bears, mountain goats, and birds, all preserved in their original glass display cases."
+        - article [ref=f1e169]:
+          - figure [ref=f1e170]:
+            - img "3. Buffalo Nations Museum Banff" [ref=f1e171]
+          - generic [ref=f1e172]:
+            - heading "3. Buffalo Nations Museum" [level=3] [ref=f1e173]
+            - paragraph [ref=f1e174]: The Buffalo Nations Museum (also known as the Buffalo Nations Luxton Museum) is a dedicated cultural space that honors the heritage and daily life of the First Nations people of the Northern Plains and Canadian Rockies. Housed in a building designed to resemble a traditional log fort, it offers a deep dive into the spiritual and historical traditions of the Stoney Nakoda, Blackfoot, Tsuut’ina, and Ktunaxa nations.
+            - paragraph [ref=f1e175]: "Rich Artifact Collection: Visitors can explore an extensive array of traditional items, including intricately beaded buckskin clothing, feather headdresses, and authentic tipis."
+            - paragraph [ref=f1e176]: "Cultural Exhibits: The museum features dioramas and displays that illustrate traditional hunting practices, sun dances, and the profound relationship between the Indigenous people and the buffalo."
+        - article [ref=f1e177]:
+          - figure [ref=f1e178]:
+            - img "4. Whyte Museum of the Canadian Rockies, Banff" [ref=f1e179]
+          - generic [ref=f1e180]:
+            - heading "4. Whyte Museum of the Canadian Rockies" [level=3] [ref=f1e181]
+            - paragraph [ref=f1e182]: The Whyte Museum of the Canadian Rockies is a cornerstone of Banff’s cultural landscape, offering an immersive look at the artistic and historical evolution of the region. Founded by local artists and philanthropists Peter and Catharine Whyte, the museum serves as a bridge between the raw natural beauty of the Rockies and the human stories of those who have explored, painted, and lived among them.
+            - paragraph [ref=f1e183]: "Diverse Art Galleries: The museum features rotating exhibitions that range from historical landscape paintings by early alpine artists to contemporary works by modern regional creators."
+            - paragraph [ref=f1e184]: "Heritage Homes & Cabins: Visitors can tour preserved historical structures on the museum grounds, including the 1931 Whyte home and several rustic cabins that belonged to early pioneers and mountain guides."
+        - article [ref=f1e185]:
+          - figure [ref=f1e186]:
+            - img "5. Mountain Galleries at the Fairmont Banff Springs, Banff" [ref=f1e187]
+          - generic [ref=f1e188]:
+            - heading "5. Mountain Galleries at the Fairmont Banff Springs" [level=3] [ref=f1e189]
+            - paragraph [ref=f1e190]: Mountain Galleries at the Fairmont Banff Springs is a sophisticated art space located within the historic Castle in the Rockies. The gallery is dedicated to supporting and promoting Canadian artists, with a particular focus on those who draw inspiration from the rugged beauty of the national parks. It offers a museum-quality experience in a commercial setting, showcasing a diverse range of styles from traditional realism to bold contemporary abstraction.
+            - paragraph [ref=f1e191]: "Diverse Mediums: The collection features an impressive array of fine art, including oil and acrylic paintings, intricate bronze sculptures, and unique glasswork."
+            - paragraph [ref=f1e192]: "Signature Artists: Visitors can explore works by established Canadian masters and emerging talents who specialize in capturing the light and texture of the alpine landscape."
+        - article [ref=f1e193]:
+          - figure [ref=f1e194]:
+            - img "6. National Park Administration Building, Banff" [ref=f1e195]
+          - generic [ref=f1e196]:
+            - heading "6. National Park Administration Building" [level=3] [ref=f1e197]
+            - paragraph [ref=f1e198]: The Banff National Park Administration Building is one of the most iconic and photographed architectural landmarks in the park. Situated at the southern end of Banff Avenue, this historic site serves as the administrative hub for the park and is framed perfectly by the massive Cascade Mountain in the distance.
+            - paragraph [ref=f1e199]: The building is renowned for its stunning Railway Gothic architecture and its world-class terraced gardens, which are a highlight for visitors during the warmer months.
+            - paragraph [ref=f1e200]: "Historic Architecture: Completed in 1936, the building features beautiful local limestone and Rundle stone, reflecting the rustic, mountainous aesthetic mandated for early park structures."
+        - article [ref=f1e201]:
+          - figure [ref=f1e202]:
+            - img "7. Cascade Gardens, Banff" [ref=f1e203]
+          - generic [ref=f1e204]:
+            - heading "7. Cascade Gardens" [level=3] [ref=f1e205]
+            - paragraph [ref=f1e206]: Cascade of Time Garden, often simply called Cascade Gardens, is a meticulously designed four-acre park located behind the Banff National Park Administration Building. Designed by Harold Burden in the 1930s, the gardens are engineered to provide a tranquil escape from the bustling downtown area. The layout uses terraced stone pathways and cascading water features to create a sense of moving through different geological eras, offering a peaceful retreat with some of the best mountain framing in the park.
+            - paragraph [ref=f1e207]: "Terraced Walkways: Wind your way up the stone stairs and paths to discover secluded benches, rustic wooden gazebos, and hidden reflecting pools. Each level offers a different perspective of the surrounding peaks and the town below."
+            - paragraph [ref=f1e208]: "Floral Displays: From late spring through autumn, the gardens are a riot of color. You'll find a vast variety of annuals and perennials, including vibrant tulips in May and lush sunflowers and begonias in August."
+        - article [ref=f1e209]:
+          - figure [ref=f1e210]:
+            - img "8. St. Paul’s Presbyterian Church Banff" [ref=f1e211]
+          - generic [ref=f1e212]:
+            - heading "8. St. Paul’s Presbyterian Church" [level=3] [ref=f1e213]
+            - paragraph [ref=f1e214]: St. Paul’s Presbyterian Church is a landmark historic church situated prominently on Banff Avenue. Known for its traditional stone architecture and welcoming presence, it has served the local community and visitors since the early days of the townsite. The building itself is a beautiful example of mountain-style ecclesiastical design, perfectly complementing the rugged scenery of Banff National Park.
+            - paragraph [ref=f1e215]: "Historic Architecture: Admire the classic Rundle stone exterior and the traditional wooden interior, which reflect the rustic aesthetic of the 1920s and 30s in the Canadian Rockies."
+            - paragraph [ref=f1e216]: "Sunday Services: Visitors are welcome to attend the weekly morning worship services, which often feature a mix of traditional hymns and contemporary reflections."
+        - article [ref=f1e217]:
+          - figure [ref=f1e218]:
+            - img "9. Sulphur Mountain Cosmic Ray Station National Historic Site Banff" [ref=f1e219]
+          - generic [ref=f1e220]:
+            - heading "9. Sulphur Mountain Cosmic Ray Station National Historic Site" [level=3] [ref=f1e221]
+            - paragraph [ref=f1e222]: The Sulphur Mountain Cosmic Ray Station National Historic Site is a unique high-altitude laboratory located at the summit of Sulphur Mountain. Built in 1957 as part of Canada's contribution to the International Geophysical Year, it was once a hub for world-class research on cosmic rays. Today, the remains of the station serve as a fascinating historical landmark, providing a glimpse into the early days of space science while offering some of the most dramatic views in Banff National Park.
+            - paragraph [ref=f1e223]: Unlike the modern facilities at the nearby gondola terminal, this site offers a more rugged and historic experience at the very peak of the mountain.
+            - paragraph [ref=f1e224]: "Historic Remains: You can explore the concrete foundations and interpretive panels that detail how scientists lived and worked at this extreme altitude to study subatomic particles from outer space."
+    - generic [ref=f1e226]:
+      - generic [ref=f1e227]:
+        - text: Outdoor Attractions
+        - heading "Outdoor Attractions" [level=2] [ref=f1e228]
+        - paragraph [ref=f1e229]: 10 places
+      - generic [ref=f1e230]:
+        - article [ref=f1e231]:
+          - figure [ref=f1e232]:
+            - img "1. Bow Valley Parkway, Banff" [ref=f1e233]
+          - generic [ref=f1e234]:
+            - heading "1. Bow Valley Parkway" [level=3] [ref=f1e235]
+            - paragraph [ref=f1e236]: The Bow Valley Parkway is a world-class scenic heritage road that serves as the tranquil alternative to the high-speed Trans-Canada Highway. Stretching 48 kilometers between the town of Banff and Lake Louise, this winding route is designed for slow travel, offering deep immersion into the montane ecosystem. It is widely considered the best place in the park for wildlife viewing and provides access to some of the most iconic hiking and historical stops in the Canadian Rockies.
+            - paragraph [ref=f1e237]: "Wildlife Viewing: This is the park's premier wildlife corridor. It is very common to spot grizzly and black bears, elk, wolves, and bighorn sheep along the grassy verges, especially in the early morning or late evening."
+            - paragraph [ref=f1e238]: "Castle Mountain Viewpoint: One of the most dramatic mountain silhouettes in the world. There is a dedicated pull-off that offers a perfect, unobstructed view of the fortress-like peaks of Castle Mountain."
+        - article [ref=f1e239]:
+          - figure [ref=f1e240]:
+            - img "2. Parker Ridge Trail, Banff" [ref=f1e241]
+          - generic [ref=f1e242]:
+            - heading "2. Parker Ridge Trail" [level=3] [ref=f1e243]
+            - paragraph [ref=f1e244]: The Parker Ridge Trail is widely considered one of the most rewarding short hikes in the Canadian Rockies. Located at the northern edge of Banff National Park, this trail offers a high-altitude experience with relatively little effort, leading hikers to a spectacular viewpoint overlooking the massive Saskatchewan Glacier.
+            - paragraph [ref=f1e245]: "Saskatchewan Glacier View: The primary highlight is the stunning, in-your-face view of the 8-kilometer-long Saskatchewan Glacier, which is the largest outlet glacier of the Columbia Icefield."
+            - paragraph [ref=f1e246]: "Geological Wonders: The ridge is an ancient coral reef dating back 380 million years; hikers often find fossils of ancient coral and gastropods embedded in the rocks along the path."
+        - article [ref=f1e247]:
+          - figure [ref=f1e248]:
+            - img "3. Vermilion Lakes, Banff" [ref=f1e249]
+          - generic [ref=f1e250]:
+            - heading "3. Vermilion Lakes" [level=3] [ref=f1e251]
+            - paragraph [ref=f1e252]: Vermilion Lakes is a year-round destination located just west of the Banff townsite, consisting of a series of three shallow lakes formed by the Bow River. This area is a quintessential stop for those looking to experience the tranquil side of the Rockies, as it sits at the foot of Mount Norquay and directly across from the iconic, jagged peak of Mount Rundle.
+            - paragraph [ref=f1e253]: Vermilion Lakes is highly regarded by visitors for its accessibility and its role as a premier location for witnessing the interplay of light and landscape.
+            - paragraph [ref=f1e254]: "Photography Hub: It is arguably the best place in the park to capture the reflection of Mount Rundle in still water, especially during sunrise and sunset when the peaks glow with alpenglow."
+        - article [ref=f1e255]:
+          - figure [ref=f1e256]:
+            - img "4. Tunnel Mountain Trail, Banff" [ref=f1e257]
+          - generic [ref=f1e258]:
+            - heading "4. Tunnel Mountain Trail" [level=3] [ref=f1e259]
+            - paragraph [ref=f1e260]: The Tunnel Mountain Trail is the most popular hike in Banff for a reason, it’s accessible directly from the townsite and offers a significant reward for a relatively modest effort. Historically called "Sleeping Buffalo" by the Stoney Nakoda, this peak is a favorite for locals and visitors alike who want a quick summit experience without a full day’s commitment.
+            - paragraph [ref=f1e261]: "Scenic Switchbacks: The well-graded trail winds up the mountain through a series of switchbacks, keeping the incline steady and manageable while providing constant glimpses of the town through the trees."
+            - paragraph [ref=f1e262]: "Panoramic Summits: Once you reach the top, you are treated to 360-degree views, including a classic look down at the Fairmont Banff Springs and the winding Bow River, as well as the towering presence of Mount Rundle."
+        - article [ref=f1e263]:
+          - figure [ref=f1e264]:
+            - img "5. Hoodoos Trail, Banff" [ref=f1e265]
+          - generic [ref=f1e266]:
+            - heading "5. Hoodoos Trail" [level=3] [ref=f1e267]
+            - paragraph [ref=f1e268]: The Bow Falls to Hoodoos Trail is a classic, relatively easy hike that connects the town of Banff with one of its most unique geological features. The trail winds along the benches above the Bow River, offering a mix of forested paths and dramatic viewpoints that overlook the valley and the massive face of Mount Rundle.
+            - paragraph [ref=f1e269]: "Hoodoos: The trail culminates at a group of hoodoos, eroded pillars of sedimentary rock topped by a harder cap. These surreal formations are steeped in Indigenous legend and offer a striking contrast to the surrounding limestone peaks."
+            - paragraph [ref=f1e270]: "Diverse Terrain: The path transitions from the roaring waters of Bow Falls through thick Douglas fir forests and eventually opens up into grassy meadows with expansive views of the river below."
+        - article [ref=f1e271]:
+          - figure [ref=f1e272]:
+            - img "6. Johnson Lake, Banff" [ref=f1e273]
+          - generic [ref=f1e274]:
+            - heading "6. Johnson Lake" [level=3] [ref=f1e275]
+            - paragraph [ref=f1e276]: Johnson Lake is a popular, family-friendly destination located just a short drive from the Banff townsite. It is known for having some of the warmest waters in the park, making it a rare spot where visitors can actually enjoy a swim during the summer months. Surrounded by lush forest and offering spectacular views of Mount Rundle and Cascade Mountain, it provides a more sheltered and tranquil atmosphere compared to the larger, more wind-swept lakes in the region.
+            - paragraph [ref=f1e277]: "Beach and Swimming: The lake features a small sandy beach area that is a favorite for families. Because the water is shallower than most glacial lakes in Banff, it warms up significantly by mid-summer, allowing for comfortable swimming and wading."
+            - paragraph [ref=f1e278]: "Johnson Lake Loop: An easy 2.8 km (1.7 miles) loop trail circles the lake, offering mostly flat terrain. It’s a great walk for all ages, providing diverse views of the water and the surrounding peaks, as well as opportunities to spot local waterfowl."
+        - article [ref=f1e279]:
+          - figure [ref=f1e280]:
+            - img "7. Helen Lake Trail, Banff" [ref=f1e281]
+          - generic [ref=f1e282]:
+            - heading "7. Helen Lake Trail" [level=3] [ref=f1e283]
+            - paragraph [ref=f1e284]: The Helen Lake Trail is a premier day hike along the Icefields Parkway in Banff National Park, widely regarded as one of the best spots in the Canadian Rockies for alpine wildflowers. The trail offers a transition from thick subalpine forest to expansive, high-altitude meadows with constant views of the jagged Dolomite Peak.
+            - paragraph [ref=f1e285]: "Alpine Wildflowers: Between mid-July and early August, the meadows surrounding the lake explode with color, featuring species like red paintbrush, purple fleabane, and western anemone."
+            - paragraph [ref=f1e286]: "Geological Landmarks: The trail provides an up-close look at the unique, fortress-like ramparts of Dolomite Peak and impressive views back toward the Crowfoot Glacier and Bow Lake."
+        - article [ref=f1e287]:
+          - figure [ref=f1e288]:
+            - img "8. Spray River Trail Loop, Banff" [ref=f1e289]
+          - generic [ref=f1e290]:
+            - heading "8. Spray River Trail Loop" [level=3] [ref=f1e291]
+            - paragraph [ref=f1e292]: The Spray River Trail is a highly accessible, year-round loop that starts right at the edge of the Banff townsite. Often completed as a 12-kilometer circuit, the trail follows both the east and west banks of the turquoise Spray River, offering a tranquil valley experience with manageable elevation and constant views of the water.
+            - paragraph [ref=f1e293]: This multi-use trail is a favorite for those seeking a longer, relatively easy adventure without the steep climbs typical of many high-alpine hikes in the park.
+            - paragraph [ref=f1e294]: "Scenic River Crossings: The route features several picturesque bridges, including a halfway point crossing at the Goat Creek junction, providing ideal spots for photography and riverside breaks."
+        - article [ref=f1e295]:
+          - figure [ref=f1e296]:
+            - img "9. Fenland Trail, Banff" [ref=f1e297]
+          - generic [ref=f1e298]:
+            - heading "9. Fenland Trail" [level=3] [ref=f1e299]
+            - paragraph [ref=f1e300]: The Fenland Trailhead is the starting point for one of Banff’s most peaceful and accessible nature walks. This easy, 2-kilometer loop winds through an old-growth spruce forest and follows the banks of Echo Creek and 40-Mile Creek, providing a lush, quiet escape just minutes from the busy town center.
+            - paragraph [ref=f1e301]: "Lush Forest Canopy: The trail is unique for its dense forest of towering Engelmann spruce, which creates a cool, shaded environment that feels worlds away from the nearby highway."
+            - paragraph [ref=f1e302]: "Birdwatching Haven: Reviewers often note that the marshy areas and creek banks are excellent for spotting local birdlife, including kingfishers and various waterfowl."
+        - article [ref=f1e303]:
+          - figure [ref=f1e304]:
+            - img "10. Marsh Loop Trail, Banff" [ref=f1e305]
+          - generic [ref=f1e306]:
+            - heading "10. Marsh Loop Trail" [level=3] [ref=f1e307]
+            - paragraph [ref=f1e308]: The Marsh Loop Trailhead marks the start of a gentle, 2.3-kilometer circuit that explores the lush wetlands adjacent to the Cave and Basin National Historic Site. It is a favorite for those seeking a quiet, level walk with unique opportunities to observe how the area's warm mineral springs influence the local ecosystem.
+            - paragraph [ref=f1e309]: "Warm Springs Influence: Because of the thermal waters flowing from the nearby springs, parts of the marsh remain unfrozen year-round, creating a unique microclimate that supports rare plants and diverse birdlife."
+            - paragraph [ref=f1e310]: "Birdwatching Hotspot: Reviewers frequently highlight the trail as an excellent spot for birding, with common sightings of kingfishers, ducks, and even the occasional heron in the marshy waters."
+    - generic [ref=f1e312]:
+      - generic [ref=f1e313]:
+        - text: Other Interesting Places
+        - heading "Other Interesting Places" [level=2] [ref=f1e314]
+        - paragraph [ref=f1e315]: 10 places
+      - generic [ref=f1e316]:
+        - article [ref=f1e317]:
+          - figure [ref=f1e318]:
+            - img "1. Sunshine Village, Banff" [ref=f1e319]
+          - generic [ref=f1e320]:
+            - heading "1. Sunshine Village" [level=3] [ref=f1e321]
+            - paragraph [ref=f1e322]: Banff Sunshine Village Ski & Snowboard Resort is a world-renowned destination famous for its high-altitude terrain and an exceptionally long ski season that typically stretches from November until late May. Located on the Continental Divide, the resort straddles both Alberta and British Columbia, offering a unique ski three mountains experience within a single day.
+            - paragraph [ref=f1e323]: "Diverse Terrain: The resort features three distinct mountains, Goat's Eye, Lookout, and Standish, providing over 3,300 acres of skiable terrain ranging from gentle beginner slopes to the extreme Delirium Dive for advanced experts."
+            - paragraph [ref=f1e324]: "Unique Village Setting: Unlike most resorts, the main village area is located at an elevation of 7,200 feet, accessible via a 15-minute gondola ride from the base parking lot, placing you immediately in the heart of the alpine action."
+        - article [ref=f1e325]:
+          - figure [ref=f1e326]:
+            - img "2. Surprise Corner, Banff" [ref=f1e327]
+          - generic [ref=f1e328]:
+            - heading "2. Surprise Corner" [level=3] [ref=f1e329]
+            - paragraph [ref=f1e330]: Surprise Corner is one of the most famous and photographed viewpoints in Banff National Park. Located along Tunnel Mountain Drive, this elevated vantage point provides the iconic postcard view of the Fairmont Banff Springs hotel nestled against the backdrop of the rugged Sulphur Mountain and the winding Bow River.
+            - paragraph [ref=f1e331]: "Iconic Castle View: It is the premier spot to photograph the Fairmont Banff Springs, often referred to as the Castle in the Rockies, especially beautiful when the morning sun hits the hotel's stone facade."
+            - paragraph [ref=f1e332]: "Bow Falls Panorama: From the wooden viewing platforms, you can also look down onto the turquoise waters of Bow Falls as they crash over the limestone ledges."
+        - article [ref=f1e333]:
+          - figure [ref=f1e334]:
+            - img "3. Central Park, Banff" [ref=f1e335]
+          - generic [ref=f1e336]:
+            - heading "3. Central Park" [level=3] [ref=f1e337]
+            - paragraph [ref=f1e338]: Central Park in Banff is a vibrant community hub located right along the banks of the Bow River. It is a favorite spot for both locals and visitors seeking a scenic place to relax, play, or attend local events within walking distance of the downtown shops.
+            - paragraph [ref=f1e339]: The park is known for its open green spaces and its picturesque setting at a bend in the river, framed by the surrounding mountain peaks.
+            - paragraph [ref=f1e340]: "Family-Friendly Amenities: The park features a well-maintained playground and several picnic tables, making it an ideal destination for families with children."
+        - article [ref=f1e341]:
+          - figure [ref=f1e342]:
+            - img "4. Cascade Waterfall, Banff" [ref=f1e343]
+          - generic [ref=f1e344]:
+            - heading "4. Cascade Waterfall" [level=3] [ref=f1e345]
+            - paragraph [ref=f1e346]: Cascade Mountain is home to the dramatic Cascade Falls, a towering plume of water that spills down the mountain's rugged limestone face. Located just north of the Banff townsite, the falls are a prominent landmark easily visible from the Trans-Canada Highway and several vantage points throughout the valley.
+            - paragraph [ref=f1e347]: While not a typical plunge waterfall, its multi-tiered descent makes it a unique geological feature and a favorite for those interested in the park's vertical landscapes.
+            - paragraph [ref=f1e348]: "Roadside Accessibility: The falls are most easily viewed from the pull-offs along the Trans-Canada Highway near the Minnewanka Interchange, where you can see the water cascading down hundreds of meters."
+        - article [ref=f1e349]:
+          - figure [ref=f1e350]:
+            - img "5. Mount Norquay Lookout, Banff" [ref=f1e351]
+          - generic [ref=f1e352]:
+            - heading "5. Mount Norquay Lookout" [level=3] [ref=f1e353]
+            - paragraph [ref=f1e354]: The Mount Norquay Lookout is one of the most accessible and high-reward viewpoints in Banff National Park. Situated on a sharp hairpin turn along the winding Mt. Norquay Scenic Drive, this lookout offers a dramatic, bird's-eye perspective of the Banff townsite and the surrounding peaks without requiring any hiking.
+            - paragraph [ref=f1e355]: Visitors frequently stop here to appreciate the sheer scale of the landscape and the way the town is perfectly nestled in the valley below.
+            - paragraph [ref=f1e356]: "Iconic Panoramic Views: The lookout provides a classic view of the town of Banff, the winding Bow River, and the massive, sloping profile of Mount Rundle directly across the valley."
+        - article [ref=f1e357]:
+          - figure [ref=f1e358]:
+            - img "6. Banff Legacy Trail, Banff" [ref=f1e359]
+          - generic [ref=f1e360]:
+            - heading "6. Banff Legacy Trail" [level=3] [ref=f1e361]
+            - paragraph [ref=f1e362]: The Banff Legacy Trail is a world-class multi-use path that was built to celebrate the 125th anniversary of Banff National Park. It provides a paved, scenic link between the town of Canmore and the Banff townsite, allowing cyclists, runners, and inline skaters to travel safely away from the main highway while enjoying breathtaking mountain vistas.
+            - paragraph [ref=f1e363]: The trail is highly popular for its smooth surface and the way it connects the two major mountain communities through the heart of the Bow Valley.
+            - paragraph [ref=f1e364]: "Scenic Connectivity: The trail spans approximately 26 kilometers (one way) from the Banff Park East Gate to the Bow Valley Parkway, offering constant views of iconic peaks like Mount Rundle and Cascade Mountain."
+        - article [ref=f1e365]:
+          - figure [ref=f1e366]:
+            - img "7. Little Beehive, Banff" [ref=f1e367]
+          - generic [ref=f1e368]:
+            - heading "7. Little Beehive" [level=3] [ref=f1e369]
+            - paragraph [ref=f1e370]: The Little Beehive is one of the most popular moderate hikes in the Lake Louise area of Banff National Park. It offers a spectacular vantage point overlooking the turquoise waters of Lake Louise, the Fairmont Chateau, and the surrounding peaks of the Bow Valley.
+            - paragraph [ref=f1e371]: The trail is well-traveled and primarily used as a rewarding extension for those visiting the historic Lake Agnes Tea House.
+            - paragraph [ref=f1e372]: "Trail: The hike is approximately 9 km (5.6 miles) round-trip from the Lake Louise lakeshore, with an elevation gain of about 535 meters (1,755 feet)."
+        - article [ref=f1e373]:
+          - figure [ref=f1e374]:
+            - img "8. Banff Springs Golf Course Banff" [ref=f1e375]
+          - generic [ref=f1e376]:
+            - heading "8. Banff Springs Golf Course" [level=3] [ref=f1e377]
+            - paragraph [ref=f1e378]: The Fairmont Banff Springs Golf Course is widely regarded as one of the most stunning and historic golf destinations in the world. Nestled in the heart of Banff National Park, the course is famous for its "Devil's Cauldron" signature hole and its dramatic layout designed by legendary architect Stanley Thompson in 1928.
+            - paragraph [ref=f1e379]: "Championship Layouts: The site features the world-renowned Stanley Thompson 18, known for its strategic bunkering and optical illusions created by the mountains, as well as the Tunnel Mountain 9, which offers a more casual but equally scenic experience."
+            - paragraph [ref=f1e380]: "Signature Devil's Cauldron: Hole #4 on the Stanley Thompson 18 is a breathtaking downhill par-3 over a glacial lake, framed by the towering face of Mount Rundle."
+        - article [ref=f1e381]:
+          - figure [ref=f1e382]:
+            - img "9. Tunnel Mountain Drive, Banff" [ref=f1e383]
+          - generic [ref=f1e384]:
+            - heading "9. Tunnel Mountain Drive" [level=3] [ref=f1e385]
+            - paragraph [ref=f1e386]: Tunnel Mountain Drive is a scenic 9-kilometer loop that winds around the shoulder of Tunnel Mountain, offering some of the most accessible and iconic viewpoints in Banff National Park. It is a favorite for visitors who want to experience the grandeur of the Canadian Rockies directly from their vehicle or via short, paved walks.
+            - paragraph [ref=f1e387]: The Surprise Corner Viewpoint is perhaps the most famous stop along the drive, providing a legendary perspective of the "Castle in the Rockies." Offers the premier photo opportunity of the Fairmont Banff Springs hotel against the backdrop of Sulphur Mountain. It also features wooden viewing platforms that look down upon the crashing waters of Bow Falls.
+            - paragraph [ref=f1e388]: The Tunnel Mountain is accessible from several points along the road and is Banff's most popular hike due to its high reward-to-effort ratio. The summit provides 360-degree views of the townsite, Mount Rundle, and the massive Fairholme Range. It is well-maintained and suitable for families, though it features several steady switchbacks.
+        - article [ref=f1e389]:
+          - figure [ref=f1e390]:
+            - img "10. Two Jack Lake, Banff" [ref=f1e391]
+          - generic [ref=f1e392]:
+            - heading "10. Two Jack Lake" [level=3] [ref=f1e393]
+            - paragraph [ref=f1e394]: Two Jack Lake is one of the most serene lakes in Banff National Park. Located just 15 minutes from the Banff townsite along the Lake Minnewanka Scenic Drive, it is famous for its crystal-clear reflections of Mount Rundle and its tranquil, family-friendly atmosphere.
+            - paragraph [ref=f1e395]: "Iconic Reflections: On calm mornings and evenings, the lake provides a perfect mirror image of the jagged Mount Rundle, making it a premier location for landscape photographers."
+            - paragraph [ref=f1e396]: "Water Activities: The calm, relatively shallow waters are ideal for stand-up paddleboarding (SUP), kayaking, and canoeing. While the water is glacial and very cold, some brave visitors enjoy a quick polar dip on hot summer days."
+    - generic [ref=f1e398]:
+      - heading "Keep going" [level=2] [ref=f1e399]
+      - navigation "Next" [ref=f1e400]:
+        - link "Stays in Banff Search what is open" [ref=f1e401] [cursor=pointer]:
+          - /url: search.html?in=banff
+          - generic [ref=f1e402]: Stays in Banff
+          - generic [ref=f1e403]: Search what is open
+        - link "All destinations Every town we cover" [ref=f1e404] [cursor=pointer]:
+          - /url: index.html
+          - generic [ref=f1e405]: All destinations
+          - generic [ref=f1e406]: Every town we cover
+  - contentinfo [ref=f1e407]:
+    - generic [ref=f1e408]: © 2026 Arc Trips. Prices in CAD, before taxes and fees.

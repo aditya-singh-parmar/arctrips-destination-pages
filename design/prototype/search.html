@@ -448,12 +448,12 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
   <div class="fgrid">
     <div>
       <span class="fbrand"><img class="fbrand__mark" src="brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></span>
-      <p class="fnote">Stays and guides across Canada, written by people who go there.</p>
+      <p class="fnote">Stays and guides in British Columbia, written by people who go there.</p>
     </div>
     <div><h5>Destinations</h5><ul>
       <li><a href="tofino.html">Tofino</a></li><li><a href="ucluelet.html">Ucluelet</a></li>
-      <li><a href="region.html">Vancouver Island</a></li><li><a href="province.html">British Columbia</a></li>
-      <li><a href="country.html">Canada</a></li></ul></div>
+      <li><a href="region.html">Vancouver Island</a></li><li><a href="index.html">British Columbia</a></li>
+</ul></div>
     <div><h5>In Tofino</h5><ul>
       <li><a href="things-to-do.html">Things to do</a></li><li><a href="whale-watching.html">Whale watching</a></li>
       <li><a href="long-beach.html">Long Beach</a></li><li><a href="plan.html">Plan a trip</a></li>
@@ -508,18 +508,22 @@ const TIDES = {
 };
 
 /* Every town Arc Trips is writing, grouped the way a person picks one.
-   Two are published. The rest are named honestly, not greyed out. */
+   Two are published. The rest are named honestly, not greyed out.
+
+   `bc` marks the fifteen towns inside the published tree. The other eleven
+   carry real writing but sit outside British Columbia, so they have no page
+   above them to open and are counted apart from every BC figure. */
 const ROSTER = [
-  { n:"Vancouver Island", href:"region.html",
+  { n:"Vancouver Island", href:"region.html", bc:true,
     towns:["Tofino","Ucluelet","Victoria","Nanaimo","Campbell River","Parksville",
            "Sooke","Sidney","Chemainus","Nanoose Bay","Shawnigan Lake"] },
-  { n:"Mainland British Columbia", href:"province.html",
+  { n:"Mainland British Columbia", href:"index.html", bc:true,
     towns:["Vancouver","Whistler","Squamish","Nelson"] },
-  { n:"Alberta and the prairies", href:"country.html",
+  { n:"Alberta and the prairies", bc:false,
     towns:["Banff","Jasper","Edmonton","Saskatoon"] },
-  { n:"Ontario and Quebec", href:"country.html",
+  { n:"Ontario and Quebec", bc:false,
     towns:["Ottawa","Niagara Falls","Montreal","Quebec City"] },
-  { n:"Atlantic Canada", href:"country.html",
+  { n:"Atlantic Canada", bc:false,
     towns:["Halifax","Charlottetown","St John's"] }
 ];
 
@@ -575,12 +579,12 @@ const GHERO = {};
 RAW.g.forEach((g) => { GHERO[g.c + "/" + g.k] = g.h; });
 const heroFor = (city, cat, own) => own || GHERO[city + "/" + cat] || "arcstudio/wnrrcrf4lnalgzbjvsz8";
 /* Every slug here has a real page. Anything not in this set (no page built
-   yet) falls back to country.html, which always exists, rather than a 404. */
+   yet) falls back to index.html, which always exists, rather than a 404. */
 const REAL_TOWNS = new Set(["tofino","victoria","sooke","sidney","shawnigan-lake","nanaimo",
   "chemainus","nanoose","parksville","campbell-river","whistler","squamish","vancouver",
   "nelson","banff","jasper","edmonton","saskatoon","niagara-falls","ottawa","montreal",
   "quebec-city","halifax","charlottetown","st-john"]);
-const townHref = (slug) => slug === "ucluelet" ? "ucluelet.html" : REAL_TOWNS.has(slug) ? `${slug}.html` : "country.html";
+const townHref = (slug) => slug === "ucluelet" ? "ucluelet.html" : REAL_TOWNS.has(slug) ? `${slug}.html` : "index.html";
 
 /* Every subject page this prototype actually holds, keyed town/subject. A
    subject with no page of its own falls back to its town's subject index, never
@@ -702,6 +706,9 @@ ITEMS.forEach((it) => {
 const TOTAL = ITEMS.length;
 const COUNTS = {}; ORDER.forEach((k) => { COUNTS[k] = ITEMS.filter((it) => it.type === k).length; });
 const NTOWNS = ROSTER.reduce((s,g) => s + g.towns.length, 0);
+/* Towns inside British Columbia. Never NTOWNS: the eleven off-tree towns are
+   searchable but are not part of any BC count. */
+const NBC = ROSTER.filter((g) => g.bc).reduce((s,g) => s + g.towns.length, 0);
 const PUB = new Set(RAW.d.filter((d) => d.st).map((d) => d.n));
 const PUBHREF = {}; RAW.d.forEach((d) => { if (d.st) PUBHREF[d.n] = townHref(d.s); });
 
@@ -817,6 +824,8 @@ const state = {
 const ISLAND = new Set(["tofino","ucluelet","victoria","nanaimo","campbell-river","parksville",
   "sooke","sidney","chemainus","nanoose","shawnigan-lake"]);
 const BC = new Set(["vancouver","whistler","squamish","nelson"]);
+/* Inside the published tree, which is British Columbia and nothing above it. */
+const inTree = (t) => ISLAND.has(t) || BC.has(t);
 /* Towns that have their own written-up pages below the town page. */
 const PUBLISHED = new Set(["tofino","ucluelet"]);
 
@@ -825,19 +834,22 @@ function paintCrumb() {
   const sep = '<span class="sep" aria-hidden="true">/</span>';
   const dsep = '<span class="sep lvl-deep" aria-hidden="true">/</span>';
   const t = state.scope;
+  const root = '<a class="lvl-deep" href="index.html">Arc Trips</a>' + dsep;
   if (!t){
-    $("#crumb").innerHTML =
-      '<a class="lvl-deep" href="index.html">All destinations</a>' + dsep +
-      '<a href="country.html">Canada</a>' + sep +
+    $("#crumb").innerHTML = root +
+      '<a href="index.html">British Columbia</a>' + sep +
       '<span aria-current="page">Search</span>';
     return;
   }
-  let trail = '<a class="lvl-deep" href="country.html">Canada</a>' + dsep;
+  /* An off-tree town gets Arc Trips and its own name, with nothing invented in
+     between. It is searchable, it is not in British Columbia, and the trail
+     must not imply it is. */
+  let trail = root;
   if (ISLAND.has(t))
-    trail += '<a class="lvl-deep" href="province.html">British Columbia</a>' + dsep +
+    trail += '<a class="lvl-deep" href="index.html">British Columbia</a>' + dsep +
              '<a href="region.html">Vancouver Island</a>' + sep;
   else if (BC.has(t))
-    trail += '<a href="province.html">British Columbia</a>' + sep;
+    trail += '<a href="index.html">British Columbia</a>' + sep;
   $("#crumb").innerHTML = trail +
     '<a href="' + townHref(t) + '">' + esc(townName(t)) + "</a>" + sep +
     '<span aria-current="page">Search</span>';
@@ -883,7 +895,8 @@ function paintPlacebar() {
 function paintScope() {
   const s = $("#scope");
   s.innerHTML = state.scope
-    ? "<span>You are searching <b>" + esc(townName(state.scope)) + " only</b>.</span>" +
+    ? "<span>You are searching <b>" + esc(townName(state.scope)) + " only</b>" +
+      (inTree(state.scope) ? "" : ", which is outside the published tree") + ".</span>" +
       '<button type="button" id="unscope">Search all ' + NTOWNS + " towns instead</button>"
     : "<span>You are searching <b>all " + NTOWNS + " towns</b>.</span>" +
       (INCOMING ? '<button type="button" id="rescope">Search ' + esc(townName(INCOMING)) + " only</button>" : "");
@@ -1004,7 +1017,9 @@ function unwrittenHTML(town){
   return '<div class="almanac zero">' +
     "<h2>Nothing is written up in " + esc(name) + " yet</h2>" +
     '<p class="zero__l">' + esc(name) + " is one of the " + (NTOWNS - 2) +
-      " towns still being written. Two towns, Tofino and Ucluelet, are finished, and " +
+      " towns still being written" +
+      (inTree(town) ? "" : ", and it sits outside British Columbia, where Arc Trips publishes") +
+      ". Two towns, Tofino and Ucluelet, are finished, and " +
       "everything the search knows about (<b>" + TOTAL + "</b> pages) is in those two." +
       "</p>" +
     '<div class="zero__b"><p class="zero__h">What you can do now</p>' +
@@ -1371,13 +1386,17 @@ addEventListener("keydown", (e) => {
 /* ── the standing parts of the page ─────────────────────────────────────── */
 (function paintRoster() {
   $("#rosterSub").textContent =
-    NTOWNS + " towns across 8 provinces. Tofino and Ucluelet are written up. " +
-    "The rest are being written now.";
+    NTOWNS + " towns are in the search. " + NBC + " of them are in British Columbia, " +
+    "which is where Arc Trips publishes, and Tofino and Ucluelet are written up. " +
+    "The other " + (NTOWNS - NBC) + " sit outside the published tree.";
   $("#roster").innerHTML = ROSTER.map((g) => {
     const done = g.towns.filter((t) => PUB.has(t)).length;
     return '<div class="rgrp">' +
-      '<a class="rgrp__h" href="' + g.href + '">' + esc(g.n) + "</a>" +
-      '<p class="rgrp__c">' + nplural(g.towns.length, "town") + ", " + done + " written up</p><ul>" +
+      (g.href
+        ? '<a class="rgrp__h" href="' + g.href + '">' + esc(g.n) + "</a>"
+        : '<span class="rgrp__h">' + esc(g.n) + "</span>") +
+      '<p class="rgrp__c">' + nplural(g.towns.length, "town") + ", " + done + " written up" +
+        (g.bc ? "" : ", outside the published tree") + "</p><ul>" +
       g.towns.map((t) => {
         const slug = SLUG_OF[t];
         const href = PUB.has(t) ? PUBHREF[t] : slug ? townHref(slug) : null;
@@ -1408,19 +1427,24 @@ function sibRows(town){
     ["whale-watching-ucluelet.html", "Whale watching", nQs("ucluelet") + " questions answered"],
     ["restaurants-ucluelet.html", "Restaurants", "Where to eat in the village"]
   ];
+  /* Off-tree: nothing sits above this town, so offer British Columbia, where
+     the writing actually is, never a region the town does not belong to. */
+  if (town && !inTree(town)) return [
+    [townHref(town), townName(town) + " overview", "The town page, as far as it is written"],
+    ["index.html", "British Columbia", NBC + " towns in the published tree"],
+    ["tofino.html", "Tofino", nPlaces("tofino") + " places, " + nGuides("tofino") + " subjects"],
+    ["ucluelet.html", "Ucluelet", nPlaces("ucluelet") + " places, " + nGuides("ucluelet") + " subjects"]
+  ];
   if (town) return [
     [townHref(town), townName(town) + " overview", "The town page, as far as it is written"],
     ["region.html", "Vancouver Island", "Eleven towns, end to end"],
-    ["province.html", "British Columbia", "15 towns in the province"],
-    ["index.html", "All destinations", NTOWNS + " towns across Canada"]
+    ["index.html", "British Columbia", NBC + " towns in the published tree"]
   ];
   return [
     ["tofino.html", "Tofino", nPlaces("tofino") + " places, " + nGuides("tofino") + " subjects"],
     ["ucluelet.html", "Ucluelet", nPlaces("ucluelet") + " places, " + nGuides("ucluelet") + " subjects"],
     ["region.html", "Vancouver Island", "Eleven towns, end to end"],
-    ["province.html", "British Columbia", "15 towns in the province"],
-    ["country.html", "Canada", NTOWNS + " towns across 8 provinces"],
-    ["index.html", "All destinations", "Every guide we have started"]
+    ["index.html", "British Columbia", NBC + " towns in the published tree"]
   ];
 }
 
@@ -1452,6 +1476,18 @@ function keepRows(town){
      "Month by month weather for the outer coast, and what each month is actually good for.",
      "Open the plan"]
   ];
+  /* Off-tree towns keep their content and are reachable from search, but they
+     are not in British Columbia, so nothing here may point up into the tree as
+     though it were their parent. */
+  if (town && !inTree(town)) return [
+    [townHref(town), "Open " + townName(town),
+     "The town page itself, with everything written up so far.", "Open the town"],
+    ["index.html", "British Columbia",
+     "Arc Trips publishes in British Columbia. " + NBC + " towns sit in the tree, two of them written end to end.",
+     "Open British Columbia"],
+    ["search.html?q=" + encodeURIComponent(state.q || "whale"), "Search every town",
+     "Drop the town and the same query runs across everything we publish.", "Search everything"]
+  ];
   if (town && town !== "tofino") return [
     [townHref(town), "Open " + townName(town),
      "The town page itself, with where it sits and what is coming.", "Open the town"],
@@ -1480,7 +1516,7 @@ function paintDock() {
     ? "Searching " + townName(town) + " only"
     : "Searching all " + NTOWNS + " towns";
   $("#dockLink").href = town ? townHref(town) : "index.html";
-  $("#dockLink").textContent = town ? "Back to " + townName(town) : "All destinations";
+  $("#dockLink").textContent = town ? "Back to " + townName(town) : "British Columbia";
 }
 
 /* the reading-progress hairline, the only fixed thing this page adds */

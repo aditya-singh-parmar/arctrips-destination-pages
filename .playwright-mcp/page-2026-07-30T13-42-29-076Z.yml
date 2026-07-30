@@ -1,0 +1,321 @@
+- generic [active] [ref=f2e1]:
+  - link "Skip to content" [ref=f2e2] [cursor=pointer]:
+    - /url: "#main"
+  - generic:
+    - img:
+      - generic:
+        - generic: "14"
+        - generic: "9"
+        - generic: "22"
+        - generic: "31"
+        - generic: "17"
+        - generic: "6"
+        - generic: "11"
+        - generic: "26"
+        - generic: "19"
+        - generic: "8"
+        - generic: "24"
+        - generic: "13"
+        - generic: "28"
+        - generic: "5"
+        - generic: "16"
+  - navigation [ref=f2e3]:
+    - generic [ref=f2e4]:
+      - link "ArcTrips" [ref=f2e5] [cursor=pointer]:
+        - /url: index.html
+      - list [ref=f2e7]:
+        - listitem [ref=f2e8]:
+          - link "Stays" [ref=f2e9] [cursor=pointer]:
+            - /url: search.html?q=stays&show=stays
+        - listitem [ref=f2e10]:
+          - link "Destinations" [ref=f2e11] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=f2e12]:
+          - link "Guides" [ref=f2e13] [cursor=pointer]:
+            - /url: "#top"
+      - search [ref=f2e14]:
+        - generic [ref=f2e18]: Search everything Arc Trips publishes
+        - searchbox "Search everything Arc Trips publishes" [ref=f2e19]
+        - generic [ref=f2e20]: /
+      - link "Sign in" [ref=f2e21] [cursor=pointer]:
+        - /url: not-found.html
+  - navigation "Banff" [ref=f2e22]:
+    - generic [ref=f2e23]:
+      - link "← Banff" [ref=f2e24] [cursor=pointer]:
+        - /url: banff.html
+      - list [ref=f2e26]:
+        - listitem [ref=f2e27]:
+          - link "Overview" [ref=f2e28] [cursor=pointer]:
+            - /url: banff.html
+  - main [ref=f2e29]:
+    - navigation "Breadcrumb" [ref=f2e31]:
+      - link "Arc Trips" [ref=f2e32] [cursor=pointer]:
+        - /url: index.html
+      - generic [ref=f2e33]: /
+      - link "Banff" [ref=f2e34] [cursor=pointer]:
+        - /url: banff.html
+      - generic [ref=f2e35]: /
+      - generic [ref=f2e36]: Search
+    - generic [ref=f2e38]:
+      - heading "Search Banff" [level=1] [ref=f2e39]
+      - paragraph [ref=f2e40]: This town is still being written, so there is nothing here to search yet.
+      - search [ref=f2e41]:
+        - generic [ref=f2e42]:
+          - generic [ref=f2e46]: Search towns, guides, places, articles, questions and stays
+          - combobox "Search towns, guides, places, articles, questions and stays" [ref=f2e47]
+          - button "Search" [ref=f2e48] [cursor=pointer]
+      - paragraph [ref=f2e49]:
+        - generic [ref=f2e50]: You are searching Banff only, which is outside the published tree.
+        - button "Search all 26 towns instead" [ref=f2e51] [cursor=pointer]
+      - paragraph [ref=f2e52]:
+        - generic [ref=f2e53]: People also search
+        - button "storm watching" [ref=f2e54] [cursor=pointer]
+        - button "Long Beach" [ref=f2e55] [cursor=pointer]
+        - button "hot tub" [ref=f2e56] [cursor=pointer]
+        - button "can you swim" [ref=f2e57] [cursor=pointer]
+      - status [ref=f2e58]: Nothing is written up in Banff yet.
+    - generic [ref=f2e60]:
+      - heading "Nothing is written up in Banff yet" [level=2] [ref=f2e61]
+      - paragraph [ref=f2e62]: Banff is one of the 24 towns still being written, and it sits outside British Columbia, where Arc Trips publishes. Two towns, Tofino and Ucluelet, are finished, and everything the search knows about (256 pages) is in those two.
+      - generic [ref=f2e63]:
+        - paragraph [ref=f2e64]: What you can do now
+        - button "Search all 26 towns instead" [ref=f2e66] [cursor=pointer]
+      - generic [ref=f2e67]:
+        - paragraph [ref=f2e68]: Or open Banff itself
+        - link "Banff The town page, with what we have so far and where it sits. Open Banff" [ref=f2e70] [cursor=pointer]:
+          - /url: banff.html
+          - generic [ref=f2e71]:
+            - generic [ref=f2e72]: Banff
+            - paragraph [ref=f2e73]: The town page, with what we have so far and where it sits.
+            - generic [ref=f2e74]: Open Banff
+      - generic [ref=f2e75]:
+        - paragraph [ref=f2e76]: The two towns that are written up
+        - generic [ref=f2e77]:
+          - link "Tofino, Storm-swept beaches, old-growth rainforest, and the best surf on the Pacific coast. Tofino 73 places written up, 134 stays. Open Tofino" [ref=f2e78] [cursor=pointer]:
+            - /url: tofino.html
+            - img "Tofino, Storm-swept beaches, old-growth rainforest, and the best surf on the Pacific coast." [ref=f2e80]
+            - generic [ref=f2e81]:
+              - generic [ref=f2e82]: Tofino
+              - paragraph [ref=f2e83]: 73 places written up, 134 stays.
+              - generic [ref=f2e84]: Open Tofino
+          - link "Ucluelet, Tofino's quieter neighbour, wrapped by the Wild Pacific Trail. Ucluelet 54 places written up, 158 stays. Open Ucluelet" [ref=f2e85] [cursor=pointer]:
+            - /url: ucluelet.html
+            - img "Ucluelet, Tofino's quieter neighbour, wrapped by the Wild Pacific Trail." [ref=f2e87]
+            - generic [ref=f2e88]:
+              - generic [ref=f2e89]: Ucluelet
+              - paragraph [ref=f2e90]: 54 places written up, 158 stays.
+              - generic [ref=f2e91]: Open Ucluelet
+    - generic [ref=f2e93]:
+      - generic [ref=f2e95]:
+        - heading "Search another town" [level=2] [ref=f2e96]
+        - paragraph [ref=f2e97]: 26 towns are in the search. 15 of them are in British Columbia, which is where Arc Trips publishes, and Tofino and Ucluelet are written up. The other 11 sit outside the published tree.
+      - generic [ref=f2e98]:
+        - generic [ref=f2e99]:
+          - link "Vancouver Island" [ref=f2e100] [cursor=pointer]:
+            - /url: region.html
+          - paragraph [ref=f2e101]: 11 towns, 2 written up
+          - list [ref=f2e102]:
+            - listitem [ref=f2e103]:
+              - link "Tofino" [ref=f2e104] [cursor=pointer]:
+                - /url: tofino.html
+            - listitem [ref=f2e105]:
+              - link "Ucluelet" [ref=f2e106] [cursor=pointer]:
+                - /url: ucluelet.html
+            - listitem [ref=f2e107]:
+              - link "Victoria" [ref=f2e108] [cursor=pointer]:
+                - /url: victoria.html
+            - listitem [ref=f2e109]:
+              - link "Nanaimo" [ref=f2e110] [cursor=pointer]:
+                - /url: nanaimo.html
+            - listitem [ref=f2e111]:
+              - link "Campbell River" [ref=f2e112] [cursor=pointer]:
+                - /url: campbell-river.html
+            - listitem [ref=f2e113]:
+              - link "Parksville" [ref=f2e114] [cursor=pointer]:
+                - /url: parksville.html
+            - listitem [ref=f2e115]:
+              - link "Sooke" [ref=f2e116] [cursor=pointer]:
+                - /url: sooke.html
+            - listitem [ref=f2e117]:
+              - link "Sidney" [ref=f2e118] [cursor=pointer]:
+                - /url: sidney.html
+            - listitem [ref=f2e119]:
+              - link "Chemainus" [ref=f2e120] [cursor=pointer]:
+                - /url: chemainus.html
+            - listitem [ref=f2e121]:
+              - link "Nanoose Bay" [ref=f2e122] [cursor=pointer]:
+                - /url: nanoose.html
+            - listitem [ref=f2e123]:
+              - link "Shawnigan Lake" [ref=f2e124] [cursor=pointer]:
+                - /url: shawnigan-lake.html
+        - generic [ref=f2e125]:
+          - link "Mainland British Columbia" [ref=f2e126] [cursor=pointer]:
+            - /url: index.html
+          - paragraph [ref=f2e127]: 4 towns, 0 written up
+          - list [ref=f2e128]:
+            - listitem [ref=f2e129]:
+              - link "Vancouver" [ref=f2e130] [cursor=pointer]:
+                - /url: vancouver.html
+            - listitem [ref=f2e131]:
+              - link "Whistler" [ref=f2e132] [cursor=pointer]:
+                - /url: whistler.html
+            - listitem [ref=f2e133]:
+              - link "Squamish" [ref=f2e134] [cursor=pointer]:
+                - /url: squamish.html
+            - listitem [ref=f2e135]:
+              - link "Nelson" [ref=f2e136] [cursor=pointer]:
+                - /url: nelson.html
+        - generic [ref=f2e137]:
+          - generic [ref=f2e138]: Alberta and the prairies
+          - paragraph [ref=f2e139]: 4 towns, 0 written up, outside the published tree
+          - list [ref=f2e140]:
+            - listitem [ref=f2e141]:
+              - link "Banff" [ref=f2e142] [cursor=pointer]:
+                - /url: banff.html
+            - listitem [ref=f2e143]:
+              - link "Jasper" [ref=f2e144] [cursor=pointer]:
+                - /url: jasper.html
+            - listitem [ref=f2e145]:
+              - link "Edmonton" [ref=f2e146] [cursor=pointer]:
+                - /url: edmonton.html
+            - listitem [ref=f2e147]:
+              - link "Saskatoon" [ref=f2e148] [cursor=pointer]:
+                - /url: saskatoon.html
+        - generic [ref=f2e149]:
+          - generic [ref=f2e150]: Ontario and Quebec
+          - paragraph [ref=f2e151]: 4 towns, 0 written up, outside the published tree
+          - list [ref=f2e152]:
+            - listitem [ref=f2e153]:
+              - link "Ottawa" [ref=f2e154] [cursor=pointer]:
+                - /url: ottawa.html
+            - listitem [ref=f2e155]:
+              - link "Niagara Falls" [ref=f2e156] [cursor=pointer]:
+                - /url: niagara-falls.html
+            - listitem [ref=f2e157]:
+              - link "Montreal" [ref=f2e158] [cursor=pointer]:
+                - /url: montreal.html
+            - listitem [ref=f2e159]:
+              - link "Quebec City" [ref=f2e160] [cursor=pointer]:
+                - /url: quebec-city.html
+        - generic [ref=f2e161]:
+          - generic [ref=f2e162]: Atlantic Canada
+          - paragraph [ref=f2e163]: 3 towns, 0 written up, outside the published tree
+          - list [ref=f2e164]:
+            - listitem [ref=f2e165]:
+              - link "Halifax" [ref=f2e166] [cursor=pointer]:
+                - /url: halifax.html
+            - listitem [ref=f2e167]:
+              - link "Charlottetown" [ref=f2e168] [cursor=pointer]:
+                - /url: charlottetown.html
+            - listitem [ref=f2e169]:
+              - link "St John's" [ref=f2e170] [cursor=pointer]:
+                - /url: st-john.html
+    - generic [ref=f2e172]:
+      - generic [ref=f2e174]:
+        - heading "Everything else in Banff" [level=2] [ref=f2e175]
+        - paragraph [ref=f2e176]: Search is one way in. These are the other pages for this town.
+      - navigation "Elsewhere in Banff" [ref=f2e177]:
+        - link "Banff overview The town page, as far as it is written" [ref=f2e178] [cursor=pointer]:
+          - /url: banff.html
+          - generic [ref=f2e179]: Banff overview
+          - generic [ref=f2e180]: The town page, as far as it is written
+        - link "British Columbia 15 towns in the published tree" [ref=f2e181] [cursor=pointer]:
+          - /url: index.html
+          - generic [ref=f2e182]: British Columbia
+          - generic [ref=f2e183]: 15 towns in the published tree
+        - link "Tofino 73 places, 9 subjects" [ref=f2e184] [cursor=pointer]:
+          - /url: tofino.html
+          - generic [ref=f2e185]: Tofino
+          - generic [ref=f2e186]: 73 places, 9 subjects
+        - link "Ucluelet 54 places, 6 subjects" [ref=f2e187] [cursor=pointer]:
+          - /url: ucluelet.html
+          - generic [ref=f2e188]: Ucluelet
+          - generic [ref=f2e189]: 54 places, 6 subjects
+    - generic [ref=f2e192]:
+      - link "Open Banff The town page itself, with everything written up so far. Open the town" [ref=f2e193] [cursor=pointer]:
+        - /url: banff.html
+        - heading "Open Banff" [level=4] [ref=f2e194]
+        - paragraph [ref=f2e195]: The town page itself, with everything written up so far.
+        - generic [ref=f2e196]: Open the town
+      - link "British Columbia Arc Trips publishes in British Columbia. 15 towns sit in the tree, two of them written end to end. Open British Columbia" [ref=f2e197] [cursor=pointer]:
+        - /url: index.html
+        - heading "British Columbia" [level=4] [ref=f2e198]
+        - paragraph [ref=f2e199]: Arc Trips publishes in British Columbia. 15 towns sit in the tree, two of them written end to end.
+        - generic [ref=f2e200]: Open British Columbia
+      - link "Search every town Drop the town and the same query runs across everything we publish. Search everything" [ref=f2e201] [cursor=pointer]:
+        - /url: search.html?q=whale
+        - heading "Search every town" [level=4] [ref=f2e202]
+        - paragraph [ref=f2e203]: Drop the town and the same query runs across everything we publish.
+        - generic [ref=f2e204]: Search everything
+  - contentinfo [ref=f2e205]:
+    - generic [ref=f2e206]:
+      - generic [ref=f2e207]:
+        - generic [ref=f2e208]:
+          - generic [ref=f2e209]: ArcTrips
+          - paragraph [ref=f2e211]: Stays and guides in British Columbia, written by people who go there.
+        - generic [ref=f2e212]:
+          - heading "Destinations" [level=5] [ref=f2e213]
+          - list [ref=f2e214]:
+            - listitem [ref=f2e215]:
+              - link "Tofino" [ref=f2e216] [cursor=pointer]:
+                - /url: tofino.html
+            - listitem [ref=f2e217]:
+              - link "Ucluelet" [ref=f2e218] [cursor=pointer]:
+                - /url: ucluelet.html
+            - listitem [ref=f2e219]:
+              - link "Vancouver Island" [ref=f2e220] [cursor=pointer]:
+                - /url: region.html
+            - listitem [ref=f2e221]:
+              - link "British Columbia" [ref=f2e222] [cursor=pointer]:
+                - /url: index.html
+        - generic [ref=f2e223]:
+          - heading "In Tofino" [level=5] [ref=f2e224]
+          - list [ref=f2e225]:
+            - listitem [ref=f2e226]:
+              - link "Things to do" [ref=f2e227] [cursor=pointer]:
+                - /url: things-to-do.html
+            - listitem [ref=f2e228]:
+              - link "Whale watching" [ref=f2e229] [cursor=pointer]:
+                - /url: whale-watching.html
+            - listitem [ref=f2e230]:
+              - link "Long Beach" [ref=f2e231] [cursor=pointer]:
+                - /url: long-beach.html
+            - listitem [ref=f2e232]:
+              - link "Plan a trip" [ref=f2e233] [cursor=pointer]:
+                - /url: plan.html
+            - listitem [ref=f2e234]:
+              - link "Wildlife tours" [ref=f2e235] [cursor=pointer]:
+                - /url: guide.html
+        - generic [ref=f2e236]:
+          - heading "Search" [level=5] [ref=f2e237]
+          - list [ref=f2e238]:
+            - listitem [ref=f2e239]:
+              - link "Storm watching" [ref=f2e240] [cursor=pointer]:
+                - /url: search.html?q=storm%20watching&in=tofino
+            - listitem [ref=f2e241]:
+              - link "Stays with a hot tub" [ref=f2e242] [cursor=pointer]:
+                - /url: search.html?q=hot%20tub&in=tofino
+            - listitem [ref=f2e243]:
+              - link "Questions people ask" [ref=f2e244] [cursor=pointer]:
+                - /url: search.html?q=can%20you%20swim
+            - listitem [ref=f2e245]:
+              - link "Everything we publish" [ref=f2e246] [cursor=pointer]:
+                - /url: search.html?q=
+        - generic [ref=f2e247]:
+          - heading "Arc Trips" [level=5] [ref=f2e248]
+          - list [ref=f2e249]:
+            - listitem [ref=f2e250]:
+              - link "About us" [ref=f2e251] [cursor=pointer]:
+                - /url: not-found.html
+            - listitem [ref=f2e252]:
+              - link "List your place" [ref=f2e253] [cursor=pointer]:
+                - /url: not-found.html
+            - listitem [ref=f2e254]:
+              - link "Fishing charters" [ref=f2e255] [cursor=pointer]:
+                - /url: not-found.html
+            - listitem [ref=f2e256]:
+              - link "Contact" [ref=f2e257] [cursor=pointer]:
+                - /url: not-found.html
+      - generic [ref=f2e258]:
+        - generic [ref=f2e259]: © 2026 Arc Trips
+        - generic [ref=f2e260]: Prices in CAD, before taxes and fees. Tide times are seeded for design.

@@ -45,15 +45,20 @@ function seedNode(
   };
 }
 
-/** Minimal tree so the app renders before the geo rows are seeded. */
+/**
+ * Minimal tree so the app renders before the geo rows are seeded.
+ *
+ * Provinces are roots. Canada was the root until 2026-07-30 and is gone from
+ * the tree entirely (docs/qa/bc-root-contract.md); the locale fields it used to
+ * carry for its descendants now sit on each province.
+ */
+const CA = { currency: "CAD", unitSystem: "metric" };
+
 export const SEED_GEO: GeoNode[] = [
-  seedNode("geo-canada", "canada", "Canada", "country", null, {
-    timezone: "America/Vancouver", currency: "CAD", unitSystem: "metric",
-  }),
-  seedNode("geo-bc", "bc", "British Columbia", "province", "geo-canada"),
-  seedNode("geo-ab", "ab", "Alberta", "province", "geo-canada", { sortPriority: 10 }),
-  seedNode("geo-on", "on", "Ontario", "province", "geo-canada", { sortPriority: 20 }),
-  seedNode("geo-qc", "qc", "Quebec", "province", "geo-canada", { sortPriority: 30 }),
+  seedNode("geo-bc", "bc", "British Columbia", "province", null, { ...CA, timezone: "America/Vancouver" }),
+  seedNode("geo-ab", "ab", "Alberta", "province", null, { ...CA, timezone: "America/Edmonton", sortPriority: 10 }),
+  seedNode("geo-on", "on", "Ontario", "province", null, { ...CA, timezone: "America/Toronto", sortPriority: 20 }),
+  seedNode("geo-qc", "qc", "Quebec", "province", null, { ...CA, timezone: "America/Toronto", sortPriority: 30 }),
   seedNode("geo-vancouver-island", "vancouver-island", "Vancouver Island", "region", "geo-bc"),
   seedNode("geo-tofino", "tofino", "Tofino", "town", "geo-vancouver-island", { sortPriority: 10 }),
   seedNode("geo-ucluelet", "ucluelet", "Ucluelet", "town", "geo-vancouver-island", { sortPriority: 20 }),

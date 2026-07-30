@@ -1,7 +1,14 @@
 /**
- * The geographic tree: country > province > [region >] town > area.
+ * The geographic tree: province > [region >] town > area.
  * Pure types and rules, no I/O, so the resolver can be unit-tested.
  * See docs/superpowers/specs/2026-07-27-destinations-experience-design.md 3.2.
+ *
+ * Country was the root until 2026-07-30. Arc Trips publishes only in British
+ * Columbia, so Canada was a level the reader walked through for nothing and it
+ * was removed from the tree; see docs/qa/bc-root-contract.md. The value stays
+ * in the union because the geo_places check constraint still accepts it and a
+ * historical row may be read, but no country node is routable: it is not a
+ * legal child of the root, so any path through one resolves to not-found.
  */
 import type { ArticleBlock } from "./content";
 
@@ -35,10 +42,17 @@ export type GeoNode = {
   updatedAt: string;
 };
 
-/** Region is optional, so a province may parent either a region or a town. */
+/**
+ * The root parents a province directly. Region is optional, so a province may
+ * parent either a region or a town, which is why a town sits at segment 1 or 2
+ * and every deeper segment shifts with it.
+ *
+ * `country` parents nothing and is parented by nothing: a stale country row
+ * cannot be walked into or out of.
+ */
 const LEGAL_CHILDREN: Record<string, GeoType[]> = {
-  root: ["country"],
-  country: ["province"],
+  root: ["province"],
+  country: [],
   province: ["region", "town"],
   region: ["town"],
   town: ["area"],

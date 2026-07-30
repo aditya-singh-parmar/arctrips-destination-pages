@@ -11,20 +11,29 @@ const nextConfig: NextConfig = {
   skipTrailingSlashRedirect: true,
 
   /**
-   * Every rule here covers a URL shipped BEFORE the deep destination tree
-   * existed: the S1 restructure of 2026-07-24 and the tier layout before it.
+   * Every rule here covers a URL shipped BEFORE the tree took its current
+   * shape: the S1 restructure of 2026-07-24, the tier layout before it, and
+   * the country segment removed on 2026-07-30 (docs/qa/bc-root-contract.md).
    * No URL inside the tree ever redirects; archived places return 410.
    *
-   * These must all be city-specific. The old generic rules (/:city/:category,
-   * /destinations/:city) would now swallow the tree itself: /destinations/canada/bc
-   * matches /:city/:category/:place and would redirect to /destinations/canada.
+   * These must all stay specific. The old generic rules (/:city/:category,
+   * /destinations/:city) would swallow the tree itself, and for the same
+   * reason the country rules below match the literal `canada` segment rather
+   * than `/destinations/:country/:rest*`, which would match `/destinations/bc/
+   * vancouver-island` and redirect the tree into itself.
    */
   async redirects() {
-    const ISLAND = "/destinations/canada/bc/vancouver-island";
+    const ISLAND = "/destinations/bc/vancouver-island";
     const CITIES = ["tofino", "ucluelet"];
     return [
+      // The country segment is gone. Both trees keep every deeper segment.
+      { source: "/destinations/canada", destination: "/destinations", permanent: true },
+      { source: "/destinations/canada/:rest*", destination: "/destinations/:rest*", permanent: true },
+      { source: "/travel-guides/canada", destination: "/travel-guides", permanent: true },
+      { source: "/travel-guides/canada/:rest*", destination: "/travel-guides/:rest*", permanent: true },
+
       { source: "/destinations/vancouver-island", destination: ISLAND, permanent: true },
-      { source: "/destinations/sea-to-sky", destination: "/destinations/canada/bc/sea-to-sky", permanent: true },
+      { source: "/destinations/sea-to-sky", destination: "/destinations/bc/sea-to-sky", permanent: true },
       // Flat S1 city URLs move under the deep tree.
       ...CITIES.flatMap((city) => [
         { source: `/${city}`, destination: `${ISLAND}/${city}`, permanent: true },

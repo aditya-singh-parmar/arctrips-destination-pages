@@ -7,7 +7,7 @@ describe("breadcrumbList", () => {
   it("numbers positions from one and carries urls", () => {
     const ld = breadcrumbList([
       { name: "Destinations", url: "https://arctrips.com/destinations" },
-      { name: "Canada", url: "https://arctrips.com/destinations/canada" },
+      { name: "British Columbia", url: "https://arctrips.com/destinations/bc" },
       { name: "Tofino" },
     ]) as any;
     expect(ld["@type"]).toBe("BreadcrumbList");
@@ -15,7 +15,7 @@ describe("breadcrumbList", () => {
     expect(ld.itemListElement[0].position).toBe(1);
     expect(ld.itemListElement[2].position).toBe(3);
     expect(ld.itemListElement[2].item).toBeUndefined();
-    expect(ld.itemListElement[1].item).toBe("https://arctrips.com/destinations/canada");
+    expect(ld.itemListElement[1].item).toBe("https://arctrips.com/destinations/bc");
   });
 });
 
@@ -23,7 +23,7 @@ describe("touristDestination", () => {
   it("carries name, url and geo when present", () => {
     const ld = touristDestination(
       { name: "Tofino", lat: 49.15, lng: -125.9 },
-      "https://arctrips.com/destinations/canada/bc/tofino",
+      "https://arctrips.com/destinations/bc/vancouver-island/tofino",
       "A surf town",
     ) as any;
     expect(ld["@type"]).toBe("TouristDestination");

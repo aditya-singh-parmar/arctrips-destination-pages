@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Destinations, Arc Trips</title>
-<meta name="description" content="Stays and guides on the west coast of Vancouver Island. Twenty six towns written up place by place, and a month by month answer to when you should go.">
+<title>British Columbia, Arc Trips</title>
+<meta name="description" content="Fifteen towns across four regions of British Columbia, written up place by place. Vancouver Island is the region we have finished: eleven towns and 385 places, with Tofino and Ucluelet open end to end.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,14 +13,24 @@
 <link rel="stylesheet" href="_system.css">
 <style>
 /* ── Page-scoped only. Built from _system.css tokens, no new colour values. ──
-      (a) the type floor: body is 17px, so nothing is set below .83rem,
+      This page is the root of the tree. British Columbia is not a level you
+      walk through on the way to somewhere, it is where Arc Trips publishes,
+      so the page has to do two jobs at once: say what this is to somebody who
+      has never been here, and index all fifteen towns for somebody who has.
+
+      The sequence answers that in order: what this is, how much of it exists,
+      the one region that is finished, the two towns that are open, the nine
+      more on the island, the four on the mainland, the guides that cross the
+      whole island, then when to come.
+
+      (a) the type floor: body is 17px, so nothing is set below .88rem,
       (b) the season system with the hue taken out of it,
-      (c) the two components the system does not carry: the place finder and
-      the province roster that has to hold twenty-six towns. ─────────────── */
+      (c) the components the locked system does not carry: the finder, the
+          island feature, the town ledger and the mainland panel. ────────── */
 
 /* a11y floors the system leaves open */
 :focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:var(--r-sm)}
-.almanac :focus-visible,.band :focus-visible{outline-color:var(--a300)}
+.almanac :focus-visible,.band :focus-visible,.isle :focus-visible,.rest :focus-visible{outline-color:var(--a300)}
 .btn{min-height:44px;white-space:nowrap}
 nav.top .btn{flex:none}
 .brand,.nav-links a{display:inline-flex;align-items:center;min-height:44px}
@@ -35,6 +45,8 @@ nav.top .btn{flex:none}
 .skip:focus{top:0}
 /* body contrast floor: n500 is 3.7:1 on paper, so anything carrying meaning moves to n600 */
 .label--n,.dest__meta,.kmeta,.fnote,.vcap,.fbase,.who span{color:var(--n600)}
+[id]{scroll-margin-top:140px}
+@media(max-width:760px){[id]{scroll-margin-top:80px}}
 
 /* ═══ (a) type floor. 14px is the smallest thing on the page. ═══ */
 .label{font-size:.88rem;letter-spacing:.12em}
@@ -48,6 +60,10 @@ nav.top .btn{flex:none}
 .vcap{font-size:.88rem}
 .led th{font-size:.88rem}
 .led__w{font-size:.88rem}
+.plate figcaption{font-size:.88rem}
+.btn--sm{font-size:.88rem}
+.fnote{font-size:.88rem}
+.who span{font-size:.88rem}
 
 /* ═══ (b) the season system. No hue. Filled is louder, empty is quieter. ═══ */
 .mon{gap:3px}
@@ -75,8 +91,14 @@ nav.top .btn{flex:none}
 .qopt span{font-size:.88rem;color:var(--n600);margin-left:auto;text-align:right;white-space:nowrap}
 .qopt[data-sel],.qopt:hover{background:var(--a100)}
 .qnone{padding:16px 12px;font-size:.95rem;color:var(--n600)}
-/* mobile: the three global links stay visible, on their own row, always */
+/* mobile: the three global links stay visible, on their own row, always.
+   The locked system parks the place bar at top:0 below 760px because it expects
+   the global nav to have stopped sticking by then. This nav wraps to two rows
+   here, so leaving both sticky buries the place bar under it and leaves a strip
+   of dead chrome. The nav scrolls away and the place bar sticks, which is what
+   every other page in the tree does. */
 @media(max-width:760px){
+  nav.top{position:static}
   .nav-in{flex-wrap:wrap;height:auto;padding-block:8px;row-gap:4px;gap:10px}
   .brand{order:1}
   .finder{order:2;flex:1 1 110px;max-width:none;margin-left:0}
@@ -85,16 +107,22 @@ nav.top .btn{flex:none}
   .search{padding-inline:12px}
 }
 
+/* the place bar names the level you are on. There is no parent above British
+   Columbia, so the slot that carries a back link everywhere else carries the
+   place name here, as plain type, not a link to nowhere. */
+.placebar__here{display:inline-flex;align-items:center;flex:none;padding-right:clamp(12px,2vw,24px);
+  font-size:1.02rem;font-weight:700;color:var(--navy);line-height:1.15;white-space:nowrap}
+
 /* ═══ hero ═══ */
-.hero{padding-block:clamp(56px,7vw,104px) clamp(44px,5vw,76px);min-height:min(88vh,860px);display:flex;align-items:center}
+.hero{padding-block:clamp(44px,5.4vw,80px) clamp(40px,4.6vw,68px);min-height:min(80vh,800px);display:flex;align-items:center}
 .hero-grid{width:100%}
 /* .mark is white-space:nowrap in the locked system, so the marked phrase cannot wrap.
    The type is therefore sized to fit the hero column at every breakpoint. */
 .hero h1{font-size:clamp(2.6rem,5.6vw,4.9rem);font-weight:800;line-height:.98;letter-spacing:-.042em;max-width:15ch;margin-top:18px}
-.hero .lede{font-size:clamp(1.1rem,1.45vw,1.3rem);font-weight:400;max-width:44ch;margin-top:26px}
+.hero .lede{font-size:clamp(1.1rem,1.45vw,1.3rem);font-weight:400;max-width:46ch;margin-top:26px}
 .hero-cta{margin-top:32px}
 .btn--lg{padding:16px 30px;font-size:1rem}
-.hero-note{margin-top:22px;padding-top:18px;border-top:1px solid var(--n150);font-size:.95rem;color:var(--n600);max-width:46ch}
+.hero-note{margin-top:22px;padding-top:18px;border-top:1px solid var(--n150);font-size:.95rem;color:var(--n600);max-width:48ch}
 .hero-note b{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
 
 /* the collage escapes the container and runs off the right edge of the screen */
@@ -118,15 +146,43 @@ nav.top .btn{flex:none}
 @media(max-width:820px){.tide-wave{display:none}}
 
 /* ═══ stat band ═══ */
-.statband{padding-block:clamp(40px,5vw,68px) clamp(30px,3.4vw,44px)}
+.statband{padding-block:clamp(40px,5vw,68px) clamp(34px,4vw,56px)}
 .statgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,3vw,44px)}
 @media(max-width:840px){.statgrid{grid-template-columns:repeat(2,1fr);gap:32px 24px}}
 .stat dd{font-size:clamp(3rem,5.8vw,4.8rem);font-weight:800;color:var(--navy);letter-spacing:-.045em;
   line-height:.92;font-variant-numeric:tabular-nums}
 .stat dt{font-size:.88rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--azure);margin-bottom:12px}
-.stat p{font-size:.95rem;color:var(--n600);margin-top:12px;line-height:1.5;max-width:24ch}
+.stat p{font-size:.95rem;color:var(--n600);margin-top:12px;line-height:1.5;max-width:26ch}
 
-.sec--dest{padding-block:clamp(50px,5.4vw,80px) clamp(44px,4.6vw,68px)}
+/* ═══ (c) the island feature. One full-bleed photograph, the three numbers
+       that matter, and the way in. The strongest thing on the page after the
+       hero, because it is the only region that is finished. ═══ */
+.isle{position:relative;isolation:isolate;overflow:hidden}
+.isle>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.isle::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(11,51,86,.62) 0%,rgba(11,51,86,.78) 46%,rgba(11,51,86,.94) 100%)}
+@media(min-width:900px){
+  .isle::after{background:linear-gradient(96deg,rgba(11,51,86,.95) 0%,rgba(11,51,86,.86) 52%,rgba(11,51,86,.5) 100%)}
+}
+.isle-in{padding-block:clamp(44px,5.6vw,88px)}
+.isle .label{color:var(--a250)}
+.isle h2{color:var(--paper);font-size:clamp(2.4rem,5.6vw,4.4rem);font-weight:800;letter-spacing:-.044em;
+  line-height:.98;margin-top:10px;max-width:12ch}
+.isle p.isle__l{color:rgba(255,255,255,.9);font-size:clamp(1.02rem,1.35vw,1.18rem);line-height:1.6;
+  max-width:52ch;margin-top:18px}
+.isle-num{display:flex;flex-wrap:wrap;gap:clamp(20px,4vw,56px);margin-top:clamp(26px,3.2vw,38px);
+  padding-top:clamp(20px,2.6vw,28px);border-top:1px solid rgba(255,255,255,.24)}
+.isle-num dt{font-size:.88rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.76)}
+.isle-num dd{font-size:clamp(2rem,3.6vw,3rem);font-weight:800;color:var(--paper);letter-spacing:-.044em;
+  line-height:1;margin-top:8px;font-variant-numeric:tabular-nums}
+.isle-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:clamp(24px,3vw,34px)}
+.isle-cta .btn--ghost{border-color:rgba(255,255,255,.55);color:var(--paper)}
+.isle-cta .btn--ghost:hover{border-color:var(--paper);background:rgba(255,255,255,.1)}
+.isle-cta .btn--light{background:var(--paper);color:var(--navy);border:1px solid var(--paper)}
+.isle-cta .btn--light:hover{background:var(--a100);border-color:var(--a100)}
+
+/* ═══ destinations ═══ */
+.sec--dest{padding-block:clamp(50px,5.4vw,80px) clamp(40px,4.4vw,64px)}
 .dgrid--feat{grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.6vw,34px)}
 .dgrid--feat .dest__m{aspect-ratio:4/3}
 .dest h3{font-size:clamp(1.5rem,2.4vw,2rem);font-weight:800;letter-spacing:-.03em;margin-top:17px}
@@ -142,17 +198,82 @@ nav.top .btn{flex:none}
 
 .rosterhd{margin-top:clamp(38px,4vw,56px);padding-top:clamp(24px,2.6vw,32px);border-top:1px solid var(--n200)}
 .rosterhd h3{font-size:1.3rem;font-weight:700}
-.rosterhd p{font-size:.99rem;color:var(--n600);margin-top:8px;max-width:58ch}
-.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,32px);margin-top:clamp(22px,2.4vw,30px)}
-@media(max-width:980px){.rgrid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:620px){.rgrid{grid-template-columns:1fr}}
-.rgrp{border-top:2px solid var(--n200);padding-top:13px}
-.rgrp h4{font-size:1.02rem;font-weight:700;display:flex;gap:12px;align-items:baseline;justify-content:space-between}
-.rgrp h4 span{font-size:.9rem;font-weight:600;color:var(--n600);flex:none;font-variant-numeric:tabular-nums}
-.rgrp p{font-size:.92rem;color:var(--n700);line-height:1.65;margin-top:8px}
-.rgrp a{display:inline-flex;align-items:center;gap:7px;min-height:44px;font-size:.9rem;font-weight:600;color:var(--azure)}
-.rgrp a:hover{color:var(--a800)}
-.rgrp a svg{width:13px;height:13px;flex:none}
+.rosterhd p{font-size:.99rem;color:var(--n600);margin-top:8px;max-width:60ch}
+
+/* (c) the town ledger. One row per town, every name a link, the count on the
+       right and a bar at true relative width. Nothing is greyed out: a town
+       with no guide of its own still says what is in it. */
+.tledger{list-style:none;border-top:2px solid var(--navy);margin-top:clamp(20px,2.4vw,28px)}
+.tl{border-bottom:1px solid var(--n150)}
+.tl a{display:grid;grid-template-columns:minmax(0,1fr) auto 17px;align-items:center;
+  gap:6px clamp(16px,3vw,48px);padding-block:clamp(15px,2vw,21px);min-height:44px}
+.tl__n{display:block;font-size:clamp(1.16rem,1.9vw,1.5rem);font-weight:800;color:var(--navy);letter-spacing:-.026em}
+.tl__d{display:block;font-size:.95rem;color:var(--n600);line-height:1.5;margin-top:5px;max-width:58ch}
+.tl a:hover .tl__n,.tl a:hover .tl__go{color:var(--azure)}
+.tl__c{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tl__c b{display:block;font-size:clamp(1.16rem,1.9vw,1.5rem);font-weight:800;color:var(--navy);letter-spacing:-.03em}
+.tl__c span{display:block;font-size:.88rem;color:var(--n600);margin-top:3px}
+.tl__go{width:17px;height:17px;color:var(--n400);flex:none}
+.tl__bar{grid-column:1/-1;height:4px;border-radius:2px;background:var(--n100);overflow:hidden;margin-top:12px}
+.tl__bar i{display:block;height:100%;background:var(--navy);border-radius:2px;width:var(--w)}
+@media(max-width:680px){
+  .tl a{grid-template-columns:minmax(0,1fr) 17px}
+  .tl__c{grid-column:1;text-align:left;display:flex;align-items:baseline;gap:8px;margin-top:10px}
+  .tl__c b,.tl__c span{display:inline}
+  .tl__go{grid-row:1;grid-column:2;align-self:start;margin-top:8px}
+}
+
+/* (c) the mainland. Navy type, real counts, and no coastal photograph borrowed
+       for an inland town. */
+.sec--rest{padding-block:0 clamp(46px,5vw,72px)}
+.rest{background:var(--navy);border-radius:clamp(16px,2vw,22px);padding:clamp(26px,3.6vw,52px)}
+.rest h2,.rest h3{color:var(--paper)}
+.rest .label{color:var(--a250)}
+.rest__l{color:rgba(255,255,255,.82);font-size:1rem;line-height:1.6;max-width:58ch;margin-top:12px}
+.regs{list-style:none;margin-top:clamp(24px,3vw,36px);border-top:1px solid rgba(255,255,255,.24)}
+.rw{border-bottom:1px solid rgba(255,255,255,.14);padding-block:clamp(18px,2.4vw,26px);
+  display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:10px clamp(20px,3vw,44px);align-items:baseline}
+.rw:last-child{border-bottom:0}
+@media(max-width:720px){.rw{grid-template-columns:1fr}}
+.rw h3{font-size:clamp(1.24rem,2.1vw,1.7rem);font-weight:800;letter-spacing:-.03em}
+.rw__c{font-size:.95rem;color:rgba(255,255,255,.76);margin-top:7px;font-variant-numeric:tabular-nums}
+.rw__c b{color:var(--paper);font-weight:700}
+.rw__t{display:flex;flex-wrap:wrap;gap:8px}
+.rw__t a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.34);color:var(--paper);font-size:.95rem;font-weight:600;
+  transition:background .2s var(--ease),border-color .2s var(--ease)}
+.rw__t a:hover{background:rgba(255,255,255,.12);border-color:var(--paper)}
+.rw__t a span{color:rgba(255,255,255,.72);font-weight:500;margin-left:7px;font-variant-numeric:tabular-nums}
+
+/* (c) the photograph strip. Three plates, captioned with what is in them. */
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+@media(max-width:760px){.strip{grid-template-columns:1fr}}
+.strip figure{position:relative;overflow:hidden;background:var(--n100);min-height:clamp(230px,26vw,340px)}
+.strip img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.strip figure:hover img{transform:scale(1.04)}
+.strip figcaption{position:absolute;left:0;right:0;bottom:0;padding:clamp(16px,2vw,22px);
+  color:var(--paper);font-size:.95rem;font-weight:600;line-height:1.45;
+  background:linear-gradient(180deg,rgba(11,51,86,0) 0%,rgba(11,51,86,.86) 78%)}
+
+/* (c) the island guide grid. The evidence is the real place names inside each
+       guide, set as a run, so the page shows its working. */
+.sec--guides{padding-block:clamp(44px,4.8vw,70px) clamp(44px,4.8vw,70px)}
+.ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--n150);
+  border-block:1px solid var(--n150);margin-top:clamp(20px,2.4vw,28px)}
+@media(max-width:900px){.ggrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.ggrid{grid-template-columns:1fr}}
+.gc{background:var(--paper);padding:clamp(20px,2.4vw,28px);display:flex;flex-direction:column;gap:10px}
+.gc:hover{background:var(--n50)}
+.gc__k{font-size:.88rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--azure)}
+.gc h3{font-size:clamp(1.12rem,1.5vw,1.3rem);font-weight:700;line-height:1.25;letter-spacing:-.018em;color:var(--navy)}
+.gc:hover h3{color:var(--azure)}
+.gc__p{font-size:.95rem;color:var(--n600);line-height:1.55}
+.gc__n{margin-top:auto;padding-top:10px;font-size:.95rem;font-weight:700;color:var(--navy);
+  font-variant-numeric:tabular-nums;border-top:1px solid var(--n150)}
+/* seven does not divide by three, so the last guide takes the whole last row
+   rather than leaving two empty cells at the corner of the grid */
+.gc--wide{grid-column:1/-1}
+.gc--wide .gc__p{max-width:88ch}
 
 /* ═══ the almanac. Leads with the question, then answers it. ═══ */
 .sec--alm{padding-block:0 clamp(56px,6vw,96px)}
@@ -243,6 +364,13 @@ nav.top .btn{flex:none}
   .led__b{text-align:left;margin-top:11px;white-space:normal}
   .gsep{padding-block:0!important;border-bottom:0!important}
 }
+/* The page indexes fifteen towns, so the almanac must say which one it is
+   answering for and let you change it, rather than silently meaning Tofino. */
+.almpick{display:inline-flex;gap:4px;background:rgba(255,255,255,.09);padding:4px;border-radius:999px;margin-bottom:20px}
+.almpick__b{font:inherit;font-size:.9rem;font-weight:600;color:rgba(255,255,255,.72);background:none;border:0;
+  padding:9px 18px;border-radius:999px;cursor:pointer;min-height:44px;transition:background .2s var(--ease),color .2s var(--ease)}
+.almpick__b:hover{color:#fff}
+.almpick__b[aria-pressed="true"]{background:#fff;color:var(--navy)}
 
 /* ═══ the full-bleed proof band ═══ */
 .proof{position:relative;min-height:min(66vh,560px);display:flex;align-items:center;overflow:hidden;
@@ -282,36 +410,6 @@ footer.f{margin-top:0}
 .band h2{font-size:clamp(2.1rem,3.8vw,3.2rem)}
 .band .btn--ghost{border-color:rgba(255,255,255,.62);color:var(--paper)}
 .band .btn--ghost:hover{border-color:var(--paper);background:rgba(255,255,255,.14)}
-
-/* the last of the system's sub-14px type, raised to the floor */
-.plate figcaption{font-size:.88rem}
-.btn--sm{font-size:.88rem}
-.fnote{font-size:.88rem}
-.who span{font-size:.88rem}
-
-.tch{font-size:1.16rem;font-weight:800;color:var(--navy);margin:clamp(30px,3.6vw,46px) 0 16px;padding-top:18px;border-top:1px solid var(--n150)}
-.tcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(212px,1fr));gap:clamp(16px,2vw,24px)}
-.tcards--sm{grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:clamp(13px,1.5vw,18px)}
-.tc{display:flex;flex-direction:column}
-.tc__m{display:block;aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;background:var(--n100);margin-bottom:9px}
-.tcards--sm .tc__m{aspect-ratio:1/1}
-.tc__m img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
-.tc:hover .tc__m img{transform:scale(1.05)}
-.tc__n{font-size:1.04rem;font-weight:700;color:var(--navy);letter-spacing:-.02em}
-.tcards--sm .tc__n{font-size:.95rem}
-.tc__s{font-size:.85rem;color:var(--n600);font-variant-numeric:tabular-nums;margin-top:2px}
-.tc__p{font-size:.79rem;color:var(--n500)}
-
-/* The landing indexes 26 towns, so the almanac must say which one it is answering
-   for and let you change it, rather than silently meaning Tofino. */
-.almpick{display:inline-flex;gap:4px;background:rgba(255,255,255,.09);padding:4px;border-radius:999px;margin-bottom:20px}
-.almpick__b{font:inherit;font-size:.9rem;font-weight:600;color:rgba(255,255,255,.72);background:none;border:0;
-  padding:9px 18px;border-radius:999px;cursor:pointer;min-height:44px;transition:background .2s var(--ease),color .2s var(--ease)}
-.almpick__b:hover{color:#fff}
-.almpick__b[aria-pressed="true"]{background:#fff;color:var(--navy)}
-
-/* The top of the tree. A destinations index should open at the country and let you
-   drill down, not open inside one town. */
 </style>
 </head>
 <body>
@@ -340,7 +438,7 @@ footer.f{margin-top:0}
 </svg>
 </div>
 
-<!-- GLOBAL NAV. Identical on every page: Stays, Destinations, Vancouver Island. -->
+<!-- GLOBAL NAV. Identical on every page: Stays, Destinations, Guides. -->
 <nav class="top"><div class="wrap nav-in">
   <a class="brand" href="#top"><img class="brand__mark" src="brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
   <ul class="nav-links">
@@ -363,18 +461,32 @@ footer.f{margin-top:0}
   <a class="btn btn--ink btn--sm" href="not-found.html">Sign in</a>
 </div></nav>
 
+<!-- PLACE BAR. Same bar as every other level of the tree. British Columbia is
+     the root, so the slot that carries the parent elsewhere names this place. -->
+<nav class="placebar" aria-label="British Columbia"><div class="wrap placebar-in">
+  <span class="placebar__here">British Columbia</span>
+  <ul class="placebar__links">
+    <li><a href="#island" aria-current="true">Vancouver Island</a></li>
+    <li><a href="#destinations">Towns</a></li>
+    <li><a href="#mainland">Mainland</a></li>
+    <li><a href="#guides">Island guides</a></li>
+    <li><a href="#almanac">When to go</a></li>
+  </ul>
+  <a class="btn btn--ghost btn--sm placebar__cta" href="search.html?q=stays&amp;show=stays">Find a stay</a>
+</div></nav>
+
 <main id="main">
 
 <header class="hero"><div class="wrap hero-grid">
   <div>
-    <span class="label">Canada</span>
-    <h1>Canada,
+    <span class="label">Where Arc Trips publishes</span>
+    <h1>British Columbia,
       <span class="mark">town by town<svg viewBox="0 0 200 12" fill="none" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8.4C38 3.2 92 2.1 132 5.1c22 1.7 44 3.6 66 1.2" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg></span>
     </h1>
-    <p class="lede">Twenty six towns across eight provinces, written up place by place. Start with a town, then work down to the places inside it.</p>
+    <p class="lede">Fifteen towns across four regions, written up place by place. Two of them are finished end to end, and they sit forty kilometres apart on the same stretch of west coast.</p>
     <div class="hero-cta">
-      <a class="btn btn--primary btn--lg" href="#destinations">Browse destinations</a>
-      <a class="btn btn--ghost" href="tofino.html">Or start with Tofino</a>
+      <a class="btn btn--primary btn--lg" href="#destinations">Browse the towns</a>
+      <a class="btn btn--ghost" href="region.html">Open Vancouver Island</a>
     </div>
     <p class="hero-note" id="heroNote"></p>
   </div>
@@ -389,9 +501,9 @@ footer.f{margin-top:0}
       </svg>
     </div>
 
-    <a class="plate p1" href="banff.html"><img src="media/banff/image29.jpg" alt="Lake Louise, Banff"><figcaption>Lake Louise, Banff</figcaption></a>
-    <a class="plate p2" href="quebec-city.html"><img src="media/quebec-city/image12.jpg" alt="Chateau Frontenac, Quebec City"><figcaption>Chateau Frontenac, Quebec City</figcaption></a>
-    <a class="plate p3" href="whistler.html"><img src="media/whistler/image5.jpg" alt="Lost Lake, Whistler"><figcaption>Lost Lake, Whistler</figcaption></a>
+    <a class="plate p1" href="tofino.html"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_760,h_1000/arcstudio/wnrrcrf4lnalgzbjvsz8" alt="A small town on a forested inlet seen from the air, with a boat wake crossing the channel and mountains behind"><figcaption>Tofino, from above the inlet</figcaption></a>
+    <a class="plate p2" href="victoria.html"><img src="media/victoria/image31.jpg" alt="The red and gold Gate of Harmonious Interest across the street at the entrance to Victoria's Chinatown"><figcaption>Victoria, the Chinatown gate</figcaption></a>
+    <a class="plate p3" href="whistler.html"><img src="media/whistler/image5.jpg" alt="Two children with skis riding a red gondola cabin above snow-covered peaks and forest"><figcaption>Whistler, up the Sea to Sky</figcaption></a>
 
     <div class="route" aria-hidden="true">
       <svg viewBox="0 0 520 480" fill="none">
@@ -419,17 +531,30 @@ footer.f{margin-top:0}
   <p class="tide-why">Long Beach doubles in width at low water, so that is when the long walk is worth doing.</p>
 </div></div>
 
-
-
 <section class="statband"><div class="wrap">
   <dl class="statgrid" id="statgrid"></dl>
 </div></section>
 
+<!-- THE HERO OF THE PAGE: the one region that is finished. -->
+<section class="isle" id="island">
+  <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1600,h_900/arcstudio/njajgzfo6gdfxbpxmtst" alt="A rocky headland with houses set back in the forest, low sun on the water and a mountain ridge behind">
+  <div class="wrap isle-in">
+    <span class="label">The region we have finished</span>
+    <h2>Vancouver Island</h2>
+    <p class="isle__l" id="isleLead"></p>
+    <dl class="isle-num" id="isleNum"></dl>
+    <div class="isle-cta">
+      <a class="btn btn--light" href="region.html">Open the region</a>
+      <a class="btn btn--ghost" href="tofino.html">Start in Tofino</a>
+    </div>
+  </div>
+</section>
+
 <section class="sec sec--dest" id="destinations"><div class="wrap">
   <div class="head">
     <div>
-      <span class="label label--n">Where we publish</span>
-      <h2 style="margin-top:11px">Destinations</h2>
+      <span class="label label--n">Open now</span>
+      <h2 style="margin-top:11px">The two towns that are finished</h2>
       <p id="destDek"></p>
     </div>
     <a class="btn btn--ghost btn--sm" href="region.html">All of Vancouver Island</a>
@@ -439,9 +564,45 @@ footer.f{margin-top:0}
 
   <div class="rosterhd">
     <h3 id="rosterH"></h3>
-    <p>These are written and being checked. Each one goes live the same way the first two did, once we have been.</p>
+    <p id="rosterP"></p>
   </div>
-  <div class="rgrid" id="roster"></div>
+  <ol class="tledger" id="tledger"></ol>
+</div></section>
+
+<section class="sec sec--rest" id="mainland"><div class="wrap">
+  <div class="rest">
+    <span class="label">The rest of British Columbia</span>
+    <h2 id="restTitle">Three more regions, told straight</h2>
+    <p class="rest__l" id="restLead"></p>
+    <ol class="regs" id="regs"></ol>
+  </div>
+</div></section>
+
+<div class="strip">
+  <figure>
+    <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1600,h_900/james-wheeler-YZfDg2L0lUs-unsplash_ino74q" alt="Wet sand and shallow surf running out to a headland, with a forested bluff on the right">
+    <figcaption>Thirteen beaches are named in the island beach guide, from Long Beach to Botanical Beach</figcaption>
+  </figure>
+  <figure>
+    <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1600,h_900/condor-wei-TiLEEXohfsY-unsplash_v7ja5f" alt="Four paddlers in drysuits standing beside a sea kayak on a wide surf beach, mountains behind">
+    <figcaption>Twelve paddling areas, from the Broken Group Islands to Johnstone Strait</figcaption>
+  </figure>
+  <figure>
+    <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1600,h_900/thomas-lipke-M12HGHNVJ2s-unsplash_nttcvc" alt="A floatplane wing over a wide tidal channel between forested shores and small islands">
+    <figcaption>Ten towns for whale watching, from Victoria north to Port McNeill</figcaption>
+  </figure>
+</div>
+
+<section class="sec sec--guides" id="guides"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">Written across the whole island</span>
+      <h2 style="margin-top:11px">Seven guides that belong to no town</h2>
+      <p>These cross every town line on Vancouver Island, so they sit at this level. Each one names its places, and the names are what you are reading below.</p>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="region.html#guides">All island guides</a>
+  </div>
+  <div class="ggrid" id="ggrid"></div>
 </div></section>
 
 <section class="sec sec--alm" id="almanac"><div class="wrap">
@@ -449,7 +610,7 @@ footer.f{margin-top:0}
     <div class="head">
       <div>
         <h2>When should you go?</h2>
-        <p>Pick a month and you get the honest answer for Tofino: the weather it really has, what is in season, and what you can book.</p>
+        <p>Pick a month and you get the honest answer for the two finished towns: the weather they really have, what is in season, and what you can book.</p>
       </div>
       <a class="btn btn--ghost btn--sm" href="plan.html">Plan a Tofino trip</a>
     </div>
@@ -490,7 +651,7 @@ footer.f{margin-top:0}
       <a href="search.html">Search every place<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
     </div>
 
-    <p class="almanac__legend">Climate figures are Environment and Climate Change Canada normals for Tofino, seeded for design.</p>
+    <p class="almanac__legend">Climate figures are Environment and Climate Change Canada normals for Tofino and Ucluelet, seeded for design.</p>
     <p class="vh" role="status" aria-live="polite" id="live"></p>
   </div>
 </div></section>
@@ -500,7 +661,7 @@ footer.f{margin-top:0}
   <div class="proof__veil"></div>
   <div class="wrap proof__in">
     <span class="label" style="color:var(--a300)">The index</span>
-    <p class="proof__n"><b class="tnum" id="proofN">127</b> places, documented by name.</p>
+    <p class="proof__n"><b class="tnum" id="proofN">127</b> places in the two finished towns.</p>
     <p class="proof__d" id="proofD"></p>
     <a class="btn btn--ghost btn--lg proof__cta" href="search.html">Search every one of them</a>
   </div>
@@ -583,17 +744,17 @@ footer.f{margin-top:0}
   <div class="fgrid">
     <div>
       <span class="fbrand"><img class="fbrand__mark" src="brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></span>
-      <p class="fnote">Stays and guides on the west coast of Vancouver Island, written by people who go there.</p>
+      <p class="fnote">Stays and guides in British Columbia, written by people who go there.</p>
     </div>
-    <div><h5>Destinations</h5><ul>
+    <div><h5>British Columbia</h5><ul>
       <li><a href="tofino.html">Tofino</a></li><li><a href="ucluelet.html">Ucluelet</a></li>
-      <li><a href="search.html">Guides</a></li><li><a href="province.html">British Columbia</a></li>
-      <li><a href="country.html">Canada</a></li></ul></div>
+      <li><a href="region.html">Vancouver Island</a></li><li><a href="#mainland">The mainland</a></li>
+      <li><a href="search.html">Search everything</a></li></ul></div>
     <div><h5>Things to do</h5><ul>
       <li><a href="things-to-do.html">All nine subjects</a></li><li><a href="whale-watching.html">Whale watching</a></li>
-      <li><a href="long-beach.html">Long Beach</a></li><li><a href="search.html">Search everything</a></li></ul></div>
+      <li><a href="long-beach.html">Long Beach</a></li><li><a href="region.html#guides">Island guides</a></li></ul></div>
     <div><h5>Plan</h5><ul>
-      <li><a href="plan.html">When to go</a></li><li><a href="plan.html">Month by month</a></li>
+      <li><a href="plan.html">When to go</a></li><li><a href="#almanac">Month by month</a></li>
       <li><a href="search.html?q=stays&amp;show=stays">Where to stay</a></li><li><a href="guide.html">Wildlife tours in Tofino</a></li></ul></div>
     <div><h5>Arc Trips</h5><ul>
       <li><a href="not-found.html">About us</a></li><li><a href="not-found.html">List your place</a></li>
@@ -605,19 +766,93 @@ footer.f{margin-top:0}
 <script>
 const DATA = {"counts":{"places":127,"photos":84,"guidePhotos":88,"notes":124,"tags":696,"uniqueTags":419,"questions":72,"qArticles":18,"articles":31,"guides":15,"blocks":1725,"stays":292,"from":320,"taxonomy":22},"towns":[{"slug":"tofino","name":"Tofino","hero":"arcstudio/wnrrcrf4lnalgzbjvsz8","standfirst":"Storm-swept beaches, old-growth rainforest, and the best surf on the Pacific coast.","stays":134,"guides":9,"places":73,"from":320,"perMonth":[3,3,4,5,7,6,6,6,8,5,4,3]},{"slug":"ucluelet","name":"Ucluelet","hero":"arcstudio/dtz692xbgvvwjopu7vcs","standfirst":"Tofino's quieter neighbour, wrapped by the Wild Pacific Trail.","stays":158,"guides":6,"places":54,"from":320,"perMonth":[1,1,3,4,6,5,5,5,6,4,2,1]}],"subjects":[{"cat":"hiking","name":"Hiking & trails","towns":["Tofino","Ucluelet"],"guides":2,"places":38,"unit":"walks written up","months":[4,5,6,7,8,9,10],"cta":{"k":"free","t":"Free to visit"}},{"cat":"kayaking","name":"Kayaking & paddling","towns":["Tofino","Ucluelet"],"guides":2,"places":31,"unit":"launches and routes","months":[5,6,7,8,9],"cta":{"k":"soon","t":"Coming soon"}},{"cat":"restaurants","name":"Restaurants","towns":["Tofino","Ucluelet"],"guides":2,"places":31,"unit":"rooms written up","months":[1,2,3,4,5,6,7,8,9,10,11,12],"cta":{"k":"free","t":"No booking needed"}},{"cat":"beaches","name":"Beaches","towns":["Tofino"],"guides":1,"places":13,"unit":"beaches written up","months":[5,6,7,8,9],"cta":{"k":"free","t":"Free to visit"}},{"cat":"storm-watching","name":"Storm watching","towns":["Tofino"],"guides":1,"places":8,"unit":"places to watch from","months":[11,12,1,2],"cta":{"k":"stay","t":"Stays"}},{"cat":"whale-watching","name":"Whale watching","towns":["Tofino","Ucluelet"],"guides":2,"places":6,"unit":"places written up","months":[3,4,5,6,7,8,9,10],"cta":{"k":"soon","t":"Coming soon"}},{"cat":"birding","name":"Birding & wildlife","towns":["Tofino","Ucluelet"],"guides":2,"places":0,"unit":"places written up","months":[3,4,5,9,10,11],"cta":{"k":"free","t":"Free to visit"}},{"cat":"fishing","name":"Fishing","towns":["Tofino","Ucluelet"],"guides":2,"places":0,"unit":"places written up","months":[5,6,7,8,9],"cta":{"k":"sister","t":"ArcTrips Fishing"}},{"cat":"surfing","name":"Surfing","towns":["Tofino"],"guides":1,"places":0,"unit":"breaks written up","months":[1,2,3,4,9,10,11,12],"cta":{"k":"free","t":"Free to visit"}}],"places":[{"n":"Long Beach","cat":"beaches","city":"Tofino"},{"n":"Chesterman Beach","cat":"beaches","city":"Tofino"},{"n":"Cox Bay","cat":"beaches","city":"Tofino"},{"n":"Tonquin Beach","cat":"beaches","city":"Tofino"},{"n":"Wickaninnish Beach","cat":"beaches","city":"Tofino"},{"n":"Florencia Bay","cat":"beaches","city":"Tofino"},{"n":"Rainforest Trail","cat":"hiking","city":"Tofino"},{"n":"Tonquin Trail","cat":"hiking","city":"Tofino"},{"n":"Radar Hill Trail","cat":"hiking","city":"Tofino"},{"n":"Shorepine Bog Trail","cat":"hiking","city":"Tofino"},{"n":"Wild Pacific Trail","cat":"hiking","city":"Ucluelet"},{"n":"Lighthouse Loop","cat":"hiking","city":"Ucluelet"},{"n":"Ancient Cedars Trail","cat":"hiking","city":"Ucluelet"},{"n":"Big Beach Park Trail","cat":"hiking","city":"Ucluelet"},{"n":"Clayoquot Sound","cat":"kayaking","city":"Tofino"},{"n":"Lemmens Inlet","cat":"kayaking","city":"Tofino"},{"n":"Grice Bay","cat":"kayaking","city":"Tofino"},{"n":"Barkley Sound","cat":"kayaking","city":"Ucluelet"},{"n":"Broken Group Islands","cat":"kayaking","city":"Ucluelet"},{"n":"Amphitrite Point Lighthouse","cat":"whale-watching","city":"Ucluelet"},{"n":"Pacific Rim National Park Reserve","cat":"whale-watching","city":"Ucluelet"},{"n":"Pettinger Point","cat":"storm-watching","city":"Tofino"},{"n":"Wolf in the Fog","cat":"restaurants","city":"Tofino"},{"n":"Pluvio Restaurant","cat":"restaurants","city":"Ucluelet"}],"reading":[{"slug":"tofino-storm-watching","title":"Storm Watching in Tofino","hero":"arcstudio/dtz692xbgvvwjopu7vcs","kicker":"Storm watching","where":"Tofino","places":8,"unit":"places to watch from"},{"slug":"tofino-beaches","title":"The Best Beaches in Tofino","hero":"arcstudio/wnrrcrf4lnalgzbjvsz8","kicker":"Beaches","where":"Tofino","places":13,"unit":"beaches written up"},{"slug":"ucluelet-hiking","title":"Ucluelet Hiking Guide","hero":"arcstudio/galleries/dayhike-trail-1","kicker":"Hiking and trails","where":"Ucluelet","places":20,"unit":"walks written up"},{"slug":"ucluelet-kayaking","title":"Kayaking in Ucluelet","hero":"condor-wei-TiLEEXohfsY-unsplash_v7ja5f","kicker":"Kayaking","where":"Ucluelet","places":13,"unit":"launches and routes"},{"slug":"tofino-surfing","title":"Surfing in Tofino","hero":"nicoline-mann-bIIK4mvsDZc-unsplash_vcyrwx","kicker":"Surfing","where":"Tofino","places":0,"unit":"breaks written up"},{"slug":"ucluelet-whale-spring-migration","title":"Whales in Ucluelet: The Spring Migration Explained","hero":"guides/ucluelet/whale-watching/_category-1","kicker":"Whale watching","where":"Ucluelet","places":6,"unit":"places written up"}],"qa":[{"q":"Can you swim in Tofino?","a":"Yes, but the water is cold and the ocean can be strong. Most people wear wetsuits. There are no lifeguards, so be careful.","cat":"Beaches","where":"Tofino"},{"q":"When do whale watching tours run in Ucluelet?","a":"Many tours run from March to October, but exact dates depend on the operator, the weather and the season.","cat":"Whale watching","where":"Ucluelet"},{"q":"Is storm watching in Tofino dangerous?","a":"It can be, if you get too close. Watch from a safe distance, avoid wet rocks, and never turn your back on the waves.","cat":"Storm watching","where":"Tofino"},{"q":"Can beginners surf in Tofino?","a":"Yes. Tofino is one of the best places in Canada for a first surf lesson. Start with a surf school so you learn the right beach, gear and safety steps.","cat":"Surfing","where":"Tofino"},{"q":"Is Tofino expensive for food?","a":"It can be, because it is remote and popular. Mixing food trucks, cafes and takeout with one or two sit-down meals keeps it sensible.","cat":"Restaurants","where":"Tofino"},{"q":"Can you camp on the beach in Tofino?","a":"Only in official campgrounds or designated backcountry sites. Not on public beaches, parking lots, roadsides or pullouts.","cat":"Camping","where":"Tofino and Ucluelet"}],"bestMonths":{"beaches":[5,6,7,8,9],"surfing":[1,2,3,4,9,10,11,12],"kayaking":[5,6,7,8,9],"fishing":[5,6,7,8,9],"boating":[5,6,7,8,9],"hot-springs":[1,2,3,4,5,6,7,8,9,10,11,12],"whale-watching":[3,4,5,6,7,8,9,10],"birding":[3,4,5,9,10,11],"storm-watching":[11,12,1,2],"parks":[4,5,6,7,8,9,10],"hiking":[4,5,6,7,8,9,10],"mountain-biking":[5,6,7,8,9],"skiing":[12,1,2,3],"camping":[5,6,7,8,9],"restaurants":[1,2,3,4,5,6,7,8,9,10,11,12],"markets":[5,6,7,8,9],"breweries":[1,2,3,4,5,6,7,8,9,10,11,12],"landmarks":[1,2,3,4,5,6,7,8,9,10,11,12],"arts-history":[1,2,3,4,5,6,7,8,9,10,11,12],"events":[3,4,5,6,7,8],"when-to-go":[1,2,3,4,5,6,7,8,9,10,11,12],"getting-around":[1,2,3,4,5,6,7,8,9,10,11,12]},"climate":{"tofino":[{"hi":8.6,"lo":2.6,"mm":489,"days":22},{"hi":9.3,"lo":2.3,"mm":368,"days":19},{"hi":10.4,"lo":3.1,"mm":337,"days":21},{"hi":12.3,"lo":4.3,"mm":213,"days":18},{"hi":14.6,"lo":6.7,"mm":132,"days":15},{"hi":16.3,"lo":9.1,"mm":102,"days":13},{"hi":18.1,"lo":10.9,"mm":66,"days":9},{"hi":18.6,"lo":11.1,"mm":82,"days":10},{"hi":17.5,"lo":9.3,"mm":152,"days":12},{"hi":13.9,"lo":6.9,"mm":396,"days":20},{"hi":10.3,"lo":4.4,"mm":500,"days":23},{"hi":8.4,"lo":2.7,"mm":490,"days":23}],"ucluelet":[{"hi":8.4,"lo":2.8,"mm":452,"days":22},{"hi":9.1,"lo":2.5,"mm":341,"days":19},{"hi":10.2,"lo":3.3,"mm":312,"days":20},{"hi":12.0,"lo":4.5,"mm":198,"days":17},{"hi":14.2,"lo":6.9,"mm":124,"days":14},{"hi":15.9,"lo":9.3,"mm":96,"days":12},{"hi":17.6,"lo":11.1,"mm":62,"days":9},{"hi":18.1,"lo":11.3,"mm":78,"days":10},{"hi":17.0,"lo":9.5,"mm":143,"days":12},{"hi":13.6,"lo":7.1,"mm":368,"days":20},{"hi":10.1,"lo":4.6,"mm":463,"days":23},{"hi":8.2,"lo":2.9,"mm":455,"days":22}]},"seasons":{"storm":{"months":[11,12,1,2],"name":"Storm season","claim":"The Pacific throws everything it has at the coast, and people book rooms to watch it."},"green":{"months":[3,4,10],"name":"The green months","claim":"The coast between the storms and the crowds, at half the price."},"long":{"months":[5,6,7,8,9],"name":"Long days","claim":"Sixteen hours of light and the water finally warm enough to stay in."}},"tide":{"station":"Tofino Harbour","low1":"06:14","low1m":0.8,"high1":"12:38","high1m":3.1,"low2":"18:52","low2m":1.2,"sunset":"21:07"}};
 
-/* The corpus is 73 documents across 26 more towns in 8 provinces. The roster
-   below is what the destination list has to hold, so it is built for that
-   shape now, not for the two towns that happen to be published today. */
-const ROSTER = [
-  { n: "British Columbia, Vancouver Island", t: ["Victoria","Nanaimo","Campbell River","Parksville","Sooke","Sidney","Chemainus","Nanoose Bay","Shawnigan Lake"], href: "region.html", cta: "Open Vancouver Island" },
-  { n: "British Columbia, mainland", t: ["Vancouver","Whistler","Squamish","Nelson"], href: "province.html", cta: "Open British Columbia" },
-  { n: "Alberta", t: ["Banff","Jasper","Edmonton"] },
-  { n: "Ontario", t: ["Niagara Falls","Ottawa"] },
-  { n: "Quebec", t: ["Montreal","Quebec City"] },
-  { n: "Saskatchewan", t: ["Saskatoon"] },
-  { n: "Nova Scotia", t: ["Halifax"] },
-  { n: "Prince Edward Island", t: ["Charlottetown"] },
-  { n: "Newfoundland and Labrador", t: ["St John's"] }
+/* ── British Columbia, the whole province, in one table ──────────────────────
+   Every count on this page is added up from these rows at run time, so the
+   province total, the island total, the ledger and the panel cannot drift
+   apart. Place counts and descriptions come from each town's own page in this
+   prototype; guide counts come from the guides published against each town.
+   The eleven towns outside British Columbia are not here. They carry real
+   content and are reachable from the search, but they are not part of this
+   tree and must never appear in a British Columbia count. */
+const BC = {
+  island: [
+    {n:"Tofino", h:"tofino.html", p:73, g:9, open:true,
+     d:"Long Beach, Chesterman Beach, Cox Bay, the Tonquin Trail, Wolf in the Fog. Nine guides, from surfing to storm watching."},
+    {n:"Ucluelet", h:"ucluelet.html", p:54, g:6, open:true,
+     d:"The Wild Pacific Trail, the Lighthouse Loop, Big Beach, Pluvio and Heartwood. Six guides, and the spring whale migration in full."},
+    {n:"Victoria", h:"victoria.html", p:100, g:6,
+     d:"The Butchart Gardens, the Inner Harbour, the Royal BC Museum, Dallas Road, Esquimalt Lagoon."},
+    {n:"Sooke", h:"sooke.html", p:30, g:1,
+     d:"Sooke Potholes, East Sooke Regional Park, Whiffin Spit, Sheringham Point Lighthouse."},
+    {n:"Parksville", h:"parksville.html", p:28, g:1,
+     d:"Rathtrevor Beach Provincial Park, Parksville Beach, and the whale and wildlife trips out of the bay."},
+    {n:"Nanaimo", h:"nanaimo.html", p:27, g:1,
+     d:"Saysutshun, the Harbourfront Walkway, whale and marine tours, and the fishing off Departure Bay."},
+    {n:"Nanoose Bay", h:"nanoose.html", p:16, g:1,
+     d:"Moorecroft Regional Park, Notch Hill, Fairwinds Marina, Beachcomber Regional Park."},
+    {n:"Sidney", h:"sidney.html", p:16, g:1,
+     d:"Sidney Spit in the Gulf Islands National Park Reserve, the Butchart Gardens, and the Saanich Peninsula."},
+    {n:"Chemainus", h:"chemainus.html", p:15, g:1,
+     d:"The murals, the Chemainus Theatre Festival, the galleries, and the harbour views."},
+    {n:"Campbell River", h:"campbell-river.html", p:14, g:1,
+     d:"Discovery Passage, Tyee Spit, the Maritime Heritage Centre, cold water diving."},
+    {n:"Shawnigan Lake", h:"shawnigan-lake.html", p:12, g:1,
+     d:"The Kinsol Trestle, the lake itself, the Cowichan Valley Trail, West Shawnigan Lake Park."}
+  ],
+
+  /* The three mainland regions, with the real counts carried on their own town
+     pages in this prototype. */
+  mainland: [
+    {n:"Sea to Sky", w:"The highway north out of Vancouver, and the two towns on it.",
+     towns:[{n:"Whistler", h:"whistler.html", p:219, g:8},{n:"Squamish", h:"squamish.html", p:73, g:4}]},
+    {n:"Lower Mainland", w:"The city itself, its shoreline and the mountains behind it.",
+     towns:[{n:"Vancouver", h:"vancouver.html", p:76, g:2}]},
+    {n:"Kootenays", w:"Mountain towns, deep snow, and the lake country that made them known.",
+     towns:[{n:"Nelson", h:"nelson.html", p:12, g:2}]}
+  ],
+
+  /* Guides written across the whole island, belonging to no single town. */
+  islandGuides: [
+    {t:"Best Beaches on Vancouver Island", kind:"beaches",
+     items:["Long Beach","Chesterman Beach","Cox Bay","Mackenzie Beach","Wickaninnish Beach","Florencia Bay",
+            "Big Beach","Little Beach","Rathtrevor Beach","Parksville Beach","Parksville","Tribune Bay","Botanical Beach"]},
+    {t:"Best Day Hikes on Vancouver Island", kind:"trails",
+     items:["Wild Pacific Trail","Rainforest Trails A and B","South Beach and Nuu-chah-nulth Trail","Mystic Beach",
+            "Sombrio Beach","Botanical Beach","East Sooke Coast Trail","Mount Finlayson","Mount Work",
+            "Mount Tzouhalem","Mount Benson","Englishman River Falls"]},
+    {t:"Best Kayaking Spots on Vancouver Island", kind:"paddling areas",
+     items:["Broken Group Islands","Ucluelet and Barkley Sound","Tofino and Clayoquot Sound","Johnstone Strait",
+            "Telegraph Cove","Quadra Island and the Discovery Islands","Gulf Islands","Victoria and Oak Bay",
+            "Sooke Basin","Nanaimo and Newcastle Island","Great Central Lake","Campbell River and Discovery Passage"]},
+    {t:"Best Overnight Hikes on Vancouver Island", kind:"routes",
+     items:["West Coast Trail","Juan de Fuca Trail","North Coast Trail","Cape Scott Trail","Nootka Trail",
+            "Della Falls Trail","Bedwell Lake and Cream Lake","Forbidden Plateau and Circlet Lake",
+            "Elk River Trail and Landslide Lake","Flower Ridge"]},
+    {t:"Best Places for Whale Watching on Vancouver Island", kind:"towns",
+     items:["Victoria","Sooke","Ucluelet","Tofino","Telegraph Cove","Port McNeill","Campbell River","Nanaimo",
+            "Parksville and Parksville Area","Port Renfrew and the Juan de Fuca Coast"]},
+    {t:"Vancouver Island: Best Mountain Biking Spots", kind:"riding areas",
+     items:["Cumberland and Comox Valley","Nanaimo","Cowichan Valley","Campbell River",
+            "Parksville Parksville and Hammerfest","Victoria and Hartland Mountain Bike Park",
+            "Mount Washington","Hornby Island","Sooke and the South Island"]},
+    {t:"How to Choose a Vacation Rental on Vancouver Island", kind:"checks",
+     wide:true, sep:" &middot; ", show:10,
+     items:["Pick the right region before you pick the rental","Decide what matters more: view, beach access, town access or seclusion",
+            "Match the rental to the season","Check whether the listing is legal and properly registered",
+            "Read for layout, not just style","Think about travel logistics before you book",
+            "Budget for the real total, not the nightly rate","Choose amenities that fit Vancouver Island travel",
+            "Read reviews for patterns, not praise","Check safety and disruption planning"]}
+  ]
+};
+
+/* The towns that carry real content outside British Columbia. They are here
+   so the search can still reach them, and nowhere else on this page. */
+const OFF_TREE = [
+  ["Banff","banff.html","Alberta"], ["Jasper","jasper.html","Alberta"], ["Edmonton","edmonton.html","Alberta"],
+  ["Saskatoon","saskatoon.html","Saskatchewan"], ["Montreal","montreal.html","Quebec"],
+  ["Quebec City","quebec-city.html","Quebec"], ["Ottawa","ottawa.html","Ontario"],
+  ["Niagara Falls","niagara-falls.html","Ontario"], ["Halifax","halifax.html","Nova Scotia"],
+  ["Charlottetown","charlottetown.html","Prince Edward Island"], ["St John's","st-john.html","Newfoundland and Labrador"]
 ];
 
 /* ── helpers ─────────────────────────────────────────────────────────────── */
@@ -630,9 +865,35 @@ const cld = (id, w, h) => `https://res.cloudinary.com/djqswlfat/image/upload/f_a
 const list = (a) => a.length < 2 ? (a[0] || "") : a.slice(0,-1).join(", ") + " and " + a[a.length-1];
 const short = (n) => n.split(" & ")[0].toLowerCase();
 const plural = (n, w) => `${n} ${w}${n === 1 ? "" : "s"}`;
+const num = (n) => n.toLocaleString("en-CA");
+const WORD = ["no","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve",
+  "thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen","twenty"];
+const word = (n) => WORD[n] !== undefined ? WORD[n] : num(n);
+const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 const C = DATA.counts;
 const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const ARROW = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>`;
+const ARROW_TL = '<svg class="tl__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>';
+
+/* Every total on the page, added up once, from BC above. */
+const OPEN = BC.island.filter((t) => t.open);
+const REST_ISLAND = BC.island.filter((t) => !t.open);
+const MAINLAND_TOWNS = BC.mainland.reduce((a,r) => a.concat(r.towns), []);
+const sum = (rows, k) => rows.reduce((a,r) => a + r[k], 0);
+const T = {
+  islandTowns: BC.island.length,
+  islandPlaces: sum(BC.island, "p"),
+  islandTownGuides: sum(BC.island, "g"),
+  islandWideGuides: BC.islandGuides.length,
+  mainlandTowns: MAINLAND_TOWNS.length,
+  mainlandPlaces: sum(MAINLAND_TOWNS, "p"),
+  mainlandGuides: sum(MAINLAND_TOWNS, "g"),
+  regions: BC.mainland.length + 1,
+  openPlaces: sum(OPEN, "p")
+};
+T.towns = T.islandTowns + T.mainlandTowns;
+T.places = T.islandPlaces + T.mainlandPlaces;
+T.guides = T.islandTownGuides + T.islandWideGuides + T.mainlandGuides;
 
 /* Every link resolves to a page that is about the thing its label names, in the
    town the label names. A subject with no page of its own goes to the subject
@@ -644,14 +905,6 @@ const SUBJECT_PAGE = {
   "ucluelet/hiking":"hiking-ucluelet.html", "ucluelet/kayaking":"kayaking-ucluelet.html",
   "ucluelet/restaurants":"restaurants-ucluelet.html", "ucluelet/whale-watching":"whale-watching-ucluelet.html"
 };
-const TOWN_FILE = {"Victoria":"victoria.html","Nanaimo":"nanaimo.html","Campbell River":"campbell-river.html",
-  "Parksville":"parksville.html","Sooke":"sooke.html","Sidney":"sidney.html","Chemainus":"chemainus.html",
-  "Nanoose Bay":"nanoose.html","Shawnigan Lake":"shawnigan-lake.html","Vancouver":"vancouver.html",
-  "Whistler":"whistler.html","Squamish":"squamish.html","Nelson":"nelson.html","Banff":"banff.html",
-  "Jasper":"jasper.html","Edmonton":"edmonton.html","Niagara Falls":"niagara-falls.html",
-  "Ottawa":"ottawa.html","Montreal":"montreal.html","Quebec City":"quebec-city.html",
-  "Saskatoon":"saskatoon.html","Halifax":"halifax.html","Charlottetown":"charlottetown.html",
-  "St John's":"st-john.html","Tofino":"tofino.html","Ucluelet":"ucluelet.html"};
 const SUBJECT_INDEX = (town) => town === "Ucluelet" ? "ucluelet.html#do" : "things-to-do.html#subjects";
 const SUBJECT_PAGE_FOR = (cat, towns) => {
   const t = (towns && towns.indexOf("Tofino") >= 0) || !towns || !towns.length ? "tofino" : towns[0].toLowerCase();
@@ -718,16 +971,17 @@ const TOWN_LABEL = {tofino:"Tofino", ucluelet:"Ucluelet"};
 const PLACES = DATA.places.map((p) => ({ ...p, months: DATA.bestMonths[p.cat] || [] }));
 
 /* ── the finder. Answers "which place". ──────────────────────────────────── */
+const G_BC = "Towns in British Columbia";
+const G_OFF = "Towns elsewhere in Canada";
 const FIND = [
-  ...DATA.towns.map((t) => ({ n: t.name, m: `Town, ${t.places} places`, href: TOWN_PAGE(t.slug), g: "Towns" })),
-  { n: "Vancouver Island", m: "Region, 11 towns", href: "region.html", g: "Towns" },
-  { n: "British Columbia", m: "Province, 15 towns", href: "province.html", g: "Towns" },
-  { n: "Canada", m: "Country, 26 towns", href: "country.html", g: "Towns" },
-  ...ROSTER.flatMap((r) => r.t.map((n) => ({ n, m: `Town, ${r.n}`, href: TOWN_FILE[n] || "country.html", g: "Towns" }))),
+  ...BC.island.map((t) => ({ n: t.n, m: `Vancouver Island, ${t.p} places`, href: t.h, g: G_BC })),
+  ...BC.mainland.flatMap((r) => r.towns.map((t) => ({ n: t.n, m: `${r.n}, ${t.p} places`, href: t.h, g: G_BC }))),
+  { n: "Vancouver Island", m: "Region, 11 towns", href: "region.html", g: G_BC },
   ...PLACES.map((p) => ({ n: p.n, m: p.city, href: PAGE(p.cat, p.n, p.city), g: "Places" })),
   ...DATA.subjects.map((s) => ({ n: s.name, m: `${plural(s.guides,"guide")}, ${list(s.towns)}`,
     href: SUBJECT_PAGE_FOR(s.cat, s.towns), g: "Subjects" })),
-  ...DATA.reading.map((a) => ({ n: a.title, m: `Guide, ${a.where}`, href: ARTICLE_HREF(a.title, a.where), g: "Reading" }))
+  ...DATA.reading.map((a) => ({ n: a.title, m: `Guide, ${a.where}`, href: ARTICLE_HREF(a.title, a.where), g: "Reading" })),
+  ...OFF_TREE.map(([n,h,prov]) => ({ n, m: prov, href: h, g: G_OFF }))
 ];
 const POPULAR = ["Tofino","Ucluelet","Vancouver Island","Long Beach","Wild Pacific Trail","Victoria"];
 let fIdx = -1, fRows = [];
@@ -737,7 +991,7 @@ function findMatches(q){
   if (!s) return POPULAR.map((n) => FIND.find((r) => r.n === n)).filter(Boolean);
   const starts = FIND.filter((r) => r.n.toLowerCase().startsWith(s));
   const has = FIND.filter((r) => !r.n.toLowerCase().startsWith(s) && r.n.toLowerCase().includes(s));
-  const rank = { Towns: 0, Places: 1, Subjects: 2, Reading: 3 };
+  const rank = {}; rank[G_BC] = 0; rank.Places = 1; rank.Subjects = 2; rank.Reading = 3; rank[G_OFF] = 4;
   return [...starts, ...has].slice(0, 9)
     .map((r, i) => [r, i]).sort((a,b) => rank[a[0].g] - rank[b[0].g] || a[1] - b[1]).map(([r]) => r);
 }
@@ -786,18 +1040,19 @@ function paintStatic(){
     `<span>Low <b>${t.low2}</b>, ${t.low2m} m</span><span>Sunset <b>${t.sunset}</b></span>`;
 
   $("#heroNote").innerHTML =
-    `<b>26</b> towns written up, <b>1,108</b> places documented, <b>837</b> of them photographed, ` +
-    `<b>${C.stays}</b> stays bookable tonight from $${C.from}.`;
+    `<b>${T.towns}</b> towns in British Columbia, <b>${num(T.places)}</b> places written up by name, ` +
+    `and <b>${OPEN.length}</b> of the towns open end to end. <b>${C.stays}</b> stays bookable tonight from $${C.from}.`;
 
   const stats = [
-    [26, "Towns written up", "Across eight provinces, from Tofino to St John's."],
-    [61, "Guides", "Nine subjects in Tofino alone, and forty six documents beyond it."],
-    ["1,108", "Places", "Named, located and written up."],
-    [C.stays, "Stays", `Bookable tonight, from $${C.from} a night.`]
+    [T.towns, "Towns", `Across ${word(T.regions)} regions, from Sooke in the south to Campbell River and up the Sea to Sky.`],
+    [num(T.places), "Places", "Named, located and written up one at a time."],
+    [T.guides, `Guides`, `${cap(word(T.islandWideGuides))} of them cross the whole island rather than sitting in one town.`],
+    [C.stays, "Stays", `Bookable tonight in Tofino and Ucluelet, from $${C.from} a night.`]
   ];
   $("#statgrid").innerHTML = stats.map(([n,label,gloss]) =>
     `<div class="stat"><dt>${label}</dt><dd class="tnum">${n}</dd><p>${gloss}</p></div>`).join("");
 
+  $("#proofN").textContent = T.openPlaces;
   $("#proofD").textContent =
     "Not scraped, not aggregated. Each one walked, photographed and written up, with its own note on what it is actually like.";
 
@@ -814,21 +1069,24 @@ function paintStatic(){
     `<div class="qi"><span>${esc(q.cat)}, ${esc(q.where)}</span><h3>${esc(q.q)}</h3><p>${esc(q.a)}</p></div>`).join("");
 }
 
-/* ── destinations: two published cards, then the roster ──────────────────── */
-function paintRoster(){
-  const rest = ROSTER.reduce((n,g) => n + g.t.length, 0);
-  $("#destDek").textContent =
-    `Tofino and Ucluelet are finished, place by place. Twenty four more towns are written up and shown below, with their real counts.`;
-  $("#rosterH").textContent = `The other ${rest} towns, by province`;
-  $("#roster").innerHTML = ROSTER.map((g) =>
-    `<div class="rgrp">
-      <h4>${esc(g.n)} <span>${g.t.length}</span></h4>
-      <p>${g.t.map(esc).join(" &middot; ")}</p>
-      ${g.href ? `<a href="${g.href}">${esc(g.cta)}${ARROW}</a>` : ""}
-    </div>`).join("");
+/* ── the island feature ──────────────────────────────────────────────────── */
+function paintIsland(){
+  $("#isleLead").textContent =
+    `${cap(word(T.islandTowns))} towns from Victoria north to Campbell River, ${num(T.islandPlaces)} places written up ` +
+    `and ${word(T.islandTownGuides)} town guides finished. That is ` +
+    `${Math.round(T.islandPlaces/T.places*100)} per cent of everything Arc Trips has written in this province.`;
+  $("#isleNum").innerHTML = [
+    ["Towns", T.islandTowns],
+    ["Places written up", num(T.islandPlaces)],
+    ["Guides finished", T.islandTownGuides]
+  ].map(([k,v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("");
 }
 
+/* ── the two open towns, then the nine more on the island ────────────────── */
 function paintDestinations(){
+  $("#destDek").textContent =
+    `Tofino and Ucluelet are written place by place, photographed, and bookable. ` +
+    `They hold ${T.openPlaces} of the island's ${T.islandPlaces} places between them.`;
   $("#dfeat").innerHTML = DATA.towns.map((t) => {
     const on = DATA.subjects.filter((s) => s.towns.includes(t.name) && s.months.includes(month))
       .sort((a,b) => a.months.length - b.months.length || b.places - a.places).map((s) => short(s.name));
@@ -843,6 +1101,52 @@ function paintDestinations(){
       <p class="dest__sf">${esc(t.standfirst)}</p>
       <p class="dest__meta tnum"><b>${t.guides}</b> guides &middot; <b>${t.places}</b> places &middot; <b>${t.stays}</b> stays from $${t.from}</p>
       <p class="dest__when">Most to do <b>${esc(windowFull(peak))}</b>.</p>
+    </a>`;
+  }).join("");
+}
+
+function paintLedger(){
+  const max = Math.max(...REST_ISLAND.map((t) => t.p));
+  $("#rosterH").textContent = `The other ${word(REST_ISLAND.length)} towns on the island`;
+  $("#rosterP").textContent =
+    `Researched, written and being checked. Each one opens the way the first two did, once we have been. ` +
+    `The bar is that town's library measured against the largest of them, Victoria's ${max}.`;
+  $("#tledger").innerHTML = REST_ISLAND.map((t) => `<li class="tl"><a href="${t.h}">
+      <span><span class="tl__n">${esc(t.n)}</span><span class="tl__d">${esc(t.d)}</span></span>
+      <span class="tl__c"><b class="tnum">${t.p}</b><span>places</span></span>
+      ${ARROW_TL}
+      <span class="tl__bar" aria-hidden="true"><i style="--w:${Math.max(3,Math.round(t.p/max*100))}%"></i></span>
+    </a></li>`).join("");
+}
+
+function paintMainland(){
+  $("#restTitle").textContent = `${cap(word(BC.mainland.length))} more regions, told straight`;
+  $("#restLead").textContent =
+    `${cap(word(T.mainlandTowns))} towns off the island have their places counted and their stays searchable, ` +
+    `but the guides are still being sectioned. Here is exactly how much of each one exists today.`;
+  $("#regs").innerHTML = BC.mainland.map((r) => {
+    const p = sum(r.towns, "p"), g = sum(r.towns, "g");
+    return `<li class="rw">
+      <div>
+        <h3>${esc(r.n)}</h3>
+        <p class="rw__c">${esc(r.w)} <b class="tnum">${p}</b> places, <b class="tnum">${g}</b> guides.</p>
+      </div>
+      <div class="rw__t">${r.towns.map((t) =>
+        `<a href="${t.h}">${esc(t.n)}<span class="tnum">${t.p}</span></a>`).join("")}</div>
+    </li>`;
+  }).join("");
+}
+
+function paintGuides(){
+  $("#ggrid").innerHTML = BC.islandGuides.map((g) => {
+    const show = g.show || 7;
+    const sep = g.sep || ", ";
+    return `
+    <a class="gc${g.wide ? " gc--wide" : ""}" href="${ARTICLE_HREF(g.t)}">
+      <span class="gc__k">Island wide</span>
+      <h3>${esc(g.t)}</h3>
+      <p class="gc__p">${g.items.slice(0,show).map(esc).join(sep)}${g.items.length > show ? sep + "and more" : ""}</p>
+      <span class="gc__n">${g.items.length} ${esc(g.kind)} named</span>
     </a>`;
   }).join("");
 }
@@ -881,8 +1185,8 @@ function paintAlmanac(){
   const d = daylight(month);
 
   $("#seasonLabel").textContent = name + " in " + TOWN_LABEL[almTown];
-  { const dk=document.getElementById("mswDek");
-    if (dk) dk.textContent = "Each column is that month's average rainfall in " + TOWN_LABEL[almTown] + ". Taller means wetter."; };
+  { const dk = document.getElementById("mswDek");
+    if (dk) dk.textContent = "Each column is that month's average rainfall in " + TOWN_LABEL[almTown] + ". Taller means wetter."; }
   $("#seasonName").textContent = season.name;
   $("#seasonClaim").textContent = season.claim;
   $("#seasonReason").innerHTML =
@@ -944,11 +1248,11 @@ function paintAlmanac(){
         ledgerOpen ? "Show fewer" : `Show the other ${plural(hidden, "thing")} to do`}</button></td></tr>`
     : "");
 
-  document.querySelectorAll('.almpick__b').forEach(function(b){
-    if(b.dataset.wired) return; b.dataset.wired=1;
-    b.addEventListener('click', function(){
+  document.querySelectorAll(".almpick__b").forEach(function(b){
+    if (b.dataset.wired) return; b.dataset.wired = 1;
+    b.addEventListener("click", function(){
       almTown = b.dataset.t;
-      document.querySelectorAll('.almpick__b').forEach(function(x){ x.setAttribute('aria-pressed', String(x===b)); });
+      document.querySelectorAll(".almpick__b").forEach(function(x){ x.setAttribute("aria-pressed", String(x === b)); });
       paintSwitcher(); paintAlmanac(); setMonth(month, false);
     });
   });
@@ -984,10 +1288,13 @@ function setMonth(m, focus){
 
 /* ── wire up ─────────────────────────────────────────────────────────────── */
 paintStatic();
-paintRoster();
+paintIsland();
+paintDestinations();
+paintLedger();
+paintMainland();
+paintGuides();
 paintSwitcher();
 paintAlmanac();
-paintDestinations();
 centerMonth(false);
 addEventListener("resize", () => centerMonth(false));
 
@@ -1033,71 +1340,6 @@ addEventListener("keydown", (e) => {
     e.preventDefault(); qi.focus();
   }
 });
-</script>
-
-<script>
-/* Linkify town names inside separator runs like "Victoria · Nanaimo · Sooke".
-   The earlier pass only matched a text node equal to one name, so multi-town
-   rows never linked. This splits on the separator and links each part. */
-(function(){
-  var M={"Victoria": "victoria.html", "Nanaimo": "nanaimo.html", "Campbell River": "campbell-river.html", "Sooke": "sooke.html", "Sidney": "sidney.html", "Chemainus": "chemainus.html", "Nanoose": "nanoose.html", "Shawnigan Lake": "shawnigan-lake.html", "Whistler": "whistler.html", "Squamish": "squamish.html", "Vancouver": "vancouver.html", "Nelson": "nelson.html", "Banff": "banff.html", "Jasper": "jasper.html", "Edmonton": "edmonton.html", "Saskatoon": "saskatoon.html", "Niagara Falls": "niagara-falls.html", "Ottawa": "ottawa.html", "Montreal": "montreal.html", "Quebec City": "quebec-city.html", "Halifax": "halifax.html", "Charlottetown": "charlottetown.html", "Parksville": "region.html", "Nanoose Bay": "nanoose.html", "Parksville": "nanoose.html"}, SKIP=/^(A|BUTTON|INPUT|SCRIPT|STYLE|H1|TITLE)$/;
-  function run(){
-    var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT), n, jobs=[];
-    while(n=w.nextNode()){
-      var v=n.nodeValue; if(!v||!v.trim()) continue;
-      var p=n.parentElement; if(!p||SKIP.test(p.tagName)||p.closest('a')) continue;
-      var names=Object.keys(M).filter(function(t){return v.indexOf(t)>-1;});
-      if(names.length) jobs.push([n,v]);
-    }
-    jobs.forEach(function(j){
-      var node=j[0], v=j[1], frag=document.createDocumentFragment();
-      var parts=v.split(/(\s*[·|,]\s*)/);
-      var linked=false;
-      parts.forEach(function(part){
-        var key=part.trim();
-        if(M[key]){
-          var a=document.createElement('a');
-          a.href=M[key]; a.textContent=part;
-          a.style.color='var(--azure)';
-          frag.appendChild(a); linked=true;
-        } else frag.appendChild(document.createTextNode(part));
-      });
-      if(linked && node.parentNode) node.parentNode.replaceChild(frag,node);
-    });
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(run,80)});
-  else setTimeout(run,80);
-  setTimeout(run,800);
-})();
-</script>
-
-<script>
-/* Replace the province text roster with real destination cards. Every town below
-   has its own page and its own photograph pulled from the source documents. */
-(function(){
-  var T=[{"k": "whistler", "name": "Whistler", "places": 219, "photos": 104, "img": "media/whistler/image5.jpg", "island": false, "prov": "British Columbia"}, {"k": "victoria", "name": "Victoria", "places": 100, "photos": 79, "img": "media/victoria/image31.jpg", "island": true, "prov": "Vancouver Island"}, {"k": "vancouver", "name": "Vancouver", "places": 76, "photos": 76, "img": "media/vancouver/image31.jpg", "island": false, "prov": "British Columbia"}, {"k": "squamish", "name": "Squamish", "places": 73, "photos": 36, "img": "media/squamish/image1.jpg", "island": false, "prov": "British Columbia"}, {"k": "ottawa", "name": "Ottawa", "places": 42, "photos": 42, "img": "media/ottawa/image21.jpg", "island": false, "prov": "Ontario"}, {"k": "quebec-city", "name": "Quebec City", "places": 41, "photos": 39, "img": "media/quebec-city/image12.jpg", "island": false, "prov": "Quebec"}, {"k": "montreal", "name": "Montreal", "places": 40, "photos": 40, "img": "media/montreal/image21.jpg", "island": false, "prov": "Quebec"}, {"k": "banff", "name": "Banff", "places": 39, "photos": 39, "img": "media/banff/image29.jpg", "island": false, "prov": "Alberta"}, {"k": "halifax", "name": "Halifax", "places": 38, "photos": 38, "img": "media/halifax/image26.jpg", "island": false, "prov": "Nova Scotia"}, {"k": "niagara-falls", "name": "Niagara Falls", "places": 36, "photos": 36, "img": "media/niagara-falls/image4.jpg", "island": false, "prov": "Ontario"}, {"k": "sooke", "name": "Sooke", "places": 30, "photos": 20, "img": "media/sooke/image32.jpg", "island": true, "prov": "Vancouver Island"}, {"k": "charlottetown", "name": "Charlottetown", "places": 28, "photos": 26, "img": "media/charlottetown/image23.jpg", "island": false, "prov": "Prince Edward Island"}, {"k": "parksville", "name": "Parksville", "places": 28, "photos": 20, "img": "media/parksville/image19.jpg", "island": true, "prov": "Vancouver Island"}, {"k": "edmonton", "name": "Edmonton", "places": 27, "photos": 27, "img": "media/edmonton/image19.jpg", "island": false, "prov": "Alberta"}, {"k": "nanaimo", "name": "Nanaimo", "places": 27, "photos": 21, "img": "media/nanaimo/image11.jpg", "island": true, "prov": "Vancouver Island"}, {"k": "saskatoon", "name": "Saskatoon", "places": 27, "photos": 27, "img": "media/saskatoon/image19.jpg", "island": false, "prov": "Saskatchewan"}, {"k": "jasper", "name": "Jasper", "places": 25, "photos": 25, "img": "media/jasper/image12.jpg", "island": false, "prov": "Alberta"}, {"k": "nanoose", "name": "Nanoose", "places": 16, "photos": 8, "img": "media/nanoose/image4.jpg", "island": true, "prov": "Vancouver Island"}, {"k": "sidney", "name": "Sidney", "places": 16, "photos": 11, "img": "media/sidney/image6.jpg", "island": true, "prov": "Vancouver Island"}, {"k": "chemainus", "name": "Chemainus", "places": 15, "photos": 10, "img": "media/chemainus/image9.jpg", "island": true, "prov": "Vancouver Island"}, {"k": "campbell-river", "name": "Campbell River", "places": 14, "photos": 14, "img": "media/campbell-river/image23.jpg", "island": true, "prov": "Vancouver Island"}, {"k": "nelson", "name": "Nelson", "places": 12, "photos": 6, "img": "media/nelson/image8.jpg", "island": false, "prov": "British Columbia"}, {"k": "shawnigan-lake", "name": "Shawnigan Lake", "places": 12, "photos": 9, "img": "media/shawnigan-lake/image12.jpg", "island": true, "prov": "Vancouver Island"}, {"k": "st-john", "name": "St John's", "places": 31, "photos": 30, "img": "media/st-john/image16.jpg", "island": false, "prov": "Newfoundland and Labrador"}];
-  function run(){
-    var r=document.getElementById('roster'); if(!r) return;
-    var h=document.getElementById('rosterH');
-    if(h) h.textContent='Every town we have written up';
-    var isl=T.filter(function(x){return x.island}), rest=T.filter(function(x){return !x.island});
-    function card(c,showProv){
-      return '<a class="tc" href="'+c.k+'.html">'+
-        '<span class="tc__m"><img loading="lazy" src="'+c.img+'" alt="'+c.name+'"></span>'+
-        '<span class="tc__n">'+c.name+'</span>'+
-        '<span class="tc__s">'+c.places+' places'+(c.photos?', '+c.photos+' with photos':'')+'</span>'+
-        (showProv?'<span class="tc__p">'+c.prov+'</span>':'')+'</a>';
-    }
-    r.innerHTML='<div class="tch" style="border:0;margin-top:0;padding-top:0">More on Vancouver Island</div>'+
-      '<div class="tcards">'+isl.map(function(c){return card(c,false)}).join('')+'</div>'+
-      '<div class="tch">The rest of Canada</div>'+
-      '<div class="tcards tcards--sm">'+rest.map(function(c){return card(c,true)}).join('')+'</div>';
-    r.className='';
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(run,120)});
-  else setTimeout(run,120);
-  setTimeout(run,900);
-})();
 </script>
 <script src="_nav.js"></script>
 </body>

@@ -83,7 +83,7 @@ for (const sm of ["/sitemap-destinations.xml", "/sitemap-travel-guides.xml", "/r
 }
 
 /* ── 6. A 404 must still be a 404 ────────────────────────────────────────── */
-const nf = await get("/destinations/canada/bc/definitely-not-a-place");
+const nf = await get("/destinations/bc/definitely-not-a-place");
 if (nf.status !== 404) fail(`unknown URL returned ${nf.status}, expected 404`);
 
 console.log(`\ncrawled ${crawled} pages`);

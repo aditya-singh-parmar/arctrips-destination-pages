@@ -25,8 +25,9 @@ Tofino", `long-beach.html` is a Tofino area.
 | Ucluelet | `ucluelet.html` | `ucluelet.html#do` | `hiking-ucluelet`, `kayaking-ucluelet`, `restaurants-ucluelet`, `whale-watching-ucluelet` | none | none |
 | 24 others | `<slug>.html` | in-page `.jump` anchors | none | none | none |
 
-Hubs: `index.html`, `country.html`, `province.html`, `region.html`, `search.html`,
-`not-found.html`. Tofino subjects with no page of their own: surfing, birding,
+Hubs: `index.html` (the British Columbia home and root of the tree),
+`region.html`, `search.html`, `not-found.html`. `country.html` and
+`province.html` were deleted on 2026-07-30; see `bc-root-contract.md`. Tofino subjects with no page of their own: surfing, birding,
 fishing, camping, events.
 
 Only one article page was built (`guide.html`). Search (`search.html`) carries real
@@ -50,8 +51,11 @@ other titled article link goes to `search.html?q=<url-encoded title>&in=<town>`,
 which lands on a result list containing it. Do not point six different titles at
 one article.
 
-**N4. Breadcrumbs are the real ancestry.** Arc Trips / Canada / British Columbia /
-Vancouver Island / Town / Subject. The region crumb is `region.html` labelled
+**N4. Breadcrumbs are the real ancestry.** British Columbia / Vancouver Island /
+Town / Subject. There is no Canada segment, and no "Arc Trips" crumb above
+British Columbia: the two pointed at the same page, and the brand lockup in the
+nav already links home. The eleven towns outside BC have no geographic parent in
+the tree, so their trail is `Arc Trips / <Town>`. The region crumb is `region.html` labelled
 "Vancouver Island". `whale-watching.html` currently has `search.html` labelled
 "Guides" sitting in the region slot; that is wrong everywhere it appears in a
 crumb. "Guides" belongs in the top nav, not the trail.
@@ -64,22 +68,23 @@ defect.
 anchor with `aria-current`, never an href to its own filename.
 
 **N7. Dead ends.** Every page offers at least one route deeper and one route up.
-The 24 towns without subject pages must still reach `region.html` / `province.html`
-/ `country.html` / `index.html` and a scoped search.
+The towns without subject pages must still reach `region.html` (if on Vancouver
+Island) and `index.html`, plus a scoped search.
 
-**N8. Honest counts.** 26 towns, 15 in British Columbia, 11 on Vancouver Island, 2
-published in full. Do not restate a count you have not checked against the page you
+**N8. Honest counts.** 15 towns in British Columbia, 11 of them on Vancouver
+Island, 2 published in full. The 11 towns outside BC are off-tree and are never
+counted into a BC figure. Do not restate a count you have not checked against the page you
 are editing.
 
 ## Verification, mandatory before reporting
 
 ```
 node scripts/qa-prototype.mjs        # links, anchors, images, hard rules, JS parse
-node scripts/_runtime-check.mjs      # console errors + containers that render empty
+node scripts/qa-runtime.mjs          # console errors + containers that render empty
 ```
 
 Both must be clean for the files you own. `qa-prototype.mjs` already fails a link
-whose label names a subject its target does not (`SUBJ` check) — extend nothing,
+whose label names a subject its target does not (`SUBJ` check). Extend nothing,
 just satisfy it.
 
 ## Hard rules that still bind

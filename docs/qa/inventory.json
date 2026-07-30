@@ -55,17 +55,6 @@
   "placebarTabs": 4
  },
  {
-  "file": "country.html",
-  "key": "country",
-  "group": "Geography",
-  "title": "Canada, Arc Trips",
-  "h1": "Canada",
-  "bytes": 31118,
-  "imgs": 5,
-  "links": 11,
-  "placebarTabs": 5
- },
- {
   "file": "edmonton.html",
   "key": "edmonton",
   "group": "Town",
@@ -272,17 +261,6 @@
   "bytes": 116205,
   "imgs": 6,
   "links": 11,
-  "placebarTabs": 5
- },
- {
-  "file": "province.html",
-  "key": "province",
-  "group": "Geography",
-  "title": "British Columbia, Arc Trips",
-  "h1": "British Columbia",
-  "bytes": 39399,
-  "imgs": 7,
-  "links": 13,
   "placebarTabs": 5
  },
  {

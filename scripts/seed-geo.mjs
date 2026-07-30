@@ -89,17 +89,49 @@ async function upsert(row) {
   return data.id;
 }
 
-const canada = await upsert({
-  slug: "canada", name: "Canada", type: "country", parent_id: null, status: "published",
-  timezone: "America/Vancouver", currency: "CAD", unit_system: "metric", sort_priority: 0,
-});
+/**
+ * Provinces are roots. Canada was the root until 2026-07-30 and left the tree
+ * with the rest of the country segment (docs/qa/bc-root-contract.md), so the
+ * locale fields it carried for its descendants now sit on each province.
+ *
+ * Any historical `canada` row is archived rather than deleted: parent_id
+ * cascades on delete, so dropping it before the provinces are reparented would
+ * take the whole tree with it.
+ */
+const TIMEZONE = {
+  bc: "America/Vancouver", ab: "America/Edmonton", sk: "America/Regina",
+  on: "America/Toronto", qc: "America/Toronto", ns: "America/Halifax",
+  pe: "America/Halifax", nl: "America/St_Johns",
+};
+
+/* Lift any province still hanging off a country to the root BEFORE upserting,
+   or the upsert (which matches on parent and slug) would insert a second `bc`
+   beside the old one instead of finding it. */
+const { data: countries, error: countryError } = await sb
+  .from("geo_places").select("id").eq("type", "country");
+if (countryError) throw new Error(`read country rows: ${countryError.message}`);
+const countryIds = (countries ?? []).map((c) => c.id);
+if (countryIds.length) {
+  const { error } = await sb
+    .from("geo_places").update({ parent_id: null, updated_at: new Date().toISOString() })
+    .in("parent_id", countryIds);
+  if (error) throw new Error(`lift provinces to the root: ${error.message}`);
+}
 
 const provinceIds = {};
 let order = 0;
 for (const [slug, name] of Object.entries(PROVINCES)) {
   provinceIds[slug] = await upsert({
-    slug, name, type: "province", parent_id: canada, status: "published", sort_priority: (order += 10),
+    slug, name, type: "province", parent_id: null, status: "published", sort_priority: (order += 10),
+    timezone: TIMEZONE[slug], currency: "CAD", unit_system: "metric",
   });
+}
+
+if (countryIds.length) {
+  const { error } = await sb
+    .from("geo_places").update({ status: "archived", updated_at: new Date().toISOString() })
+    .in("id", countryIds);
+  if (error) throw new Error(`archive country rows: ${error.message}`);
 }
 
 const regionIds = {};
@@ -137,7 +169,7 @@ for (const city of cities ?? []) {
 }
 
 console.log(
-  `geo tree: 1 country, ${Object.keys(provinceIds).length} provinces, ` +
+  `geo tree: ${Object.keys(provinceIds).length} provinces at the root, ` +
   `${Object.keys(regionIds).length} regions, ${linked} towns linked`,
 );
 if (skipped.length) console.log(`skipped, no province mapping: ${skipped.join(", ")}`);
