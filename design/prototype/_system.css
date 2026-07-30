@@ -203,10 +203,18 @@ nav.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.9);backdro
 .almanac h2,.almanac h3{color:#fff}
 .almanac .head p{color:rgba(255,255,255,.72)}
 .almanac .label{color:var(--a300)}
-.led{width:100%;border-collapse:collapse}
-.led th{text-align:left;font-size:.68rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.56);
+/* The third column was 202px and right-aligned, so "Boat, sometimes from shore"
+   broke one word per line and the uppercase header stacked three deep. Widths are
+   fixed now and the column reads left to right like the rest of the table, with
+   room for the longest phrase the corpus actually carries. */
+.led{width:100%;border-collapse:collapse;table-layout:fixed}
+.led th{text-align:left;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.56);
   padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.2)}
+.led th:first-child{width:auto}
+.led th.led__mon{width:296px}
+.led th:last-child{width:264px;text-align:left;padding-left:clamp(14px,1.6vw,26px)}
 .led td{padding:15px 0;border-bottom:1px solid rgba(255,255,255,.12);vertical-align:middle}
+.led td:last-child{padding-left:clamp(14px,1.6vw,26px);text-align:left}
 .led tr:last-child td{border-bottom:0}
 .led__s{font-size:1.06rem;font-weight:700;color:#fff;letter-spacing:-.015em}
 .led__w{font-size:.83rem;color:rgba(255,255,255,.6);margin-top:2px}
@@ -215,7 +223,12 @@ nav.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.9);backdro
   background:rgba(255,255,255,.09);color:rgba(255,255,255,.42)}
 .mon i[data-on]{background:#fff;color:var(--navy)}
 .mon i[data-now]{outline:1.5px solid #fff;outline-offset:1.5px}
-.led__b{text-align:right;white-space:nowrap;font-size:.88rem;color:rgba(255,255,255,.72);font-variant-numeric:tabular-nums}
+/* .led__b IS the <td>, so it must stay a table-cell: display:flex on it drops the
+   cell out of the row and the dividers stop lining up across the table. The pill
+   is made a block instead, which puts the fact on the line below it. */
+.led__b{text-align:left;font-size:.88rem;color:rgba(255,255,255,.72);
+  font-variant-numeric:tabular-nums;line-height:1.4}
+.led__b .pill{display:block;width:fit-content;margin-bottom:5px}
 .led__b b{color:#fff}
 .pill{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:4px 9px;border-radius:999px}
 .pill--go{background:var(--emerald);color:#fff}
