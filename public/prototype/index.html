@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>British Columbia, Arc Trips</title>
-<meta name="description" content="Fifteen towns across four regions of British Columbia, written up place by place. Vancouver Island is the region we have finished: eleven towns and 385 places, with Tofino and Ucluelet open end to end.">
+<meta name="description" content="Fifteen towns across four regions of British Columbia. Vancouver Island is the one to start with: eleven towns on one road, with Tofino and Ucluelet on the open Pacific at the end of it.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
       has never been here, and index all fifteen towns for somebody who has.
 
       The sequence answers that in order: what this is, how much of it exists,
-      the one region that is finished, the two towns that are open, the nine
+      the region to start with, the two towns on the open coast, the nine
       more on the island, the four on the mainland, the guides that cross the
       whole island, then when to come.
 
@@ -156,7 +156,7 @@ nav.top .btn{flex:none}
 
 /* ═══ (c) the island feature. One full-bleed photograph, the three numbers
        that matter, and the way in. The strongest thing on the page after the
-       hero, because it is the only region that is finished. ═══ */
+       hero, because it is the one to start with. ═══ */
 .isle{position:relative;isolation:isolate;overflow:hidden}
 .isle>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
 .isle::after{content:"";position:absolute;inset:0;z-index:-1;
@@ -205,22 +205,22 @@ nav.top .btn{flex:none}
        with no guide of its own still says what is in it. */
 .tledger{list-style:none;border-top:2px solid var(--navy);margin-top:clamp(20px,2.4vw,28px)}
 .tl{border-bottom:1px solid var(--n150)}
-.tl a{display:grid;grid-template-columns:minmax(0,1fr) auto 17px;align-items:center;
-  gap:6px clamp(16px,3vw,48px);padding-block:clamp(15px,2vw,21px);min-height:44px}
+/* photograph, then the town and what is in it, then the arrow. The count column
+   and the ranking bar are gone: they measured how much had been written, which
+   is a fact about us and not about the trip. */
+.tl a{display:grid;grid-template-columns:clamp(96px,12vw,152px) minmax(0,1fr) 17px;align-items:center;
+  gap:clamp(16px,2.6vw,32px);padding-block:clamp(14px,1.8vw,20px);min-height:44px}
+.tl__m{border-radius:var(--r-sm);overflow:hidden;aspect-ratio:4/3;background:var(--n100)}
+.tl__m img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.tl a:hover .tl__m img{transform:scale(1.05)}
 .tl__n{display:block;font-size:clamp(1.16rem,1.9vw,1.5rem);font-weight:800;color:var(--navy);letter-spacing:-.026em}
 .tl__d{display:block;font-size:.95rem;color:var(--n600);line-height:1.5;margin-top:5px;max-width:58ch}
 .tl a:hover .tl__n,.tl a:hover .tl__go{color:var(--azure)}
-.tl__c{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
-.tl__c b{display:block;font-size:clamp(1.16rem,1.9vw,1.5rem);font-weight:800;color:var(--navy);letter-spacing:-.03em}
-.tl__c span{display:block;font-size:.88rem;color:var(--n600);margin-top:3px}
 .tl__go{width:17px;height:17px;color:var(--n400);flex:none}
-.tl__bar{grid-column:1/-1;height:4px;border-radius:2px;background:var(--n100);overflow:hidden;margin-top:12px}
-.tl__bar i{display:block;height:100%;background:var(--navy);border-radius:2px;width:var(--w)}
 @media(max-width:680px){
-  .tl a{grid-template-columns:minmax(0,1fr) 17px}
-  .tl__c{grid-column:1;text-align:left;display:flex;align-items:baseline;gap:8px;margin-top:10px}
-  .tl__c b,.tl__c span{display:inline}
-  .tl__go{grid-row:1;grid-column:2;align-self:start;margin-top:8px}
+  .tl a{grid-template-columns:88px minmax(0,1fr) 17px;gap:14px}
+  .tl__n{font-size:1.1rem}
+  .tl__d{font-size:.9rem;margin-top:4px}
 }
 
 /* (c) the mainland. Navy type, real counts, and no coastal photograph borrowed
@@ -483,7 +483,7 @@ footer.f{margin-top:0}
     <h1>British Columbia,
       <span class="mark">town by town<svg viewBox="0 0 200 12" fill="none" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8.4C38 3.2 92 2.1 132 5.1c22 1.7 44 3.6 66 1.2" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg></span>
     </h1>
-    <p class="lede">Fifteen towns across four regions, written up place by place. Two of them are finished end to end, and they sit forty kilometres apart on the same stretch of west coast.</p>
+    <p class="lede">Fifteen towns across four regions. The two we know best sit forty kilometres apart on the same stretch of west coast, at the end of one road through the rainforest.</p>
     <div class="hero-cta">
       <a class="btn btn--primary btn--lg" href="#destinations">Browse the towns</a>
       <a class="btn btn--ghost" href="region.html">Open Vancouver Island</a>
@@ -535,11 +535,11 @@ footer.f{margin-top:0}
   <dl class="statgrid" id="statgrid"></dl>
 </div></section>
 
-<!-- THE HERO OF THE PAGE: the one region that is finished. -->
+<!-- THE HERO OF THE PAGE: the region to start with. -->
 <section class="isle" id="island">
   <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1600,h_900/arcstudio/njajgzfo6gdfxbpxmtst" alt="A rocky headland with houses set back in the forest, low sun on the water and a mountain ridge behind">
   <div class="wrap isle-in">
-    <span class="label">The region we have finished</span>
+    <span class="label">Where to start</span>
     <h2>Vancouver Island</h2>
     <p class="isle__l" id="isleLead"></p>
     <dl class="isle-num" id="isleNum"></dl>
@@ -554,7 +554,7 @@ footer.f{margin-top:0}
   <div class="head">
     <div>
       <span class="label label--n">Open now</span>
-      <h2 style="margin-top:11px">The two towns that are finished</h2>
+      <h2 style="margin-top:11px">Start on the west coast</h2>
       <p id="destDek"></p>
     </div>
     <a class="btn btn--ghost btn--sm" href="region.html">All of Vancouver Island</a>
@@ -572,7 +572,7 @@ footer.f{margin-top:0}
 <section class="sec sec--rest" id="mainland"><div class="wrap">
   <div class="rest">
     <span class="label">The rest of British Columbia</span>
-    <h2 id="restTitle">Three more regions, told straight</h2>
+    <h2 id="restTitle">Three more regions on the mainland</h2>
     <p class="rest__l" id="restLead"></p>
     <ol class="regs" id="regs"></ol>
   </div>
@@ -597,7 +597,7 @@ footer.f{margin-top:0}
   <div class="head">
     <div>
       <span class="label label--n">Written across the whole island</span>
-      <h2 style="margin-top:11px">Seven guides that belong to no town</h2>
+      <h2 style="margin-top:11px">Planning the whole island</h2>
       <p>These cross every town line on Vancouver Island, so they sit at this level. Each one names its places, and the names are what you are reading below.</p>
     </div>
     <a class="btn btn--ghost btn--sm" href="region.html#guides">All island guides</a>
@@ -764,7 +764,7 @@ footer.f{margin-top:0}
 </div></footer>
 
 <script>
-const DATA = {"counts":{"places":127,"photos":84,"guidePhotos":88,"notes":124,"tags":696,"uniqueTags":419,"questions":72,"qArticles":18,"articles":31,"guides":15,"blocks":1725,"stays":292,"from":320,"taxonomy":22},"towns":[{"slug":"tofino","name":"Tofino","hero":"arcstudio/wnrrcrf4lnalgzbjvsz8","standfirst":"Storm-swept beaches, old-growth rainforest, and the best surf on the Pacific coast.","stays":134,"guides":9,"places":73,"from":320,"perMonth":[3,3,4,5,7,6,6,6,8,5,4,3]},{"slug":"ucluelet","name":"Ucluelet","hero":"arcstudio/dtz692xbgvvwjopu7vcs","standfirst":"Tofino's quieter neighbour, wrapped by the Wild Pacific Trail.","stays":158,"guides":6,"places":54,"from":320,"perMonth":[1,1,3,4,6,5,5,5,6,4,2,1]}],"subjects":[{"cat":"hiking","name":"Hiking & trails","towns":["Tofino","Ucluelet"],"guides":2,"places":38,"unit":"walks written up","months":[4,5,6,7,8,9,10],"cta":{"k":"free","t":"Free to visit"}},{"cat":"kayaking","name":"Kayaking & paddling","towns":["Tofino","Ucluelet"],"guides":2,"places":31,"unit":"launches and routes","months":[5,6,7,8,9],"cta":{"k":"soon","t":"Coming soon"}},{"cat":"restaurants","name":"Restaurants","towns":["Tofino","Ucluelet"],"guides":2,"places":31,"unit":"rooms written up","months":[1,2,3,4,5,6,7,8,9,10,11,12],"cta":{"k":"free","t":"No booking needed"}},{"cat":"beaches","name":"Beaches","towns":["Tofino"],"guides":1,"places":13,"unit":"beaches written up","months":[5,6,7,8,9],"cta":{"k":"free","t":"Free to visit"}},{"cat":"storm-watching","name":"Storm watching","towns":["Tofino"],"guides":1,"places":8,"unit":"places to watch from","months":[11,12,1,2],"cta":{"k":"stay","t":"Stays"}},{"cat":"whale-watching","name":"Whale watching","towns":["Tofino","Ucluelet"],"guides":2,"places":6,"unit":"places written up","months":[3,4,5,6,7,8,9,10],"cta":{"k":"soon","t":"Coming soon"}},{"cat":"birding","name":"Birding & wildlife","towns":["Tofino","Ucluelet"],"guides":2,"places":0,"unit":"places written up","months":[3,4,5,9,10,11],"cta":{"k":"free","t":"Free to visit"}},{"cat":"fishing","name":"Fishing","towns":["Tofino","Ucluelet"],"guides":2,"places":0,"unit":"places written up","months":[5,6,7,8,9],"cta":{"k":"sister","t":"ArcTrips Fishing"}},{"cat":"surfing","name":"Surfing","towns":["Tofino"],"guides":1,"places":0,"unit":"breaks written up","months":[1,2,3,4,9,10,11,12],"cta":{"k":"free","t":"Free to visit"}}],"places":[{"n":"Long Beach","cat":"beaches","city":"Tofino"},{"n":"Chesterman Beach","cat":"beaches","city":"Tofino"},{"n":"Cox Bay","cat":"beaches","city":"Tofino"},{"n":"Tonquin Beach","cat":"beaches","city":"Tofino"},{"n":"Wickaninnish Beach","cat":"beaches","city":"Tofino"},{"n":"Florencia Bay","cat":"beaches","city":"Tofino"},{"n":"Rainforest Trail","cat":"hiking","city":"Tofino"},{"n":"Tonquin Trail","cat":"hiking","city":"Tofino"},{"n":"Radar Hill Trail","cat":"hiking","city":"Tofino"},{"n":"Shorepine Bog Trail","cat":"hiking","city":"Tofino"},{"n":"Wild Pacific Trail","cat":"hiking","city":"Ucluelet"},{"n":"Lighthouse Loop","cat":"hiking","city":"Ucluelet"},{"n":"Ancient Cedars Trail","cat":"hiking","city":"Ucluelet"},{"n":"Big Beach Park Trail","cat":"hiking","city":"Ucluelet"},{"n":"Clayoquot Sound","cat":"kayaking","city":"Tofino"},{"n":"Lemmens Inlet","cat":"kayaking","city":"Tofino"},{"n":"Grice Bay","cat":"kayaking","city":"Tofino"},{"n":"Barkley Sound","cat":"kayaking","city":"Ucluelet"},{"n":"Broken Group Islands","cat":"kayaking","city":"Ucluelet"},{"n":"Amphitrite Point Lighthouse","cat":"whale-watching","city":"Ucluelet"},{"n":"Pacific Rim National Park Reserve","cat":"whale-watching","city":"Ucluelet"},{"n":"Pettinger Point","cat":"storm-watching","city":"Tofino"},{"n":"Wolf in the Fog","cat":"restaurants","city":"Tofino"},{"n":"Pluvio Restaurant","cat":"restaurants","city":"Ucluelet"}],"reading":[{"slug":"tofino-storm-watching","title":"Storm Watching in Tofino","hero":"arcstudio/dtz692xbgvvwjopu7vcs","kicker":"Storm watching","where":"Tofino","places":8,"unit":"places to watch from"},{"slug":"tofino-beaches","title":"The Best Beaches in Tofino","hero":"arcstudio/wnrrcrf4lnalgzbjvsz8","kicker":"Beaches","where":"Tofino","places":13,"unit":"beaches written up"},{"slug":"ucluelet-hiking","title":"Ucluelet Hiking Guide","hero":"arcstudio/galleries/dayhike-trail-1","kicker":"Hiking and trails","where":"Ucluelet","places":20,"unit":"walks written up"},{"slug":"ucluelet-kayaking","title":"Kayaking in Ucluelet","hero":"condor-wei-TiLEEXohfsY-unsplash_v7ja5f","kicker":"Kayaking","where":"Ucluelet","places":13,"unit":"launches and routes"},{"slug":"tofino-surfing","title":"Surfing in Tofino","hero":"nicoline-mann-bIIK4mvsDZc-unsplash_vcyrwx","kicker":"Surfing","where":"Tofino","places":0,"unit":"breaks written up"},{"slug":"ucluelet-whale-spring-migration","title":"Whales in Ucluelet: The Spring Migration Explained","hero":"guides/ucluelet/whale-watching/_category-1","kicker":"Whale watching","where":"Ucluelet","places":6,"unit":"places written up"}],"qa":[{"q":"Can you swim in Tofino?","a":"Yes, but the water is cold and the ocean can be strong. Most people wear wetsuits. There are no lifeguards, so be careful.","cat":"Beaches","where":"Tofino"},{"q":"When do whale watching tours run in Ucluelet?","a":"Many tours run from March to October, but exact dates depend on the operator, the weather and the season.","cat":"Whale watching","where":"Ucluelet"},{"q":"Is storm watching in Tofino dangerous?","a":"It can be, if you get too close. Watch from a safe distance, avoid wet rocks, and never turn your back on the waves.","cat":"Storm watching","where":"Tofino"},{"q":"Can beginners surf in Tofino?","a":"Yes. Tofino is one of the best places in Canada for a first surf lesson. Start with a surf school so you learn the right beach, gear and safety steps.","cat":"Surfing","where":"Tofino"},{"q":"Is Tofino expensive for food?","a":"It can be, because it is remote and popular. Mixing food trucks, cafes and takeout with one or two sit-down meals keeps it sensible.","cat":"Restaurants","where":"Tofino"},{"q":"Can you camp on the beach in Tofino?","a":"Only in official campgrounds or designated backcountry sites. Not on public beaches, parking lots, roadsides or pullouts.","cat":"Camping","where":"Tofino and Ucluelet"}],"bestMonths":{"beaches":[5,6,7,8,9],"surfing":[1,2,3,4,9,10,11,12],"kayaking":[5,6,7,8,9],"fishing":[5,6,7,8,9],"boating":[5,6,7,8,9],"hot-springs":[1,2,3,4,5,6,7,8,9,10,11,12],"whale-watching":[3,4,5,6,7,8,9,10],"birding":[3,4,5,9,10,11],"storm-watching":[11,12,1,2],"parks":[4,5,6,7,8,9,10],"hiking":[4,5,6,7,8,9,10],"mountain-biking":[5,6,7,8,9],"skiing":[12,1,2,3],"camping":[5,6,7,8,9],"restaurants":[1,2,3,4,5,6,7,8,9,10,11,12],"markets":[5,6,7,8,9],"breweries":[1,2,3,4,5,6,7,8,9,10,11,12],"landmarks":[1,2,3,4,5,6,7,8,9,10,11,12],"arts-history":[1,2,3,4,5,6,7,8,9,10,11,12],"events":[3,4,5,6,7,8],"when-to-go":[1,2,3,4,5,6,7,8,9,10,11,12],"getting-around":[1,2,3,4,5,6,7,8,9,10,11,12]},"climate":{"tofino":[{"hi":8.6,"lo":2.6,"mm":489,"days":22},{"hi":9.3,"lo":2.3,"mm":368,"days":19},{"hi":10.4,"lo":3.1,"mm":337,"days":21},{"hi":12.3,"lo":4.3,"mm":213,"days":18},{"hi":14.6,"lo":6.7,"mm":132,"days":15},{"hi":16.3,"lo":9.1,"mm":102,"days":13},{"hi":18.1,"lo":10.9,"mm":66,"days":9},{"hi":18.6,"lo":11.1,"mm":82,"days":10},{"hi":17.5,"lo":9.3,"mm":152,"days":12},{"hi":13.9,"lo":6.9,"mm":396,"days":20},{"hi":10.3,"lo":4.4,"mm":500,"days":23},{"hi":8.4,"lo":2.7,"mm":490,"days":23}],"ucluelet":[{"hi":8.4,"lo":2.8,"mm":452,"days":22},{"hi":9.1,"lo":2.5,"mm":341,"days":19},{"hi":10.2,"lo":3.3,"mm":312,"days":20},{"hi":12.0,"lo":4.5,"mm":198,"days":17},{"hi":14.2,"lo":6.9,"mm":124,"days":14},{"hi":15.9,"lo":9.3,"mm":96,"days":12},{"hi":17.6,"lo":11.1,"mm":62,"days":9},{"hi":18.1,"lo":11.3,"mm":78,"days":10},{"hi":17.0,"lo":9.5,"mm":143,"days":12},{"hi":13.6,"lo":7.1,"mm":368,"days":20},{"hi":10.1,"lo":4.6,"mm":463,"days":23},{"hi":8.2,"lo":2.9,"mm":455,"days":22}]},"seasons":{"storm":{"months":[11,12,1,2],"name":"Storm season","claim":"The Pacific throws everything it has at the coast, and people book rooms to watch it."},"green":{"months":[3,4,10],"name":"The green months","claim":"The coast between the storms and the crowds, at half the price."},"long":{"months":[5,6,7,8,9],"name":"Long days","claim":"Sixteen hours of light and the water finally warm enough to stay in."}},"tide":{"station":"Tofino Harbour","low1":"06:14","low1m":0.8,"high1":"12:38","high1m":3.1,"low2":"18:52","low2m":1.2,"sunset":"21:07"}};
+const DATA = {"counts":{"places":127,"photos":84,"guidePhotos":88,"notes":124,"tags":696,"uniqueTags":419,"questions":72,"qArticles":18,"articles":31,"guides":15,"blocks":1725,"stays":292,"from":320,"taxonomy":22},"towns":[{"slug":"tofino","name":"Tofino","hero":"arcstudio/wnrrcrf4lnalgzbjvsz8","standfirst":"Storm-swept beaches, old-growth rainforest, and the best surf on the Pacific coast.","stays":134,"guides":9,"places":73,"from":320,"perMonth":[3,3,4,5,7,6,6,6,8,5,4,3]},{"slug":"ucluelet","name":"Ucluelet","hero":"arcstudio/dtz692xbgvvwjopu7vcs","standfirst":"Tofino's quieter neighbour, wrapped by the Wild Pacific Trail.","stays":158,"guides":6,"places":54,"from":320,"perMonth":[1,1,3,4,6,5,5,5,6,4,2,1]}],"subjects":[{"cat":"hiking","name":"Hiking & trails","towns":["Tofino","Ucluelet"],"guides":2,"places":38,"unit":"walks","months":[4,5,6,7,8,9,10],"cta":{"k":"free","t":"Free to visit"}},{"cat":"kayaking","name":"Kayaking & paddling","towns":["Tofino","Ucluelet"],"guides":2,"places":31,"unit":"launches and routes","months":[5,6,7,8,9],"cta":{"k":"soon","t":"Coming soon"}},{"cat":"restaurants","name":"Restaurants","towns":["Tofino","Ucluelet"],"guides":2,"places":31,"unit":"rooms","months":[1,2,3,4,5,6,7,8,9,10,11,12],"cta":{"k":"free","t":"No booking needed"}},{"cat":"beaches","name":"Beaches","towns":["Tofino"],"guides":1,"places":13,"unit":"beaches","months":[5,6,7,8,9],"cta":{"k":"free","t":"Free to visit"}},{"cat":"storm-watching","name":"Storm watching","towns":["Tofino"],"guides":1,"places":8,"unit":"places to watch from","months":[11,12,1,2],"cta":{"k":"stay","t":"Stays"}},{"cat":"whale-watching","name":"Whale watching","towns":["Tofino","Ucluelet"],"guides":2,"places":6,"unit":"places","months":[3,4,5,6,7,8,9,10],"cta":{"k":"soon","t":"Coming soon"}},{"cat":"birding","name":"Birding & wildlife","towns":["Tofino","Ucluelet"],"guides":2,"places":0,"unit":"places","months":[3,4,5,9,10,11],"cta":{"k":"free","t":"Free to visit"}},{"cat":"fishing","name":"Fishing","towns":["Tofino","Ucluelet"],"guides":2,"places":0,"unit":"places","months":[5,6,7,8,9],"cta":{"k":"sister","t":"ArcTrips Fishing"}},{"cat":"surfing","name":"Surfing","towns":["Tofino"],"guides":1,"places":0,"unit":"breaks","months":[1,2,3,4,9,10,11,12],"cta":{"k":"free","t":"Free to visit"}}],"places":[{"n":"Long Beach","cat":"beaches","city":"Tofino"},{"n":"Chesterman Beach","cat":"beaches","city":"Tofino"},{"n":"Cox Bay","cat":"beaches","city":"Tofino"},{"n":"Tonquin Beach","cat":"beaches","city":"Tofino"},{"n":"Wickaninnish Beach","cat":"beaches","city":"Tofino"},{"n":"Florencia Bay","cat":"beaches","city":"Tofino"},{"n":"Rainforest Trail","cat":"hiking","city":"Tofino"},{"n":"Tonquin Trail","cat":"hiking","city":"Tofino"},{"n":"Radar Hill Trail","cat":"hiking","city":"Tofino"},{"n":"Shorepine Bog Trail","cat":"hiking","city":"Tofino"},{"n":"Wild Pacific Trail","cat":"hiking","city":"Ucluelet"},{"n":"Lighthouse Loop","cat":"hiking","city":"Ucluelet"},{"n":"Ancient Cedars Trail","cat":"hiking","city":"Ucluelet"},{"n":"Big Beach Park Trail","cat":"hiking","city":"Ucluelet"},{"n":"Clayoquot Sound","cat":"kayaking","city":"Tofino"},{"n":"Lemmens Inlet","cat":"kayaking","city":"Tofino"},{"n":"Grice Bay","cat":"kayaking","city":"Tofino"},{"n":"Barkley Sound","cat":"kayaking","city":"Ucluelet"},{"n":"Broken Group Islands","cat":"kayaking","city":"Ucluelet"},{"n":"Amphitrite Point Lighthouse","cat":"whale-watching","city":"Ucluelet"},{"n":"Pacific Rim National Park Reserve","cat":"whale-watching","city":"Ucluelet"},{"n":"Pettinger Point","cat":"storm-watching","city":"Tofino"},{"n":"Wolf in the Fog","cat":"restaurants","city":"Tofino"},{"n":"Pluvio Restaurant","cat":"restaurants","city":"Ucluelet"}],"reading":[{"slug":"tofino-storm-watching","title":"Storm Watching in Tofino","hero":"arcstudio/dtz692xbgvvwjopu7vcs","kicker":"Storm watching","where":"Tofino","places":8,"unit":"places to watch from"},{"slug":"tofino-beaches","title":"The Best Beaches in Tofino","hero":"arcstudio/wnrrcrf4lnalgzbjvsz8","kicker":"Beaches","where":"Tofino","places":13,"unit":"beaches"},{"slug":"ucluelet-hiking","title":"Ucluelet Hiking Guide","hero":"arcstudio/galleries/dayhike-trail-1","kicker":"Hiking and trails","where":"Ucluelet","places":20,"unit":"walks"},{"slug":"ucluelet-kayaking","title":"Kayaking in Ucluelet","hero":"condor-wei-TiLEEXohfsY-unsplash_v7ja5f","kicker":"Kayaking","where":"Ucluelet","places":13,"unit":"launches and routes"},{"slug":"tofino-surfing","title":"Surfing in Tofino","hero":"nicoline-mann-bIIK4mvsDZc-unsplash_vcyrwx","kicker":"Surfing","where":"Tofino","places":0,"unit":"breaks"},{"slug":"ucluelet-whale-spring-migration","title":"Whales in Ucluelet: The Spring Migration Explained","hero":"guides/ucluelet/whale-watching/_category-1","kicker":"Whale watching","where":"Ucluelet","places":6,"unit":"places"}],"qa":[{"q":"Can you swim in Tofino?","a":"Yes, but the water is cold and the ocean can be strong. Most people wear wetsuits. There are no lifeguards, so be careful.","cat":"Beaches","where":"Tofino"},{"q":"When do whale watching tours run in Ucluelet?","a":"Many tours run from March to October, but exact dates depend on the operator, the weather and the season.","cat":"Whale watching","where":"Ucluelet"},{"q":"Is storm watching in Tofino dangerous?","a":"It can be, if you get too close. Watch from a safe distance, avoid wet rocks, and never turn your back on the waves.","cat":"Storm watching","where":"Tofino"},{"q":"Can beginners surf in Tofino?","a":"Yes. Tofino is one of the best places in Canada for a first surf lesson. Start with a surf school so you learn the right beach, gear and safety steps.","cat":"Surfing","where":"Tofino"},{"q":"Is Tofino expensive for food?","a":"It can be, because it is remote and popular. Mixing food trucks, cafes and takeout with one or two sit-down meals keeps it sensible.","cat":"Restaurants","where":"Tofino"},{"q":"Can you camp on the beach in Tofino?","a":"Only in official campgrounds or designated backcountry sites. Not on public beaches, parking lots, roadsides or pullouts.","cat":"Camping","where":"Tofino and Ucluelet"}],"bestMonths":{"beaches":[5,6,7,8,9],"surfing":[1,2,3,4,9,10,11,12],"kayaking":[5,6,7,8,9],"fishing":[5,6,7,8,9],"boating":[5,6,7,8,9],"hot-springs":[1,2,3,4,5,6,7,8,9,10,11,12],"whale-watching":[3,4,5,6,7,8,9,10],"birding":[3,4,5,9,10,11],"storm-watching":[11,12,1,2],"parks":[4,5,6,7,8,9,10],"hiking":[4,5,6,7,8,9,10],"mountain-biking":[5,6,7,8,9],"skiing":[12,1,2,3],"camping":[5,6,7,8,9],"restaurants":[1,2,3,4,5,6,7,8,9,10,11,12],"markets":[5,6,7,8,9],"breweries":[1,2,3,4,5,6,7,8,9,10,11,12],"landmarks":[1,2,3,4,5,6,7,8,9,10,11,12],"arts-history":[1,2,3,4,5,6,7,8,9,10,11,12],"events":[3,4,5,6,7,8],"when-to-go":[1,2,3,4,5,6,7,8,9,10,11,12],"getting-around":[1,2,3,4,5,6,7,8,9,10,11,12]},"climate":{"tofino":[{"hi":8.6,"lo":2.6,"mm":489,"days":22},{"hi":9.3,"lo":2.3,"mm":368,"days":19},{"hi":10.4,"lo":3.1,"mm":337,"days":21},{"hi":12.3,"lo":4.3,"mm":213,"days":18},{"hi":14.6,"lo":6.7,"mm":132,"days":15},{"hi":16.3,"lo":9.1,"mm":102,"days":13},{"hi":18.1,"lo":10.9,"mm":66,"days":9},{"hi":18.6,"lo":11.1,"mm":82,"days":10},{"hi":17.5,"lo":9.3,"mm":152,"days":12},{"hi":13.9,"lo":6.9,"mm":396,"days":20},{"hi":10.3,"lo":4.4,"mm":500,"days":23},{"hi":8.4,"lo":2.7,"mm":490,"days":23}],"ucluelet":[{"hi":8.4,"lo":2.8,"mm":452,"days":22},{"hi":9.1,"lo":2.5,"mm":341,"days":19},{"hi":10.2,"lo":3.3,"mm":312,"days":20},{"hi":12.0,"lo":4.5,"mm":198,"days":17},{"hi":14.2,"lo":6.9,"mm":124,"days":14},{"hi":15.9,"lo":9.3,"mm":96,"days":12},{"hi":17.6,"lo":11.1,"mm":62,"days":9},{"hi":18.1,"lo":11.3,"mm":78,"days":10},{"hi":17.0,"lo":9.5,"mm":143,"days":12},{"hi":13.6,"lo":7.1,"mm":368,"days":20},{"hi":10.1,"lo":4.6,"mm":463,"days":23},{"hi":8.2,"lo":2.9,"mm":455,"days":22}]},"seasons":{"storm":{"months":[11,12,1,2],"name":"Storm season","claim":"The Pacific throws everything it has at the coast, and people book rooms to watch it."},"green":{"months":[3,4,10],"name":"The green months","claim":"The coast between the storms and the crowds, at half the price."},"long":{"months":[5,6,7,8,9],"name":"Long days","claim":"Sixteen hours of light and the water finally warm enough to stay in."}},"tide":{"station":"Tofino Harbour","low1":"06:14","low1m":0.8,"high1":"12:38","high1m":3.1,"low2":"18:52","low2m":1.2,"sunset":"21:07"}};
 
 /* ── British Columbia, the whole province, in one table ──────────────────────
    Every count on this page is added up from these rows at run time, so the
@@ -780,23 +780,23 @@ const BC = {
      d:"Long Beach, Chesterman Beach, Cox Bay, the Tonquin Trail, Wolf in the Fog. Nine guides, from surfing to storm watching."},
     {n:"Ucluelet", h:"ucluelet.html", p:54, g:6, open:true,
      d:"The Wild Pacific Trail, the Lighthouse Loop, Big Beach, Pluvio and Heartwood. Six guides, and the spring whale migration in full."},
-    {n:"Victoria", h:"victoria.html", p:100, g:6,
+    {n:"Victoria", img:"media/victoria/image30.jpg", h:"victoria.html", p:100, g:6,
      d:"The Butchart Gardens, the Inner Harbour, the Royal BC Museum, Dallas Road, Esquimalt Lagoon."},
-    {n:"Sooke", h:"sooke.html", p:30, g:1,
+    {n:"Sooke", img:"media/sooke/image32.jpg", h:"sooke.html", p:30, g:1,
      d:"Sooke Potholes, East Sooke Regional Park, Whiffin Spit, Sheringham Point Lighthouse."},
-    {n:"Parksville", h:"parksville.html", p:28, g:1,
+    {n:"Parksville", img:"media/parksville/image19.jpg", h:"parksville.html", p:28, g:1,
      d:"Rathtrevor Beach Provincial Park, Parksville Beach, and the whale and wildlife trips out of the bay."},
-    {n:"Nanaimo", h:"nanaimo.html", p:27, g:1,
+    {n:"Nanaimo", img:"media/nanaimo/image1.jpg", h:"nanaimo.html", p:27, g:1,
      d:"Saysutshun, the Harbourfront Walkway, whale and marine tours, and the fishing off Departure Bay."},
-    {n:"Nanoose Bay", h:"nanoose.html", p:16, g:1,
+    {n:"Nanoose Bay", img:"media/nanoose/image4.jpg", h:"nanoose.html", p:16, g:1,
      d:"Moorecroft Regional Park, Notch Hill, Fairwinds Marina, Beachcomber Regional Park."},
-    {n:"Sidney", h:"sidney.html", p:16, g:1,
+    {n:"Sidney", img:"media/sidney/image6.jpg", h:"sidney.html", p:16, g:1,
      d:"Sidney Spit in the Gulf Islands National Park Reserve, the Butchart Gardens, and the Saanich Peninsula."},
-    {n:"Chemainus", h:"chemainus.html", p:15, g:1,
+    {n:"Chemainus", img:"media/chemainus/image9.jpg", h:"chemainus.html", p:15, g:1,
      d:"The murals, the Chemainus Theatre Festival, the galleries, and the harbour views."},
-    {n:"Campbell River", h:"campbell-river.html", p:14, g:1,
+    {n:"Campbell River", img:"media/campbell-river/image3.jpg", h:"campbell-river.html", p:14, g:1,
      d:"Discovery Passage, Tyee Spit, the Maritime Heritage Centre, cold water diving."},
-    {n:"Shawnigan Lake", h:"shawnigan-lake.html", p:12, g:1,
+    {n:"Shawnigan Lake", img:"media/shawnigan-lake/image12.jpg", h:"shawnigan-lake.html", p:12, g:1,
      d:"The Kinsol Trestle, the lake itself, the Cowichan Valley Trail, West Shawnigan Lake Park."}
   ],
 
@@ -1040,13 +1040,13 @@ function paintStatic(){
     `<span>Low <b>${t.low2}</b>, ${t.low2m} m</span><span>Sunset <b>${t.sunset}</b></span>`;
 
   $("#heroNote").innerHTML =
-    `<b>${T.towns}</b> towns in British Columbia, <b>${num(T.places)}</b> places written up by name, ` +
-    `and <b>${OPEN.length}</b> of the towns open end to end. <b>${C.stays}</b> stays bookable tonight from $${C.from}.`;
+    `<b>${T.towns}</b> towns across British Columbia, from the surf coast to the Rockies road. ` +
+    `<b>${C.stays}</b> places to stay are bookable tonight, from $${C.from} a night.`;
 
   const stats = [
     [T.towns, "Towns", `Across ${word(T.regions)} regions, from Sooke in the south to Campbell River and up the Sea to Sky.`],
-    [num(T.places), "Places", "Named, located and written up one at a time."],
-    [T.guides, `Guides`, `${cap(word(T.islandWideGuides))} of them cross the whole island rather than sitting in one town.`],
+    [num(T.places), "Places to go", "Beaches, trails, launches and tables, each with its own note on what it is like."],
+    [T.guides, "Guides", `Subject by subject, plus ${word(T.islandWideGuides)} that run the length of the island.`],
     [C.stays, "Stays", `Bookable tonight in Tofino and Ucluelet, from $${C.from} a night.`]
   ];
   $("#statgrid").innerHTML = stats.map(([n,label,gloss]) =>
@@ -1054,7 +1054,7 @@ function paintStatic(){
 
   $("#proofN").textContent = T.openPlaces;
   $("#proofD").textContent =
-    "Not scraped, not aggregated. Each one walked, photographed and written up, with its own note on what it is actually like.";
+    "Nothing here is scraped or aggregated. Someone has stood in every one of them, so the notes tell you what it is actually like when you get there.";
 
   $("#readDek").textContent = "The guides people open first.";
   $("#rlist").innerHTML = DATA.reading.map((a) =>
@@ -1085,8 +1085,9 @@ function paintIsland(){
 /* ── the two open towns, then the nine more on the island ────────────────── */
 function paintDestinations(){
   $("#destDek").textContent =
-    `Tofino and Ucluelet are written place by place, photographed, and bookable. ` +
-    `They hold ${T.openPlaces} of the island's ${T.islandPlaces} places between them.`;
+    `Forty minutes apart on the same road, facing the open Pacific. Surf, storms and ` +
+    `old-growth in one, a working harbour and the Wild Pacific Trail in the other. ` +
+    `Both are bookable tonight.`;
   $("#dfeat").innerHTML = DATA.towns.map((t) => {
     const on = DATA.subjects.filter((s) => s.towns.includes(t.name) && s.months.includes(month))
       .sort((a,b) => a.months.length - b.months.length || b.places - a.places).map((s) => short(s.name));
@@ -1106,24 +1107,26 @@ function paintDestinations(){
 }
 
 function paintLedger(){
-  const max = Math.max(...REST_ISLAND.map((t) => t.p));
-  $("#rosterH").textContent = `The other ${word(REST_ISLAND.length)} towns on the island`;
+  /* This was a production report: research status, a "library" count per town and
+     a bar ranking them by how much had been written. None of that helps anyone
+     plan a trip. It is now a list of places, with the photograph the town page
+     opens on and the things you would actually go for. */
+  $("#rosterH").textContent = `${cap(word(REST_ISLAND.length))} more towns up the island`;
   $("#rosterP").textContent =
-    `Researched, written and being checked. Each one opens the way the first two did, once we have been. ` +
-    `The bar is that town's library measured against the largest of them, Victoria's ${max}.`;
+    `The same coast, north and south of the two above. Full guides are still being ` +
+    `walked, so these open on the photographs and the places worth the drive.`;
   $("#tledger").innerHTML = REST_ISLAND.map((t) => `<li class="tl"><a href="${t.h}">
-      <span><span class="tl__n">${esc(t.n)}</span><span class="tl__d">${esc(t.d)}</span></span>
-      <span class="tl__c"><b class="tnum">${t.p}</b><span>places</span></span>
+      <span class="tl__m"><img src="${t.img}" alt="${esc(t.n)}, Vancouver Island" loading="lazy"></span>
+      <span class="tl__b"><span class="tl__n">${esc(t.n)}</span><span class="tl__d">${esc(t.d)}</span></span>
       ${ARROW_TL}
-      <span class="tl__bar" aria-hidden="true"><i style="--w:${Math.max(3,Math.round(t.p/max*100))}%"></i></span>
     </a></li>`).join("");
 }
 
 function paintMainland(){
-  $("#restTitle").textContent = `${cap(word(BC.mainland.length))} more regions, told straight`;
+  $("#restTitle").textContent = `${cap(word(BC.mainland.length))} more regions on the mainland`;
   $("#restLead").textContent =
-    `${cap(word(T.mainlandTowns))} towns off the island have their places counted and their stays searchable, ` +
-    `but the guides are still being sectioned. Here is exactly how much of each one exists today.`;
+    `${cap(word(T.mainlandTowns))} towns off the island: the Sea to Sky road, the city at the end of it, ` +
+    `and the Kootenays. Stays are searchable in all of them, and the subject guides are still being walked.`;
   $("#regs").innerHTML = BC.mainland.map((r) => {
     const p = sum(r.towns, "p"), g = sum(r.towns, "g");
     return `<li class="rw">
