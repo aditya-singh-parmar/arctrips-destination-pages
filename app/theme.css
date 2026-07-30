@@ -13,7 +13,7 @@
      Neutral = every surface, rule and well
 
    Hard rules: no italics, no em dashes in rendered copy, no emoji,
-   no new hues, Inter only (Satoshi for the ARCTRIPS wordmark).
+   no new hues, Inter only (Satoshi for the ArcTrips wordmark).
    Raw token values live in globals.css @theme and are mirrored here as
    plain CSS vars so component rules can use var() directly.
    ═══════════════════════════════════════════════════════════════════════ */
@@ -596,7 +596,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--ink); }
 .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
 .nav__inner { display: flex; align-items: center; gap: var(--s-5); height: 72px; }
 /* The brand lockup: the mark, then the Satoshi wordmark. */
-.nav__logo { font-family: var(--font-satoshi); font-weight: 700; font-size: 16px; letter-spacing: .06em; color: var(--ink); text-transform: uppercase;
+.nav__logo { font-family: var(--font-satoshi); font-weight: 700; font-size: 17px; letter-spacing: -.01em; color: var(--ink);
   display: inline-flex; align-items: center; gap: var(--s-2); }
 .nav__mark, .footer__mark { height: 20px; width: auto; display: block; flex: none; }
 .nav__links { display: flex; align-items: center; gap: 2px; margin-inline: auto; }
@@ -613,7 +613,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--ink); }
 
 .footer { background: var(--paper-sunk); margin-top: var(--s-9); border-top: 1px solid var(--rule); }
 .footer__inner { padding-block: var(--s-8) var(--s-5); }
-.footer__logo { font-family: var(--font-satoshi); font-weight: 700; font-size: 16px; letter-spacing: .06em; color: var(--ink); text-transform: uppercase; margin-bottom: var(--s-7);
+.footer__logo { font-family: var(--font-satoshi); font-weight: 700; font-size: 17px; letter-spacing: -.01em; color: var(--ink); margin-bottom: var(--s-7);
   display: inline-flex; align-items: center; gap: var(--s-2); }
 .footer__cols { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: var(--s-5); }
 .footer__col h4 { font-size: 12px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-muted); margin: 0 0 var(--s-4); }

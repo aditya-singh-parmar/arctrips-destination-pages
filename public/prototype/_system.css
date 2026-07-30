@@ -59,7 +59,10 @@ nav.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.9);backdro
    <img> rather than inline SVG so 46 pages share one cached file instead of
    carrying 19 KB of path data each. alt is empty because the wordmark beside it
    already names the brand, and the link should announce once. */
-.brand{font-family:Satoshi,Inter,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.045em;font-size:1.02rem;color:var(--navy);flex:none;
+/* The wordmark is ArcTrips, one word, mixed case. Not uppercased: the .045em
+   tracking an uppercase wordmark needs reads as a gap in mixed case, so the
+   logotype is set slightly tight instead. */
+.brand{font-family:Satoshi,Inter,sans-serif;font-weight:700;letter-spacing:-.01em;font-size:1.08rem;color:var(--navy);flex:none;
   display:inline-flex;align-items:center;gap:9px}
 .brand__mark{height:20px;width:auto;flex:none;display:block}
 @media(max-width:420px){.brand__mark{height:18px}.brand{gap:7px}}
@@ -273,7 +276,7 @@ footer.f{border-top:1px solid var(--n150);margin-top:var(--pad);padding-block:cl
 .fgrid h5{font-size:.71rem;letter-spacing:.14em;text-transform:uppercase;color:var(--n500);font-weight:700;margin-bottom:14px}
 .fgrid ul{list-style:none;display:flex;flex-direction:column;gap:9px;font-size:.9rem;color:var(--n600)}
 .fgrid a:hover{color:var(--azure)}
-.fbrand{font-family:Satoshi,Inter,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.045em;color:var(--navy);font-size:1.02rem;
+.fbrand{font-family:Satoshi,Inter,sans-serif;font-weight:700;letter-spacing:-.01em;color:var(--navy);font-size:1.08rem;
   display:inline-flex;align-items:center;gap:9px}
 .fbrand__mark{height:20px;width:auto;flex:none;display:block}
 .fnote{font-size:.87rem;color:var(--n600);margin-top:13px;max-width:34ch;line-height:1.6}

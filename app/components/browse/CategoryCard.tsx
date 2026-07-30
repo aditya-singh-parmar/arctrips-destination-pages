@@ -57,7 +57,7 @@ export function CategoryCard({
           sizes="172px"
         />
         {state === "live" && <span className="pcard__badge">{bookableCount} to book</span>}
-        {state === "sister" && <span className="pcard__badge" data-state="sister">ARCTRIPS FISHING</span>}
+        {state === "sister" && <span className="pcard__badge" data-state="sister">ArcTrips Fishing</span>}
         {state === "soon" && <span className="pcard__badge" data-state="soon">COMING SOON</span>}
       </div>
       <h4 className="pcard__title">{category.name}</h4>

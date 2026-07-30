@@ -21,7 +21,7 @@ export function Footer() {
       <div className="container footer__inner">
         <p className="footer__logo">
           <Image src="/brand/arctrips-mark-azure.svg" alt="" width={45} height={20} className="footer__mark" />
-          <span>ARCTRIPS</span>
+          <span>ArcTrips</span>
         </p>
         <div className="footer__cols">
           {COLS.map((col) => (

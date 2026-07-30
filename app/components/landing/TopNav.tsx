@@ -28,7 +28,7 @@ export function TopNav({ active = "stays" }: { active?: NavSection }) {
           {/* alt is empty on purpose: the wordmark beside it already names the
               brand, so the link should announce once, not twice. */}
           <Image src="/brand/arctrips-mark-azure.svg" alt="" width={45} height={20} className="nav__mark" priority />
-          <span>ARCTRIPS</span>
+          <span>ArcTrips</span>
         </Link>
         <div className="nav__links">
           {LINKS.map((l) => (

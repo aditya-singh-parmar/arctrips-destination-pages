@@ -5,7 +5,7 @@ import "./theme.css";
 
 /* Arc Trips "Full system" typography: Inter carries all headings + body.
    Satoshi (loaded via Fontshare in globals.css) is used ONLY for the
-   ARCTRIPS wordmark, matching the Figma spec. */
+   ArcTrips wordmark, matching the Figma spec. */
 const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],

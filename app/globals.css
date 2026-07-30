@@ -1,4 +1,4 @@
-/* Satoshi (ARCTRIPS wordmark only), Fontshare. Must precede the Tailwind import. */
+/* Satoshi (ArcTrips wordmark only), Fontshare. Must precede the Tailwind import. */
 @import url("https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap");
 @import "tailwindcss";
 
