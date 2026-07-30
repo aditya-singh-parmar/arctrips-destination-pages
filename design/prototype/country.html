@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Canada, Arc Trips</title>
-<meta name="description" content="Arc Trips covers 27 towns across eight Canadian provinces. Tofino and Ucluelet are published and bookable today. Every other town is listed here, honestly, as it is written.">
+<meta name="description" content="Arc Trips covers 26 towns across eight Canadian provinces. Tofino and Ucluelet are published and bookable today. Every other town is listed here, honestly, as it is written.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -33,7 +33,9 @@ nav.top .btn{flex:none}
 .skip{position:absolute;left:var(--gut);top:-60px;z-index:99;background:var(--navy);color:var(--paper);
   padding:13px 18px;border-radius:0 0 var(--r-sm) var(--r-sm);font-weight:600;font-size:.95rem;transition:top .18s var(--ease)}
 .skip:focus{top:0}
-body>.jumpbar{z-index:70}
+/* body>:not(.chart) below sets position:relative and outranks .jumpbar, which
+   dropped the reading-progress hairline out of its fixed position. */
+body>.jumpbar{position:fixed;z-index:70}
 /* contrast floor: n500 is 3.1:1 on paper, so anything carrying meaning is n600 */
 .label,.dest__meta,.fnote,.fbase,.hero-facts dt,.fgrid h5,.sib__m{color:var(--n600)}
 /* type floor: nothing renders below 14px. 1rem is 16px here, so .875rem is the floor. */
@@ -84,7 +86,7 @@ body>.jumpbar{z-index:70}
 .after a{color:var(--azure);font-weight:600;border-bottom:1px solid var(--a300);
   display:inline-block;padding-block:10px}
 
-/* ═══ (b) The roster, built for 27 towns and ready for more ═══ */
+/* ═══ (b) The roster, built for 26 towns and ready for more ═══ */
 .bcblock{border-top:2px solid var(--navy);padding-top:20px}
 .bchead h3{font-size:clamp(1.5rem,2.4vw,1.9rem);font-weight:800;letter-spacing:-.03em}
 .bchead h3 a{color:var(--navy);display:inline-flex;align-items:center;min-height:44px}
@@ -206,7 +208,7 @@ footer.f{margin-top:0}
 <nav class="top"><div class="wrap nav-in">
   <a class="brand" href="index.html">Arctrips</a>
   <ul class="nav-links">
-    <li><a href="search.html">Stays</a></li>
+    <li><a href="search.html?q=stays&amp;show=stays">Stays</a></li>
     <li><a href="index.html">Destinations</a></li>
     <li><a href="search.html">Guides</a></li>
   </ul>
@@ -221,17 +223,17 @@ footer.f{margin-top:0}
 
 <div class="jumpbar" id="jumpbar" aria-hidden="true"></div>
 
-<!-- The place bar. Same shape and same five links on every page. -->
+<!-- The place bar. Same shape as the town pages, but every link is a section of
+     this page: a country page has no things-to-do of its own. -->
 <nav class="placebar" aria-label="Canada"><div class="wrap placebar-in">
-  <a class="placebar__back" href="#top"><span class="n">&larr; Canada</span></a>
+  <a class="placebar__back" href="index.html"><span class="n">&larr; All destinations</span></a>
   <ul class="placebar__links">
     <li><a href="#top" aria-current="page">Overview</a></li>
-    <li><a href="things-to-do.html">Things to do</a></li>
-    <li><a href="province.html">Areas</a></li>
-    <li><a href="plan.html">Plan</a></li>
-    <li><a href="guide.html">Guides</a></li>
+    <li><a href="#live">Live towns</a></li>
+    <li><a href="#provinces">Provinces</a></li>
+    <li><a href="#when">When to go</a></li>
   </ul>
-  <a class="btn btn--primary btn--sm placebar__cta" href="search.html">Find a stay</a>
+  <a class="btn btn--primary btn--sm placebar__cta" href="search.html?q=stays&amp;show=stays">Find a stay</a>
 </div></nav>
 
 <main id="main">
@@ -247,14 +249,14 @@ footer.f{margin-top:0}
   <div>
     <span class="label">Country</span>
     <h1>Canada</h1>
-    <p class="lede">Arc Trips covers 27 towns across eight provinces. Two of them, Tofino and Ucluelet, are published and bookable today. Every other town is named below so you can see exactly where we are.</p>
+    <p class="lede">Arc Trips covers 26 towns across eight provinces. Two of them, Tofino and Ucluelet, are published and bookable today. Every other town is named below so you can see exactly where we are.</p>
     <div class="hero-cta">
       <a class="btn btn--ghost btn--lg" href="province.html">Open British Columbia</a>
       <a class="btn btn--ghost btn--lg" href="#live">See the two live towns</a>
     </div>
     <dl class="hero-facts">
       <div><dt>Provinces</dt><dd>8</dd></div>
-      <div><dt>Towns</dt><dd>27</dd></div>
+      <div><dt>Towns</dt><dd>26</dd></div>
       <div><dt>Published</dt><dd>2</dd></div>
       <div><dt>Stays</dt><dd>292</dd></div>
     </dl>
@@ -303,7 +305,7 @@ footer.f{margin-top:0}
       <p class="dest__sf">Storm-swept beaches, old-growth rainforest, and the best surf on the Pacific coast.</p>
       <p class="dest__meta"><b>134</b> stays from <b>$320</b> a night</p>
     </a>
-    <a class="dest" href="region.html">
+    <a class="dest" href="ucluelet.html">
       <div class="dest__m">
         <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_900,h_676/arcstudio/dtz692xbgvvwjopu7vcs" alt="The forested peninsula at Ucluelet with open water on three sides">
       </div>
@@ -313,13 +315,13 @@ footer.f{margin-top:0}
     </a>
   </div>
 
-  <p class="after">Behind these two towns sit 15 guides and 127 named beaches, trails and tables. <a href="things-to-do.html">Browse them by subject</a></p>
+  <p class="after">Behind these two towns sit 15 guides and 127 named beaches, trails and tables. <a href="search.html">Search every one of them</a></p>
 </div></section>
 
 <section class="sec" id="provinces" style="padding-top:0"><div class="wrap">
   <div class="head">
     <div>
-      <h2>Eight provinces, 27 towns</h2>
+      <h2>Eight provinces, 26 towns</h2>
       <p>British Columbia is the only province open for booking. The rest are in the guide library, named here rather than hidden.</p>
     </div>
     <a class="btn btn--ghost btn--sm" href="index.html">All destinations</a>
@@ -360,7 +362,7 @@ footer.f{margin-top:0}
       <h2>When should you go?</h2>
       <p>May to September for long days and calm water. November to February for storms. March, April and October are the quiet months in between, and the cheapest.</p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="plan.html">Plan a trip</a>
+    <a class="btn btn--ghost btn--sm" href="plan.html">Plan a Tofino trip</a>
   </div>
 
   <p class="slead">Each row is one season. The filled months are the months it runs.</p>
@@ -382,7 +384,7 @@ footer.f{margin-top:0}
       <p>Eleven towns on one island, from Victoria in the south to Campbell River in the north.</p>
       <span class="go">Open the region <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
     </a>
-    <a href="search.html">
+    <a href="search.html?q=stays&amp;show=stays">
       <span class="k">The booking path</span>
       <h3>292 stays on the coast</h3>
       <p>From $320 a night in CAD, before taxes and fees. Bookable tonight in either town.</p>
@@ -400,25 +402,25 @@ footer.f{margin-top:0}
       <p class="fnote">Stays and guides on the west coast of Vancouver Island, written by people who go there.</p>
     </div>
     <div><h5>Destinations</h5><ul>
-      <li><a href="tofino.html">Tofino</a></li><li><a href="region.html">Ucluelet</a></li>
-      <li><a href="search.html">Guides</a></li><li><a href="province.html">British Columbia</a></li>
-      <li><a href="search.html">Guides</a></li></ul></div>
-    <div><h5>Things to do</h5><ul>
+      <li><a href="tofino.html">Tofino</a></li><li><a href="ucluelet.html">Ucluelet</a></li>
+      <li><a href="region.html">Vancouver Island</a></li><li><a href="province.html">British Columbia</a></li>
+      <li><a href="index.html">All destinations</a></li></ul></div>
+    <div><h5>Things to do in Tofino</h5><ul>
       <li><a href="things-to-do.html">All subjects</a></li><li><a href="whale-watching.html">Whale watching</a></li>
       <li><a href="long-beach.html">Long Beach</a></li><li><a href="search.html">Search everything</a></li></ul></div>
     <div><h5>Plan</h5><ul>
-      <li><a href="plan.html">When to go</a></li><li><a href="plan.html">Getting there</a></li>
-      <li><a href="search.html">Where to stay</a></li><li><a href="guide.html">What to pack</a></li></ul></div>
+      <li><a href="plan.html">When to go</a></li><li><a href="plan.html">Month by month</a></li>
+      <li><a href="search.html?q=stays&amp;show=stays">Where to stay</a></li><li><a href="guide.html">Wildlife tours</a></li></ul></div>
     <div><h5>Arc Trips</h5><ul>
       <li><a href="not-found.html">About us</a></li><li><a href="not-found.html">List your place</a></li>
-      <li><a href="search.html">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
+      <li><a href="not-found.html">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
   </div>
   <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees</span></div>
 </div></footer>
 
 <div class="dock">
   <p class="dock__t"><b>292 stays in Canada</b>from $320 a night</p>
-  <a class="btn btn--primary btn--sm" href="search.html">Find a stay</a>
+  <a class="btn btn--primary btn--sm" href="search.html?q=stays&amp;show=stays">Find a stay</a>
 </div>
 
 <script>
@@ -434,9 +436,9 @@ const month = new Date().getMonth() + 1;
 const BC = [
   { region:"Vancouver Island", href:"region.html", wide:true, towns:[
     { name:"Tofino",         href:"tofino.html" },
-    { name:"Ucluelet",       href:"region.html" },
+    { name:"Ucluelet",       href:"ucluelet.html" },
     { name:"Victoria" }, { name:"Nanaimo" }, { name:"Campbell River" },
-    { name:"Parksville" }, { name:"Qualicum Beach" }, { name:"Sooke" },
+    { name:"Parksville" }, { name:"Nanoose Bay" }, { name:"Sooke" },
     { name:"Sidney" }, { name:"Chemainus" }, { name:"Shawnigan Lake" }
   ]},
   { region:"Sea to Sky", towns:[{ name:"Squamish" }, { name:"Whistler" }] },
@@ -446,7 +448,7 @@ const BC = [
 
 const PROVINCES = [
   { name:"Alberta", towns:["Banff","Jasper","Edmonton"] },
-  { name:"Ontario", towns:["Toronto","Niagara Falls","Ottawa"] },
+  { name:"Ontario", towns:["Niagara Falls","Ottawa"] },
   { name:"Quebec", towns:["Montreal","Quebec City"] },
   { name:"Saskatchewan", towns:["Saskatoon"] },
   { name:"Nova Scotia", towns:["Halifax"] },
@@ -462,7 +464,7 @@ const SEASONS = [
 
 const list = (a) => a.length < 2 ? a.join("") : a.slice(0, -1).join(", ") + " and " + a[a.length - 1];
 
-function paintBC(){
+function paintBC() {
   const wide = BC.filter((r) => r.wide), rest = BC.filter((r) => !r.wide);
   const group = (r) => {
     const head = r.href
@@ -481,7 +483,7 @@ function paintBC(){
     `<div class="rcol">${rest.map(group).join("")}</div>`;
 }
 
-function paintProvinces(){
+function paintProvinces() {
   $("#pgrid").innerHTML = PROVINCES.map((p) =>
     `<div class="pcell">
       <h4>${esc(p.name)}</h4>
@@ -497,11 +499,11 @@ function paintProvinces(){
     `A town moves out of the library the week its guide is finished and its first stays go live.`;
 }
 
-function paintSeasons(){
+function paintSeasons() {
   $("#seasons").innerHTML = SEASONS.map((s) => {
     const cells = MON3.map((m, i) =>
       `<i ${s.months.includes(i+1) ? "data-on" : ""} ${i === month-1 ? "data-now" : ""}>${m}</i>`).join("");
-    const named = s.months.slice().sort((a, b) => a - b);
+    const named = s.months.slice() .sort((a, b) => a - b);
     const runs = s.months.includes(12) && s.months.includes(1);
     const when = runs
       ? `${MONFULL[10]} to ${MONFULL[1]}`
@@ -519,7 +521,7 @@ paintBC();
 paintProvinces();
 paintSeasons();
 
-(function progress(){
+(function progress() {
   const bar = $("#jumpbar");
   let tick = false;
   const run = () => {
@@ -533,7 +535,7 @@ paintSeasons();
 
 addEventListener("keydown", (e) => {
   if (e.key === "/" && !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)){
-    e.preventDefault(); $(".search input").focus();
+    e.preventDefault() ; $(".search input").focus() ;
   }
 });
 </script>
@@ -542,12 +544,12 @@ addEventListener("keydown", (e) => {
 /* Linkify town names inside separator runs like "Victoria · Nanaimo · Sooke".
    The earlier pass only matched a text node equal to one name, so multi-town
    rows never linked. This splits on the separator and links each part. */
-(function(){
-  var M={"Victoria": "victoria.html", "Nanaimo": "nanaimo.html", "Campbell River": "campbell-river.html", "Sooke": "sooke.html", "Sidney": "sidney.html", "Chemainus": "chemainus.html", "Nanoose": "nanoose.html", "Shawnigan Lake": "shawnigan-lake.html", "Whistler": "whistler.html", "Squamish": "squamish.html", "Vancouver": "vancouver.html", "Nelson": "nelson.html", "Banff": "banff.html", "Jasper": "jasper.html", "Edmonton": "edmonton.html", "Saskatoon": "saskatoon.html", "Niagara Falls": "niagara-falls.html", "Ottawa": "ottawa.html", "Montreal": "montreal.html", "Quebec City": "quebec-city.html", "Halifax": "halifax.html", "Charlottetown": "charlottetown.html", "Qualicum Beach": "region.html", "Nanoose Bay": "nanoose.html", "Parksville": "nanoose.html"}, SKIP=/^(A|BUTTON|INPUT|SCRIPT|STYLE|H1|TITLE)$/;
-  function run(){
+(function() {
+  var M={"Victoria": "victoria.html", "Nanaimo": "nanaimo.html", "Campbell River": "campbell-river.html", "Sooke": "sooke.html", "Sidney": "sidney.html", "Chemainus": "chemainus.html", "Nanoose": "nanoose.html", "Shawnigan Lake": "shawnigan-lake.html", "Whistler": "whistler.html", "Squamish": "squamish.html", "Vancouver": "vancouver.html", "Nelson": "nelson.html", "Banff": "banff.html", "Jasper": "jasper.html", "Edmonton": "edmonton.html", "Saskatoon": "saskatoon.html", "Niagara Falls": "niagara-falls.html", "Ottawa": "ottawa.html", "Montreal": "montreal.html", "Quebec City": "quebec-city.html", "Halifax": "halifax.html", "Charlottetown": "charlottetown.html", "Parksville": "region.html", "Nanoose Bay": "nanoose.html", "Parksville": "nanoose.html"}, SKIP=/^(A|BUTTON|INPUT|SCRIPT|STYLE|H1|TITLE)$/;
+  function run() {
     var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT), n, jobs=[];
     while(n=w.nextNode()){
-      var v=n.nodeValue; if(!v||!v.trim()) continue;
+      var v=n.nodeValue; if(!v||!v.trim() ) continue;
       var p=n.parentElement; if(!p||SKIP.test(p.tagName)||p.closest('a')) continue;
       var names=Object.keys(M).filter(function(t){return v.indexOf(t)>-1;});
       if(names.length) jobs.push([n,v]);
@@ -557,7 +559,7 @@ addEventListener("keydown", (e) => {
       var parts=v.split(/(\s*[·|,]\s*)/);
       var linked=false;
       parts.forEach(function(part){
-        var key=part.trim();
+        var key=part.trim() ;
         if(M[key]){
           var a=document.createElement('a');
           a.href=M[key]; a.textContent=part;
@@ -568,7 +570,7 @@ addEventListener("keydown", (e) => {
       if(linked && node.parentNode) node.parentNode.replaceChild(frag,node);
     });
   }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(run,80)});
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function() {setTimeout(run,80)});
   else setTimeout(run,80);
   setTimeout(run,800);
 })();

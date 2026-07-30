@@ -16,7 +16,10 @@
     "seed:facts": "node --env-file=.env.local scripts/seed-town-facts.mjs",
     "ingest": "node --env-file=.env.local scripts/ingest-articles.mjs",
     "verify:ingest": "node --env-file=.env.local scripts/verify-ingest.mjs",
-    "qa:prototype": "node scripts/qa-prototype.mjs"
+    "qa:prototype": "node scripts/qa-prototype.mjs",
+    "shots": "node scripts/shots.mjs",
+    "audit:ui": "node scripts/ui-audit.mjs",
+    "qa:runtime": "node scripts/qa-runtime.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.0",
@@ -26,6 +29,7 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

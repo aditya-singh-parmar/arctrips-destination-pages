@@ -386,7 +386,7 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
   <ul class="nav-links">
     <li><a href="search.html?in=tofino">Stays</a></li>
     <li><a href="index.html">Destinations</a></li>
-    <li><a href="search.html">Guides</a></li>
+    <li><a href="search.html?q=&amp;in=tofino">Guides</a></li>
   </ul>
   <form class="search" role="search" action="search.html" method="get">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
@@ -433,7 +433,7 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
     </h1>
     <p class="lede">One of the most famous beaches on Vancouver Island, on the park road between Tofino and Ucluelet.</p>
     <p class="lede lede--n">As the name says, it is very long. Open sand, big sky, rolling waves, and rainforest standing behind you.</p>
-    <p class="hero-note">It turns up in <b>four</b> of our Tofino guides: <a href="guide.html">beaches, hiking, storm watching and kayaking</a>.</p>
+    <p class="hero-note">It turns up in <b>four</b> of our Tofino guides: <a href="things-to-do.html">beaches, hiking, storm watching and kayaking</a>.</p>
   </div>
 
   <div class="collage">
@@ -686,11 +686,11 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
     <div>
       <h2>More to read</h2>
     </div>
-    <a class="btn btn--ghost btn--sm" href="guide.html">All nine Tofino guides</a>
+    <a class="btn btn--ghost btn--sm" href="search.html?q=&amp;in=tofino">All nine Tofino guides</a>
   </div>
 
   <div class="read">
-    <a class="feat" href="guide.html">
+    <a class="feat" href="search.html?q=The%20Best%20Beaches%20in%20Tofino&amp;in=tofino">
       <div class="feat__m"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1100,h_690/guides/tofino/beaches/_category-1" alt="A wide empty beach on the Tofino coast with surf running in and forest along the back of the sand"></div>
       <div class="kmeta"><span class="k">Beaches</span><span class="dot"></span><span>Tofino</span><span class="dot"></span><span class="tnum">13 beaches written up</span></div>
       <h3>The Best Beaches in Tofino</h3>
@@ -706,7 +706,7 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
       <h2>The other twelve beaches in Tofino</h2>
       <p>Grouped by the kind of day they suit, so you can pick one without reading all twelve.</p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="things-to-do.html">Beaches, by subject</a>
+    <a class="btn btn--ghost btn--sm" href="beaches-tofino.html">Beaches, by subject</a>
   </div>
   <nav aria-label="The other beaches in Tofino" id="sibs"></nav>
 </div></section>
@@ -747,17 +747,17 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
     </div>
     <div><h5>This coast</h5><ul>
       <li><a href="tofino.html">Tofino</a></li><li><a href="#top">Long Beach</a></li>
-      <li><a href="search.html">Guides</a></li><li><a href="province.html">British Columbia</a></li>
+      <li><a href="search.html?q=&amp;in=tofino">Guides</a></li><li><a href="province.html">British Columbia</a></li>
       <li><a href="country.html">Canada</a></li></ul></div>
     <div><h5>In Tofino</h5><ul>
       <li><a href="things-to-do.html">All nine subjects</a></li><li><a href="whale-watching.html">Whale watching</a></li>
-      <li><a href="guide.html">Beaches guide</a></li><li><a href="search.html?in=tofino">Search everything</a></li></ul></div>
+      <li><a href="beaches-tofino.html">Beaches guide</a></li><li><a href="search.html?in=tofino">Search everything</a></li></ul></div>
     <div><h5>Plan</h5><ul>
       <li><a href="plan.html">When to go</a></li><li><a href="plan.html">Getting there</a></li>
-      <li><a href="search.html?in=tofino">Where to stay</a></li><li><a href="guide.html">What to pack</a></li></ul></div>
+      <li><a href="search.html?in=tofino">Where to stay</a></li><li><a href="plan.html">What to pack</a></li></ul></div>
     <div><h5>Arc Trips</h5><ul>
       <li><a href="not-found.html">About us</a></li><li><a href="not-found.html">List your place</a></li>
-      <li><a href="search.html?in=tofino">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
+      <li><a href="things-to-do.html#fishing">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
   </div>
   <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees</span></div>
 </div></footer>
@@ -861,6 +861,10 @@ const DIM = [31,28,31,30,31,30,31,31,30,31,30,31];
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const cld = (id,w,h) => `https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_${w},h_${h}/${id}`;
+/* guide.html is the single article "Wildlife tours in Tofino". Every other
+   titled article resolves to a scoped result list that contains it. */
+const ART_HREF = (t) => /^wildlife tours in tofino$/i.test(t)
+  ? "guide.html" : `search.html?q=${encodeURIComponent(t)}&in=tofino`;
 const listOf = (a) => a.length < 2 ? (a[0] || "") : a.slice(0,-1).join(", ") + " and " + a[a.length-1];
 const hhmm = (t) => {
   let m = Math.round(t*60); m = ((m % 1440) + 1440) % 1440;
@@ -898,10 +902,10 @@ function curve(pts,from,to){
     const tt = Math.min(t,to);
     d += (d ? "L" : "M") + X(tt).toFixed(1) + " " + Y(heightAt(pts,tt)).toFixed(1) + " ";
   }
-  return d.trim();
+  return d.trim() ;
 }
 
-function paintTide(){
+function paintTide() {
   const tof = DATA.tide.tofino;
   const first = tof.pts[0].t, last = tof.pts[2].t;
 
@@ -916,8 +920,8 @@ function paintTide(){
     `<rect x="${X(Math.max(a,T0)).toFixed(1)}" y="20" width="${(X(Math.min(b,T1))-X(Math.max(a,T0))).toFixed(1)}" height="190" fill="var(--n100)"></rect>`).join("")
     + `<rect x="${X(tof.sunset).toFixed(1)}" y="20" width="${(1000-X(tof.sunset)).toFixed(1)}" height="190" fill="var(--n150)" opacity=".7"></rect>`;
 
-  const now = new Date();
-  const nowT = now.getHours() + now.getMinutes()/60;
+  const now = new Date() ;
+  const nowT = now.getHours() + now.getMinutes() /60;
   const inView = nowT >= T0 && nowT <= T1;
 
   $("#tideMarks").innerHTML =
@@ -930,7 +934,7 @@ function paintTide(){
       : "");
 
   const nowTag = $("#tidefig").querySelector(".now");
-  if (nowTag) nowTag.remove();
+  if (nowTag) nowTag.remove() ;
   if (inView){
     const tag = document.createElement("p");
     tag.className = "now";
@@ -974,12 +978,12 @@ function paintTide(){
 }
 
 /* ══ the four guide rows, the unit list, stays, reading, siblings ══════════ */
-function paintStatic(){
+function paintStatic() {
   $("#ev").innerHTML = DATA.ev.map((e) =>
     `<div class="ev__r"><p class="ev__k">${esc(e.k)}</p><p class="ev__q">${esc(e.q)}</p></div>`).join("");
 
   $("#rlist").innerHTML = DATA.reading.map((a) =>
-    `<a class="ritem" href="guide.html">
+    `<a class="ritem" href="${ART_HREF(a.t)}">
       <div class="ritem__m"><img src="${cld(a.hero,280,210)}" alt="${esc(a.alt)}"></div>
       <div><div class="kmeta" style="margin-top:0"><span class="k">${esc(a.k)}</span><span class="dot"></span><span class="tnum">${esc(a.m)}</span></div>
       <h4>${esc(a.t)}</h4></div></a>`).join("");
@@ -994,7 +998,7 @@ function paintStatic(){
   $("#sibs").innerHTML = groups.map((g) =>
     `<p class="grouph"><b>${esc(g.gr)}</b><span>${g.rows.length} ${g.rows.length === 1 ? "place" : "places"}</span></p>
      <span class="siblings">${g.rows.map((s) =>
-       `<a class="sib" href="guide.html">
+       `<a class="sib" href="beaches-tofino.html">
           <span class="sib__n">${esc(s.n)}</span>
           <span class="sib__t">${esc(s.t)}</span></a>`).join("")}</span>`).join("");
 
@@ -1023,7 +1027,7 @@ function paintStatic(){
       <p class="price">$${s.p} <span>a night</span></p></a>`).join("");
 
   $("#stayRows").innerHTML = u.map((s) =>
-    `<a href="search.html?in=tofino">
+    `<a href="search.html?in=ucluelet">
       <div class="sr__m"><img src="${cld(s.hero,200,150)}" alt="${esc(s.alt)}"></div>
       <div><p class="sr__n">${esc(s.t)}</p>
       <p class="sr__d">Ucluelet &middot; ${s.r} rooms &middot; ${s.b} beds &middot; ${s.ba} baths &middot; ${s.rating.toFixed(1)} rated</p></div>
@@ -1059,17 +1063,17 @@ const seasonFor = (m) => Object.values(DATA.seasons).find((s) => s.months.includ
 
 let month = new Date().getMonth() + 1;
 
-function paintMonths(){
+function paintMonths() {
   $("#mrow").innerHTML = MON.map((m,i) =>
     `<button type="button" data-m="${i+1}" aria-pressed="${i+1 === month}" aria-label="${m}">${SHORT[i]}</button>`).join("");
 }
 
-function paintYear(){
+function paintYear() {
   const c = DATA.climate[month-1];
   const season = seasonFor(month);
   const name = MON[month-1];
 
-  $("#seasonName").textContent = `${name}: ${season.name.toLowerCase()}`;
+  $("#seasonName").textContent = `${name}: ${season.name.toLowerCase() }`;
   $("#seasonClaim").textContent = season.claim;
   $("#seasonReason").textContent = DATA.reason[season.name];
 
@@ -1090,7 +1094,7 @@ function paintYear(){
     `<span class="q">The sand is open all <b>${DIM[month-1]}</b> days of the month, and free.</span>`;
 
   const rank = (s) => DATA.subjects.indexOf(s);
-  const rows = DATA.subjects.slice().sort((a,b) => {
+  const rows = DATA.subjects.slice() .sort((a,b) => {
     const A = a.months.includes(month), B = b.months.includes(month);
     if (A !== B) return A ? -1 : 1;
     return rank(a) - rank(b);
@@ -1159,7 +1163,7 @@ $("#ledger").addEventListener("click", (e) => {
 const jumps = [...document.querySelectorAll("#jumps a")];
 const secs = jumps.map((c) => document.querySelector(c.getAttribute("href")));
 const barEl = $("#jumpbar");
-function onScroll(){
+function onScroll() {
   const h = document.documentElement.scrollHeight - innerHeight;
   barEl.style.width = (h > 0 ? Math.min(100, Math.max(0, scrollY / h * 100)) : 0) + "%";
   const line = scrollY + innerHeight * 0.3;
@@ -1173,7 +1177,7 @@ onScroll();
 
 addEventListener("keydown", (e) => {
   if (e.key === "/" && !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)){
-    e.preventDefault(); $(".search input").focus();
+    e.preventDefault() ; $(".search input").focus() ;
   }
 });
 </script>

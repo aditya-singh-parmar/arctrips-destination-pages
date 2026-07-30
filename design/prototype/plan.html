@@ -37,6 +37,9 @@ nav.top .btn{flex:none}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 /* body>*:not(.chart) sets position:relative at higher specificity than a bare
    class, so the out-of-flow page elements are qualified with body>. */
+/* body>*:not(.chart) beats a bare class, so the fixed progress bar needs the
+   same qualifier or it lands in the flow. */
+body>.jumpbar{position:fixed;z-index:70}
 body>.skip{position:absolute;left:var(--gut);top:-60px;z-index:99;background:var(--navy);color:var(--paper);
   padding:13px 18px;border-radius:0 0 var(--r-sm) var(--r-sm);font-weight:600;font-size:.94rem;transition:top .18s var(--ease)}
 body>.skip:focus{top:0}
@@ -308,7 +311,7 @@ body>.skip:focus{top:0}
   .ledger2 tr{display:grid;grid-template-columns:1fr auto;gap:6px 14px;padding-block:14px;border-bottom:1px solid var(--n150)}
   .ledger2 td{border-bottom:0;padding:0}}
 
-/* ═══ the island roster. Built for twelve towns, not two: published ones get
+/* ═══ the island roster. Built for eleven towns, not two: published ones get
        a real tile with counts, the rest a compact honest list. ═══ */
 .sec--i{padding-block:0 clamp(44px,4.6vw,70px)}
 .topic p.topic__n small,.mfig__v .u,.mbest span,.bignums dd small,.stay__p span,
@@ -372,7 +375,7 @@ main [id]{scroll-margin-top:146px}
   <ul class="nav-links">
     <li><a href="search.html?in=tofino">Stays</a></li>
     <li><a href="index.html">Destinations</a></li>
-    <li><a href="search.html">Guides</a></li>
+    <li><a href="search.html?q=&amp;in=tofino">Guides</a></li>
   </ul>
   <div class="finder">
     <form class="search" role="search" action="search.html" method="get">
@@ -486,7 +489,7 @@ main [id]{scroll-margin-top:146px}
       <h2>Every month, at a glance</h2>
       <p>Average high and low, rainfall, and what is at its best. Each rain bar compares that month with the wettest.</p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="guide.html">Read the when to go guide</a>
+    <a class="btn btn--ghost btn--sm" href="search.html?q=Best%20Time%20to%20Stay%20in%20Ucluelet%20or%20Tofino&amp;in=tofino">Read the when to go guide</a>
   </div>
 
   <div class="mhead" aria-hidden="true">
@@ -565,7 +568,7 @@ main [id]{scroll-margin-top:146px}
       <h2>Nine things to settle</h2>
       <p>Answered from the Tofino guides, the listings and the climate record.</p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="guide.html">All 18 Tofino articles</a>
+    <a class="btn btn--ghost btn--sm" href="search.html?q=&amp;in=tofino">All 18 Tofino articles</a>
   </div>
 
   <p class="label label--n" style="margin-bottom:4px">Who is travelling</p>
@@ -621,7 +624,7 @@ main [id]{scroll-margin-top:146px}
   <div class="head">
     <div>
       <h2>Vancouver Island</h2>
-      <p>Twelve towns on the island. Two are published in full, ten are being written.</p>
+      <p>Eleven towns on the island. Two are published in full, nine are being written.</p>
     </div>
     <a class="btn btn--ghost btn--sm" href="region.html">Open Vancouver Island</a>
   </div>
@@ -639,7 +642,7 @@ main [id]{scroll-margin-top:146px}
     <div class="nextc">
       <h3>Best time to stay in Tofino and Ucluelet</h3>
       <p>The month by month guide the board above is built from, across both towns on the same road.</p>
-      <a class="topic__go" href="guide.html">Read the guide
+      <a class="topic__go" href="search.html?q=Best%20Time%20to%20Stay%20in%20Ucluelet%20or%20Tofino&amp;in=tofino">Read the guide
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
     </div>
     <div class="nextc">
@@ -666,17 +669,17 @@ main [id]{scroll-margin-top:146px}
       <p class="fnote">Stays and guides on the west coast of Vancouver Island, written by people who go there.</p>
     </div>
     <div><h5>Destinations</h5><ul>
-      <li><a href="tofino.html">Tofino</a></li><li><a href="search.html">Guides</a></li>
+      <li><a href="tofino.html">Tofino</a></li><li><a href="search.html?q=&amp;in=tofino">Guides</a></li>
       <li><a href="province.html">British Columbia</a></li><li><a href="country.html">Canada</a></li></ul></div>
     <div><h5>Things to do</h5><ul>
       <li><a href="things-to-do.html">All nine subjects</a></li><li><a href="whale-watching.html">Whale watching</a></li>
       <li><a href="long-beach.html">Long Beach</a></li><li><a href="search.html?in=tofino">Search everything</a></li></ul></div>
     <div><h5>Plan</h5><ul>
-      <li><a href="#top">When to go</a></li><li><a href="guide.html">Getting there</a></li>
-      <li><a href="search.html?in=tofino">Where to stay</a></li><li><a href="guide.html">What to pack</a></li></ul></div>
+      <li><a href="#top">When to go</a></li><li><a href="#topics">Getting there</a></li>
+      <li><a href="search.html?in=tofino">Where to stay</a></li><li><a href="#months">What to pack</a></li></ul></div>
     <div><h5>Arc Trips</h5><ul>
       <li><a href="not-found.html">About us</a></li><li><a href="not-found.html">List your place</a></li>
-      <li><a href="search.html?in=tofino">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
+      <li><a href="things-to-do.html#fishing">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
   </div>
   <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees</span></div>
 </div></footer>
@@ -710,7 +713,20 @@ const CATN = {
   "restaurants":"Restaurants","markets":"Markets","breweries":"Breweries","landmarks":"Landmarks",
   "arts-history":"Arts and history","events":"Events","when-to-go":"When to go","getting-around":"Getting around"
 };
+/* A place resolves to the subject page it belongs to, never to the top of the
+   index. The five subjects without a page of their own land on their section. */
+const CATPAGE = { "beaches":"beaches-tofino.html","hiking":"hiking-tofino.html",
+  "kayaking":"kayaking-tofino.html","restaurants":"restaurants-tofino.html",
+  "storm-watching":"storm-watching-tofino.html","whale-watching":"whale-watching.html" };
+const placeHref = (pl) => /^long beach$/i.test(pl.n) ? "long-beach.html"
+  : CATPAGE[pl.c] || `things-to-do.html#${pl.c}`;
 const TAXN = Object.keys(PLAN.bestMonths).length;
+/* This is a Tofino page: "at their best" must count Tofino's own subjects
+   (nine guides plus camping and events), never the sitewide 22-category
+   taxonomy things-to-do.html and tofino.html are scoped to. */
+const TOFINO_CATS = PLAN.guides.map((g) => g.c).concat(["camping","events"]);
+const TOFINO_N = TOFINO_CATS.length;
+const inSeasonTofino = (m) => TOFINO_CATS.filter((c) => (PLAN.bestMonths[c] || []).includes(m));
 const CLI = PLAN.climate;
 const MAXMM = Math.max(...CLI.map((x) => x.mm));
 const MINMM = Math.min(...CLI.map((x) => x.mm));
@@ -789,12 +805,12 @@ const forProfile = (id) => { const prof = PROFILES.find((x) => x.id === id); ret
 const COUNT = {}; PROFILES.forEach((prof) => COUNT[prof.id] = forProfile(prof.id).length);
 
 /* ── the nine planning topics. Two lines each, no more. ──────────────────── */
-const monthCounts = MON.map((_,i) => inSeason(i+1).length);
+const monthCounts = MON.map((_,i) => inSeasonTofino(i+1).length);
 const leanest = Math.min(...monthCounts);
 
 const TOPICS = [
   { id:"when", t:"When to go", k:"Timing", n:12, u:"months, all of them open",
-    p:`Even the leanest month has ${leanest} of the ${TAXN} subjects at their best. Nothing is closed for the season.`,
+    p:`Even the leanest month has ${leanest} of the ${TOFINO_N} subjects at their best. Nothing is closed for the season.`,
     href:"#months", go:"See every month" },
   { id:"getting", t:"Getting there", k:"Arriving", n:40, u:"minutes from Ucluelet",
     p:`One road in. Highway 4 crosses the island, then north to Tofino or south to Ucluelet.`,
@@ -804,7 +820,7 @@ const TOPICS = [
     href:"search.html?in=tofino", go:"Search stays" },
   { id:"pack", t:"What to pack", k:"Kit", n:num(TOTMM), u:"mm of rain a year",
     p:`Waterproofs are not a winter item here. Even July records ${CLI[6].mm} mm across ${CLI[6].days} days.`,
-    href:"guide.html", go:"Read the guide" },
+    href:"#months", go:"See the rain by month" },
   { id:"budget", t:"What it costs", k:"Budget", n:freePlaces, u:`of ${P.length} places cost nothing`,
     p:`The beaches, trails and storm viewpoints are free to walk into. The spend is the room and the table.`,
     href:"search.html?in=tofino", go:"Price up a stay" },
@@ -819,7 +835,7 @@ const TOPICS = [
     href:"long-beach.html", go:"Read a real one" },
   { id:"dogs", t:"With a dog", k:"Dogs", n:dogPlaces.length, u:"write-ups mention dogs",
     p:`All three are inside Pacific Rim National Park Reserve, where the rules change. Check Parks Canada first.`,
-    href:"guide.html", go:"What we do know" }
+    href:"beaches-tofino.html", go:"What we do know" }
 ];
 
 /* the Tofino subjects: nine guides plus the two article-backed ones */
@@ -852,7 +868,7 @@ const CATHERO = {}; PLAN.guides.forEach((g) => CATHERO[g.c] = g.h);
 let month = 2, other = 7, profile = "anyone";
 
 /* ── static furniture ────────────────────────────────────────────────────── */
-function paintStatic(){
+function paintStatic() {
   const t = PLAN.tide;
   $("#tideStation").textContent = "Tide today at " + t.station;
   $("#tideRead").innerHTML =
@@ -872,9 +888,9 @@ function paintStatic(){
 
 /* ── the twelve month board. Every month is a row, at full strength, in
       calendar order, and nothing is dimmed or withheld. ─────────────────── */
-function paintBoard(){
+function paintBoard() {
   $("#mboard").innerHTML = CLI.map((c,i) => {
-    const m = i + 1, s = seasonFor(m), on = inSeason(m);
+    const m = i + 1, s = seasonFor(m), on = inSeasonTofino(m);
     const sel = m === month;
     return `<button class="mrow" type="button" data-m="${m}" aria-pressed="${sel}" ${sel ? 'data-sel="true"' : ""}
       aria-label="${MON[i]}, ${c.hi} degrees, ${c.mm} millimetres of rain, ${on.length} things at their best. Put it in the comparison.">
@@ -886,7 +902,7 @@ function paintBoard(){
         <span class="mrain"><i style="--w:${(c.mm/MAXMM*100).toFixed(1)}%"></i></span></span>
       <span class="mfig"><span class="mfig__k">Rain days</span>
         <span class="mfig__v tnum">${c.days} <span class="u">of ${DIM[i]}</span></span></span>
-      <span class="mbest"><b class="tnum">${on.length} of ${TAXN}</b><span>things at their best</span></span>
+      <span class="mbest"><b class="tnum">${on.length} of ${TOFINO_N}</b><span>things at their best</span></span>
       <span class="mgo">${sel ? "Comparing" : "Compare"}${arrow}</span>
     </button>`;
   }).join("");
@@ -907,7 +923,7 @@ function paintCard(side, m, otherM){
   $(`#${side}Season`).textContent = s.name;
   $(`#${side}Name`).textContent = MON[m-1];
   $(`#${side}Claim`).innerHTML = twin
-    ? `Also ${s.name.toLowerCase().replace("the ","")}, and <b>${dT} degrees ${c.hi >= oc.hi ? "warmer" : "cooler"}, ${dMm} mm ${c.mm <= oc.mm ? "drier" : "wetter"}</b> than ${MON[otherM-1]}.`
+    ? `Also ${s.name.toLowerCase() .replace("the ","")}, and <b>${dT} degrees ${c.hi >= oc.hi ? "warmer" : "cooler"}, ${dMm} mm ${c.mm <= oc.mm ? "drier" : "wetter"}</b> than ${MON[otherM-1]}.`
     : esc(s.claim);
   $(`#${side}Nums`).innerHTML =
     `<div><dt>Average high</dt><dd>${c.hi}&deg;</dd></div>` +
@@ -917,11 +933,11 @@ function paintCard(side, m, otherM){
   $(`#${side}OnCount`).innerHTML =
     `<b>${on.length}</b> of the ${SUBJECTS.length} things Tofino publishes are at their best in ${MON[m-1]}.`;
   $(`#${side}Only`).innerHTML = only.length
-    ? `On here and not in ${MON[otherM-1]}: <b>${esc(listCap(only.map((x) => x.name.toLowerCase()), 3))}</b>.`
+    ? `On here and not in ${MON[otherM-1]}: <b>${esc(listCap(only.map((x) => x.name.toLowerCase() ), 3))}</b>.`
     : `Everything ${MON[otherM-1]} has, ${MON[m-1]} has too.`;
 }
 
-function paintCompare(){
+function paintCompare() {
   paintCard("a", month, other);
   paintCard("b", other, month);
   const a = placesInSeason(month), b = placesInSeason(other);
@@ -931,8 +947,8 @@ function paintCompare(){
 }
 
 /* ── the subject ledger, ranked for the chosen month, never gated ────────── */
-function paintLedger(){
-  const rows = SUBJECTS.slice().sort((x,y) => {
+function paintLedger() {
+  const rows = SUBJECTS.slice() .sort((x,y) => {
     const X = x.months.includes(month), Y = y.months.includes(month);
     if (X !== Y) return X ? -1 : 1;
     if (X) return x.months.length - y.months.length || y.places - x.places;
@@ -968,13 +984,13 @@ function paintLedger(){
 
 /* ── topics, filters and the places rail. The chips reorder the nine topics,
       they never remove one. ─────────────────────────────────────────────── */
-function paintChips(){
+function paintChips() {
   $("#chips").innerHTML = PROFILES.map((p) =>
     `<button type="button" data-p="${p.id}" aria-pressed="${p.id === profile}">${esc(p.label)}<span class="ct tnum">${COUNT[p.id]}</span></button>`
   ).join("") + `<button class="clear" type="button" data-clear>Reset</button>`;
 }
 
-function paintTopics(){
+function paintTopics() {
   const p = PROFILES.find((x) => x.id === profile);
   const rows = p.order.map((id) => TOPICS.find((t) => t.id === id));
   $("#tgrid").innerHTML = rows.map((t,i) =>
@@ -997,8 +1013,8 @@ function paintTopics(){
     const cn = CATN[pl.c] || pl.c;
     const tag = pl.g[0] || `${cn} in Tofino`;
     const own = Boolean(pl.h);
-    const alt = own ? `${pl.n}, ${cn.toLowerCase()} in Tofino` : `${cn} in Tofino, from the subject guide`;
-    return `<a class="ritem" href="things-to-do.html">
+    const alt = own ? `${pl.n}, ${cn.toLowerCase() } in Tofino` : `${cn} in Tofino, from the subject guide`;
+    return `<a class="ritem" href="${placeHref(pl)}">
       <div class="ritem__m"><img src="${cld(pl.h || CATHERO[pl.c],300,225)}" alt="${esc(alt)}" loading="lazy"></div>
       <div>
         <div class="kmeta" style="margin-top:0"><span class="k">${esc(cn)}</span></div>
@@ -1011,7 +1027,7 @@ function paintTopics(){
 }
 
 /* ── the questions people actually ask, six subjects deep ────────────────── */
-function paintQuestions(){
+function paintQuestions() {
   const cats = Object.keys(faqByCat).sort((a,b) => faqByCat[b].length - faqByCat[a].length).slice(0,6);
   $("#qgrid").innerHTML = cats.map((c) => {
     const rows = faqByCat[c];
@@ -1023,8 +1039,8 @@ function paintQuestions(){
 }
 
 /* ── the stays module, from the real listing rows ────────────────────────── */
-function paintStays(){
-  const rows = PLAN.listings.slice().sort((a,b) => a.p - b.p || a.t.localeCompare(b.t));
+function paintStays() {
+  const rows = PLAN.listings.slice() .sort((a,b) => a.p - b.p || a.t.localeCompare(b.t));
   const tof = rows.filter((l) => l.city === "tofino");
   const feat = tof[0];
   const where = (l) => l.city === "tofino" ? "Tofino" : "Ucluelet";
@@ -1051,19 +1067,25 @@ function paintStays(){
     `Prices in CAD, before taxes and fees.`;
 }
 
-/* ── the island roster. Built for twelve towns, not two. ─────────────────── */
-const SOON_TOWNS = ["Victoria","Nanaimo","Campbell River","Parksville","Qualicum Beach",
+/* ── the island roster. Built for eleven towns, not two. ─────────────────── */
+const SOON_TOWNS = ["Victoria","Nanaimo","Campbell River","Parksville",
   "Sooke","Sidney","Chemainus","Nanoose Bay","Shawnigan Lake"];
+/* each of these has a town page of its own, so the roster links to the town
+   rather than dropping every name on the region */
+const SOON_HREF = { "Victoria":"victoria.html", "Nanaimo":"nanaimo.html",
+  "Campbell River":"campbell-river.html", "Parksville":"parksville.html",
+  "Sooke":"sooke.html", "Sidney":"sidney.html", "Chemainus":"chemainus.html",
+  "Nanoose Bay":"nanoose.html", "Shawnigan Lake":"shawnigan-lake.html" };
 
-function paintIsland(){
+function paintIsland() {
   const pub = [
     { n:"Tofino", m:`${P.length} places &middot; ${PLAN.guides.length} guides &middot; ${PLAN.town.stays} stays`, h:"tofino.html" },
-    { n:"Ucluelet", m:`${PLAN.ucluelet.places} places &middot; ${PLAN.ucluelet.guides} guides &middot; ${PLAN.ucluelet.stays} stays`, h:"region.html" }
+    { n:"Ucluelet", m:`${PLAN.ucluelet.places} places &middot; ${PLAN.ucluelet.guides} guides &middot; ${PLAN.ucluelet.stays} stays`, h:"ucluelet.html" }
   ];
   $("#pubTowns").innerHTML = pub.map((t) =>
     `<a class="sib" href="${t.h}"><span class="sib__n">${esc(t.n)}</span><span class="sib__m tnum">${t.m}</span></a>`).join("");
   $("#soonTowns").innerHTML = SOON_TOWNS.map((n) =>
-    `<a href="region.html">${esc(n)}</a>`).join("");
+    `<a href="${SOON_HREF[n]}">${esc(n)}</a>`).join("");
 }
 
 /* ── wire up ─────────────────────────────────────────────────────────────── */
@@ -1072,13 +1094,13 @@ function setMonth(m){
   month = m;
   $("#apick").value = String(month);
   $("#bpick").value = String(other);
-  paintBoard(); paintCompare(); paintLedger();
+  paintBoard() ; paintCompare() ; paintLedger() ;
 }
 
-paintStatic(); paintChips(); paintTopics(); paintBoard(); paintQuestions(); paintStays(); paintIsland();
+paintStatic(); paintChips() ; paintTopics() ; paintBoard() ; paintQuestions() ; paintStays() ; paintIsland() ;
 $("#apick").value = String(month);
 $("#bpick").value = String(other);
-paintCompare(); paintLedger();
+paintCompare() ; paintLedger() ;
 
 $("#mboard").addEventListener("click", (e) => {
   const b = e.target.closest(".mrow"); if (!b) return;
@@ -1105,18 +1127,18 @@ $("#chips").addEventListener("click", (e) => {
 });
 addEventListener("keydown", (e) => {
   if (e.key === "/" && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)){
-    e.preventDefault(); $(".search input").focus();
+    e.preventDefault() ; $(".search input").focus() ;
   }
 });
 
 /* the reading-progress hairline and the current in-page section */
 const secs = [...document.querySelectorAll("#jumprow a")].map((a) => ({ a, el: document.querySelector(a.getAttribute("href")) }));
-function onScroll(){
+function onScroll() {
   const h = document.documentElement;
   const p = h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight);
   $("#jumpbar").style.width = (p * 100).toFixed(2) + "%";
   let cur = null;
-  secs.forEach((s) => { if (s.el && s.el.getBoundingClientRect().top <= 200) cur = s; });
+  secs.forEach((s) => { if (s.el && s.el.getBoundingClientRect() .top <= 200) cur = s; });
   secs.forEach((s) => s.a === (cur && cur.a) ? s.a.setAttribute("aria-current","true") : s.a.removeAttribute("aria-current"));
 }
 addEventListener("scroll", onScroll, { passive:true });

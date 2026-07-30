@@ -38,10 +38,25 @@ for (const p of pages) {
     say(false, `${p}: image field "${field}" holds a page name (${val})`);
   // the shared place-bar behaviour must be present, or the active state goes stale
   if (/placebar__links/.test(s)) say(/_nav\.js/.test(s), `${p}: place bar without the shared _nav.js scrollspy`);
+  // every executable script block must parse. A regex edit that eats a paren is silent otherwise.
+  for (const [, code] of s.matchAll(/<script(?![^>]*src)(?![^>]*type="application\/json")[^>]*>([\s\S]*?)<\/script>/g)) {
+    try { new Function(code); } catch (e) { say(false, `${p}: script block does not parse (${e.message})`); }
+  }
+  say(!/istockphoto\.com/.test(s), `${p}: leaked image credit URL`);
+  say(!/w:pBdr|w:rPr|w:bookmarkStart/.test(s), `${p}: raw Word XML in the markup`);
+  say(!/Qualicum Beach/.test(s), `${p}: references Qualicum Beach, which has no page`);
   say(!/[—–]/.test(s), `${p}: contains an em or en dash`);
   say(!/(?:Meta Description|SEO Title)\s*:/i.test(s.replace(/\/\*[\s\S]*?\*\//g, '')), `${p}: leaked editorial prefix`);
   for (const [, img] of s.matchAll(/(<img(?![^>]*\balt=)[^>]*>)/g))
     say(false, `${p}: image without alt ${img.slice(0, 60)}`);
+}
+// Counts must not drift between pages. These are the agreed figures.
+const BAD = { '25 towns':'26 towns', '27 towns':'26 towns', '28 towns':'26 towns',
+              '12 towns':'11 towns', '16 towns':'15 towns', '14 towns':'15 towns' };
+for (const p of pages) {
+  const s2 = readFileSync(join(DIR, p), 'utf8');
+  for (const [wrong, right] of Object.entries(BAD))
+    if (s2.includes(wrong)) { fail++; console.log(`  FAIL ${p}: countDrift says "${wrong}", agreed figure is "${right}"`); }
 }
 console.log(fail ? `\n${fail} issue(s) across ${pages.length} pages` : `clean: ${pages.length} pages, every link, anchor and image valid`);
 process.exit(fail ? 1 : 0);

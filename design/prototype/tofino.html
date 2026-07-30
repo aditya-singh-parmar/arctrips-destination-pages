@@ -47,6 +47,9 @@ nav.top .btn{flex:none}
 .route{color:var(--a400)}
 /* the system sets position:relative on body>* at the same specificity, so the
    skip link has to be written as a child selector or it keeps 28px of flow */
+/* body>*:not(.chart) beats a bare class, so the fixed progress bar needs the
+   same qualifier or it lands in the flow. */
+body>.jumpbar{position:fixed;z-index:70}
 body>a.skip{position:absolute;left:var(--gut);top:-70px;z-index:99;background:var(--navy);color:var(--paper);
   padding:13px 18px;border-radius:0 0 var(--r-sm) var(--r-sm);font-weight:600;font-size:.9rem;transition:top .18s var(--ease)}
 body>a.skip:focus{top:0}
@@ -354,7 +357,7 @@ body>a.skip:focus{top:0}
   <ul class="nav-links">
     <li><a href="search.html?in=tofino">Stays</a></li>
     <li><a href="index.html" aria-current="true">Destinations</a></li>
-    <li><a href="search.html">Guides</a></li>
+    <li><a href="search.html?q=&amp;in=tofino">Guides</a></li>
   </ul>
   <form class="search" role="search" action="search.html" method="get">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
@@ -460,7 +463,7 @@ body>a.skip:focus{top:0}
     <h2 style="margin-top:11px">A town the tide sets the timetable for</h2>
     <p style="margin-top:20px">Tofino sits at the western edge of Vancouver Island, where the rainforest meets long stretches of open Pacific beach. It draws surfers, storm-watchers, and travellers looking for quiet time close to the water.</p>
     <p>Plan around the tides and the seasons. Summer brings calm mornings and warm evenings on the sand, while winter delivers dramatic storm watching and empty beaches. Whatever the season, the pace here rewards staying a few nights rather than passing through.</p>
-    <a class="btn btn--ghost btn--sm" href="guide.html">Read the month by month guide</a>
+    <a class="btn btn--ghost btn--sm" href="plan.html">Read the month by month guide</a>
   </div>
   <dl class="spec" id="spec"></dl>
 </div></section>
@@ -567,11 +570,11 @@ body>a.skip:focus{top:0}
       <h2 style="margin-top:11px">What we have written about Tofino</h2>
       <p id="readDek"></p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="guide.html">All Tofino guides</a>
+    <a class="btn btn--ghost btn--sm" href="search.html?q=&amp;in=tofino">All Tofino guides</a>
   </div>
 
   <div class="read">
-    <a class="feat" href="guide.html" id="feat"></a>
+    <a class="feat" href="search.html?q=Storm%20Watching%20in%20Tofino&amp;in=tofino" id="feat"></a>
     <div class="rlist" id="rlist"></div>
   </div>
   <p class="oneline" id="readMore"></p>
@@ -645,14 +648,14 @@ body>a.skip:focus{top:0}
       <li><a href="long-beach.html">Areas</a></li><li><a href="plan.html">Plan</a></li>
       <li><a href="guide.html">Guides</a></li></ul></div>
     <div><h5>Up the tree</h5><ul>
-      <li><a href="region.html">Ucluelet</a></li><li><a href="search.html">Guides</a></li>
+      <li><a href="ucluelet.html">Ucluelet</a></li><li><a href="region.html">Vancouver Island</a></li>
       <li><a href="province.html">British Columbia</a></li><li><a href="country.html">Canada</a></li></ul></div>
     <div><h5>Subjects</h5><ul>
-      <li><a href="whale-watching.html">Whale watching</a></li><li><a href="long-beach.html">Long Beach</a></li>
-      <li><a href="search.html?in=tofino">Search everything</a></li><li><a href="search.html?in=tofino">Guides</a></li></ul></div>
+      <li><a href="whale-watching.html">Whale watching</a></li><li><a href="beaches-tofino.html">Beaches</a></li>
+      <li><a href="hiking-tofino.html">Hiking and trails</a></li><li><a href="search.html?in=tofino">Search everything</a></li></ul></div>
     <div><h5>Arc Trips</h5><ul>
       <li><a href="not-found.html">About us</a></li><li><a href="not-found.html">List your place</a></li>
-      <li><a href="search.html?in=tofino">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
+      <li><a href="things-to-do.html#fishing">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
   </div>
   <div class="fbase"><span>&copy; 2026 Arc Trips</span><span id="fnote2">Prices in CAD, before taxes and fees</span></div>
 </div></footer>
@@ -681,9 +684,24 @@ const plural = (n,w) => `${n} ${w}${n === 1 ? "" : "s"}`;
 const listOf = (a) => a.length < 2 ? (a[0] || "") : a.slice(0,-1).join(", ") + " and " + a[a.length-1];
 const T = DATA.town;
 
-/* every link in this prototype resolves to one of the built screens */
-const PLACE_PAGE = (name) => name === "Long Beach" ? "long-beach.html" : "beaches-tofino.html";
-const CAT_PAGE = (cat) => cat === "whale-watching" ? "whale-watching.html" : "things-to-do.html";
+/* every link in this prototype resolves to one of the built screens. A subject
+   with a page of its own goes there; the five without one land on their own
+   section of the subject index, never on the top of it. */
+const CAT_PAGE_MAP = {
+  "beaches": "beaches-tofino.html",
+  "hiking": "hiking-tofino.html",
+  "kayaking": "kayaking-tofino.html",
+  "restaurants": "restaurants-tofino.html",
+  "storm-watching": "storm-watching-tofino.html",
+  "whale-watching": "whale-watching.html"
+};
+const CAT_PAGE = (cat) => CAT_PAGE_MAP[cat] || `things-to-do.html#${cat}`;
+/* a place resolves by the subject it belongs to, never by its name */
+const PLACE_PAGE = (name, cat) => name === "Long Beach" ? "long-beach.html" : CAT_PAGE(cat);
+/* guide.html is the single article "Wildlife tours in Tofino". Every other
+   titled article resolves to a scoped result list that contains it. */
+const ART_PAGE = (title) => /^wildlife tours in tofino$/i.test(title)
+  ? "guide.html" : `search.html?q=${encodeURIComponent(title)}&in=tofino`;
 
 /* Longest contiguous runs of months, read round the year, so a winter window
    comes out as "November to February" and not as two broken halves. */
@@ -735,7 +753,7 @@ function daylight(m){
 let month = new Date().getMonth() + 1;
 
 /* ── the fixed pieces ────────────────────────────────────────────────────── */
-function paintStatic(){
+function paintStatic() {
   const t = DATA.tide;
   const range = (t.high1m - t.low1m).toFixed(1);
   $("#tideStation").textContent = `Tide today at ${t.station}`;
@@ -775,7 +793,7 @@ function paintStatic(){
 }
 
 /* ── the month switcher, columns at true rainfall height ─────────────────── */
-function paintSwitcher(){
+function paintSwitcher() {
   const max = Math.max(...DATA.climate.map((x) => x.mm));
   const maxIx = DATA.climate.findIndex((x) => x.mm === max);
   const minIx = DATA.climate.reduce((b,x,i) => x.mm < DATA.climate[b].mm ? i : b, 0);
@@ -791,7 +809,7 @@ function paintSwitcher(){
 }
 
 /* ── the month panel: named season, honest numbers, what is on ───────────── */
-function paintMonth(){
+function paintMonth() {
   const c = DATA.climate[month-1];
   const season = seasonFor(month);
   const name = MON[month-1];
@@ -814,8 +832,8 @@ function paintMonth(){
     `<div><dt>Daylight</dt><dd>${dl.h}<small>h ${dl.m}m</small></dd></div>`;
 
   /* one sentence. A count of what is on, never a ratio and never a shortfall. */
-  const ranked = on.slice().sort((a,b) => a.months.length - b.months.length || b.places - a.places)
-    .map((s) => s.name.split(" and ")[0].toLowerCase());
+  const ranked = on.slice() .sort((a,b) => a.months.length - b.months.length || b.places - a.places)
+    .map((s) => s.name.split(" and ")[0].toLowerCase() );
   $("#sum").innerHTML =
     `In ${name}, <b>${on.length}</b> of the nine subjects are at their peak, starting with ${esc(listOf(ranked.slice(0,2)))}. ` +
     `<span class="q">The other ${9 - on.length} are still open.</span>`;
@@ -825,7 +843,7 @@ function paintMonth(){
 }
 
 /* ── S3: rank, never gate. Two groups, both at full strength. ────────────── */
-function paintCats(){
+function paintCats() {
   const rank = (a,b) => a.months.length - b.months.length || b.places - a.places;
   const live = DATA.cats.filter((s) => s.months.includes(month)).sort(rank);
   const rest = DATA.cats.filter((s) => !s.months.includes(month)).sort((a,b) => b.places - a.places);
@@ -863,9 +881,9 @@ function paintCats(){
 }
 
 /* ── beaches as an area rail, each with the note that catches people out ── */
-function paintAreas(){
+function paintAreas() {
   $("#arail").innerHTML = DATA.areas.map((a) =>
-    `<a class="acard" href="${PLACE_PAGE(a.n)}">
+    `<a class="acard" href="${PLACE_PAGE(a.n, "beaches")}">
       <div class="acard__m">
         <img src="${cld(a.hero,640,480)}" alt="${esc(a.n)} near Tofino, photographed on site" loading="lazy">
       </div>
@@ -875,7 +893,7 @@ function paintAreas(){
 }
 
 /* ── plan, stays, reading, questions, siblings ───────────────────────────── */
-function paintRest(){
+function paintRest() {
   const c = DATA.climate;
   const dryIx = c.reduce((b,x,i) => x.mm < c[b].mm ? i : b, 0);
   const wetIx = c.reduce((b,x,i) => x.mm > c[b].mm ? i : b, 0);
@@ -884,8 +902,8 @@ function paintRest(){
   $("#pgrid").innerHTML = [
     ["When to go", "Every month has an answer", `Twelve months, the rain that comes with each, and what is at its peak. ${MON[dryIx]} is driest at <b>${c[dryIx].mm} mm</b>. ${MON[wetIx]} is wettest at <b>${c[wetIx].mm} mm</b>, which is the point.`, "plan.html"],
     ["Getting there", "The road in, and the ferry", "Highway 4 across the island, then the last forty minutes of coast road shared with Ucluelet. Book the ferry crossing before you book the room.", "plan.html"],
-    ["Where to stay", `${T.stays} stays, from $${T.from}`, "Oceanfront cabins, town rentals and forest cottages. Storm season rooms face the water on purpose.", "search.html"],
-    ["What to pack", `Rain gear, on <b>${rdays}</b> days`, `Tofino has measurable rain on ${rdays} days in an average year. Bring the shell, and stop thinking of it as bad weather.`, "guide.html"]
+    ["Where to stay", `${T.stays} stays, from $${T.from}`, "Oceanfront cabins, town rentals and forest cottages. Storm season rooms face the water on purpose.", "search.html?in=tofino"],
+    ["What to pack", `Rain gear, on <b>${rdays}</b> days`, `Tofino has measurable rain on ${rdays} days in an average year. Bring the shell, and stop thinking of it as bad weather.`, "plan.html"]
   ].map(([k,h,p,href]) =>
     `<a class="pcard" href="${href}"><span>${k}</span><h3>${h}</h3><p>${p}</p></a>`).join("");
 
@@ -909,7 +927,7 @@ function paintRest(){
     </a></li>`).join("");
 
   /* reading: one feature, five with pictures, then a link. No wall of titles. */
-  const arts = DATA.articles.slice();
+  const arts = DATA.articles.slice() ;
   const featIx = arts.findIndex((a) => a.slug === "tofino-storm-watching");
   const feat = arts.splice(featIx, 1)[0];
   const withPix = arts.filter((a) => !a.faqs).slice(0,5);
@@ -918,7 +936,7 @@ function paintRest(){
     `${T.articles} guides written on the ground here. These six first.`;
   $("#readMore").innerHTML =
     `There are ${T.articles - 6} more Tofino guides, on surfing, hiking, camping and when to come. ` +
-    `<a href="guide.html">Read all of them</a>.`;
+    `<a href="search.html?q=&in=tofino">Read all of them</a>.`;
   $("#feat").innerHTML =
     `<div class="feat__m"><img src="${cld("guides/tofino/storm-watching/_category-2",1100,690)}" alt="Heavy surf breaking over the rocks on a grey winter day"></div>
      <div class="kmeta"><span class="k">Storm watching</span><span class="dot"></span><span>Tofino</span><span class="dot"></span><span class="tnum">8 places to watch from</span></div>
@@ -926,7 +944,7 @@ function paintRest(){
      <p>Tofino is not just a summer beach town. In winter it becomes one of the best places in Canada to watch storms, and the rooms that face the water are booked for exactly that reason.</p>`;
 
   $("#rlist").innerHTML = withPix.map((a) =>
-    `<a class="ritem" href="${a.cat === "whale-watching" ? "whale-watching.html" : "guide.html"}">
+    `<a class="ritem" href="${ART_PAGE(a.title)}">
       <div class="ritem__m"><img src="${cld(a.hero,260,195)}" alt="${esc(nice(a.name))} in Tofino" loading="lazy"></div>
       <div><div class="kmeta" style="margin-top:0"><span class="k">${esc(nice(a.name))}</span><span class="dot"></span><span>Tofino</span></div>
       <h4>${esc(a.title)}</h4></div>
@@ -936,7 +954,7 @@ function paintRest(){
   const qs = DATA.faqs;
   /* short answers only, and never an answer that is really a comma-run list */
   const clean = qs.filter((q) => q.a.length <= 260 && (q.a.match(/,/g) || []).length <= 5);
-  const wide = [], seenCat = new Set();
+  const wide = [], seenCat = new Set() ;
   clean.forEach((q) => { if (wide.length < 6 && !seenCat.has(q.cat)){ seenCat.add(q.cat); wide.push(q); } });
   clean.forEach((q) => { if (wide.length < 6 && !wide.includes(q)) wide.push(q); });
   $("#qaDek").innerHTML = `Six of them here, answered properly.`;
@@ -953,16 +971,16 @@ function paintRest(){
     ["Tofino", `${T.places} places &middot; ${T.stays} stays`,
       "Published. You are here.", "#top"],
     ["Ucluelet", `${u.places} places &middot; ${u.stays} stays`,
-      "Published. Forty minutes south on the same road, quieter, same weather.", "region.html"],
+      "Published. Forty minutes south on the same road, quieter, same weather.", "ucluelet.html"],
     ["Vancouver Island", "11 towns &middot; 2 published",
       "The region. Every island town lives here.", "region.html"],
-    ["British Columbia", "3 regions &middot; 14 towns",
+    ["British Columbia", "4 regions &middot; 15 towns",
       "The province, including Whistler, Squamish and Vancouver.", "province.html"]
   ].map(([n,m,d,href]) =>
     `<a class="sib" href="${href}"><span class="sib__n">${n}</span><span class="sib__m tnum">${m}</span><span class="sib__d">${d}</span></a>`).join("");
 
   $("#roster").innerHTML = [
-    "Victoria","Nanaimo","Campbell River","Parksville","Qualicum Beach",
+    "Victoria","Nanaimo","Campbell River","Parksville","Shawnigan Lake",
     "Sooke","Sidney","Chemainus","Nanoose Bay"
   ].map((n) => `<li>${esc(n)}</li>`).join("");
 }
@@ -994,7 +1012,7 @@ $("#msw").addEventListener("click", (e) => {
 });
 addEventListener("keydown", (e) => {
   if (e.key === "/" && !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)){
-    e.preventDefault(); $(".search input").focus();
+    e.preventDefault() ; $(".search input").focus() ;
   }
 });
 
@@ -1019,12 +1037,12 @@ onScroll();
 /* Linkify town names inside separator runs like "Victoria · Nanaimo · Sooke".
    The earlier pass only matched a text node equal to one name, so multi-town
    rows never linked. This splits on the separator and links each part. */
-(function(){
-  var M={"Victoria": "victoria.html", "Nanaimo": "nanaimo.html", "Campbell River": "campbell-river.html", "Sooke": "sooke.html", "Sidney": "sidney.html", "Chemainus": "chemainus.html", "Nanoose": "nanoose.html", "Shawnigan Lake": "shawnigan-lake.html", "Whistler": "whistler.html", "Squamish": "squamish.html", "Vancouver": "vancouver.html", "Nelson": "nelson.html", "Banff": "banff.html", "Jasper": "jasper.html", "Edmonton": "edmonton.html", "Saskatoon": "saskatoon.html", "Niagara Falls": "niagara-falls.html", "Ottawa": "ottawa.html", "Montreal": "montreal.html", "Quebec City": "quebec-city.html", "Halifax": "halifax.html", "Charlottetown": "charlottetown.html", "Qualicum Beach": "region.html", "Nanoose Bay": "nanoose.html", "Parksville": "nanoose.html"}, SKIP=/^(A|BUTTON|INPUT|SCRIPT|STYLE|H1|TITLE)$/;
-  function run(){
+(function() {
+  var M={"Victoria": "victoria.html", "Nanaimo": "nanaimo.html", "Campbell River": "campbell-river.html", "Sooke": "sooke.html", "Sidney": "sidney.html", "Chemainus": "chemainus.html", "Nanoose": "nanoose.html", "Shawnigan Lake": "shawnigan-lake.html", "Whistler": "whistler.html", "Squamish": "squamish.html", "Vancouver": "vancouver.html", "Nelson": "nelson.html", "Banff": "banff.html", "Jasper": "jasper.html", "Edmonton": "edmonton.html", "Saskatoon": "saskatoon.html", "Niagara Falls": "niagara-falls.html", "Ottawa": "ottawa.html", "Montreal": "montreal.html", "Quebec City": "quebec-city.html", "Halifax": "halifax.html", "Charlottetown": "charlottetown.html", "Parksville": "parksville.html", "Nanoose Bay": "nanoose.html", "Parksville": "parksville.html"}, SKIP=/^(A|BUTTON|INPUT|SCRIPT|STYLE|H1|TITLE)$/;
+  function run() {
     var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT), n, jobs=[];
     while(n=w.nextNode()){
-      var v=n.nodeValue; if(!v||!v.trim()) continue;
+      var v=n.nodeValue; if(!v||!v.trim() ) continue;
       var p=n.parentElement; if(!p||SKIP.test(p.tagName)||p.closest('a')) continue;
       var names=Object.keys(M).filter(function(t){return v.indexOf(t)>-1;});
       if(names.length) jobs.push([n,v]);
@@ -1034,7 +1052,7 @@ onScroll();
       var parts=v.split(/(\s*[·|,]\s*)/);
       var linked=false;
       parts.forEach(function(part){
-        var key=part.trim();
+        var key=part.trim() ;
         if(M[key]){
           var a=document.createElement('a');
           a.href=M[key]; a.textContent=part;
@@ -1045,7 +1063,7 @@ onScroll();
       if(linked && node.parentNode) node.parentNode.replaceChild(frag,node);
     });
   }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(run,80)});
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function() {setTimeout(run,80)});
   else setTimeout(run,80);
   setTimeout(run,800);
 })();

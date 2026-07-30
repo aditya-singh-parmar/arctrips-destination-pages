@@ -91,6 +91,23 @@ nav.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.9);backdro
   .nav-links::-webkit-scrollbar{display:none}
   .nav-links a{white-space:nowrap}
 }
+/* Below 760px the brand, three links, a search field and Sign in cannot share one row:
+   the links were clipping to "De" and "Sear". Wrap onto a second row so all three stay
+   readable and reachable, and drop the search field, which the page carries anyway. */
+@media(max-width:760px){
+  .nav-in{flex-wrap:wrap;height:auto;padding-block:10px;row-gap:6px;gap:12px}
+  .brand{order:1;flex:none}
+  nav.top .btn{order:2;margin-left:auto;flex:none}
+  nav.top .search{display:none}
+  .nav-links{order:3;flex:1 0 100%;gap:20px;overflow:visible;font-size:.95rem}
+  .nav-links a{min-height:40px}
+}
+/* the active place-bar tab was clipping at the right edge on a phone */
+@media(max-width:760px){
+  .placebar-in{padding-right:14px}
+  .placebar__links{padding-right:8px}
+  .placebar__links a:last-child{margin-right:6px}
+}
 @media(max-width:620px){.search kbd{display:none}.search{min-width:0}}
 
 /* ── hero ───────────────────────────────────────────────────────────────── */

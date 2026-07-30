@@ -351,7 +351,7 @@ footer.f{margin-top:clamp(48px,5.6vw,80px)}
   <ul class="nav-links">
     <li><a href="search.html?in=tofino">Stays</a></li>
     <li><a href="index.html">Destinations</a></li>
-    <li><a href="search.html">Guides</a></li>
+    <li><a href="search.html?q=&amp;in=tofino">Guides</a></li>
   </ul>
   <form class="search" role="search" action="search.html" method="get">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
@@ -526,7 +526,7 @@ footer.f{margin-top:clamp(48px,5.6vw,80px)}
     <p>Yes, sometimes whales can be seen from shore. But a guided boat tour gives you a much better chance of seeing whales and learning about them, and it is worth being straight about that before you spend a morning on a headland with binoculars.</p>
     <p>If you want to try anyway, these are the twelve places on this coast we have written up where people actually stand and scan. Six of them are the Tofino beaches, where you get the horizon. Six are down the road on the Ucluelet side, where the rock gets you height over the water. What you are looking for at that range is not a whale. It is a blow, hanging for a second or two against the grey.</p>
 
-    <div class="shore" id="shore"></div>
+    <div class="shore" id="shoreList"></div>
 
     <div class="note">
       <b>Check the tide first</b>
@@ -688,7 +688,7 @@ footer.f{margin-top:clamp(48px,5.6vw,80px)}
       </div>
     </div>
     <div class="keepgrid">
-      <a class="slot" href="#top">
+      <a class="slot" href="search.html?q=Whale%20Tails%2C%20Blows%2C%20and%20Backs&amp;in=tofino">
         <span class="slot__k">Next in this guide</span>
         <h3>Whale Tails, Blows, and Backs</h3>
         <p>The follow-on piece: what each surface behaviour means, and why a fluke is not the end of the sighting. Four questions, Tofino and Ucluelet.</p>
@@ -723,17 +723,17 @@ footer.f{margin-top:clamp(48px,5.6vw,80px)}
       <p class="fnote">Stays and guides on the west coast of Vancouver Island, written by people who go there.</p>
     </div>
     <div><h5>Destinations</h5><ul>
-      <li><a href="tofino.html">Tofino</a></li><li><a href="search.html">Guides</a></li>
+      <li><a href="tofino.html">Tofino</a></li><li><a href="search.html?q=&amp;in=tofino">Guides</a></li>
       <li><a href="province.html">British Columbia</a></li><li><a href="country.html">Canada</a></li></ul></div>
     <div><h5>Things to do</h5><ul>
       <li><a href="things-to-do.html">All nine subjects</a></li><li><a href="whale-watching.html">Whale watching</a></li>
       <li><a href="long-beach.html">Long Beach</a></li><li><a href="search.html?in=tofino">Search everything</a></li></ul></div>
     <div><h5>Plan</h5><ul>
       <li><a href="plan.html">When to go</a></li><li><a href="plan.html">Getting there</a></li>
-      <li><a href="search.html?in=tofino">Where to stay</a></li><li><a href="#top">What to pack</a></li></ul></div>
+      <li><a href="search.html?in=tofino">Where to stay</a></li><li><a href="plan.html">What to pack</a></li></ul></div>
     <div><h5>Arc Trips</h5><ul>
       <li><a href="not-found.html">About us</a></li><li><a href="not-found.html">List your place</a></li>
-      <li><a href="search.html?in=tofino">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
+      <li><a href="things-to-do.html#fishing">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
   </div>
   <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees</span></div>
 </div></footer>
@@ -777,14 +777,14 @@ const DATA = {
      the guide whole. */
   subs:[
     {cat:"whale-watching",n:"Whale watching",m:[3,4,5,6,7,8,9,10],places:0,photos:8,blocks:153,href:"whale-watching.html"},
-    {cat:"hiking",n:"Hiking and trails",m:[4,5,6,7,8,9,10],places:18,photos:8,blocks:31,href:"things-to-do.html"},
-    {cat:"kayaking",n:"Kayaking and paddling",m:[5,6,7,8,9],places:18,photos:8,blocks:132,href:"things-to-do.html"},
-    {cat:"restaurants",n:"Restaurants",m:[1,2,3,4,5,6,7,8,9,10,11,12],places:16,photos:6,blocks:84,href:"things-to-do.html"},
-    {cat:"beaches",n:"Beaches",m:[5,6,7,8,9],places:13,photos:8,blocks:29,href:"long-beach.html"},
-    {cat:"storm-watching",n:"Storm watching",m:[11,12,1,2],places:8,photos:6,blocks:23,href:"things-to-do.html"},
-    {cat:"birding",n:"Birding and wildlife",m:[3,4,5,9,10,11],places:0,photos:8,blocks:338,href:"things-to-do.html"},
-    {cat:"surfing",n:"Surfing",m:[1,2,3,4,9,10,11,12],places:0,photos:6,blocks:84,href:"things-to-do.html"},
-    {cat:"fishing",n:"Fishing",m:[5,6,7,8,9],places:0,photos:0,blocks:1,href:"things-to-do.html"}
+    {cat:"hiking",n:"Hiking and trails",m:[4,5,6,7,8,9,10],places:18,photos:8,blocks:31,href:"hiking-tofino.html"},
+    {cat:"kayaking",n:"Kayaking and paddling",m:[5,6,7,8,9],places:18,photos:8,blocks:132,href:"kayaking-tofino.html"},
+    {cat:"restaurants",n:"Restaurants",m:[1,2,3,4,5,6,7,8,9,10,11,12],places:16,photos:6,blocks:84,href:"restaurants-tofino.html"},
+    {cat:"beaches",n:"Beaches",m:[5,6,7,8,9],places:13,photos:8,blocks:29,href:"beaches-tofino.html"},
+    {cat:"storm-watching",n:"Storm watching",m:[11,12,1,2],places:8,photos:6,blocks:23,href:"storm-watching-tofino.html"},
+    {cat:"birding",n:"Birding and wildlife",m:[3,4,5,9,10,11],places:0,photos:8,blocks:338,href:"things-to-do.html#birding"},
+    {cat:"surfing",n:"Surfing",m:[1,2,3,4,9,10,11,12],places:0,photos:6,blocks:84,href:"things-to-do.html#surfing"},
+    {cat:"fishing",n:"Fishing",m:[5,6,7,8,9],places:0,photos:0,blocks:1,href:"things-to-do.html#fishing"}
   ],
   /* the twelve places on this coast written up for watching from land */
   shore:[
@@ -793,57 +793,57 @@ const DATA = {
      g:["Long walks","Big beach views","Surfing","Storm watching","Photography","Pacific Rim National Park Reserve"],
      note:"You may need a national park pass when stopping in this area. Follow Parks Canada signs, closures and beach safety rules.",
      alt:"The long open sweep of Long Beach with surf breaking along it"},
-    {town:"Tofino",n:"Chesterman Beach",href:"things-to-do.html",hero:"guides/tofino/beaches/chesterman-beach-1",
+    {town:"Tofino",n:"Chesterman Beach",href:"beaches-tofino.html",hero:"guides/tofino/beaches/chesterman-beach-1",
      b:"Chesterman Beach is one of the most loved beaches in Tofino. It is long, sandy and easy to enjoy. It is close to town and popular with walkers, surfers, families and photographers.",
      g:["Long beach walks","Beginner surf lessons","Sunset photos","Sandcastles","Tide pools at low tide","Watching surfers"],
      note:"Always check the tide before walking toward Frank Island. The water can come in and cover the sandspit.",
      alt:"Wet sand and shallow surf at Chesterman Beach with forest behind"},
-    {town:"Tofino",n:"Cox Bay",href:"things-to-do.html",hero:"guides/tofino/beaches/cox-bay-1",
+    {town:"Tofino",n:"Cox Bay",href:"beaches-tofino.html",hero:"guides/tofino/beaches/cox-bay-1",
      b:"Cox Bay is one of the best beaches in Tofino for surfing. It is wide, open and faces the Pacific Ocean. Because of this, it often gets strong and steady waves.",
      g:["Surfing","Watching surfers","Sunset views","Beach walks","Photography","Storm watching in winter"],
      note:"Cox Bay can have powerful waves and currents. Beginners should go with a surf school or choose calmer conditions.",
      alt:"Big surf rolling into the wide open sweep of Cox Bay"},
-    {town:"Tofino",n:"Wickaninnish Beach",href:"things-to-do.html",hero:"guides/tofino/beaches/wickaninnish-beach-1",
+    {town:"Tofino",n:"Wickaninnish Beach",href:"beaches-tofino.html",hero:"guides/tofino/beaches/wickaninnish-beach-1",
      b:"Wickaninnish Beach is in Pacific Rim National Park Reserve, closer to the Ucluelet side of the Long Beach area. It is one of the best places near Tofino for big ocean views and storm watching.",
      g:["Storm watching","Big ocean views","Photography","Sunset watching","Learning about the coast","Kwisitis Visitor Centre"],
      note:"This beach can feel very open and exposed. Stay far back from the water during storms and high tide.",
      alt:"The exposed open shoreline at Wickaninnish Beach under grey cloud"},
-    {town:"Tofino",n:"Tonquin Beach",href:"things-to-do.html",hero:"guides/tofino/beaches/tonquin-beach-1",
+    {town:"Tofino",n:"Tonquin Beach",href:"beaches-tofino.html",hero:"guides/tofino/beaches/tonquin-beach-1",
      b:"Tonquin Beach is a smaller beach close to the village of Tofino. You reach it by walking a short forest trail. It feels quieter and more hidden than the big surf beaches.",
      g:["Short walks","Quiet beach time","Picnics","Sunset views","Forest and beach scenery"],
      note:"The trail can be wet or muddy after rain. Wear shoes with good grip.",
      alt:"A small sheltered beach reached through forest at Tonquin"},
-    {town:"Tofino",n:"Florencia Bay",href:"things-to-do.html",hero:"guides/tofino/beaches/florencia-bay-1",
+    {town:"Tofino",n:"Florencia Bay",href:"beaches-tofino.html",hero:"guides/tofino/beaches/florencia-bay-1",
      b:"Florencia Bay is also in Pacific Rim National Park Reserve. It is closer to Ucluelet than Tofino, but it is still a great stop on a Tofino beach trip.",
      g:["Quiet beach walks","Sand cliff views","Photography","Low-tide exploring","A less crowded beach visit"],
      note:"The stairs and trail can feel longer on the way back up. Wear comfortable shoes and check the tide before walking far.",
      alt:"Sand cliffs and empty beach at Florencia Bay"},
-    {town:"Ucluelet",n:"Wild Pacific Trail",href:"whale-watching.html",hero:"guides/ucluelet/whale-watching/wild-pacific-trail-1",
+    {town:"Ucluelet",n:"Wild Pacific Trail",href:"whale-watching-ucluelet.html",hero:"guides/ucluelet/whale-watching/wild-pacific-trail-1",
      b:"The Wild Pacific Trail is one of the best places in Ucluelet to watch wildlife from land. It follows the rocky coast and gives you many ocean viewpoints.",
      g:["Whale watching from shore","Bald eagles","Sea lions and seals","Coastal birds","Storm watching","Photography","Easy walking"],
      note:"Bring binoculars. Wildlife may be far from shore.",
      alt:"The rocky coastline and viewpoints of the Wild Pacific Trail"},
-    {town:"Ucluelet",n:"Amphitrite Point Lighthouse",href:"whale-watching.html",hero:"guides/ucluelet/whale-watching/amphitrite-point-lighthouse-1",
+    {town:"Ucluelet",n:"Amphitrite Point Lighthouse",href:"whale-watching-ucluelet.html",hero:"guides/ucluelet/whale-watching/amphitrite-point-lighthouse-1",
      b:"Amphitrite Point Lighthouse is one of the most famous stops on the Wild Pacific Trail. It has wide ocean views and is a good place to watch for whales, sea lions, seals and birds.",
      g:["Whale watching from land","Ocean views","Photography","Eagles","Seals and sea lions","Storm watching"],
      note:"Stay on marked paths and away from wet rocks. Large waves can be dangerous.",
      alt:"The squat white lighthouse at Amphitrite Point above open water"},
-    {town:"Ucluelet",n:"Ucluelet Harbour",href:"whale-watching.html",hero:"guides/ucluelet/whale-watching/ucluelet-harbour-1",
+    {town:"Ucluelet",n:"Ucluelet Harbour",href:"whale-watching-ucluelet.html",hero:"guides/ucluelet/whale-watching/ucluelet-harbour-1",
      b:"Ucluelet Harbour is a good place to look for wildlife close to town. You may see seals, eagles, gulls, cormorants, river otters and shorebirds.",
      g:["Easy wildlife watching","Boat tour departures","Seals","Eagles","River otters","Harbour birds"],
      note:"Watch for boat traffic and keep a safe distance from docks and working harbour areas.",
      alt:"Fishing boats tied up in Ucluelet Harbour"},
-    {town:"Ucluelet",n:"Barkley Sound",href:"whale-watching.html",hero:"guides/ucluelet/whale-watching/barkley-sound-1",
+    {town:"Ucluelet",n:"Barkley Sound",href:"whale-watching-ucluelet.html",hero:"guides/ucluelet/whale-watching/barkley-sound-1",
      b:"Barkley Sound is one of the top wildlife watching areas near Ucluelet, reached by guided boat or by kayak.",
      g:["Whales","Sea lions","Seals","Sea otters","Bald eagles","Seabirds","Black bears along shorelines","Boat tours and kayaking"],
      note:"The best way to explore Barkley Sound wildlife is by guided boat or kayak tour.",
      alt:"Islands and open water in Barkley Sound"},
-    {town:"Ucluelet",n:"Broken Group Islands",href:"whale-watching.html",hero:"guides/ucluelet/whale-watching/broken-group-islands-1",
+    {town:"Ucluelet",n:"Broken Group Islands",href:"whale-watching-ucluelet.html",hero:"guides/ucluelet/whale-watching/broken-group-islands-1",
      b:"The Broken Group Islands sit out in Barkley Sound and are one of the richest wildlife areas on this coast.",
      g:["Kayak wildlife watching","Boat tours","Sea otters","Seals and sea lions","Bald eagles","Seabirds","Multi-day paddling trips"],
      note:"The Broken Group Islands are boat access only. Plan ahead if you are kayaking or camping.",
      alt:"Low forested islands scattered across calm water in the Broken Group"},
-    {town:"Ucluelet",n:"Pacific Rim National Park Reserve",href:"whale-watching.html",hero:"guides/ucluelet/whale-watching/pacific-rim-national-park-reserve-1",
+    {town:"Ucluelet",n:"Pacific Rim National Park Reserve",href:"whale-watching-ucluelet.html",hero:"guides/ucluelet/whale-watching/pacific-rim-national-park-reserve-1",
      b:"The park reserve runs the length of this coast and carries most of the viewpoints, beaches and rainforest trails between the two towns.",
      g:["Bird watching","Beach wildlife","Whale watching from viewpoints","Black bear awareness","Coastal rainforest wildlife","Tidepool life","Guided nature learning"],
      note:"You may need a national park pass if you stop in the park.",
@@ -916,7 +916,7 @@ function windowLabel(months){
     if (last && m === last[last.length - 1] + 1) last.push(m); else runs.push([m]);
   });
   if (runs.length > 1 && runs[0][0] === 1 && runs[runs.length - 1][runs[runs.length - 1].length - 1] === 12){
-    runs[0] = runs.pop().concat(runs[0]);
+    runs[0] = runs.pop() .concat(runs[0]);
   }
   const parts = runs.map((r) => r.length === 1 ? ab(r[0]) : `${ab(r[0])} to ${ab(r[r.length - 1])}`);
   return parts.length === 1 ? parts[0] : parts.slice(0,-1).join(", ") + " and " + parts[parts.length - 1];
@@ -927,7 +927,7 @@ let month = new Date().getMonth() + 1;
 
 /* the place bar scrolls sideways on a phone, so the section you are actually
    on is pulled into view rather than left off the right edge */
-(function showCurrentTab(){
+(function showCurrentTab() {
   const bar = document.querySelector(".placebar-in");
   const cur = document.querySelector(".placebar__links a[aria-current]");
   if (!bar || !cur || bar.scrollWidth <= bar.clientWidth) return;
@@ -935,7 +935,7 @@ let month = new Date().getMonth() + 1;
 })();
 
 /* ── the tide strip ─────────────────────────────────────────────────────── */
-(function tide(){
+(function tide() {
   const t = DATA.tide;
   $("#tideStation").textContent = "Tide today at " + t.station;
   $("#tideRead").innerHTML =
@@ -952,7 +952,7 @@ $("#dossier").innerHTML = [
 $("#dossier").setAttribute("aria-label","This guide in numbers");
 
 /* ── the season panel ───────────────────────────────────────────────────── */
-function paintYear(){
+function paintYear() {
   const max = Math.max(...DATA.climate.map((c) => c.mm));
   $("#yr").innerHTML = DATA.climate.map((c,i) => {
     const m = i + 1, on = ON.has(m);
@@ -964,7 +964,7 @@ function paintYear(){
   }).join("");
 }
 
-function paintWhen(){
+function paintWhen() {
   const c = DATA.climate[month - 1], name = MON[month - 1];
   const on = ON.has(month);
 
@@ -989,7 +989,7 @@ function paintWhen(){
 /* the year strip scrolls on a phone, so the chosen month is pulled into view */
 function centre(bar, cur){
   if (!bar || !cur || bar.scrollWidth <= bar.clientWidth) return;
-  const c = cur.getBoundingClientRect(), b = bar.getBoundingClientRect();
+  const c = cur.getBoundingClientRect() , b = bar.getBoundingClientRect() ;
   const delta = (c.left - b.left) - (b.width - c.width) / 2;
   if (Math.abs(delta) > 16) bar.scrollBy({left: delta, behavior: "smooth"});
 }
@@ -1014,12 +1014,12 @@ $("#exits").addEventListener("click",(e) => {
 });
 
 /* ── the twelve shore places ────────────────────────────────────────────── */
-(function shore(){
+(function shore() {
   const groups = [
     ["Six on the Tofino side, for the horizon","Tofino"],
     ["Six on the Ucluelet side, for the height","Ucluelet"]
   ];
-  $("#shore").innerHTML = groups.map(([k,town]) => {
+  $("#shoreList").innerHTML = groups.map(([k,town]) => {
     const rows = DATA.shore.filter((p) => p.town === town).map((p) =>
       `<a class="pl" href="${p.href}">
         <div class="pl__m"><img src="${cld(p.hero,220,220)}" alt="${esc(p.alt)}"></div>
@@ -1030,7 +1030,7 @@ $("#exits").addEventListener("click",(e) => {
       </a>`).join("");
     return `<div class="shore__g"><span class="shore__k">${esc(k)}</span>${rows}</div>`;
   }).join("");
-})();
+})() ;
 
 /* ── ten questions, no filter. A filter over a list this short was one more
       control to understand for no gain. ──────────────────────────────────── */
@@ -1042,8 +1042,11 @@ $("#qnote").innerHTML =
 
 /* ── the two lateral rails ──────────────────────────────────────────────── */
 const mins = (w) => w < 220 ? "under a minute" : `${Math.round(w / 220)} min read`;
+/* guide.html is the single article "Wildlife tours in Tofino". Every other
+   titled article resolves to a scoped result list that contains it. */
+const artHref = (a) => `search.html?q=${encodeURIComponent(a.n)}&in=${a.m === "Ucluelet" ? "ucluelet" : "tofino"}`;
 $("#railA").innerHTML = DATA.railA.map((a) =>
-  `<a class="sib" href="#top">
+  `<a class="sib" href="${artHref(a)}">
     <span class="sib__n">${esc(a.n)}</span>
     <span class="sib__m">${esc(a.m)} &middot; ${mins(a.w)}</span>
   </a>`).join("");
@@ -1051,7 +1054,7 @@ $("#railA").innerHTML = DATA.railA.map((a) =>
 $("#railB").innerHTML = DATA.subs.slice(1).map((x) =>
   `<a class="sib" href="${x.href}">
     <span class="sib__n">${esc(x.n)}</span>
-    <span class="sib__m">${x.places ? x.places + " places" : "In the guide"} &middot; best ${windowLabel(x.m).toLowerCase()}</span>
+    <span class="sib__m">${x.places ? x.places + " places" : "In the guide"} &middot; best ${windowLabel(x.m).toLowerCase() }</span>
   </a>`).join("");
 
 /* ── the stays and the capture ──────────────────────────────────────────── */
@@ -1064,13 +1067,13 @@ $("#stays").innerHTML = DATA.stays.map((s) =>
 
 /* confirm by replacing the form, never by greying a control out */
 $("#capture").addEventListener("submit",(e) => {
-  e.preventDefault();
+  e.preventDefault() ;
   const done = document.createElement("p");
   done.className = "captured";
   done.textContent = "Thank you. We will write the week whale watching opens in Tofino, and not before.";
   e.target.replaceWith(done);
   const consent = document.querySelector(".buy .consent");
-  if (consent) consent.remove();
+  if (consent) consent.remove() ;
 });
 
 /* ── reading time, jump row spy and the progress hairline ───────────────── */
@@ -1078,39 +1081,39 @@ const prose = $("#prose");
 const sections = [...prose.querySelectorAll("section")];
 const jumps = [...document.querySelectorAll("#jumps a")];
 
-(function readingTime(){
-  const words = prose.textContent.trim().split(/\s+/).length;
+(function readingTime() {
+  const words = prose.textContent.trim() .split(/\s+/).length;
   $("#rtime").innerHTML = `<b>${(Math.round(words / 50) * 50).toLocaleString("en-CA")}</b> words, <b>${Math.max(1,Math.round(words / 220))}</b> minutes`;
 })();
 
-function offset(){
+function offset() {
   const cs = getComputedStyle(document.documentElement);
   return parseInt(cs.getPropertyValue("--nav")) + parseInt(cs.getPropertyValue("--bar")) + 30;
 }
 
 let ticking = false;
-function onScroll(){
+function onScroll() {
   const art = $("#article");
-  const top = art.getBoundingClientRect().top + scrollY, h = art.offsetHeight;
+  const top = art.getBoundingClientRect() .top + scrollY, h = art.offsetHeight;
   const pct = Math.min(100, Math.max(0, (scrollY + innerHeight - top) / h * 100));
   $("#jumpbar").style.width = pct.toFixed(2) + "%";
 
-  const line = scrollY + offset();
+  const line = scrollY + offset ;
   let active = null;
-  for (const s of sections) if (s.getBoundingClientRect().top + scrollY <= line) active = s;
+  for (const s of sections) if (s.getBoundingClientRect() .top + scrollY <= line) active = s;
   jumps.forEach((a) => {
     if (active && a.getAttribute("href") === "#" + active.id) a.setAttribute("aria-current","true");
     else a.removeAttribute("aria-current");
   });
   ticking = false;
 }
-addEventListener("scroll",() => { if (!ticking){ ticking = true; requestAnimationFrame(onScroll); } },{passive:true});
+addEventListener("scroll", () => { if (!ticking){ ticking = true; requestAnimationFrame(onScroll); } },{passive:true});
 addEventListener("resize",onScroll);
 onScroll();
 
 addEventListener("keydown",(e) => {
   if (e.key === "/" && !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)){
-    e.preventDefault(); $(".search input").focus();
+    e.preventDefault() ; $(".search input").focus() ;
   }
 });
 </script>

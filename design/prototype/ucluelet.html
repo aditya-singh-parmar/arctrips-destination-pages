@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ucluelet, Arc Trips</title>
+<meta name="description" content="Ucluelet on the west coast of Vancouver Island: Tofino's quieter neighbour, wrapped by the Wild Pacific Trail. 54 places written up, 158 stays bookable tonight.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_system.css">
+<style>
+/* Page-scoped only. Tokens from _system.css, no new colour values. Ucluelet
+   is built to the same hand as tofino.html: same nav, same placebar shape,
+   same crumb and footer, same a11y floors. It carries fewer sections because
+   there is no Ucluelet plan.html or things-to-do.html in this build yet, so
+   "Things to do" and "Stays" are in-page anchors rather than separate pages. */
+
+/* a11y floors */
+.btn{min-height:44px;white-space:nowrap}
+nav.top .btn{flex:none}
+.brand,.nav-links a{display:inline-flex;align-items:center;min-height:44px}
+.search{height:44px}
+.search input{align-self:stretch}
+.fgrid ul{gap:2px}
+.fgrid ul a{display:inline-block;padding-block:12px}
+.dot{background:var(--n400)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.label{font-size:.88rem;letter-spacing:.1em}
+.crumb,.fbase,.sib__m{font-size:.88rem}
+.btn--sm{font-size:.88rem}
+/* green is a season signal on this build and never used decoratively */
+.mark svg{color:var(--a400)}
+body>a.skip{position:absolute;left:var(--gut);top:-70px;z-index:99;background:var(--navy);color:var(--paper);
+  padding:13px 18px;border-radius:0 0 var(--r-sm) var(--r-sm);font-weight:600;font-size:.9rem;transition:top .18s var(--ease)}
+body>a.skip:focus{top:0}
+[id]{scroll-margin-top:144px}
+@media(max-width:760px){[id]{scroll-margin-top:80px}}
+
+@media(max-width:760px){
+  nav.top{position:static}
+  .nav-in{flex-wrap:wrap;height:auto;padding-block:10px;row-gap:2px;column-gap:12px}
+  .brand{order:1}
+  .search{order:2;flex:1;min-width:0}
+  nav.top .btn{order:3}
+  .nav-links{order:4;flex-basis:100%;justify-content:space-between;gap:10px}
+}
+.crumb{padding-block:clamp(20px,2.6vw,30px) 10px}
+.crumb a{position:relative}
+.crumb a::after{content:"";position:absolute;inset:-10px 0}
+
+/* hero: one photo, not a collage, since this town has one strong image */
+.hero{padding-block:clamp(18px,2vw,30px) clamp(40px,5vw,72px)}
+.hero-grid{align-items:center}
+.hero h1{font-size:clamp(2.6rem,6vw,4.4rem);max-width:11ch;letter-spacing:-.04em;line-height:1.01}
+.hero .lede{max-width:44ch;margin-top:20px}
+.hero-note{margin-top:18px;font-size:.98rem;color:var(--n600);max-width:50ch;line-height:1.6}
+.hero-note b{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+.uphoto{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3.3;background:var(--n100);box-shadow:0 20px 44px -24px rgba(11,51,86,.34)}
+.uphoto img{width:100%;height:100%;object-fit:cover}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.uphoto{max-width:520px}}
+
+/* why go, and the specification list beside it */
+.sec--why{padding-block:clamp(46px,5.4vw,84px) clamp(34px,4vw,56px)}
+.why{display:grid;grid-template-columns:1.02fr 1.14fr;gap:clamp(28px,4.6vw,72px);align-items:start}
+@media(max-width:900px){.why{grid-template-columns:1fr;gap:34px}}
+.why p{color:var(--n700);font-size:clamp(1.02rem,1.3vw,1.16rem);line-height:1.62;max-width:50ch}
+.why p+p{margin-top:18px}
+.spec{border-top:1px solid var(--n150)}
+.spec>div{display:grid;grid-template-columns:minmax(122px,.42fr) 1fr;gap:6px 20px;
+  padding-block:15px;border-bottom:1px solid var(--n150);align-items:baseline}
+.spec dt{font-size:.93rem;font-weight:700;color:var(--navy)}
+.spec dd{font-size:.97rem;color:var(--n700);line-height:1.5}
+.spec dd b{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+@media(max-width:420px){.spec>div{grid-template-columns:1fr}}
+
+/* things to do: four subjects, no season gating, real counts only */
+.sec--do{padding-block:clamp(48px,5.4vw,84px) clamp(34px,4vw,56px)}
+.dgrid--cat{grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.dgrid--cat{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.dgrid--cat{grid-template-columns:1fr}}
+.dgrid--cat .dest__m{aspect-ratio:4/3}
+.cat__meta{font-size:.89rem;color:var(--n600);margin-top:5px;line-height:1.5}
+
+/* the one band that leaves the container */
+.proof{position:relative;min-height:min(64vh,520px);display:flex;align-items:center;overflow:hidden;
+  margin-block:clamp(40px,5vw,80px)}
+.proof img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.proof__veil{position:absolute;inset:0;background:linear-gradient(92deg,rgba(11,51,86,.94) 0%,rgba(11,51,86,.78) 46%,rgba(11,51,86,.26) 100%)}
+.proof__in{position:relative}
+.proof__n{font-size:clamp(1.8rem,3.6vw,2.9rem);font-weight:700;color:var(--paper);letter-spacing:-.035em;
+  line-height:1.08;max-width:18ch}
+.proof__n b{font-size:clamp(3.6rem,8vw,6.6rem);font-weight:800;display:block;letter-spacing:-.05em;line-height:.9}
+.proof__d{color:rgba(255,255,255,.82);max-width:48ch;margin-top:18px;font-size:1.02rem;line-height:1.62}
+.proof__f{display:flex;gap:clamp(18px,3vw,44px);flex-wrap:wrap;margin-top:24px;padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.24)}
+.proof__f div{min-width:78px}
+.proof__f dt{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.72)}
+.proof__f dd{font-size:clamp(1.4rem,2.2vw,1.9rem);font-weight:800;color:var(--paper);letter-spacing:-.03em;
+  margin-top:6px;font-variant-numeric:tabular-nums}
+@media(max-width:760px){.proof__veil{background:linear-gradient(180deg,rgba(11,51,86,.93) 0%,rgba(11,51,86,.88) 100%)}}
+.proof__cta{margin-top:26px;border-color:rgba(255,255,255,.44);color:var(--paper)}
+.proof__cta:hover{border-color:var(--paper);background:rgba(255,255,255,.1)}
+
+/* stays as a rate sheet, not a card grid */
+.sec--stay{padding-block:0 clamp(44px,5vw,76px)}
+.ledger{list-style:none;border-top:1px solid var(--n200)}
+.lrow{display:grid;grid-template-columns:96px 1fr auto;gap:clamp(14px,2vw,26px);align-items:center;
+  padding-block:16px;border-bottom:1px solid var(--n150);transition:background .2s var(--ease)}
+.lrow:hover{background:var(--n50)}
+.lrow__m{border-radius:var(--r-sm);overflow:hidden;aspect-ratio:4/3;background:var(--n100)}
+.lrow__m img{width:100%;height:100%;object-fit:cover}
+.lrow__t{font-size:1.04rem;font-weight:700;color:var(--navy);line-height:1.3;display:block}
+.lrow:hover .lrow__t{color:var(--azure)}
+.lrow__d{font-size:.88rem;color:var(--n600);margin-top:5px;display:block;font-variant-numeric:tabular-nums}
+.lrow__p{font-size:clamp(1.5rem,2.4vw,2rem);font-weight:800;color:var(--navy);letter-spacing:-.035em;
+  font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.lrow__p small{display:block;font-size:.88rem;font-weight:600;color:var(--n600);letter-spacing:.02em;margin-top:4px}
+@media(max-width:560px){
+  .lrow{grid-template-columns:72px 1fr;gap:14px;row-gap:10px}
+  .lrow__p{grid-column:2;text-align:left;font-size:1.4rem}
+  .lrow__p small{display:inline;margin-left:6px}
+}
+
+/* where this sits, and the roster of the rest of the island */
+.sec--sib{padding-block:0 clamp(44px,5vw,72px)}
+.roster{margin-top:clamp(22px,2.6vw,32px);border-top:1px solid var(--n150);padding-top:18px}
+.roster h3{font-size:1.02rem}
+.roster p{font-size:.92rem;color:var(--n600);margin-top:6px;line-height:1.55;max-width:64ch}
+.roster ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:14px}
+.roster li{font-size:.9rem;font-weight:600;color:var(--n700);background:var(--n50);
+  border:1px solid var(--n150);border-radius:999px;padding:9px 14px;min-height:44px;
+  display:inline-flex;align-items:center}
+.roster .go{display:inline-flex;align-items:center;gap:8px;margin-top:14px;min-height:44px;
+  font-size:.95rem;font-weight:700;color:var(--azure)}
+.roster .go svg{width:14px;height:14px}
+.roster .go:hover{color:var(--navy)}
+
+/* three fixed slots, so the page cannot end on a footer */
+.kg{border-top:2px solid var(--navy);padding-top:clamp(26px,3vw,36px);display:grid;
+  grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,40px)}
+@media(max-width:820px){.kg{grid-template-columns:1fr;gap:0}}
+.kg>a{display:block;padding-block:4px}
+@media(max-width:820px){.kg>a{padding-block:20px;border-bottom:1px solid var(--n150)}.kg>a:last-child{border-bottom:0}}
+.kg span{font-size:.88rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--n600)}
+.kg h3{font-size:1.26rem;margin-top:10px}
+.kg a:hover h3{color:var(--azure)}
+.kg p{font-size:.95rem;color:var(--n600);margin-top:7px;line-height:1.5}
+.kg .go{display:inline-flex;align-items:center;gap:8px;margin-top:12px;min-height:44px;
+  font-size:.92rem;font-weight:700;color:var(--azure)}
+.kg .go svg{width:14px;height:14px}
+
+/* the mobile booking path, mutually exclusive with the place bar's button */
+.dock{display:none}
+@media(max-width:760px){
+  body>.dock{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;align-items:center;gap:14px;
+    background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--n150);
+    padding:10px var(--gut);padding-bottom:calc(10px + env(safe-area-inset-bottom))}
+  .dock__t{font-size:.88rem;color:var(--n600);line-height:1.35;min-width:0}
+  .dock__t b{display:block;color:var(--navy);font-weight:700;font-size:.96rem;font-variant-numeric:tabular-nums}
+  .dock .btn{margin-left:auto}
+  body{padding-bottom:78px}
+  footer.f{margin-bottom:0}
+}
+</style>
+</head>
+<body>
+<span id="top" aria-hidden="true"></span>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="top"><div class="wrap nav-in">
+  <a class="brand" href="index.html">Arctrips</a>
+  <ul class="nav-links">
+    <li><a href="search.html?in=ucluelet">Stays</a></li>
+    <li><a href="index.html" aria-current="true">Destinations</a></li>
+    <li><a href="search.html?in=ucluelet">Guides</a></li>
+  </ul>
+  <form class="search" role="search" action="search.html" method="get">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
+    <label class="vh" for="q">Go to a place, a trail or a guide</label>
+    <input id="q" name="q" type="search" placeholder="Wild Pacific Trail, Ucluelet Harbour, Pluvio">
+    <kbd>/</kbd>
+  </form>
+  <a class="btn btn--ink btn--sm" href="not-found.html">Sign in</a>
+</div></nav>
+
+<nav class="placebar" aria-label="Ucluelet"><div class="wrap placebar-in">
+  <a class="placebar__back" href="region.html"><span class="n">&larr; Vancouver Island</span></a>
+  <ul class="placebar__links">
+    <li><a href="#top" aria-current="page">Overview</a></li>
+    <li><a href="#do">Things to do</a></li>
+    <li><a href="#stays">Stays</a></li>
+    <li><a href="region.html">Vancouver Island</a></li>
+  </ul>
+  <a class="btn btn--primary btn--sm placebar__cta" href="search.html?in=ucluelet">Find a stay</a>
+</div></nav>
+
+<main id="main">
+
+<div class="wrap">
+  <nav class="crumb" aria-label="Breadcrumb">
+    <a href="index.html">Arc Trips</a><span class="sep" aria-hidden="true">/</span>
+    <a class="lvl-deep" href="country.html">Canada</a><span class="sep lvl-deep" aria-hidden="true">/</span>
+    <a class="lvl-deep" href="province.html">British Columbia</a><span class="sep lvl-deep" aria-hidden="true">/</span>
+    <a href="region.html">Vancouver Island</a><span class="sep" aria-hidden="true">/</span>
+    <span aria-current="page">Ucluelet</span>
+  </nav>
+</div>
+
+<header class="hero"><div class="wrap hero-grid">
+  <div>
+    <span class="label">Barkley Sound, British Columbia</span>
+    <h1 style="margin-top:16px">Ucluelet, written up
+      <span class="mark">place by place<svg viewBox="0 0 200 12" fill="none" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8.4C38 3.2 92 2.1 132 5.1c22 1.7 44 3.6 66 1.2" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg></span>
+    </h1>
+    <p class="lede">Tofino's quieter neighbour, wrapped by the Wild Pacific Trail.</p>
+    <p class="hero-note"><b>54</b> named places written up, <b>158</b> stays bookable tonight from <b>$320</b> a night.</p>
+    <div class="hero-cta">
+      <a class="btn btn--ghost" href="#do">All four subjects</a>
+      <a class="btn btn--ghost" href="search.html?in=ucluelet">Search stays</a>
+    </div>
+  </div>
+  <figure class="uphoto">
+    <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1200,h_900/arcstudio/dtz692xbgvvwjopu7vcs" alt="The forested Ucluelet peninsula with open water on three sides">
+  </figure>
+</div></header>
+
+<section class="sec--why" id="overview"><div class="wrap why">
+  <div>
+    <span class="label label--n">Why go</span>
+    <h2 style="margin-top:11px">The working harbour at the end of the road</h2>
+    <p style="margin-top:20px">Ucluelet sits at the tip of the peninsula south of Tofino, wrapped by the Wild Pacific Trail. It keeps a working-harbour character and tends to feel calmer than its better-known neighbour.</p>
+    <p>It makes a natural base for whale watching, wildlife tours, and long coastal walks, with easy access to Pacific Rim National Park just up the road.</p>
+  </div>
+  <dl class="spec">
+    <div><dt>Where it is</dt><dd>The tip of the Ucluelet Peninsula, wrapped by the Wild Pacific Trail and opening onto Barkley Sound.</dd></div>
+    <div><dt>Getting there</dt><dd>Forty minutes south of Tofino on the same road, or four hours from Nanaimo by Highway 4.</dd></div>
+    <div><dt>Known for</dt><dd>The <b>Wild Pacific Trail</b>, open on foot all year and one of the best places on the coast to watch wildlife from land.</dd></div>
+    <div><dt>Nearest town</dt><dd>Tofino, forty minutes north on the same road.</dd></div>
+  </dl>
+</div></section>
+
+<section class="sec--do" id="do"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">Things to do</span>
+      <h2 style="margin-top:11px">Four subjects, written up place by place</h2>
+      <p>Every card below is a real page: named places, their own good to know note, and the tags that say who they suit.</p>
+    </div>
+  </div>
+  <div class="dgrid dgrid--cat">
+    <a class="dest" href="hiking-ucluelet.html">
+      <div class="dest__m"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_620,h_465/arcstudio/galleries/dayhike-trail-1" alt="A walker on the Wild Pacific Trail above the rocky Ucluelet coastline"></div>
+      <h3>Hiking &amp; trails</h3>
+      <p class="cat__meta tnum">20 walks written up</p>
+    </a>
+    <a class="dest" href="kayaking-ucluelet.html">
+      <div class="dest__m"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_620,h_465/guides/ucluelet/kayaking/_category-1" alt="Kayaks on the sheltered water of Ucluelet Harbour"></div>
+      <h3>Kayaking &amp; paddling</h3>
+      <p class="cat__meta tnum">13 launches and routes</p>
+    </a>
+    <a class="dest" href="restaurants-ucluelet.html">
+      <div class="dest__m"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_620,h_465/arcstudio/mg8epie7gzlpfb1bn7jo" alt="A table set with local seafood in a Ucluelet dining room"></div>
+      <h3>Restaurants</h3>
+      <p class="cat__meta tnum">15 rooms written up</p>
+    </a>
+    <a class="dest" href="whale-watching-ucluelet.html">
+      <div class="dest__m"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_620,h_465/guides/ucluelet/whale-watching/_category-1" alt="A coastal viewpoint on the Wild Pacific Trail used for whale watching"></div>
+      <h3>Whale watching</h3>
+      <p class="cat__meta tnum">6 places written up</p>
+    </a>
+  </div>
+</div></section>
+
+<section class="proof">
+  <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_2400,h_1100/arcstudio/dtz692xbgvvwjopu7vcs" alt="The rocky, forested shoreline of the Ucluelet Peninsula meeting open water">
+  <div class="proof__veil"></div>
+  <div class="wrap proof__in">
+    <span class="label" style="color:var(--a300)">The Ucluelet index</span>
+    <p class="proof__n"><b class="tnum">54</b> places in this town, by name.</p>
+    <p class="proof__d">Not scraped, not aggregated. Each one walked and written up, with its own good to know note and the tags that say who it suits.</p>
+    <dl class="proof__f">
+      <div><dt>Photographed on site</dt><dd class="tnum">32</dd></div>
+      <div><dt>Carry a good to know note</dt><dd class="tnum">54</dd></div>
+      <div><dt>Subjects covered</dt><dd class="tnum">6</dd></div>
+    </dl>
+    <a class="btn btn--ghost btn--lg proof__cta" href="search.html?in=ucluelet">Search every one of them</a>
+  </div>
+</section>
+
+<section class="sec--stay" id="stays"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">Stays</span>
+      <h2 style="margin-top:11px">Places to stay in Ucluelet</h2>
+      <p>Three of them here, from $320 a night. Prices in CAD, before taxes and fees.</p>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="search.html?in=ucluelet">See all 158</a>
+  </div>
+  <ol class="ledger">
+    <li><a class="lrow" href="search.html?in=ucluelet">
+      <span class="lrow__m"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_240,h_180/arcstudio/wnrrcrf4lnalgzbjvsz8" alt="A historic old-town loft with stone walls and river views" loading="lazy"></span>
+      <span><span class="lrow__t">Historic Old-Town Loft with Stone Walls &amp; River Views</span>
+        <span class="lrow__d">2 rooms &middot; 3 beds &middot; 2 baths &middot; 4.9 out of 5</span></span>
+      <span class="lrow__p">$320<small>a night</small></span>
+    </a></li>
+    <li><a class="lrow" href="search.html?in=ucluelet">
+      <span class="lrow__m"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_240,h_180/arc-trips/pillar-connection" alt="An alpine timber chalet with a hot tub and stargazing deck" loading="lazy"></span>
+      <span><span class="lrow__t">Alpine Timber Chalet with Mountain Hot Tub &amp; Stargazing Deck</span>
+        <span class="lrow__d">2 rooms &middot; 3 beds &middot; 2 baths &middot; 4.9 out of 5</span></span>
+      <span class="lrow__p">$385<small>a night</small></span>
+    </a></li>
+    <li><a class="lrow" href="search.html?in=ucluelet">
+      <span class="lrow__m"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_240,h_180/arc-trips/founding-key" alt="A modern lakeside villa with a rooftop lounge and marina access" loading="lazy"></span>
+      <span><span class="lrow__t">Modern Lakeside Villa with Rooftop Lounge &amp; Marina Access</span>
+        <span class="lrow__d">2 rooms &middot; 3 beds &middot; 2 baths &middot; 4.9 out of 5</span></span>
+      <span class="lrow__p">$450<small>a night</small></span>
+    </a></li>
+  </ol>
+</div></section>
+
+<section class="sec--sib" id="nearby"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">Where this sits</span>
+      <h2 style="margin-top:11px">Ucluelet is one of eleven towns on Vancouver Island</h2>
+      <p>Two are published so far. The rest are being walked. The island page is one click from the top of every page.</p>
+    </div>
+  </div>
+  <nav class="siblings" aria-label="Published towns and levels above">
+    <a class="sib" href="tofino.html"><span class="sib__n">Tofino</span><span class="sib__m tnum">73 places &middot; 134 stays</span><span class="sib__d">Published. Forty minutes north on the same road, wetter and busier.</span></a>
+    <a class="sib" href="#top"><span class="sib__n">Ucluelet</span><span class="sib__m tnum">54 places &middot; 158 stays</span><span class="sib__d">Published. You are here.</span></a>
+    <a class="sib" href="region.html"><span class="sib__n">Vancouver Island</span><span class="sib__m tnum">11 towns &middot; 2 published</span><span class="sib__d">The region. Every island town lives here.</span></a>
+    <a class="sib" href="province.html"><span class="sib__n">British Columbia</span><span class="sib__m tnum">3 regions &middot; 15 towns</span><span class="sib__d">The province, including Whistler, Squamish and Vancouver.</span></a>
+  </nav>
+  <div class="roster">
+    <h3>The other nine, not published yet</h3>
+    <p>We publish a town only once someone has walked it, photographed it and written it up. Nothing here is a stub.</p>
+    <ul>
+      <li><a href="victoria.html">Victoria</a></li>
+      <li><a href="nanaimo.html">Nanaimo</a></li>
+      <li><a href="campbell-river.html">Campbell River</a></li>
+      <li><a href="parksville.html">Parksville</a></li>
+      <li>Parksville</li>
+      <li><a href="sooke.html">Sooke</a></li>
+      <li><a href="sidney.html">Sidney</a></li>
+      <li><a href="chemainus.html">Chemainus</a></li>
+      <li><a href="nanoose.html">Nanoose Bay</a></li>
+    </ul>
+    <a class="go" href="region.html">Open the Vancouver Island page
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-block:0 clamp(48px,5vw,80px)"><div class="wrap">
+  <div class="kg">
+    <a href="whale-watching-ucluelet.html">
+      <span>Next in this town</span>
+      <h3>Whale watching in Ucluelet</h3>
+      <p>The Wild Pacific Trail, Amphitrite Point and Barkley Sound: six places written up, from shore and from the water.</p>
+      <span class="go">Read the guide <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="#do">
+      <span>More in Ucluelet</span>
+      <h3>All four subjects, 54 places</h3>
+      <p>Every trail, launch, table and viewpoint we have walked in this town, grouped by subject.</p>
+      <span class="go">Open the index <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="search.html?in=ucluelet">
+      <span>The booking path</span>
+      <h3>158 stays in Ucluelet</h3>
+      <p>From $320 a night in CAD, before taxes and fees. Bookable tonight.</p>
+      <span class="go">Search stays <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+</div></section>
+
+</main>
+
+<footer class="f"><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <span class="fbrand">Arctrips</span>
+      <p class="fnote">Stays and guides on the west coast of Vancouver Island, written by people who go there.</p>
+    </div>
+    <div><h5>This town</h5><ul>
+      <li><a href="#top">Ucluelet overview</a></li><li><a href="#do">Things to do</a></li>
+      <li><a href="#stays">Stays</a></li></ul></div>
+    <div><h5>Up the tree</h5><ul>
+      <li><a href="region.html">Vancouver Island</a></li><li><a href="province.html">British Columbia</a></li>
+      <li><a href="country.html">Canada</a></li></ul></div>
+    <div><h5>Subjects</h5><ul>
+      <li><a href="hiking-ucluelet.html">Hiking &amp; trails</a></li><li><a href="kayaking-ucluelet.html">Kayaking &amp; paddling</a></li>
+      <li><a href="restaurants-ucluelet.html">Restaurants</a></li><li><a href="whale-watching-ucluelet.html">Whale watching</a></li></ul></div>
+    <div><h5>Arc Trips</h5><ul>
+      <li><a href="not-found.html">About us</a></li><li><a href="not-found.html">List your place</a></li>
+      <li><a href="search.html?in=ucluelet">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
+  </div>
+  <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees</span></div>
+</div></footer>
+
+<div class="dock">
+  <p class="dock__t"><b>158 stays in Ucluelet</b>from $320 a night</p>
+  <a class="btn btn--primary btn--sm" href="search.html?in=ucluelet">Find a stay</a>
+</div>
+
+<script src="_nav.js"></script>
+</body>
+</html>
