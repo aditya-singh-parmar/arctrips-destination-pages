@@ -350,6 +350,27 @@ The rulings from the v1.1 spec stand and are not revisited:
 - **Breadcrumb is a plain non-interactive trail.** Dropdown segments were built and rejected because the control moved horizontally with URL depth.
 - Destination switching belongs in the top-nav search.
 
+Two further rulings, added 2026-07-30 after the owner reviewed the built prototype:
+
+- **The tab bar carries the town's sections and nothing else.** Overview, Things
+  to do, Plan, Guides. A subject page must not insert its own name into the bar.
+  Doing so told the reader where they were and gave them nowhere lateral to go:
+  from Kayaking there was no route to Fishing except up to the index and back
+  down. The current section is `aria-current`; the page's own identity is the
+  breadcrumb's job, not the bar's.
+
+- **Lateral movement between subjects is a rail beneath the bar, not entries in
+  it.** `.subjectbar` lists every subject in the town, sits under the Things to
+  do tab it belongs to, and is styled quieter than the bar above so the two rows
+  read as parent and child. Subjects with no page of their own point at their
+  card in the index, so no chip dead-ends.
+
+- **Areas are not a section.** "Areas" was a tab beside Things to do, Plan and
+  Guides, which made an area look like a parallel branch of the town. An area is
+  a child of the town (`.../{town}/{area}`) and is reached from the town overview
+  and from the subjects it contains. On an area page no tab is current, and the
+  breadcrumb carries the position. Do not reintroduce an Areas tab.
+
 The breadcrumb now renders full geographic depth, following `parent_id` always, never the referring town. A shared area reached from its non-canonical parent still emits its canonical breadcrumb (AC 6).
 
 ---

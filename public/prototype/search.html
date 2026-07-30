@@ -366,8 +366,8 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
   <ul class="placebar__links" id="pbLinks">
     <li><a href="tofino.html">Overview</a></li>
     <li><a href="things-to-do.html">Things to do</a></li>
-    <li><a href="long-beach.html">Areas</a></li>
     <li><a href="plan.html">Plan</a></li>
+    <li><a href="guide.html">Guides</a></li>
   </ul>
 </div></nav>
 
@@ -867,13 +867,13 @@ function paintPlacebar() {
   bar.setAttribute("aria-label", townName(t));
   $("#pbBack").href = townHref(t);
   $("#pbBack").innerHTML = '<span class="n">&larr; ' + esc(townName(t)) + "</span>";
+  /* The same four sections the tree carries everywhere. Subjects and areas are
+     not peers of them: they live in the subject rail and inside the overview. */
   const rows = [[townHref(t), "Overview"]];
   if (t === "tofino"){
-    rows.push(["things-to-do.html", "Things to do"], ["long-beach.html", "Long Beach"],
-              ["plan.html", "Plan"], ["guide.html", "Wildlife tours"]);
+    rows.push(["things-to-do.html", "Things to do"], ["plan.html", "Plan"], ["guide.html", "Guides"]);
   } else if (t === "ucluelet"){
-    rows.push(["ucluelet.html#do", "Things to do"], ["hiking-ucluelet.html", "Hiking"],
-              ["whale-watching-ucluelet.html", "Whale watching"], ["ucluelet.html#stays", "Stays"]);
+    rows.push(["ucluelet.html#do", "Things to do"]);
   }
   $("#pbLinks").innerHTML = rows.map((r) =>
     '<li><a href="' + r[0] + '">' + esc(r[1]) + "</a></li>").join("");

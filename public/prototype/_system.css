@@ -336,6 +336,39 @@ body>.placebar,.placebar{position:sticky;top:71px;z-index:18;background:var(--pa
 .placebar__links a:hover{color:var(--navy)}
 .placebar__links a[aria-current]{color:var(--navy);font-weight:700;border-bottom-color:var(--azure)}
 .placebar__cta{flex:none;margin-left:auto}
+
+/* ── the subject rail ───────────────────────────────────────────────────────
+   The tab bar carries the town's sections and nothing else. A subject page used
+   to wedge its own name into that bar as a pseudo-tab, which told you where you
+   were and gave you nowhere lateral to go: from Kayaking you could not reach
+   Fishing without going up to the index and back down.
+
+   This rail sits directly beneath the bar, under the "Things to do" tab it
+   belongs to, and lists every subject in the town. It is deliberately quieter
+   than the bar above it, so the two rows read as parent and child rather than
+   as two competing navigations. Subjects with no page of their own point at
+   their card in the index, so no chip is a dead end. */
+/* Same specificity trap as .placebar above: body>*:not(.chart) sets position
+   relative and out-specifies a bare .subjectbar, so the sticky would silently
+   never apply. Sits at 71px of nav plus 57px of place bar. */
+body>.subjectbar,.subjectbar{position:sticky;top:128px;z-index:17;background:var(--n50);
+  border-bottom:1px solid var(--n150)}
+.subjectbar-in{display:flex;align-items:center;gap:10px;min-height:48px;overflow-x:auto;scrollbar-width:none}
+.subjectbar-in::-webkit-scrollbar{display:none}
+.subjectbar__l{flex:none;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--n500);padding-right:6px}
+.subjectbar__links{display:flex;gap:7px;list-style:none;white-space:nowrap;padding-block:6px}
+.subjectbar__links a{display:inline-flex;align-items:center;min-height:36px;padding:0 13px;border-radius:var(--r-full);
+  font-size:.88rem;font-weight:600;color:var(--n700);background:var(--paper);border:1px solid var(--n200);
+  transition:border-color .16s var(--ease),color .16s var(--ease),background .16s var(--ease)}
+.subjectbar__links a:hover{border-color:var(--a300);color:var(--azure)}
+.subjectbar__links a[aria-current]{background:var(--navy);border-color:var(--navy);color:var(--paper)}
+.subjectbar__links a[data-soon]{color:var(--n500)}
+.subjectbar__links a[data-soon]:hover{color:var(--azure)}
+@media(max-width:760px){
+  body>.subjectbar,.subjectbar{position:static;top:auto}
+  .subjectbar__l{display:none}
+}
 @media(max-width:760px){.placebar{top:0}.placebar__cta{display:none}}
 
 /* --- in-page jumps, in the body, deliberately unlike the place bar ------- */
