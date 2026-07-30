@@ -520,17 +520,6 @@ footer.f{margin-top:0}
 </div></header>
 
 <!-- says what it is, gives the readings, then says why it matters -->
-<div class="tide"><div class="wrap tide-in">
-  <span class="label" id="tideStation">Tide today at Tofino Harbour</span>
-  <p class="tide-read" id="tideRead"></p>
-  <div class="tide-wave" aria-hidden="true">
-    <svg viewBox="0 0 400 26" fill="none" preserveAspectRatio="none">
-      <path d="M0 18 C34 6 62 6 96 18 C130 30 158 30 192 18 C226 6 254 6 288 18 C322 30 350 30 384 18 L400 15" stroke="currentColor" stroke-width="1.6"/>
-    </svg>
-  </div>
-  <p class="tide-why">Long Beach doubles in width at low water, so that is when the long walk is worth doing.</p>
-</div></div>
-
 <section class="statband"><div class="wrap">
   <dl class="statgrid" id="statgrid"></dl>
 </div></section>
@@ -1033,11 +1022,6 @@ function moveFinder(d){
 
 /* ── fixed content off the corpus ────────────────────────────────────────── */
 function paintStatic(){
-  const t = DATA.tide;
-  $("#tideStation").textContent = "Tide today at " + t.station;
-  $("#tideRead").innerHTML =
-    `<span>Low <b>${t.low1}</b>, ${t.low1m} m</span><span>High <b>${t.high1}</b>, ${t.high1m} m</span>` +
-    `<span>Low <b>${t.low2}</b>, ${t.low2m} m</span><span>Sunset <b>${t.sunset}</b></span>`;
 
   $("#heroNote").innerHTML =
     `<b>${T.towns}</b> towns across British Columbia, from the surf coast to the Rockies road. ` +

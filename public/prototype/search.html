@@ -409,12 +409,6 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
 
 <!-- today's tide, said plainly. Only the two published harbours have readings,
      so the band hides itself for every other scope. -->
-<div class="tide" id="tide"><div class="wrap tide-in">
-  <p class="tide-h" id="tideStation">Tide today at Tofino Harbour</p>
-  <p class="tide-read" id="tideRead"></p>
-  <p class="tide-why" id="tideWhy">Long Beach doubles in width at low water.</p>
-</div></div>
-
 <div class="wrap ctrl" id="ctrl"></div>
 <div class="wrap" id="results"></div>
 
@@ -858,8 +852,9 @@ function paintCrumb() {
 /* Only the two published harbours have a reading, so the band hides itself
    rather than printing Tofino's tide under another town's name. */
 function paintTide() {
-  const t = TIDES[state.scope];
   const band = $("#tide");
+  if (!band) return;   /* tides only on the water subjects */
+  const t = TIDES[state.scope];
   if (!t){ band.hidden = true; return; }
   band.hidden = false;
   $("#tideStation").textContent = "Tide today at " + t.station;

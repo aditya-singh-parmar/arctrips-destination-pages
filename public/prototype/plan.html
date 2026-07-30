@@ -458,17 +458,6 @@ main [id]{scroll-margin-top:146px}
 </div></header>
 
 <!-- today's real tides for Tofino Harbour, said in plain words -->
-<div class="tide"><div class="wrap tide-in">
-  <span class="label" id="tideStation">Tide today at Tofino Harbour</span>
-  <div class="tide-wave" aria-hidden="true">
-    <svg viewBox="0 0 400 26" fill="none" preserveAspectRatio="none">
-      <path d="M0 18 C34 6 62 6 96 18 C130 30 158 30 192 18 C226 6 254 6 288 18 C322 30 350 30 384 18 L400 15" stroke="currentColor" stroke-width="1.6"/>
-    </svg>
-  </div>
-  <p class="tide-read" id="tideRead"></p>
-  <p class="tide-why">Why it matters: Long Beach doubles in width at low water.</p>
-</div></div>
-
 <div class="wrap">
   <nav class="jumprow" id="jumprow" aria-label="On this page">
     <a href="#months">Every month</a>
@@ -865,11 +854,6 @@ let month = 2, other = 7, profile = "anyone";
 
 /* ── static furniture ────────────────────────────────────────────────────── */
 function paintStatic() {
-  const t = PLAN.tide;
-  $("#tideStation").textContent = "Tide today at " + t.station;
-  $("#tideRead").innerHTML =
-    `<span>Low <b>${t.low1}</b>, ${t.low1m} m</span><span>High <b>${t.high1}</b>, ${t.high1m} m</span>` +
-    `<span>Low <b>${t.low2}</b>, ${t.low2m} m</span><span>Sunset <b>${t.sunset}</b></span>`;
 
   $("#heroNote").innerHTML =
     `<b>${P.length}</b> places written up in Tofino, <b>${PLAN.faqs.length}</b> questions answered, ` +

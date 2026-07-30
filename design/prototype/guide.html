@@ -423,12 +423,6 @@ footer.f{margin-top:clamp(48px,5.6vw,80px)}
 
 <!-- Today's tide at Tofino Harbour. Titled in plain words, then the readings,
      then one line saying why a reader would care. -->
-<div class="tide"><div class="wrap tide-in">
-  <p class="tide__h" id="tideStation">Tide today at Tofino Harbour</p>
-  <p class="tide-read" id="tideRead"></p>
-  <p class="tide__why">Every tour boat on this page leaves from here, and at low water Long Beach doubles in width.</p>
-</div></div>
-
 <div class="wrap">
   <!-- in-page jumps. In the body, not in the chrome, and nothing like the place bar. -->
   <nav class="jumprow" id="jumps" aria-label="Sections in this guide">
@@ -931,15 +925,6 @@ let month = new Date().getMonth() + 1;
   const cur = document.querySelector(".placebar__links a[aria-current]");
   if (!bar || !cur || bar.scrollWidth <= bar.clientWidth) return;
   bar.scrollLeft = cur.offsetLeft - bar.clientWidth + cur.offsetWidth + 20;
-})();
-
-/* ── the tide strip ─────────────────────────────────────────────────────── */
-(function tide() {
-  const t = DATA.tide;
-  $("#tideStation").textContent = "Tide today at " + t.station;
-  $("#tideRead").innerHTML =
-    `<span>Low <b>${t.low1}</b>, ${t.low1m} m</span><span>High <b>${t.high1}</b>, ${t.high1m} m</span>` +
-    `<span>Low <b>${t.low2}</b>, ${t.low2m} m</span><span>Sunset <b>${t.sunset}</b></span>`;
 })();
 
 /* ── three counted facts beside the headline, not five ──────────────────── */
