@@ -1,42 +1,140 @@
-<!doctype html><html lang="en-CA"><head><meta charset="utf-8">
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Restaurants in Ucluelet, Arc Trips</title>
+<meta name="description" content="Fifteen places to eat in Ucluelet, grouped by the meal you are deciding about: a dinner worth booking, the harbourfront, breakfast and coffee, easy casual food, and one stop for a picnic.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" href="brand/arctrips-icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="_system.css">
 <style>
-:focus-visible{outline:2px solid var(--azure);outline-offset:3px}
-.btn,.nav-links a,.crumb a{min-height:44px;display:inline-flex;align-items:center}
-.crumb{font-size:.9rem}
+/* Page-scoped only. Every value comes from _system.css tokens: no new hue, no
+   hardcoded colour, no emerald (emerald is the season signal elsewhere). */
+:focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:var(--r-sm)}
+.btn,.nav-links a{min-height:44px;display:inline-flex;align-items:center}
+.crumb a{min-height:44px;display:inline-flex;align-items:center}
+.crumb{font-size:.88rem;color:var(--n600)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+cite{font-style:normal}
+.skip{position:absolute;left:var(--gut);top:-60px;z-index:99;background:var(--navy);color:var(--paper);
+  padding:13px 18px;border-radius:0 0 var(--r-sm) var(--r-sm);font-weight:600;font-size:.9rem}
+.skip:focus{top:0}
+main [id]{scroll-margin-top:150px}
+@media(max-width:760px){main [id]{scroll-margin-top:140px}}
+
+/* hero */
 .chero{position:relative;min-height:min(58vh,500px);display:flex;align-items:flex-end;overflow:hidden;background:var(--navy)}
 .chero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.chero__v{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,51,86,.1),rgba(11,51,86,.72) 62%,rgba(11,51,86,.95))}
-.chero__in{position:relative;width:100%;padding-block:clamp(28px,4vw,52px)}
-.chero h1{color:#fff;font-size:clamp(2.5rem,6vw,4.4rem);letter-spacing:-.042em;line-height:1;max-width:17ch}
-.chero p{color:rgba(255,255,255,.9);max-width:56ch;margin-top:16px;font-size:1.05rem}
-.cfacts{display:flex;gap:clamp(20px,4vw,44px);margin-top:24px;flex-wrap:wrap}
-.cfacts dt{font-size:.9rem;color:rgba(255,255,255,.75);font-weight:600}
-.cfacts dd{font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:800;color:#fff;margin-top:4px;font-variant-numeric:tabular-nums}
-.places{display:grid;gap:clamp(40px,5vw,72px)}
-.pl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,3.4vw,48px);align-items:center}
+.chero__v{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,51,86,.28),rgba(11,51,86,.62) 42%,rgba(11,51,86,.94))}
+.chero__in{position:relative;width:100%;padding-block:clamp(30px,4vw,54px)}
+.chero h1{color:var(--paper);font-size:clamp(2.4rem,5.8vw,4.2rem);letter-spacing:-.042em;line-height:1;max-width:16ch}
+.chero p{color:rgba(255,255,255,.9);max-width:58ch;margin-top:16px;font-size:1.05rem;line-height:1.55}
+.cfacts{display:flex;gap:clamp(22px,4vw,52px);margin-top:26px;flex-wrap:wrap;
+  border-top:1px solid rgba(255,255,255,.26);padding-top:20px}
+.cfacts dt{font-size:.88rem;color:rgba(255,255,255,.78);font-weight:600;letter-spacing:.04em}
+.cfacts dd{font-size:clamp(1.5rem,2.6vw,2.1rem);font-weight:800;color:var(--paper);margin-top:5px;
+  font-variant-numeric:tabular-nums;letter-spacing:-.03em;line-height:1.05}
+.cfacts dd small{font-size:.46em;font-weight:700;color:rgba(255,255,255,.78);margin-left:5px;letter-spacing:0}
+
+/* the standfirst under the hero */
+.standfirst{max-width:66ch}
+.standfirst p{color:var(--n700);font-size:clamp(1.02rem,1.3vw,1.16rem);line-height:1.62}
+.standfirst p+p{margin-top:14px}
+.standfirst b{color:var(--navy);font-weight:700}
+
+/* group heads, the sequence the page is ordered by */
+.grp{border-top:1px solid var(--n150);padding-top:clamp(22px,2.6vw,30px);margin-top:clamp(46px,5vw,74px)}
+.grp:first-child{border-top:0;padding-top:0;margin-top:0}
+.grp h2{font-size:clamp(1.5rem,2.4vw,2rem)}
+.grp__s{color:var(--n600);font-size:.99rem;line-height:1.55;max-width:62ch;margin-top:12px}
+
+/* the numbered list of places */
+.places{list-style:none;display:grid;gap:clamp(36px,4.4vw,62px);margin-top:clamp(26px,3vw,36px)}
+.pl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(22px,3.2vw,46px);align-items:center}
 .pl:nth-child(even) .pl__m{order:2}
 @media(max-width:820px){.pl{grid-template-columns:1fr}.pl:nth-child(even) .pl__m{order:0}}
+.pl--np{grid-template-columns:1fr;border-left:3px solid var(--a250);padding-left:clamp(16px,2vw,26px)}
 .pl__m{margin:0;border-radius:var(--r);overflow:hidden;background:var(--n100);aspect-ratio:4/3}
-.pl__m img{width:100%;height:100%;object-fit:cover}
-.pl__b h3{font-size:clamp(1.3rem,2.1vw,1.7rem);font-weight:800;letter-spacing:-.026em;margin-bottom:12px}
-.pl__b p{color:var(--n700);line-height:1.68;max-width:62ch;margin-bottom:12px}
-.gf{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.gf span{font-size:.86rem;background:var(--n50);color:var(--n700);padding:7px 13px;border-radius:999px}
-.note{background:var(--n50);padding:14px 18px;border-radius:var(--r-sm);margin-top:16px;font-size:.97rem}
-.note b{color:var(--navy)}
-</style></head><body>
+.pl__m img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.pl:hover .pl__m img{transform:scale(1.03)}
+.pl__n{font-size:.88rem;font-weight:800;color:var(--azure);font-variant-numeric:tabular-nums;
+  letter-spacing:.09em;display:block;margin-bottom:8px}
+.pl__b h3{font-size:clamp(1.28rem,2vw,1.62rem);font-weight:800;letter-spacing:-.026em;margin-bottom:12px}
+.pl__b p{color:var(--n700);line-height:1.66;max-width:62ch}
+.pl__b p+p{margin-top:11px}
+.gfline{margin-top:14px;font-size:.92rem;color:var(--n700);line-height:1.55;max-width:62ch}
+.gfline span{display:block;font-size:.72rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--n600);margin-bottom:5px}
+.note{margin-top:15px;font-size:.92rem;color:var(--n600);line-height:1.55;max-width:62ch;
+  border-left:2px solid var(--a300);padding-left:13px}
+.note b{color:var(--navy);font-weight:700}
+
+/* questions, one column, collapsed, at the foot of the page */
+.qs{max-width:74ch}
+.faq{border-top:1px solid var(--n150)}
+.faq:last-of-type{border-bottom:1px solid var(--n150)}
+.faq summary{display:flex;gap:16px;align-items:center;justify-content:space-between;cursor:pointer;
+  min-height:58px;padding-block:13px;font-weight:700;color:var(--navy);font-size:1rem;
+  letter-spacing:-.012em;line-height:1.35;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";width:10px;height:10px;flex:none;border-right:2px solid var(--n500);
+  border-bottom:2px solid var(--n500);transform:rotate(45deg) translateY(-2px);transition:transform .2s var(--ease)}
+.faq[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.faq summary:hover{color:var(--azure)}
+.faq p{color:var(--n600);font-size:.96rem;line-height:1.65;padding-bottom:16px;max-width:70ch}
+.faq cite{display:block;font-size:.82rem;color:var(--n600);font-weight:600;padding-bottom:18px}
+
+/* keep going, three fixed slots, each with a photograph */
+.kg{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,28px);margin-top:26px}
+@media(max-width:860px){.kg{grid-template-columns:1fr}}
+.kg a{display:flex;flex-direction:column;border:1px solid var(--n150);border-radius:var(--r);overflow:hidden;
+  transition:border-color .22s var(--ease)}
+.kg a:hover{border-color:var(--navy)}
+.kg figure{margin:0;aspect-ratio:16/10;background:var(--n100);overflow:hidden}
+.kg figure img{width:100%;height:100%;object-fit:cover}
+.kg div{padding:clamp(16px,2vw,22px);display:flex;flex-direction:column;gap:8px;flex:1}
+.kg h3{font-size:1.06rem}
+.kg p{color:var(--n600);font-size:.92rem;line-height:1.55}
+.kg .go{margin-top:auto;padding-top:6px;color:var(--azure);font-weight:700;font-size:.88rem}
+
+.eats{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(22px,2.8vw,36px);margin-top:clamp(26px,3vw,36px)}
+@media(max-width:820px){.eats{grid-template-columns:1fr}}
+.eat{border:1px solid var(--n150);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;
+  background:var(--paper);transition:border-color .22s var(--ease)}
+.eat:hover{border-color:var(--n200)}
+.eat--m{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);align-items:stretch}
+@media(max-width:820px){.eat--m{grid-template-columns:1fr}}
+.eat__m{margin:0;background:var(--n100);overflow:hidden;min-height:240px}
+.eat__m img{width:100%;height:100%;object-fit:cover}
+.eat__b{padding:clamp(20px,2.4vw,28px);display:flex;flex-direction:column}
+.eat__b h3{font-size:1.22rem;margin-bottom:11px}
+.eat__b p{color:var(--n700);line-height:1.62;font-size:.98rem}
+.eat__b p+p{margin-top:10px}
+.eat .gfline{margin-top:14px}
+</style>
+</head>
+<body>
 <span id="top" aria-hidden="true"></span>
+<a class="skip" href="#main">Skip to content</a>
 <nav class="top"><div class="wrap nav-in">
   <a class="brand" href="index.html"><img class="brand__mark" src="brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
-  <ul class="nav-links"><li><a href="search.html?in=ucluelet">Stays</a></li><li><a href="index.html" aria-current="page">Destinations</a></li><li><a href="region.html">Vancouver Island</a></li></ul>
-  <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-    <input placeholder="Search Ucluelet" aria-label="Search"><kbd>/</kbd></label>
-  <a class="btn btn--ink btn--sm" href="search.html?in=ucluelet">Sign in</a>
+  <ul class="nav-links">
+    <li><a href="search.html?in=ucluelet">Stays</a></li>
+    <li><a href="index.html">Destinations</a></li>
+    <li><a href="region.html">Vancouver Island</a></li>
+  </ul>
+  <form class="search" role="search" action="search.html" method="get">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
+    <label class="vh" for="q">Search Ucluelet for a trail, a beach or a place to eat</label>
+    <input id="q" name="q" type="search" placeholder="Wild Pacific Trail, Barkley Sound" autocomplete="off">
+    <input type="hidden" name="in" value="ucluelet">
+    <kbd>/</kbd>
+  </form>
+  <a class="btn btn--ink btn--sm" href="not-found.html">Sign in</a>
 </div></nav>
 <nav class="placebar" aria-label="Ucluelet"><div class="wrap placebar-in">
   <a class="placebar__back" href="ucluelet.html"><span class="n">&larr; Ucluelet</span></a>
@@ -64,172 +162,239 @@
   <span aria-current="page">Restaurants</span>
 </nav></div>
 <header class="chero">
-  <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_2000,h_1000/arcstudio/mg8epie7gzlpfb1bn7jo" alt="Restaurants in Ucluelet">
+  <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_2000,h_1000/guides/ucluelet/whale-watching/ucluelet-harbour-1" alt="The small craft harbour in Ucluelet on a clear morning, with the floathouse restaurant out on the water">
   <div class="chero__v"></div>
   <div class="chero__in"><div class="wrap">
-    <span class="label" style="color:var(--a300)">Ucluelet, Vancouver Island</span>
+    <span class="label" style="color:var(--a200)">Ucluelet, Vancouver Island</span>
     <h1>Restaurants in Ucluelet</h1>
-    <p>Discover the best restaurants in Ucluelet, British Columbia. Find seafood, fine dining, fish and chips, brunch, coffee, casual eats, local finds, and slow food on Vancouver Island’s west coast.</p>
+    <p>Fifteen places to eat, grouped by the meal you are actually deciding about. One fine dining room, three morning stops, and a lot of good food after a day outside.</p>
     <dl class="cfacts">
-      <div><dt>Places written up</dt><dd class="tnum">15</dd></div>
-      <div><dt>With photographs</dt><dd class="tnum">1</dd></div>
+      <div><dt>Places to eat</dt><dd class="tnum">15</dd></div>
+      <div><dt>Coffee and breakfast</dt><dd class="tnum">3</dd></div>
+      <div><dt>Quick and casual</dt><dd class="tnum">6</dd></div>
     </dl>
   </div></div>
 </header>
-<section class="sec"><div class="wrap">
-  <div class="places">
-  <article class="pl">
-    
-    <div class="pl__b">
-      <h3>Pluvio Restaurant + Rooms</h3>
-      <p>Pluvio is one of the best-known restaurants in Ucluelet. It is a fine dining restaurant and small boutique inn on Peninsula Road.</p>
-      <p>This is the place to choose for a special dinner, anniversary meal, date night, or food-focused trip. The restaurant celebrates local products, seasonal ingredients, and the natural setting of Ucluelet and Vancouver Island.</p><p>The menu is creative and refined, with a strong sense of place. Expect a slower, more thoughtful dining experience rather than a quick casual meal.</p>
-      <div class="gf"><span>Fine dining</span><span>Special occasions</span><span>Seasonal tasting menus</span><span>Local and wild ingredients</span><span>Date night</span><span>Food lovers</span></div>
-      <p class="note"><b>Good to know.</b> Reservations are strongly recommended. This is one of the most sought-after dining experiences in Ucluelet.</p>
-    </div>
-  </article><article class="pl">
-    
-    <div class="pl__b">
-      <h3>Heartwood Kitchen</h3>
-      <p>Heartwood Kitchen is a cozy Ucluelet favorite for breakfast, brunch, and comfort food made with care. It is a good choice if you want a relaxed meal in town before hiking, kayaking, or exploring the c</p>
-      <p>The menu focuses on scratch-made food and local ingredients. It is especially good for people who want a warm, welcoming meal rather than something too formal.</p>
-      <div class="gf"><span>Breakfast</span><span>Brunch</span><span>Coffee</span><span>Casual lunch</span><span>Comfort food</span><span>Families</span><span>Rainy mornings</span></div>
-      <p class="note"><b>Good to know.</b> This is a popular local spot, so it can get busy during peak travel season.</p>
-    </div>
-  </article><article class="pl">
-    <figure class="pl__m"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/ucluelet/restaurants/floathouse-patio-grill-1" alt="Floathouse Patio &amp; Grill, Ucluelet"></figure>
-    <div class="pl__b">
-      <h3>Floathouse Patio &amp; Grill</h3>
-      <p>Floathouse Patio &amp; Grill is a popular harbourfront restaurant in Ucluelet. It sits near the small craft harbour and is a good choice if you want seafood, casual dining, and water views.</p>
-      <p>The setting is a big part of the experience. You can eat while looking out at boats, harbour activity, and the coastal scenery.</p>
-      <div class="gf"><span>Harbour views</span><span>Seafood</span><span>Casual dinner</span><span>Lunch</span><span>Families</span><span>Drinks by the water</span></div>
-      <p class="note"><b>Good to know.</b> This is a good pick when you want a relaxed meal with a strong Ucluelet harbour feel.</p>
-    </div>
-  </article><article class="pl">
-    
-    <div class="pl__b">
-      <h3>Cedar Grill</h3>
-      <p>Cedar Grill is a casual restaurant in Ucluelet with a menu that works for many types of travelers. It is a practical choice for families, groups, and visitors who want a reliable sit-down meal.</p>
-      <p>It is often a good option when you want something easy, filling, and central.</p>
-      <div class="gf"><span>Casual dinner</span><span>Families</span><span>Groups</span><span>Comfort food</span><span>Pizza and pub-style meals</span><span>Easy town dining</span></div>
-      <p class="note"><b>Good to know.</b> This is a useful choice when you need a flexible menu that works for different tastes.</p>
-    </div>
-  </article><article class="pl">
-    
-    <div class="pl__b">
-      <h3>Big Beach Bar &amp; Lounge</h3>
-      <p>Big Beach Bar &amp; Lounge is a good choice if you want drinks, a relaxed meal, and a coastal resort setting. It is connected with the Black Rock Oceanfront Resort area, close to Big Beach and the Wild Pa</p>
-      <p>This is a good stop after a walk, especially if you want oceanfront atmosphere without leaving town.</p>
-      <div class="gf"><span>Drinks</span><span>Casual dinner</span><span>Lounge food</span><span>Oceanfront atmosphere</span><span>Couples</span><span>After-hike meals</span></div>
-      <p class="note"><b>Good to know.</b> Pair it with a walk near Big Beach or the Wild Pacific Trail.</p>
-    </div>
-  </article><article class="pl">
-    
-    <div class="pl__b">
-      <h3>Currents Restaurant</h3>
-      <p>Currents Restaurant is another dining option connected with Black Rock Oceanfront Resort. It is a good choice for travelers looking for a more polished meal with west coast views and a quieter atmosph</p>
-      
-      <div class="gf"><span>Resort dining</span><span>Ocean views</span><span>Dinner</span><span>Couples</span><span>Special meals</span><span>West coast atmosphere</span></div>
-      <p class="note"><b>Good to know.</b> Check current hours and seasonal openings before planning your meal.</p>
-    </div>
-  </article><article class="pl">
-    
-    <div class="pl__b">
-      <h3>Ucluelet Brewing Company</h3>
-      <p>Ucluelet Brewing Company is a fun stop for craft beer, casual food, and harbour views. It is located in a former church, which gives it a unique local feel.</p>
-      <p>This is a good place to relax after hiking the Wild Pacific Trail, kayaking, fishing, or beach exploring.</p>
-      <div class="gf"><span>Craft beer</span><span>Casual meals</span><span>Snacks</span><span>Harbour views</span><span>Groups</span><span>Relaxed evenings</span></div>
-      <p class="note"><b>Good to know.</b> It has a lively but relaxed feel and is a good choice for people who want drinks with a local touch.</p>
-    </div>
-  </article><article class="pl">
-    
-    <div class="pl__b">
-      <h3>Abbondanza Wood Fired Pizza</h3>
-      <p>Abbondanza is a good choice when you want pizza in Ucluelet. It serves wood-fired pizza and works well for families, groups, and casual nights.</p>
-      <p>Pizza is also a useful option if you want something easy after a long outdoor day.</p>
-      <div class="gf"><span>Wood-fired pizza</span><span>Casual dinner</span><span>Families</span><span>Groups</span><span>Takeout-style meals</span><span>Easy comfort food</span></div>
-      <p class="note"><b>Good to know.</b> Popular casual spots can sell out or have changing hours, so check before going.</p>
-    </div>
-  </article><article class="pl">
-    
-    <div class="pl__b">
-      <h3>Papi’s Cantina</h3>
-      <p>Papi’s Cantina is a Mexican restaurant and cocktail bar in Ucluelet. It is a good option if you want tacos, Mexican flavors, drinks, and a casual night out.</p>
-      <p>It brings variety to the Ucluelet food scene, especially if you want something other than seafood or pub food.</p>
-      <div class="gf"><span>Mexican food</span><span>Tacos</span><span>Cocktails</span><span>Casual dinner</span><span>Groups</span><span>A fun evening meal</span></div>
-      <p class="note"><b>Good to know.</b> A good choice when you want bold flavors and a relaxed restaurant setting.</p>
-    </div>
-  </article><article class="pl">
-    
-    <div class="pl__b">
-      <h3>Ukee Poke</h3>
-      <p>Ukee Poke is a casual, healthy choice near the Tofino-Ucluelet junction area. It is good for a quick lunch, light dinner, or takeout before a beach or park stop.</p>
-      <p>Poke bowls are a nice fit for west coast travel because they feel fresh, customizable, and easy to eat on the go.</p>
-      <div class="gf"><span>Poke bowls</span><span>Healthy lunch</span><span>Takeout</span><span>Casual dinner</span><span>Quick meals</span><span>Fresh flavors</span></div>
-      <p class="note"><b>Good to know.</b> This is a good option when you want something lighter than fish and chips or pizza.</p>
-    </div>
-  </article><article class="pl">
-    
-    <div class="pl__b">
-      <h3>Ukee Dogs Eatery</h3>
-      <p>Ukee Dogs Eatery is a casual local stop known for hot dogs, tacos, burritos, and coffee. It is simple, relaxed, and useful when you want a quick bite.</p>
-      <p>This is not fine dining, but it can be exactly what you need after a walk or before heading out for the day.</p>
-      <div class="gf"><span>Quick meals</span><span>Hot dogs</span><span>Tacos</span><span>Burritos</span><span>Casual snacks</span><span>Coffee</span></div>
-      <p class="note"><b>Good to know.</b> Great for a relaxed, no-fuss meal.</p>
-    </div>
-  </article><article class="pl">
-    
-    <div class="pl__b">
-      <h3>Ukee Snack Shack</h3>
-      <p>Ukee Snack Shack is a family-owned comfort food stop with smash burgers, donairs, fries, onion rings, and other quick meals. It also offers many gluten-free options.</p>
-      <p>This is a good choice for travelers who want something casual, filling, and easy.</p>
-      <div class="gf"><span>Smash burgers</span><span>Donairs</span><span>Fries</span><span>Quick meals</span><span>Gluten-free options</span><span>Family-friendly comfort food</span></div>
-      <p class="note"><b>Good to know.</b> A useful pick when you want simple comfort food rather than seafood.</p>
-    </div>
-  </article><article class="pl">
-    
-    <div class="pl__b">
-      <h3>Zoe’s Bakery &amp; Cafe</h3>
-      <p>Zoe’s Bakery &amp; Cafe is a popular stop for baked goods, breakfast, lunch, coffee, and sweet treats. It is a good choice before a hike, kayak tour, or drive through Pacific Rim National Park.</p>
-      
-      <div class="gf"><span>Coffee</span><span>Baked goods</span><span>Breakfast</span><span>Lunch</span><span>Pastries</span><span>Grab-and-go food</span></div>
-      <p class="note"><b>Good to know.</b> Good for a casual morning stop or a simple lunch.</p>
-    </div>
-  </article><article class="pl">
-    
-    <div class="pl__b">
-      <h3>Barkley Cafe</h3>
-      <p>Barkley Cafe is a good local-style cafe stop for coffee, breakfast, lunch, and a relaxed small-town feel. It is useful for travelers who want a casual meal before exploring Ucluelet.</p>
-      
-      <div class="gf"><span>Coffee</span><span>Breakfast</span><span>Lunch</span><span>Sandwiches</span><span>Casual cafe meals</span><span>Easy town stop</span></div>
-      <p class="note"><b>Good to know.</b> A good option when you want something simple and comfortable.</p>
-    </div>
-  </article><article class="pl">
-    
-    <div class="pl__b">
-      <h3>Blackberry Cove Marketplace</h3>
-      <p>Blackberry Cove Marketplace is useful if you want deli items, groceries, snacks, or picnic food. It is not just a restaurant stop, but it is worth including because many visitors need easy food for hi</p>
-      
-      <div class="gf"><span>Picnic supplies</span><span>Snacks</span><span>Deli items</span><span>Groceries</span><span>Road trip food</span><span>Easy takeout-style options</span></div>
-      <p class="note"><b>Good to know.</b> Stop here before heading to the Wild Pacific Trail, beaches, or Pacific Rim National Park.</p>
-    </div>
-  </article>
+<section class="sec" style="padding-bottom:clamp(30px,3vw,44px)"><div class="wrap">
+  <div class="standfirst">
+    <p><b>Ucluelet eats early and it eats casual.</b> The exception is Pluvio, which is the reason some people drive out here at all. Everything else is a working harbour town feeding people who have been outside since seven.</p>
+    <p>Hours move with the season on this coast, so check before you set out. The order below runs from the meal you book weeks ahead to the food you pick up on the way to a trail.</p>
   </div>
 </div></section>
 <section class="sec" style="padding-top:0"><div class="wrap">
-  <h2>More on restaurants</h2>
-  <nav class="siblings" style="margin-top:20px">
-    <a class="sib" href="search.html?q=Ucluelet%20Restaurants&amp;in=ucluelet"><span class="sib__n">Ucluelet Restaurants</span><span class="sib__m">restaurants</span></a><a class="sib" href="search.html?q=Restaurants%20FAQs&amp;in=ucluelet"><span class="sib__n">Restaurants FAQs</span><span class="sib__m">restaurants</span></a>
-  </nav></div></section>
+  <div class="grp" id="dinner">
+    <h2>A dinner worth booking</h2>
+    <p class="grp__s">Two rooms for the night you planned the trip around. Both want a reservation.</p>
+  </div>
+  <ol class="eats">
+    <li class="eat">
+      <div class="eat__b">
+        <span class="pl__n">01</span>
+        <h3>Pluvio Restaurant + Rooms</h3>
+        <p>Pluvio is one of the best-known restaurants in Ucluelet. It is a fine dining restaurant and small boutique inn on Peninsula Road.</p>
+        <p>This is the place to choose for a special dinner, anniversary meal, date night, or food-focused trip. The restaurant celebrates local products, seasonal ingredients, and the natural setting of Ucluelet and Vancouver Island.</p>
+        <p>The menu is creative and refined, with a strong sense of place. Expect a slower, more thoughtful dining experience rather than a quick casual meal.</p>
+        <p class="gfline"><span>Good for</span>Fine dining · Special occasions · Seasonal tasting menus · Local and wild ingredients · Date night · Food lovers</p>
+        <p class="note"><b>Good to know.</b> Reservations are strongly recommended. This is one of the most sought-after dining experiences in Ucluelet.</p>
+      </div>
+    </li>
+    <li class="eat">
+      <div class="eat__b">
+        <span class="pl__n">02</span>
+        <h3>Currents Restaurant</h3>
+        <p>Currents Restaurant is another dining option connected with Black Rock Oceanfront Resort. It is a good choice for travelers looking for a more polished meal with west coast views and a quieter atmosphere.</p>
+        <p class="gfline"><span>Good for</span>Resort dining · Ocean views · Dinner · Couples · Special meals · West coast atmosphere</p>
+        <p class="note"><b>Good to know.</b> Check current hours and seasonal openings before planning your meal.</p>
+      </div>
+    </li>
+  </ol>
+  <div class="grp" id="water">
+    <h2>By the water</h2>
+    <p class="grp__s">Three places where the view is half of what you came for: the small craft harbour, the oceanfront, and a brewery in a former church.</p>
+  </div>
+  <ol class="eats">
+    <li class="eat eat--m">
+      <figure class="eat__m"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_900,h_600/guides/ucluelet/restaurants/floathouse-patio-grill-1" alt="The Floathouse Patio and Grill on the water in Ucluelet Harbour"></figure>
+      <div class="eat__b">
+        <span class="pl__n">03</span>
+        <h3>Floathouse Patio &amp; Grill</h3>
+        <p>Floathouse Patio &amp; Grill is a popular harbourfront restaurant in Ucluelet. It sits near the small craft harbour and is a good choice if you want seafood, casual dining, and water views.</p>
+        <p>The setting is a big part of the experience. You can eat while looking out at boats, harbour activity, and the coastal scenery.</p>
+        <p class="gfline"><span>Good for</span>Harbour views · Seafood · Casual dinner · Lunch · Families · Drinks by the water</p>
+        <p class="note"><b>Good to know.</b> This is a good pick when you want a relaxed meal with a strong Ucluelet harbour feel.</p>
+      </div>
+    </li>
+    <li class="eat">
+      <div class="eat__b">
+        <span class="pl__n">04</span>
+        <h3>Big Beach Bar &amp; Lounge</h3>
+        <p>Big Beach Bar &amp; Lounge is a good choice if you want drinks, a relaxed meal, and a coastal resort setting. It is connected with the Black Rock Oceanfront Resort area, close to Big Beach and the Wild Pacific Trail.</p>
+        <p>This is a good stop after a walk, especially if you want oceanfront atmosphere without leaving town.</p>
+        <p class="gfline"><span>Good for</span>Drinks · Casual dinner · Lounge food · Oceanfront atmosphere · Couples · After-hike meals</p>
+        <p class="note"><b>Good to know.</b> Pair it with a walk near Big Beach or the Wild Pacific Trail.</p>
+      </div>
+    </li>
+    <li class="eat">
+      <div class="eat__b">
+        <span class="pl__n">05</span>
+        <h3>Ucluelet Brewing Company</h3>
+        <p>Ucluelet Brewing Company is a fun stop for craft beer, casual food, and harbour views. It is located in a former church, which gives it a unique local feel.</p>
+        <p>This is a good place to relax after hiking the Wild Pacific Trail, kayaking, fishing, or beach exploring.</p>
+        <p class="gfline"><span>Good for</span>Craft beer · Casual meals · Snacks · Harbour views · Groups · Relaxed evenings</p>
+        <p class="note"><b>Good to know.</b> It has a lively but relaxed feel and is a good choice for people who want drinks with a local touch.</p>
+      </div>
+    </li>
+  </ol>
+  <div class="grp" id="morning">
+    <h2>Breakfast, coffee and baking</h2>
+    <p class="grp__s">Three morning stops, and the ones to hit before a trail, a paddle or the drive through the park.</p>
+  </div>
+  <ol class="eats">
+    <li class="eat">
+      <div class="eat__b">
+        <span class="pl__n">06</span>
+        <h3>Heartwood Kitchen</h3>
+        <p>Heartwood Kitchen is a cozy Ucluelet favorite for breakfast, brunch, and comfort food made with care. It is a good choice if you want a relaxed meal in town before hiking, kayaking, or exploring the coast.</p>
+        <p>The menu focuses on scratch-made food and local ingredients. It is especially good for people who want a warm, welcoming meal rather than something too formal.</p>
+        <p class="gfline"><span>Good for</span>Breakfast · Brunch · Coffee · Casual lunch · Comfort food · Families · Rainy mornings</p>
+        <p class="note"><b>Good to know.</b> This is a popular local spot, so it can get busy during peak travel season.</p>
+      </div>
+    </li>
+    <li class="eat">
+      <div class="eat__b">
+        <span class="pl__n">07</span>
+        <h3>Zoe’s Bakery &amp; Cafe</h3>
+        <p>Zoe’s Bakery &amp; Cafe is a popular stop for baked goods, breakfast, lunch, coffee, and sweet treats. It is a good choice before a hike, kayak tour, or drive through Pacific Rim National Park.</p>
+        <p class="gfline"><span>Good for</span>Coffee · Baked goods · Breakfast · Lunch · Pastries · Grab-and-go food</p>
+        <p class="note"><b>Good to know.</b> Good for a casual morning stop or a simple lunch.</p>
+      </div>
+    </li>
+    <li class="eat">
+      <div class="eat__b">
+        <span class="pl__n">08</span>
+        <h3>Barkley Cafe</h3>
+        <p>Barkley Cafe is a good local-style cafe stop for coffee, breakfast, lunch, and a relaxed small-town feel. It is useful for travelers who want a casual meal before exploring Ucluelet.</p>
+        <p class="gfline"><span>Good for</span>Coffee · Breakfast · Lunch · Sandwiches · Casual cafe meals · Easy town stop</p>
+        <p class="note"><b>Good to know.</b> A good option when you want something simple and comfortable.</p>
+      </div>
+    </li>
+  </ol>
+  <div class="grp" id="casual">
+    <h2>Easy and casual</h2>
+    <p class="grp__s">Six for the end of a long day outside, when nobody wants to dress for dinner.</p>
+  </div>
+  <ol class="eats">
+    <li class="eat">
+      <div class="eat__b">
+        <span class="pl__n">09</span>
+        <h3>Cedar Grill</h3>
+        <p>Cedar Grill is a casual restaurant in Ucluelet with a menu that works for many types of travelers. It is a practical choice for families, groups, and visitors who want a reliable sit-down meal.</p>
+        <p>It is often a good option when you want something easy, filling, and central.</p>
+        <p class="gfline"><span>Good for</span>Casual dinner · Families · Groups · Comfort food · Pizza and pub-style meals · Easy town dining</p>
+        <p class="note"><b>Good to know.</b> This is a useful choice when you need a flexible menu that works for different tastes.</p>
+      </div>
+    </li>
+    <li class="eat">
+      <div class="eat__b">
+        <span class="pl__n">10</span>
+        <h3>Abbondanza Wood Fired Pizza</h3>
+        <p>Abbondanza is a good choice when you want pizza in Ucluelet. It serves wood-fired pizza and works well for families, groups, and casual nights.</p>
+        <p>Pizza is also a useful option if you want something easy after a long outdoor day.</p>
+        <p class="gfline"><span>Good for</span>Wood-fired pizza · Casual dinner · Families · Groups · Takeout-style meals · Easy comfort food</p>
+        <p class="note"><b>Good to know.</b> Popular casual spots can sell out or have changing hours, so check before going.</p>
+      </div>
+    </li>
+    <li class="eat">
+      <div class="eat__b">
+        <span class="pl__n">11</span>
+        <h3>Papi’s Cantina</h3>
+        <p>Papi’s Cantina is a Mexican restaurant and cocktail bar in Ucluelet. It is a good option if you want tacos, Mexican flavors, drinks, and a casual night out.</p>
+        <p>It brings variety to the Ucluelet food scene, especially if you want something other than seafood or pub food.</p>
+        <p class="gfline"><span>Good for</span>Mexican food · Tacos · Cocktails · Casual dinner · Groups · A fun evening meal</p>
+        <p class="note"><b>Good to know.</b> A good choice when you want bold flavors and a relaxed restaurant setting.</p>
+      </div>
+    </li>
+    <li class="eat">
+      <div class="eat__b">
+        <span class="pl__n">12</span>
+        <h3>Ukee Poke</h3>
+        <p>Ukee Poke is a casual, healthy choice near the Tofino-Ucluelet junction area. It is good for a quick lunch, light dinner, or takeout before a beach or park stop.</p>
+        <p>Poke bowls are a nice fit for west coast travel because they feel fresh, customizable, and easy to eat on the go.</p>
+        <p class="gfline"><span>Good for</span>Poke bowls · Healthy lunch · Takeout · Casual dinner · Quick meals · Fresh flavors</p>
+        <p class="note"><b>Good to know.</b> This is a good option when you want something lighter than fish and chips or pizza.</p>
+      </div>
+    </li>
+    <li class="eat">
+      <div class="eat__b">
+        <span class="pl__n">13</span>
+        <h3>Ukee Dogs Eatery</h3>
+        <p>Ukee Dogs Eatery is a casual local stop known for hot dogs, tacos, burritos, and coffee. It is simple, relaxed, and useful when you want a quick bite.</p>
+        <p>This is not fine dining, but it can be exactly what you need after a walk or before heading out for the day.</p>
+        <p class="gfline"><span>Good for</span>Quick meals · Hot dogs · Tacos · Burritos · Casual snacks · Coffee</p>
+        <p class="note"><b>Good to know.</b> Great for a relaxed, no-fuss meal.</p>
+      </div>
+    </li>
+    <li class="eat">
+      <div class="eat__b">
+        <span class="pl__n">14</span>
+        <h3>Ukee Snack Shack</h3>
+        <p>Ukee Snack Shack is a family-owned comfort food stop with smash burgers, donairs, fries, onion rings, and other quick meals. It also offers many gluten-free options.</p>
+        <p>This is a good choice for travelers who want something casual, filling, and easy.</p>
+        <p class="gfline"><span>Good for</span>Smash burgers · Donairs · Fries · Quick meals · Gluten-free options · Family-friendly comfort food</p>
+        <p class="note"><b>Good to know.</b> A useful pick when you want simple comfort food rather than seafood.</p>
+      </div>
+    </li>
+  </ol>
+  <div class="grp" id="takeaway">
+    <h2>Food to take with you</h2>
+    <p class="grp__s">One stop for the beach day, the trailhead and the road.</p>
+  </div>
+  <ol class="eats">
+    <li class="eat">
+      <div class="eat__b">
+        <span class="pl__n">15</span>
+        <h3>Blackberry Cove Marketplace</h3>
+        <p>Blackberry Cove Marketplace is useful if you want deli items, groceries, snacks, or picnic food. It is not just a restaurant stop, but it is worth including because many visitors need easy food for hikes, beach days, and road trips.</p>
+        <p class="gfline"><span>Good for</span>Picnic supplies · Snacks · Deli items · Groceries · Road trip food · Easy takeout-style options</p>
+        <p class="note"><b>Good to know.</b> Stop here before heading to the Wild Pacific Trail, beaches, or Pacific Rim National Park.</p>
+      </div>
+    </li>
+  </ol>
+</div></section>
+<section class="sec" id="questions"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">Questions</span>
+      <h2 style="margin-top:11px">What people ask about eating in Ucluelet</h2>
+      <p>Four answers from the Ucluelet restaurants guide.</p>
+    </div>
+  </div>
+  <div class="qs">
+    <details class="faq"><summary>What is the best restaurant in Ucluelet?</summary><p>Pluvio is often considered one of the top restaurants in Ucluelet for fine dining and special occasions. For casual meals, Jiggers, Heartwood Kitchen, Floathouse Patio &amp; Grill, and Ucluelet Brewing Company are popular choices.</p></details>
+    <details class="faq"><summary>Where should I eat seafood in Ucluelet?</summary><p>Try Jiggers for casual fish and chips, Floathouse Patio &amp; Grill for harbourfront seafood, Pluvio for refined local seafood, and Ukee Poke for a fresh casual seafood bowl.</p></details>
+    <details class="faq"><summary>What is the best place for breakfast in Ucluelet?</summary><p>Heartwood Kitchen is a strong choice for breakfast and brunch. Zoe’s Bakery &amp; Cafe and Barkley Cafe are also good morning stops.</p></details>
+    <details class="faq"><summary>Where can I get coffee in Ucluelet?</summary><p>Try Zoe’s Bakery &amp; Cafe, Barkley Cafe, Heartwood Kitchen, or other local cafe stops in town.</p></details>
+  </div>
+</div></section>
 <section class="sec" style="padding-top:0"><div class="wrap">
-  <h2>Keep going</h2>
-  <nav class="siblings" style="margin-top:20px">
-    <a class="sib" href="ucluelet.html#do"><span class="sib__n">Everything to do in Ucluelet</span><span class="sib__m">All the subjects</span></a>
-    <a class="sib" href="ucluelet.html"><span class="sib__n">Ucluelet</span><span class="sib__m">The town</span></a>
-    <a class="sib" href="search.html?in=ucluelet"><span class="sib__n">Stays</span><span class="sib__m">Search what is open</span></a>
-  </nav>
+  <span class="label label--n">Keep going</span>
+  <div class="kg">
+    <a href="search.html?q=Ucluelet%20Restaurants&in=ucluelet">
+      <figure><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_640,h_400/guides/ucluelet/restaurants/floathouse-patio-grill-1" alt="The Floathouse Patio and Grill on the water in Ucluelet Harbour in fog"></figure>
+      <div><h3>Ucluelet Restaurants</h3><p>Chowder, fresh catch and the town’s easy-going local rooms, in one read.</p><span class="go">Find it in Ucluelet guides</span></div>
+    </a>
+    <a href="hiking-ucluelet.html">
+      <figure><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_640,h_400/guides/ucluelet/hiking/wild-pacific-trail-1" alt="A bench on the Wild Pacific Trail looking out over the Pacific"></figure>
+      <div><h3>Hiking and trails in Ucluelet</h3><p>Twenty walks, and the reason you will be hungry by five.</p><span class="go">Open the hiking page</span></div>
+    </a>
+    <a href="search.html?in=ucluelet">
+      <figure><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_640,h_400/arc-trips/pillar-connection" alt="A table laid for dinner on the deck of an Arc Trips stay above the water"></figure>
+      <div><h3>Stays in Ucluelet</h3><p>Rooms and cabins in town, walking distance from most of this list.</p><span class="go">Search stays in Ucluelet</span></div>
+    </a>
+  </div>
 </div></section>
 </main>
 <footer class="f"><div class="wrap fbase">&copy; 2026 Arc Trips. Prices in CAD, before taxes and fees.</div></footer>
 <script src="_nav.js"></script>
-</body></html>
+</body>
+</html>

@@ -1,42 +1,146 @@
-<!doctype html><html lang="en-CA"><head><meta charset="utf-8">
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Whale watching in Ucluelet, Arc Trips</title>
+<meta name="description" content="Gray whales north from March, humpbacks through the summer, orcas whenever the water allows. Four places to watch from shore in Ucluelet, two that need a boat, and when each whale is here.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" href="brand/arctrips-icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="_system.css">
 <style>
-:focus-visible{outline:2px solid var(--azure);outline-offset:3px}
-.btn,.nav-links a,.crumb a{min-height:44px;display:inline-flex;align-items:center}
-.crumb{font-size:.9rem}
+/* Page-scoped only. Every value comes from _system.css tokens: no new hue, no
+   hardcoded colour, no emerald (emerald is the season signal elsewhere). */
+:focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:var(--r-sm)}
+.btn,.nav-links a{min-height:44px;display:inline-flex;align-items:center}
+.crumb a{min-height:44px;display:inline-flex;align-items:center}
+.crumb{font-size:.88rem;color:var(--n600)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+cite{font-style:normal}
+.skip{position:absolute;left:var(--gut);top:-60px;z-index:99;background:var(--navy);color:var(--paper);
+  padding:13px 18px;border-radius:0 0 var(--r-sm) var(--r-sm);font-weight:600;font-size:.9rem}
+.skip:focus{top:0}
+main [id]{scroll-margin-top:150px}
+@media(max-width:760px){main [id]{scroll-margin-top:140px}}
+
+/* hero */
 .chero{position:relative;min-height:min(58vh,500px);display:flex;align-items:flex-end;overflow:hidden;background:var(--navy)}
 .chero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.chero__v{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,51,86,.1),rgba(11,51,86,.72) 62%,rgba(11,51,86,.95))}
-.chero__in{position:relative;width:100%;padding-block:clamp(28px,4vw,52px)}
-.chero h1{color:#fff;font-size:clamp(2.5rem,6vw,4.4rem);letter-spacing:-.042em;line-height:1;max-width:17ch}
-.chero p{color:rgba(255,255,255,.9);max-width:56ch;margin-top:16px;font-size:1.05rem}
-.cfacts{display:flex;gap:clamp(20px,4vw,44px);margin-top:24px;flex-wrap:wrap}
-.cfacts dt{font-size:.9rem;color:rgba(255,255,255,.75);font-weight:600}
-.cfacts dd{font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:800;color:#fff;margin-top:4px;font-variant-numeric:tabular-nums}
-.places{display:grid;gap:clamp(40px,5vw,72px)}
-.pl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,3.4vw,48px);align-items:center}
+.chero__v{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,51,86,.28),rgba(11,51,86,.62) 42%,rgba(11,51,86,.94))}
+.chero__in{position:relative;width:100%;padding-block:clamp(30px,4vw,54px)}
+.chero h1{color:var(--paper);font-size:clamp(2.4rem,5.8vw,4.2rem);letter-spacing:-.042em;line-height:1;max-width:16ch}
+.chero p{color:rgba(255,255,255,.9);max-width:58ch;margin-top:16px;font-size:1.05rem;line-height:1.55}
+.cfacts{display:flex;gap:clamp(22px,4vw,52px);margin-top:26px;flex-wrap:wrap;
+  border-top:1px solid rgba(255,255,255,.26);padding-top:20px}
+.cfacts dt{font-size:.88rem;color:rgba(255,255,255,.78);font-weight:600;letter-spacing:.04em}
+.cfacts dd{font-size:clamp(1.5rem,2.6vw,2.1rem);font-weight:800;color:var(--paper);margin-top:5px;
+  font-variant-numeric:tabular-nums;letter-spacing:-.03em;line-height:1.05}
+.cfacts dd small{font-size:.46em;font-weight:700;color:rgba(255,255,255,.78);margin-left:5px;letter-spacing:0}
+
+/* the standfirst under the hero */
+.standfirst{max-width:66ch}
+.standfirst p{color:var(--n700);font-size:clamp(1.02rem,1.3vw,1.16rem);line-height:1.62}
+.standfirst p+p{margin-top:14px}
+.standfirst b{color:var(--navy);font-weight:700}
+
+/* group heads, the sequence the page is ordered by */
+.grp{border-top:1px solid var(--n150);padding-top:clamp(22px,2.6vw,30px);margin-top:clamp(46px,5vw,74px)}
+.grp:first-child{border-top:0;padding-top:0;margin-top:0}
+.grp h2{font-size:clamp(1.5rem,2.4vw,2rem)}
+.grp__s{color:var(--n600);font-size:.99rem;line-height:1.55;max-width:62ch;margin-top:12px}
+
+/* the numbered list of places */
+.places{list-style:none;display:grid;gap:clamp(36px,4.4vw,62px);margin-top:clamp(26px,3vw,36px)}
+.pl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(22px,3.2vw,46px);align-items:center}
 .pl:nth-child(even) .pl__m{order:2}
 @media(max-width:820px){.pl{grid-template-columns:1fr}.pl:nth-child(even) .pl__m{order:0}}
+.pl--np{grid-template-columns:1fr;border-left:3px solid var(--a250);padding-left:clamp(16px,2vw,26px)}
 .pl__m{margin:0;border-radius:var(--r);overflow:hidden;background:var(--n100);aspect-ratio:4/3}
-.pl__m img{width:100%;height:100%;object-fit:cover}
-.pl__b h3{font-size:clamp(1.3rem,2.1vw,1.7rem);font-weight:800;letter-spacing:-.026em;margin-bottom:12px}
-.pl__b p{color:var(--n700);line-height:1.68;max-width:62ch;margin-bottom:12px}
-.gf{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.gf span{font-size:.86rem;background:var(--n50);color:var(--n700);padding:7px 13px;border-radius:999px}
-.note{background:var(--n50);padding:14px 18px;border-radius:var(--r-sm);margin-top:16px;font-size:.97rem}
-.note b{color:var(--navy)}
-</style></head><body>
+.pl__m img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.pl:hover .pl__m img{transform:scale(1.03)}
+.pl__n{font-size:.88rem;font-weight:800;color:var(--azure);font-variant-numeric:tabular-nums;
+  letter-spacing:.09em;display:block;margin-bottom:8px}
+.pl__b h3{font-size:clamp(1.28rem,2vw,1.62rem);font-weight:800;letter-spacing:-.026em;margin-bottom:12px}
+.pl__b p{color:var(--n700);line-height:1.66;max-width:62ch}
+.pl__b p+p{margin-top:11px}
+.gfline{margin-top:14px;font-size:.92rem;color:var(--n700);line-height:1.55;max-width:62ch}
+.gfline span{display:block;font-size:.72rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--n600);margin-bottom:5px}
+.note{margin-top:15px;font-size:.92rem;color:var(--n600);line-height:1.55;max-width:62ch;
+  border-left:2px solid var(--a300);padding-left:13px}
+.note b{color:var(--navy);font-weight:700}
+
+/* questions, one column, collapsed, at the foot of the page */
+.qs{max-width:74ch}
+.faq{border-top:1px solid var(--n150)}
+.faq:last-of-type{border-bottom:1px solid var(--n150)}
+.faq summary{display:flex;gap:16px;align-items:center;justify-content:space-between;cursor:pointer;
+  min-height:58px;padding-block:13px;font-weight:700;color:var(--navy);font-size:1rem;
+  letter-spacing:-.012em;line-height:1.35;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";width:10px;height:10px;flex:none;border-right:2px solid var(--n500);
+  border-bottom:2px solid var(--n500);transform:rotate(45deg) translateY(-2px);transition:transform .2s var(--ease)}
+.faq[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.faq summary:hover{color:var(--azure)}
+.faq p{color:var(--n600);font-size:.96rem;line-height:1.65;padding-bottom:16px;max-width:70ch}
+.faq cite{display:block;font-size:.82rem;color:var(--n600);font-weight:600;padding-bottom:18px}
+
+/* keep going, three fixed slots, each with a photograph */
+.kg{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,28px);margin-top:26px}
+@media(max-width:860px){.kg{grid-template-columns:1fr}}
+.kg a{display:flex;flex-direction:column;border:1px solid var(--n150);border-radius:var(--r);overflow:hidden;
+  transition:border-color .22s var(--ease)}
+.kg a:hover{border-color:var(--navy)}
+.kg figure{margin:0;aspect-ratio:16/10;background:var(--n100);overflow:hidden}
+.kg figure img{width:100%;height:100%;object-fit:cover}
+.kg div{padding:clamp(16px,2vw,22px);display:flex;flex-direction:column;gap:8px;flex:1}
+.kg h3{font-size:1.06rem}
+.kg p{color:var(--n600);font-size:.92rem;line-height:1.55}
+.kg .go{margin-top:auto;padding-top:6px;color:var(--azure);font-weight:700;font-size:.88rem}
+
+.mband{border:1px solid var(--n150);border-radius:var(--r);padding:clamp(20px,2.6vw,30px);margin-top:clamp(24px,3vw,34px)}
+.mrow{display:grid;grid-template-columns:minmax(140px,1fr) minmax(260px,1.6fr) minmax(0,2fr);
+  gap:clamp(14px,2vw,26px);align-items:center;padding-block:16px;border-top:1px solid var(--n150)}
+.mrow:first-child{border-top:0;padding-top:0}
+@media(max-width:900px){.mrow{grid-template-columns:1fr;gap:10px;padding-block:18px}}
+.mrow__n{font-weight:700;color:var(--navy);font-size:1.02rem}
+.mrow__w{color:var(--n600);font-size:.92rem;line-height:1.5}
+.mcells{display:flex;gap:3px}
+.mcells span{flex:1;min-width:0;height:30px;display:flex;align-items:center;justify-content:center;
+  border-radius:var(--r-sm);font-size:.8rem;font-weight:700;background:var(--n50);color:var(--n600);
+  box-shadow:inset 0 0 0 1px var(--n150)}
+.mcells span[data-i="1"]{background:var(--a250);color:var(--navy);box-shadow:none}
+.mcells span[data-i="2"]{background:var(--azure);color:var(--paper);box-shadow:none}
+.mkey{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:18px;padding-top:16px;
+  border-top:1px solid var(--n150);font-size:.86rem;color:var(--n600);font-weight:600}
+.mkey i{width:14px;height:14px;border-radius:4px;display:inline-block;background:var(--n50);border:1px solid var(--n200)}
+.mkey i[data-i="1"]{background:var(--a250)}
+.mkey i[data-i="2"]{background:var(--azure)}
+.plain{margin-top:clamp(24px,3vw,34px);border-left:2px solid var(--a300);padding-left:14px;
+  color:var(--n600);font-size:.96rem;line-height:1.6;max-width:74ch}
+.plain b{color:var(--navy);font-weight:700}
+</style>
+</head>
+<body>
 <span id="top" aria-hidden="true"></span>
+<a class="skip" href="#main">Skip to content</a>
 <nav class="top"><div class="wrap nav-in">
   <a class="brand" href="index.html"><img class="brand__mark" src="brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
-  <ul class="nav-links"><li><a href="search.html?in=ucluelet">Stays</a></li><li><a href="index.html" aria-current="page">Destinations</a></li><li><a href="region.html">Vancouver Island</a></li></ul>
-  <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-    <input placeholder="Search Ucluelet" aria-label="Search"><kbd>/</kbd></label>
-  <a class="btn btn--ink btn--sm" href="search.html?in=ucluelet">Sign in</a>
+  <ul class="nav-links">
+    <li><a href="search.html?in=ucluelet">Stays</a></li>
+    <li><a href="index.html">Destinations</a></li>
+    <li><a href="region.html">Vancouver Island</a></li>
+  </ul>
+  <form class="search" role="search" action="search.html" method="get">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
+    <label class="vh" for="q">Search Ucluelet for a trail, a beach or a place to eat</label>
+    <input id="q" name="q" type="search" placeholder="Wild Pacific Trail, Barkley Sound" autocomplete="off">
+    <input type="hidden" name="in" value="ucluelet">
+    <kbd>/</kbd>
+  </form>
+  <a class="btn btn--ink btn--sm" href="not-found.html">Sign in</a>
 </div></nav>
 <nav class="placebar" aria-label="Ucluelet"><div class="wrap placebar-in">
   <a class="placebar__back" href="ucluelet.html"><span class="n">&larr; Ucluelet</span></a>
@@ -64,91 +168,178 @@
   <span aria-current="page">Whale watching</span>
 </nav></div>
 <header class="chero">
-  <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_2000,h_1000/guides/ucluelet/whale-watching/_category-1" alt="Whale watching in Ucluelet">
+  <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_2000,h_1000/guides/ucluelet/whale-watching/_category-1" alt="An orca surfacing beside a small white tour boat on the water off Ucluelet">
   <div class="chero__v"></div>
   <div class="chero__in"><div class="wrap">
-    <span class="label" style="color:var(--a300)">Ucluelet, Vancouver Island</span>
+    <span class="label" style="color:var(--a200)">Ucluelet, Vancouver Island</span>
     <h1>Whale watching in Ucluelet</h1>
-    <p>Discover the best wildlife watching in Ucluelet, British Columbia. Learn where to see whales, black bears, sea lions, seals, sea otters, bald eagles, and coastal birds from shore, boat tours, kayak trips, and trails.</p>
+    <p>Gray whales heading north from March, humpbacks through the summer, orcas whenever the water allows. Four of the six places to watch from are free and on foot.</p>
     <dl class="cfacts">
-      <div><dt>Places written up</dt><dd class="tnum">6</dd></div>
-      <div><dt>With photographs</dt><dd class="tnum">6</dd></div>
+      <div><dt>Season</dt><dd class="tnum">Mar to Oct</dd></div>
+      <div><dt>From shore</dt><dd class="tnum">4</dd></div>
+      <div><dt>By boat</dt><dd class="tnum">2</dd></div>
+      <div><dt>Typical tour</dt><dd class="tnum">2.5<small>to 3 h</small></dd></div>
     </dl>
   </div></div>
 </header>
-<section class="sec"><div class="wrap">
-  <div class="places">
-  <article class="pl">
-    <figure class="pl__m"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/ucluelet/whale-watching/wild-pacific-trail-1" alt="Wild Pacific Trail, Ucluelet"></figure>
+<section class="sec" style="padding-bottom:clamp(30px,3vw,44px)"><div class="wrap">
+  <div class="standfirst">
+    <p><b>Ucluelet sits on the short run to Barkley Sound</b>, the Broken Group Islands and the open Pacific, which is why a town of this size has a whale watching fleet at all. Gray whales pass on their way north from the calving lagoons in Baja California toward Alaska. Humpbacks stay to feed. Orcas turn up when they turn up, and nobody sells you a guarantee on the third.</p>
+    <p>The same water holds sea lions, harbour seals, sea otters and bald eagles all year, which is why a day from shore is rarely wasted even out of season.</p>
+  </div>
+  <div class="mband">
+    <div class="mrow">
+      <span class="mrow__n">Gray whale</span>
+      <div class="mcells" aria-hidden="true"><span data-i="0">J</span><span data-i="1">F</span><span data-i="2">M</span><span data-i="2">A</span><span data-i="2">M</span><span data-i="1">J</span><span data-i="0">J</span><span data-i="0">A</span><span data-i="0">S</span><span data-i="0">O</span><span data-i="0">N</span><span data-i="0">D</span></div>
+      <p class="mrow__w">March to May is the main run north. Early sightings in February, and a few linger into early summer.</p>
+    </div>
+    <div class="mrow">
+      <span class="mrow__n">Humpback whale</span>
+      <div class="mcells" aria-hidden="true"><span data-i="0">J</span><span data-i="0">F</span><span data-i="0">M</span><span data-i="0">A</span><span data-i="1">M</span><span data-i="1">J</span><span data-i="2">J</span><span data-i="2">A</span><span data-i="2">S</span><span data-i="1">O</span><span data-i="0">N</span><span data-i="0">D</span></div>
+      <p class="mrow__w">Appearing from later in spring, most likely mid-summer to September.</p>
+    </div>
+    <div class="mrow">
+      <span class="mrow__n">Orca</span>
+      <div class="mcells" aria-hidden="true"><span data-i="0">J</span><span data-i="0">F</span><span data-i="1">M</span><span data-i="1">A</span><span data-i="1">M</span><span data-i="1">J</span><span data-i="1">J</span><span data-i="1">A</span><span data-i="1">S</span><span data-i="1">O</span><span data-i="0">N</span><span data-i="0">D</span></div>
+      <p class="mrow__w">Possible whenever a boat is out, and never predictable.</p>
+    </div>
+    <div class="mrow">
+      <span class="mrow__n">Tours running</span>
+      <div class="mcells" aria-hidden="true"><span data-i="0">J</span><span data-i="0">F</span><span data-i="2">M</span><span data-i="2">A</span><span data-i="2">M</span><span data-i="2">J</span><span data-i="2">J</span><span data-i="2">A</span><span data-i="2">S</span><span data-i="2">O</span><span data-i="0">N</span><span data-i="0">D</span></div>
+      <p class="mrow__w">March to October, depending on the operator and the weather.</p>
+    </div>
+    <p class="mkey"><i data-i="2"></i>Most likely<i data-i="1"></i>Possible<i></i>Not here</p>
+  </div>
+  <p class="plain"><b>Whale watching is not bookable on Arc Trips yet.</b> We are signing operators in Ucluelet and Tofino and will not list one until we have been out on the boat. The stays are live now.</p>
+</div></section>
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="grp" id="shore">
+    <h2>From shore, for nothing</h2>
+    <p class="grp__s">Four places you can walk to and watch from without booking anything. Bring binoculars: from land the animals are usually a long way out.</p>
+  </div>
+  <ol class="places">
+  <li class="pl">
+    <figure class="pl__m"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/ucluelet/whale-watching/wild-pacific-trail-1" alt="A bench on the Wild Pacific Trail looking out to the open Pacific at sunset"></figure>
     <div class="pl__b">
+      <span class="pl__n">01</span>
       <h3>Wild Pacific Trail</h3>
       <p>The Wild Pacific Trail is one of the best places in Ucluelet to watch wildlife from land. It follows the rocky coast and gives you many ocean viewpoints.</p>
-      <p>You may see whales offshore, eagles flying above the trees, sea lions on rocks, seals in the water, cormorants near the shore, and many types of coastal birds.</p><p>The trail is also one of the easiest ways to enjoy wildlife without booking a tour.</p>
-      <div class="gf"><span>Whale watching from shore</span><span>Bald eagles</span><span>Sea lions and seals</span><span>Coastal birds</span><span>Storm watching</span><span>Photography</span><span>Easy walking</span></div>
+      <p>You may see whales offshore, eagles flying above the trees, sea lions on rocks, seals in the water, cormorants near the shore, and many types of coastal birds.</p>
+      <p>The trail is also one of the easiest ways to enjoy wildlife without booking a tour.</p>
+      <p class="gfline"><span>Good for</span>Whale watching from shore · Bald eagles · Sea lions and seals · Coastal birds · Storm watching · Photography · Easy walking</p>
       <p class="note"><b>Good to know.</b> Bring binoculars. Wildlife may be far from shore.</p>
     </div>
-  </article><article class="pl">
-    <figure class="pl__m"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/ucluelet/whale-watching/amphitrite-point-lighthouse-1" alt="Amphitrite Point Lighthouse, Ucluelet"></figure>
+  </li>
+  <li class="pl">
+    <figure class="pl__m"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/ucluelet/whale-watching/amphitrite-point-lighthouse-1" alt="Benches on the grass beside Amphitrite Point Lighthouse"></figure>
     <div class="pl__b">
+      <span class="pl__n">02</span>
       <h3>Amphitrite Point Lighthouse</h3>
       <p>Amphitrite Point Lighthouse is one of the most famous stops on the Wild Pacific Trail. It has wide ocean views and is a good place to watch for whales, sea lions, seals, and birds.</p>
       <p>In spring, you may have a chance to spot migrating gray whales offshore. In other seasons, you may still see eagles, seals, sea lions, and seabirds.</p>
-      <div class="gf"><span>Whale watching from land</span><span>Ocean views</span><span>Photography</span><span>Eagles</span><span>Seals and sea lions</span><span>Storm watching</span></div>
+      <p class="gfline"><span>Good for</span>Whale watching from land · Ocean views · Photography · Eagles · Seals and sea lions · Storm watching</p>
       <p class="note"><b>Good to know.</b> Stay on marked paths and away from wet rocks. Large waves can be dangerous.</p>
     </div>
-  </article><article class="pl">
-    <figure class="pl__m"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/ucluelet/whale-watching/ucluelet-harbour-1" alt="Ucluelet Harbour, Ucluelet"></figure>
+  </li>
+  <li class="pl">
+    <figure class="pl__m"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/ucluelet/whale-watching/ucluelet-harbour-1" alt="Fishing boats and the floathouse on the water in Ucluelet Harbour"></figure>
     <div class="pl__b">
+      <span class="pl__n">03</span>
       <h3>Ucluelet Harbour</h3>
       <p>Ucluelet Harbour is a good place to look for wildlife close to town. You may see seals, eagles, gulls, cormorants, river otters, and shorebirds.</p>
       <p>This is also where many wildlife and whale watching tours depart.</p>
-      <div class="gf"><span>Easy wildlife watching</span><span>Boat tour departures</span><span>Seals</span><span>Eagles</span><span>River otters</span><span>Harbour birds</span></div>
+      <p class="gfline"><span>Good for</span>Easy wildlife watching · Boat tour departures · Seals · Eagles · River otters · Harbour birds</p>
       <p class="note"><b>Good to know.</b> Watch for boat traffic and keep a safe distance from docks and working harbour areas.</p>
     </div>
-  </article><article class="pl">
-    <figure class="pl__m"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/ucluelet/whale-watching/barkley-sound-1" alt="Barkley Sound, Ucluelet"></figure>
+  </li>
+  <li class="pl">
+    <figure class="pl__m"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/ucluelet/whale-watching/pacific-rim-national-park-reserve-1" alt="Shorebirds and open sand in Pacific Rim National Park Reserve"></figure>
     <div class="pl__b">
+      <span class="pl__n">04</span>
+      <h3>Pacific Rim National Park Reserve</h3>
+      <p>Pacific Rim National Park Reserve is near Ucluelet and includes the Long Beach Unit, Broken Group Islands, and the West Coast Trail area. It is a major protected area for coastal rainforest, beaches, and marine ecosystems.</p>
+      <p>Wildlife here may include black bears, wolves, cougars, deer, whales, seals, sea lions, shorebirds, and many other coastal species.</p>
+      <p>Visitors should give wildlife space, store food properly, and never feed animals.</p>
+      <p class="gfline"><span>Good for</span>Bird watching · Beach wildlife · Whale watching from viewpoints · Black bear awareness · Coastal rainforest wildlife · Tidepool life · Guided nature learning</p>
+      <p class="note"><b>Good to know.</b> You may need a national park pass if you stop in the park.</p>
+    </div>
+  </li>
+  </ol>
+  <div class="grp" id="boat">
+    <h2>By boat</h2>
+    <p class="grp__s">Two areas you cannot reach on foot, and where most of the whales are. Tours run March to October out of the harbour, about two and a half to three hours.</p>
+  </div>
+  <ol class="places">
+  <li class="pl">
+    <figure class="pl__m"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/ucluelet/whale-watching/barkley-sound-1" alt="Sea lions hauled out on a rock islet in Barkley Sound with mountains behind"></figure>
+    <div class="pl__b">
+      <span class="pl__n">05</span>
       <h3>Barkley Sound</h3>
       <p>Barkley Sound is one of the top wildlife watching areas near Ucluelet. It includes islands, channels, rocky shores, kelp beds, and sheltered waters.</p>
       <p>This is where many boat and kayak trips go. It is also the gateway to the Broken Group Islands.</p>
-      <div class="gf"><span>Whales</span><span>Sea lions</span><span>Seals</span><span>Sea otters</span><span>Bald eagles</span><span>Seabirds</span><span>Black bears along shorelines</span><span>Boat tours and kayaking</span></div>
+      <p class="gfline"><span>Good for</span>Whales · Sea lions · Seals · Sea otters · Bald eagles · Seabirds · Black bears along shorelines · Boat tours and kayaking</p>
       <p class="note"><b>Good to know.</b> The best way to explore Barkley Sound wildlife is by guided boat or kayak tour.</p>
     </div>
-  </article><article class="pl">
-    <figure class="pl__m"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/ucluelet/whale-watching/broken-group-islands-1" alt="Broken Group Islands, Ucluelet"></figure>
+  </li>
+  <li class="pl">
+    <figure class="pl__m"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/ucluelet/whale-watching/broken-group-islands-1" alt="Mist over the rocks and islands at dusk in Barkley Sound"></figure>
     <div class="pl__b">
+      <span class="pl__n">06</span>
       <h3>Broken Group Islands</h3>
       <p>The Broken Group Islands are part of Pacific Rim National Park Reserve in Barkley Sound. They are known for forested islands, shell beaches, sheltered channels, reefs, and rocky outcrops.</p>
       <p>This is a great area for wildlife watching by kayak or boat. You may see seals, sea lions, sea otters, bald eagles, seabirds, shorebirds, and sometimes whales in nearby waters.</p>
-      <div class="gf"><span>Kayak wildlife watching</span><span>Boat tours</span><span>Sea otters</span><span>Seals and sea lions</span><span>Bald eagles</span><span>Seabirds</span><span>Multi-day paddling trips</span></div>
+      <p class="gfline"><span>Good for</span>Kayak wildlife watching · Boat tours · Sea otters · Seals and sea lions · Bald eagles · Seabirds · Multi-day paddling trips</p>
       <p class="note"><b>Good to know.</b> The Broken Group Islands are boat-access only. Plan ahead if you are kayaking or camping.</p>
     </div>
-  </article><article class="pl">
-    <figure class="pl__m"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/ucluelet/whale-watching/pacific-rim-national-park-reserve-1" alt="Pacific Rim National Park Reserve, Ucluelet"></figure>
-    <div class="pl__b">
-      <h3>Pacific Rim National Park Reserve</h3>
-      <p>Pacific Rim National Park Reserve is near Ucluelet and includes the Long Beach Unit, Broken Group Islands, and the West Coast Trail area. It is a major protected area for coastal rainforest, beaches, </p>
-      <p>Wildlife here may include black bears, wolves, cougars, deer, whales, seals, sea lions, shorebirds, and many other coastal species.</p><p>Visitors should give wildlife space, store food properly, and never feed animals.</p>
-      <div class="gf"><span>Bird watching</span><span>Beach wildlife</span><span>Whale watching from viewpoints</span><span>Black bear awareness</span><span>Coastal rainforest wildlife</span><span>Tidepool life</span><span>Guided nature learning</span></div>
-      <p class="note"><b>Good to know.</b> You may need a national park pass if you stop in the park.</p>
+  </li>
+  </ol>
+</div></section>
+<section class="sec" id="questions"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">Questions</span>
+      <h2 style="margin-top:11px">Sixteen things people ask before they go out</h2>
+      <p>Every answer below comes from one of the four Ucluelet whale guides, and that guide is under each one.</p>
     </div>
-  </article>
+  </div>
+  <div class="qs">
+    <details class="faq"><summary>Is Ucluelet good for whale watching?</summary><p>Yes. Ucluelet is one of the best whale watching bases on Vancouver Island because it gives access to Barkley Sound, the Broken Group Islands area, and Pacific feeding and migration waters.</p><cite>Whale Watching in Ucluelet</cite></details>
+    <details class="faq"><summary>What whales can you see in Ucluelet?</summary><p>You may see gray whales, humpback whales, and sometimes orcas. Tours may also see sea lions, harbor seals, sea otters, bald eagles, and seabirds.</p><cite>Whale Watching in Ucluelet</cite></details>
+    <details class="faq"><summary>When is the best time for whale watching in Ucluelet?</summary><p>March to May is best for gray whale migration. Mid-summer to September is often good for humpback whales. Orcas are possible but less predictable.</p><cite>Whale Watching in Ucluelet</cite></details>
+    <details class="faq"><summary>Can you see gray whales in Ucluelet?</summary><p>Yes. Gray whales are one of the main whale species associated with Ucluelet, especially during spring migration.</p><cite>Whale Watching in Ucluelet</cite></details>
+    <details class="faq"><summary>What whales migrate past Ucluelet in spring?</summary><p>Pacific gray whales are the main whales associated with the spring migration in Ucluelet. Humpbacks may also appear later in spring and become more common during summer.</p><cite>Whales in Ucluelet: The Spring Migration Explained</cite></details>
+    <details class="faq"><summary>When is the gray whale migration in Ucluelet?</summary><p>The main spring migration period is usually March to May. Early sightings may happen in February, and some whales may still be present into early summer.</p><cite>Whales in Ucluelet: The Spring Migration Explained</cite></details>
+    <details class="faq"><summary>Why do gray whales migrate past Ucluelet?</summary><p>Gray whales pass Ucluelet as they travel north from winter breeding and calving areas in Baja California, Mexico, toward northern feeding grounds near Alaska and the Arctic.</p><cite>Whales in Ucluelet: The Spring Migration Explained</cite></details>
+    <details class="faq"><summary>Is March a good time for whale watching in Ucluelet?</summary><p>Yes. March is a key month because gray whales are returning along the coast, and the Pacific Rim Whale Festival celebrates their migration.</p><cite>Whales in Ucluelet: The Spring Migration Explained</cite></details>
+    <details class="faq"><summary>Are whale watching tours in Ucluelet worth it?</summary><p>Yes. Ucluelet is a strong whale watching base because tours can access Barkley Sound, the Broken Group Islands area, and nearby Pacific waters with whales and other marine wildlife.</p><cite>Whale Watching Tours in Ucluelet</cite></details>
+    <details class="faq"><summary>What is the best whale watching tour in Ucluelet?</summary><p>The best tour depends on your needs. Families and comfort-focused travelers may prefer a covered boat. Adventure travelers may prefer a zodiac. Photographers or groups may prefer a smaller tour or private charter.</p><cite>Whale Watching Tours in Ucluelet</cite></details>
+    <details class="faq"><summary>When do whale watching tours run in Ucluelet?</summary><p>Many whale watching tours run from March to October, but exact dates depend on the operator, weather, and season.</p><cite>Whale Watching Tours in Ucluelet</cite></details>
+    <details class="faq"><summary>How long are Ucluelet whale watching tours?</summary><p>Many tours are about 2.5 to 3 hours, but timing can vary. Always check the operator’s current tour details.</p><cite>Whale Watching Tours in Ucluelet</cite></details>
+    <details class="faq"><summary>Is Ucluelet good for wildlife watching?</summary><p>Yes. Ucluelet is one of the best wildlife watching areas on Vancouver Island. You can see whales, black bears, sea lions, seals, sea otters, bald eagles, shorebirds, seabirds, and more.</p><cite>Whale watching FAQs, Ucluelet</cite></details>
+    <details class="faq"><summary>What animals can you see in Ucluelet?</summary><p>You may see gray whales, humpback whales, orcas, black bears, sea lions, harbor seals, sea otters, river otters, bald eagles, great blue herons, shorebirds, and seabirds.</p><cite>Whale watching FAQs, Ucluelet</cite></details>
+    <details class="faq"><summary>Can you see whales from Ucluelet?</summary><p>Yes. You can see whales on boat tours, and sometimes from shore along the Wild Pacific Trail, especially during migration seasons.</p><cite>Whale watching FAQs, Ucluelet</cite></details>
+    <details class="faq"><summary>Where is the best place to see whales from shore in Ucluelet?</summary><p>The Wild Pacific Trail and Amphitrite Point Lighthouse area are among the best shore-based places to scan for whales. Bring binoculars.</p><cite>Whale watching FAQs, Ucluelet</cite></details>
   </div>
 </div></section>
 <section class="sec" style="padding-top:0"><div class="wrap">
-  <h2>More on whale watching</h2>
-  <nav class="siblings" style="margin-top:20px">
-    <a class="sib" href="search.html?q=Wildlife%20Watching%20in%20Ucluelet&amp;in=ucluelet"><span class="sib__n">Wildlife Watching in Ucluelet</span><span class="sib__m">whale-watching</span></a><a class="sib" href="search.html?q=Whale%20Watching%20Tours%20in%20Ucluelet&amp;in=ucluelet"><span class="sib__n">Whale Watching Tours in Ucluelet</span><span class="sib__m">whale-watching</span></a><a class="sib" href="search.html?q=Whales%20in%20Ucluelet%3A%20The%20Spring%20Migration%20Explained&amp;in=ucluelet"><span class="sib__n">Whales in Ucluelet: The Spring Migration Explained</span><span class="sib__m">whale-watching</span></a><a class="sib" href="search.html?q=Whale%20watching%20FAQs&amp;in=ucluelet"><span class="sib__n">Whale watching FAQs</span><span class="sib__m">whale-watching</span></a>
-  </nav></div></section>
-<section class="sec" style="padding-top:0"><div class="wrap">
-  <h2>Keep going</h2>
-  <nav class="siblings" style="margin-top:20px">
-    <a class="sib" href="ucluelet.html#do"><span class="sib__n">Everything to do in Ucluelet</span><span class="sib__m">All the subjects</span></a>
-    <a class="sib" href="ucluelet.html"><span class="sib__n">Ucluelet</span><span class="sib__m">The town</span></a>
-    <a class="sib" href="search.html?in=ucluelet"><span class="sib__n">Stays</span><span class="sib__m">Search what is open</span></a>
-  </nav>
+  <span class="label label--n">Keep going</span>
+  <div class="kg">
+    <a href="search.html?q=Whale%20Watching%20Tours%20in%20Ucluelet&in=ucluelet">
+      <figure><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_640,h_400/guides/ucluelet/whale-watching/_category-2" alt="A small tour boat heading out past a misted island off Ucluelet"></figure>
+      <div><h3>Whale Watching Tours in Ucluelet</h3><p>Covered boat or zodiac, how long you are out, and what to ask an operator before you book.</p><span class="go">Find it in Ucluelet guides</span></div>
+    </a>
+    <a href="kayaking-ucluelet.html">
+      <figure><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_640,h_400/guides/ucluelet/kayaking/_category-1" alt="Two kayaks on flat water below a forested hillside near Ucluelet"></figure>
+      <div><h3>Kayaking in Ucluelet</h3><p>The same water at eye level: Barkley Sound and the Broken Group Islands by paddle.</p><span class="go">Open the kayaking page</span></div>
+    </a>
+    <a href="search.html?in=ucluelet">
+      <figure><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_640,h_400/arc-trips/founding-key" alt="A room key with a leather fob on the bed of an Arc Trips stay"></figure>
+      <div><h3>Stays in Ucluelet</h3><p>Rooms and cabins a few minutes from the harbour the boats leave from.</p><span class="go">Search stays in Ucluelet</span></div>
+    </a>
+  </div>
 </div></section>
 </main>
 <footer class="f"><div class="wrap fbase">&copy; 2026 Arc Trips. Prices in CAD, before taxes and fees.</div></footer>
 <script src="_nav.js"></script>
-</body></html>
+</body>
+</html>

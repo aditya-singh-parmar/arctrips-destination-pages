@@ -13,11 +13,14 @@
 <link rel="stylesheet" href="_system.css">
 <style>
 /* ── Page-scoped only. Tokens from _system.css, no new colour values. ────────
-      Season colour is neutral by decision: navy fills an in-season month, grey
-      leaves it empty, and on the navy panel the same idea runs in white
-      transparencies. Emerald survives on the live booking pill and nowhere
-      else. Everything here is either an accessibility floor, a component the
-      system does not carry, or an on-dark correction.
+      Colour carries one meaning on this page and only one: intensity on the
+      azure ramp says how much of Tofino is in season in a given month, palest
+      in January and deepest in May and September. Nothing else on the page is
+      allowed to use that ramp, so the reader never has to ask what a blue
+      means. There is no green anywhere: emerald is the season signal on the
+      landing page and would read as a second, competing scale here.
+      Everything else below is an accessibility floor, a component the system
+      does not carry, or an on-dark correction.
    ───────────────────────────────────────────────────────────────────────── */
 
 /* ═══ floors: 44px targets, visible focus, and nothing under 14px. The body
@@ -31,7 +34,6 @@ nav.top .btn{flex:none}
 .search input{align-self:stretch}
 .search kbd{font-size:.88rem}
 .btn--sm{font-size:.88rem}
-.tide-read{font-size:.88rem}
 .fnote{font-size:.88rem}
 .kmeta{font-size:.88rem}
 .kmeta .k{font-size:.88rem;letter-spacing:.06em}
@@ -45,14 +47,10 @@ body>.skip{position:absolute;left:var(--gut);top:-60px;z-index:99;background:var
   padding:13px 18px;border-radius:0 0 var(--r-sm) var(--r-sm);font-weight:600;font-size:.94rem;transition:top .18s var(--ease)}
 body>.skip:focus{top:0}
 /* n500 is 3.7:1 on paper, so anything carrying meaning moves to n600 */
-.label--n,.dest__meta,.kmeta,.fnote,.fbase,.who span{color:var(--n600)}
+.label--n,.dest__meta,.kmeta,.fnote,.fbase{color:var(--n600)}
 .label{font-size:.88rem;letter-spacing:.1em}
 .crumb{font-size:.88rem;padding-block:22px 10px}
 .jumprow a{min-height:44px;font-size:.9rem}
-.pill{font-size:.88rem;letter-spacing:.05em;padding:5px 11px}
-.led th{font-size:.88rem;letter-spacing:.1em}
-.led__w{font-size:.88rem}
-.sib__m{font-size:.88rem}
 .plate figcaption{font-size:.88rem}
 .fgrid h5{font-size:.88rem;letter-spacing:.1em}
 .fgrid ul{gap:2px;color:var(--n600);font-size:.94rem}
@@ -100,15 +98,11 @@ body>.skip:focus{top:0}
 @media(max-width:940px){.hero-grid{grid-template-columns:minmax(0,1fr)}.collage{min-height:0;max-width:620px}}
 @media(max-width:560px){.collage{aspect-ratio:1/.88}}
 
-/* ═══ the tide strip says what it is, then why it matters ═══ */
-.tide-in .label{color:var(--azure)}
-.tide-read b{white-space:nowrap}
-.tide-why{flex-basis:100%;font-size:.9rem;color:var(--n600);line-height:1.5}
-
-/* ═══ the twelve month board ═══ */
+/* ═══ the twelve month board. Five columns, not six: rain and rain days were
+       two columns saying one thing, and they now share a cell. ═══ */
 .sec--m{padding-block:clamp(44px,5vw,76px) clamp(40px,4.4vw,64px)}
-.mhead{display:grid;grid-template-columns:minmax(140px,1.2fr) 120px 130px 110px 150px 112px;
-  gap:0 20px;padding-bottom:11px;border-bottom:1px solid var(--n200);
+.mhead{display:grid;grid-template-columns:minmax(150px,1.15fr) 132px minmax(160px,1fr) 132px 116px;
+  gap:0 24px;padding-bottom:11px;border-bottom:1px solid var(--n200);
   font-size:.88rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--n600)}
 @media(max-width:1000px){.mhead{display:none}}
 .mboard{display:flex;flex-direction:column}
@@ -119,7 +113,7 @@ body>.skip:focus{top:0}
 .mrow[data-sel]{background:var(--a100)}
 .mrow[data-sel] .mrow__n{color:var(--azure)}
 @media(min-width:1001px){
-  .mrow{grid-template-columns:minmax(140px,1.2fr) 120px 130px 110px 150px 112px;gap:0 20px}
+  .mrow{grid-template-columns:minmax(150px,1.15fr) 132px minmax(160px,1fr) 132px 116px;gap:0 24px}
 }
 .mrow__m{display:flex;flex-direction:column;gap:3px;grid-column:1/-1}
 @media(min-width:1001px){.mrow__m{grid-column:auto}}
@@ -131,89 +125,87 @@ body>.skip:focus{top:0}
 .mfig__v{font-size:1.06rem;font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums;letter-spacing:-.018em}
 .mfig__v .u{font-size:.88rem;font-weight:600;color:var(--n600)}
 /* the bar is that month's real rainfall against the wettest month of the year */
-.mrain{height:7px;border-radius:3px;background:var(--n100);margin-top:6px;overflow:hidden}
+.mrain{height:7px;border-radius:3px;background:var(--n100);margin-top:7px;overflow:hidden;max-width:230px}
 .mrain i{display:block;height:100%;background:var(--a300);width:var(--w)}
 .mrow[data-sel] .mrain i{background:var(--azure)}
-.mbest{display:flex;flex-direction:column;gap:2px;min-width:0;grid-column:1/-1}
+.mbest{display:flex;align-items:center;gap:10px;min-width:0;grid-column:1/-1}
 @media(min-width:1001px){.mbest{grid-column:auto}}
-.mbest b{font-size:1.06rem;font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums}
-.mbest span{font-size:.88rem;color:var(--n600);line-height:1.4}
+/* ── the one place colour carries meaning: how much of Tofino is in season.
+      Six steps up the azure ramp, palest at three subjects, azure at nine.
+      Navy holds 4.5:1 on every tint through a400; the top step flips to white. */
+.mint{display:inline-flex;align-items:center;justify-content:center;min-width:78px;min-height:36px;
+  padding:5px 13px;border-radius:999px;font-size:1rem;font-weight:700;letter-spacing:-.012em;
+  font-variant-numeric:tabular-nums;color:var(--navy);background:var(--a100);
+  box-shadow:inset 0 0 0 1px var(--a250)}
+/* the selected row is itself a100, so the palest chip needs a firmer edge on it */
+.mrow[data-sel] .mint{box-shadow:inset 0 0 0 1px var(--a400)}
+.mint[data-lvl="2"]{background:var(--a200)}
+.mint[data-lvl="3"]{background:var(--a250)}
+.mint[data-lvl="4"]{background:var(--a300)}
+.mint[data-lvl="5"]{background:var(--a400)}
+.mint[data-lvl="6"]{background:var(--azure);color:var(--paper)}
 .mgo{grid-column:1/-1;font-size:.88rem;font-weight:700;color:var(--azure);display:inline-flex;align-items:center;
   gap:7px;min-height:44px}
 @media(min-width:1001px){.mgo{grid-column:auto;justify-content:flex-end;text-align:right}}
 .mgo svg{width:13px;height:13px;transition:transform .2s var(--ease)}
 .mrow:hover .mgo svg{transform:translateX(3px)}
-.msrc{font-size:.88rem;color:var(--n600);line-height:1.6;max-width:70ch;margin-top:22px;padding-top:18px;
-  border-top:1px solid var(--n150)}
+.mkey{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:22px;padding-top:18px;
+  border-top:1px solid var(--n150);font-size:.88rem;color:var(--n600)}
+.mramp{display:flex;gap:3px}
+.mramp i{width:26px;height:11px;border-radius:3px;background:var(--a100)}
+.mramp i:nth-child(2){background:var(--a200)}
+.mramp i:nth-child(3){background:var(--a250)}
+.mramp i:nth-child(4){background:var(--a300)}
+.mramp i:nth-child(5){background:var(--a400)}
+.mramp i:nth-child(6){background:var(--azure)}
+.msrc{font-size:.88rem;color:var(--n600);line-height:1.6;max-width:70ch;margin-top:12px}
 
-/* ═══ the compare panel, inside the locked navy almanac ═══ */
+/* ═══ the compare panel, inside the locked navy almanac.
+       It used to carry two stat cards and an eleven-row table of a hundred and
+       thirty-two month blocks. That was the "too many columns in a small
+       space" problem in one component. The table is gone; the subjects now
+       live in their own light section with a photograph each, and the panel
+       does one job: two months, four numbers, and a picture of each. ═══ */
 .sec--c{padding-block:0 clamp(52px,5.6vw,88px)}
-.almanac{padding:clamp(28px,4.4vw,68px)}
+.almanac{padding:clamp(24px,3.4vw,52px)}
 .almanac h2{font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-.04em}
 .almanac .head{margin-bottom:clamp(22px,2.8vw,34px)}
-.almanac .head p{font-size:1.01rem;max-width:48ch}
+.almanac .head p{font-size:1.01rem;max-width:52ch}
 .sel{display:flex;align-items:center;gap:9px;font-size:.88rem;color:rgba(255,255,255,.8);font-weight:600}
 .sel select{min-height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.42);background:none;color:var(--paper);
   font-family:inherit;font-size:.94rem;font-weight:700;padding:0 15px}
 .sel select option{color:var(--n900);background:var(--paper)}
-.vs{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.2vw,28px)}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.4vw,30px);align-items:start}
 @media(max-width:860px){.vs{grid-template-columns:1fr}}
-.mcard{border:1px solid rgba(255,255,255,.24);border-radius:var(--r);padding:clamp(20px,2.6vw,30px);
-  display:flex;flex-direction:column;gap:15px}
+.mcard{border:1px solid rgba(255,255,255,.24);border-radius:var(--r);overflow:hidden;
+  display:flex;flex-direction:column}
 .mcard--a{border-color:var(--a300)}
-.mcard__h{display:block}
-.mcard__h .sel{margin-top:12px}
-.mcard h3{font-size:clamp(2rem,3.6vw,3rem);font-weight:800;letter-spacing:-.042em;line-height:.98}
+/* the picture is the point: a month you can look at, not only read */
+.mshot{position:relative;aspect-ratio:16/9;background:rgba(255,255,255,.08)}
+.mshot img{width:100%;height:100%;object-fit:cover}
+.mshot figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 18px 13px;color:var(--paper);
+  font-size:.9rem;font-weight:600;line-height:1.4;
+  background:linear-gradient(180deg,rgba(11,51,86,0),rgba(11,51,86,.9))}
+.mcard__b{padding:clamp(18px,2.2vw,26px);display:flex;flex-direction:column;gap:14px;flex:1}
+.mcard h3{font-size:clamp(2rem,3.6vw,3rem);font-weight:800;letter-spacing:-.042em;line-height:.98;margin-top:7px}
 .mcard__s{font-size:1rem;color:rgba(255,255,255,.8);line-height:1.55;max-width:44ch}
 @media(min-width:1100px){.mcard__s{min-height:3.2em}}
 .mcard__s b{color:var(--paper);font-weight:700}
-.bignums{display:grid;grid-template-columns:repeat(4,auto);gap:clamp(12px,2vw,26px);justify-content:start}
+/* four numbers in two rows, never four across a half-width card */
+.bignums{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 20px;
+  border-top:1px solid rgba(255,255,255,.18);padding-top:17px}
 .bignums dt{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.72)}
-.bignums dd{font-size:clamp(1.5rem,2.3vw,2rem);font-weight:800;color:var(--paper);letter-spacing:-.038em;line-height:1;
+.bignums dd{font-size:clamp(1.6rem,2.4vw,2.1rem);font-weight:800;color:var(--paper);letter-spacing:-.038em;line-height:1;
   margin-top:6px;font-variant-numeric:tabular-nums;white-space:nowrap}
 .bignums dd small{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.72);margin-left:4px}
-@media(max-width:600px){.bignums{grid-template-columns:repeat(2,1fr);gap:15px 12px;justify-content:stretch}
-  .bignums dd{font-size:1.55rem}}
 .mcard__u{font-size:.94rem;color:rgba(255,255,255,.8);line-height:1.55}
-.mcard__u:last-of-type{margin-top:auto}
+.mcard__u:last-of-type{margin-top:auto;padding-top:2px}
 .mcard__u b{color:var(--paper);font-weight:700;font-variant-numeric:tabular-nums}
 .sum{font-size:clamp(1.06rem,1.6vw,1.3rem);color:var(--paper);font-weight:600;line-height:1.45;
-  margin:clamp(24px,3vw,34px) 0 clamp(10px,1.4vw,16px);max-width:60ch;letter-spacing:-.014em}
+  margin:clamp(24px,3vw,34px) 0 0;max-width:64ch;letter-spacing:-.014em}
 .sum b{font-size:1.4em;font-weight:800;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
-.ledkey{font-size:.94rem;color:rgba(255,255,255,.74);line-height:1.55;max-width:62ch;
-  margin-bottom:clamp(14px,1.8vw,20px)}
-.led tbody tr{animation:rowin .3s var(--ease) both;animation-delay:calc(var(--i,0)*22ms)}
-@keyframes rowin{from{opacity:0;transform:translateY(7px)}}
-.gsep td{padding:26px 0 6px!important;border-bottom:0!important;font-size:.88rem;font-weight:700;
-  color:rgba(255,255,255,.72)}
-.led__b{font-size:.9rem}
-.jump{display:inline-flex;align-items:center;gap:7px;min-height:44px;font-size:.9rem;font-weight:700;
-  color:var(--a300);transition:color .2s var(--ease)}
-.jump:hover{color:var(--paper)}
-.jump svg{width:13px;height:13px;flex:none}
 .almanac .btn--ghost{border-color:rgba(255,255,255,.4);color:var(--paper)}
 .almanac .btn--ghost:hover{border-color:var(--paper);background:rgba(255,255,255,.09)}
-.almanac__legend{border-top:1px solid rgba(255,255,255,.16);padding-top:20px;display:block;margin-top:clamp(20px,2.4vw,30px);
-  color:rgba(255,255,255,.72);line-height:1.6;max-width:70ch;font-size:.9rem}
-
-/* the season strip. No hue anywhere in it: filled is navy on paper and a white
-   wash on the navy panel, empty is grey, and the current month keeps its ring. */
-.mon{display:grid;grid-template-columns:repeat(12,1fr);gap:2px;min-width:0}
-.mon i{width:auto;min-width:0;height:26px;border-radius:3px;font-size:.88rem;font-weight:600;
-  background:var(--n100);color:var(--n600)}
-.mon i[data-on]{background:var(--navy);color:#fff;font-weight:700}
-.almanac .mon i{background:rgba(255,255,255,.06);color:rgba(255,255,255,.6)}
-.almanac .mon i[data-on]{background:rgba(255,255,255,.14);color:#fff;font-weight:700}
-.almanac .mon i[data-now]{outline:1.5px solid #fff;outline-offset:1.5px}
-@media(max-width:800px){
-  .led thead{display:none}
-  .led tbody tr{display:block;padding-block:17px;border-bottom:1px solid rgba(255,255,255,.12)}
-  .led tbody tr:last-child{border-bottom:0}
-  .led td{display:block;border-bottom:0;padding:0}
-  .led__mon{display:block;margin-top:13px}
-  .led__b{text-align:left;margin-top:11px;white-space:normal}
-  .gsep{padding-block:0!important;border-bottom:0!important}
-}
 
 /* ═══ the full-bleed band. One image escapes the container. ═══ */
 .proof{position:relative;min-height:min(70vh,600px);display:flex;align-items:center;overflow:hidden;
@@ -229,6 +221,36 @@ body>.skip:focus{top:0}
 .proof__cta{margin-top:30px;border-color:rgba(255,255,255,.44);color:var(--paper)}
 .proof__cta:hover{border-color:var(--paper);background:rgba(255,255,255,.1)}
 
+/* ═══ what is at its best in the chosen month. Replaces both the ledger table
+       and the old places rail: one list, a photograph on every row, in season
+       first. ═══ */
+.sec--b{padding-block:0 clamp(48px,5vw,76px)}
+.blist{display:grid;grid-template-columns:repeat(2,1fr);column-gap:clamp(28px,3.6vw,56px)}
+@media(max-width:820px){.blist{grid-template-columns:1fr}}
+.bsep{grid-column:1/-1;font-size:.88rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--n600);padding:clamp(22px,2.6vw,32px) 0 4px}
+.bitem{display:grid;grid-template-columns:124px minmax(0,1fr);gap:18px;padding:18px 0;
+  border-top:1px solid var(--n150);align-items:start;
+  animation:tin .3s var(--ease) both;animation-delay:calc(var(--i,0)*22ms)}
+.bitem__m{border-radius:var(--r-sm);overflow:hidden;aspect-ratio:4/3;background:var(--n100)}
+.bitem__m img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.bitem:hover .bitem__m img{transform:scale(1.06)}
+.bwhen{font-size:.88rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--azure)}
+.bitem--off .bwhen{color:var(--n600)}
+.bitem h3{font-size:1.12rem;margin-top:4px}
+.bitem:hover h3{color:var(--azure)}
+.bitem p{font-size:.94rem;color:var(--n600);line-height:1.55;margin-top:5px}
+/* deliberately not a flex row: a flex row broke "16" away from "places" at
+   390px, and this line is a sentence, so it should wrap like one */
+.bfoot{margin-top:10px;font-size:.9rem;line-height:1.9;color:var(--n600)}
+.bfoot b{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+.bpill{display:inline-flex;align-items:center;min-height:26px;padding:3px 11px;border-radius:999px;
+  font-size:.88rem;font-weight:700;letter-spacing:.02em;background:var(--n100);color:var(--n700);
+  vertical-align:-2px;margin-right:3px}
+.bpill--go{background:var(--navy);color:var(--paper)}
+.bpill--sister{background:var(--paper);color:var(--navy);box-shadow:inset 0 0 0 1px var(--n200)}
+@media(max-width:400px){.bitem{grid-template-columns:92px minmax(0,1fr);gap:14px}}
+
 /* ═══ the nine planning topics ═══ */
 .sec--t{padding-block:0 clamp(48px,5vw,76px)}
 .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,20px)}
@@ -241,50 +263,31 @@ body>.skip:focus{top:0}
 .topic:hover{border-color:var(--a300);box-shadow:0 14px 30px -20px rgba(11,51,86,.4)}
 .topic h3{font-size:1.3rem}
 .topic p{font-size:.96rem;color:var(--n600);line-height:1.56}
-/* the first card is wider than the rest, so the grid is not nine equal tiles */
-@media(min-width:941px){
-  .topic--lead{grid-column:span 2;display:grid;grid-template-columns:1.06fr 1fr;
-    column-gap:clamp(26px,3.4vw,48px);row-gap:11px;align-content:start}
-  .topic--lead>:nth-child(1){grid-area:1/1}
-  .topic--lead>:nth-child(2){grid-area:2/1}
-  .topic--lead>:nth-child(3){grid-area:3/1}
-  .topic--lead>:nth-child(4){grid-area:1/2/4/3;align-self:center}
-  .topic--lead>:nth-child(5){grid-area:4/1/5/3;padding-top:12px}
-  .topic--lead h3{font-size:clamp(1.6rem,2.6vw,2.1rem)}
-}
+/* the sequence is the point: nine cards in the order you actually need them,
+   numbered, rather than nine equal tiles in no order at all */
+.topic__k{display:flex;align-items:baseline;gap:9px;font-size:.88rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--n600)}
+.topic__k b{font-size:1rem;color:var(--azure);font-variant-numeric:tabular-nums;letter-spacing:.04em}
 .topic p.topic__n{font-size:clamp(2.2rem,3.6vw,3.1rem);font-weight:800;color:var(--navy);letter-spacing:-.045em;
   line-height:1;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;flex-wrap:wrap;gap:0 9px}
-.topic--lead p.topic__n{font-size:clamp(3rem,5.4vw,4.6rem)}
 .topic p.topic__n small{font-size:.88rem;font-weight:600;color:var(--n600);line-height:1.4}
 .topic__go{margin-top:auto;padding-top:4px;font-size:.9rem;font-weight:700;color:var(--azure);
   display:inline-flex;align-items:center;gap:7px;min-height:36px}
 .topic__go svg{width:13px;height:13px;transition:transform .22s var(--ease)}
 .topic:hover .topic__go svg{transform:translateX(3px)}
-.topic__f{display:inline-flex;align-items:center;align-self:flex-start;gap:6px;font-size:.88rem;font-weight:700;
-  color:var(--navy);background:var(--n100);padding:5px 11px;border-radius:999px}
-.rank{font-size:1rem;color:var(--n700);margin:0 0 clamp(18px,2.2vw,26px);max-width:66ch;line-height:1.6}
-.rank b{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
 
-/* ═══ the places rail, a list rather than another card grid ═══ */
-.sec--p{padding-block:0 clamp(48px,5vw,76px)}
-.rgrid{display:grid;grid-template-columns:repeat(2,1fr);column-gap:clamp(26px,3.4vw,54px)}
-@media(max-width:760px){.rgrid{grid-template-columns:1fr}}
-.ritem__t{font-size:.88rem;color:var(--n600);font-weight:600;margin-top:3px}
-.ritem__b{font-size:.88rem;color:var(--n600);line-height:1.5;margin-top:5px}
-
-/* ═══ the questions, straight out of the guide FAQs ═══ */
-.sec--q{padding-block:0 clamp(48px,5vw,76px)}
-.qgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(18px,2.4vw,34px);align-items:start}
-.qgroup{border-top:2px solid var(--navy);padding-top:14px}
-.qgroup h3{font-size:1.06rem;display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
-.qgroup h3 span{font-size:.88rem;font-weight:600;color:var(--n600);font-variant-numeric:tabular-nums}
+/* ═══ the questions. One column, collapsed, at the bottom of the page. ═══ */
+.sec--q{padding-block:0 clamp(56px,6vw,90px)}
+.qlist{max-width:74ch}
+.qgroup+.qgroup{margin-top:clamp(24px,3vw,38px)}
+.qgroup h3{font-size:1.06rem;border-bottom:2px solid var(--navy);padding-bottom:11px}
 .qi{border-bottom:1px solid var(--n150)}
-.qi summary{list-style:none;cursor:pointer;display:flex;gap:10px;align-items:flex-start;padding:13px 0;
-  font-size:.96rem;font-weight:600;color:var(--navy);line-height:1.45;min-height:44px}
+.qi summary{list-style:none;cursor:pointer;display:flex;gap:14px;align-items:center;padding:11px 0;
+  font-size:.98rem;font-weight:600;color:var(--navy);line-height:1.45;min-height:52px}
 .qi summary::-webkit-details-marker{display:none}
-.qi summary::after{content:"+";margin-left:auto;font-size:1.14rem;font-weight:700;color:var(--azure);line-height:1.2}
-.qi[open] summary::after{content:"\2013"}
-.qi p{font-size:.94rem;color:var(--n700);line-height:1.62;padding-bottom:15px;max-width:56ch}
+.qi summary::after{content:"+";margin-left:auto;font-size:1.24rem;font-weight:700;color:var(--azure);line-height:1}
+.qi[open] summary::after{content:"\2212"}
+.qi p{font-size:.96rem;color:var(--n700);line-height:1.62;padding-bottom:17px;max-width:62ch}
 
 /* ═══ the stays module: one feature plus a real price ledger ═══ */
 .sec--s{padding-block:0 clamp(48px,5vw,76px)}
@@ -312,24 +315,11 @@ body>.skip:focus{top:0}
   .ledger2 tr{display:grid;grid-template-columns:1fr auto;gap:6px 14px;padding-block:14px;border-bottom:1px solid var(--n150)}
   .ledger2 td{border-bottom:0;padding:0}}
 
-/* ═══ the island roster. Built for eleven towns, not two: published ones get
-       a real tile with counts, the rest a compact honest list. ═══ */
-.sec--i{padding-block:0 clamp(44px,4.6vw,70px)}
-.topic p.topic__n small,.mfig__v .u,.mbest span,.bignums dd small,.stay__p span,
-.ledger2 .l__p span,.qgroup h3 span,.mcard__s,.mcard__u,.sum span{letter-spacing:normal}
-.sub{font-size:1.02rem;font-weight:700;color:var(--navy);margin-bottom:12px}
-.sub--2{margin-top:clamp(24px,3vw,34px)}
-.siblings{background:var(--paper)}
-.sib{box-shadow:0 0 0 1px var(--n150)}
-.sib__m b{color:var(--navy);font-weight:700}
-.roster{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
-.roster a{display:flex;align-items:center;min-height:48px;padding:12px 16px;border:1px solid var(--n150);
-  border-radius:var(--r-sm);background:var(--paper);font-size:.96rem;font-weight:600;color:var(--n700);
-  transition:border-color .18s var(--ease),color .18s var(--ease)}
-.roster a:hover{border-color:var(--navy);color:var(--navy)}
+.topic p.topic__n small,.mfig__v .u,.bignums dd small,.stay__p span,
+.ledger2 .l__p span,.mcard__s,.mcard__u,.sum span{letter-spacing:normal}
 
 /* ═══ the three next steps ═══ */
-.sec--n{padding-block:0 clamp(56px,6vw,90px)}
+.sec--n{padding-block:0 clamp(48px,5vw,76px)}
 .next{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.4vw,30px)}
 @media(max-width:820px){.next{grid-template-columns:1fr}}
 .nextc{display:flex;flex-direction:column;gap:9px;padding-top:20px;border-top:2px solid var(--navy)}
@@ -457,14 +447,14 @@ main [id]{scroll-margin-top:146px}
   </div>
 </div></header>
 
-<!-- today's real tides for Tofino Harbour, said in plain words -->
 <div class="wrap">
   <nav class="jumprow" id="jumprow" aria-label="On this page">
     <a href="#months">Every month</a>
     <a href="#compare">Compare two</a>
+    <a href="#best">At their best</a>
     <a href="#topics">What to settle</a>
-    <a href="#questions">Questions</a>
     <a href="#stays">Stays</a>
+    <a href="#questions">Questions</a>
   </nav>
 </div>
 
@@ -472,67 +462,61 @@ main [id]{scroll-margin-top:146px}
   <div class="head">
     <div>
       <h2>Every month, at a glance</h2>
-      <p>Average high and low, rainfall, and what is at its best. Each rain bar compares that month with the wettest.</p>
+      <p>How warm it gets, how much rain falls and on how many days, and how much of Tofino is in season. Pick a month to set it against another.</p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="search.html?q=Best%20Time%20to%20Stay%20in%20Ucluelet%20or%20Tofino&amp;in=tofino">Read the when to go guide</a>
   </div>
 
   <div class="mhead" aria-hidden="true">
-    <span>Month</span><span>High and low</span><span>Rain</span><span>Rain days</span><span>At their best</span><span>Compare</span>
+    <span>Month</span><span>Average high and low</span><span>Rain</span><span>At their best</span><span>Compare</span>
   </div>
   <div class="mboard" id="mboard"></div>
-  <p class="msrc">Climate normals for the Tofino station, seeded for this prototype.</p>
+  <p class="mkey"><span class="mramp" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+    Palest blue is three of Tofino's eleven subjects in season. Deepest is nine, in May and September.</p>
+  <p class="msrc">Climate normals for the Tofino station. Rain bars run against November, the wettest month.</p>
 </div></section>
 
 <section class="sec sec--c" id="compare"><div class="wrap">
   <div class="almanac">
     <div class="head">
       <div>
-        <h2 id="cTitle">Which month, though?</h2>
-        <p>Pick any two months and read them side by side. Same numbers on both sides.</p>
+        <h2 id="cTitle">Two months, side by side</h2>
+        <p>Pick any two. The same four numbers on each side, and a photograph of what that month is for.</p>
       </div>
-      <a class="btn btn--ghost btn--sm" href="things-to-do.html">Everything worth doing</a>
     </div>
 
     <div class="vs">
       <article class="mcard mcard--a">
-        <div class="mcard__h">
+        <figure class="mshot"><img id="aImg" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_900,h_506/guides/tofino/storm-watching/_category-1" alt="Grey Pacific surf breaking around a rock stack on the Tofino shore"><figcaption id="aCap">February is for storm watching</figcaption></figure>
+        <div class="mcard__b">
           <div>
             <span class="label" id="aSeason"></span>
-            <h3 id="aName" style="margin-top:8px"></h3>
+            <h3 id="aName"></h3>
           </div>
           <p class="sel"><label for="apick">This month</label><select id="apick"></select></p>
+          <p class="mcard__s" id="aClaim"></p>
+          <dl class="bignums" id="aNums"></dl>
+          <p class="mcard__u" id="aOnCount"></p>
+          <p class="mcard__u" id="aOnly"></p>
         </div>
-        <p class="mcard__s" id="aClaim"></p>
-        <dl class="bignums" id="aNums"></dl>
-        <p class="mcard__u" id="aOnCount"></p>
-        <p class="mcard__u" id="aOnly"></p>
       </article>
 
       <article class="mcard mcard--b">
-        <div class="mcard__h">
+        <figure class="mshot"><img id="bImg" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_900,h_506/guides/tofino/beaches/_category-1" alt="Wet sand and a low sun on a Tofino beach at the end of the day"><figcaption id="bCap">July is for beaches</figcaption></figure>
+        <div class="mcard__b">
           <div>
             <span class="label" id="bSeason"></span>
-            <h3 id="bName" style="margin-top:8px"></h3>
+            <h3 id="bName"></h3>
           </div>
           <p class="sel"><label for="bpick">Against</label><select id="bpick"></select></p>
+          <p class="mcard__s" id="bClaim"></p>
+          <dl class="bignums" id="bNums"></dl>
+          <p class="mcard__u" id="bOnCount"></p>
+          <p class="mcard__u" id="bOnly"></p>
         </div>
-        <p class="mcard__s" id="bClaim"></p>
-        <dl class="bignums" id="bNums"></dl>
-        <p class="mcard__u" id="bOnCount"></p>
-        <p class="mcard__u" id="bOnly"></p>
       </article>
     </div>
 
     <p class="sum" id="sum"></p>
-    <p class="ledkey">Each strip below is the twelve months, January on the left. A filled block means that month is in season.</p>
-
-    <table class="led">
-      <thead><tr><th>Subject in Tofino</th><th class="led__mon">In season</th><th style="text-align:right">Booking</th></tr></thead>
-      <tbody id="ledger"></tbody>
-    </table>
-
-    <p class="almanac__legend">Stays are live on Arc Trips. Charters hand off to ArcTrips Fishing. Water tours are being added.</p>
     <p class="vh" role="status" aria-live="polite" id="live"></p>
   </div>
 </div></section>
@@ -542,47 +526,32 @@ main [id]{scroll-margin-top:146px}
   <div class="proof__veil"></div>
   <div class="wrap proof__in">
     <p class="proof__n"><b class="tnum">3,327</b> millimetres of rain a year.</p>
-    <p class="proof__d">More than half of it lands in the four months of storm season. That is why the rainforest is a rainforest, and why the room with the window facing the water is the product.</p>
-    <a class="btn btn--ghost btn--lg proof__cta" href="things-to-do.html">Eight places to watch it from</a>
+    <p class="proof__d">More than half of it falls in the four months from November to February. That is what makes the rainforest a rainforest, and what puts the winter swell on the beaches. Bring the jacket, book the window.</p>
+    <a class="btn btn--ghost btn--lg proof__cta" href="storm-watching-tofino.html">Where to watch a storm</a>
   </div>
 </section>
+
+<section class="sec sec--b" id="best"><div class="wrap">
+  <div class="head">
+    <div>
+      <h2 id="bestTitle">At their best in February</h2>
+      <p id="bestSub"></p>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="things-to-do.html">Everything worth doing</a>
+  </div>
+  <div class="blist" id="blist"></div>
+</div></section>
 
 <section class="sec sec--t" id="topics"><div class="wrap">
   <div class="head">
     <div>
       <h2>Nine things to settle</h2>
-      <p>Answered from the Tofino guides, the listings and the climate record.</p>
+      <p>In the order most people need them, from the road in to what goes in the bag.</p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="search.html?q=&amp;in=tofino">All 18 Tofino articles</a>
+    <a class="btn btn--ghost btn--sm" href="search.html?q=&amp;in=tofino">Read the Tofino guides</a>
   </div>
-
-  <p class="label label--n" style="margin-bottom:4px">Who is travelling</p>
-  <div class="filterrow" role="group" aria-label="Order the topics for a traveller" id="chips"></div>
-  <p class="rank" id="rankline"></p>
 
   <div class="tgrid" id="tgrid"></div>
-</div></section>
-
-<section class="sec sec--p" id="places"><div class="wrap">
-  <div class="head">
-    <div>
-      <h2 id="railTitle">Places to start with</h2>
-      <p id="railSub"></p>
-    </div>
-    <a class="btn btn--ghost btn--sm" href="things-to-do.html">All 73 places</a>
-  </div>
-  <div class="rgrid" id="rail"></div>
-</div></section>
-
-<section class="sec sec--q" id="questions"><div class="wrap">
-  <div class="head">
-    <div>
-      <h2>Questions people ask</h2>
-      <p id="qDek"></p>
-    </div>
-    <a class="btn btn--ghost btn--sm" href="search.html?in=tofino">Search the guides</a>
-  </div>
-  <div class="qgrid" id="qgrid"></div>
 </div></section>
 
 <section class="sec sec--s" id="stays"><div class="wrap">
@@ -605,20 +574,6 @@ main [id]{scroll-margin-top:146px}
   </div>
 </div></section>
 
-<section class="sec sec--i" id="island"><div class="wrap">
-  <div class="head">
-    <div>
-      <h2>Vancouver Island</h2>
-      <p>Eleven towns on the island. Two are published in full, nine are being written.</p>
-    </div>
-    <a class="btn btn--ghost btn--sm" href="region.html">Open Vancouver Island</a>
-  </div>
-  <h3 class="sub">Published</h3>
-  <nav class="siblings" aria-label="Published towns" id="pubTowns"></nav>
-  <h3 class="sub sub--2">Being written</h3>
-  <nav class="roster" aria-label="Towns being written" id="soonTowns"></nav>
-</div></section>
-
 <section class="sec sec--n"><div class="wrap">
   <div class="head"><div>
     <h2>Three ways on from here</h2>
@@ -626,23 +581,34 @@ main [id]{scroll-margin-top:146px}
   <div class="next">
     <div class="nextc">
       <h3>Best time to stay in Tofino and Ucluelet</h3>
-      <p>The month by month guide the board above is built from, across both towns on the same road.</p>
+      <p>Month by month across both towns on the same road, forty minutes apart.</p>
       <a class="topic__go" href="search.html?q=Best%20Time%20to%20Stay%20in%20Ucluelet%20or%20Tofino&amp;in=tofino">Read the guide
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
     </div>
     <div class="nextc">
       <h3>Things to do in Tofino</h3>
-      <p>Seventy-three places across nine subjects, each one written up after going.</p>
+      <p>Beaches, trails, whales, storms and where to eat, gathered in one place.</p>
       <a class="topic__go" href="things-to-do.html">Open things to do
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
     </div>
     <div class="nextc">
-      <h3>British Columbia, town by town</h3>
-      <p>Four regions and fifteen towns in the tree, two of them published so far.</p>
-      <a class="topic__go" href="index.html">Open British Columbia
+      <h3>Vancouver Island</h3>
+      <p>Eleven towns on the island, starting with the two on the surf coast.</p>
+      <a class="topic__go" href="region.html">Open Vancouver Island
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
     </div>
   </div>
+</div></section>
+
+<section class="sec sec--q" id="questions"><div class="wrap">
+  <div class="head">
+    <div>
+      <h2>Questions people ask</h2>
+      <p>Short answers on surf, whales, storms, trails, campgrounds and where to eat.</p>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="search.html?in=tofino">Search the guides</a>
+  </div>
+  <div class="qlist" id="qlist"></div>
 </div></section>
 
 </main>
@@ -703,9 +669,6 @@ const CATN = {
 const CATPAGE = { "beaches":"beaches-tofino.html","hiking":"hiking-tofino.html",
   "kayaking":"kayaking-tofino.html","restaurants":"restaurants-tofino.html",
   "storm-watching":"storm-watching-tofino.html","whale-watching":"whale-watching.html" };
-const placeHref = (pl) => /^long beach$/i.test(pl.n) ? "long-beach.html"
-  : CATPAGE[pl.c] || `things-to-do.html#${pl.c}`;
-const TAXN = Object.keys(PLAN.bestMonths).length;
 /* This is a Tofino page: "at their best" must count Tofino's own subjects
    (nine guides plus camping and events), never the sitewide 22-category
    taxonomy things-to-do.html and tofino.html are scoped to. */
@@ -714,11 +677,9 @@ const TOFINO_N = TOFINO_CATS.length;
 const inSeasonTofino = (m) => TOFINO_CATS.filter((c) => (PLAN.bestMonths[c] || []).includes(m));
 const CLI = PLAN.climate;
 const MAXMM = Math.max(...CLI.map((x) => x.mm));
-const MINMM = Math.min(...CLI.map((x) => x.mm));
 const TOTMM = CLI.reduce((s,x) => s + x.mm, 0);
 
 const seasonFor = (m) => Object.values(PLAN.seasons).find((s) => s.months.includes(m));
-const inSeason = (m) => Object.entries(PLAN.bestMonths).filter(([,mm]) => mm.includes(m)).map(([c]) => c);
 
 function windows(months){
   const on = new Set(months);
@@ -739,18 +700,11 @@ const windowText = (months) => {
   if (!r.length) return "all year";
   return r.map(([a,b]) => a === b ? MON[a-1] : `${SHORT[a-1]} to ${SHORT[b-1]}`).join(", and ");
 };
-const windowLong = (months) => {
-  const r = windows(months);
-  if (!r.length) return "in season all year";
-  return "in season " + r.map(([a,b]) => a === b ? MON[a-1] : `${MON[a-1]} to ${MON[b-1]}`).join(", and ");
-};
-
 /* ── what the corpus can count about itself ──────────────────────────────── */
 const P = PLAN.places;
 const catCount = {};
 P.forEach((p) => catCount[p.c] = (catCount[p.c] || 0) + 1);
 const PCATS = Object.keys(catCount);
-const noted = P.filter((p) => p.k).length;
 const waterNotes = P.filter((p) => p.k && /tide|current|water|wave|swell|surf|cold|wind|ocean|rip/i.test(p.k)).length;
 const dogPlaces = P.filter((p) => /dog/i.test(JSON.stringify(p)));
 const freePlaces = (catCount.beaches || 0) + (catCount.hiking || 0) + (catCount["storm-watching"] || 0);
@@ -758,69 +712,50 @@ const cheapest = Math.min(...PLAN.listings.map((l) => l.p));
 const placesInSeason = (m) => PCATS.filter((c) => (PLAN.bestMonths[c] || []).includes(m))
   .reduce((s,c) => s + catCount[c], 0);
 
-/* the profile matchers read the guides' own "good for" wording, so every count
-   on a chip is a real count of write-ups, never a bucket we invented */
-const PROFILES = [
-  { id:"anyone", label:"Anyone", who:"a first look", re:null,
-    order:["when","stay","getting","pack","budget","kids","access","safety","dogs"],
-    line:"a good place to start" },
-  { id:"families", label:"Families", who:"a trip with kids",
-    re:/famil|kid|tide pool|sandcastle|beginner|calm|shelter/i,
-    order:["kids","stay","safety","when","pack","budget","getting","access","dogs"],
-    line:"named for families and tide pools" },
-  { id:"couples", label:"Couples", who:"two of you",
-    re:/sunset|date night|cocktail|fine dining|special (dinner|occasion)|elegant|romantic|a quiet view|slower, more elegant/i,
-    order:["when","stay","budget","pack","getting","safety","access","kids","dogs"],
-    line:"sunsets and long dinners" },
-  { id:"first", label:"First timers", who:"a first visit",
-    re:/first-time|first time|beginner|guided|easy|short|classic|popular|learning/i,
-    order:["when","getting","stay","pack","safety","budget","kids","access","dogs"],
-    line:"easy, guided or first time" },
-  { id:"budget", label:"On a budget", who:"a cheaper week",
-    re:/budget|takeout|casual|picnic|snack|quick bite|donut|bagel|fish and chips|tacos|burritos|coffee|surf-day food|simple/i,
-    order:["budget","when","stay","pack","getting","safety","kids","access","dogs"],
-    line:"cheap eats and free beaches" },
-  { id:"accessible", label:"Easier going", who:"short, level walking",
-    re:/easy walking|boardwalk|short walk|short stop|short forest|short hike|quick stop|quick nature|easy outdoor|multi-use path|limited time|easy rainforest|easy coastal/i,
-    order:["access","getting","stay","when","safety","pack","kids","budget","dogs"],
-    line:"boardwalks and short walks" }
-];
-const matches = (p, prof) => !prof.re || prof.re.test(p.g.join(" | ")) || prof.re.test(p.b || "");
-const forProfile = (id) => { const prof = PROFILES.find((x) => x.id === id); return P.filter((p) => matches(p, prof)); };
-const COUNT = {}; PROFILES.forEach((prof) => COUNT[prof.id] = forProfile(prof.id).length);
+/* Two counts on the topic cards are matched out of the guides' own "good for"
+   wording, so the number on the card is a real count of places and not a
+   bucket we invented. The chip row that used to reorder the cards by traveller
+   is gone; these two matchers are all that survived it. */
+const MATCH = {
+  families:/famil|kid|tide pool|sandcastle|beginner|calm|shelter/i,
+  accessible:/easy walking|boardwalk|short walk|short stop|short forest|short hike|quick stop|quick nature|easy outdoor|multi-use path|limited time|easy rainforest|easy coastal/i
+};
+const COUNT = {};
+Object.entries(MATCH).forEach(([k,re]) =>
+  COUNT[k] = P.filter((p) => re.test(p.g.join(" | ")) || re.test(p.b || "")).length);
 
-/* ── the nine planning topics. Two lines each, no more. ──────────────────── */
-const monthCounts = MON.map((_,i) => inSeasonTofino(i+1).length);
-const leanest = Math.min(...monthCounts);
-
+/* ── the nine planning topics, in one fixed order: the road in, then the bed,
+      then the bag, then the money, then the people you are travelling with.
+      They used to be reorderable by a chip row, which is a control the owner
+      has already removed once elsewhere; the sequence now does that job. ─── */
 const TOPICS = [
-  { id:"when", t:"When to go", k:"Timing", n:12, u:"months, all of them open",
-    p:`Even the leanest month has ${leanest} of the ${TOFINO_N} subjects at their best. Nothing is closed for the season.`,
-    href:"#months", go:"See every month" },
-  { id:"getting", t:"Getting there", k:"Arriving", n:40, u:"minutes from Ucluelet",
+  { t:"Getting there", k:"Arriving", n:40, u:"minutes from Ucluelet",
     p:`One road in. Highway 4 crosses the island, then north to Tofino or south to Ucluelet.`,
-    href:"region.html", go:"Vancouver Island" },
-  { id:"stay", t:"Where to stay", k:"Rooms", n:PLAN.town.stays, u:"stays in Tofino",
-    p:`From $${cheapest} a night, bookable in every month. Ucluelet adds ${PLAN.ucluelet.stays} rooms forty minutes away.`,
+    href:"region.html", go:"Open Vancouver Island" },
+  { t:"Where to stay", k:"Rooms", n:PLAN.town.stays, u:"stays in Tofino",
+    p:`From $${cheapest} a night, and bookable in all twelve months. Ucluelet adds ${PLAN.ucluelet.stays} rooms forty minutes down the same road.`,
     href:"search.html?in=tofino", go:"Search stays" },
-  { id:"pack", t:"What to pack", k:"Kit", n:num(TOTMM), u:"mm of rain a year",
-    p:`Waterproofs are not a winter item here. Even July records ${CLI[6].mm} mm across ${CLI[6].days} days.`,
+  { t:"What to pack", k:"Kit", n:num(TOTMM), u:"mm of rain a year",
+    p:`Waterproofs are not a winter item here. Even July has ${CLI[6].mm} mm across ${CLI[6].days} days.`,
     href:"#months", go:"See the rain by month" },
-  { id:"budget", t:"What it costs", k:"Budget", n:freePlaces, u:`of ${P.length} places cost nothing`,
-    p:`The beaches, trails and storm viewpoints are free to walk into. The spend is the room and the table.`,
+  { t:"What it costs", k:"Budget", n:freePlaces, u:`of ${P.length} places cost nothing`,
+    p:`The beaches, the trails and the storm viewpoints are free to walk into. The spend is the room and the table.`,
     href:"search.html?in=tofino", go:"Price up a stay" },
-  { id:"kids", t:"With kids", k:"Families", n:COUNT.families, u:"places named for families",
-    p:`Tide pools at Chesterman Beach, calm water at Mackenzie Beach, and the short boardwalk trails.`,
+  { t:"Where to eat", k:"Eating", n:catCount.restaurants || 0, u:"places to eat",
+    p:`A taco truck, a brewery, a coffee roaster, and a dining room with the Pacific in the window.`,
+    href:"restaurants-tofino.html", go:"Open the restaurants guide" },
+  { t:"With kids", k:"Families", n:COUNT.families, u:"places good for families",
+    p:`Tide pools at Chesterman Beach, calm water at tinwis Beach, and short boardwalk trails that end at sand.`,
     href:"long-beach.html", go:"Start at Long Beach" },
-  { id:"access", t:"Accessibility", k:"Access", n:COUNT.accessible, u:"easy or short walks",
-    p:`These are written up as boardwalk, easy walking or a short stop. Surfaces and parking are not audited yet.`,
-    href:"things-to-do.html", go:"See which ones" },
-  { id:"safety", t:"Staying safe", k:"Water", n:waterNotes, u:"notes about water",
-    p:`${noted} places carry a Good to know line, and most of them are about rip currents, cold and the tide.`,
-    href:"long-beach.html", go:"Read a real one" },
-  { id:"dogs", t:"With a dog", k:"Dogs", n:dogPlaces.length, u:"write-ups mention dogs",
-    p:`All three are inside Pacific Rim National Park Reserve, where the rules change. Check Parks Canada first.`,
-    href:"beaches-tofino.html", go:"What we do know" }
+  { t:"Short, level walks", k:"Access", n:COUNT.accessible, u:"short or level walks",
+    p:`Boardwalks at the Rainforest Trail and Shorepine Bog, and the paved path that runs through the park.`,
+    href:"hiking-tofino.html", go:"Open the hiking guide" },
+  { t:"Staying safe", k:"Water", n:waterNotes, u:"places with a water warning",
+    p:`Rip currents, cold water and a tide that covers the sandspit at Chesterman. Check it before you walk out.`,
+    href:"beaches-tofino.html", go:"Read the beach notes" },
+  { t:"With a dog", k:"Dogs", n:dogPlaces.length, u:"places with a dog rule",
+    p:`All three sit inside Pacific Rim National Park Reserve, where the rules change. Check Parks Canada first.`,
+    href:"beaches-tofino.html", go:"Where the rules change" }
 ];
 
 /* the Tofino subjects: nine guides plus the two article-backed ones */
@@ -845,44 +780,87 @@ const SUBJECTS = PLAN.guides.map((g) => ({
 }));
 SUBJECTS.forEach((s) => s.name = s.name.replace(/ & /g, " and "));
 const tofinoOn = (m) => SUBJECTS.filter((s) => s.months.includes(m));
-/* twenty-one of the seventy-three write-ups have no photograph of their own
-   yet, so they borrow their subject's category photograph and say so in alt */
-const CATHERO = {}; PLAN.guides.forEach((g) => CATHERO[g.c] = g.h);
 
+/* ── the photographs. Every subject shows the picture its own guide opens on,
+      so a row here and that guide can never show different places. Two are
+      corrected by hand and both are noted:
+        fishing  the guide's own opener is an aerial from a float plane, which
+                 is not fishing, so the row uses the harbour the charters run
+                 from and says so.
+        camping  the article opener is a bare beach; the camping guide's own
+                 opener is a campground, which is what the row is about.
+      Every id below was checked against Cloudinary before it was added. ─── */
+const SUBJPIC = {
+  "beaches":      ["guides/tofino/beaches/_category-1",        "Wet sand and a low sun on a Tofino beach at the end of the day"],
+  "surfing":      ["guides/tofino/surfing/_category-1",        "A surfer riding a line of evening swell off Tofino"],
+  "whale-watching":["guides/tofino/whale-watching/_category-1","A whale fluke lifting above the water in Clayoquot Sound"],
+  "birding":      ["guides/tofino/birding/_category-1",        "A flock of shorebirds packed along the shallows near Tofino"],
+  "storm-watching":["guides/tofino/storm-watching/_category-1","Grey Pacific surf breaking around a rock stack on the Tofino shore"],
+  "hiking":       ["guides/tofino/hiking/_category-1",         "A walker on a rainforest boardwalk above the ferns near Tofino"],
+  "restaurants":  ["guides/tofino/restaurants/_category-1",    "Plates and glasses laid out on a table at a Tofino restaurant"],
+  "kayaking":     ["guides/tofino/kayaking/_category-1",       "Kayakers crossing flat water below a forested ridge in Clayoquot Sound"],
+  "fishing":      ["guides/tofino/kayaking/tofino-harbour-and-sheltered-inlet-waters-1", "Boats tied up at the dock in Tofino harbour, where the charters run from"],
+  "camping":      ["guides/tofino/camping/_category-1",        "A camper parked among the trees at a campground near Tofino"],
+  "events":       ["guides/tofino/events/_category-1",         "A whale blowing beside gulls during the spring migration off Tofino"]
+};
+/* One line per subject, written for a traveller. The corpus lede for several
+   of these is a search-engine sentence ("Discover the best trails in..."),
+   which tells a reader nothing they can act on. Every fact below is on this
+   page already: the places, their "good to know" notes, or the FAQs. */
+const BLURB = {
+  "storm-watching":"Winter swell hits the exposed beaches, and over half the year's rain falls in these four months",
+  "surfing":"Cold water and steady Pacific swell, with lessons at Chesterman and bigger days at Cox Bay",
+  "restaurants":"Fish tacos, a brewery, two coffee roasters, and a dining room with the Pacific in the window",
+  "hiking":"Rainforest boardwalks, beach walks from the village, and one steep climb to the lookout over Cox Bay",
+  "kayaking":"Sheltered inlets and Meares Island for a first paddle, and multi-day routes deeper into Clayoquot Sound",
+  "beaches":"Long open sand at Long Beach and Chesterman, tide pools at low water, and driftwood along every high line",
+  "whale-watching":"Gray whales pass on the spring migration, and humpbacks, orcas and sea lions stay through the summer",
+  "fishing":"Salmon and halibut charters run out of the harbour with guides who know the banks and the tides",
+  "birding":"Gulls, cormorants and oystercatchers along the shore, puffins offshore, and shorebirds in their thousands",
+  "camping":"Sites between the two towns, from surf access at Cox Bay to sheltered beach pitches and RV parks",
+  "events":"The Pacific Rim Whale Festival marks the gray whale migration through Clayoquot Sound each spring"
+};
+/* one month, one photograph: the subject that is genuinely at its best then.
+   Storm watching repeats across the three deep winter months, which is the
+   point rather than an oversight. */
+const MONTHPIC = ["storm-watching","storm-watching","whale-watching","hiking","kayaking","camping",
+  "beaches","fishing","surfing","hiking","birding","storm-watching"];
 /* ── state ───────────────────────────────────────────────────────────────── */
-let month = 2, other = 7, profile = "anyone";
+let month = 2, other = 7;
 
 /* ── static furniture ────────────────────────────────────────────────────── */
 function paintStatic() {
 
   $("#heroNote").innerHTML =
-    `<b>${P.length}</b> places written up in Tofino, <b>${PLAN.faqs.length}</b> questions answered, ` +
-    `<b>${PLAN.town.stays}</b> rooms to sleep in.`;
-
-  $("#qDek").textContent =
-    `All of them lifted from a Tofino guide, with the answer that guide gives.`;
+    `Rain on <b>${CLI[0].days} days</b> in January and <b>${CLI[6].days}</b> in July. ` +
+    `Rooms from <b>$${cheapest}</b> a night in all twelve months. Ucluelet is forty minutes down the same road.`;
 
   $("#apick").innerHTML = MON.map((m,i) => `<option value="${i+1}">${m}</option>`).join("");
   $("#bpick").innerHTML = MON.map((m,i) => `<option value="${i+1}">${m}</option>`).join("");
 }
 
 /* ── the twelve month board. Every month is a row, at full strength, in
-      calendar order, and nothing is dimmed or withheld. ─────────────────── */
+      calendar order, and nothing is dimmed or withheld. The only colour that
+      carries meaning on this page lives in the last cell: six steps up the
+      azure ramp, from three subjects in season to nine. ─────────────────── */
+const ONMIN = Math.min(...MON.map((_,i) => inSeasonTofino(i+1).length));
+const ONMAX = Math.max(...MON.map((_,i) => inSeasonTofino(i+1).length));
+const intensity = (n) => 1 + Math.round((n - ONMIN) / Math.max(1, ONMAX - ONMIN) * 5);
+
 function paintBoard() {
   $("#mboard").innerHTML = CLI.map((c,i) => {
     const m = i + 1, s = seasonFor(m), on = inSeasonTofino(m);
     const sel = m === month;
     return `<button class="mrow" type="button" data-m="${m}" aria-pressed="${sel}" ${sel ? 'data-sel="true"' : ""}
-      aria-label="${MON[i]}, ${c.hi} degrees, ${c.mm} millimetres of rain, ${on.length} things at their best. Put it in the comparison.">
+      aria-label="${MON[i]}, ${c.hi} degrees, ${c.mm} millimetres of rain over ${c.days} days, ${on.length} of ${TOFINO_N} things at their best. Put it in the comparison.">
       <span class="mrow__m"><span class="mrow__n">${MON[i]}</span><span class="mrow__s">${esc(s.name)}</span></span>
-      <span class="mfig"><span class="mfig__k">High and low</span>
+      <span class="mfig"><span class="mfig__k">Average high and low</span>
         <span class="mfig__v tnum">${c.hi}&deg; <span class="u">/ ${c.lo}&deg;</span></span></span>
       <span class="mfig"><span class="mfig__k">Rain</span>
-        <span class="mfig__v tnum">${c.mm} <span class="u">mm</span></span>
+        <span class="mfig__v tnum">${c.mm} <span class="u">mm over ${c.days} days</span></span>
         <span class="mrain"><i style="--w:${(c.mm/MAXMM*100).toFixed(1)}%"></i></span></span>
-      <span class="mfig"><span class="mfig__k">Rain days</span>
-        <span class="mfig__v tnum">${c.days} <span class="u">of ${DIM[i]}</span></span></span>
-      <span class="mbest"><b class="tnum">${on.length} of ${TOFINO_N}</b><span>things at their best</span></span>
+      <span class="mbest"><span class="mfig__k">At their best</span>
+        <span class="mint tnum" data-lvl="${intensity(on.length)}">${on.length} of ${TOFINO_N}</span></span>
       <span class="mgo">${sel ? "Comparing" : "Compare"}${arrow}</span>
     </button>`;
   }).join("");
@@ -899,6 +877,11 @@ function paintCard(side, m, otherM){
   const twin = side === "b" && seasonFor(otherM).name === s.name;
   const dT = Math.abs(c.hi - oc.hi).toFixed(1);
   const dMm = Math.abs(c.mm - oc.mm);
+
+  const pic = SUBJPIC[MONTHPIC[m-1]], picName = SUBJECTS.find((x) => x.cat === MONTHPIC[m-1]).name;
+  $(`#${side}Img`).src = cld(pic[0], 900, 506);
+  $(`#${side}Img`).alt = pic[1];
+  $(`#${side}Cap`).textContent = `${MON[m-1]} is for ${picName.toLowerCase()}`;
 
   $(`#${side}Season`).textContent = s.name;
   $(`#${side}Name`).textContent = MON[m-1];
@@ -921,98 +904,77 @@ function paintCompare() {
   paintCard("a", month, other);
   paintCard("b", other, month);
   const a = placesInSeason(month), b = placesInSeason(other);
+  $("#cTitle").textContent = `${MON[month-1]} against ${MON[other-1]}`;
   $("#sum").innerHTML =
-    `<b>${a}</b> places are at their best in ${MON[month-1]}, <b>${b}</b> in ${MON[other-1]}.`;
+    `<b>${a}</b> places are at their best in ${MON[month-1]}, <b>${b}</b> in ${MON[other-1]}. ` +
+    `Both months are bookable, and the road in is the same one.`;
   $("#live").textContent = `Comparing ${MON[month-1]} with ${MON[other-1]}.`;
 }
 
-/* ── the subject ledger, ranked for the chosen month, never gated ────────── */
-function paintLedger() {
+/* ── what the coast is doing in the chosen month. This replaces two things:
+      an eleven-row table of a hundred and thirty-two four-pixel month blocks,
+      and a separate rail of six places. One list, a photograph on every row,
+      in season first, with the booking path each subject actually has. ─── */
+function paintBest() {
   const rows = SUBJECTS.slice() .sort((x,y) => {
     const X = x.months.includes(month), Y = y.months.includes(month);
     if (X !== Y) return X ? -1 : 1;
     if (X) return x.months.length - y.months.length || y.places - x.places;
     return y.places - x.places;
   });
+  const on = rows.filter((s) => s.months.includes(month)).length;
+
+  $("#bestTitle").textContent = `At their best in ${MON[month-1]}`;
+  $("#bestSub").textContent =
+    `${on} of the eleven things Tofino is good at are in season in ${MON[month-1]}. ` +
+    `The rest are underneath, with the months they come into their own.`;
+
   let sep = false, i = 0;
-  $("#ledger").innerHTML = rows.map((s) => {
+  $("#blist").innerHTML = rows.map((s) => {
     const live = s.months.includes(month);
     let head = "";
-    if (!live && !sep){ sep = true; head = `<tr class="gsep"><td colspan="3">Best in another month</td></tr>`; }
-    const cells = MON.map((mn,k) =>
-      `<i ${s.months.includes(k+1) ? "data-on" : ""} ${k === month-1 ? "data-now" : ""}>${mn[0]}</i>`).join("");
+    if (!live && !sep){ sep = true; head = `<p class="bsep">Better in another month</p>`; }
+    const pic = SUBJPIC[s.cat];
+    const href = CATPAGE[s.cat] || `things-to-do.html#${s.cat}`;
+    const when = live ? `In season in ${MON[month-1]}` : `Best ${windowText(s.months)}`;
     let book;
-    if (!live){
-      book = `<button class="jump" type="button" data-m="${windows(s.months)[0][0]}">Best ${esc(windowText(s.months))}${arrow}</button>`;
-    } else if (s.cta.k === "soon"){
-      book = `<span class="pill pill--soon">Coming soon</span> <b>Stays from $${cheapest}</b>`;
-    } else if (s.cta.k === "sister"){
-      book = `<span class="pill pill--go">Book</span> <b>ArcTrips Fishing</b>`;
-    } else if (s.cta.k === "stay"){
-      book = `<span class="pill pill--go">Book</span> <b>Stays from $${cheapest}</b>`;
-    } else {
-      book = `<b>${esc(s.cta.t)}</b>`;
-    }
-    const where = s.places ? `${s.places} places written up`
-      : s.faqs ? `${s.faqs} questions answered` : `Guide published`;
-    return head + `<tr style="--i:${i++}">
-      <td><div class="led__s">${esc(s.name)}</div><div class="led__w">${esc(where)}</div></td>
-      <td class="led__mon"><div class="mon" role="img" aria-label="${esc(s.name)}, ${esc(windowLong(s.months))}">${cells}</div></td>
-      <td class="led__b">${book}</td></tr>`;
-  }).join("");
-}
-
-/* ── topics, filters and the places rail. The chips reorder the nine topics,
-      they never remove one. ─────────────────────────────────────────────── */
-function paintChips() {
-  $("#chips").innerHTML = PROFILES.map((p) =>
-    `<button type="button" data-p="${p.id}" aria-pressed="${p.id === profile}">${esc(p.label)}<span class="ct tnum">${COUNT[p.id]}</span></button>`
-  ).join("") + `<button class="clear" type="button" data-clear>Reset</button>`;
-}
-
-function paintTopics() {
-  const p = PROFILES.find((x) => x.id === profile);
-  const rows = p.order.map((id) => TOPICS.find((t) => t.id === id));
-  $("#tgrid").innerHTML = rows.map((t,i) =>
-    `<a class="topic${i === 0 ? " topic--lead" : ""}" href="${t.href}" style="--i:${i}">
-      ${i === 0 && profile !== "anyone" ? `<span class="topic__f">First for ${esc(p.who)}</span>` : `<span class="label label--n">${esc(t.k)}</span>`}
-      <h3>${esc(t.t)}</h3>
-      <p class="topic__n tnum">${t.n}<small>${esc(t.u)}</small></p>
-      <p>${t.p}</p>
-      <span class="topic__go">${esc(t.go)}${arrow}</span>
-    </a>`).join("");
-
-  $("#rankline").innerHTML = profile === "anyone"
-    ? `Nine topics, in the order most people read them. Pick who is travelling and they reorder.`
-    : `Ordered for ${esc(p.who)}. <b>${COUNT[profile]}</b> of the <b>${P.length}</b> Tofino write-ups suit it.`;
-
-  const places = forProfile(profile).slice(0, 6);
-  $("#railTitle").textContent = profile === "anyone" ? "Places to start with" : `Written up for ${p.who}`;
-  $("#railSub").textContent = `Six of ${COUNT[profile]} places, ${p.line}.`;
-  $("#rail").innerHTML = places.map((pl) => {
-    const cn = CATN[pl.c] || pl.c;
-    const tag = pl.g[0] || `${cn} in Tofino`;
-    const own = Boolean(pl.h);
-    const alt = own ? `${pl.n}, ${cn.toLowerCase() } in Tofino` : `${cn} in Tofino, from the subject guide`;
-    return `<a class="ritem" href="${placeHref(pl)}">
-      <div class="ritem__m"><img src="${cld(pl.h || CATHERO[pl.c],300,225)}" alt="${esc(alt)}" loading="lazy"></div>
+    if (s.cta.k === "soon") book = `<span class="bpill">Coming soon</span> Stays from <b>$${cheapest}</b> a night`;
+    else if (s.cta.k === "sister") book = `<span class="bpill bpill--sister">ArcTrips Fishing</span> takes the bookings`;
+    else if (s.cta.k === "stay") book = `<span class="bpill bpill--go">Book a stay</span> from <b>$${cheapest}</b> a night`;
+    else book = esc(s.cta.t);
+    const blurb = BLURB[s.cat];
+    return head + `<a class="bitem${live ? "" : " bitem--off"}" href="${href}" style="--i:${i++}">
+      <div class="bitem__m"><img src="${cld(pic[0],320,240)}" alt="${esc(pic[1])}" loading="lazy"></div>
       <div>
-        <div class="kmeta" style="margin-top:0"><span class="k">${esc(cn)}</span></div>
-        <h4>${esc(pl.n)}</h4>
-        <p class="ritem__t">${esc(tag)}</p>
-        <p class="ritem__b">${esc(pl.b)}</p>
+        <span class="bwhen">${esc(when)}</span>
+        <h3>${esc(s.name)}</h3>
+        <p>${esc(blurb)}.</p>
+        <div class="bfoot">${s.places ? `<b>${s.places}</b> places &middot; ` : ""}${book}</div>
       </div>
     </a>`;
   }).join("");
 }
 
-/* ── the questions people actually ask, six subjects deep ────────────────── */
+/* ── the nine topics, numbered, in one order ─────────────────────────────── */
+function paintTopics() {
+  $("#tgrid").innerHTML = TOPICS.map((t,i) =>
+    `<a class="topic" href="${t.href}" style="--i:${i}">
+      <span class="topic__k"><b>${String(i+1).padStart(2,"0")}</b> ${esc(t.k)}</span>
+      <h3>${esc(t.t)}</h3>
+      <p class="topic__n tnum">${t.n}<small>${esc(t.u)}</small></p>
+      <p>${t.p}</p>
+      <span class="topic__go">${esc(t.go)}${arrow}</span>
+    </a>`).join("");
+}
+
+/* ── the questions. One column, every one collapsed, native details so it
+      works from the keyboard with no script at all. ─────────────────────── */
 function paintQuestions() {
-  const cats = Object.keys(faqByCat).sort((a,b) => faqByCat[b].length - faqByCat[a].length).slice(0,6);
-  $("#qgrid").innerHTML = cats.map((c) => {
+  const cats = Object.keys(faqByCat).sort((a,b) => faqByCat[b].length - faqByCat[a].length);
+  $("#qlist").innerHTML = cats.map((c) => {
     const rows = faqByCat[c];
     return `<div class="qgroup">
-      <h3>${esc(CATN[c] || c)} <span class="tnum">${rows.length} question${rows.length > 1 ? "s" : ""}</span></h3>
+      <h3>${esc(CATN[c] || c)}</h3>
       ${rows.map((f) => `<details class="qi"><summary>${esc(f.q.replace(/\s+$/,""))}</summary><p>${esc(f.a)}</p></details>`).join("")}
     </div>`;
   }).join("");
@@ -1047,40 +1009,19 @@ function paintStays() {
     `Prices in CAD, before taxes and fees.`;
 }
 
-/* ── the island roster. Built for eleven towns, not two. ─────────────────── */
-const SOON_TOWNS = ["Victoria","Nanaimo","Campbell River","Parksville",
-  "Sooke","Sidney","Chemainus","Nanoose Bay","Shawnigan Lake"];
-/* each of these has a town page of its own, so the roster links to the town
-   rather than dropping every name on the region */
-const SOON_HREF = { "Victoria":"victoria.html", "Nanaimo":"nanaimo.html",
-  "Campbell River":"campbell-river.html", "Parksville":"parksville.html",
-  "Sooke":"sooke.html", "Sidney":"sidney.html", "Chemainus":"chemainus.html",
-  "Nanoose Bay":"nanoose.html", "Shawnigan Lake":"shawnigan-lake.html" };
-
-function paintIsland() {
-  const pub = [
-    { n:"Tofino", m:`${P.length} places &middot; ${PLAN.guides.length} guides &middot; ${PLAN.town.stays} stays`, h:"tofino.html" },
-    { n:"Ucluelet", m:`${PLAN.ucluelet.places} places &middot; ${PLAN.ucluelet.guides} guides &middot; ${PLAN.ucluelet.stays} stays`, h:"ucluelet.html" }
-  ];
-  $("#pubTowns").innerHTML = pub.map((t) =>
-    `<a class="sib" href="${t.h}"><span class="sib__n">${esc(t.n)}</span><span class="sib__m tnum">${t.m}</span></a>`).join("");
-  $("#soonTowns").innerHTML = SOON_TOWNS.map((n) =>
-    `<a href="${SOON_HREF[n]}">${esc(n)}</a>`).join("");
-}
-
 /* ── wire up ─────────────────────────────────────────────────────────────── */
 function setMonth(m){
   if (m === other) other = month;
   month = m;
   $("#apick").value = String(month);
   $("#bpick").value = String(other);
-  paintBoard() ; paintCompare() ; paintLedger() ;
+  paintBoard() ; paintCompare() ; paintBest() ;
 }
 
-paintStatic(); paintChips() ; paintTopics() ; paintBoard() ; paintQuestions() ; paintStays() ; paintIsland() ;
+paintStatic(); paintTopics() ; paintBoard() ; paintQuestions() ; paintStays() ;
 $("#apick").value = String(month);
 $("#bpick").value = String(other);
-paintCompare() ; paintLedger() ;
+paintCompare() ; paintBest() ;
 
 $("#mboard").addEventListener("click", (e) => {
   const b = e.target.closest(".mrow"); if (!b) return;
@@ -1093,17 +1034,6 @@ $("#bpick").addEventListener("change", (e) => {
   other = v === month ? (month === 2 ? 7 : 2) : v;
   $("#bpick").value = String(other);
   paintCompare();
-});
-$("#ledger").addEventListener("click", (e) => {
-  const b = e.target.closest(".jump"); if (!b) return;
-  setMonth(Number(b.dataset.m));
-  document.getElementById("compare").scrollIntoView({ behavior:"smooth", block:"start" });
-});
-$("#chips").addEventListener("click", (e) => {
-  const b = e.target.closest("button"); if (!b) return;
-  profile = b.dataset.clear !== undefined ? "anyone" : b.dataset.p;
-  document.querySelectorAll("#chips button[data-p]").forEach((x) => x.setAttribute("aria-pressed", String(x.dataset.p === profile)));
-  paintTopics();
 });
 addEventListener("keydown", (e) => {
   if (e.key === "/" && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)){

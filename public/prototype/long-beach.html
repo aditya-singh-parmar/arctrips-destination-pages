@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Long Beach, Tofino, Arc Trips</title>
-<meta name="description" content="Long Beach, in the Long Beach Unit of Pacific Rim National Park Reserve between Tofino and Ucluelet. Today's tide, the twenty places inside the unit, the year month by month, how to get here, and the nearest rooms at either end.">
+<meta name="description" content="Long Beach, in Pacific Rim National Park Reserve between Tofino and Ucluelet. What the beach is like, when to come, the order the park beaches run in along the road, what to know before you walk, and the nearest rooms at either end.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -18,8 +18,8 @@
           sets position on every direct child of body and would otherwise
           cancel both the sticky place bar and the fixed progress hairline,
       (c) the components an AREA page needs that the system does not carry:
-          the tide theatre, the four-guide evidence rail, the unit list, the
-          park-road spine, the spec rows, the split stay grid,
+          the photographed park-road spine, the spec rows, the split stay grid,
+          the photographed beach cards,
       (d) on-navy contrast corrections for the almanac,
       (e) small-screen corrections. ──────────────────────────────────────── */
 
@@ -103,52 +103,23 @@ body>.jumpbar{position:fixed;z-index:70}
 @media(max-width:940px){.hero-grid{grid-template-columns:minmax(0,1fr)}.collage{min-height:0;max-width:620px}}
 @media(max-width:560px){.collage{aspect-ratio:1/.88}}
 
-/* ═══ (c) the tide. Labelled in plain words, because the review said "I don't
-       know what I am looking at": what it is, the readings, why it matters. ═══ */
-.tideband{background:var(--n50);border-block:1px solid var(--n150);padding-block:clamp(30px,4vw,56px)}
-.tidehead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,21rem);
-  gap:18px clamp(24px,4vw,48px);align-items:end}
-@media(max-width:820px){.tidehead{grid-template-columns:1fr;align-items:start}}
-.tidehead h2{font-size:clamp(1.8rem,3vw,2.5rem)}
-.tidewhy{font-size:1.06rem;color:var(--n700);line-height:1.6;max-width:50ch;margin-top:14px}
-.tidestat{font-size:.95rem;color:var(--n700);line-height:1.55;background:var(--paper);
-  border:1px solid var(--n200);border-radius:var(--r);padding:15px 17px}
-.tidestat b{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
-.tidegrid{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr);gap:clamp(20px,3.4vw,52px);
-  align-items:end;margin-top:clamp(22px,3vw,34px)}
-@media(max-width:900px){.tidegrid{grid-template-columns:1fr;gap:24px;align-items:start}}
-.range{font-size:clamp(3.4rem,7vw,5.4rem);font-weight:800;color:var(--navy);letter-spacing:-.05em;
-  line-height:.86;font-variant-numeric:tabular-nums}
-.range small{font-size:.3em;font-weight:700;letter-spacing:-.01em;margin-left:6px}
-.range+p{font-size:.98rem;color:var(--n700);margin-top:14px;line-height:1.55;max-width:26ch}
-
-.tidefig{position:relative;min-width:0}
-.tidefig svg{width:100%;height:clamp(126px,18vw,208px);display:block;overflow:visible}
-.tidefig .now{position:absolute;transform:translateX(-50%);white-space:nowrap;background:var(--azure);
-  color:var(--paper);font-size:.88rem;font-weight:700;padding:5px 11px;border-radius:999px}
-.tideaxis{position:relative;height:22px;margin-top:16px;border-top:1px solid var(--n200)}
-.tideaxis span{position:absolute;transform:translateX(-50%);top:6px;font-size:.88rem;color:var(--n700);
-  font-variant-numeric:tabular-nums}
-@media(max-width:760px){.tidefig .now{display:none}}
-
-.tiderow{display:flex;flex-wrap:wrap;gap:1px;background:var(--n200);border:1px solid var(--n200);
-  border-radius:var(--r);overflow:hidden;margin-top:clamp(22px,3vw,32px)}
-.tiderow div{background:var(--paper);flex:1 1 150px;padding:15px 18px}
-.tiderow dt{font-size:.95rem;font-weight:600;color:var(--n700)}
-.tiderow dd{font-size:1.34rem;font-weight:800;color:var(--navy);letter-spacing:-.03em;margin-top:6px;
-  font-variant-numeric:tabular-nums}
-.tiderow dd span{font-size:.66em;font-weight:600;color:var(--n700);margin-left:5px;letter-spacing:-.01em}
-.tidewin{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,2vw,20px);margin-top:clamp(16px,2vw,22px)}
-@media(max-width:640px){.tidewin{grid-template-columns:1fr}}
-.tidewin div{border:1px solid var(--n200);border-radius:var(--r);padding:16px 18px;background:var(--paper)}
-.tidewin dt{font-size:.95rem;font-weight:600;color:var(--n700)}
-.tidewin dd{font-size:1.24rem;font-weight:800;color:var(--navy);letter-spacing:-.028em;margin-top:6px;font-variant-numeric:tabular-nums}
-
-/* ═══ (c) reading column and the four-guide evidence rail ═══ */
+/* ═══ (c) the reading column, and one photograph beside it. What used to sit
+       on the right was a rail of quotations lifted from the guides, which is
+       the corpus talking about itself and ran out of content halfway down.
+       A picture of the beach cannot run out, and it holds the measure at a
+       readable width without leaving half the page empty. ═══ */
 .sec--body{padding-block:clamp(24px,3vw,44px) clamp(40px,4.6vw,68px)}
-.bodygrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.82fr);gap:clamp(30px,4.6vw,72px);align-items:start}
-@media(max-width:980px){.bodygrid{grid-template-columns:1fr;gap:36px}}
-.body{max-width:60ch}
+.bodygrid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  gap:clamp(28px,4.4vw,64px);align-items:start}
+@media(max-width:980px){.bodygrid{grid-template-columns:1fr;gap:30px}}
+.body{max-width:62ch}
+.bodyfig{position:sticky;top:152px}
+.bodyfig img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:var(--r);background:var(--n100)}
+.bodyfig figcaption{font-size:.92rem;color:var(--n700);margin-top:11px;line-height:1.5;max-width:34ch}
+@media(max-width:980px){
+  .bodyfig{position:static;order:-1}
+  .bodyfig img{aspect-ratio:16/10}
+}
 .body p{margin-top:16px;color:var(--n700)}
 .body p:first-child{margin-top:0}
 .body h3{margin-top:clamp(28px,3.2vw,40px)}
@@ -160,12 +131,10 @@ body>.jumpbar{position:fixed;z-index:70}
   border-radius:var(--r);padding:clamp(18px,2.4vw,24px)}
 .note h4{font-size:1.06rem;font-weight:700;color:var(--navy);margin-bottom:9px}
 .note p{margin-top:0;color:var(--n700);font-size:.99rem}
-.ev{border-top:2px solid var(--navy)}
-.ev__r{padding-block:18px;border-bottom:1px solid var(--n150)}
-.ev__k{font-size:.88rem;font-weight:700;color:var(--azure)}
-.ev__q{font-size:1.02rem;color:var(--navy);font-weight:600;line-height:1.45;margin-top:8px;letter-spacing:-.012em}
 .figpair{margin-top:clamp(28px,3.4vw,40px)}
-.figpair.vmedia img{aspect-ratio:4/3.6}
+.figpair figure{border-radius:var(--r);overflow:hidden;background:var(--n100)}
+.figpair img{width:100%;aspect-ratio:16/7;object-fit:cover}
+@media(max-width:700px){.figpair img{aspect-ratio:4/3}}
 .figcap{font-size:.92rem;color:var(--n700);margin-top:11px;line-height:1.55;max-width:60ch}
 
 /* ═══ (c) the full-bleed break. One band escapes the container. ═══ */
@@ -174,9 +143,8 @@ body>.jumpbar{position:fixed;z-index:70}
 .proof__v{position:absolute;inset:0;
   background:linear-gradient(96deg,rgba(11,51,86,.94) 0%,rgba(11,51,86,.8) 44%,rgba(11,51,86,.3) 100%)}
 .proof__in{position:relative;padding-block:clamp(48px,7vw,90px)}
-.proof__n{font-size:clamp(1.9rem,3.9vw,3.1rem);font-weight:700;color:var(--paper);letter-spacing:-.035em;
-  line-height:1.08;margin-top:14px;max-width:16ch}
-.proof__n b{font-size:clamp(3.6rem,9.4vw,7.4rem);font-weight:800;display:block;letter-spacing:-.05em;line-height:.88}
+.proof__n{font-size:clamp(2.2rem,5.2vw,4.2rem);font-weight:800;color:var(--paper);letter-spacing:-.042em;
+  line-height:1.02;margin-top:14px;max-width:15ch}
 .proof__d{color:rgba(255,255,255,.82);max-width:48ch;margin-top:20px;font-size:1.02rem;line-height:1.6}
 .proof .btn--ghost{margin-top:28px;border-color:rgba(255,255,255,.44);color:var(--paper)}
 .proof .btn--ghost:hover{border-color:var(--paper);background:rgba(255,255,255,.1)}
@@ -260,23 +228,34 @@ body>.jumpbar{position:fixed;z-index:70}
   .gsep{padding-block:0!important;border-bottom:0!important}
 }
 
-/* ═══ (c) the spine: the real order of the beaches along the park road ═══ */
+/* ═══ (c) the spine: the five park beaches in the order you pass them, each
+       with its own photograph, so the row you are reading and the beach you
+       will see are the same thing. The number is the order along the road. ═══ */
 .sec--tight{padding-block:0 clamp(46px,5vw,72px)}
-.spine{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:14px;
-  margin-top:clamp(24px,3vw,34px);position:relative}
-.spine::before{content:"";position:absolute;left:6px;right:6px;top:6px;height:1px;background:var(--n200)}
-.spine li{position:relative;padding-top:24px;display:flex;flex-direction:column}
-.spine li::before{content:"";position:absolute;left:0;top:2px;width:9px;height:9px;border-radius:50%;
-  background:var(--paper);border:2px solid var(--n200)}
-.spine li[data-here]::before{border-color:var(--navy);background:var(--navy)}
-.spine b{display:block;color:var(--navy);font-size:1.02rem;font-weight:700;line-height:1.3}
+.spine{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(12px,1.6vw,18px);
+  margin-top:clamp(24px,3vw,34px)}
+.spine li{display:flex;flex-direction:column;min-width:0}
+.spine__m{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:var(--n100)}
+.spine__m img{width:100%;height:100%;object-fit:cover}
+.spine li[data-here] .spine__m{box-shadow:0 0 0 3px var(--navy)}
+.spine__i{position:absolute;left:10px;top:10px;width:28px;height:28px;border-radius:50%;
+  background:rgba(255,255,255,.95);color:var(--navy);font-weight:800;font-size:.88rem;
+  display:grid;place-items:center;font-variant-numeric:tabular-nums}
+.spine li[data-here] .spine__i{background:var(--navy);color:var(--paper)}
+.spine b{display:block;color:var(--navy);font-size:1.02rem;font-weight:700;line-height:1.3;margin-top:13px}
 .spine span{display:block;font-size:.92rem;color:var(--n700);margin-top:5px;line-height:1.45}
 .spine__e{display:block;font-size:.88rem;font-weight:600;color:var(--navy);margin-top:auto;padding-top:9px}
-@media(max-width:860px){
-  .spine{grid-template-columns:1fr;gap:0;padding-left:22px}
-  .spine::before{left:4px;right:auto;top:10px;bottom:10px;width:1px;height:auto}
-  .spine li{padding:12px 0}
-  .spine li::before{left:-22px;top:16px}
+@media(max-width:1000px){
+  .spine{grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,20px)}
+}
+@media(max-width:700px){
+  .spine{grid-template-columns:1fr;gap:0}
+  .spine li{display:grid;grid-template-columns:104px minmax(0,1fr);gap:4px 16px;align-items:start;
+    padding-block:16px;border-bottom:1px solid var(--n150)}
+  .spine li:last-child{border-bottom:0}
+  .spine__m{grid-row:span 3;aspect-ratio:1/1}
+  .spine b{margin-top:0}
+  .spine__e{margin-top:0;padding-top:7px}
 }
 
 /* ═══ (c) spec rows ═══ */
@@ -333,11 +312,24 @@ body>.jumpbar{position:fixed;z-index:70}
 }
 
 /* ═══ (c) siblings and the three-slot next step ═══ */
-/* grouped, counted and scannable, so the same block still works at 26 rows */
-.siblings{background:var(--paper);margin-top:12px}
-.sib{box-shadow:0 0 0 1px var(--n150);min-height:0}
-.sib__t{font-size:.92rem;color:var(--n700);margin-top:4px;line-height:1.45}
-.grouph{display:flex;align-items:baseline;gap:12px;margin-top:clamp(26px,3vw,36px);
+/* Three across, never more: a photograph per beach, because a list of beach
+   names with no pictures is the thing that was rejected twice. Grouped by the
+   kind of day each one suits, so the group is the sequence. */
+/* four across, because each group holds exactly four: three across left one
+   orphan card on a second row in every group */
+.siblings{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.8vw,22px);
+  background:none;border:0;border-radius:0;overflow:visible;margin-top:clamp(16px,2vw,22px)}
+@media(max-width:1000px){.siblings{grid-template-columns:repeat(2,1fr);gap:clamp(16px,2.4vw,24px)}}
+@media(max-width:520px){.siblings{grid-template-columns:1fr}}
+.sib{background:none;padding:0;min-height:0;gap:0}
+.sib:hover{background:none}
+.sib__m{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:var(--n100)}
+.sib__m img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.sib:hover .sib__m img{transform:scale(1.05)}
+.sib__n{margin-top:13px;font-size:1.05rem}
+.sib:hover .sib__n{color:var(--azure)}
+.sib__t{font-size:.92rem;color:var(--n700);margin-top:5px;line-height:1.45}
+.grouph{display:flex;align-items:baseline;gap:12px;margin-top:clamp(30px,3.4vw,42px);
   padding-bottom:10px;border-bottom:1px solid var(--n150)}
 .grouph b{font-size:1.08rem;font-weight:700;color:var(--navy)}
 .grouph span{font-size:.92rem;color:var(--n700);font-variant-numeric:tabular-nums}
@@ -431,7 +423,7 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
     </h1>
     <p class="lede">One of the most famous beaches on Vancouver Island, on the park road between Tofino and Ucluelet.</p>
     <p class="lede lede--n">As the name says, it is very long. Open sand, big sky, rolling waves, and rainforest standing behind you.</p>
-    <p class="hero-note">It turns up in <b>four</b> of our Tofino guides: <a href="things-to-do.html">beaches, hiking, storm watching and kayaking</a>.</p>
+    <p class="hero-note">About <b>twenty minutes</b> from Tofino and twenty from Ucluelet, with Highway 4 and the park car parks behind the sand. <a href="#getting">How to get here</a>.</p>
   </div>
 
   <div class="collage">
@@ -471,44 +463,6 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
   </div>
 </div></header>
 
-<!-- ══ The tide, said plainly. Heading, one line on why it matters, the
-     readings, the two best windows. Nothing else. ══ -->
-<section class="tideband" id="tide"><div class="wrap">
-  <div class="tidehead">
-    <div>
-      <h2>Tide today at Tofino Harbour</h2>
-      <p class="tidewhy">Long Beach doubles in width at low water, so how much sand you get depends on the hour you arrive.</p>
-    </div>
-    <p class="tidestat" id="tideNow"></p>
-  </div>
-
-  <div class="tidegrid">
-    <div>
-      <p class="range">2.3<small>m</small></p>
-      <p>between today's low and high. That difference is the width of the walk.</p>
-    </div>
-
-    <div>
-      <div class="tidefig" id="tidefig">
-        <svg viewBox="0 0 1000 240" preserveAspectRatio="none" aria-hidden="true">
-          <g id="tideBands"></g>
-          <line x1="0" y1="210" x2="1000" y2="210" stroke="var(--n200)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-          <path id="tideFill" fill="var(--a100)" stroke="none"></path>
-          <path id="tidePre" stroke="var(--a400)" stroke-width="1.6" fill="none" stroke-dasharray="4 5" vector-effect="non-scaling-stroke"></path>
-          <path id="tideMid" stroke="var(--azure)" stroke-width="2.4" fill="none" vector-effect="non-scaling-stroke" stroke-linecap="round"></path>
-          <path id="tidePost" stroke="var(--a400)" stroke-width="1.6" fill="none" stroke-dasharray="4 5" vector-effect="non-scaling-stroke"></path>
-          <g id="tideMarks"></g>
-        </svg>
-      </div>
-      <div class="tideaxis" id="tideAxis"></div>
-    </div>
-  </div>
-
-  <dl class="tiderow" id="tideRow"></dl>
-
-  <dl class="tidewin" id="tideWin"></dl>
-</div></section>
-
 <div class="wrap">
   <nav class="jumprow" id="jumps" aria-label="On this page">
     <a href="#beach">What it is</a>
@@ -533,7 +487,7 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
       <p>It gives you the classic west coast feeling in one look: open sand, big sky, rolling waves, and rainforest behind you. No promenade, no line of hotels, no boardwalk. The car park, then the sand, then the Pacific.</p>
       <p>It is a good place for walking, surfing, watching waves, and taking photographs, and there are trails and visitor areas in the park within a few minutes of it.</p>
 
-      <ul class="goodfor" aria-label="What the beaches guide says Long Beach is good for">
+      <ul class="goodfor" aria-label="What Long Beach is good for">
         <li>Long walks</li><li>Big beach views</li><li>Surfing</li>
         <li>Storm watching</li><li>Photography</li><li>Pacific Rim National Park Reserve</li>
       </ul>
@@ -550,31 +504,28 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
       </div>
     </div>
 
-    <div>
-      <h3>What our guides say about it</h3>
-      <div class="ev" style="margin-top:12px" id="ev"></div>
-    </div>
+    <figure class="bodyfig">
+      <img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_760,h_1010/guides/tofino/beaches/long-beach-3" alt="Surfers crossing the wet sand at Long Beach with set waves running in behind them, a rocky point on one side and the island mountains in the distance">
+      <figcaption>Surfers walking out at Long Beach, with the island mountains standing behind the bay.</figcaption>
+    </figure>
   </div>
 
-  <div class="figpair vmedia">
+  <div class="figpair">
     <figure>
-      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_900,h_1120/guides/tofino/beaches/long-beach-1" alt="Rows of white water rolling in at Long Beach with spray blowing off the wave tops and a dark forested point behind">
-    </figure>
-    <figure>
-      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_620,h_780/guides/tofino/kayaking/long-beach-and-the-open-pacific-coast-1" alt="A paddler in a small kayak punching through a breaking wave in the surf zone off the open coast">
+      <img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1600,h_700/guides/tofino/kayaking/long-beach-and-the-open-pacific-coast-1" alt="A paddler in a small kayak punching through a breaking wave in the surf zone off the open coast">
     </figure>
   </div>
-  <p class="figcap">Left, the surf that made the beach famous. Right, why most visitors should paddle somewhere else.</p>
+  <p class="figcap">Why most visitors should paddle somewhere else. This is the water in front of the sand.</p>
 </div></section>
 
-<!-- the one band that escapes the container -->
+<!-- the one band that escapes the container. A photograph and one sentence. -->
 <section class="proof">
   <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_2400,h_1100/guides/tofino/beaches/long-beach-2" alt="A single cyclist crossing the wet sand at Long Beach at low water under a wide grey sky">
   <div class="proof__v"></div>
   <div class="wrap proof__in">
-    <span class="label" style="color:var(--a300)">The Long Beach Unit</span>
-    <p class="proof__n"><b class="tnum">20</b> places in and beside this one unit of the park.</p>
-    <p class="proof__d">Five beaches on the road, ten trails and paths off it, two storm viewpoints and three pieces of water, each walked and written up on its own. Long Beach is one of the twenty.</p>
+    <span class="label" style="color:var(--a300)">Pacific Rim National Park Reserve</span>
+    <p class="proof__n">Nothing stands between the sand and the open ocean.</p>
+    <p class="proof__d">No promenade, no line of hotels, no boardwalk. The car park, then the sand, then the Pacific, and rainforest standing behind you the whole way along.</p>
     <a class="btn btn--ghost btn--lg" href="things-to-do.html">Everything worth doing in Tofino</a>
   </div>
 </section>
@@ -623,15 +574,25 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
   </div>
 
   <ol class="spine" aria-label="The park beaches from the Tofino end to the Ucluelet end">
-    <li><b>Schooner Cove</b><span>Forest first, then sand. The quietest stop of the five, closest to the Tofino end.</span><span class="spine__e">Tofino end</span></li>
-    <li data-here><b>Long Beach</b><span>The main strand, and this page. Surf, walking, and the winter waves.</span><span class="spine__e">You are here</span></li>
-    <li><b>Combers Beach</b><span>Not a town beach. Wilder, emptier, and made for a long walk.</span></li>
-    <li><b>Wickaninnish Beach</b><span>Big ocean views, storm watching, and the Kwisitis Visitor Centre.</span></li>
-    <li><b>Florencia Bay</b><span>Sand cliffs and low tide exploring, down a set of stairs that feel longer coming back.</span><span class="spine__e">Ucluelet end</span></li>
+    <li>
+      <span class="spine__m"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_520,h_390/guides/tofino/beaches/schooner-cove-1" alt="Schooner Cove, in Pacific Rim National Park Reserve"><span class="spine__i">1</span></span>
+      <b>Schooner Cove</b><span>Forest first, then sand. The quietest stop of the five, closest to the Tofino end.</span><span class="spine__e">Tofino end</span></li>
+    <li data-here>
+      <span class="spine__m"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_520,h_390/guides/tofino/beaches/long-beach-1" alt="Long Beach, in Pacific Rim National Park Reserve"><span class="spine__i">2</span></span>
+      <b>Long Beach</b><span>The main strand, and this page. Surf, walking, and the winter waves.</span><span class="spine__e">You are here</span></li>
+    <li>
+      <span class="spine__m"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_520,h_390/guides/tofino/beaches/combers-beach-1" alt="Combers Beach, in Pacific Rim National Park Reserve"><span class="spine__i">3</span></span>
+      <b>Combers Beach</b><span>Not a town beach. Wilder, emptier, and made for a long walk.</span></li>
+    <li>
+      <span class="spine__m"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_520,h_390/guides/tofino/beaches/wickaninnish-beach-1" alt="Wickaninnish Beach, in Pacific Rim National Park Reserve"><span class="spine__i">4</span></span>
+      <b>Wickaninnish Beach</b><span>Big ocean views, storm watching, and the Kwisitis Visitor Centre.</span></li>
+    <li>
+      <span class="spine__m"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_520,h_390/guides/tofino/beaches/florencia-bay-1" alt="Florencia Bay, in Pacific Rim National Park Reserve"><span class="spine__i">5</span></span>
+      <b>Florencia Bay</b><span>Sand cliffs and low tide exploring, down a set of stairs that feel longer coming back.</span><span class="spine__e">Ucluelet end</span></li>
   </ol>
 
   <div class="oneline">
-    <p>The Long Beach Unit holds twenty places in all: five beaches on this road, ten trails and paths off it, and three pieces of water.</p>
+    <p>Ten rainforest trails and paths run off the same road, between the beaches and behind them.</p>
     <a href="things-to-do.html">See everything to do in Tofino
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
   </div>
@@ -640,7 +601,7 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
     <div><dt>The road</dt><dd>Highway 4 runs behind the whole beach, with Parks Canada car parks off it at intervals. There is no single entrance to aim for.</dd></div>
     <div><dt>From Tofino</dt><dd>You arrive at the <b>north end</b>, about twenty minutes out of town.</dd></div>
     <div><dt>From Ucluelet</dt><dd>You arrive at the <b>south end</b>, about twenty minutes out of town, past Florencia Bay and Wickaninnish.</dd></div>
-    <div><dt>Without a car</dt><dd>The <b>ʔapsčiik t̓ašii</b> pathway, said ups-cheek ta-shee, is paved and runs the length of the unit between the two towns. It has hills, so plan the way back.</dd></div>
+    <div><dt>Without a car</dt><dd>The <b>ʔapsčiik t̓ašii</b> pathway, said ups-cheek ta-shee, is paved and runs the length of the park between the two towns. It has hills, so plan the way back.</dd></div>
   </dl>
 </div></section>
 
@@ -648,12 +609,12 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
   <div class="head">
     <div>
       <h2>Before you go</h2>
-      <p>Five things the guides say every time. Read these and you are set.</p>
+      <p>Five things worth knowing before you walk out onto the sand.</p>
     </div>
   </div>
 
   <dl class="spec">
-    <div><dt>Check the tide</dt><dd>The beach is much wider at low water, and the walk back is longer than it looked on the way out. Today's readings are at the top of this page.</dd></div>
+    <div><dt>Check the tide</dt><dd>The beach is much wider at low water, and the walk back is longer than it looked on the way out. Check the day's tide before you set off.</dd></div>
     <div><dt>Watch the waves</dt><dd>Stay well back from big waves and never turn your back on the ocean. This is open coast, not a sheltered bay.</dd></div>
     <div><dt>Swimming</dt><dd>Yes, but the water is cold and the current can be strong. Most people wear a wetsuit. There are <b>no lifeguards</b>.</dd></div>
     <div><dt>Leave the kayak</dt><dd>Paddle the sheltered water instead: Lemmens Inlet, Grice Bay or Kennedy Lake.</dd></div>
@@ -684,13 +645,13 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
     <div>
       <h2>More to read</h2>
     </div>
-    <a class="btn btn--ghost btn--sm" href="search.html?q=&amp;in=tofino">All nine Tofino guides</a>
+    <a class="btn btn--ghost btn--sm" href="search.html?q=&amp;in=tofino">More Tofino guides</a>
   </div>
 
   <div class="read">
     <a class="feat" href="search.html?q=The%20Best%20Beaches%20in%20Tofino&amp;in=tofino">
       <div class="feat__m"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1100,h_690/guides/tofino/beaches/_category-1" alt="A wide empty beach on the Tofino coast with surf running in and forest along the back of the sand"></div>
-      <div class="kmeta"><span class="k">Beaches</span><span class="dot"></span><span>Tofino</span><span class="dot"></span><span class="tnum">13 beaches written up</span></div>
+      <div class="kmeta"><span class="k">Beaches</span><span class="dot"></span><span>Tofino</span></div>
       <h3>The Best Beaches in Tofino</h3>
       <p>Long Beach, Cox Bay, Chesterman: where to find surf, sand, and sunset walks, and which one suits the day you actually have.</p>
     </a>
@@ -702,7 +663,7 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
   <div class="head">
     <div>
       <h2>The other twelve beaches in Tofino</h2>
-      <p>Grouped by the kind of day they suit, so you can pick one without reading all twelve.</p>
+      <p>Grouped by the kind of day each one suits.</p>
     </div>
     <a class="btn btn--ghost btn--sm" href="beaches-tofino.html">Beaches, by subject</a>
   </div>
@@ -719,7 +680,7 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
   <div class="next">
     <a href="tofino.html">
       <b>Tofino, the whole town</b>
-      <p>Nine guides, seventy-three places, and the month by month read on when to come.</p>
+      <p>The beaches, the trails, the boats and the restaurants, and the read on when to come.</p>
       <span class="go">Back to Tofino <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
     </a>
     <a href="region.html">
@@ -748,7 +709,7 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
       <li><a href="search.html?q=&amp;in=tofino">Guides</a></li><li><a href="index.html">British Columbia</a></li>
 </ul></div>
     <div><h5>In Tofino</h5><ul>
-      <li><a href="things-to-do.html">All nine subjects</a></li><li><a href="whale-watching.html">Whale watching</a></li>
+      <li><a href="things-to-do.html">Things to do</a></li><li><a href="whale-watching.html">Whale watching</a></li>
       <li><a href="beaches-tofino.html">Beaches guide</a></li><li><a href="search.html?in=tofino">Search everything</a></li></ul></div>
     <div><h5>Plan</h5><ul>
       <li><a href="plan.html">When to go</a></li><li><a href="plan.html">Getting there</a></li>
@@ -782,10 +743,6 @@ const DATA = {
     "The quiet months":"The rain eases week by week and the summer traffic has not started, or has just left.",
     "Long days":"The dry window. Long light, and the sand walkable end to end around low water."
   },
-  /* tides: climate.json, Tofino Harbour, the station this beach reads from */
-  tide: {
-    tofino:{station:"Tofino Harbour",pts:[{t:6+14/60,h:0.8,k:"Low"},{t:12+38/60,h:3.1,k:"High"},{t:18+52/60,h:1.2,k:"Low"}],sunset:21+7/60}
-  },
   /* best-months.json, for the six things people come to this beach to do */
   subjects: [
     {name:"Beach days",short:"beach days",sub:"Open sand, big sky, room to spread out",months:[5,6,7,8,9],end:"Free"},
@@ -794,12 +751,6 @@ const DATA = {
     {name:"Surfing",short:"surfing",sub:"Boards and lessons rent in town",months:[1,2,3,4,9,10,11,12],end:"Rentals in town"},
     {name:"Storm watching",short:"storm watching",sub:"Winter waves, from the sand or from a window",months:[11,12,1,2],end:"stay"},
     {name:"Kayaking",short:"kayaking",sub:"Experts only, and only in the right conditions",months:[5,6,7,8,9],end:"Not for beginners"}
-  ],
-  /* three of the four Long Beach rows in the corpus, one per guide */
-  ev: [
-    {k:"Beaches guide",q:"It gives you that classic west coast feeling: open sand, big sky, rolling waves, and rainforest behind you."},
-    {k:"Hiking guide",q:"Walk along the sand, watch the waves, enjoy the wide open views, and turn back when you are ready."},
-    {k:"Storm watching guide",q:"It is wide, long, and open to the ocean. This makes it a powerful place to watch winter waves."}
   ],
   /* real listing rows. Photographs are the corpus's own listing heroes,
      reassigned so a room card shows somewhere to sleep. */
@@ -824,32 +775,33 @@ const DATA = {
     ]
   },
   reading: [
-    {t:"Storm Watching in Tofino",k:"Storm watching",m:"8 places to watch from",hero:"guides/tofino/storm-watching/_category-1",
+    {t:"Storm Watching in Tofino",k:"Storm watching",m:"Where to watch from, and when",hero:"guides/tofino/storm-watching/_category-1",
      alt:"A figure in a yellow jacket alone on wet sand under a grey sky, surf running past rocky islets"},
     {t:"Surfing in Tofino",k:"Surfing",m:"Breaks, seasons, board rental",hero:"guides/tofino/surfing/_category-1",
      alt:"A surfer riding along a wave at dusk with a dark rocky point behind"},
-    {t:"Hiking and Trails in Tofino",k:"Hiking",m:"18 trails written up",hero:"guides/tofino/hiking/_category-1",
+    {t:"Hiking and Trails in Tofino",k:"Hiking",m:"Rainforest trails and boardwalks",hero:"guides/tofino/hiking/_category-1",
      alt:"A walker in a yellow jacket on a wooden boardwalk staircase through dense rainforest"},
     {t:"Tofino and Ucluelet Campgrounds",k:"Camping",m:"Between the two towns",hero:"guides/tofino/camping/_category-1",
      alt:"A motorhome parked at a forest campsite with low sun breaking through tall trees"},
     {t:"Best Time to Stay in Ucluelet or Tofino",k:"When to go",m:"Month by month",hero:"guides/tofino/when-to-go/_category-1",
      alt:"A surfer in the shorebreak at sunset on the Tofino coast"}
   ],
-  /* the other twelve Tofino beaches, grouped by the kind of day they suit.
-     The same three-group shape holds whether a town has 12 beaches or 26. */
+  /* The other twelve Tofino beaches, grouped by the kind of day they suit and
+     each carrying the photograph the beaches guide opens that beach on, so the
+     card and the guide can never show different places. */
   sibs: [
-    {gr:"Close to town",n:"Chesterman Beach",t:"Long and sandy, with beginner surf lessons and tide pools."},
-    {gr:"Close to town",n:"Cox Bay",t:"Wide and facing the Pacific. The surf beach of the big three."},
-    {gr:"Close to town",n:"Tonquin Beach",t:"A short forest trail down from the village to a quieter stretch."},
-    {gr:"Close to town",n:"Tinwis Beach",t:"Sheltered, gentler water, and the easiest one with children."},
-    {gr:"In the national park",n:"Wickaninnish Beach",t:"Big ocean views and the Kwisitis Visitor Centre."},
-    {gr:"In the national park",n:"Combers Beach",t:"Wilder and emptier, reached by a short trail off the park road."},
-    {gr:"In the national park",n:"Schooner Cove",t:"Forest first, then sand, at the Tofino end of the park road."},
-    {gr:"In the national park",n:"Florencia Bay",t:"Sand cliffs and low tide exploring at the far south end."},
-    {gr:"Quieter and sheltered",n:"Middle Beach",t:"Tucked away near Chesterman, with rocky edges and forest."},
-    {gr:"Quieter and sheltered",n:"Kennedy Lake",t:"Fresh water, not ocean. Calm paddling when the coast is blowing."},
-    {gr:"Quieter and sheltered",n:"Grice Bay",t:"The calm inlet side, for kayaks and birds rather than surf."},
-    {gr:"Quieter and sheltered",n:"Rosie Bay",t:"Small and quiet, with rocks and pools at low water."}
+    {gr:"Close to town",n:"Chesterman Beach",t:"Long and sandy, with beginner surf lessons and tide pools.",img:"chesterman-beach-1"},
+    {gr:"Close to town",n:"Cox Bay",t:"Wide and facing the Pacific. The surf beach of the big three.",img:"cox-bay-1"},
+    {gr:"Close to town",n:"Tonquin Beach",t:"A short forest trail down from the village to a quieter stretch.",img:"tonquin-beach-1"},
+    {gr:"Close to town",n:"Tinwis Beach",t:"Sheltered, gentler water, and the easiest one with children.",img:"tinwis-beach-formerly-mackenzie-beach-1"},
+    {gr:"In the national park",n:"Wickaninnish Beach",t:"Big ocean views and the Kwisitis Visitor Centre.",img:"wickaninnish-beach-1"},
+    {gr:"In the national park",n:"Combers Beach",t:"Wilder and emptier, reached by a short trail off the park road.",img:"combers-beach-1"},
+    {gr:"In the national park",n:"Schooner Cove",t:"Forest first, then sand, at the Tofino end of the park road.",img:"schooner-cove-1"},
+    {gr:"In the national park",n:"Florencia Bay",t:"Sand cliffs and low tide exploring at the far south end.",img:"florencia-bay-1"},
+    {gr:"Quieter and sheltered",n:"Middle Beach",t:"Tucked away near Chesterman, with rocky edges and forest.",img:"middle-beach-1"},
+    {gr:"Quieter and sheltered",n:"Kennedy Lake",t:"Fresh water, not ocean. Calm paddling when the coast is blowing.",img:"kennedy-lake-1"},
+    {gr:"Quieter and sheltered",n:"Grice Bay",t:"The calm inlet side, for kayaks and birds rather than surf.",img:"grice-bay-1"},
+    {gr:"Quieter and sheltered",n:"Rosie Bay",t:"Small and quiet, with rocks and pools at low water.",img:"rosie-bay-1"}
   ]
 };
 
@@ -864,130 +816,16 @@ const cld = (id,w,h) => `https://res.cloudinary.com/djqswlfat/image/upload/f_aut
 const ART_HREF = (t) => /^wildlife tours in tofino$/i.test(t)
   ? "guide.html" : `search.html?q=${encodeURIComponent(t)}&in=tofino`;
 const listOf = (a) => a.length < 2 ? (a[0] || "") : a.slice(0,-1).join(", ") + " and " + a[a.length-1];
-const hhmm = (t) => {
-  let m = Math.round(t*60); m = ((m % 1440) + 1440) % 1440;
-  return String(Math.floor(m/60)).padStart(2,"0") + ":" + String(m%60).padStart(2,"0");
-};
 
-/* ══ the tide ═══════════════════════════════════════════════════════════════
-   The plot runs 04:00 to 22:00. Between the recorded extremes the curve is a
-   cosine, which is the standard shape of a tide between two turns; outside
-   them it is dashed, because there we are extending rather than reporting. */
-const T0 = 4, T1 = 22, HMAX = 3.4;
-const X = (t) => (t - T0)/(T1 - T0)*1000;
-const Y = (h) => 210 - (h/HMAX)*190;
-const PC = (t) => ((t - T0)/(T1 - T0)*100);
-
-function heightAt(pts,t){
-  const ext = [
-    {t: pts[0].t - (pts[1].t - pts[0].t), h: pts[1].h},
-    ...pts,
-    {t: pts[2].t + (pts[2].t - pts[1].t), h: pts[1].h}
-  ];
-  for (let i = 0; i < ext.length-1; i++){
-    const a = ext[i], b = ext[i+1];
-    if (t >= a.t && t <= b.t){
-      const x = (t - a.t)/(b.t - a.t);
-      return a.h + (b.h - a.h)*(1 - Math.cos(Math.PI*x))/2;
-    }
-  }
-  return t < ext[0].t ? ext[0].h : ext[ext.length-1].h;
-}
-
-function curve(pts,from,to){
-  let d = "";
-  for (let t = from; t <= to + 1e-9; t += 0.05){
-    const tt = Math.min(t,to);
-    d += (d ? "L" : "M") + X(tt).toFixed(1) + " " + Y(heightAt(pts,tt)).toFixed(1) + " ";
-  }
-  return d.trim() ;
-}
-
-function paintTide() {
-  const tof = DATA.tide.tofino;
-  const first = tof.pts[0].t, last = tof.pts[2].t;
-
-  $("#tideMid").setAttribute("d", curve(tof.pts, first, last));
-  $("#tidePre").setAttribute("d", curve(tof.pts, T0, first));
-  $("#tidePost").setAttribute("d", curve(tof.pts, last, T1));
-  $("#tideFill").setAttribute("d", curve(tof.pts, T0, T1) + ` L1000 210 L0 210 Z`);
-
-  /* the widest sand: two hours either side of each low */
-  const bands = tof.pts.filter((p) => p.k === "Low").map((p) => [p.t-2, p.t+2]);
-  $("#tideBands").innerHTML = bands.map(([a,b]) =>
-    `<rect x="${X(Math.max(a,T0)).toFixed(1)}" y="20" width="${(X(Math.min(b,T1))-X(Math.max(a,T0))).toFixed(1)}" height="190" fill="var(--n100)"></rect>`).join("")
-    + `<rect x="${X(tof.sunset).toFixed(1)}" y="20" width="${(1000-X(tof.sunset)).toFixed(1)}" height="190" fill="var(--n150)" opacity=".7"></rect>`;
-
-  const now = new Date() ;
-  const nowT = now.getHours() + now.getMinutes() /60;
-  const inView = nowT >= T0 && nowT <= T1;
-
-  $("#tideMarks").innerHTML =
-    tof.pts.map((p) =>
-      `<circle cx="${X(p.t).toFixed(1)}" cy="${Y(p.h).toFixed(1)}" r="4" fill="var(--paper)" stroke="var(--navy)" stroke-width="2" vector-effect="non-scaling-stroke"></circle>`).join("")
-    + `<line x1="${X(tof.sunset).toFixed(1)}" y1="20" x2="${X(tof.sunset).toFixed(1)}" y2="210" stroke="var(--n400)" stroke-width="1.4" stroke-dasharray="3 4" vector-effect="non-scaling-stroke"></line>`
-    + (inView
-      ? `<line x1="${X(nowT).toFixed(1)}" y1="14" x2="${X(nowT).toFixed(1)}" y2="210" stroke="var(--azure)" stroke-width="1.8" vector-effect="non-scaling-stroke"></line>`
-        + `<circle cx="${X(nowT).toFixed(1)}" cy="${Y(heightAt(tof.pts,nowT)).toFixed(1)}" r="5.5" fill="var(--azure)"></circle>`
-      : "");
-
-  const nowTag = $("#tidefig").querySelector(".now");
-  if (nowTag) nowTag.remove() ;
-  if (inView){
-    const tag = document.createElement("p");
-    tag.className = "now";
-    tag.style.left = PC(nowT).toFixed(2) + "%";
-    tag.style.top = "100%";
-    tag.style.marginTop = "6px";
-    tag.textContent = "Now " + hhmm(nowT);
-    $("#tidefig").appendChild(tag);
-  }
-
-  /* three ticks only, so the axis never crowds at 390px */
-  $("#tideAxis").innerHTML = [6,12,18].map((h) =>
-    `<span style="left:${PC(h).toFixed(2)}%">${hhmm(h)}</span>`).join("");
-
-  $("#tideRow").innerHTML =
-    tof.pts.map((p) => `<div><dt>${p.k} water</dt><dd>${hhmm(p.t)}<span>${p.h.toFixed(1)} m</span></dd></div>`).join("")
-    + `<div><dt>Sunset</dt><dd>${hhmm(tof.sunset)}</dd></div>`;
-
-  $("#tideWin").innerHTML = bands.map(([a,b],i) =>
-    `<div><dt>Widest sand, ${i ? "evening" : "morning"}</dt>
-      <dd>${hhmm(a)} to ${hhmm(Math.min(b, tof.sunset))}</dd></div>`).join("");
-
-  /* where the tide is right now, stated from the readings, not guessed */
-  let state;
-  if (!inView){
-    state = `Today's readings start at <b>${hhmm(first)}</b> with the morning low.`;
-  } else {
-    const nexts = tof.pts.filter((p) => p.t > nowT);
-    const h = heightAt(tof.pts, nowT);
-    if (nexts.length){
-      const nx = nexts[0];
-      const mins = Math.round((nx.t - nowT)*60);
-      const dur = mins >= 60 ? `${Math.floor(mins/60)} h ${mins%60} min` : `${mins} min`;
-      state = `Right now it is <b>${h.toFixed(1)} m</b> and ${nx.k === "High" ? "coming in" : "going out"}. ` +
-              `${nx.k} water at <b>${hhmm(nx.t)}</b>, in ${dur}.`;
-    } else {
-      state = `Right now it is <b>${h.toFixed(1)} m</b> and coming in again after the ${hhmm(last)} low.`;
-    }
-  }
-  $("#tideNow").innerHTML = state;
-}
-
-/* ══ the four guide rows, the unit list, stays, reading, siblings ══════════ */
+/* ══ stays, reading, siblings ═════════════════════════════════════════════ */
 function paintStatic() {
-  $("#ev").innerHTML = DATA.ev.map((e) =>
-    `<div class="ev__r"><p class="ev__k">${esc(e.k)}</p><p class="ev__q">${esc(e.q)}</p></div>`).join("");
-
   $("#rlist").innerHTML = DATA.reading.map((a) =>
     `<a class="ritem" href="${ART_HREF(a.t)}">
       <div class="ritem__m"><img src="${cld(a.hero,280,210)}" alt="${esc(a.alt)}"></div>
       <div><div class="kmeta" style="margin-top:0"><span class="k">${esc(a.k)}</span><span class="dot"></span><span class="tnum">${esc(a.m)}</span></div>
       <h4>${esc(a.t)}</h4></div></a>`).join("");
 
-  /* grouped with a count on each group, so the same block reads the same way
-     at twelve beaches or at twenty-six towns */
+  /* grouped, three across, each with the beach's own photograph */
   const groups = [];
   DATA.sibs.forEach((s) => {
     const g = groups.find((x) => x.gr === s.gr) || (groups.push({gr:s.gr, rows:[]}), groups[groups.length-1]);
@@ -997,6 +835,7 @@ function paintStatic() {
     `<p class="grouph"><b>${esc(g.gr)}</b><span>${g.rows.length} ${g.rows.length === 1 ? "place" : "places"}</span></p>
      <span class="siblings">${g.rows.map((s) =>
        `<a class="sib" href="beaches-tofino.html">
+          <span class="sib__m"><img loading="lazy" src="${cld("guides/tofino/beaches/" + s.img,520,390)}" alt="${esc(s.n)}, Tofino"></span>
           <span class="sib__n">${esc(s.n)}</span>
           <span class="sib__t">${esc(s.t)}</span></a>`).join("")}</span>`).join("");
 
@@ -1139,12 +978,10 @@ function setMonth(m){
 }
 
 paintStatic();
-paintTide();
 paintMonths();
 paintYear();
 centerMonth(false);
 addEventListener("resize", () => centerMonth(false));
-setInterval(paintTide, 60000);
 
 $("#mrow").addEventListener("click", (e) => {
   const b = e.target.closest("button"); if (b) setMonth(Number(b.dataset.m));

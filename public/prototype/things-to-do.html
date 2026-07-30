@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Things to do in Tofino, Arc Trips</title>
-<meta name="description" content="Things to do in Tofino: nine subjects, from beaches and trails to storm watching, each with the months that suit it best and a guide behind it.">
+<meta name="description" content="Things to do in Tofino: beaches, trails, kayaking, whales, surf and storms, ordered by the months each one suits, with the places named.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,14 +13,15 @@
 <link rel="stylesheet" href="_system.css">
 <style>
 /* ── Page-scoped only. Tokens from _system.css, no new colour values. ────────
-      This page is the town's index of subjects, so it is built to be dense:
-      every one of the 73 places is named on it. What lives here and not in the
-      system: (a) the type raise, (b) the subject entry, (c) the place list,
-      (d) the full-bleed proof band, (e) the questions, (f) the mobile dock. ── */
+      This page is the town's index of subjects. It is long, so it is built to
+      be read one row at a time rather than scanned as a wall: one subject per
+      row, one photograph per row, one sentence of place names per row. What
+      lives here and not in the system: (a) the type raise, (b) the subject
+      entry, (c) the place line, (d) the questions, (e) the mobile dock. ─── */
 
 /* a11y floors the system leaves open */
 :focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:var(--r-sm)}
-.almanac :focus-visible,.proof :focus-visible,.dock :focus-visible{outline-color:var(--a300)}
+.almanac :focus-visible,.dock :focus-visible{outline-color:var(--a300)}
 .btn{min-height:44px;white-space:nowrap}
 nav.top .btn{flex:none}
 .brand,.nav-links a{display:inline-flex;align-items:center;min-height:44px}
@@ -48,7 +49,6 @@ nav.top .btn{flex:none}
 .pill{font-size:.875rem;letter-spacing:.01em;text-transform:none;padding:3px 11px}
 .fgrid h5{font-size:.875rem;letter-spacing:.04em}
 .plate figcaption{font-size:.875rem}
-.tide-read{font-size:.9rem}
 /* _system.css sets body>*:not(.chart){position:relative}, which outranks a bare
    class. Body children that need their own positioning must match it to hold. */
 body>.skip{position:absolute;left:var(--gut);top:-60px;z-index:99;background:var(--navy);color:var(--paper);
@@ -58,8 +58,6 @@ body>.skip:focus{top:0}
    to 0 below 760, where the global nav is still sticky and would cover it. */
 
 .crumb a,.crumb [aria-current]{display:inline-flex;align-items:center;min-height:44px}
-/* the tide strip says what it is, then what it means */
-.tide-why{font-size:.9rem;color:var(--n600);flex:none}
 .placebar__links{margin:0}
 .placebar__back .k{color:var(--n600)}
 
@@ -88,12 +86,6 @@ body>.skip:focus{top:0}
   .pcol .coast,.pcol .p3{display:none}
   .pcol .plate{position:relative;inset:auto;width:auto;height:auto;aspect-ratio:3/4}
 }
-/* the tally: a sentence made of numbers, not a row of metric tiles */
-.tally{display:flex;flex-wrap:wrap;gap:2px 0;margin-top:clamp(26px,3vw,38px);padding-top:22px;border-top:1px solid var(--n150)}
-.tally div{flex:1 1 138px;display:flex;gap:9px;align-items:baseline;padding:7px 20px 7px 0}
-.tally b{font-size:clamp(1.3rem,2vw,1.75rem);font-weight:800;color:var(--navy);letter-spacing:-.035em;
-  font-variant-numeric:tabular-nums;flex:none;line-height:1}
-.tally span{font-size:.875rem;color:var(--n600);line-height:1.35}
 
 /* ── the navy season panel ──────────────────────────────────────────────── */
 .sec--season{padding-block:clamp(34px,4vw,56px) clamp(34px,4vw,56px)}
@@ -137,8 +129,6 @@ body>.skip:focus{top:0}
   .bignums dt{font-size:.875rem;white-space:nowrap}
   .bignums dd{font-size:1.72rem;margin-top:7px}
 }
-.claim__r{grid-column:1/-1;color:rgba(255,255,255,.78);font-size:1rem;line-height:1.6;max-width:82ch}
-.claim__r b{color:var(--paper);font-weight:600}
 .sum{font-size:clamp(1.08rem,1.6vw,1.36rem);color:var(--paper);font-weight:600;line-height:1.42;
   margin-top:clamp(24px,3vw,34px);max-width:60ch;letter-spacing:-.018em}
 .sum b{font-size:1.5em;font-weight:800;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
@@ -148,23 +138,25 @@ body>.skip:focus{top:0}
 .almanac__note{margin-top:clamp(20px,2.4vw,28px);padding-top:18px;border-top:1px solid rgba(255,255,255,.14);
   font-size:.875rem;color:rgba(255,255,255,.78);line-height:1.6}
 
-/* ── filters, in the body, every chip with a count ──────────────────────── */
-.filterrow{margin-block:clamp(18px,2.2vw,26px) clamp(22px,2.6vw,32px)}
-.filterrow .clear{min-height:44px;font-weight:600;cursor:pointer;font-family:inherit;font-size:.88rem}
-
-/* ── (b) the subject entry. Nine of these, alternating side. ────────────── */
+/* ── (b) the subject entry. Nine of these, all the same way round: the
+      numbers have to read straight down the page or the order is invisible. ── */
 .subs{border-top:1px solid var(--n200)}
 .sub{display:grid;grid-template-columns:minmax(0,306px) minmax(0,1fr);gap:clamp(22px,3.6vw,60px);
   padding-block:clamp(34px,4.6vw,72px);border-bottom:1px solid var(--n150);
   animation:subin .34s var(--ease) both;animation-delay:calc(var(--i,0)*30ms)}
 @keyframes subin{from{opacity:0;transform:translateY(9px)}}
-/* the meta column changes sides row by row, so the grid tracks change with it */
-.sub:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(0,306px)}
-.sub:nth-child(even) .sub__l{order:2}
 @media(max-width:900px){
-  .sub,.sub:nth-child(even){grid-template-columns:minmax(0,1fr);gap:24px;padding-block:clamp(30px,5vw,44px)}
-  .sub:nth-child(even) .sub__l{order:0}
+  .sub{grid-template-columns:minmax(0,1fr);gap:24px;padding-block:clamp(30px,5vw,44px)}
 }
+/* other pages link straight at a subject (things-to-do.html#fishing), and the
+   sticky stack above is 177px at 1440 and 58px at 390. Without this the card
+   they were sent to lands underneath it. Page-scoped: _system.css is shared. */
+.sub,#season,#subjects,#questions{scroll-margin-top:192px}
+@media(max-width:760px){.sub,#season,#subjects,#questions{scroll-margin-top:74px}}
+/* the ordering, said out loud, where it changes hands */
+.splitrow{padding-block:clamp(22px,2.6vw,30px) clamp(14px,1.6vw,18px);border-bottom:1px solid var(--n150);
+  font-size:1rem;color:var(--n600);line-height:1.55;max-width:64ch}
+.splitrow b{color:var(--navy);font-weight:700}
 .sub__no{display:block;font-size:clamp(2.4rem,4.6vw,3.8rem);font-weight:800;color:var(--a250);
   letter-spacing:-.05em;line-height:.78;font-variant-numeric:tabular-nums}
 .sub__n{font-size:clamp(1.8rem,3.2vw,2.7rem);font-weight:800;letter-spacing:-.038em;line-height:1.02;margin-top:7px}
@@ -181,11 +173,8 @@ body>.skip:focus{top:0}
 .strip i[data-now]{outline:2px solid var(--navy);outline-offset:1.5px}
 .sub__w{margin-top:13px;font-size:.9rem;color:var(--n600);line-height:1.45}
 .sub__w b{color:var(--navy);font-weight:700}
-.sfacts{display:flex;flex-wrap:wrap;gap:2px 18px;margin-top:16px;padding-top:15px;border-top:1px solid var(--n150)}
-.sfacts div{display:flex;gap:7px;align-items:baseline;padding-block:4px}
-.sfacts b{font-size:1.16rem;font-weight:800;color:var(--navy);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
-.sfacts span{font-size:.875rem;color:var(--n600)}
-.sbook{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:15px;font-size:.9rem;color:var(--n600)}
+.sbook{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:15px;padding-top:15px;
+  border-top:1px solid var(--n150);font-size:.9rem;color:var(--n600)}
 .sbook b{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
 /* the pill carries no hue unless the thing is genuinely bookable today */
 .pill--wait,.pill--free{background:var(--n100);color:var(--n700)}
@@ -196,26 +185,19 @@ body>.skip:focus{top:0}
 .jumpm svg{width:13px;height:13px;flex:none}
 
 .sub__lead{font-size:clamp(1.02rem,1.25vw,1.14rem);color:var(--n700);line-height:1.58;max-width:60ch}
-.phstrip{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,1vw,12px);margin-top:clamp(18px,2.2vw,26px)}
-.phstrip--big{grid-template-columns:repeat(2,1fr)}
-.phstrip figure{position:relative;border-radius:var(--r-sm);overflow:hidden;aspect-ratio:4/3;background:var(--n100)}
-.phstrip--big figure{aspect-ratio:16/10}
-.phstrip img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
-.phstrip figure:hover img{transform:scale(1.05)}
-.phstrip figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 12px 10px;color:var(--paper);font-size:.875rem;
-  font-weight:600;line-height:1.3;background:linear-gradient(180deg,rgba(11,51,86,0),rgba(11,51,86,.86))}
-/* two up rather than a ragged three on the narrowest screens */
-@media(max-width:560px){
-  .phstrip,.phstrip--big{grid-template-columns:repeat(2,1fr)}
-  .phstrip:not(.phstrip--big) figure:nth-child(3){display:none}
-}
-.nophoto{margin-top:20px;padding:16px 18px;border:1px solid var(--n150);border-radius:var(--r-sm);
-  font-size:.9rem;color:var(--n600);line-height:1.55;max-width:56ch}
+/* one photograph per subject, never a strip. It is the picture that subject's
+   own page opens on, so the index and the page can never disagree. */
+.sphoto{margin-top:clamp(18px,2.2vw,26px);border-radius:var(--r-sm);overflow:hidden;
+  aspect-ratio:16/9;background:var(--n100)}
+.sphoto img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.sub:hover .sphoto img{transform:scale(1.03)}
 
-/* ── (c) one sentence in place of the old wall of ninety names ──────────── */
+/* ── (c) the places, named in one sentence, with the guide one tap away ─── */
 .sline{margin-top:clamp(18px,2.2vw,24px);padding-top:16px;border-top:1px solid var(--n150);
   font-size:1rem;color:var(--n700);line-height:1.6;max-width:56ch}
-.sline a{position:relative;z-index:2;display:inline-flex;align-items:center;min-height:44px;
+/* the link sits on its own line: inline it would inflate one line box of the
+   sentence above it and the leading would go ragged */
+.sline a{position:relative;z-index:2;display:flex;width:fit-content;align-items:center;min-height:44px;
   font-weight:700;color:var(--azure);transition:color .2s var(--ease)}
 .sline a:hover{color:var(--a800)}
 .alist{list-style:none;margin-top:10px;display:grid;gap:0}
@@ -224,36 +206,22 @@ body>.skip:focus{top:0}
 .alist a:hover{color:var(--azure)}
 .alist span{display:block;font-size:.9rem;color:var(--n600);line-height:1.5;padding-bottom:8px}
 
-.tdempty{border:1px solid var(--n150);border-radius:var(--r);padding:clamp(26px,4vw,44px);text-align:center;margin-top:26px}
-.tdempty p{color:var(--n600);font-size:.98rem;margin-top:9px;max-width:48ch;margin-inline:auto}
-
-/* ── (d) the full-bleed band. One photograph escapes the page. ──────────── */
-.proof{position:relative;min-height:min(74vh,620px);display:flex;align-items:center;overflow:hidden;
-  margin-block:clamp(50px,6vw,96px)}
-.proof>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.proof__veil{position:absolute;inset:0;background:linear-gradient(93deg,rgba(11,51,86,.94) 0%,rgba(11,51,86,.8) 46%,rgba(11,51,86,.3) 100%)}
-.proof__in{position:relative;max-width:640px;padding-block:clamp(42px,5vw,68px)}
-.proof .label{color:var(--a300)}
-.proof__n{font-size:clamp(1.9rem,4vw,3.2rem);font-weight:800;color:var(--paper);letter-spacing:-.04em;
-  line-height:1.04;margin-top:13px;max-width:16ch}
-.proof__n b{display:block;font-size:clamp(3.4rem,8.4vw,7rem);font-weight:800;letter-spacing:-.055em;line-height:.88}
-.proof__d{color:rgba(255,255,255,.82);max-width:48ch;margin-top:18px;font-size:1.01rem;line-height:1.6}
-.proof__l{list-style:none;margin-top:22px;display:grid;gap:0;max-width:520px}
-.proof__l li{display:flex;gap:14px;align-items:baseline;padding-block:11px;border-top:1px solid rgba(255,255,255,.22);
-  font-size:.92rem;color:rgba(255,255,255,.82)}
-.proof__l b{color:var(--paper);font-weight:700;flex:1}
-.proof__l span{font-size:.875rem;font-weight:600;color:var(--a300);flex:none}
-.proof__cta{margin-top:26px;border-color:rgba(255,255,255,.44);color:var(--paper)}
-.proof__cta:hover{border-color:var(--paper);background:rgba(255,255,255,.11)}
-
-/* ── (e) the questions, straight out of the guides ─────────────────────── */
-.qagrid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 clamp(28px,4vw,60px)}
-@media(max-width:840px){.qagrid{grid-template-columns:1fr}}
-.qi{border-top:1px solid var(--n150);padding:19px 0}
-.qi span{display:block;font-size:.875rem;font-weight:600;color:var(--azure);margin-bottom:8px}
-.qi h3{font-size:1.05rem;font-weight:700;line-height:1.32}
-.qi p{font-size:.9375rem;color:var(--n600);margin-top:8px;line-height:1.6;max-width:54ch}
-.qmore{margin-top:24px}
+/* ── (d) the questions. One column, collapsed, at the foot of the page.
+      Native details, so it works with a keyboard and a screen reader. ───── */
+/* capped to a reading measure: full container width throws the open/close
+   affordance a thousand pixels away from the question it belongs to */
+.qlist{border-top:1px solid var(--n200);margin-top:clamp(20px,2.4vw,28px);max-width:860px}
+.qa{border-bottom:1px solid var(--n150)}
+.qa summary{display:flex;gap:20px;align-items:flex-start;justify-content:space-between;list-style:none;
+  padding-block:14px;min-height:44px;cursor:pointer}
+.qa summary::-webkit-details-marker{display:none}
+.qa__q{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.34}
+.qa__c{display:block;font-size:.875rem;font-weight:600;color:var(--n600);margin-bottom:5px}
+.qa summary:hover .qa__q{color:var(--azure)}
+.qa__s{flex:none;width:24px;height:24px;display:grid;place-items:center;color:var(--azure);
+  font-size:1.25rem;font-weight:700;line-height:1;transition:transform .22s var(--ease)}
+.qa[open] .qa__s{transform:rotate(45deg)}
+.qa__a{font-size:1rem;color:var(--n700);line-height:1.62;max-width:64ch;padding-bottom:22px}
 .rlist{margin-top:4px}
 
 /* ── siblings ───────────────────────────────────────────────────────────── */
@@ -262,17 +230,7 @@ body>.skip:focus{top:0}
 .sib{box-shadow:0 0 0 1px var(--n150)}
 .sib__m b{color:var(--navy);font-weight:700}
 
-/* ── every page ends with a next step, never a bare footer ─────────────── */
-.keepgoing{border-top:1px solid var(--n150);padding-top:clamp(30px,4vw,48px);
-  display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.6vw,36px)}
-@media(max-width:860px){.keepgoing{grid-template-columns:1fr;gap:28px}}
-.kg{display:flex;flex-direction:column;position:relative}
-.kg h4{font-size:1.26rem;font-weight:700;color:var(--navy);margin-top:9px;line-height:1.24;letter-spacing:-.016em}
-.kg:hover h4{color:var(--azure)}
-.kg p{font-size:.93rem;color:var(--n600);margin-top:9px;margin-bottom:20px;line-height:1.52;max-width:34ch}
-.kg .btn{margin-top:auto;align-self:flex-start}
-
-/* ── (f) mobile dock. Mutually exclusive with the place bar CTA by
+/* ── (e) mobile dock. Mutually exclusive with the place bar CTA by
       breakpoint, so exactly one primary button is on screen at any width. ── */
 body>.dock{display:none}
 @media(max-width:760px){
@@ -375,8 +333,7 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
   <div>
     <span class="label">Tofino, British Columbia</span>
     <h1>Things to do in Tofino</h1>
-    <p class="lede">Nine subjects, from beaches and trails to storm watching. Each one shows the months it suits, and the guide behind it names every place.</p>
-    <div class="tally" id="tally"></div>
+    <p class="lede">Beaches, trails, kayaking, whales, surf and storms. Pick the month you are coming and the nine reorder themselves, closest to their best month first.</p>
   </div>
 
   <div class="pcol collage">
@@ -403,14 +360,14 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
   </div>
 </div></header>
 
-<!-- today's real tides and sunset, labelled in plain words and with the reason
-     a traveller should care about them said out loud -->
+<!-- the month control. It is the one input on the page: everything below is
+     ordered by the month chosen here, and the panel says so. -->
 <section class="sec sec--season" id="season"><div class="wrap">
   <div class="almanac">
     <div class="head">
       <div>
         <span class="label">Tofino, month by month</span>
-        <h2 style="margin-top:12px">When should you go?</h2>
+        <h2 style="margin-top:12px">Pick your month</h2>
         <p id="seasonHead"></p>
       </div>
       <a class="btn btn--ghost btn--sm" href="plan.html">Plan the trip</a>
@@ -429,7 +386,6 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
         <p class="claim__c" id="seasonClaim"></p>
       </div>
       <dl class="bignums" id="bignums"></dl>
-      <p class="claim__r" id="seasonReason"></p>
     </div>
 
     <p class="sum" id="sum"></p>
@@ -441,60 +397,21 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
   <div class="head">
     <div>
       <span class="label label--n">The nine subjects</span>
-      <h2 style="margin-top:11px" id="gridHead">All nine, ordered for the month</h2>
+      <h2 style="margin-top:11px" id="gridHead">All nine, in the order the month suits them</h2>
       <p id="gridNote"></p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="search.html?q=&amp;in=tofino">Read the guides instead</a>
+    <a class="btn btn--ghost btn--sm" href="search.html?q=&amp;in=tofino">Search the Tofino guides</a>
   </div>
-
-  <div class="filterrow" role="group" aria-label="Narrow the subjects" id="filters"></div>
 
   <div class="subs" id="grid"></div>
-
-  <div class="tdempty" id="empty" hidden>
-    <h3>Nothing in Tofino matches that yet</h3>
-    <p>The other subjects are all still here, and all still open.</p>
-    <button class="btn btn--ghost" type="button" id="resetFilter" style="margin-top:18px">Show all nine</button>
-  </div>
-</div></section>
-
-<!-- the one photograph that escapes the container -->
-<section class="proof">
-  <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_2200,h_1100/guides/tofino/beaches/long-beach-2" alt="Sixteen kilometres of open Pacific sand at Long Beach, with surf running up the shore">
-  <div class="proof__veil" aria-hidden="true"></div>
-  <div class="wrap proof__in">
-    <span class="label">One place, four subjects</span>
-    <p class="proof__n"><b>4</b>of the nine send you to Long Beach</p>
-    <p class="proof__d">Sixteen kilometres of open sand that four different subjects all end at.</p>
-    <ul class="proof__l">
-      <li><b>Long Beach</b><span>Beaches</span></li>
-      <li><b>Long Beach</b><span>Storm watching</span></li>
-      <li><b>Long Beach Hike</b><span>Hiking and trails</span></li>
-      <li><b>Long Beach and the Open Pacific Coast</b><span>Kayaking</span></li>
-    </ul>
-    <a class="btn btn--ghost proof__cta" href="long-beach.html">Open Long Beach in full</a>
-  </div>
-</section>
-
-<section class="sec" style="padding-block:0" id="questions"><div class="wrap">
-  <div class="head">
-    <div>
-      <span class="label label--n">Questions</span>
-      <h2 style="margin-top:11px" id="qHead">What people ask about Tofino</h2>
-      <p>Answered inside the guides, by the people who wrote them.</p>
-    </div>
-    <a class="btn btn--ghost btn--sm" href="search.html?q=&amp;in=tofino">All 18 articles</a>
-  </div>
-  <div class="qagrid" id="qagrid"></div>
-  <div class="qmore"><button class="btn btn--ghost btn--sm" type="button" id="qtoggle">Show all 40 questions</button></div>
 </div></section>
 
 <section class="sec" style="padding-block:clamp(40px,5vw,72px) 0"><div class="wrap">
   <div class="head">
     <div>
-      <span class="label label--n">About the whole town</span>
-      <h2 style="margin-top:11px">Three more Tofino articles</h2>
-      <p>These cover the town rather than one subject.</p>
+      <span class="label label--n">Across the whole town</span>
+      <h2 style="margin-top:11px">Camping, the whale festival, and when to go</h2>
+      <p>Three guides that cover Tofino as a whole rather than one subject.</p>
     </div>
   </div>
   <ul class="alist rlist" id="townart"></ul>
@@ -509,36 +426,26 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
     </div>
   </div>
   <nav class="siblings" aria-label="Elsewhere in Tofino">
-    <a class="sib" href="tofino.html"><span class="sib__n">Overview</span><span class="sib__m"><b>9</b> subjects, <b>134</b> stays</span></a>
-    <a class="sib" href="long-beach.html"><span class="sib__n">Long Beach</span><span class="sib__m">The area four subjects share</span></a>
-    <a class="sib" href="whale-watching.html"><span class="sib__n">Whale watching</span><span class="sib__m">March to October</span></a>
-    <a class="sib" href="plan.html"><span class="sib__n">Plan</span><span class="sib__m">Weather, prices, getting here</span></a>
-    <a class="sib" href="search.html?q=&amp;in=tofino"><span class="sib__n">Guides</span><span class="sib__m"><b>18</b> articles</span></a>
-    <a class="sib" href="region.html"><span class="sib__n">Vancouver Island</span><span class="sib__m"><b>11</b> towns, Tofino and Ucluelet live</span></a>
+    <a class="sib" href="tofino.html"><span class="sib__n">Tofino overview</span><span class="sib__m">The town in one page</span></a>
+    <a class="sib" href="long-beach.html"><span class="sib__n">Long Beach</span><span class="sib__m">Sixteen kilometres of open Pacific sand</span></a>
+    <a class="sib" href="whale-watching.html"><span class="sib__n">Whale watching</span><span class="sib__m">Grey whales from March, humpbacks all summer</span></a>
+    <a class="sib" href="plan.html"><span class="sib__n">Plan the trip</span><span class="sib__m">Weather, prices, getting here</span></a>
+    <a class="sib" href="search.html?in=tofino"><span class="sib__n">Stays in Tofino</span><span class="sib__m"><b>134</b> places from <b>$320</b> a night</span></a>
+    <a class="sib" href="region.html"><span class="sib__n">Vancouver Island</span><span class="sib__m"><b>11</b> towns, Tofino at the far west</span></a>
   </nav>
 </div></section>
 
-<section class="sec" style="padding-block:clamp(44px,5vw,76px) 0"><div class="wrap">
-  <div class="keepgoing">
-    <a class="kg" href="whale-watching.html">
-      <span class="label">Next in this town</span>
-      <h4>Whale watching in Tofino</h4>
-      <p>Grey whales from March, humpbacks through the summer.</p>
-      <span class="btn btn--ghost btn--sm">Read the subject</span>
-    </a>
-    <a class="kg" href="long-beach.html">
-      <span class="label">More in Tofino</span>
-      <h4>Long Beach</h4>
-      <p>Sixteen kilometres of open Pacific sand inside Pacific Rim National Park Reserve.</p>
-      <span class="btn btn--ghost btn--sm">Open the area</span>
-    </a>
-    <a class="kg" href="search.html?in=tofino">
-      <span class="label">The booking path</span>
-      <h4>134 stays in Tofino</h4>
-      <p>Bookable tonight from $320 a night, all within reach of the beaches and trails.</p>
-      <span class="btn btn--ghost btn--sm">See the stays</span>
-    </a>
+<!-- questions last, one column, collapsed -->
+<section class="sec" style="padding-block:clamp(44px,5vw,76px) 0" id="questions"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">Questions</span>
+      <h2 style="margin-top:11px">What people ask about Tofino</h2>
+      <p>Tap a question to read the answer.</p>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="search.html?q=&amp;in=tofino">Search the Tofino guides</a>
   </div>
+  <div class="qlist" id="qagrid"></div>
 </div></section>
 
 </main>
@@ -651,17 +558,12 @@ const nextWindowText = (months, m) => {
   return run[0] === run[1] ? MON[run[0]-1] : `${MON[run[0]-1]} to ${MON[run[1]-1]}`;
 };
 const seasonFor = (m) => Object.values(DATA.seasons).find((s) => s.months.includes(m));
-const SEASON_REASON = {
-  "Storm season": "Come for the weather, not in spite of it.",
-  "The green months": "Quieter trails, lower rates, rain easing week by week.",
-  "Long days": "The dry window, and every boat in the harbour running."
-};
 
 /* Four of the nine guides carry an SEO meta description in place of a lead.
    These are the same four rewritten as sentences, nothing added. */
 const LEAD = {
   hiking: "Easy rainforest walks, beach trails, ocean viewpoints and family paths, in town and in Pacific Rim National Park.",
-  kayaking: "Clayoquot Sound, calm inlets, islands and rainforest shoreline, with every launch and route written up.",
+  kayaking: "Clayoquot Sound, calm inlets, islands and rainforest shoreline, from a first sheltered paddle to a week in the Broken Group.",
   restaurants: "Seafood and fish tacos through to tasting menus, plus the coffee shops and bakeries that open early.",
   birding: "Gulls, cormorants, murres, auklets, puffins, oystercatchers, ducks, loons and grebes, along one shoreline."
 };
@@ -669,11 +571,40 @@ DATA.subjects.forEach((s) => { s.lead = LEAD[s.cat] || s.lead.replace(/^\s*/, ""
 /* two of the units read as jargon out of the corpus, so they are said plainly */
 const UNIT = { restaurants: "places to eat", "storm-watching": "lookouts" };
 DATA.subjects.forEach((s) => { s.unit = UNIT[s.cat] || s.unit; });
-/* Fishing has no place pages of its own. The harbour the charters leave from
-   does, inside the kayaking guide, so the entry points at the real row. */
-(DATA.subjects.find((s) => s.cat === "fishing") || {}).xref = [
-  { n: "Tofino Harbour and Sheltered Inlet Waters", c: "kayaking", t: "The harbour the charters leave from" }
-];
+
+/* One photograph per subject: the picture that subject's own page opens on, so
+   the index and the page can never show different places. Fishing has no page
+   of its own, and the stock frame filed against it is an aerial of an inlet
+   with no boat in it, so it takes the harbour the charters leave from. */
+const PHOTO = {
+  "beaches":        { id:"guides/tofino/beaches/_category-1",
+                      alt:"Sunset over wet sand and low surf on a Tofino beach, with a headland of wind-bent pines behind" },
+  "hiking":         { id:"guides/tofino/hiking/_category-1",
+                      alt:"A walker in a yellow jacket on a raised boardwalk through dense west coast rainforest" },
+  "kayaking":       { id:"guides/tofino/kayaking/_category-1",
+                      alt:"Two red kayaks crossing flat water below a forested hillside in Clayoquot Sound" },
+  "restaurants":    { id:"guides/tofino/restaurants/_category-1",
+                      alt:"A plate of cured salmon and flatbread beside a glass of red wine at a window table" },
+  "storm-watching": { id:"guides/tofino/storm-watching/_category-1",
+                      alt:"A single figure in yellow on a dark winter beach as surf breaks around a snow-dusted islet" },
+  "surfing":        { id:"guides/tofino/surfing/_category-1",
+                      alt:"A surfer riding a line of evening waves off a Tofino point break" },
+  "whale-watching": { id:"guides/tofino/whale-watching/_category-6",
+                      alt:"A humpback whale blowing a tall spout of spray close to a forested shoreline" },
+  "birding":        { id:"guides/tofino/birding/_category-1",
+                      alt:"A dense flock of shorebirds packed together on a sandbar at the edge of the water" },
+  "fishing":        { id:"guides/tofino/kayaking/tofino-harbour-and-sheltered-inlet-waters-1",
+                      alt:"Boats and kayaks tied along the dock in Tofino harbour, with the forested shore behind" }
+};
+
+/* The four subjects with no place rows of their own still have to say where in
+   Tofino they happen. Each line comes from that subject's own guide. */
+const SLINE = {
+  "surfing": "Chesterman Beach is the beginners' beach. Cox Bay and Long Beach work when conditions are calm.",
+  "birding": "Grice Bay and the Shorepine Bog Trail from the shore, Lemmens Inlet and Clayoquot Sound from a boat.",
+  "whale-watching": "Grey whales pass from March, humpbacks stay through the summer, and the boats go out of Clayoquot Sound.",
+  "fishing": "Salmon and halibut charters leave from Tofino harbour."
+};
 
 /* the questions come out of the corpus grouped by article, so they are dealt
    round the categories instead: the first screenful spans the whole town */
@@ -689,20 +620,6 @@ DATA.questions = ( () => {
 })() ;
 
 let month = new Date().getMonth() + 1;
-let filter = "all";
-let showAllQ = false;
-
-/* ── the tally: the corpus counting itself ─────────────────────────────── */
-function paintTally() {
-  const t = DATA.town;
-  const rows = [
-    [t.guides, "subjects"],
-    [t.places, "places written up"],
-    [t.articles, "guides behind them"]
-  ];
-  $("#tally").innerHTML = rows.map(([n,l]) =>
-    `<div><b class="tnum">${n}</b><span>${l}</span></div>`).join("");
-}
 
 /* ── the month control. Column height is that month's real rainfall. ────── */
 function paintMonths() {
@@ -724,10 +641,9 @@ function paintSeason() {
 
   const on0 = DATA.subjects.filter((x) => x.months.includes(month));
   $("#seasonHead").textContent =
-    `Showing ${name}: ${on0.length} of the nine subjects are at their best. Pick another month to see it change.`;
+    `Showing ${name}. Everything further down the page reorders to the month you pick.`;
   $("#seasonName").textContent = s.name;
   $("#seasonClaim").textContent = s.claim;
-  $("#seasonReason").textContent = SEASON_REASON[s.name];
   $("#bignums").innerHTML =
     `<div><dt>Average high</dt><dd>${c.hi}&deg;</dd></div>` +
     `<div><dt>Average low</dt><dd>${c.lo}&deg;</dd></div>` +
@@ -760,62 +676,55 @@ const BOOK = {
   soon: () => `<span class="pill pill--wait">Coming soon</span> <b>Stays from $${DATA.town.from}</b>`
 };
 
-const FILTERS = [
-  { k:"all",    l:"All nine",       t:(s) => true },
-  { k:"season", l:"In season",      t:(s) => s.months.includes(month) },
-  { k:"free",   l:"Free to visit",  t:(s) => s.cta === "free" || s.cta === "none" },
-  { k:"book",   l:"Bookable now",   t:(s) => s.cta === "stay" || s.cta === "sister" }
-];
-const test = (s) => (FILTERS.find((f) => f.k === filter) || FILTERS[0]).t(s);
-
-function paintFilters() {
-  $("#filters").innerHTML = FILTERS.map((f) => {
-    const n = DATA.subjects.filter(f.t).length;
-    const label = f.k === "season" ? "In season in " + MON[month-1] : f.l;
-    return `<button type="button" data-f="${f.k}" aria-pressed="${filter === f.k}">${esc(label)}<span class="ct">${n}</span></button>`;
-  }).join("") +
-  (filter === "all" ? "" : `<button class="clear" type="button" data-clear>Clear the filter</button>`);
+function photo(s, first){
+  const p = PHOTO[s.cat];
+  return `<figure class="sphoto">
+      <img ${first ? "" : 'loading="lazy" '}width="1040" height="585" src="${cld(p.id, 1040, 585)}" alt="${esc(p.alt)}">
+    </figure>`;
 }
 
-function photoStrip(s, big){
-  if (!s.photos.length) return `<p class="nophoto">No photographs of our own for this one yet. What is written comes from the guide, and the boats run out of the harbour whatever we have on file.</p>`;
-  const named = s.photos.filter((p) => p.p);
-  const rest = s.photos.filter((p) => !p.p);
-  const pick = named.concat(rest).slice(0, big ? 2 : 3);
-  return `<div class="phstrip${big ? " phstrip--big" : ""}">` + pick.map((p) => `
-    <figure>
-      <img loading="lazy" src="${cld(p.id, big ? 760 : 560, big ? 476 : 420)}"
-           alt="${esc(p.p ? p.p + ", photographed for the Tofino " + s.name.toLowerCase + " guide" : s.name + " in Tofino")}">
-      <figcaption>${esc(p.p || s.name + ", Tofino")}</figcaption>
-    </figure>`).join("") + `</div>`;
+/* The places, named. Three of them, in the guide's own order, skipping the
+   section headings the corpus files alongside real places and the few names
+   too long to read in a sentence. The guide holds the rest. */
+function namesLine(s){
+  const real = s.places.filter((p) => p.note);
+  const pool = real.length >= 3 ? real : s.places;
+  const short = pool.filter((p) => p.n.length <= 26);
+  const pick = (short.length >= 3 ? short : pool).slice(0,3).map((p) => p.n);
+  const rest = s.places.length - pick.length;
+  const list = pick.length > 1 ? pick.slice(0,-1).join(", ") + " and " + pick[pick.length-1] : pick[0];
+  return rest > 0 ? `${list}, and ${rest} more.` : `${list}.`;
 }
 
-/* One sentence and one link, in place of the old wall of names. The guide is
-   where the ninety places belong, not an index page. */
 function placeBlock(s){
   const href = subjHref(s);
-  if (s.places.length){
-    const first = s.places[0].n, last = s.places[s.places.length-1].n;
-    return `<p class="sline">All ${s.places.length} ${esc(s.unit)} are written up in the guide, from ${esc(first)} to ${esc(last)}.
-      <a href="${href}">See all ${s.places.length} ${esc(s.unit)}</a></p>`;
-  }
-  if (s.xref && s.xref.length){
-    const lead = s.xref[0];
-    return `<p class="sline">No pages of its own yet. ${s.xref.length === 1 ? "One place" : s.xref.length + " places"} in Tofino cover it, starting with ${esc(lead.n)}.
-      <a href="${href}">Read the ${esc(s.name.toLowerCase() )} guide</a></p>`;
-  }
-  return `<p class="sline">Written up in ${s.articles.length} ${s.articles.length === 1 ? "article" : "articles"} about Tofino.
-    <a href="${href}">Read the ${esc(s.name.toLowerCase() )} guide</a></p>`;
+  const line = s.places.length ? namesLine(s) : SLINE[s.cat];
+  const label = s.places.length ? `See all ${s.places.length} ${s.unit}`
+    : HREF[s.cat] ? `Read the ${s.name.toLowerCase()} guide`
+    : `Find the ${s.name.toLowerCase()} guides`;
+  return `<p class="sline">${esc(line)} <a href="${href}">${esc(label)}</a></p>`;
 }
 
 function paintGrid() {
-  const rows = ranked().filter(test);
+  const rows = ranked();
   const name = MON[month-1];
+  const on = rows.filter((s) => s.months.includes(month)).length;
+  const off = rows.length - on;
 
-  $("#gridNote").textContent = `Ordered by how well ${name} suits each one. Nothing here is closed.`;
+  $("#gridHead").textContent = `All nine, in the order ${name} suits them`;
+  $("#gridNote").textContent = `Nothing on this page closes for the season. The order changes, not the list.`;
 
-  $("#grid").innerHTML = rows.map((s,i) => {
+  /* the ordering is stated twice: once as a running number down the left, and
+     once as a line at the point where the in-season run ends */
+  let out = `<p class="splitrow"><b>${on} of the nine</b> are at their best in ${name}. The narrowest windows come first, so the ones you would miss are at the top.</p>`;
+  let split = false;
+
+  rows.forEach((s,i) => {
     const live = s.months.includes(month);
+    if (!live && !split){
+      split = true;
+      out += `<p class="splitrow">${off === 1 ? "The last one is" : `The other ${off} are`} outside ${name}. Still open, still worth the walk, and each one says the month it peaks in.</p>`;
+    }
     const peak = nextPeak(s.months, month);
     const cells = MON.map((m,k) =>
       `<i ${s.months.includes(k+1) ? "data-on" : ""} ${k === month-1 ? "data-now" : ""}>${m[0]}</i>`).join("");
@@ -825,50 +734,50 @@ function paintGrid() {
           <button class="jumpm" type="button" data-m="${peak}">Show me ${esc(MON[peak-1])}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
           </button></p>`;
-    const facts = [
-      s.places.length ? [s.places.length, s.unit] : null,
-      s.photos.length ? [s.photos.length, "photographs"] : null
-    ].filter(Boolean);
 
-    return `<article class="sub" id="${s.cat}" style="--i:${i}">
+    out += `<article class="sub" id="${s.cat}" style="--i:${i}">
       <div class="sub__l">
         <span class="sub__no" aria-hidden="true">${String(i+1).padStart(2,"0")}</span>
         <a class="sub__hit" href="${subjHref(s)}"><h3 class="sub__n">${esc(s.name)}</h3></a>
         <div class="strip" role="img" aria-label="${esc(s.name)}, ${esc(windowLong(s.months))}">${cells}</div>
         ${when}
-        <dl class="sfacts">${facts.map(([n,l]) => `<div><b>${n}</b><span>${esc(l)}</span></div>`).join("")}</dl>
-        <p class="sbook">${BOOK[s.cta] }</p>
+        <p class="sbook">${BOOK[s.cta]()}</p>
       </div>
       <div class="sub__r">
         <p class="sub__lead">${esc(s.lead)}</p>
-        ${photoStrip(s, i === 0)}
+        ${photo(s, i === 0)}
         ${placeBlock(s)}
       </div>
     </article>`;
-  }).join("");
+  });
 
-  $("#empty").hidden = rows.length > 0;
-  $("#gridHead").textContent = filter === "all"
-    ? `All nine, ordered for ${name}`
-    : `${rows.length} of the nine, ordered for ${name}`;
+  $("#grid").innerHTML = out;
 }
 
-/* the corpus answers run long. Two sentences here, the rest in the guide. */
-function shortAnswer(a){
-  const parts = a.replace(/\s+/g," ").match(/[^.?!]+[.?!]/g) || [a];
-  let out = "";
-  for (const p of parts){ if (out && (out + p).length > 190) break; out += p; }
-  return out.trim() || a;
+/* A handful of the corpus answers end with a bulleted list the ingest flattened
+   into one run of fragments ("Bring or wear: Waterproof rain jacket Waterproof
+   pants Warm sweater"). Rebuilding the bullets means guessing where they broke,
+   so the answer stops at the whole sentence before the colon instead. */
+function readable(a){
+  const t = a.replace(/\s+/g, " ").trim();
+  const colon = t.search(/:\s/);
+  if (colon === -1) return t;
+  const head = t.slice(0, colon);
+  const stop = head.lastIndexOf(". ");
+  return stop > 40 ? head.slice(0, stop + 1) : head + ".";
 }
+
+/* One column, every question closed until it is asked for, answered in full
+   when it is opened. Native details, so a keyboard and a reader both work. */
 function paintQuestions() {
-  const rows = showAllQ ? DATA.questions : DATA.questions.slice(0,6);
-  $("#qagrid").innerHTML = rows.map((q) => `
-    <article class="qi">
-      <span>${esc(q.c.replace("-"," "))}</span>
-      <h3>${esc(q.q)}</h3>
-      <p>${esc(shortAnswer(q.a))}</p>
-    </article>`).join("");
-  $("#qtoggle").textContent = showAllQ ? "Show fewer questions" : `Show all ${DATA.questions.length} questions`;
+  $("#qagrid").innerHTML = DATA.questions.map((q) => `
+    <details class="qa">
+      <summary>
+        <span class="qa__q"><span class="qa__c">${esc(q.c.replace("-"," "))}</span>${esc(q.q)}</span>
+        <span class="qa__s" aria-hidden="true">+</span>
+      </summary>
+      <p class="qa__a">${esc(readable(q.a))}</p>
+    </details>`).join("");
 }
 
 function paintTownArticles() {
@@ -887,14 +796,11 @@ function setMonth(m){
   document.querySelectorAll(".mrow__b").forEach((b) => b.setAttribute("aria-pressed", String(Number(b.dataset.m) === m)));
   centerMonth(true);
   paintSeason();
-  paintFilters();
   paintGrid();
 }
 
-paintTally();
 paintMonths();
 paintSeason();
-paintFilters();
 paintGrid();
 paintQuestions();
 paintTownArticles();
@@ -910,15 +816,6 @@ $("#grid").addEventListener("click", (e) => {
   setMonth(Number(b.dataset.m));
   document.getElementById("season").scrollIntoView({ behavior: "smooth", block: "start" });
 });
-$("#filters").addEventListener("click", (e) => {
-  const t = e.target.closest("button"); if (!t) return;
-  filter = t.hasAttribute("data-clear") ? "all" : t.dataset.f;
-  paintFilters();
-  paintGrid();
-});
-$("#resetFilter").addEventListener("click", () => { filter = "all"; paintFilters() ; paintGrid() ; });
-$("#qtoggle").addEventListener("click", () => { showAllQ = !showAllQ; paintQuestions() ; });
-
 /* reading progress, the one hairline the long page earns */
 const bar = $("#jumpbar");
 function progress() {

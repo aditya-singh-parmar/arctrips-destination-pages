@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Whale watching in Tofino, Arc Trips</title>
-<meta name="description" content="Gray whales from March, humpbacks through summer, orcas whenever the water allows. Six places written up, eight guides, twenty-four answered questions, and what the water is for in January.">
+<meta name="description" content="Gray whales north from March, humpbacks all summer, orcas whenever the water allows. Six places to watch from, four of them free and on foot, and which month is worth the trip.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -60,6 +60,8 @@ body>.dock{position:fixed}
    .72 is 6.9:1, looks the same at 14px, and clears the contrast floor. */
 .mon i{width:26px;height:26px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.72)}
 .mon i[data-on]{background:rgba(255,255,255,.14);color:var(--paper);font-weight:700}
+/* the same three-step intensity the month switcher uses, so the two agree */
+.mon i[data-peak]{background:rgba(255,255,255,.3)}
 .mon i[data-now]{outline:1.5px solid var(--paper);outline-offset:1.5px}
 /* the remaining emerald in the system, repainted azure on this page */
 .mark svg{color:var(--a400)}
@@ -160,10 +162,20 @@ main [id]{scroll-margin-top:142px}
   padding:8px 0 9px;border-radius:var(--r-sm);transition:background .2s var(--ease)}
 .msw__b:hover{background:rgba(255,255,255,.07)}
 .msw__ws{display:flex;flex-direction:column;gap:5px;align-items:center;padding:4px 0}
-.msw__w{width:11px;height:11px;border-radius:var(--r-full);background:rgba(255,255,255,.14)}
+/* Intensity, not a binary. Width and opacity carry how strong that whale's
+   month is: a wide bar is the peak of its season, a small dot means possible.
+   Scanning across the twelve columns you see the gray run swell in spring and
+   the humpback run swell in late summer, which is the thing being asked.
+   Hue is identity only, and it stays on the azure ramp plus white. Never
+   emerald: that is the season signal elsewhere and would read as a second
+   meaning here. (--r-full is not defined in _system.css, so these use 999px.) */
+.msw__w{width:11px;height:11px;border-radius:999px;background:rgba(255,255,255,.13);
+  transition:width .24s var(--ease),opacity .24s var(--ease)}
+.msw__w[data-on]{opacity:.55}
 .msw__w[data-on][data-w="gray"]{background:var(--paper)}
 .msw__w[data-on][data-w="humpback"]{background:var(--a300)}
 .msw__w[data-on][data-w="orca"]{background:var(--a400)}
+.msw__w[data-peak]{width:24px;opacity:1}
 .msw__l{font-size:.78rem;font-weight:700;color:rgba(255,255,255,.72);letter-spacing:.02em}
 .msw__b[data-noboat]{opacity:.5}
 .msw__b[data-noboat] .msw__l{text-decoration:line-through;text-decoration-thickness:1px}
@@ -171,12 +183,15 @@ main [id]{scroll-margin-top:142px}
 .msw__b[aria-pressed="true"] .msw__l{color:var(--paper)}
 .mswkey{display:flex;align-items:center;gap:7px;flex-wrap:wrap;padding-top:12px;
   margin-bottom:clamp(24px,3vw,34px);font-size:.78rem;font-weight:600;color:rgba(255,255,255,.72)}
-.mswkey__i{width:10px;height:10px;border-radius:var(--r-full);margin-left:10px}
+.mswkey__i{width:10px;height:10px;border-radius:999px;margin-left:10px}
 .mswkey__i:first-child{margin-left:0}
 .mswkey__i[data-w="gray"]{background:var(--paper)}
 .mswkey__i[data-w="humpback"]{background:var(--a300)}
 .mswkey__i[data-w="orca"]{background:var(--a400)}
-.mswkey__no{margin-left:12px;opacity:.5;text-decoration:line-through;text-decoration-thickness:1px}
+.mswkey__gap{width:1px;height:15px;background:rgba(255,255,255,.28);margin-left:15px}
+.mswkey__x{width:10px;height:10px;border-radius:999px;background:var(--paper);opacity:.55;margin-left:14px}
+.mswkey__x[data-peak]{width:24px;opacity:1}
+.mswkey__no{margin-left:15px;opacity:.5;text-decoration:line-through;text-decoration-thickness:1px}
 
 
 .claim{border-top:1px solid rgba(255,255,255,.2);border-bottom:1px solid rgba(255,255,255,.2);
@@ -238,18 +253,28 @@ main [id]{scroll-margin-top:142px}
   .gsep{padding-block:0!important;border-bottom:0!important}
 }
 
-/* (c) the six write-ups */
+/* (c) the six places */
 .spots{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(26px,3vw,44px)}
 @media(max-width:760px){.spots{grid-template-columns:1fr}}
-.spot h3{font-size:1.36rem;margin-top:16px}
+/* the six are numbered, and the number belongs to the place, not to its
+   position in the filtered list: narrowing to "by boat" still shows 5 and 6.
+   The order is how hard the place is to reach, the four you can walk to first. */
+.spot h3{font-size:1.36rem;margin-top:16px;display:flex;align-items:center;gap:12px}
+.spot__n{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;
+  border-radius:999px;background:var(--navy);color:var(--paper);font-weight:800;font-size:.95rem;
+  letter-spacing:0;flex:none}
+.spot{display:flex;flex-direction:column}
 .spot p{margin-top:9px}
 .spot p+p{margin-top:11px}
+/* the two cards in a row rarely run to the same length, so the button is
+   pinned to the foot of the card and the pair line up */
+.spot .btn{margin-top:auto;align-self:flex-start}
 /* one sentence, not a wall of tags */
 .gfline{margin-top:14px;font-size:.95rem;color:var(--n700);line-height:1.55;font-weight:500}
 .note{display:flex;gap:10px;margin-top:15px;font-size:.92rem;color:var(--n600);line-height:1.55;
   border-left:2px solid var(--a300);padding-left:13px}
 .note b{color:var(--navy);font-weight:700}
-.spot .btn{margin-top:17px}
+.spot .note{margin-bottom:17px}
 .emptyline{font-size:.95rem;color:var(--n600);margin-top:8px}
 .emptyline button{color:var(--azure);text-decoration:underline;font:inherit;font-weight:600;padding:8px 4px;min-height:44px}
 
@@ -259,24 +284,42 @@ main [id]{scroll-margin-top:142px}
 @media(max-width:860px){.grid3{grid-template-columns:1fr}}
 @media(max-width:700px){.grid2{grid-template-columns:1fr}}
 .box{border:1px solid var(--n150);border-radius:var(--r);padding:clamp(20px,2.4vw,28px);background:var(--paper)}
+/* the three boats carry a photograph each. Three text-only cards asked the
+   reader to picture a zodiac from a description of one. */
+.box--pic{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.box__m{margin:0;aspect-ratio:16/10;background:var(--n100);overflow:hidden}
+.box__m img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.box--pic:hover .box__m img{transform:scale(1.04)}
+.box__in{padding:clamp(20px,2.4vw,28px);display:flex;flex-direction:column;flex:1}
+.box__in .box__best{margin-top:auto;padding-top:18px}
 .box h3{font-size:1.14rem}
+.box>.label{display:block;margin-bottom:10px}
 .box p{color:var(--n600);font-size:.95rem;line-height:1.6;margin-top:10px}
 .box p+p{margin-top:12px}
 .box__best{margin-top:16px;padding-top:14px;border-top:1px solid var(--n150);font-size:.94rem;color:var(--navy);font-weight:700}
 .box__best span{display:block;font-size:.66rem;font-weight:700;letter-spacing:.14em;
   text-transform:uppercase;color:var(--n600);margin-bottom:6px}
-.kit{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.4vw,28px) clamp(24px,3vw,44px)}
+/* the kit is ordered, most useful first, and it says so with a number rather
+   than asking the reader to trust that the order means anything */
+.kit{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.4vw,28px) clamp(24px,3vw,44px);
+  counter-reset:kit}
 @media(max-width:700px){.kit{grid-template-columns:1fr}}
-.kit div{border-top:1px solid var(--n150);padding-top:15px}
-.kit dt{font-weight:700;color:var(--navy);font-size:1rem}
-.kit dd{color:var(--n600);font-size:.94rem;line-height:1.6;margin-top:6px;max-width:44ch}
-.kit dd cite{font-style:normal;font-weight:600;color:var(--n700);font-size:.85rem}
+.kit div{border-top:1px solid var(--n150);padding-top:15px;counter-increment:kit}
+.kit dt{font-weight:700;color:var(--navy);font-size:1rem;display:flex;gap:11px;align-items:baseline}
+.kit dt::before{content:counter(kit);color:var(--azure);font-weight:800;font-size:.88rem;
+  letter-spacing:.02em;min-width:14px}
+.kit dd{color:var(--n600);font-size:.94rem;line-height:1.6;margin-top:6px;max-width:44ch;padding-left:25px}
+.kit div:first-child{border-top:2px solid var(--navy)}
+.kit div:first-child dd{color:var(--n700)}
 
 @media(max-width:900px){.split{grid-template-columns:1fr;gap:26px}}
 
-/* (c) questions */
+/* (c) questions, grouped so a reader can skip three groups out of four */
+.faqgrp+.faqgrp{margin-top:clamp(30px,3.4vw,44px)}
+.faqgrp>h3{font-size:.88rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--azure);margin-bottom:6px}
+.faqgrp .faq:last-child{border-bottom:1px solid var(--n150)}
 .faq{border-top:1px solid var(--n150)}
-.faq:last-of-type{border-bottom:1px solid var(--n150)}
 .faq summary{display:flex;gap:16px;align-items:center;justify-content:space-between;cursor:pointer;
   min-height:60px;padding-block:14px;font-weight:700;color:var(--navy);font-size:1.02rem;
   letter-spacing:-.012em;line-height:1.35;list-style:none}
@@ -285,8 +328,7 @@ main [id]{scroll-margin-top:142px}
   border-bottom:2px solid var(--n500);transform:rotate(45deg) translateY(-2px);transition:transform .2s var(--ease)}
 .faq[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
 .faq summary:hover{color:var(--azure)}
-.faq p{color:var(--n600);font-size:.97rem;line-height:1.65;padding-bottom:8px;max-width:72ch}
-.faq cite{display:block;font-style:normal;font-size:.78rem;color:var(--n600);padding-bottom:20px;font-weight:600}
+.faq p{color:var(--n600);font-size:.97rem;line-height:1.65;padding-bottom:20px;max-width:72ch}
 
 /* (c) the keep going block, three fixed slots */
 .keepgoing{border-top:1px solid var(--n150);padding-top:clamp(30px,3.4vw,44px);margin-top:clamp(40px,5vw,68px)}
@@ -324,7 +366,7 @@ main [id]{scroll-margin-top:142px}
 .btn--sm,.search kbd,.kmeta,.kmeta .k,.stat dt,.stat dd small,
 .msw__l,.mswkey,.bignums dt,.bignums dd small,
 .led th,.led__w,.led__b,.mon i,.pill,.gsep td,.jump,.innow__l a,.almanac__legend,
-.box__best span,.kit dd cite,.faq cite,.kg .go,
+.box__best span,.faqgrp>h3,.kg .go,
 .consent,.dock__t,.fgrid h5,.fnote,.fbase,.filterrow button{font-size:.88rem}
 /* the uppercase micro-labels need less tracking once they are 14px */
 .label,.led th,.stat dt,.bignums dt,.gsep td,.box__best span,
@@ -365,7 +407,7 @@ main [id]{scroll-margin-top:142px}
   <ul class="nav-links">
     <li><a href="search.html?in=tofino">Stays</a></li>
     <li><a href="index.html">Destinations</a></li>
-    <li><a href="search.html">Guides</a></li>
+    <li><a href="search.html?q=&amp;in=tofino">Guides</a></li>
   </ul>
   <form class="search" role="search" action="search.html" method="get">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
@@ -429,7 +471,7 @@ main [id]{scroll-margin-top:142px}
     <span class="label">Things to do in Tofino</span>
     <h1 style="margin-top:14px">Whale watching in
       <span class="mark">Tofino<svg viewBox="0 0 200 12" fill="none" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8.4C38 3.2 92 2.1 132 5.1c22 1.7 44 3.6 66 1.2" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg></span>
-      <span class="deck">Gray whales north from March, humpbacks all summer. <b>Six places to watch from</b>, four of them free and on foot.</span>
+      <span class="deck">Gray whales north from March, humpbacks all summer. <b>Six places to watch from</b>, four of them on foot.</span>
     </h1>
     <div class="hero-cta">
       <a class="btn btn--ghost" href="#best-time">When should you go</a>
@@ -438,8 +480,7 @@ main [id]{scroll-margin-top:142px}
     <dl class="hero-facts">
       <div><dt>Season</dt><dd>Mar to Oct</dd></div>
       <div><dt>Places</dt><dd class="tnum">6</dd></div>
-      <div><dt>Guides</dt><dd class="tnum">8</dd></div>
-      <div><dt>Questions</dt><dd class="tnum">24</dd></div>
+      <div><dt>On foot</dt><dd class="tnum">4</dd></div>
       <div><dt>Typical tour</dt><dd class="tnum">2.5<small>to 3 h</small></dd></div>
     </dl>
   </div>
@@ -459,8 +500,8 @@ main [id]{scroll-margin-top:142px}
       <figcaption>A blow against the rainforest</figcaption>
     </figure>
     <figure class="plate p2">
-      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_640,h_480/guides/ucluelet/whale-watching/_category-4" alt="An orca surfacing beside a red zodiac carrying passengers in survival suits">
-      <figcaption>A zodiac out of Ucluelet Harbour</figcaption>
+      <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_640,h_480/guides/ucluelet/whale-watching/_category-3" alt="Two orcas surfacing near a moored boat below a low rocky shore">
+      <figcaption>Orcas off the Ucluelet shore</figcaption>
     </figure>
     <figure class="plate p3">
       <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_680,h_520/guides/ucluelet/whale-watching/_category-5" alt="A humpback fluke lifting above the water in front of a forested shoreline">
@@ -498,7 +539,7 @@ main [id]{scroll-margin-top:142px}
       <h2 style="margin-top:11px">The whales are not visiting the town</h2>
       <p>They are working a stretch of coast that happens to have two towns on it. This is what that stretch is, and why it holds them.</p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="things-to-do.html">All nine subjects in Tofino</a>
+    <a class="btn btn--ghost btn--sm" href="things-to-do.html">More things to do in Tofino</a>
   </div>
 
   <!-- Photograph left, prose right. This used to be a photo-and-text column
@@ -537,12 +578,15 @@ main [id]{scroll-margin-top:142px}
          a hard read and answers nothing a whale page is being asked. Each month
          now shows which of the three whales are in the water, and whether the
          boats run at all. -->
-    <p class="chartlead"><b>Pick a month below.</b> Each month shows which of the three whales are in the water. The boats do not run from November to February.</p>
+    <p class="chartlead"><b>Pick a month below.</b> Each month shows which of the three whales are in the water, and how strong that month is for each of them. The boats do not run from November to February.</p>
     <div class="msw" role="group" aria-label="Choose a month" id="msw"></div>
     <p class="mswkey" aria-hidden="true">
       <span class="mswkey__i" data-w="gray"></span>Gray
       <span class="mswkey__i" data-w="humpback"></span>Humpback
       <span class="mswkey__i" data-w="orca"></span>Orca
+      <span class="mswkey__gap"></span>
+      <span class="mswkey__x" data-peak></span>Peak
+      <span class="mswkey__x"></span>Possible
       <span class="mswkey__no">No boats</span>
     </p>
 
@@ -590,20 +634,29 @@ main [id]{scroll-margin-top:142px}
   </div>
 
   <div class="grid3">
-    <div class="box">
-      <h3>Covered boat</h3>
-      <p>Better for comfort and cooler days. You are out of the wind and the spray, and you can sit down for three hours without regretting it.</p>
-      <p class="box__best"><span>Best for</span>Comfort, cool days, long trips</p>
+    <div class="box box--pic">
+      <figure class="box__m"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_760,h_475/guides/ucluelet/whale-watching/_category-2" alt="A small covered tour boat crossing calm water below a forested island held in sea mist" loading="lazy"></figure>
+      <div class="box__in">
+        <h3>Covered boat</h3>
+        <p>Better for comfort and cooler days. You are out of the wind and the spray, and you can sit down for three hours without regretting it.</p>
+        <p class="box__best"><span>Best for</span>Comfort, cool days, long trips</p>
+      </div>
     </div>
-    <div class="box">
-      <h3>Zodiac</h3>
-      <p>Faster, open air, and a rougher ride. Better for travellers who want the adventure version and are happy in a survival suit on the open Pacific.</p>
-      <p class="box__best"><span>Best for</span>Speed and open air</p>
+    <div class="box box--pic">
+      <figure class="box__m"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_760,h_475/guides/ucluelet/whale-watching/_category-4" alt="An orca surfacing beside a red zodiac carrying passengers in survival suits" loading="lazy"></figure>
+      <div class="box__in">
+        <h3>Zodiac</h3>
+        <p>Faster, open air, and a rougher ride. Better for travellers who want the adventure version and are happy in a survival suit on the open Pacific.</p>
+        <p class="box__best"><span>Best for</span>Speed and open air</p>
+      </div>
     </div>
-    <div class="box">
-      <h3>Small or private charter</h3>
-      <p>Better for families, photographers, and groups who want the boat to stop where they want it to stop. Fewer people at the rail, more say in the route, and nobody minds if a child needs to go back early.</p>
-      <p class="box__best"><span>Best for</span>Families, photographers, small groups</p>
+    <div class="box box--pic">
+      <figure class="box__m"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_760,h_475/guides/ucluelet/whale-watching/_category-1" alt="An orca surfacing beside a small whale watching boat carrying a handful of passengers" loading="lazy"></figure>
+      <div class="box__in">
+        <h3>Small or private charter</h3>
+        <p>Better for families, photographers, and groups who want the boat to stop where they want it to stop. Fewer people at the rail, more say in the route, and nobody minds if a child needs to go back early.</p>
+        <p class="box__best"><span>Best for</span>Families, photographers, small groups</p>
+      </div>
     </div>
   </div>
 
@@ -628,7 +681,7 @@ main [id]{scroll-margin-top:142px}
     <div>
       <span class="label label--n">Where to watch</span>
       <h2 style="margin-top:11px">Four on foot, two by boat</h2>
-      <p>Four of them you can walk to and watch from for nothing. Two need a boat. Five sit on the Ucluelet side of the park, forty minutes south of Tofino on the one road.</p>
+      <p>They are numbered by how hard they are to reach. One to four you can walk to. Five and six need a boat. Five of the six sit on the Ucluelet side of the park, forty minutes south of Tofino on the one road.</p>
     </div>
     <a class="btn btn--ghost btn--sm" href="long-beach.html">Long Beach, the area page</a>
   </div>
@@ -642,13 +695,13 @@ main [id]{scroll-margin-top:142px}
   <div class="head">
     <div>
       <span class="label label--n">What to bring</span>
-      <h2 style="margin-top:11px">Six things, and one of them is the difference</h2>
-      <p>The water is colder than the forecast you read at breakfast, and it is always windier at the rail than on the dock.</p>
+      <h2 style="margin-top:11px">Six things, in the order they matter</h2>
+      <p>Number one changes the day more than the other five together. The water is colder than the forecast you read at breakfast, and it is always windier at the rail than on the dock.</p>
     </div>
   </div>
   <dl class="kit">
-    <div><dt>Binoculars</dt><dd>The single biggest upgrade to a day from shore. <cite>Straight out of the Wild Pacific Trail write-up: bring binoculars, wildlife may be far from shore.</cite></dd></div>
-    <div><dt>A waterproof shell</dt><dd>Tofino records rain on 22 days in January and still 9 in July. A shell is never the wrong call here.</dd></div>
+    <div><dt>Binoculars</dt><dd>The single biggest upgrade to a day from shore. On the Wild Pacific Trail the wildlife is often a long way out, and without them you are looking at empty water.</dd></div>
+    <div><dt>A waterproof shell</dt><dd>Tofino gets rain on 22 days in January and still 9 in July. A shell is never the wrong call here.</dd></div>
     <div><dt>Warm layers under it</dt><dd>The August average high is 18.6 degrees on land. On the water, moving, it is not.</dd></div>
     <div><dt>Something for motion</dt><dd>The open Pacific has swell most days. If you are prone to it, take something before you board rather than after.</dd></div>
     <div><dt>A national park pass</dt><dd>You may need one if you stop in Pacific Rim National Park Reserve, which is most of the coast between the two towns.</dd></div>
@@ -660,26 +713,30 @@ main [id]{scroll-margin-top:142px}
   <div class="head">
     <div>
       <span class="label label--n">Safety</span>
-      <h2 style="margin-top:11px">Four rules, each one lifted from a place in this guide</h2>
-      <p>Nothing here is theoretical. Every line is the note attached to one of the six write-ups above.</p>
+      <h2 style="margin-top:11px">Four rules, one for each place they belong to</h2>
+      <p>None of this is theoretical. Each rule is the thing to get right at one of the numbered places above, and they run in the same order.</p>
     </div>
   </div>
   <div class="grid2">
     <div class="box">
+      <span class="label label--n">2. Amphitrite Point Lighthouse</span>
       <h3>Stay off wet rock</h3>
-      <p>At Amphitrite Point, stay on the marked paths and away from wet rock. Large waves can be dangerous, and the ones that reach the path arrive without a set warning you.</p>
+      <p>Stay on the marked paths and away from wet rock. Large waves can be dangerous, and the ones that reach the path arrive without a set warning you.</p>
     </div>
     <div class="box">
-      <h3>Give wildlife the distance</h3>
-      <p>In Pacific Rim National Park Reserve, give wildlife space, store food properly and never feed animals. Black bears work the same shoreline you are walking.</p>
-    </div>
-    <div class="box">
+      <span class="label label--n">3. Ucluelet Harbour</span>
       <h3>The harbour is a workplace</h3>
-      <p>In Ucluelet Harbour, watch for boat traffic and keep a safe distance from the docks and the working areas. The fleet is not on holiday.</p>
+      <p>Watch for boat traffic and keep a safe distance from the docks and the working areas. The fleet is not on holiday.</p>
     </div>
     <div class="box">
+      <span class="label label--n">4. Pacific Rim National Park Reserve</span>
+      <h3>Give wildlife the distance</h3>
+      <p>Give wildlife space, store food properly and never feed animals. Black bears work the same shoreline you are walking.</p>
+    </div>
+    <div class="box">
+      <span class="label label--n">6. Broken Group Islands</span>
       <h3>Boat access means boat access</h3>
-      <p>The Broken Group Islands are reachable only by water. Plan ahead if you are paddling or camping, and treat the crossing as the serious part of the day.</p>
+      <p>They are reachable only by water. Plan ahead if you are paddling or camping, and treat the crossing as the serious part of the day.</p>
     </div>
   </div>
 </div></section>
@@ -725,8 +782,8 @@ main [id]{scroll-margin-top:142px}
 <section class="sec sec--top0" id="reading"><div class="wrap">
   <div class="head">
     <div>
-      <span class="label label--n">More on whales</span>
-      <h2 style="margin-top:11px">Written up in more detail</h2>
+      <span class="label label--n">Keep reading</span>
+      <h2 style="margin-top:11px">More on the whales here</h2>
     </div>
   </div>
   <div class="rlist rlist--wide" id="topreads"></div>
@@ -736,8 +793,8 @@ main [id]{scroll-margin-top:142px}
   <div class="head">
     <div>
       <span class="label label--n">Questions</span>
-      <h2 style="margin-top:11px">Twenty-four things people ask before they book</h2>
-      <p>Every answer below is the answer in the guide it came from, and that guide is named under each one.</p>
+      <h2 style="margin-top:11px">What people ask before they book</h2>
+      <p>Grouped in the order you will need them: when to come, which boat, where to stand, and what you are actually looking at.</p>
     </div>
   </div>
   <div id="faqs"></div>
@@ -747,11 +804,11 @@ main [id]{scroll-margin-top:142px}
 <section class="sec sec--top0"><div class="wrap keepgoing">
   <span class="label label--n">Keep going</span>
   <div class="kg">
-    <a href="guide.html">
-      <span class="label">Next in this guide</span>
-      <h3>Whale Tails, Blows, and Backs</h3>
-      <p>What you are actually seeing on the water, and what a fluke means when it goes up. Four questions answered.</p>
-      <span class="go">Read it <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    <a href="whale-watching-ucluelet.html">
+      <span class="label">The other side</span>
+      <h3>Whale watching in Ucluelet</h3>
+      <p>Five of the six places on this page are on the Ucluelet side, forty minutes south on the one road. This is that town's own page.</p>
+      <span class="go">Open the Ucluelet page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
     </a>
     <a href="long-beach.html">
       <span class="label">More in Tofino</span>
@@ -777,14 +834,14 @@ main [id]{scroll-margin-top:142px}
       <p class="fnote">Stays and guides on the west coast of Vancouver Island, written by people who go there.</p>
     </div>
     <div><h5>Destinations</h5><ul>
-      <li><a href="tofino.html">Tofino</a></li><li><a href="search.html">Guides</a></li>
+      <li><a href="tofino.html">Tofino</a></li><li><a href="search.html?q=&amp;in=tofino">Guides</a></li>
       <li><a href="index.html">British Columbia</a></li></ul></div>
     <div><h5>In Tofino</h5><ul>
-      <li><a href="things-to-do.html">All nine subjects</a></li><li><a href="#top" aria-current="page">Whale watching</a></li>
+      <li><a href="things-to-do.html">Things to do</a></li><li><a href="#top" aria-current="page">Whale watching</a></li>
       <li><a href="long-beach.html">Long Beach</a></li><li><a href="search.html?in=tofino">Search everything</a></li></ul></div>
     <div><h5>Plan</h5><ul>
       <li><a href="plan.html">When to go</a></li><li><a href="plan.html">Getting there</a></li>
-      <li><a href="search.html?in=tofino">Where to stay</a></li><li><a href="guide.html">What to pack</a></li></ul></div>
+      <li><a href="search.html?in=tofino">Where to stay</a></li><li><a href="#kit">What to bring on the boat</a></li></ul></div>
     <div><h5>Arc Trips</h5><ul>
       <li><a href="not-found.html">About us</a></li><li><a href="not-found.html">List your place</a></li>
       <li><a href="things-to-do.html#fishing">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
@@ -811,11 +868,14 @@ const DATA = {
     green:{months:[3,4,10],name:"The green months",claim:"The coast between the storms and the crowds, at half the price."},
     long:{months:[5,6,7,8,9],name:"Long days",claim:"Sixteen hours of light and the water finally warm enough to stay in."}
   },
-  /* what is in the water, and when. Windows follow the corpus answers. */
+  /* what is in the water, and when. Windows follow the corpus answers.
+     m is every month the animal is possible; p is the months the same corpus
+     line calls the main run or the most common stretch. Orca has no p, because
+     no source claims a peak for it and no operator will promise you one. */
   rows: [
-    {n:"Gray whale", m:[2,3,4,5,6], w:"Northbound from Baja to the Arctic. Main run March to May, early birds in February, a few linger into early summer.", from:"Boat, sometimes from shore"},
-    {n:"Humpback whale", m:[5,6,7,8,9,10], w:"Arrive late spring, most common July to September, still feeding into early fall.", from:"Boat"},
-    {n:"Orca", m:[3,4,5,6,7,8,9,10], w:"Possible whenever a boat is out. Never predictable, and no operator will promise you one.", from:"Boat"},
+    {n:"Gray whale", m:[2,3,4,5,6], p:[3,4,5], w:"Northbound from Baja to the Arctic. Main run March to May, early birds in February, a few linger into early summer.", from:"Boat, sometimes from shore"},
+    {n:"Humpback whale", m:[5,6,7,8,9,10], p:[7,8,9], w:"Arrive late spring, most common July to September, still feeding into early fall.", from:"Boat"},
+    {n:"Orca", m:[3,4,5,6,7,8,9,10], p:[], w:"Possible whenever a boat is out. Never predictable, and no operator will promise you one.", from:"Boat"},
     {n:"Sea lions and harbour seals", m:[1,2,3,4,5,6,7,8,9,10,11,12], w:"Hauled out on the rock islets in Barkley Sound, and in the harbour all year.", from:"Shore or boat"},
     {n:"Sea otters", m:[1,2,3,4,5,6,7,8,9,10,11,12], w:"The kelp beds around the Broken Group Islands, all year.", from:"Boat or kayak"},
     {n:"Bald eagles", m:[1,2,3,4,5,6,7,8,9,10,11,12], w:"Over the harbour, the trail and the treeline, all year.", from:"Shore"},
@@ -835,11 +895,11 @@ const DATA = {
     "Humpbacks still working the coast and the fall seabird passage begins. Rain returns to 152 mm, the crowds go home, and September is quietly the best value month of the season.",
     "Last month the boats run. Humpbacks are still feeding, the shorebirds are moving through, and 396 mm of rain says storm season is on its way back.",
     "The wettest month of the year: 500 mm across 23 days. That is not a warning, it is the product. Storm watching opens, the surf is enormous, and rooms are at their lowest of the year.",
-    "Storm season at full strength. The whales are in Mexico, the swell is here, and the eight places written up for watching a storm come in are all a short drive from town."
+    "Storm season at full strength. The whales are in Mexico, the swell is here, and every place worth standing to watch a storm come in is a short drive from town."
   ],
-  /* the six whale watching places, verbatim from the corpus write-ups */
+  /* the six whale watching places, verbatim from the corpus */
   spots: [
-    {g:"land", slug:"wild-pacific-trail", name:"Wild Pacific Trail", town:"Ucluelet", road:"40 min south",
+    {no:1, g:"land", slug:"wild-pacific-trail", name:"Wild Pacific Trail", town:"Ucluelet", road:"40 min south",
      effort:"Easy walking", station:"ucluelet",
      hero:"guides/ucluelet/whale-watching/wild-pacific-trail-1",
      alt:"A bench on the Wild Pacific Trail looking through wind-bent trees to the open Pacific at sunset",
@@ -847,24 +907,24 @@ const DATA = {
            "You may see whales offshore, eagles flying above the trees, sea lions on rocks, seals in the water, cormorants near the shore, and many types of coastal bird.",
            "It is also the easiest way to enjoy wildlife here without booking a tour."],
      gf:["Whale watching from shore","Bald eagles","Sea lions and seals","Coastal birds","Storm watching","Photography","Easy walking"],
-     note:"Bring binoculars. Wildlife may be far from shore.", href:"guide.html", cta:"Read the write-up"},
-    {g:"land", slug:"amphitrite-point-lighthouse", name:"Amphitrite Point Lighthouse", town:"Ucluelet", road:"40 min south",
+     note:"Bring binoculars. Wildlife may be far from shore.", cta:"More on the Wild Pacific Trail"},
+    {no:2, g:"land", slug:"amphitrite-point-lighthouse", name:"Amphitrite Point Lighthouse", town:"Ucluelet", road:"40 min south",
      effort:"Marked cliff paths", station:"ucluelet",
      hero:"guides/ucluelet/whale-watching/amphitrite-point-lighthouse-1",
      alt:"Amphitrite Point Lighthouse on the grass above the rocks, with benches facing the water",
      body:["Amphitrite Point Lighthouse is the most famous stop on the Wild Pacific Trail. It has wide ocean views and is a good place to watch for whales, sea lions, seals and birds.",
            "In spring you have a real chance of migrating gray whales offshore. In any other season you still get eagles, seals, sea lions and seabirds."],
      gf:["Whale watching from land","Ocean views","Photography","Eagles","Seals and sea lions","Storm watching"],
-     note:"Stay on marked paths and away from wet rocks. Large waves can be dangerous.", href:"guide.html", cta:"Read the write-up"},
-    {g:"land", slug:"ucluelet-harbour", name:"Ucluelet Harbour", town:"Ucluelet", road:"40 min south",
+     note:"Stay on marked paths and away from wet rocks. Large waves can be dangerous.", cta:"More on Amphitrite Point"},
+    {no:3, g:"land", slug:"ucluelet-harbour", name:"Ucluelet Harbour", town:"Ucluelet", road:"40 min south",
      effort:"Flat, five minutes from a coffee", station:"ucluelet",
      hero:"guides/ucluelet/whale-watching/ucluelet-harbour-1",
      alt:"Fishing boats and floats in Ucluelet Harbour with cloud sitting on the hills behind",
      body:["Ucluelet Harbour is a good place to look for wildlife close to town. You may see seals, eagles, gulls, cormorants, river otters and shorebirds.",
            "It is also where many of the wildlife and whale watching tours depart from."],
      gf:["Easy wildlife watching","Boat tour departures","Seals","Eagles","River otters","Harbour birds"],
-     note:"Watch for boat traffic and keep a safe distance from docks and working harbour areas.", href:"guide.html", cta:"Read the write-up"},
-    {g:"land", slug:"pacific-rim-national-park-reserve", name:"Pacific Rim National Park Reserve", town:"Between the towns", road:"20 min south",
+     note:"Watch for boat traffic and keep a safe distance from docks and working harbour areas.", cta:"More on Ucluelet Harbour"},
+    {no:4, g:"land", slug:"pacific-rim-national-park-reserve", name:"Pacific Rim National Park Reserve", town:"Between the towns", road:"20 min south",
      effort:"Viewpoints and boardwalk trails", station:"tofino",
      hero:"guides/ucluelet/whale-watching/pacific-rim-national-park-reserve-1",
      alt:"Shorebirds lifting off the wet sand at Long Beach with the park mountains behind",
@@ -873,29 +933,29 @@ const DATA = {
            "Give wildlife space, store food properly, and never feed animals."],
      gf:["Whale watching from viewpoints","Bird watching","Beach wildlife","Tidepool life","Coastal rainforest wildlife","Black bear awareness","Guided nature learning"],
      note:"You may need a national park pass if you stop in the park.", href:"long-beach.html", cta:"Open the Long Beach area page"},
-    {g:"boat", slug:"barkley-sound", name:"Barkley Sound", town:"Boat from Ucluelet", road:"40 min south, then a boat",
+    {no:5, g:"boat", slug:"barkley-sound", name:"Barkley Sound", town:"Boat from Ucluelet", road:"40 min south, then a boat",
      effort:"Guided boat or kayak tour", station:"ucluelet",
      hero:"guides/ucluelet/whale-watching/barkley-sound-1",
      alt:"Sea lions hauled out on a rock islet in Barkley Sound with mountains behind",
      body:["Barkley Sound is the top wildlife watching area near Ucluelet: islands, channels, rocky shores, kelp beds and sheltered water.",
            "This is where most boat and kayak trips go, and it is the gateway to the Broken Group Islands."],
      gf:["Whales","Sea lions","Seals","Sea otters","Bald eagles","Seabirds","Black bears along shorelines","Boat tours and kayaking"],
-     note:"The best way to explore Barkley Sound wildlife is by guided boat or kayak tour.", href:"guide.html", cta:"Read the write-up"},
-    {g:"boat", slug:"broken-group-islands", name:"Broken Group Islands", town:"Boat from Ucluelet", road:"40 min south, then a boat",
+     note:"The best way to explore Barkley Sound wildlife is by guided boat or kayak tour.", cta:"More on Barkley Sound"},
+    {no:6, g:"boat", slug:"broken-group-islands", name:"Broken Group Islands", town:"Boat from Ucluelet", road:"40 min south, then a boat",
      effort:"Boat access only", station:"ucluelet",
      hero:"guides/ucluelet/whale-watching/broken-group-islands-1",
      alt:"Islands of the Broken Group silhouetted in sea mist at sunset",
      body:["The Broken Group Islands sit inside Barkley Sound as part of Pacific Rim National Park Reserve: forested islands, shell beaches, sheltered channels, reefs and rocky outcrops.",
            "It is the best paddling wildlife on this coast. Seals, sea lions, sea otters, bald eagles, seabirds and shorebirds, with whales in the water nearby."],
      gf:["Kayak wildlife watching","Boat tours","Sea otters","Seals and sea lions","Bald eagles","Seabirds","Multi-day paddling trips"],
-     note:"The Broken Group Islands are boat-access only. Plan ahead if you are kayaking or camping.", href:"guide.html", cta:"Read the write-up"}
+     note:"The Broken Group Islands are boat-access only. Plan ahead if you are kayaking or camping.", cta:"More on the Broken Group Islands"}
   ],
   /* all eight whale watching guides in the corpus */
   articles: [
     {t:"Whale Watching in Ucluelet", where:"Ucluelet", ex:"Best time and what you might see, from the base with the shortest run to Barkley Sound.", q:4, hero:"guides/ucluelet/whale-watching/_category-1", alt:"An orca surfacing beside a small whale watching boat"},
     {t:"Whale Watching Tours in Ucluelet", where:"Ucluelet", ex:"What to expect, how to choose between a covered boat and a zodiac, and booking tips.", q:4, hero:"guides/ucluelet/whale-watching/_category-4", alt:"An orca surfacing beside a red zodiac carrying passengers in survival suits"},
     {t:"Whales in Ucluelet: The Spring Migration Explained", where:"Ucluelet", ex:"Why spring is the one to plan around, and where the grays are coming from.", q:4, hero:"guides/ucluelet/whale-watching/_category-5", alt:"A humpback fluke lifting above the water in front of a forested shoreline"},
-    {t:"Whale Tails, Blows, and Backs", where:"Tofino and Ucluelet", ex:"What you are actually seeing on the water, and what a fluke means when it goes up.", q:4, hero:"guides/tofino/whale-watching/_category-1", alt:"A humpback fluke lifting clear of the water in front of a forested headland"},
+    {t:"Whale Tails, Blows, and Backs", where:"Tofino and Ucluelet", ex:"What you are actually seeing on the water, and what a fluke means when it goes up.", q:4, hero:"guides/tofino/whale-watching/_category-7", alt:"A gray whale surfacing close in, its mottled back breaking the water off a driftwood beach"},
     {t:"Whale watching FAQs, Tofino", where:"Tofino", ex:"The four questions the Tofino guide gets asked most, answered in its own words.", q:4, hero:"guides/tofino/whale-watching/_category-3", alt:"Two whale blows and a surfacing back on calm water in front of the treeline"},
     {t:"Whale watching FAQs, Ucluelet", where:"Ucluelet", ex:"What you can see, from where, and whether you need a boat to see it.", q:4, hero:"guides/ucluelet/whale-watching/_category-3", alt:"Two orcas surfacing near a moored boat below a low rocky shore"},
     {t:"Wildlife Tours in Tofino", where:"Tofino", ex:"Whales, bears and seabirds: the tours worth booking out of the north harbour.", q:0, hero:"thomas-lipke-M12HGHNVJ2s-unsplash_nttcvc", alt:"A small boat on open water off the west coast of Vancouver Island"},
@@ -903,30 +963,30 @@ const DATA = {
   ],
   /* every question the eight guides answer, with the guide it came from */
   faqs: [
-    {s:"Whale watching FAQs, Tofino", q:"What is the best month for whale watching in Tofino?", a:"March to May is one of the best times for gray whales. Summer and early fall can also be great for humpbacks, gray whales, orcas, sea otters, sea lions, and other wildlife."},
-    {s:"Whale watching FAQs, Tofino", q:"Can you see whales in Tofino without a tour?", a:"Yes, sometimes whales can be seen from shore. But a guided boat tour gives you a much better chance of seeing whales and learning about them."},
-    {s:"Whale watching FAQs, Tofino", q:"What is the best time of day for whale watching?", a:"There is no perfect time every day. Tour operators choose routes based on weather, swell, and recent sightings. Morning trips may have calmer water, but wildlife can be active at different times."},
-    {s:"Whale watching FAQs, Tofino", q:"Is a zodiac or covered boat better for whale watching?", a:"A covered boat is better for comfort, families, and cooler days. A zodiac is better for travelers who want a faster, more open-air adventure."},
-    {s:"Whale Tails, Blows, and Backs", q:"What does it mean when a whale blows?", a:"A blow means the whale has surfaced to breathe. It is often the first sign people see during whale watching."},
-    {s:"Whale Tails, Blows, and Backs", q:"What does a whale tail mean?", a:"If a whale lifts its tail fluke before disappearing, it usually means the whale is making a deeper dive."},
-    {s:"Whale Tails, Blows, and Backs", q:"Why do whales show their backs?", a:"Whales show their backs when they surface to breathe, travel, or prepare for another dive. This is one of the most common things to see on a whale watching tour."},
-    {s:"Whale Tails, Blows, and Backs", q:"Does seeing a fluke mean the whale is leaving?", a:"Not always. A fluke usually means the whale is diving deeper. It may surface again nearby after several minutes, or it may come up farther away."},
-    {s:"Whales in Ucluelet: The Spring Migration Explained", q:"What whales migrate past Ucluelet in spring?", a:"Pacific gray whales are the main whales associated with the spring migration in Ucluelet. Humpbacks may also appear later in spring and become more common during summer."},
-    {s:"Whales in Ucluelet: The Spring Migration Explained", q:"When is the gray whale migration in Ucluelet?", a:"The main spring migration period is usually March to May. Early sightings may happen in February, and some whales may still be present into early summer."},
-    {s:"Whales in Ucluelet: The Spring Migration Explained", q:"Why do gray whales migrate past Ucluelet?", a:"Gray whales pass Ucluelet as they travel north from winter breeding and calving areas in Baja California, Mexico, toward northern feeding grounds near Alaska and the Arctic."},
-    {s:"Whales in Ucluelet: The Spring Migration Explained", q:"Is March a good time for whale watching in Ucluelet?", a:"Yes. March is a key month because gray whales are returning along the coast, and the Pacific Rim Whale Festival celebrates their migration."},
-    {s:"Whale Watching Tours in Ucluelet", q:"Are whale watching tours in Ucluelet worth it?", a:"Yes. Ucluelet is a strong whale watching base because tours can access Barkley Sound, the Broken Group Islands area, and nearby Pacific waters with whales and other marine wildlife."},
-    {s:"Whale Watching Tours in Ucluelet", q:"What is the best whale watching tour in Ucluelet?", a:"The best tour depends on your needs. Families and comfort-focused travelers may prefer a covered boat. Adventure travelers may prefer a zodiac. Photographers or groups may prefer a smaller tour or private charter."},
-    {s:"Whale Watching Tours in Ucluelet", q:"When do whale watching tours run in Ucluelet?", a:"Many whale watching tours run from March to October, but exact dates depend on the operator, weather, and season."},
-    {s:"Whale Watching Tours in Ucluelet", q:"How long are Ucluelet whale watching tours?", a:"Many tours are about 2.5 to 3 hours, but timing can vary. Always check the operator's current tour details."},
-    {s:"Whale watching FAQs, Ucluelet", q:"Is Ucluelet good for wildlife watching?", a:"Yes. Ucluelet is one of the best wildlife watching areas on Vancouver Island. You can see whales, black bears, sea lions, seals, sea otters, bald eagles, shorebirds, seabirds, and more."},
-    {s:"Whale watching FAQs, Ucluelet", q:"What animals can you see in Ucluelet?", a:"You may see gray whales, humpback whales, orcas, black bears, sea lions, harbor seals, sea otters, river otters, bald eagles, great blue herons, shorebirds, and seabirds."},
-    {s:"Whale watching FAQs, Ucluelet", q:"Can you see whales from Ucluelet?", a:"Yes. You can see whales on boat tours, and sometimes from shore along the Wild Pacific Trail, especially during migration seasons."},
-    {s:"Whale watching FAQs, Ucluelet", q:"Where is the best place to see whales from shore in Ucluelet?", a:"The Wild Pacific Trail and Amphitrite Point Lighthouse area are among the best shore-based places to scan for whales. Bring binoculars."},
-    {s:"Whale Watching in Ucluelet", q:"Is Ucluelet good for whale watching?", a:"Yes. Ucluelet is one of the best whale watching bases on Vancouver Island because it gives access to Barkley Sound, the Broken Group Islands area, and Pacific feeding and migration waters."},
-    {s:"Whale Watching in Ucluelet", q:"What whales can you see in Ucluelet?", a:"You may see gray whales, humpback whales, and sometimes orcas. Tours may also see sea lions, harbor seals, sea otters, bald eagles, and seabirds."},
-    {s:"Whale Watching in Ucluelet", q:"When is the best time for whale watching in Ucluelet?", a:"March to May is best for gray whale migration. Mid-summer to September is often good for humpback whales. Orcas are possible but less predictable."},
-    {s:"Whale Watching in Ucluelet", q:"Can you see gray whales in Ucluelet?", a:"Yes. Gray whales are one of the main whale species associated with Ucluelet, especially during spring migration."}
+    {s:"Whale watching FAQs, Tofino", g:"when", q:"What is the best month for whale watching in Tofino?", a:"March to May is one of the best times for gray whales. Summer and early fall can also be great for humpbacks, gray whales, orcas, sea otters, sea lions, and other wildlife."},
+    {s:"Whale watching FAQs, Tofino", g:"where", q:"Can you see whales in Tofino without a tour?", a:"Yes, sometimes whales can be seen from shore. But a guided boat tour gives you a much better chance of seeing whales and learning about them."},
+    {s:"Whale watching FAQs, Tofino", g:"when", q:"What is the best time of day for whale watching?", a:"There is no perfect time every day. Tour operators choose routes based on weather, swell, and recent sightings. Morning trips may have calmer water, but wildlife can be active at different times."},
+    {s:"Whale watching FAQs, Tofino", g:"boat", q:"Is a zodiac or covered boat better for whale watching?", a:"A covered boat is better for comfort, families, and cooler days. A zodiac is better for travelers who want a faster, more open-air adventure."},
+    {s:"Whale Tails, Blows, and Backs", g:"seeing", q:"What does it mean when a whale blows?", a:"A blow means the whale has surfaced to breathe. It is often the first sign people see during whale watching."},
+    {s:"Whale Tails, Blows, and Backs", g:"seeing", q:"What does a whale tail mean?", a:"If a whale lifts its tail fluke before disappearing, it usually means the whale is making a deeper dive."},
+    {s:"Whale Tails, Blows, and Backs", g:"seeing", q:"Why do whales show their backs?", a:"Whales show their backs when they surface to breathe, travel, or prepare for another dive. This is one of the most common things to see on a whale watching tour."},
+    {s:"Whale Tails, Blows, and Backs", g:"seeing", q:"Does seeing a fluke mean the whale is leaving?", a:"Not always. A fluke usually means the whale is diving deeper. It may surface again nearby after several minutes, or it may come up farther away."},
+    {s:"Whales in Ucluelet: The Spring Migration Explained", g:"when", q:"What whales migrate past Ucluelet in spring?", a:"Pacific gray whales are the main whales associated with the spring migration in Ucluelet. Humpbacks may also appear later in spring and become more common during summer."},
+    {s:"Whales in Ucluelet: The Spring Migration Explained", g:"when", q:"When is the gray whale migration in Ucluelet?", a:"The main spring migration period is usually March to May. Early sightings may happen in February, and some whales may still be present into early summer."},
+    {s:"Whales in Ucluelet: The Spring Migration Explained", g:"when", q:"Why do gray whales migrate past Ucluelet?", a:"Gray whales pass Ucluelet as they travel north from winter breeding and calving areas in Baja California, Mexico, toward northern feeding grounds near Alaska and the Arctic."},
+    {s:"Whales in Ucluelet: The Spring Migration Explained", g:"when", q:"Is March a good time for whale watching in Ucluelet?", a:"Yes. March is a key month because gray whales are returning along the coast, and the Pacific Rim Whale Festival celebrates their migration."},
+    {s:"Whale Watching Tours in Ucluelet", g:"boat", q:"Are whale watching tours in Ucluelet worth it?", a:"Yes. Ucluelet is a strong whale watching base because tours can access Barkley Sound, the Broken Group Islands area, and nearby Pacific waters with whales and other marine wildlife."},
+    {s:"Whale Watching Tours in Ucluelet", g:"boat", q:"What is the best whale watching tour in Ucluelet?", a:"The best tour depends on your needs. Families and comfort-focused travelers may prefer a covered boat. Adventure travelers may prefer a zodiac. Photographers or groups may prefer a smaller tour or private charter."},
+    {s:"Whale Watching Tours in Ucluelet", g:"when", q:"When do whale watching tours run in Ucluelet?", a:"Many whale watching tours run from March to October, but exact dates depend on the operator, weather, and season."},
+    {s:"Whale Watching Tours in Ucluelet", g:"boat", q:"How long are Ucluelet whale watching tours?", a:"Many tours are about 2.5 to 3 hours, but timing can vary. Always check the operator's current tour details."},
+    {s:"Whale watching FAQs, Ucluelet", g:"where", q:"Is Ucluelet good for wildlife watching?", a:"Yes. Ucluelet is one of the best wildlife watching areas on Vancouver Island. You can see whales, black bears, sea lions, seals, sea otters, bald eagles, shorebirds, seabirds, and more."},
+    {s:"Whale watching FAQs, Ucluelet", g:"where", q:"What animals can you see in Ucluelet?", a:"You may see gray whales, humpback whales, orcas, black bears, sea lions, harbor seals, sea otters, river otters, bald eagles, great blue herons, shorebirds, and seabirds."},
+    {s:"Whale watching FAQs, Ucluelet", g:"where", q:"Can you see whales from Ucluelet?", a:"Yes. You can see whales on boat tours, and sometimes from shore along the Wild Pacific Trail, especially during migration seasons."},
+    {s:"Whale watching FAQs, Ucluelet", g:"where", q:"Where is the best place to see whales from shore in Ucluelet?", a:"The Wild Pacific Trail and Amphitrite Point Lighthouse area are among the best shore-based places to scan for whales. Bring binoculars."},
+    {s:"Whale Watching in Ucluelet", g:"where", q:"Is Ucluelet good for whale watching?", a:"Yes. Ucluelet is one of the best whale watching bases on Vancouver Island because it gives access to Barkley Sound, the Broken Group Islands area, and Pacific feeding and migration waters."},
+    {s:"Whale Watching in Ucluelet", g:"where", q:"What whales can you see in Ucluelet?", a:"You may see gray whales, humpback whales, and sometimes orcas. Tours may also see sea lions, harbor seals, sea otters, bald eagles, and seabirds."},
+    {s:"Whale Watching in Ucluelet", g:"when", q:"When is the best time for whale watching in Ucluelet?", a:"March to May is best for gray whale migration. Mid-summer to September is often good for humpback whales. Orcas are possible but less predictable."},
+    {s:"Whale Watching in Ucluelet", g:"when", q:"Can you see gray whales in Ucluelet?", a:"Yes. Gray whales are one of the main whale species associated with Ucluelet, especially during spring migration."}
   ],
   /* the thirteen photographs the two whale watching guides carry */
   frames: [
@@ -1019,7 +1079,7 @@ function paintWhales() {
     return `<article class="wh">
       <figure class="wh__m"><img src="${cld(f.id,760,570)}" alt="${esc(f.t)}" loading="lazy"></figure>
       <div class="wh__b">
-        <span class="wh__w">${esc(windowText(r.m))}</span>
+        <span class="wh__w">${esc(windowText(r.m) + ((r.p && r.p.length) ? `, peak ${windowText(r.p)}` : ""))}</span>
         <h3>${esc(r.n)}</h3>
         <p>${esc(r.w)}</p>
         <p class="wh__f"><span>Watch from</span>${esc(r.from)}</p>
@@ -1075,22 +1135,25 @@ const SPOTFILTERS = [
 ];
 let spotKey = "all";
 
-/* one sentence instead of seven chips per card */
+/* one sentence instead of seven chips per card, and no count of our own tags
+   on the end of it */
 function goodFor(s){
-  const first = s.gf.slice(0,3).map((g,i) => i ? g.toLowerCase() : g).join(", ");
-  const rest = s.gf.length - 3;
-  return `Good for ${first}${rest > 0 ? `, and ${rest} more` : ""}.`;
+  return `Good for ${s.gf.slice(0,3).map((g) => g.toLowerCase()).join(", ")}.`;
 }
+/* N3: only "Wildlife tours in Tofino" lives at guide.html, so a card about an
+   Ucluelet place goes to the result list that actually contains that place,
+   scoped to its own town. Long Beach has a real area page, so it keeps it. */
+const spotHref = (s) => s.href || `search.html?q=${encodeURIComponent(s.name)}&in=${s.station}`;
 function spotCard(s){
   return `<article class="feat spot">
       <div class="feat__m"><img src="${cld(s.hero,900,564)}" alt="${esc(s.alt)}" loading="lazy"></div>
       <div class="kmeta"><span class="k">${s.g === "land" ? "From land" : "By boat"}</span><span class="dot"></span>
         <span>${esc(s.town)}</span><span class="dot"></span><span class="tnum">${esc(s.road)}</span></div>
-      <h3>${esc(s.name)}</h3>
+      <h3><span class="spot__n tnum">${s.no}</span>${esc(s.name)}</h3>
       ${s.body.slice(0,2).map((p) => `<p>${esc(p)}</p>`).join("")}
       <p class="gfline">${esc(goodFor(s))}</p>
       <p class="note"><span><b>Good to know.</b> ${esc(s.note)}</span></p>
-      <a class="btn btn--ghost btn--sm" href="${s.href}">${esc(s.cta)}</a>
+      <a class="btn btn--ghost btn--sm" href="${spotHref(s)}">${esc(s.cta)}</a>
     </article>`;
 }
 function paintSpots() {
@@ -1108,33 +1171,59 @@ function paintSpotFilter() {
     `<button class="clear" type="button" data-clear>Clear</button>`;
 }
 
-/* ── the twenty-four questions. The by-guide filter row was six chips carrying
-      full article titles, which is a wall. The questions are collapsed, so the
-      list is already short on screen and needs no filter. ─────────────────── */
+/* ── the questions. Collapsed, one column, and grouped in the order a reader
+      decides things: which month, which boat, where to stand, what they are
+      looking at. A flat run of twenty-four was a wall in a different shape.
+      The source guide is no longer printed under each answer: repeating a
+      title twenty-four times told the reader about our filing, not the trip. */
+const FAQ_GROUPS = [
+  ["when",  "When to come"],
+  ["boat",  "Which boat, and how long"],
+  ["where", "Where to watch from"],
+  ["seeing","What you are looking at"]
+];
 function paintFaqs() {
-  $("#faqs").innerHTML = DATA.faqs.map((f,i) =>
-    `<details class="faq"${i < 2 ? " open" : ""}><summary>${esc(f.q)}</summary>
-      <p>${esc(f.a)}</p><cite>From ${esc(f.s)}</cite></details>`).join("");
+  let first = true;
+  $("#faqs").innerHTML = FAQ_GROUPS.map(([k,title]) => {
+    const list = DATA.faqs.filter((f) => f.g === k);
+    if (!list.length) return "";
+    const items = list.map((f) => {
+      const open = first ? " open" : ""; first = false;
+      return `<details class="faq"${open}><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`;
+    }).join("");
+    return `<div class="faqgrp"><h3>${esc(title)}</h3>${items}</div>`;
+  }).join("");
 }
 
 /* ── the season module: the reference implementation of S1 to S7 ─────────── */
 /* The three whales, and the months the boats run, straight out of DATA.rows. */
 const WH_KEYS = [["gray","Gray whale"],["humpback","Humpback whale"],["orca","Orca"]];
 const monthsFor = (name) => (DATA.rows.find((r) => r.n === name) || {m:[]}).m;
+const peakFor = (name) => (DATA.rows.find((r) => r.n === name) || {}).p || [];
 const BOAT_MONTHS = monthsFor("Tour boats running");
+const PLURAL = {gray:"gray whales", humpback:"humpbacks", orca:"orcas"};
+const listOf = (a) => a.length < 2 ? (a[0] || "") : a.slice(0,-1).join(", ") + " and " + a[a.length-1];
+/* three states, not two: at its peak, possible, or not here. The switcher, the
+   ledger strip and the spoken label all read off these two helpers. */
+const peaksIn = (m) => WH_KEYS.filter(([,n]) => peakFor(n).includes(m)).map(([k]) => PLURAL[k]);
+const maybeIn = (m) => WH_KEYS.filter(([,n]) => monthsFor(n).includes(m) && !peakFor(n).includes(m)).map(([k]) => PLURAL[k]);
+
+function monthSpoken(m){
+  const pk = peaksIn(m), mb = maybeIn(m);
+  if (pk.length && mb.length) return `${listOf(pk)} at their peak, ${listOf(mb)} possible`;
+  if (pk.length) return `${listOf(pk)} at their peak`;
+  if (mb.length) return `${listOf(mb)} possible`;
+  return "no whales on this coast";
+}
 
 function paintSwitcher() {
   $("#msw").innerHTML = MON.map((mn,i) => {
     const m = i + 1;
-    const here = WH_KEYS.filter(([,name]) => monthsFor(name).includes(m));
     const boats = BOAT_MONTHS.includes(m);
     const dots = WH_KEYS.map(([k,name]) =>
-      `<span class="msw__w" data-w="${k}" ${monthsFor(name).includes(m) ? "data-on" : ""}></span>`).join("");
-    const said = here.length
-      ? here.map(([,n]) => n.replace(" whale","")).join(", ") + " in the water"
-      : "no whales on this coast";
+      `<span class="msw__w" data-w="${k}"${monthsFor(name).includes(m) ? " data-on" : ""}${peakFor(name).includes(m) ? " data-peak" : ""}></span>`).join("");
     return `<button class="msw__b" type="button" data-m="${m}" aria-pressed="${m === month}"
-       ${boats ? "" : 'data-noboat'} aria-label="${MON[i]}, ${said}, ${boats ? "boats running" : "no boats"}">
+       ${boats ? "" : 'data-noboat'} aria-label="${MON[i]}, ${monthSpoken(m)}, ${boats ? "boats running" : "no boats"}">
       <span class="msw__ws">${dots}</span>
       <span class="msw__l">${SHORT[i]}</span>
     </button>`;
@@ -1151,12 +1240,15 @@ function paintAlmanac() {
   $("#seasonName").textContent = season.name;
   $("#seasonClaim").textContent = season.claim;
   const whalesNow = WH_KEYS.filter(([,n]) => monthsFor(n).includes(month));
-  const PLURAL = {gray:"gray whales", humpback:"humpbacks", orca:"orcas"};
-  const names = whalesNow.map(([k]) => PLURAL[k]);
-  const whaleList = names.length < 2 ? (names[0] || "")
-    : names.slice(0,-1).join(", ") + " and " + names[names.length-1];
-  $("#seasonReason").innerHTML =
-    `<b>${whalesNow.length ? `In ${name} you might see ${whaleList}.` : `No whales are on this coast in ${name}.`}</b> ` + REASON[season.name];
+  /* the month's line separates the run that is peaking from the one that is
+     merely possible, which is the difference the switcher is now drawing */
+  const pk = peaksIn(month), mb = maybeIn(month);
+  let said;
+  if (pk.length && mb.length) said = `In ${name} ${listOf(pk)} are at their peak, and ${listOf(mb)} are possible.`;
+  else if (pk.length) said = `In ${name} ${listOf(pk)} are at their peak.`;
+  else if (mb.length) said = `In ${name} ${listOf(mb)} are possible, none of them at their peak.`;
+  else said = `No whales are on this coast in ${name}.`;
+  $("#seasonReason").innerHTML = `<b>${said}</b> ` + REASON[season.name];
 
   /* These were average high, rain and rain days. On a whale page the month's
      answer is which whales are in the water and whether a boat can take you. */
@@ -1172,7 +1264,7 @@ function paintAlmanac() {
   $("#exits").innerHTML = boating
     ? `<a class="btn btn--ghost btn--sm" href="#where">The six places to watch from</a>
        <a class="btn btn--ghost btn--sm" href="#boats">Which boat, and what it costs</a>`
-    : `<a class="btn btn--ghost btn--sm" href="things-to-do.html">Storm watching, 8 places to watch from</a>
+    : `<a class="btn btn--ghost btn--sm" href="storm-watching-tofino.html">Storm watching in Tofino</a>
        <button class="btn btn--ghost btn--sm jumpbtn" type="button" data-m="3">Jump to March, when the boats go back out${gap ? `, ${gap} month${gap === 1 ? "" : "s"} away` : ""}</button>`;
 
   /* S3: rank, never gate. In season first, the rest at full strength below. */
@@ -1188,7 +1280,7 @@ function paintAlmanac() {
     let sep = "";
     if (!live && !sepDone){ sepDone = true; sep = `<tr class="gsep"><td colspan="3">In their own window, and here is when</td></tr>`; }
     const cells = MON.map((mn,k) =>
-      `<i ${r.m.includes(k+1) ? "data-on" : ""} ${k === month-1 ? "data-now" : ""}>${mn[0]}</i>`).join("");
+      `<i${r.m.includes(k+1) ? " data-on" : ""}${(r.p || []).includes(k+1) ? " data-peak" : ""}${k === month-1 ? " data-now" : ""}>${mn[0]}</i>`).join("");
     let right;
     if (r.from === "soon"){
       right = live
@@ -1198,8 +1290,14 @@ function paintAlmanac() {
     } else if (live){
       right = `<b>${esc(r.from)}</b>`;
     } else {
-      const w = windows(r.m)[0][0];
-      right = `<button class="jump jumpbtn" type="button" data-m="${w}">Peaks ${esc(windowText(r.m))}
+      /* "Peaks" is only true of a row that has a peak. Everything else gets the
+         window it is actually in, and the jump lands on the month that matters:
+         the start of the peak where there is one, the start of the window
+         otherwise. */
+      const pk = r.p && r.p.length;
+      const w = pk ? windows(r.p)[0][0] : windows(r.m)[0][0];
+      const say = pk ? `Peaks ${windowText(r.p)}` : `In the water ${windowText(r.m)}`;
+      right = `<button class="jump jumpbtn" type="button" data-m="${w}">${esc(say)}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>`;
     }
     return sep + `<tr style="--i:${i++}">
@@ -1211,12 +1309,12 @@ function paintAlmanac() {
   /* named places rather than a count of what is shut */
   const open = boating ? DATA.spots : DATA.spots.filter((s) => s.g === "land");
   $("#innowH").innerHTML = boating
-    ? `All <b>6</b> places in this guide are worth the drive in ${name}, four of them without booking anything.`
-    : `The boats are tied up in ${name}, so these <b>${open.length}</b> are the ones that still pay you back, and they cost nothing.`;
-  $("#innowL").innerHTML = open.map((s) => `<a href="${s.href}">${esc(s.name)}</a>`).join("");
+    ? `Every one of the <b>6</b> places is worth the drive in ${name}, four of them without booking anything.`
+    : `The boats are tied up in ${name}, so these <b>${open.length}</b> are the ones that still pay you back, and none of them needs a booking.`;
+  $("#innowL").innerHTML = open.map((s) => `<a href="${spotHref(s)}">${s.no}. ${esc(s.name)}</a>`).join("");
 
   $("#footnote").innerHTML =
-    `Months come from the Tofino and Ucluelet whale watching guides. Operators pick the route on the day, so nothing here is a guarantee of a sighting.`;
+    `A wide bar is the peak of that whale's season, a small dot means possible but not likely. Operators pick the route on the day from weather, swell and the last few days of sightings, so nothing here is a guarantee of a sighting.`;
 
   $("#live").textContent = `Showing ${name}. ` + (boating ? "Boats are running." : "Boats are back out in March.");
 }

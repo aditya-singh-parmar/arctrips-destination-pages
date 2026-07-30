@@ -119,12 +119,6 @@ nav.top kbd{font-size:.88rem}
   transition:border-color .18s var(--ease),color .18s var(--ease)}
 .quickq button:hover{border-color:var(--navy);color:var(--navy)}
 
-/* ── the tide strip, labelled in plain words ───────────────────────────── */
-.tide-in{gap:10px clamp(16px,3vw,34px)}
-.tide-h{flex:none;font-size:.98rem;font-weight:700;color:var(--navy)}
-.tide-read{font-size:.92rem}
-.tide-why{font-size:.92rem;color:var(--n600);flex:1;min-width:210px;line-height:1.5}
-
 /* ── the filters ───────────────────────────────────────────────────────── */
 .ctrl{padding-top:clamp(18px,2.4vw,26px)}
 .filterrow{margin-block:0 clamp(14px,1.8vw,18px)}
@@ -163,37 +157,47 @@ nav.top kbd{font-size:.88rem}
 .season__h{font-size:.92rem;font-weight:700;color:var(--navy)}
 .season__w{font-size:.92rem;color:var(--n600);margin-top:8px;line-height:1.5}
 
-/* the ordinary result row */
-.rl{display:grid;grid-template-columns:repeat(2,1fr);column-gap:clamp(24px,3.4vw,52px)}
-@media(max-width:900px){.rl{grid-template-columns:1fr}}
-.rl--one{grid-template-columns:1fr}
-.rrow{display:grid;grid-template-columns:124px 1fr;gap:17px;padding:16px 0;border-top:1px solid var(--n150);
+/* The ordinary result row. One column, one idea per row, a photograph on every
+   row, and the rank in front of it so the order is visible rather than implied. */
+.rl{display:grid;grid-template-columns:1fr;max-width:920px}
+.rrow{display:grid;grid-template-columns:30px 190px 1fr;gap:20px;padding:18px 0;border-top:1px solid var(--n150);
   align-items:start;animation:rowin .3s var(--ease) both;animation-delay:calc(var(--i,0)*18ms)}
 @keyframes rowin{from{opacity:0;transform:translateY(6px)}}
+.rrow__i{font-size:1.02rem;font-weight:700;color:var(--n600);font-variant-numeric:tabular-nums;
+  padding-top:2px;letter-spacing:-.01em}
+.rrow:hover .rrow__i{color:var(--navy)}
 .rrow__m{border-radius:var(--r-sm);overflow:hidden;aspect-ratio:4/3;background:var(--n100)}
 .rrow__m img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
 .rrow:hover .rrow__m img{transform:scale(1.05)}
-.rrow h3{font-size:1.06rem;font-weight:700;margin-top:5px;line-height:1.3}
+.rrow h3{font-size:1.14rem;font-weight:700;margin-top:5px;line-height:1.3}
 .rrow:hover h3{color:var(--azure)}
-.rrow p{font-size:.92rem;color:var(--n600);margin-top:7px;line-height:1.55;max-width:62ch;
-  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rrow p{font-size:.95rem;color:var(--n600);margin-top:7px;line-height:1.6;max-width:62ch;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+@media(max-width:640px){.rrow{grid-template-columns:24px 118px 1fr;gap:14px}}
 /* the system defines .dot against --n300, which is not in the token set */
 .dot{background:var(--n400)}
 .kmeta__m{display:inline-flex;align-items:center;gap:10px}
 @media(max-width:560px){.kmeta{gap:3px 10px}.kmeta__m .dot{display:none}}
-p.rrow__p{font-size:.92rem;color:var(--navy);font-weight:700;margin-top:8px;font-variant-numeric:tabular-nums}
-@media(max-width:560px){.rrow{grid-template-columns:94px 1fr;gap:14px}}
+p.rrow__p{font-size:.95rem;color:var(--navy);font-weight:700;margin-top:8px;font-variant-numeric:tabular-nums}
 
-/* questions. A different shape, because a question is not a place. */
-.qgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 clamp(28px,4vw,60px)}
-@media(max-width:840px){.qgrid{grid-template-columns:1fr}}
-.qrow{border-top:1px solid var(--n150);padding:18px 0;display:block;
-  animation:rowin .3s var(--ease) both;animation-delay:calc(var(--i,0)*18ms)}
-.qrow .k{display:block;font-size:.88rem;font-weight:600;color:var(--n600);margin-bottom:6px}
-.qrow h3{font-size:1.06rem;font-weight:700;line-height:1.34}
-.qrow:hover h3{color:var(--azure)}
-.qrow p{font-size:.92rem;color:var(--n600);margin-top:8px;line-height:1.6;max-width:54ch;
-  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+/* Questions. One column, closed, click to open, and the whole answer inside
+   rather than two clamped lines. Native details, so it works without script. */
+.qlist{display:grid;grid-template-columns:1fr;max-width:820px}
+.qrow{border-top:1px solid var(--n150);animation:rowin .3s var(--ease) both;
+  animation-delay:calc(var(--i,0)*18ms)}
+.qrow>summary{list-style:none;cursor:pointer;padding:16px 40px 16px 0;position:relative;min-height:44px}
+.qrow>summary::-webkit-details-marker{display:none}
+.qrow>summary::after{content:"";position:absolute;right:8px;top:50%;width:9px;height:9px;
+  border-right:2px solid var(--n600);border-bottom:2px solid var(--n600);
+  transform:translateY(-70%) rotate(45deg);transition:transform .2s var(--ease)}
+.qrow[open]>summary::after{transform:translateY(-20%) rotate(225deg)}
+.qrow>summary:hover h3{color:var(--azure)}
+.qrow .k{display:block;font-size:.88rem;font-weight:600;color:var(--n600);margin-bottom:5px}
+.qrow h3{font-size:1.08rem;font-weight:700;line-height:1.34}
+.qrow__a{padding:0 40px 20px 0;max-width:64ch}
+.qrow__a p{font-size:.98rem;color:var(--n700);line-height:1.65}
+.qrow__a a{display:inline-flex;align-items:center;min-height:44px;margin-top:4px;
+  font-size:.92rem;font-weight:700;color:var(--azure)}
 
 /* town and guide cards */
 .gg{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.4vw,30px)}
@@ -247,6 +251,7 @@ h3 mark,h1 mark{background:none;padding:0;border-radius:0;box-shadow:inset 0 -.3
   background:none;transition:background .18s var(--ease),border-color .18s var(--ease)}
 .zero__chips button:hover{border-color:var(--paper);background:rgba(255,255,255,.14)}
 .zero__chips .ct{opacity:.8;font-variant-numeric:tabular-nums;margin-left:5px}
+.nearc__t .zero__chips{display:flex;margin-top:8px}
 .almanac .btn--ghost{border-color:rgba(255,255,255,.5);color:var(--paper)}
 .almanac .btn--ghost:hover{border-color:var(--paper);background:rgba(255,255,255,.14)}
 .near{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.6vw,30px);margin-top:16px}
@@ -261,42 +266,40 @@ h3 mark,h1 mark{background:none;padding:0;border-radius:0;box-shadow:inset 0 -.3
 .nearc__t span{display:inline-flex;align-items:center;min-height:44px;color:var(--a300);font-size:.9rem;font-weight:700}
 .nearc:hover .nearc__t b{color:var(--a300)}
 
-/* ── the town roster: built for 26 towns, grouped, counted, never a wall ── */
+/* ── the town roster. Every town carries the photograph its own page opens
+      on, so the list and the page can never show different places. ───────── */
 /* Columns, not a fixed grid: one long group and four short ones pack instead
    of leaving four empty tracks beside Vancouver Island. */
-.roster{column-width:300px;column-gap:clamp(22px,2.6vw,36px)}
+.roster{column-width:290px;column-gap:clamp(22px,2.6vw,40px)}
 .rgrp{border-top:2px solid var(--navy);padding-top:12px;margin-bottom:clamp(22px,2.6vw,32px);break-inside:avoid}
 .rgrp__h{display:inline-flex;align-items:center;min-height:44px;font-size:1.02rem;font-weight:700;color:var(--navy)}
 .rgrp__h:hover{color:var(--azure)}
-.rgrp__c{font-size:.88rem;color:var(--n600);font-variant-numeric:tabular-nums;margin-top:-4px}
+.rgrp__c{font-size:.88rem;color:var(--n600);margin-top:-4px}
 .rgrp ul{list-style:none;margin-top:8px}
-.rgrp li{padding-block:6px;font-size:.94rem;line-height:1.4}
-.rgrp li a{color:var(--navy);font-weight:700}
-.rgrp li a:hover{color:var(--azure)}
-.rgrp li span{color:var(--n600)}
-/* the 44px target is bought back where a finger is doing the pointing */
-@media(pointer:coarse){.rgrp li{padding-block:0}
-  .rgrp li a,.rgrp li span{display:inline-flex;align-items:center;min-height:44px}}
-/* One column of 26 towns on a phone is a wall, so each group runs two up */
-@media(max-width:600px){.rgrp ul{column-count:2;column-gap:20px}.rgrp li{break-inside:avoid}}
+.rgrp li{break-inside:avoid}
+.rtown{display:flex;align-items:center;gap:12px;min-height:56px;padding:5px 0;
+  border-top:1px solid var(--n150);color:var(--navy);font-weight:700;font-size:.98rem;line-height:1.3}
+.rgrp li:first-child .rtown{border-top:0}
+.rtown img{width:60px;height:45px;border-radius:5px;object-fit:cover;flex:none;background:var(--n100)}
+.rtown:hover{color:var(--azure)}
+.rtown span{flex:1;min-width:0}
+.rtown .g{display:block;font-size:.88rem;font-weight:600;color:var(--n600);margin-top:2px}
 
-/* ── the lateral rail. Six tiles, so two clean rows, never an empty cell ── */
-.siblings{background:var(--paper);grid-template-columns:repeat(3,minmax(0,1fr))}
-@media(max-width:760px){.siblings{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:460px){.siblings{grid-template-columns:1fr}}
-.sib{box-shadow:0 0 0 1px var(--n150)}
-.sib__m{font-size:.88rem}
-.sib__m b{color:var(--navy);font-weight:700}
-
-/* ── every page ends with a next step ──────────────────────────────────── */
-.keepgoing{border-top:1px solid var(--n150);padding-top:clamp(30px,4vw,46px);
-  display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.6vw,34px)}
-@media(max-width:860px){.keepgoing{grid-template-columns:1fr;gap:26px}}
-.kg{display:flex;flex-direction:column}
-.kg h4{font-size:1.2rem;font-weight:700;color:var(--navy);line-height:1.25;letter-spacing:-.014em}
-.kg:hover h4{color:var(--azure)}
-.kg p{font-size:.94rem;color:var(--n600);margin-top:8px;margin-bottom:18px;line-height:1.55;max-width:34ch}
-.kg .btn{margin-top:auto;align-self:flex-start}
+/* ── the lateral rail. Six pages, each with its own opening photograph. ─── */
+.siblings{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,2.4vw,30px);
+  background:none;border:0}
+/* Two up on a phone, not one: six photographs in a single column is a tower
+   to scroll past on the way to the town list underneath it. */
+@media(max-width:760px){.siblings{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px}}
+.sib{display:flex;flex-direction:column;box-shadow:none;background:none;padding:0}
+.sib__m{border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;background:var(--n100)}
+.sib__m img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.sib:hover .sib__m img{transform:scale(1.04)}
+.sib__n{display:block;margin-top:12px;font-size:1.14rem;font-weight:700;color:var(--navy);letter-spacing:-.014em}
+.sib:hover .sib__n{color:var(--azure)}
+.sib__t{display:block;margin-top:6px;font-size:.94rem;color:var(--n600);line-height:1.5}
+.sib__t b{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+@media(max-width:520px){.sib__n{font-size:1.02rem;margin-top:10px}.sib__t{font-size:.9rem}}
 
 /* ── mobile dock. The town anchor stays in reach at every width. ───────── */
 body>.dock{display:none}
@@ -407,20 +410,11 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
   <p class="vh" role="status" aria-live="polite" id="ann"></p>
 </div></header>
 
-<!-- today's tide, said plainly. Only the two published harbours have readings,
-     so the band hides itself for every other scope. -->
+<!-- The tide band was taken off this page on purpose: a tide reading belongs on
+     storm watching, kayaking and surfing, not on a result list. paintTide() is
+     guarded so nothing breaks, and nothing paints. -->
 <div class="wrap ctrl" id="ctrl"></div>
 <div class="wrap" id="results"></div>
-
-<section class="sec" style="padding-block:clamp(44px,5vw,76px) 0"><div class="wrap">
-  <div class="head">
-    <div>
-      <h2>Search another town</h2>
-      <p id="rosterSub"></p>
-    </div>
-  </div>
-  <div class="roster" id="roster"></div>
-</div></section>
 
 <section class="sec" style="padding-block:clamp(44px,5vw,76px) 0"><div class="wrap">
   <div class="head">
@@ -433,7 +427,13 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
 </div></section>
 
 <section class="sec" style="padding-block:clamp(44px,5vw,76px) 0"><div class="wrap">
-  <div class="keepgoing" id="keepgoing"></div>
+  <div class="head">
+    <div>
+      <h2>Search another town</h2>
+      <p id="rosterSub"></p>
+    </div>
+  </div>
+  <div class="roster" id="roster"></div>
 </div></section>
 
 </main>
@@ -456,12 +456,12 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
       <li><a href="search.html?q=storm%20watching&amp;in=tofino">Storm watching</a></li>
       <li><a href="search.html?q=hot%20tub&amp;in=tofino">Stays with a hot tub</a></li>
       <li><a href="search.html?q=can%20you%20swim">Questions people ask</a></li>
-      <li><a href="search.html?q=">Everything we publish</a></li></ul></div>
+      <li><a href="search.html?q=">Everything on Arc Trips</a></li></ul></div>
     <div><h5>Arc Trips</h5><ul>
       <li><a href="not-found.html">About us</a></li><li><a href="not-found.html">List your place</a></li>
       <li><a href="not-found.html">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
   </div>
-  <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees. Tide times are seeded for design.</span></div>
+  <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees.</span></div>
 </div></footer>
 
 <!-- the town anchor stays in reach on small screens -->
@@ -521,6 +521,61 @@ const ROSTER = [
     towns:["Halifax","Charlottetown","St John's"] }
 ];
 
+/* The photograph each town's own page opens on. Twenty-four of them are local
+   files under media/, two are on Cloudinary, and every one of them was checked
+   to load before it was listed here. Nothing generic stands in for a town. */
+const TOWNPIC = {
+  tofino:"arcstudio/wnrrcrf4lnalgzbjvsz8", ucluelet:"arcstudio/dtz692xbgvvwjopu7vcs",
+  victoria:"media/victoria/image30.jpg", nanaimo:"media/nanaimo/image1.jpg",
+  "campbell-river":"media/campbell-river/image3.jpg", parksville:"media/parksville/image19.jpg",
+  sooke:"media/sooke/image32.jpg", sidney:"media/sidney/image6.jpg",
+  chemainus:"media/chemainus/image9.jpg", nanoose:"media/nanoose/image4.jpg",
+  "shawnigan-lake":"media/shawnigan-lake/image12.jpg", vancouver:"media/vancouver/image18.jpg",
+  whistler:"media/whistler/image5.jpg", squamish:"media/squamish/image1.jpg",
+  nelson:"media/nelson/image8.jpg", banff:"media/banff/image29.jpg",
+  jasper:"media/jasper/image7.jpg", edmonton:"media/edmonton/image19.jpg",
+  saskatoon:"media/saskatoon/image19.jpg", "niagara-falls":"media/niagara-falls/image4.jpg",
+  ottawa:"media/ottawa/image21.jpg", montreal:"media/montreal/image21.jpg",
+  "quebec-city":"media/quebec-city/image12.jpg", halifax:"media/halifax/image26.jpg",
+  charlottetown:"media/charlottetown/image23.jpg", "st-john":"media/st-john/image16.jpg"
+};
+
+/* The seeded stays arrived pointing at whatever image was to hand: a chalet
+   showed a group holding halibut, a cabin retreat showed a fishing boat, a
+   lakefront cottage showed a forest trail. A picture that is not of the thing
+   it sits next to is worse than no picture, so each one is named here. */
+const STAYPIC = {
+  "Cozy Mountain Chalet with Sauna, Fireplace & Trails Nearby":"arc-trips/pillar-a-cabin",
+  "Historic Old-Town Loft with Stone Walls & River Views":"andrea-davis-44f42VRbGQg-unsplash_q9h9op",
+  "Alpine Timber Chalet with Mountain Hot Tub & Stargazing Deck":"arc-trips/curated-cabin",
+  "Riverside Cabin Retreat with Hot Tub & Forest Views":"Sept-cabins-1-600_qgfons",
+  "Coastal Bed-Cliff Cottage with Private Beach & Firepit":"arc-trips/pillar-r-linens",
+  "Modern Lakeside Villa with Rooftop Lounge & Marina Access":"arc-trips/founding-key",
+  "Lakefront Cottage with Private Dock & Canoes Included":"arc-trips/pillar-c-dock"
+};
+
+/* And the photograph each page in the rail opens on, for the same reason. */
+const PAGEPIC = {
+  "tofino.html":"guides/tofino/beaches/long-beach-2",
+  "ucluelet.html":"arcstudio/dtz692xbgvvwjopu7vcs",
+  "ucluelet.html#do":"guides/ucluelet/kayaking/_category-1",
+  /* things-to-do.html opens on the same Long Beach frame as the Long Beach page
+     itself, and the two sit side by side in this rail, so the subject index
+     takes the surf frame from the subjects it lists instead. */
+  "things-to-do.html":"guides/tofino/surfing/_category-1",
+  "beaches-tofino.html":"guides/tofino/beaches/_category-1",
+  "long-beach.html":"guides/tofino/beaches/long-beach-1",
+  "whale-watching.html":"guides/tofino/whale-watching/_category-6",
+  "whale-watching-ucluelet.html":"guides/ucluelet/whale-watching/_category-1",
+  "hiking-ucluelet.html":"arcstudio/galleries/dayhike-trail-1",
+  "kayaking-ucluelet.html":"guides/ucluelet/kayaking/_category-1",
+  "restaurants-ucluelet.html":"arcstudio/mg8epie7gzlpfb1bn7jo",
+  "plan.html":"guides/tofino/storm-watching/_category-1",
+  "region.html":"james-wheeler-YZfDg2L0lUs-unsplash_ino74q",
+  "index.html":"arcstudio/wnrrcrf4lnalgzbjvsz8",
+  "guide.html":"guides/tofino/whale-watching/_category-1"
+};
+
 const MON = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 const SHORT = MON.map(m => m.slice(0,3));
 const MONTH = new Date().getMonth() + 1;
@@ -528,6 +583,8 @@ const MONTH = new Date().getMonth() + 1;
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const cld = (id, w, h) => "https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_" + w + ",h_" + h + "/" + id;
+/* A hero is either a Cloudinary public id or a file already in this folder. */
+const pic = (id, w, h) => String(id).indexOf("media/") === 0 ? id : cld(id, w, h);
 const cap = (s) => String(s).charAt(0).toUpperCase() + String(s).slice(1);
 const nplural = (n, w) => n + " " + w + (n === 1 ? "" : "s");
 const list = (a) => a.length < 2 ? (a[0] || "") : a.slice(0,-1).join(", ") + " and " + a[a.length-1];
@@ -628,11 +685,33 @@ const TYPE = {
   questions:    { label:"Questions", one:"question", cap:6, w:2 },
   stays:        { label:"Stays",     one:"stay",     cap:6, w:3 }
 };
-const ORDER = ["destinations","guides","places","articles","questions","stays"];
+/* Questions run last, wherever they appear. A page's questions belong at the
+   bottom of it, and a result list is no different. */
+const ORDER = ["destinations","guides","places","articles","stays","questions"];
 const OPEN = { destinations:"Open the town", guides:"Open the guide", places:"Open the place",
                articles:"Read the article", questions:"Read the answer", stays:"See the stay" };
 
+/* Where each town actually sits, so the trail is the real ancestry rather than
+   Tofino's ancestry printed under somebody else's name. */
+const ISLAND = new Set(["tofino","ucluelet","victoria","nanaimo","campbell-river","parksville",
+  "sooke","sidney","chemainus","nanoose","shawnigan-lake"]);
+const BC = new Set(["vancouver","whistler","squamish","nelson"]);
+/* Inside the published tree, which is British Columbia and nothing above it. */
+const inTree = (t) => ISLAND.has(t) || BC.has(t);
+/* The two towns with a guide behind them. */
+const PUBLISHED = new Set(["tofino","ucluelet"]);
+/* Say where a town is, which is what a traveller wants from a result row. */
+const townKicker = (slug) => ISLAND.has(slug) ? "Town on Vancouver Island"
+  : BC.has(slug) ? "Town in British Columbia" : "Town outside British Columbia";
+
+/* Every town name the search knows, so a record can be labelled with the town
+   it is filed under wherever it is built. */
+const TOWN_NAMES = {"whistler": "Whistler", "victoria": "Victoria", "vancouver": "Vancouver", "squamish": "Squamish", "ottawa": "Ottawa", "quebec-city": "Quebec City", "montreal": "Montreal", "banff": "Banff", "halifax": "Halifax", "niagara-falls": "Niagara Falls", "sooke": "Sooke", "charlottetown": "Charlottetown", "parksville": "Parksville", "edmonton": "Edmonton", "nanaimo": "Nanaimo", "saskatoon": "Saskatoon", "jasper": "Jasper", "nanoose": "Nanoose", "sidney": "Sidney", "chemainus": "Chemainus", "campbell-river": "Campbell River", "nelson": "Nelson", "shawnigan-lake": "Shawnigan Lake", "tofino": "Tofino", "ucluelet": "Ucluelet"};
 const ITEMS = [];
+const fromPrice = (slug) => {
+  const p = RAW.l.filter((l) => l.c === slug).map((l) => l.p);
+  return p.length ? Math.min.apply(null, p) : 320;
+};
 const nGuides = (slug) => RAW.g.filter((g) => g.c === slug).length;
 const nPlaces = (slug) => RAW.p.filter((p) => p.c === slug).length;
 const nArts   = (slug) => RAW.a.filter((a) => a.c.indexOf(slug) >= 0).length;
@@ -640,10 +719,10 @@ const nQs     = (slug) => RAW.q.filter((q) => q.c.indexOf(slug) >= 0).length;
 const nPhotos = (slug) => RAW.g.filter((g) => g.c === slug).reduce((s,g) => s + g.ph, 0);
 
 RAW.d.forEach((d) => ITEMS.push({
-  type:"destinations", name:d.n, cat:null, cities:[d.s], hero:d.h, href:townHref(d.s),
-  kicker: d.st ? "Town, written up" : "Town, being written",
+  type:"destinations", name:d.n, cat:null, cities:[d.s], hero:TOWNPIC[d.s] || d.h, href:townHref(d.s),
+  kicker: townKicker(d.s),
   body: d.f || d.ov || "", extra: (d.ov || "") + " destination town city",
-  meta: d.st ? nplural(nPlaces(d.s), "place") + ", " + d.st + " stays" : "Being written now",
+  meta: d.st ? nPlaces(d.s) + " places, " + d.st + " stays from $" + fromPrice(d.s) : "",
   live: !!d.st
 }));
 
@@ -682,9 +761,11 @@ RAW.q.forEach((q) => ITEMS.push({
   meta: ""
 }));
 
+/* The kicker names the town the stay is filed under, never the seeded `lo`
+   string: one Tofino cabin arrived labelled Canmore, Alberta. */
 RAW.l.forEach((l) => ITEMS.push({
-  type:"stays", name:l.t, cat:null, cities:[l.c], hero:l.h, href:stayHref(l.c),
-  kicker:"Stay in " + l.lo,
+  type:"stays", name:l.t, cat:null, cities:[l.c], hero:STAYPIC[l.t] || l.h, href:stayHref(l.c),
+  kicker:"Stay in " + (TOWN_NAMES[l.c] || cap(l.c)),
   body: l.r + " bedrooms, " + l.b + " beds, " + l.ba + " bathrooms.",
   extra: l.lo + " stay accommodation room cabin cottage chalet lodge",
   meta:"", price:l.p, rating:l.rt, rooms:l.r
@@ -799,7 +880,6 @@ function snippet(text, tokens, len){
 }
 
 /* ── state ───────────────────────────────────────────────────────────────── */
-const TOWN_NAMES = {"whistler": "Whistler", "victoria": "Victoria", "vancouver": "Vancouver", "squamish": "Squamish", "ottawa": "Ottawa", "quebec-city": "Quebec City", "montreal": "Montreal", "banff": "Banff", "halifax": "Halifax", "niagara-falls": "Niagara Falls", "sooke": "Sooke", "charlottetown": "Charlottetown", "parksville": "Parksville", "edmonton": "Edmonton", "nanaimo": "Nanaimo", "saskatoon": "Saskatoon", "jasper": "Jasper", "nanoose": "Nanoose", "sidney": "Sidney", "chemainus": "Chemainus", "campbell-river": "Campbell River", "nelson": "Nelson", "shawnigan-lake": "Shawnigan Lake", "tofino": "Tofino", "ucluelet": "Ucluelet"};
 const params = new URLSearchParams(location.search);
 const INCOMING = params.get("in") || null;
 const townName = (k) => TOWN_NAMES[k] || (k ? k.charAt(0).toUpperCase() +k.slice(1) : "");
@@ -813,37 +893,29 @@ const state = {
   tab: ORDER.indexOf(params.get("show")) >= 0 ? params.get("show") : "all",
   cats: new Set() };
 
-/* Where each town actually sits, so the trail is the real ancestry rather than
-   Tofino's ancestry printed under somebody else's name. */
-const ISLAND = new Set(["tofino","ucluelet","victoria","nanaimo","campbell-river","parksville",
-  "sooke","sidney","chemainus","nanoose","shawnigan-lake"]);
-const BC = new Set(["vancouver","whistler","squamish","nelson"]);
-/* Inside the published tree, which is British Columbia and nothing above it. */
-const inTree = (t) => ISLAND.has(t) || BC.has(t);
-/* Towns that have their own written-up pages below the town page. */
-const PUBLISHED = new Set(["tofino","ucluelet"]);
-
 /* ── chrome that follows the state ──────────────────────────────────────── */
+/* British Columbia is the root of the tree. There is no Arc Trips crumb above
+   it, because the two pointed at the same page, and no Canada crumb at all. The
+   eleven towns east of British Columbia have no geographic parent here, so they
+   get Arc Trips and their own name, with nothing invented in between. */
 function paintCrumb() {
   const sep = '<span class="sep" aria-hidden="true">/</span>';
   const dsep = '<span class="sep lvl-deep" aria-hidden="true">/</span>';
   const t = state.scope;
-  const root = '<a class="lvl-deep" href="index.html">Arc Trips</a>' + dsep;
   if (!t){
-    $("#crumb").innerHTML = root +
+    $("#crumb").innerHTML =
       '<a href="index.html">British Columbia</a>' + sep +
       '<span aria-current="page">Search</span>';
     return;
   }
-  /* An off-tree town gets Arc Trips and its own name, with nothing invented in
-     between. It is searchable, it is not in British Columbia, and the trail
-     must not imply it is. */
-  let trail = root;
+  let trail = "";
   if (ISLAND.has(t))
-    trail += '<a class="lvl-deep" href="index.html">British Columbia</a>' + dsep +
-             '<a href="region.html">Vancouver Island</a>' + sep;
+    trail = '<a class="lvl-deep" href="index.html">British Columbia</a>' + dsep +
+            '<a href="region.html">Vancouver Island</a>' + sep;
   else if (BC.has(t))
-    trail += '<a href="index.html">British Columbia</a>' + sep;
+    trail = '<a href="index.html">British Columbia</a>' + sep;
+  else
+    trail = '<a href="index.html">Arc Trips</a>' + sep;
   $("#crumb").innerHTML = trail +
     '<a href="' + townHref(t) + '">' + esc(townName(t)) + "</a>" + sep +
     '<span aria-current="page">Search</span>';
@@ -891,7 +963,7 @@ function paintScope() {
   const s = $("#scope");
   s.innerHTML = state.scope
     ? "<span>You are searching <b>" + esc(townName(state.scope)) + " only</b>" +
-      (inTree(state.scope) ? "" : ", which is outside the published tree") + ".</span>" +
+      (inTree(state.scope) ? "" : ", which is outside British Columbia") + ".</span>" +
       '<button type="button" id="unscope">Search all ' + NTOWNS + " towns instead</button>"
     : "<span>You are searching <b>all " + NTOWNS + " towns</b>.</span>" +
       (INCOMING ? '<button type="button" id="rescope">Search ' + esc(townName(INCOMING)) + " only</button>" : "");
@@ -903,39 +975,44 @@ function paintScope() {
 
 /* ── renderers ───────────────────────────────────────────────────────────── */
 function cardHTML(it, i){
-  const badge = it.type === "destinations"
-    ? (it.live ? '<span class="dest__badge gcard__badge">Written up</span>'
-               : '<span class="dest__badge gcard__badge--n">Being written</span>')
-    : '<span class="dest__badge gcard__badge--n">' + esc(TYPE[it.type].label.replace(/s$/, "")) + "</span>";
+  const badge = '<span class="dest__badge gcard__badge--n">' +
+    esc(TYPE[it.type].label.replace(/s$/, "")) + "</span>";
   return '<a class="gcard" href="' + it.href + '" style="--i:' + i + '">' +
-    '<div class="dest__m"><img src="' + cld(it.hero, 640, 480) + '" alt="' + esc(it.name) + ", " + esc(it.kicker) + '">' + badge + "</div>" +
+    '<div class="dest__m"><img src="' + pic(it.hero, 640, 480) + '" alt="' + esc(it.name) + ", " + esc(it.kicker) + '" loading="lazy">' + badge + "</div>" +
     "<h3>" + (it._title || esc(it.name)) + "</h3>" +
     "<p>" + (it._snip || esc(it.body)) + "</p>" +
     (it.meta ? '<p class="gcard__meta tnum">' + esc(it.meta) + "</p>" : "") +
     "</a>";
 }
 
-function rowHTML(it, i){
+/* Every row carries the photograph its own page opens on, and its place in the
+   order, so a list of places never reads as a wall of equal text. */
+function rowHTML(it, i, rank){
   const price = it.type === "stays"
-    ? '<p class="rrow__p">$' + it.price + " a night, sleeps " + it.rooms + " bedrooms</p>" : "";
+    ? '<p class="rrow__p">$' + it.price + " a night, rated " + it.rating + "</p>" : "";
   return '<a class="rrow" href="' + it.href + '" style="--i:' + i + '">' +
-    '<div class="rrow__m"><img src="' + cld(it.hero, 300, 225) + '" alt="' + esc(it.name) + ", " + esc(it.kicker) + '"></div>' +
+    '<span class="rrow__i" aria-hidden="true">' + rank + "</span>" +
+    '<div class="rrow__m"><img src="' + pic(it.hero, 420, 315) + '" alt="' + esc(it.name) + ", " + esc(it.kicker) + '" loading="lazy"></div>' +
     '<div><div class="kmeta" style="margin-top:0"><span class="k">' + esc(it.kicker) + "</span>" +
       (it.meta ? '<span class="kmeta__m"><span class="dot"></span>' + esc(it.meta) + "</span>" : "") + "</div>" +
     "<h3>" + (it._title || esc(it.name)) + "</h3>" +
     "<p>" + (it._snip || esc(it.body)) + "</p>" + price + "</div></a>";
 }
 
+/* A question is not a place, so it gets no photograph and no card. It opens in
+   place instead, which is faster than a page load and keeps the list short. */
 function qHTML(it, i){
-  return '<a class="qrow" href="' + it.href + '" style="--i:' + i + '">' +
-    '<span class="k">' + esc(it.kicker) + "</span>" +
-    "<h3>" + (it._title || esc(it.name)) + "</h3>" +
-    "<p>" + (it._snip || esc(it.body)) + "</p></a>";
+  const where = String(it.kicker).replace(/^Answered in /, "");
+  return '<details class="qrow" style="--i:' + i + '">' +
+    "<summary><span class=\"k\">" + esc(it.kicker) + "</span>" +
+    "<h3>" + (it._title || esc(it.name)) + "</h3></summary>" +
+    '<div class="qrow__a"><p>' + esc(it.body) + "</p>" +
+    '<a href="' + it.href + '">Open ' + esc(where) + "</a></div></details>";
 }
 
 function leadHTML(it){
   return '<a class="rlead" href="' + it.href + '">' +
-    '<div class="rlead__m"><img src="' + cld(it.hero, 1000, 625) + '" alt="' + esc(it.name) + ", " + esc(it.kicker) + '"></div>' +
+    '<div class="rlead__m"><img src="' + pic(it.hero, 1000, 625) + '" alt="' + esc(it.name) + ", " + esc(it.kicker) + '"></div>' +
     '<div><div class="kmeta" style="margin-top:0"><span class="k">' + esc(it.kicker) + "</span>" +
       (it.meta ? '<span class="kmeta__m"><span class="dot"></span><span class="tnum">' + esc(it.meta) + "</span></span>" : "") + "</div>" +
     "<h3>" + (it._title || esc(it.name)) + "</h3>" +
@@ -950,13 +1027,14 @@ function groupHTML(key, items, shown, i0){
      falls back to the list row. */
   const useCards = (key === "destinations" || key === "guides") && shown.length > 1;
   const useQ = key === "questions";
-  const rows = shown.map((it, i) => useCards ? cardHTML(it, i) : useQ ? qHTML(it, i0 + i) : rowHTML(it, i0 + i)).join("");
+  const rows = shown.map((it, i) => useCards ? cardHTML(it, i)
+    : useQ ? qHTML(it, i0 + i) : rowHTML(it, i0 + i, i + 1)).join("");
   const more = items.length > shown.length
     ? '<button class="seeall" type="button" data-tab="' + key + '">See all ' + items.length + " " +
       (items.length === 1 ? t.one : t.one + "s") +
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>'
     : "";
-  const cls = useCards ? "gg" + (shown.length === 2 ? " gg--2" : "") : useQ ? "qgrid" : "rl" + (shown.length === 1 ? " rl--one" : "");
+  const cls = useCards ? "gg" + (shown.length === 2 ? " gg--2" : "") : useQ ? "qlist" : "rl";
   return '<section class="rsec" id="g-' + key + '" aria-labelledby="h-' + key + '">' +
     '<div class="rhead"><h2 id="h-' + key + '">' + t.label +
       '<span class="c">' + items.length + "</span></h2>" + more + "</div>" +
@@ -976,12 +1054,12 @@ function townsHTML(heading) {
   const live = RAW.d.filter((d) => d.st)
     .sort((a,b) => (b.s === state.scope) - (a.s === state.scope) || a.n.localeCompare(b.n));
   return '<div class="zero__b"><p class="zero__h">' +
-    esc(heading || "The two towns that are written up") + "</p>" +
+    esc(heading || "Start on the outer coast") + "</p>" +
     '<div class="near">' + live.map((d) =>
       '<a class="nearc" href="' + townHref(d.s) + '">' +
-        '<span class="nearc__m"><img src="' + cld(d.h, 400, 300) + '" alt="' + esc(d.n) + ", " + esc(d.f) + '"></span>' +
+        '<span class="nearc__m"><img src="' + pic(TOWNPIC[d.s] || d.h, 400, 300) + '" alt="' + esc(d.n) + ", " + esc(d.f) + '" loading="lazy"></span>' +
         '<span class="nearc__t"><b>' + esc(d.n) + "</b>" +
-          "<p>" + nplural(nPlaces(d.s), "place") + " written up, " + d.st + " stays.</p>" +
+          "<p>" + esc(d.f) + "</p>" +
           "<span>Open " + esc(d.n) + "</span></span></a>").join("") +
     "</div></div>";
 }
@@ -989,9 +1067,9 @@ function townsHTML(heading) {
 function zeroHTML(q){
   const dym = didYouMean(q);
   return '<div class="almanac zero">' +
-    "<h2>Nothing we publish uses that word yet</h2>" +
-    '<p class="zero__l">We have searched every paragraph of <b>' + TOTAL +
-      "</b> pages across Tofino and Ucluelet. Here is what to try instead.</p>" +
+    "<h2>Nothing on the coast is called that</h2>" +
+    '<p class="zero__l">The search reads the whole of every page in Tofino and Ucluelet, ' +
+      "not just the titles. Here is what to try instead.</p>" +
     (dym.length
       ? '<div class="zero__b"><p class="zero__h">Did you mean</p><div class="zero__chips">' +
         dym.map((d) => '<button type="button" data-q="' + esc(d.w) + '">' + esc(d.w) +
@@ -1004,29 +1082,31 @@ function zeroHTML(q){
     "</div>";
 }
 
-/* Scoped to a town nothing has been written about yet. This is the honest
-   answer for 24 of the 26 towns, and it has to hand back a way forward rather
-   than an empty panel. */
+/* Scoped to a town with no guide behind it yet. This is the honest answer for
+   24 of the 26 towns, and it has to hand back a way forward rather than an
+   empty panel. The caveat is said once, plainly, and is not the headline. */
 function unwrittenHTML(town){
   const name = townName(town);
+  const hero = TOWNPIC[town];
   return '<div class="almanac zero">' +
-    "<h2>Nothing is written up in " + esc(name) + " yet</h2>" +
-    '<p class="zero__l">' + esc(name) + " is one of the " + (NTOWNS - 2) +
-      " towns still being written" +
+    "<h2>There is no guide to " + esc(name) + " yet</h2>" +
+    '<p class="zero__l">Arc Trips has walked Tofino and Ucluelet, on the outer coast of ' +
+      "Vancouver Island, and the search only reaches those two so far. " + esc(name) +
+      " has a page with what there is today" +
       (inTree(town) ? "" : ", and it sits outside British Columbia, where Arc Trips publishes") +
-      ". Two towns, Tofino and Ucluelet, are finished, and " +
-      "everything the search knows about (<b>" + TOTAL + "</b> pages) is in those two." +
-      "</p>" +
-    '<div class="zero__b"><p class="zero__h">What you can do now</p>' +
-      '<div class="zero__chips">' +
-      '<button type="button" id="unscope4">Search all ' + NTOWNS + " towns instead</button>" +
-      "</div></div>" +
-    '<div class="zero__b"><p class="zero__h">Or open ' + esc(name) + " itself</p>" +
+      ".</p>" +
+    '<div class="zero__b"><p class="zero__h">Open ' + esc(name) + "</p>" +
       '<div class="near"><a class="nearc" href="' + townHref(town) + '">' +
+        (hero ? '<span class="nearc__m"><img src="' + pic(hero, 400, 300) + '" alt="' + esc(name) + '" loading="lazy"></span>' : "") +
         '<span class="nearc__t"><b>' + esc(name) + "</b>" +
-        "<p>The town page, with what we have so far and where it sits.</p>" +
-        "<span>Open " + esc(name) + "</span></span></a></div></div>" +
-    townsHTML("The two towns that are written up") +
+        "<p>The town page, with what there is so far and where it sits.</p>" +
+        "<span>Open " + esc(name) + "</span></span></a>" +
+        '<div class="nearc"><span class="nearc__t"><b>Or search the whole coast</b>' +
+        "<p>The same query, run across every town at once.</p>" +
+        '<span class="zero__chips"><button type="button" id="unscope4">Search all ' +
+        NTOWNS + " towns instead</button></span>" +
+        "</span></div></div></div>" +
+    townsHTML("Where the guides are today") +
     "</div>";
 }
 
@@ -1034,8 +1114,8 @@ function promptHTML() {
   const scoped = state.scope;
   return '<div class="almanac zero">' +
     "<h2>Type two letters to start</h2>" +
-    '<p class="zero__l">One field searches everything: towns, guides, the places inside them, ' +
-      "articles, the questions those articles answer, and stays." +
+    '<p class="zero__l">One field covers the whole coast: towns, the beaches and trails ' +
+      "and restaurants inside them, the questions travellers ask, and somewhere to stay." +
       (scoped ? " Right now it is held to <b>" + esc(townName(scoped)) + "</b>." : "") + "</p>" +
     townsHTML() +
     '<div class="zero__b"><p class="zero__h">Or start from a subject</p>' +
@@ -1119,28 +1199,28 @@ function render() {
   const ctrl = $("#ctrl"), out = $("#results");
   ITEMS.forEach((it) => { it._snip = ""; it._title = ""; });
 
-  /* 24 of the 26 towns hold no written content at all. Say so once, plainly,
-     before running a query that could only ever come back empty. */
+  /* 24 of the 26 towns have no guide behind them. Say so once, plainly, before
+     running a query that could only ever come back empty. */
   if (state.scope && !PUBLISHED.has(state.scope)){
     $("#h1").textContent = "Search " + townName(state.scope);
-    $("#sub").innerHTML = "This town is still being written, so there is nothing here to search yet.";
+    $("#sub").innerHTML = "There is no guide to this town yet, so there is nothing here to search.";
     ctrl.innerHTML = ""; ctrl.hidden = true;
     out.innerHTML = unwrittenHTML(state.scope);
-    $("#ann").textContent = "Nothing is written up in " + townName(state.scope) + " yet.";
+    $("#ann").textContent = "There is no guide to " + townName(state.scope) + " yet.";
     wire();
     return;
   }
 
   if (q.length < 2){
     $("#h1").textContent = state.scope ? "Search " + townName(state.scope) : "Search Arc Trips";
-    $("#sub").innerHTML = "One field for everything we publish: towns, guides, places, articles, " +
-      "questions and stays.";
+    $("#sub").innerHTML = "One field for towns, beaches, trails, restaurants, the questions " +
+      "travellers ask, and somewhere to stay.";
     ctrl.innerHTML = ""; ctrl.hidden = true;
     out.innerHTML = promptHTML();
     $("#ann").textContent = q.length
       ? "Keep typing. Two letters starts the search."
-      : "Ready. " + TOTAL + " pages are searchable" +
-        (state.scope ? ", held to " + townName(state.scope) : " across Tofino and Ucluelet") + ".";
+      : "Ready. Search Tofino and Ucluelet" +
+        (state.scope ? ", held to " + townName(state.scope) : "") + ".";
     wire();
     return;
   }
@@ -1153,7 +1233,7 @@ function render() {
 
   if (!hits.length){
     $("#h1").innerHTML = 'No results for <span class="q">“' + esc(q) + '”</span>';
-    $("#sub").innerHTML = "We searched every paragraph on every page. Nothing uses that word yet.";
+    $("#sub").innerHTML = "No page on the coast uses that word. Here is what to try instead.";
     ctrl.innerHTML = ""; ctrl.hidden = true;
     out.innerHTML = zeroHTML(q);
     $("#ann").textContent = "No results for " + q + ".";
@@ -1176,6 +1256,10 @@ function render() {
 
   const byGroup = {};
   ORDER.forEach((k) => { byGroup[k] = base.filter((it) => it.type === k); });
+  /* Places, guides and articles are ranked by how well they answer the query.
+     Stays are not: cheapest first is the order a traveller reads a price list
+     in, and the price is on every row, so the number in front means something. */
+  byGroup.stays.sort((a,b) => a.price - b.price);
   if (state.tab !== "all" && !byGroup[state.tab].length) state.tab = "all";
 
   /* a scope with nothing in it still leads with the number the coast does
@@ -1197,7 +1281,7 @@ function render() {
       ? "In " + here + ". " + (outsideList.length
           ? "<b>" + outsideList.length + "</b> more are in other towns, listed at the end."
           : "Nothing outside the town matches.")
-      : "Across every town we publish.");
+      : "Across every town on Arc Trips.");
   $("#ann").textContent = (loose ? "Partial match. " : "") + nplural(headline, "result") + " for " + q +
     (bare ? ", none of them in " + townName(town) : scoped ? ", in " + townName(town) : "") +
     (state.tab === "all" ? "" : ", showing " + TYPE[state.tab].label.toLowerCase() + " only") + ".";
@@ -1268,7 +1352,7 @@ function outsideHTML(items){
       '<span class="c">' + items.length + "</span></h2>" +
     '<button class="seeall" type="button" id="unscope2">Add them to the count' +
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button></div>' +
-    '<div class="rl">' + shown.map((it,k) => rowHTML(it, k)).join("") + "</div></section>";
+    '<div class="rl">' + shown.map((it,k) => rowHTML(it, k, k + 1)).join("") + "</div></section>";
 }
 
 /* ── typeahead, open from two characters ────────────────────────────────── */
@@ -1381,23 +1465,25 @@ addEventListener("keydown", (e) => {
 /* ── the standing parts of the page ─────────────────────────────────────── */
 (function paintRoster() {
   $("#rosterSub").textContent =
-    NTOWNS + " towns are in the search. " + NBC + " of them are in British Columbia, " +
-    "which is where Arc Trips publishes, and Tofino and Ucluelet are written up. " +
-    "The other " + (NTOWNS - NBC) + " sit outside the published tree.";
+    "Every town has a page, and opens on its own photograph. Tofino and Ucluelet " +
+    "are the two with a full guide behind them today. Arc Trips publishes in " +
+    "British Columbia, so the towns east of it sit outside the tree.";
   $("#roster").innerHTML = ROSTER.map((g) => {
-    const done = g.towns.filter((t) => PUB.has(t)).length;
     return '<div class="rgrp">' +
       (g.href
         ? '<a class="rgrp__h" href="' + g.href + '">' + esc(g.n) + "</a>"
         : '<span class="rgrp__h">' + esc(g.n) + "</span>") +
-      '<p class="rgrp__c">' + nplural(g.towns.length, "town") + ", " + done + " written up" +
-        (g.bc ? "" : ", outside the published tree") + "</p><ul>" +
+      '<p class="rgrp__c">' + nplural(g.towns.length, "town") +
+        (g.bc ? "" : ", outside British Columbia") + "</p><ul>" +
       g.towns.map((t) => {
         const slug = SLUG_OF[t];
-        const href = PUB.has(t) ? PUBHREF[t] : slug ? townHref(slug) : null;
-        return href
-          ? '<li><a href="' + href + '">' + esc(t) + "</a></li>"
-          : "<li><span>" + esc(t) + "</span></li>";
+        const href = PUB.has(t) ? PUBHREF[t] : slug ? townHref(slug) : "index.html";
+        const hero = slug && TOWNPIC[slug];
+        return '<li><a class="rtown" href="' + href + '">' +
+          (hero ? '<img src="' + pic(hero, 180, 135) + '" alt="' + esc(t) + '" loading="lazy">' : "") +
+          "<span>" + esc(t) +
+          (PUB.has(t) ? '<span class="g">Guide, ' + nPlaces(SLUG_OF[t]) + " places</span>" : "") +
+          "</span></a></li>";
       }).join("") +
       "</ul></div>";
   }).join("");
@@ -1405,41 +1491,50 @@ addEventListener("keydown", (e) => {
 
 /* The sibling rail and the two dock lines belong to whichever town the search
    is scoped to. Unscoped, they point at the two towns that are finished. */
+/* Six pages, so the rail is two clean rows and never an empty cell. Each row
+   carries the photograph the page it points at opens on. */
 function sibRows(town){
   if (town === "tofino") return [
     ["tofino.html", "Tofino overview", nPlaces("tofino") + " places, " + nGuides("tofino") + " subjects"],
-    ["things-to-do.html", "Things to do", nGuides("tofino") + " subjects to browse"],
-    ["beaches-tofino.html", "Beaches", "8 beaches written up by name"],
+    ["things-to-do.html", "Things to do", "Every subject in the town, one card each"],
+    ["beaches-tofino.html", "Beaches", "8 beaches, from Long Beach to Rosie Bay"],
     ["long-beach.html", "Long Beach", "The best known beach on the coast"],
-    ["whale-watching.html", "Whale watching", nQs("tofino") + " questions answered"],
-    ["plan.html", "Plan a trip", "12 months of weather"]
+    ["whale-watching.html", "Whale watching", "Grey whales from March, humpbacks all summer"],
+    ["plan.html", "Plan a trip", "What the coast is like in each of the 12 months"]
   ];
   if (town === "ucluelet") return [
     ["ucluelet.html", "Ucluelet overview", nPlaces("ucluelet") + " places, " + nGuides("ucluelet") + " subjects"],
-    ["ucluelet.html#do", "Things to do", nGuides("ucluelet") + " subjects to browse"],
+    ["ucluelet.html#do", "Things to do", "Every subject in the village, one card each"],
     ["hiking-ucluelet.html", "Hiking", "The Wild Pacific Trail and the rest"],
     ["kayaking-ucluelet.html", "Kayaking", "Barkley Sound and the Broken Group"],
-    ["whale-watching-ucluelet.html", "Whale watching", nQs("ucluelet") + " questions answered"],
+    ["whale-watching-ucluelet.html", "Whale watching", "Grey whales, humpbacks and sea lions"],
     ["restaurants-ucluelet.html", "Restaurants", "Where to eat in the village"]
   ];
   /* Off-tree: nothing sits above this town, so offer British Columbia, where
-     the writing actually is, never a region the town does not belong to. */
+     the guides actually are, never a region the town does not belong to. */
   if (town && !inTree(town)) return [
-    [townHref(town), townName(town) + " overview", "The town page, as far as it is written"],
-    ["index.html", "British Columbia", NBC + " towns in the published tree"],
+    [townHref(town), townName(town), "The town page, with what there is so far"],
+    ["index.html", "British Columbia", NBC + " towns, and where Arc Trips publishes"],
     ["tofino.html", "Tofino", nPlaces("tofino") + " places, " + nGuides("tofino") + " subjects"],
-    ["ucluelet.html", "Ucluelet", nPlaces("ucluelet") + " places, " + nGuides("ucluelet") + " subjects"]
+    ["ucluelet.html", "Ucluelet", nPlaces("ucluelet") + " places, " + nGuides("ucluelet") + " subjects"],
+    ["whale-watching.html", "Whale watching", "Grey whales from March, humpbacks all summer"],
+    ["plan.html", "When should you go?", "What the coast is like in each of the 12 months"]
   ];
   if (town) return [
-    [townHref(town), townName(town) + " overview", "The town page, as far as it is written"],
+    [townHref(town), townName(town), "The town page, with what there is so far"],
     ["region.html", "Vancouver Island", "Eleven towns, end to end"],
-    ["index.html", "British Columbia", NBC + " towns in the published tree"]
+    ["index.html", "British Columbia", NBC + " towns, and where Arc Trips publishes"],
+    ["tofino.html", "Tofino", nPlaces("tofino") + " places, " + nGuides("tofino") + " subjects"],
+    ["ucluelet.html", "Ucluelet", nPlaces("ucluelet") + " places, " + nGuides("ucluelet") + " subjects"],
+    ["plan.html", "When should you go?", "What the coast is like in each of the 12 months"]
   ];
   return [
     ["tofino.html", "Tofino", nPlaces("tofino") + " places, " + nGuides("tofino") + " subjects"],
     ["ucluelet.html", "Ucluelet", nPlaces("ucluelet") + " places, " + nGuides("ucluelet") + " subjects"],
     ["region.html", "Vancouver Island", "Eleven towns, end to end"],
-    ["index.html", "British Columbia", NBC + " towns in the published tree"]
+    ["index.html", "British Columbia", NBC + " towns, and where Arc Trips publishes"],
+    ["whale-watching.html", "Whale watching in Tofino", "Grey whales from March, humpbacks all summer"],
+    ["plan.html", "When should you go?", "What the coast is like in each of the 12 months"]
   ];
 }
 
@@ -1451,57 +1546,13 @@ function paintSibs() {
     ? "Search is one way in. These are the other pages for this town."
     : "Search is one way in. These are the pages above and around it.";
   $("#sibs").setAttribute("aria-label", town ? "Elsewhere in " + where : "Elsewhere on Arc Trips");
-  $("#sibs").innerHTML = sibRows(town).map((r) =>
-    '<a class="sib" href="' + r[0] + '"><span class="sib__n">' + esc(r[1]) + "</span>" +
-    '<span class="sib__m">' + esc(r[2]).replace(/(\d+)/g, "<b>$1</b>") + "</span></a>").join("");
-  $("#keepgoing").innerHTML = keepRows(town).map((r) =>
-    '<a class="kg" href="' + r[0] + '"><h4>' + esc(r[1]) + "</h4><p>" + esc(r[2]) + "</p>" +
-    '<span class="btn btn--ghost btn--sm">' + esc(r[3]) + "</span></a>").join("");
-}
-
-function keepRows(town){
-  if (town === "ucluelet") return [
-    ["whale-watching-ucluelet.html", "Whale watching in Ucluelet",
-     "Grey whales from March, humpbacks through the summer, and the boats that go out to them.",
-     "Open whale watching"],
-    ["ucluelet.html#do", "Things to do in Ucluelet",
-     "Every subject we have walked in Ucluelet, with each place written up underneath it.",
-     "See things to do"],
-    ["plan.html", "When should you go?",
-     "Month by month weather for the outer coast, and what each month is actually good for.",
-     "Open the plan"]
-  ];
-  /* Off-tree towns keep their content and are reachable from search, but they
-     are not in British Columbia, so nothing here may point up into the tree as
-     though it were their parent. */
-  if (town && !inTree(town)) return [
-    [townHref(town), "Open " + townName(town),
-     "The town page itself, with everything written up so far.", "Open the town"],
-    ["index.html", "British Columbia",
-     "Arc Trips publishes in British Columbia. " + NBC + " towns sit in the tree, two of them written end to end.",
-     "Open British Columbia"],
-    ["search.html?q=" + encodeURIComponent(state.q || "whale"), "Search every town",
-     "Drop the town and the same query runs across everything we publish.", "Search everything"]
-  ];
-  if (town && town !== "tofino") return [
-    [townHref(town), "Open " + townName(town),
-     "The town page itself, with where it sits and what is coming.", "Open the town"],
-    ["region.html", "Vancouver Island, end to end",
-     "Eleven towns and the guides that cross every town line on the island.", "Open the region"],
-    ["search.html?q=" + encodeURIComponent(state.q || "whale"), "Search every town",
-     "Drop the town and the same query runs across everything we publish.", "Search everything"]
-  ];
-  return [
-    ["whale-watching.html", "Whale watching in Tofino",
-     "Grey whales from March, humpbacks through the summer, and the boats that go out to them.",
-     "Open whale watching"],
-    ["things-to-do.html", "Things to do in Tofino",
-     "Every subject we have walked in Tofino, with each place written up underneath it.",
-     "See things to do"],
-    ["plan.html", "When should you go?",
-     "Month by month weather for Tofino, and what each month is actually good for.",
-     "Open the plan"]
-  ];
+  $("#sibs").innerHTML = sibRows(town).map((r) => {
+    const hero = PAGEPIC[r[0]] || TOWNPIC[String(r[0]).replace(/\.html.*$/, "")];
+    return '<a class="sib" href="' + r[0] + '">' +
+      (hero ? '<span class="sib__m"><img src="' + pic(hero, 600, 375) + '" alt="' + esc(r[1]) + '" loading="lazy"></span>' : "") +
+      '<span class="sib__n">' + esc(r[1]) + "</span>" +
+      '<span class="sib__t">' + esc(r[2]).replace(/(\d+)/g, "<b>$1</b>") + "</span></a>";
+  }).join("");
 }
 
 function paintDock() {

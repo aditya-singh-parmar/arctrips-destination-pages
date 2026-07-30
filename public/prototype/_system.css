@@ -18,10 +18,10 @@
   --azure:#2874BA; --a700:#21639E; --a800:#1A4F7E; --navy:#0B3356;
   --emerald:#3A9679; --em700:#2F7D64; --em100:#E8F4F0; --em300:#A6D5C6;
   --paper:#FFFFFF; --n50:#F9F9F9; --n100:#EBEBEB; --n150:#E5E6E7; --n200:#D1D3D5;
-  --n400:#A3A7AD; --n500:#7F8490; --n600:#5F616C; --n700:#474B53; --n800:#26272E; --n900:#181A1E;
+  --n300:#BABDC1; --n400:#A3A7AD; --n500:#7F8490; --n600:#5F616C; --n700:#474B53; --n800:#26272E; --n900:#181A1E;
   --wrap:1200px; --gut:clamp(20px,4vw,40px); --pad:clamp(64px,7vw,104px);
   --ease:cubic-bezier(.16,1,.3,1);
-  --r:14px; --r-sm:9px;
+  --r:14px; --r-sm:9px; --r-full:999px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -357,8 +357,8 @@ body>.subjectbar,.subjectbar{position:sticky;top:128px;z-index:17;background:var
 .subjectbar-in::-webkit-scrollbar{display:none}
 .subjectbar__l{flex:none;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
   color:var(--n500);padding-right:6px}
-.subjectbar__links{display:flex;gap:7px;list-style:none;white-space:nowrap;padding-block:6px}
-.subjectbar__links a{display:inline-flex;align-items:center;min-height:36px;padding:0 13px;border-radius:var(--r-full);
+.subjectbar__links{display:flex;gap:7px;list-style:none;white-space:nowrap;padding-block:2px}
+.subjectbar__links a{display:inline-flex;align-items:center;min-height:44px;padding:0 13px;border-radius:var(--r-full);
   font-size:.88rem;font-weight:600;color:var(--n700);background:var(--paper);border:1px solid var(--n200);
   transition:border-color .16s var(--ease),color .16s var(--ease),background .16s var(--ease)}
 .subjectbar__links a:hover{border-color:var(--a300);color:var(--azure)}
@@ -372,7 +372,16 @@ body>.subjectbar,.subjectbar{position:sticky;top:128px;z-index:17;background:var
 /* Same specificity trap as the rule above: a bare `.placebar` here loses to
    `body>.placebar`, so the bar kept its 71px desktop offset on mobile and page
    content scrolled visibly through the gap above it. Match the specificity. */
-@media(max-width:760px){body>.placebar,.placebar{top:0}.placebar__cta{display:none}}
+/* Below 760 the global nav wraps to two rows and stands 121px tall, while the
+   place bar pinned at top:0 with a lower z-index sat entirely behind it: on a
+   phone, scrolling a town page left you with the brand row and no idea which
+   section you were in. The nav scrolls away instead, and the bar that says where
+   you are is the one that stays. */
+@media(max-width:760px){
+  nav.top{position:static}
+  body>.placebar,.placebar{top:0}
+  .placebar__cta{display:none}
+}
 
 /* --- in-page jumps, in the body, deliberately unlike the place bar ------- */
 .jumprow{display:flex;gap:8px;flex-wrap:wrap;padding:14px 0;border-block:1px solid var(--n150);margin-block:8px 30px}
