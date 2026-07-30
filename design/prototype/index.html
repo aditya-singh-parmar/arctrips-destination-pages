@@ -70,6 +70,18 @@ nav.top .btn{flex:none}
 .mon i{width:23px;height:23px;font-size:.88rem;font-weight:600;
   background:rgba(255,255,255,.06);color:rgba(255,255,255,.62)}
 .mon i[data-on]{background:rgba(255,255,255,.14);color:#fff;font-weight:700}
+/* busier months, lighter cells. Four steps is enough to read; more is noise. */
+.mon i[data-heat="1"]{background:var(--a800)}
+.mon i[data-heat="2"]{background:var(--a700)}
+.mon i[data-heat="3"]{background:var(--azure)}
+.mon i[data-heat="4"]{background:var(--a400);color:var(--navy)}
+.heatkey{display:inline-flex;align-items:center;gap:5px;margin-left:12px;vertical-align:middle}
+.heatkey i{width:15px;height:15px;border-radius:4px;display:block}
+.heatkey i[data-heat="1"]{background:var(--a800)}
+.heatkey i[data-heat="2"]{background:var(--a700)}
+.heatkey i[data-heat="3"]{background:var(--azure)}
+.heatkey i[data-heat="4"]{background:var(--a400)}
+.heatkey__l{font-size:.78rem;font-weight:600;color:rgba(255,255,255,.7)}
 .mon i[data-now]{outline:1.5px solid #fff;outline-offset:1.5px}
 /* the rest of the green in the system, off everywhere except the booking pill */
 .mark svg{color:var(--azure)}
@@ -245,35 +257,28 @@ nav.top .btn{flex:none}
 .rw__t a:hover{background:rgba(255,255,255,.12);border-color:var(--paper)}
 .rw__t a span{color:rgba(255,255,255,.72);font-weight:500;margin-left:7px;font-variant-numeric:tabular-nums}
 
-/* (c) the photograph strip. Three plates, captioned with what is in them. */
-.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
-@media(max-width:760px){.strip{grid-template-columns:1fr}}
-.strip figure{position:relative;overflow:hidden;background:var(--n100);min-height:clamp(230px,26vw,340px)}
-.strip img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
-.strip figure:hover img{transform:scale(1.04)}
-.strip figcaption{position:absolute;left:0;right:0;bottom:0;padding:clamp(16px,2vw,22px);
-  color:var(--paper);font-size:.95rem;font-weight:600;line-height:1.45;
-  background:linear-gradient(180deg,rgba(11,51,86,0) 0%,rgba(11,51,86,.86) 78%)}
 
 /* (c) the island guide grid. The evidence is the real place names inside each
        guide, set as a run, so the page shows its working. */
 .sec--guides{padding-block:clamp(44px,4.8vw,70px) clamp(44px,4.8vw,70px)}
-.ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--n150);
-  border-block:1px solid var(--n150);margin-top:clamp(20px,2.4vw,28px)}
-@media(max-width:900px){.ggrid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:620px){.ggrid{grid-template-columns:1fr}}
-.gc{background:var(--paper);padding:clamp(20px,2.4vw,28px);display:flex;flex-direction:column;gap:10px}
-.gc:hover{background:var(--n50)}
-.gc__k{font-size:.88rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--azure)}
-.gc h3{font-size:clamp(1.12rem,1.5vw,1.3rem);font-weight:700;line-height:1.25;letter-spacing:-.018em;color:var(--navy)}
+.ggrid{list-style:none;border-top:2px solid var(--navy)}
+/* number, photograph, title and three places, in one row. Sequence and an image
+   on every row, which is what the dense card grid was missing. */
+.gc{display:grid;grid-template-columns:auto clamp(88px,10vw,124px) minmax(0,1fr) 17px;
+  align-items:center;gap:clamp(14px,2.2vw,28px);padding-block:clamp(13px,1.6vw,18px);
+  border-bottom:1px solid var(--n150);min-height:44px}
+.gc__i{font-size:.82rem;font-weight:700;color:var(--n400);letter-spacing:.04em}
+.gc__m{border-radius:var(--r-sm);overflow:hidden;aspect-ratio:4/3;background:var(--n100)}
+.gc__m img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.gc:hover .gc__m img{transform:scale(1.05)}
+.gc h3{font-size:clamp(1.02rem,1.5vw,1.24rem);font-weight:700;letter-spacing:-.014em;line-height:1.28}
 .gc:hover h3{color:var(--azure)}
-.gc__p{font-size:.95rem;color:var(--n600);line-height:1.55}
-.gc__n{margin-top:auto;padding-top:10px;font-size:.95rem;font-weight:700;color:var(--navy);
-  font-variant-numeric:tabular-nums;border-top:1px solid var(--n150)}
-/* seven does not divide by three, so the last guide takes the whole last row
-   rather than leaving two empty cells at the corner of the grid */
-.gc--wide{grid-column:1/-1}
-.gc--wide .gc__p{max-width:88ch}
+.gc__p{display:block;font-size:.92rem;color:var(--n600);margin-top:4px;line-height:1.5}
+@media(max-width:640px){
+  .gc{grid-template-columns:auto 74px minmax(0,1fr);gap:12px}
+  .gc .tl__go{display:none}
+}
+
 
 /* ═══ the almanac. Leads with the question, then answers it. ═══ */
 .sec--alm{padding-block:0 clamp(56px,6vw,96px)}
@@ -373,27 +378,24 @@ nav.top .btn{flex:none}
 .almpick__b[aria-pressed="true"]{background:#fff;color:var(--navy)}
 
 /* ═══ the full-bleed proof band ═══ */
-.proof{position:relative;min-height:min(66vh,560px);display:flex;align-items:center;overflow:hidden;
-  margin-block:clamp(52px,6vw,92px)}
-.proof img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.proof__veil{position:absolute;inset:0;background:linear-gradient(92deg,rgba(11,51,86,.94) 0%,rgba(11,51,86,.78) 46%,rgba(11,51,86,.28) 100%)}
-.proof__in{position:relative}
-.proof__n{font-size:clamp(2rem,4.4vw,3.6rem);font-weight:700;color:var(--paper);letter-spacing:-.035em;
-  line-height:1.06;margin-top:14px;max-width:15ch}
-.proof__n b{font-size:clamp(3.6rem,9vw,7.6rem);font-weight:800;display:block;letter-spacing:-.05em;line-height:.9}
-.proof__d{color:rgba(255,255,255,.84);max-width:46ch;margin-top:20px;font-size:1.05rem}
-.proof__cta{margin-top:30px;border-color:rgba(255,255,255,.44);color:var(--paper)}
-.proof__cta:hover{border-color:var(--paper);background:rgba(255,255,255,.1)}
 
 /* ═══ questions ═══ */
 .sec--qa{padding-block:0 clamp(52px,5.6vw,84px)}
-.qagrid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 clamp(28px,4vw,60px)}
-@media(max-width:840px){.qagrid{grid-template-columns:1fr}}
-.qi{border-top:1px solid var(--n150);padding:20px 0}
-.qi h3{font-size:1.08rem;font-weight:700;line-height:1.32}
-.qi p{font-size:.95rem;color:var(--n600);margin-top:8px;line-height:1.6;max-width:52ch}
-.qi span{display:block;font-size:.88rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--azure);margin-bottom:9px}
+.qagrid{display:grid;grid-template-columns:1fr;border-top:1px solid var(--n150)}
+.qi{border-bottom:1px solid var(--n150)}
+.qi summary{display:flex;flex-direction:column;gap:5px;padding:18px 44px 18px 0;cursor:pointer;
+  position:relative;list-style:none;min-height:44px;justify-content:center}
+.qi summary::-webkit-details-marker{display:none}
+/* the chevron, drawn in CSS so it needs no asset and rotates on open */
+.qi summary::after{content:"";position:absolute;right:8px;top:50%;width:9px;height:9px;
+  border-right:2px solid var(--n500);border-bottom:2px solid var(--n500);
+  transform:translateY(-70%) rotate(45deg);transition:transform .22s var(--ease)}
+.qi[open] summary::after{transform:translateY(-30%) rotate(225deg)}
+.qi__k{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--azure)}
+.qi__q{font-size:1.08rem;font-weight:700;line-height:1.32;color:var(--navy)}
+.qi summary:hover .qi__q{color:var(--azure)}
+.qi summary:focus-visible{outline:2px solid var(--azure);outline-offset:-2px;border-radius:var(--r-sm)}
+.qi p{font-size:.97rem;color:var(--n600);margin:0 44px 20px 0;line-height:1.65;max-width:68ch}
 
 /* ═══ reading and voice ═══ */
 .sec--read{padding-block:0 clamp(48px,5vw,76px)}
@@ -567,20 +569,6 @@ footer.f{margin-top:0}
   </div>
 </div></section>
 
-<div class="strip">
-  <figure>
-    <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1600,h_900/james-wheeler-YZfDg2L0lUs-unsplash_ino74q" alt="Wet sand and shallow surf running out to a headland, with a forested bluff on the right">
-    <figcaption>Thirteen beaches are named in the island beach guide, from Long Beach to Botanical Beach</figcaption>
-  </figure>
-  <figure>
-    <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1600,h_900/condor-wei-TiLEEXohfsY-unsplash_v7ja5f" alt="Four paddlers in drysuits standing beside a sea kayak on a wide surf beach, mountains behind">
-    <figcaption>Twelve paddling areas, from the Broken Group Islands to Johnstone Strait</figcaption>
-  </figure>
-  <figure>
-    <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1600,h_900/thomas-lipke-M12HGHNVJ2s-unsplash_nttcvc" alt="A floatplane wing over a wide tidal channel between forested shores and small islands">
-    <figcaption>Ten towns for whale watching, from Victoria north to Port McNeill</figcaption>
-  </figure>
-</div>
 
 <section class="sec sec--guides" id="guides"><div class="wrap">
   <div class="head">
@@ -628,7 +616,8 @@ footer.f{margin-top:0}
     </div>
 
     <h3 class="alm__h" id="ledHead"></h3>
-    <p class="alm__p">Each row is one thing to do, and the twelve squares are the months. A filled square means that month is in season for it.</p>
+    <p class="alm__p">Each row is one thing to do, and the twelve squares are the months. A filled square means that month is in season for it, and the lighter it is, the more of this list is open at once.
+      <span class="heatkey"><span class="heatkey__l">Quiet</span><i data-heat="1"></i><i data-heat="2"></i><i data-heat="3"></i><i data-heat="4"></i><span class="heatkey__l">Busy</span></span></p>
 
     <table class="led">
       <thead><tr><th>What to do</th><th class="led__mon">Months in season</th><th style="text-align:right">Booking</th></tr></thead>
@@ -645,16 +634,6 @@ footer.f{margin-top:0}
   </div>
 </div></section>
 
-<section class="proof" id="index">
-  <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_2400,h_1100/james-wheeler-YZfDg2L0lUs-unsplash_ino74q" alt="An empty stretch of sand on the west coast of Vancouver Island">
-  <div class="proof__veil"></div>
-  <div class="wrap proof__in">
-    <span class="label" style="color:var(--a300)">The index</span>
-    <p class="proof__n"><b class="tnum" id="proofN">127</b> places in the two finished towns.</p>
-    <p class="proof__d" id="proofD"></p>
-    <a class="btn btn--ghost btn--lg proof__cta" href="search.html">Search every one of them</a>
-  </div>
-</section>
 
 <section class="sec sec--read"><div class="wrap">
   <div class="head">
@@ -802,29 +781,29 @@ const BC = {
 
   /* Guides written across the whole island, belonging to no single town. */
   islandGuides: [
-    {t:"Best Beaches on Vancouver Island", kind:"beaches",
+    {t:"Best Beaches on Vancouver Island", img:"guides/tofino/beaches/_category-1", kind:"beaches",
      items:["Long Beach","Chesterman Beach","Cox Bay","Mackenzie Beach","Wickaninnish Beach","Florencia Bay",
             "Big Beach","Little Beach","Rathtrevor Beach","Parksville Beach","Parksville","Tribune Bay","Botanical Beach"]},
-    {t:"Best Day Hikes on Vancouver Island", kind:"trails",
+    {t:"Best Day Hikes on Vancouver Island", img:"guides/tofino/hiking/_category-1", kind:"trails",
      items:["Wild Pacific Trail","Rainforest Trails A and B","South Beach and Nuu-chah-nulth Trail","Mystic Beach",
             "Sombrio Beach","Botanical Beach","East Sooke Coast Trail","Mount Finlayson","Mount Work",
             "Mount Tzouhalem","Mount Benson","Englishman River Falls"]},
-    {t:"Best Kayaking Spots on Vancouver Island", kind:"paddling areas",
+    {t:"Best Kayaking Spots on Vancouver Island", img:"guides/ucluelet/kayaking/_category-1", kind:"paddling areas",
      items:["Broken Group Islands","Ucluelet and Barkley Sound","Tofino and Clayoquot Sound","Johnstone Strait",
             "Telegraph Cove","Quadra Island and the Discovery Islands","Gulf Islands","Victoria and Oak Bay",
             "Sooke Basin","Nanaimo and Newcastle Island","Great Central Lake","Campbell River and Discovery Passage"]},
-    {t:"Best Overnight Hikes on Vancouver Island", kind:"routes",
+    {t:"Best Overnight Hikes on Vancouver Island", img:"guides/tofino/camping/_category-1", kind:"routes",
      items:["West Coast Trail","Juan de Fuca Trail","North Coast Trail","Cape Scott Trail","Nootka Trail",
             "Della Falls Trail","Bedwell Lake and Cream Lake","Forbidden Plateau and Circlet Lake",
             "Elk River Trail and Landslide Lake","Flower Ridge"]},
-    {t:"Best Places for Whale Watching on Vancouver Island", kind:"towns",
+    {t:"Best Places for Whale Watching on Vancouver Island", img:"guides/tofino/whale-watching/_category-1", kind:"towns",
      items:["Victoria","Sooke","Ucluelet","Tofino","Telegraph Cove","Port McNeill","Campbell River","Nanaimo",
             "Parksville and Parksville Area","Port Renfrew and the Juan de Fuca Coast"]},
-    {t:"Vancouver Island: Best Mountain Biking Spots", kind:"riding areas",
+    {t:"Vancouver Island: Best Mountain Biking Spots", img:"media/squamish/image10.jpg", kind:"riding areas",
      items:["Cumberland and Comox Valley","Nanaimo","Cowichan Valley","Campbell River",
             "Parksville Parksville and Hammerfest","Victoria and Hartland Mountain Bike Park",
             "Mount Washington","Hornby Island","Sooke and the South Island"]},
-    {t:"How to Choose a Vacation Rental on Vancouver Island", kind:"checks",
+    {t:"How to Choose a Vacation Rental on Vancouver Island", img:"guides/tofino/when-to-go/_category-1", kind:"checks",
      wide:true, sep:" &middot; ", show:10,
      items:["Pick the right region before you pick the rental","Decide what matters more: view, beach access, town access or seclusion",
             "Match the rental to the season","Check whether the listing is legal and properly registered",
@@ -1036,9 +1015,6 @@ function paintStatic(){
   $("#statgrid").innerHTML = stats.map(([n,label,gloss]) =>
     `<div class="stat"><dt>${label}</dt><dd class="tnum">${n}</dd><p>${gloss}</p></div>`).join("");
 
-  $("#proofN").textContent = T.openPlaces;
-  $("#proofD").textContent =
-    "Nothing here is scraped or aggregated. Someone has stood in every one of them, so the notes tell you what it is actually like when you get there.";
 
   $("#readDek").textContent = "The guides people open first.";
   $("#rlist").innerHTML = DATA.reading.map((a) =>
@@ -1049,8 +1025,11 @@ function paintStatic(){
       <h4>${esc(a.title)}</h4></div></a>`).join("");
 
   $("#qaDek").textContent = `${C.questions} questions are answered inside the guides. Here are six.`;
+  /* One column, rolled up. Two columns of open answers made the reader scan a
+     wall of prose to find the one question they had. <details> is native, so
+     it works with keyboard and screen readers without any script. */
   $("#qa").innerHTML = DATA.qa.map((q) =>
-    `<div class="qi"><span>${esc(q.cat)}, ${esc(q.where)}</span><h3>${esc(q.q)}</h3><p>${esc(q.a)}</p></div>`).join("");
+    `<details class="qi"><summary><span class="qi__k">${esc(q.cat)}, ${esc(q.where)}</span><span class="qi__q">${esc(q.q)}</span></summary><p>${esc(q.a)}</p></details>`).join("");
 }
 
 /* ── the island feature ──────────────────────────────────────────────────── */
@@ -1125,17 +1104,20 @@ function paintMainland(){
 }
 
 function paintGuides(){
-  $("#ggrid").innerHTML = BC.islandGuides.map((g) => {
-    const show = g.show || 7;
-    const sep = g.sep || ", ";
-    return `
-    <a class="gc${g.wide ? " gc--wide" : ""}" href="${ARTICLE_HREF(g.t)}">
-      <span class="gc__k">Island wide</span>
-      <h3>${esc(g.t)}</h3>
-      <p class="gc__p">${g.items.slice(0,show).map(esc).join(sep)}${g.items.length > show ? sep + "and more" : ""}</p>
-      <span class="gc__n">${g.items.length} ${esc(g.kind)} named</span>
-    </a>`;
-  }).join("");
+  /* Was a dense multi-column grid: seven cards, each listing up to thirteen place
+     names and a count of how many were named. Too much in too little space, and
+     the count is a fact about us. Now numbered, image led, and each one shows
+     three places so you can tell the guides apart at a glance. */
+  $("#ggrid").innerHTML = BC.islandGuides.map((g,i) => `
+    <a class="gc" href="${ARTICLE_HREF(g.t)}">
+      <span class="gc__i tnum">${String(i+1).padStart(2,"0")}</span>
+      <span class="gc__m"><img src="${g.img.startsWith("media/") ? g.img : cld(g.img,520,390)}" alt="${esc(g.t)}" loading="lazy"></span>
+      <span class="gc__b">
+        <h3>${esc(g.t.replace(/ on Vancouver Island$/,"").replace(/^Vancouver Island: /,""))}</h3>
+        <span class="gc__p">${g.items.slice(0,3).map(esc).join(", ")}, and ${g.items.length - 3} more</span>
+      </span>
+      ${ARROW_TL}
+    </a>`).join("");
 }
 
 /* ── the almanac ─────────────────────────────────────────────────────────── */
@@ -1207,12 +1189,21 @@ function paintAlmanac(){
   const hidden = rows.length - shown.length;
 
   let sepDone = false, i = 0;
+  /* how many subjects are in season each month, bucketed 1..4 for the ramp */
+  const perMonth = SHORT.map((_,k) => shown.filter((x) => x.months.includes(k+1)).length);
+  const peak = Math.max(1, ...perMonth);
+  const HEAT = perMonth.map((n) => Math.max(1, Math.ceil(n / peak * 4)));
+
   $("#ledger").innerHTML = shown.map((s) => {
     const live = s.months.includes(month);
     let sep = "";
     if (!live && !sepDone){ sepDone = true; sep = `<tr class="gsep"><td colspan="3">Better in another month</td></tr>`; }
+    /* Heat, not a tick. A lit cell is shaded by how many of the subjects below are
+       in season that month, so the busy months read brighter and you can see the
+       shoulder at a glance. Azure ramp: green is the season signal elsewhere and
+       would read as a second meaning here. */
     const cells = SHORT.map((_,k) =>
-      `<i ${s.months.includes(k+1) ? "data-on" : ""} ${k === month-1 ? "data-now" : ""}>${MON[k][0]}</i>`).join("");
+      `<i ${s.months.includes(k+1) ? `data-on data-heat="${HEAT[k]}"` : ""} ${k === month-1 ? "data-now" : ""}>${MON[k][0]}</i>`).join("");
     let book;
     if (!live){
       book = `<button class="jump" type="button" data-m="${windows(s.months)[0][0]}">Best ${esc(windowText(s.months))}${ARROW}</button>`;
