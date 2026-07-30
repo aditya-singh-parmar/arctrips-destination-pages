@@ -786,13 +786,13 @@ function paintStatic(){
     `<span>Low <b>${t.low2}</b>, ${t.low2m} m</span><span>Sunset <b>${t.sunset}</b></span>`;
 
   $("#heroNote").innerHTML =
-    `<b>26</b> towns written up, <b>1,108</b> places documented one at a time, <b>837</b> of them photographed, ` +
+    `<b>26</b> towns written up, <b>1,108</b> places documented, <b>837</b> of them photographed, ` +
     `<b>${C.stays}</b> stays bookable tonight from $${C.from}.`;
 
   const stats = [
     [26, "Towns written up", "Across eight provinces, from Tofino to St John's."],
     [61, "Guides", "Nine subjects in Tofino alone, and forty six documents beyond it."],
-    ["1,108", "Places", "Named, located, and written up one at a time."],
+    ["1,108", "Places", "Named, located and written up."],
     [C.stays, "Stays", `Bookable tonight, from $${C.from} a night.`]
   ];
   $("#statgrid").innerHTML = stats.map(([n,label,gloss]) =>
