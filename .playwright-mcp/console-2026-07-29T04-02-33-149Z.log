@@ -1,0 +1,2 @@
+[     573ms] TypeError: Date.getMonth is not a constructor
+    at http://127.0.0.1:4321/prototype/index.html?ok=1:707:13

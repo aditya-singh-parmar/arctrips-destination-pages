@@ -1,0 +1,10 @@
+[  274835ms] TypeError: DATA.rows.slice.sort is not a function
+    at paintAlmanac (http://127.0.0.1:4321/prototype/whale-watching.html?jsv=0.33010855719645826:1274:33)
+    at http://127.0.0.1:4321/prototype/whale-watching.html?jsv=0.33010855719645826:1336:1
+[  275942ms] TypeError: runs.pop.concat is not a function
+    at windowLabel (http://127.0.0.1:4321/prototype/guide.html?jsv=0.6509902861527584:919:25)
+    at http://127.0.0.1:4321/prototype/guide.html?jsv=0.6509902861527584:1054:94
+    at Array.map (<anonymous>)
+    at http://127.0.0.1:4321/prototype/guide.html?jsv=0.6509902861527584:1051:44
+[  276687ms] TypeError: (intermediate value)(intermediate value) is not iterable
+    at http://127.0.0.1:4321/prototype/not-found.html?jsv=0.14412048072319494:396:8

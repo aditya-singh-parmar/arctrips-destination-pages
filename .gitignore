@@ -59,3 +59,5 @@ next-env.d.ts
 
 # ingest upload cache (local only)
 scripts/.cloudinary-cache.json
+
+.screens/

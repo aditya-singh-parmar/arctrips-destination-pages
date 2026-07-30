@@ -1,0 +1,149 @@
+- generic [active] [ref=f801e1]:
+  - navigation [ref=f801e2]:
+    - generic [ref=f801e3]:
+      - link "ARCTRIPS" [ref=f801e4] [cursor=pointer]:
+        - /url: index.html
+      - list [ref=f801e5]:
+        - listitem [ref=f801e6]:
+          - link "Stays" [ref=f801e7] [cursor=pointer]:
+            - /url: search.html
+        - listitem [ref=f801e8]:
+          - link "Destinations" [ref=f801e9] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=f801e10]:
+          - link "Vancouver Island" [ref=f801e11] [cursor=pointer]:
+            - /url: region.html
+      - generic [ref=f801e12]:
+        - textbox "Search" [ref=f801e16]:
+          - /placeholder: Search Tofino
+        - generic [ref=f801e17]: /
+      - link "Sign in" [ref=f801e18] [cursor=pointer]:
+        - /url: search.html
+  - navigation "Tofino" [ref=f801e19]:
+    - generic [ref=f801e20]:
+      - link "← Tofino" [ref=f801e21] [cursor=pointer]:
+        - /url: tofino.html
+      - list [ref=f801e23]:
+        - listitem [ref=f801e24]:
+          - link "Overview" [ref=f801e25] [cursor=pointer]:
+            - /url: tofino.html
+        - listitem [ref=f801e26]:
+          - link "Things to do" [ref=f801e27] [cursor=pointer]:
+            - /url: things-to-do.html
+        - listitem [ref=f801e28]:
+          - link "Storm watching" [ref=f801e29] [cursor=pointer]:
+            - /url: "#top"
+        - listitem [ref=f801e30]:
+          - link "Stays" [ref=f801e31] [cursor=pointer]:
+            - /url: search.html
+      - link "Find a stay" [ref=f801e32] [cursor=pointer]:
+        - /url: search.html
+  - main [ref=f801e33]:
+    - navigation "Breadcrumb" [ref=f801e35]:
+      - link "Arc Trips" [ref=f801e36] [cursor=pointer]:
+        - /url: index.html
+      - generic [ref=f801e37]: /
+      - link "Canada" [ref=f801e38] [cursor=pointer]:
+        - /url: country.html
+      - generic [ref=f801e39]: /
+      - link "British Columbia" [ref=f801e40] [cursor=pointer]:
+        - /url: province.html
+      - generic [ref=f801e41]: /
+      - link "Vancouver Island" [ref=f801e42] [cursor=pointer]:
+        - /url: region.html
+      - generic [ref=f801e43]: /
+      - link "Tofino" [ref=f801e44] [cursor=pointer]:
+        - /url: tofino.html
+      - generic [ref=f801e45]: /
+      - link "Things to do" [ref=f801e46] [cursor=pointer]:
+        - /url: things-to-do.html
+      - generic [ref=f801e47]: /
+      - generic [ref=f801e48]: Storm watching
+    - generic [ref=f801e49]:
+      - img "Storm watching in Tofino" [ref=f801e50]
+      - generic [ref=f801e53]:
+        - text: Tofino, Vancouver Island
+        - heading "Storm watching in Tofino" [level=1] [ref=f801e54]
+        - paragraph [ref=f801e55]: Tofino is not just a summer beach town. In winter, it becomes one of the best places in Canada to watch storms.
+        - generic [ref=f801e56]:
+          - generic [ref=f801e57]:
+            - term [ref=f801e58]: Places written up
+            - definition [ref=f801e59]: "7"
+          - generic [ref=f801e60]:
+            - term [ref=f801e61]: With photographs
+            - definition [ref=f801e62]: "2"
+    - generic [ref=f801e65]:
+      - article [ref=f801e66]:
+        - generic [ref=f801e67]:
+          - heading "Cox Bay" [level=3] [ref=f801e68]
+          - paragraph [ref=f801e69]: Cox Bay is one of the most famous storm-watching spots in Tofino. It is wide, open, and exposed to the Pacific Ocean. This makes it a great place to see large waves roll in. On stormy days, the waves
+          - paragraph [ref=f801e70]: "Best for: Big waves, beach views, photos, stormy ocean scenes"
+          - paragraph [ref=f801e71]: Good to know. Stay far back from the water. Waves can reach higher up the beach than expected.
+      - article [ref=f801e72]:
+        - generic [ref=f801e73]:
+          - heading "Chesterman Beach" [level=3] [ref=f801e74]
+          - paragraph [ref=f801e75]: Chesterman Beach is a favorite place for beach walks and storm watching. It is close to town and easy to access. The beach is long, sandy, and scenic. On stormy days, you can watch waves crash along t
+          - paragraph [ref=f801e76]: "Best for: Easy access, beach walks, families, photography"
+          - paragraph [ref=f801e77]: Good to know. Watch the tide. Parts of the beach may be harder to walk during high tide.
+      - article [ref=f801e78]:
+        - generic [ref=f801e79]:
+          - heading "Long Beach" [level=3] [ref=f801e80]
+          - paragraph [ref=f801e81]: Long Beach is part of Pacific Rim National Park Reserve. It is one of the most famous beaches on Vancouver Island. It is wide, long, and open to the ocean. This makes it a powerful place to watch wint
+          - paragraph [ref=f801e82]: "Best for: Wide views, long walks, classic west coast scenery"
+          - paragraph [ref=f801e83]: Good to know. You may need a park pass. Always follow Parks Canada safety signs and closures.
+      - article [ref=f801e84]:
+        - generic [ref=f801e85]:
+          - heading "Wickaninnish Beach and Kwisitis Visitor Centre" [level=3] [ref=f801e86]
+          - paragraph [ref=f801e87]: The Kwisitis Visitor Centre area is a good choice if you want a safer, more comfortable storm watching spot. The viewing deck gives you a strong view of the beach and waves.
+          - paragraph [ref=f801e88]: This is also a good place to learn about the area’s natural history, wildlife, and local First Nations culture.
+          - paragraph [ref=f801e89]: "Best for: Viewing deck, learning, families, safer storm views"
+          - paragraph [ref=f801e90]: Good to know. This is a good option when the beach itself feels too rough.
+      - article [ref=f801e91]:
+        - generic [ref=f801e92]:
+          - heading "Tonquin Beach" [level=3] [ref=f801e93]
+          - paragraph [ref=f801e94]: Tonquin Beach is smaller and more sheltered than the larger surf beaches. It is reached by a forest trail from town.
+          - paragraph [ref=f801e95]: This beach can be beautiful in stormy weather, but the trail may be wet and slippery. It is better for a short visit than a long storm watching session.
+          - paragraph [ref=f801e96]: "Best for: Short walk, forest trail, quiet views"
+          - paragraph [ref=f801e97]: Good to know. Wear proper shoes because the trail can be muddy.
+      - article [ref=f801e98]:
+        - figure [ref=f801e99]:
+          - img "Pettinger Point, Tofino" [ref=f801e100]
+        - generic [ref=f801e101]:
+          - heading "Pettinger Point" [level=3] [ref=f801e102]
+          - paragraph [ref=f801e103]: Accessible via a trail from Cox Bay, this headland offers a spectacular vantage point where waves explode into white spray against the cliffs.
+      - article [ref=f801e104]:
+        - figure [ref=f801e105]:
+          - img "Oceanfront Resorts and Cabins, Tofino" [ref=f801e106]
+        - generic [ref=f801e107]:
+          - heading "Oceanfront Resorts and Cabins" [level=3] [ref=f801e108]
+          - paragraph [ref=f801e109]: One of the best ways to storm watch in Tofino is from inside. Many oceanfront hotels, cabins, and resorts have large windows facing the water.
+          - paragraph [ref=f801e110]: This is perfect if the weather is too rough to be outside. You can watch the storm with a warm drink, a blanket, and dry socks.
+          - paragraph [ref=f801e111]: The Wickaninnish Inn is the most iconic destination for this experience, specifically built on a rocky headland to withstand and showcase the Pacific's power.
+    - generic [ref=f801e113]:
+      - heading "More on storm watching" [level=2] [ref=f801e114]
+      - navigation [ref=f801e115]:
+        - link "Storm Watching in Tofino storm-watching" [ref=f801e116] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f801e117]: Storm Watching in Tofino
+          - generic [ref=f801e118]: storm-watching
+        - link "Storm watching FAQs storm-watching" [ref=f801e119] [cursor=pointer]:
+          - /url: guide.html
+          - generic [ref=f801e120]: Storm watching FAQs
+          - generic [ref=f801e121]: storm-watching
+    - generic [ref=f801e123]:
+      - heading "Keep going" [level=2] [ref=f801e124]
+      - navigation [ref=f801e125]:
+        - link "Everything to do in Tofino All the subjects" [ref=f801e126] [cursor=pointer]:
+          - /url: things-to-do.html
+          - generic [ref=f801e127]: Everything to do in Tofino
+          - generic [ref=f801e128]: All the subjects
+        - link "Tofino The town" [ref=f801e129] [cursor=pointer]:
+          - /url: tofino.html
+          - generic [ref=f801e130]: Tofino
+          - generic [ref=f801e131]: The town
+        - link "Stays Search what is open" [ref=f801e132] [cursor=pointer]:
+          - /url: search.html
+          - generic [ref=f801e133]: Stays
+          - generic [ref=f801e134]: Search what is open
+  - contentinfo [ref=f801e135]:
+    - generic [ref=f801e136]: © 2026 Arc Trips. Prices in CAD, before taxes and fees.

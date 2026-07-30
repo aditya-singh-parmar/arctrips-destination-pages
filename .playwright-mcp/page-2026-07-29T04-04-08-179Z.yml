@@ -1,0 +1,796 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - generic:
+    - img:
+      - generic:
+        - generic: "14"
+        - generic: "9"
+        - generic: "22"
+        - generic: "31"
+        - generic: "17"
+        - generic: "6"
+        - generic: "11"
+        - generic: "26"
+        - generic: "19"
+        - generic: "8"
+        - generic: "24"
+        - generic: "13"
+        - generic: "28"
+        - generic: "5"
+        - generic: "16"
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "Arctrips" [ref=e5] [cursor=pointer]:
+        - /url: "#top"
+      - list [ref=e6]:
+        - listitem [ref=e7]:
+          - link "Stays" [ref=e8] [cursor=pointer]:
+            - /url: search.html
+        - listitem [ref=e9]:
+          - link "Destinations" [ref=e10] [cursor=pointer]:
+            - /url: "#top"
+        - listitem [ref=e11]:
+          - link "Guides" [ref=e12] [cursor=pointer]:
+            - /url: search.html
+      - search [ref=e14]:
+        - generic [ref=e18]: Search towns, places and guides
+        - combobox "Search towns, places and guides" [ref=e19]
+        - generic [ref=e20]: /
+      - link "Sign in" [ref=e21] [cursor=pointer]:
+        - /url: not-found.html
+  - main [ref=e22]:
+    - generic [ref=e24]:
+      - generic [ref=e25]:
+        - text: Canada
+        - heading [level=1] [ref=e26]:
+          - text: Canada,
+          - generic [ref=e27]: town by town
+        - paragraph [ref=e30]: Twenty six towns across seven provinces, written up place by place. Start with a province, drill down to a town, then to the places inside it.
+        - generic [ref=e31]:
+          - link "Browse by province" [ref=e32] [cursor=pointer]:
+            - /url: "#canada"
+          - link "Or start with Tofino" [ref=e33] [cursor=pointer]:
+            - /url: tofino.html
+        - paragraph [ref=e34]: 26 towns written up, 1,108 places documented one at a time, 837 of them photographed, 292 stays bookable tonight from $320.
+      - generic [ref=e35]:
+        - link "Lake Louise, Banff Lake Louise, Banff" [ref=e43] [cursor=pointer]:
+          - /url: banff.html
+          - img "Lake Louise, Banff" [ref=e44]
+          - generic [ref=e45]: Lake Louise, Banff
+        - link "Chateau Frontenac, Quebec City Chateau Frontenac, Quebec City" [ref=e46] [cursor=pointer]:
+          - /url: quebec-city.html
+          - img "Chateau Frontenac, Quebec City" [ref=e47]
+          - generic [ref=e48]: Chateau Frontenac, Quebec City
+        - link "Lost Lake, Whistler Lost Lake, Whistler" [ref=e49] [cursor=pointer]:
+          - /url: whistler.html
+          - img "Lost Lake, Whistler" [ref=e50]
+          - generic [ref=e51]: Lost Lake, Whistler
+        - img [ref=e52]:
+          - generic [ref=e56]: "N"
+    - generic [ref=e58]:
+      - generic [ref=e59]: Tide today at Tofino Harbour
+      - paragraph [ref=e60]:
+        - generic [ref=e61]: Low 06:14, 0.8 m
+        - generic [ref=e62]: High 12:38, 3.1 m
+        - generic [ref=e63]: Low 18:52, 1.2 m
+        - generic [ref=e64]: Sunset 21:07
+      - paragraph [ref=e68]: Long Beach doubles in width at low water, so that is when the long walk is worth doing.
+    - generic [ref=e70]:
+      - generic [ref=e71]:
+        - generic [ref=e72]:
+          - text: Where we publish
+          - heading "Canada, province by province" [level=2] [ref=e73]
+          - paragraph [ref=e74]: "Start at the top and work down: a province, then a region, then a town, then the places inside it. British Columbia is the one we have finished."
+        - link "Open British Columbia" [ref=e75] [cursor=pointer]:
+          - /url: province.html
+      - generic [ref=e76]:
+        - link "British Columbia Tofino, Whistler, Ucluelet, Victoria 15 towns 1,067 places" [ref=e77] [cursor=pointer]:
+          - /url: province.html
+          - generic [ref=e78]: British Columbia
+          - generic [ref=e79]: Tofino, Whistler, Ucluelet, Victoria
+          - generic [ref=e80]:
+            - generic [ref=e81]: "15"
+            - text: towns
+            - generic [ref=e82]: 1,067 places
+        - link "Alberta Banff, Edmonton, Jasper 3 towns 91 places" [ref=e83] [cursor=pointer]:
+          - /url: index.html#towns
+          - generic [ref=e84]: Alberta
+          - generic [ref=e85]: Banff, Edmonton, Jasper
+          - generic [ref=e86]:
+            - generic [ref=e87]: "3"
+            - text: towns
+            - generic [ref=e88]: 91 places
+        - link "Ontario Ottawa, Niagara Falls 2 towns 78 places" [ref=e89] [cursor=pointer]:
+          - /url: index.html#towns
+          - generic [ref=e90]: Ontario
+          - generic [ref=e91]: Ottawa, Niagara Falls
+          - generic [ref=e92]:
+            - generic [ref=e93]: "2"
+            - text: towns
+            - generic [ref=e94]: 78 places
+        - link "Quebec Quebec City, Montreal 2 towns 81 places" [ref=e95] [cursor=pointer]:
+          - /url: index.html#towns
+          - generic [ref=e96]: Quebec
+          - generic [ref=e97]: Quebec City, Montreal
+          - generic [ref=e98]:
+            - generic [ref=e99]: "2"
+            - text: towns
+            - generic [ref=e100]: 81 places
+        - link "Nova Scotia Halifax 1 towns 38 places" [ref=e101] [cursor=pointer]:
+          - /url: index.html#towns
+          - generic [ref=e102]: Nova Scotia
+          - generic [ref=e103]: Halifax
+          - generic [ref=e104]:
+            - generic [ref=e105]: "1"
+            - text: towns
+            - generic [ref=e106]: 38 places
+        - link "Saskatchewan Saskatoon 1 towns 27 places" [ref=e107] [cursor=pointer]:
+          - /url: index.html#towns
+          - generic [ref=e108]: Saskatchewan
+          - generic [ref=e109]: Saskatoon
+          - generic [ref=e110]:
+            - generic [ref=e111]: "1"
+            - text: towns
+            - generic [ref=e112]: 27 places
+        - link "Prince Edward Island Charlottetown 1 towns 28 places" [ref=e113] [cursor=pointer]:
+          - /url: index.html#towns
+          - generic [ref=e114]: Prince Edward Island
+          - generic [ref=e115]: Charlottetown
+          - generic [ref=e116]:
+            - generic [ref=e117]: "1"
+            - text: towns
+            - generic [ref=e118]: 28 places
+    - generic [ref=e121]:
+      - generic [ref=e122]:
+        - term [ref=e123]: Towns written up
+        - definition [ref=e124]: "25"
+        - paragraph [ref=e125]: Across seven provinces, from Tofino to Charlottetown.
+      - generic [ref=e126]:
+        - term [ref=e127]: Guides
+        - definition [ref=e128]: "61"
+        - paragraph [ref=e129]: Nine subjects in Tofino alone, and forty six documents beyond it.
+      - generic [ref=e130]:
+        - term [ref=e131]: Places
+        - definition [ref=e132]: 1,108
+        - paragraph [ref=e133]: Named, located, and written up one at a time.
+      - generic [ref=e134]:
+        - term [ref=e135]: Stays
+        - definition [ref=e136]: "292"
+        - paragraph [ref=e137]: Bookable tonight, from $320 a night.
+    - generic [ref=e139]:
+      - generic [ref=e140]:
+        - generic [ref=e141]:
+          - text: Where we publish
+          - heading "Destinations" [level=2] [ref=e142]
+          - paragraph [ref=e143]: Tofino and Ucluelet are finished, place by place. Twenty three more towns are written up and shown below, with their real counts.
+        - link "All of Vancouver Island" [ref=e144] [cursor=pointer]:
+          - /url: region.html
+      - generic [ref=e145]:
+        - 'link "Tofino, on the west coast of Vancouver Island In season now: kayaking Tofino Storm-swept beaches, old-growth rainforest, and the best surf on the Pacific coast. 9 guides · 73 places · 134 stays from $320 Most to do May to September." [ref=e146] [cursor=pointer]':
+          - /url: tofino.html
+          - generic [ref=e147]:
+            - img "Tofino, on the west coast of Vancouver Island" [ref=e148]
+            - generic [ref=e149]: "In season now: kayaking"
+          - heading "Tofino" [level=3] [ref=e150]
+          - paragraph [ref=e151]: Storm-swept beaches, old-growth rainforest, and the best surf on the Pacific coast.
+          - paragraph [ref=e152]: 9 guides · 73 places · 134 stays from $320
+          - paragraph [ref=e153]: Most to do May to September.
+        - 'link "Ucluelet, on the west coast of Vancouver Island In season now: kayaking Ucluelet Tofino''s quieter neighbour, wrapped by the Wild Pacific Trail. 6 guides · 54 places · 158 stays from $320 Most to do May to September." [ref=e154] [cursor=pointer]':
+          - /url: ucluelet.html
+          - generic [ref=e155]:
+            - img "Ucluelet, on the west coast of Vancouver Island" [ref=e156]
+            - generic [ref=e157]: "In season now: kayaking"
+          - heading "Ucluelet" [level=3] [ref=e158]
+          - paragraph [ref=e159]: Tofino's quieter neighbour, wrapped by the Wild Pacific Trail.
+          - paragraph [ref=e160]: 6 guides · 54 places · 158 stays from $320
+          - paragraph [ref=e161]: Most to do May to September.
+      - generic [ref=e162]:
+        - heading "Every town we have written up" [level=3] [ref=e163]
+        - paragraph [ref=e164]: These are written and being checked. Each one goes live the same way the first two did, once we have been.
+      - generic [ref=e165]:
+        - generic [ref=e166]: More on Vancouver Island
+        - generic [ref=e167]:
+          - link "Victoria Victoria 100 places, 79 with photos" [ref=e168] [cursor=pointer]:
+            - /url: victoria.html
+            - img "Victoria" [ref=e170]
+            - generic [ref=e171]: Victoria
+            - generic [ref=e172]: 100 places, 79 with photos
+          - link "Sooke Sooke 30 places, 20 with photos" [ref=e173] [cursor=pointer]:
+            - /url: sooke.html
+            - img "Sooke" [ref=e175]
+            - generic [ref=e176]: Sooke
+            - generic [ref=e177]: 30 places, 20 with photos
+          - link "Parksville Parksville 28 places, 20 with photos" [ref=e178] [cursor=pointer]:
+            - /url: parksville.html
+            - img "Parksville" [ref=e180]
+            - generic [ref=e181]: Parksville
+            - generic [ref=e182]: 28 places, 20 with photos
+          - link "Nanaimo Nanaimo 27 places, 21 with photos" [ref=e183] [cursor=pointer]:
+            - /url: nanaimo.html
+            - img "Nanaimo" [ref=e185]
+            - generic [ref=e186]: Nanaimo
+            - generic [ref=e187]: 27 places, 21 with photos
+          - link "Nanoose Nanoose 16 places, 8 with photos" [ref=e188] [cursor=pointer]:
+            - /url: nanoose.html
+            - img "Nanoose" [ref=e190]
+            - generic [ref=e191]: Nanoose
+            - generic [ref=e192]: 16 places, 8 with photos
+          - link "Sidney Sidney 16 places, 11 with photos" [ref=e193] [cursor=pointer]:
+            - /url: sidney.html
+            - img "Sidney" [ref=e195]
+            - generic [ref=e196]: Sidney
+            - generic [ref=e197]: 16 places, 11 with photos
+          - link "Chemainus Chemainus 15 places, 10 with photos" [ref=e198] [cursor=pointer]:
+            - /url: chemainus.html
+            - img "Chemainus" [ref=e200]
+            - generic [ref=e201]: Chemainus
+            - generic [ref=e202]: 15 places, 10 with photos
+          - link "Campbell River Campbell River 14 places, 14 with photos" [ref=e203] [cursor=pointer]:
+            - /url: campbell-river.html
+            - img "Campbell River" [ref=e205]
+            - generic [ref=e206]: Campbell River
+            - generic [ref=e207]: 14 places, 14 with photos
+          - link "Shawnigan Lake Shawnigan Lake 12 places, 9 with photos" [ref=e208] [cursor=pointer]:
+            - /url: shawnigan-lake.html
+            - img "Shawnigan Lake" [ref=e210]
+            - generic [ref=e211]: Shawnigan Lake
+            - generic [ref=e212]: 12 places, 9 with photos
+        - generic [ref=e213]: The rest of Canada
+        - generic [ref=e214]:
+          - link "Whistler Whistler 219 places, 104 with photos British Columbia" [ref=e215] [cursor=pointer]:
+            - /url: whistler.html
+            - img "Whistler" [ref=e217]
+            - generic [ref=e218]: Whistler
+            - generic [ref=e219]: 219 places, 104 with photos
+            - generic [ref=e220]: British Columbia
+          - link "Vancouver Vancouver 76 places, 76 with photos British Columbia" [ref=e221] [cursor=pointer]:
+            - /url: vancouver.html
+            - img "Vancouver" [ref=e223]
+            - generic [ref=e224]: Vancouver
+            - generic [ref=e225]: 76 places, 76 with photos
+            - generic [ref=e226]: British Columbia
+          - link "Squamish Squamish 73 places, 36 with photos British Columbia" [ref=e227] [cursor=pointer]:
+            - /url: squamish.html
+            - img "Squamish" [ref=e229]
+            - generic [ref=e230]: Squamish
+            - generic [ref=e231]: 73 places, 36 with photos
+            - generic [ref=e232]: British Columbia
+          - link "Ottawa Ottawa 42 places, 42 with photos Ontario" [ref=e233] [cursor=pointer]:
+            - /url: ottawa.html
+            - img "Ottawa" [ref=e235]
+            - generic [ref=e236]: Ottawa
+            - generic [ref=e237]: 42 places, 42 with photos
+            - generic [ref=e238]: Ontario
+          - link "Quebec City Quebec City 41 places, 39 with photos Quebec" [ref=e239] [cursor=pointer]:
+            - /url: quebec-city.html
+            - img "Quebec City" [ref=e241]
+            - generic [ref=e242]: Quebec City
+            - generic [ref=e243]: 41 places, 39 with photos
+            - generic [ref=e244]: Quebec
+          - link "Montreal Montreal 40 places, 40 with photos Quebec" [ref=e245] [cursor=pointer]:
+            - /url: montreal.html
+            - img "Montreal" [ref=e247]
+            - generic [ref=e248]: Montreal
+            - generic [ref=e249]: 40 places, 40 with photos
+            - generic [ref=e250]: Quebec
+          - link "Banff Banff 39 places, 39 with photos Alberta" [ref=e251] [cursor=pointer]:
+            - /url: banff.html
+            - img "Banff" [ref=e253]
+            - generic [ref=e254]: Banff
+            - generic [ref=e255]: 39 places, 39 with photos
+            - generic [ref=e256]: Alberta
+          - link "Halifax Halifax 38 places, 38 with photos Nova Scotia" [ref=e257] [cursor=pointer]:
+            - /url: halifax.html
+            - img "Halifax" [ref=e259]
+            - generic [ref=e260]: Halifax
+            - generic [ref=e261]: 38 places, 38 with photos
+            - generic [ref=e262]: Nova Scotia
+          - link "Niagara Falls Niagara Falls 36 places, 36 with photos Ontario" [ref=e263] [cursor=pointer]:
+            - /url: niagara-falls.html
+            - img "Niagara Falls" [ref=e265]
+            - generic [ref=e266]: Niagara Falls
+            - generic [ref=e267]: 36 places, 36 with photos
+            - generic [ref=e268]: Ontario
+          - link "Charlottetown Charlottetown 28 places, 26 with photos Prince Edward Island" [ref=e269] [cursor=pointer]:
+            - /url: charlottetown.html
+            - img "Charlottetown" [ref=e271]
+            - generic [ref=e272]: Charlottetown
+            - generic [ref=e273]: 28 places, 26 with photos
+            - generic [ref=e274]: Prince Edward Island
+          - link "Edmonton Edmonton 27 places, 27 with photos Alberta" [ref=e275] [cursor=pointer]:
+            - /url: edmonton.html
+            - img "Edmonton" [ref=e277]
+            - generic [ref=e278]: Edmonton
+            - generic [ref=e279]: 27 places, 27 with photos
+            - generic [ref=e280]: Alberta
+          - link "Saskatoon Saskatoon 27 places, 27 with photos Saskatchewan" [ref=e281] [cursor=pointer]:
+            - /url: saskatoon.html
+            - img "Saskatoon" [ref=e283]
+            - generic [ref=e284]: Saskatoon
+            - generic [ref=e285]: 27 places, 27 with photos
+            - generic [ref=e286]: Saskatchewan
+          - link "Jasper Jasper 25 places, 25 with photos Alberta" [ref=e287] [cursor=pointer]:
+            - /url: jasper.html
+            - img "Jasper" [ref=e289]
+            - generic [ref=e290]: Jasper
+            - generic [ref=e291]: 25 places, 25 with photos
+            - generic [ref=e292]: Alberta
+          - link "Nelson Nelson 12 places, 6 with photos British Columbia" [ref=e293] [cursor=pointer]:
+            - /url: nelson.html
+            - img "Nelson" [ref=e295]
+            - generic [ref=e296]: Nelson
+            - generic [ref=e297]: 12 places, 6 with photos
+            - generic [ref=e298]: British Columbia
+          - link "St John's St John's 31 places, 30 with photos Newfoundland and Labrador" [ref=e299] [cursor=pointer]:
+            - /url: st-john.html
+            - img "St John's" [ref=e301]
+            - generic [ref=e302]: St John's
+            - generic [ref=e303]: 31 places, 30 with photos
+            - generic [ref=e304]: Newfoundland and Labrador
+    - generic [ref=e307]:
+      - generic [ref=e308]:
+        - generic [ref=e309]:
+          - heading "When should you go?" [level=2] [ref=e310]
+          - paragraph [ref=e311]: "Pick a month and you get the honest answer for Tofino: the weather it really has, what is in season, and what you can book."
+        - link "Plan a trip" [ref=e312] [cursor=pointer]:
+          - /url: plan.html
+      - generic [ref=e313]:
+        - paragraph [ref=e314]: Each column is that month's average rainfall in Tofino. Taller means wetter. Choose a month.
+        - group "Choose a town" [ref=e315]:
+          - button "Tofino" [pressed] [ref=e316] [cursor=pointer]
+          - button "Ucluelet" [ref=e317] [cursor=pointer]
+        - group "Choose a month" [ref=e318]:
+          - button "January, 489 millimetres of rain" [ref=e319] [cursor=pointer]:
+            - generic [ref=e320]: "489"
+            - generic [ref=e323]: Jan
+          - button "February, 368 millimetres of rain" [ref=e324] [cursor=pointer]:
+            - generic [ref=e325]: "368"
+            - generic [ref=e328]: Feb
+          - button "March, 337 millimetres of rain" [ref=e329] [cursor=pointer]:
+            - generic [ref=e330]: "337"
+            - generic [ref=e333]: Mar
+          - button "April, 213 millimetres of rain" [ref=e334] [cursor=pointer]:
+            - generic [ref=e335]: "213"
+            - generic [ref=e338]: Apr
+          - button "May, 132 millimetres of rain" [ref=e339] [cursor=pointer]:
+            - generic [ref=e340]: "132"
+            - generic [ref=e343]: May
+          - button "June, 102 millimetres of rain" [ref=e344] [cursor=pointer]:
+            - generic [ref=e345]: "102"
+            - generic [ref=e348]: Jun
+          - button "July, 66 millimetres of rain" [pressed] [ref=e349] [cursor=pointer]:
+            - generic [ref=e350]: "66"
+            - generic [ref=e353]: Jul
+          - button "August, 82 millimetres of rain" [ref=e354] [cursor=pointer]:
+            - generic [ref=e355]: "82"
+            - generic [ref=e358]: Aug
+          - button "September, 152 millimetres of rain" [ref=e359] [cursor=pointer]:
+            - generic [ref=e360]: "152"
+            - generic [ref=e363]: Sep
+          - button "October, 396 millimetres of rain" [ref=e364] [cursor=pointer]:
+            - generic [ref=e365]: "396"
+            - generic [ref=e368]: Oct
+          - button "November, 500 millimetres of rain" [ref=e369] [cursor=pointer]:
+            - generic [ref=e370]: "500"
+            - generic [ref=e373]: Nov
+          - button "December, 490 millimetres of rain" [ref=e374] [cursor=pointer]:
+            - generic [ref=e375]: "490"
+            - generic [ref=e378]: Dec
+        - paragraph [ref=e379]:
+          - generic [ref=e380]: Wettest November, 500 mm
+          - generic [ref=e381]: Driest July, 66 mm
+      - generic [ref=e382]:
+        - generic [ref=e383]:
+          - text: July in Tofino
+          - paragraph [ref=e384]: Long days
+          - paragraph [ref=e385]: Sixteen hours of light and the water finally warm enough to stay in.
+        - generic [ref=e386]:
+          - generic [ref=e387]:
+            - term [ref=e388]: Average high
+            - definition [ref=e389]: 18.1°
+          - generic [ref=e390]:
+            - term [ref=e391]: Rain
+            - definition [ref=e392]: 66mm
+          - generic [ref=e393]:
+            - term [ref=e394]: Rain days
+            - definition [ref=e395]: 9of 31
+          - generic [ref=e396]:
+            - term [ref=e397]: Daylight
+            - definition [ref=e398]:
+              - generic [ref=e399]:
+                - text: 15h
+                - generic [ref=e400]: 37m
+        - paragraph [ref=e401]: July averages 18.1°C by day, 66 mm of rain across 9 of its 31 days, and 15 hours 37 minutes of daylight.
+      - heading "What is in season in July" [level=3] [ref=e402]
+      - paragraph [ref=e403]: Each row is one thing to do, and the twelve squares are the months. A filled square means that month is in season for it.
+      - table [ref=e404]:
+        - rowgroup [ref=e405]:
+          - row [ref=e406]:
+            - columnheader "What to do" [ref=e407]
+            - columnheader "Months in season" [ref=e408]
+            - columnheader "Booking" [ref=e409]
+        - rowgroup [ref=e410]:
+          - row [ref=e411]:
+            - cell "Kayaking & paddling Tofino and Ucluelet, 31 launches and routes" [ref=e412]:
+              - generic [ref=e413]: Kayaking & paddling
+              - generic [ref=e414]: Tofino and Ucluelet, 31 launches and routes
+            - cell [ref=e415]:
+              - img "Kayaking & paddling, in season May to September" [ref=e416]:
+                - generic [ref=e417]: J
+                - generic [ref=e418]: F
+                - generic [ref=e419]: M
+                - generic [ref=e420]: A
+                - generic [ref=e421]: M
+                - generic [ref=e422]: J
+                - generic [ref=e423]: J
+                - generic [ref=e424]: A
+                - generic [ref=e425]: S
+                - generic [ref=e426]: O
+                - generic [ref=e427]: "N"
+                - generic [ref=e428]: D
+            - cell "Coming soon Stays from $320" [ref=e429]:
+              - generic [ref=e430]: Coming soon
+              - text: Stays from $320
+          - row [ref=e431]:
+            - cell "Beaches Tofino, 13 beaches written up" [ref=e432]:
+              - generic [ref=e433]: Beaches
+              - generic [ref=e434]: Tofino, 13 beaches written up
+            - cell [ref=e435]:
+              - img "Beaches, in season May to September" [ref=e436]:
+                - generic [ref=e437]: J
+                - generic [ref=e438]: F
+                - generic [ref=e439]: M
+                - generic [ref=e440]: A
+                - generic [ref=e441]: M
+                - generic [ref=e442]: J
+                - generic [ref=e443]: J
+                - generic [ref=e444]: A
+                - generic [ref=e445]: S
+                - generic [ref=e446]: O
+                - generic [ref=e447]: "N"
+                - generic [ref=e448]: D
+            - cell "Free to visit" [ref=e449]
+          - row [ref=e450]:
+            - cell "Fishing Tofino and Ucluelet, 2 guides" [ref=e451]:
+              - generic [ref=e452]: Fishing
+              - generic [ref=e453]: Tofino and Ucluelet, 2 guides
+            - cell [ref=e454]:
+              - img "Fishing, in season May to September" [ref=e455]:
+                - generic [ref=e456]: J
+                - generic [ref=e457]: F
+                - generic [ref=e458]: M
+                - generic [ref=e459]: A
+                - generic [ref=e460]: M
+                - generic [ref=e461]: J
+                - generic [ref=e462]: J
+                - generic [ref=e463]: A
+                - generic [ref=e464]: S
+                - generic [ref=e465]: O
+                - generic [ref=e466]: "N"
+                - generic [ref=e467]: D
+            - cell "Book ArcTrips Fishing" [ref=e468]:
+              - generic [ref=e469]: Book
+              - text: ArcTrips Fishing
+          - row [ref=e470]:
+            - cell "Hiking & trails Tofino and Ucluelet, 38 walks written up" [ref=e471]:
+              - generic [ref=e472]: Hiking & trails
+              - generic [ref=e473]: Tofino and Ucluelet, 38 walks written up
+            - cell [ref=e474]:
+              - img "Hiking & trails, in season April to October" [ref=e475]:
+                - generic [ref=e476]: J
+                - generic [ref=e477]: F
+                - generic [ref=e478]: M
+                - generic [ref=e479]: A
+                - generic [ref=e480]: M
+                - generic [ref=e481]: J
+                - generic [ref=e482]: J
+                - generic [ref=e483]: A
+                - generic [ref=e484]: S
+                - generic [ref=e485]: O
+                - generic [ref=e486]: "N"
+                - generic [ref=e487]: D
+            - cell "Free to visit" [ref=e488]
+          - row [ref=e489]:
+            - cell "Whale watching Tofino and Ucluelet, 6 places written up" [ref=e490]:
+              - generic [ref=e491]: Whale watching
+              - generic [ref=e492]: Tofino and Ucluelet, 6 places written up
+            - cell [ref=e493]:
+              - img "Whale watching, in season March to October" [ref=e494]:
+                - generic [ref=e495]: J
+                - generic [ref=e496]: F
+                - generic [ref=e497]: M
+                - generic [ref=e498]: A
+                - generic [ref=e499]: M
+                - generic [ref=e500]: J
+                - generic [ref=e501]: J
+                - generic [ref=e502]: A
+                - generic [ref=e503]: S
+                - generic [ref=e504]: O
+                - generic [ref=e505]: "N"
+                - generic [ref=e506]: D
+            - cell "Coming soon Stays from $320" [ref=e507]:
+              - generic [ref=e508]: Coming soon
+              - text: Stays from $320
+          - row [ref=e509]:
+            - cell "Restaurants Tofino and Ucluelet, 31 rooms written up" [ref=e510]:
+              - generic [ref=e511]: Restaurants
+              - generic [ref=e512]: Tofino and Ucluelet, 31 rooms written up
+            - cell [ref=e513]:
+              - img "Restaurants, in season all year" [ref=e514]:
+                - generic [ref=e515]: J
+                - generic [ref=e516]: F
+                - generic [ref=e517]: M
+                - generic [ref=e518]: A
+                - generic [ref=e519]: M
+                - generic [ref=e520]: J
+                - generic [ref=e521]: J
+                - generic [ref=e522]: A
+                - generic [ref=e523]: S
+                - generic [ref=e524]: O
+                - generic [ref=e525]: "N"
+                - generic [ref=e526]: D
+            - cell "No booking needed" [ref=e527]
+          - row [ref=e528]:
+            - cell "Better in another month" [ref=e529]
+          - row [ref=e530]:
+            - cell "Storm watching Tofino, 8 places to watch from" [ref=e531]:
+              - generic [ref=e532]: Storm watching
+              - generic [ref=e533]: Tofino, 8 places to watch from
+            - cell [ref=e534]:
+              - img "Storm watching, in season November to February" [ref=e535]:
+                - generic [ref=e536]: J
+                - generic [ref=e537]: F
+                - generic [ref=e538]: M
+                - generic [ref=e539]: A
+                - generic [ref=e540]: M
+                - generic [ref=e541]: J
+                - generic [ref=e542]: J
+                - generic [ref=e543]: A
+                - generic [ref=e544]: S
+                - generic [ref=e545]: O
+                - generic [ref=e546]: "N"
+                - generic [ref=e547]: D
+            - cell [ref=e548]:
+              - button "Best Nov to Feb" [ref=e549] [cursor=pointer]
+          - row [ref=e552]:
+            - cell "Birding & wildlife Tofino and Ucluelet, 2 guides" [ref=e553]:
+              - generic [ref=e554]: Birding & wildlife
+              - generic [ref=e555]: Tofino and Ucluelet, 2 guides
+            - cell [ref=e556]:
+              - img "Birding & wildlife, in season March to May, and September to November" [ref=e557]:
+                - generic [ref=e558]: J
+                - generic [ref=e559]: F
+                - generic [ref=e560]: M
+                - generic [ref=e561]: A
+                - generic [ref=e562]: M
+                - generic [ref=e563]: J
+                - generic [ref=e564]: J
+                - generic [ref=e565]: A
+                - generic [ref=e566]: S
+                - generic [ref=e567]: O
+                - generic [ref=e568]: "N"
+                - generic [ref=e569]: D
+            - cell [ref=e570]:
+              - button "Best Mar to May, and Sep to Nov" [ref=e571] [cursor=pointer]
+          - row [ref=e574]:
+            - cell [ref=e575]:
+              - button "Show the other 1 thing to do" [ref=e576] [cursor=pointer]
+      - generic [ref=e577]:
+        - paragraph [ref=e578]: 18 of the 22 things we cover are in season in July, across 127 places we have written up by name.
+        - link "Search every place" [ref=e579] [cursor=pointer]:
+          - /url: search.html
+      - paragraph [ref=e582]: Climate figures are Environment and Climate Change Canada normals for Tofino, seeded for design.
+      - status [ref=e583]: July. Long days. 66 millimetres of rain.
+    - generic [ref=e584]:
+      - img "An empty stretch of sand on the west coast of Vancouver Island" [ref=e585]
+      - generic [ref=e587]:
+        - text: The index
+        - paragraph [ref=e588]:
+          - generic [ref=e589]: "127"
+          - text: places, documented by name.
+        - paragraph [ref=e590]: Not scraped, not aggregated. Each one walked, photographed and written up, with its own note on what it is actually like.
+        - link "Search every one of them" [ref=e591] [cursor=pointer]:
+          - /url: search.html
+    - generic [ref=e593]:
+      - generic [ref=e594]:
+        - generic [ref=e595]:
+          - text: From the guides
+          - heading "Latest reading" [level=2] [ref=e596]
+          - paragraph [ref=e597]: The guides people open first.
+        - link "Everything to do in Tofino" [ref=e598] [cursor=pointer]:
+          - /url: things-to-do.html
+      - generic [ref=e599]:
+        - 'link "A surfer in the shorebreak at sunset on the Tofino coast When to go Tofino and Ucluelet Best time to stay in Ucluelet or Tofino Weather, prices, and what is actually on across the seasons. The short version: there is no month here without an answer, and the cheapest ones are the most dramatic." [ref=e600] [cursor=pointer]':
+          - /url: guide.html
+          - img "A surfer in the shorebreak at sunset on the Tofino coast" [ref=e602]
+          - generic [ref=e603]:
+            - generic [ref=e604]: When to go
+            - generic [ref=e606]: Tofino and Ucluelet
+          - heading "Best time to stay in Ucluelet or Tofino" [level=3] [ref=e607]
+          - paragraph [ref=e608]: "Weather, prices, and what is actually on across the seasons. The short version: there is no month here without an answer, and the cheapest ones are the most dramatic."
+        - generic [ref=e609]:
+          - link "Storm Watching in Tofino Storm watching 8 places to watch from Storm Watching in Tofino" [ref=e610] [cursor=pointer]:
+            - /url: guide.html
+            - img "Storm Watching in Tofino" [ref=e612]
+            - generic [ref=e613]:
+              - generic [ref=e614]:
+                - generic [ref=e615]: Storm watching
+                - generic [ref=e617]: 8 places to watch from
+              - heading "Storm Watching in Tofino" [level=4] [ref=e618]
+          - link "The Best Beaches in Tofino Beaches 13 beaches written up The Best Beaches in Tofino" [ref=e619] [cursor=pointer]:
+            - /url: guide.html
+            - img "The Best Beaches in Tofino" [ref=e621]
+            - generic [ref=e622]:
+              - generic [ref=e623]:
+                - generic [ref=e624]: Beaches
+                - generic [ref=e626]: 13 beaches written up
+              - heading "The Best Beaches in Tofino" [level=4] [ref=e627]
+          - link "Ucluelet Hiking Guide Hiking and trails 20 walks written up Ucluelet Hiking Guide" [ref=e628] [cursor=pointer]:
+            - /url: guide.html
+            - img "Ucluelet Hiking Guide" [ref=e630]
+            - generic [ref=e631]:
+              - generic [ref=e632]:
+                - generic [ref=e633]: Hiking and trails
+                - generic [ref=e635]: 20 walks written up
+              - heading "Ucluelet Hiking Guide" [level=4] [ref=e636]
+          - link "Kayaking in Ucluelet Kayaking 13 launches and routes Kayaking in Ucluelet" [ref=e637] [cursor=pointer]:
+            - /url: guide.html
+            - img "Kayaking in Ucluelet" [ref=e639]
+            - generic [ref=e640]:
+              - generic [ref=e641]:
+                - generic [ref=e642]: Kayaking
+                - generic [ref=e644]: 13 launches and routes
+              - heading "Kayaking in Ucluelet" [level=4] [ref=e645]
+          - link "Surfing in Tofino Surfing Tofino Surfing in Tofino" [ref=e646] [cursor=pointer]:
+            - /url: guide.html
+            - img "Surfing in Tofino" [ref=e648]
+            - generic [ref=e649]:
+              - generic [ref=e650]:
+                - generic [ref=e651]: Surfing
+                - generic [ref=e653]: Tofino
+              - heading "Surfing in Tofino" [level=4] [ref=e654]
+          - 'link "Whales in Ucluelet: The Spring Migration Explained Whale watching 6 places written up Whales in Ucluelet: The Spring Migration Explained" [ref=e655] [cursor=pointer]':
+            - /url: guide.html
+            - 'img "Whales in Ucluelet: The Spring Migration Explained" [ref=e657]'
+            - generic [ref=e658]:
+              - generic [ref=e659]:
+                - generic [ref=e660]: Whale watching
+                - generic [ref=e662]: 6 places written up
+              - 'heading "Whales in Ucluelet: The Spring Migration Explained" [level=4] [ref=e663]'
+    - generic [ref=e665]:
+      - generic [ref=e666]:
+        - generic [ref=e667]:
+          - text: Asked and answered
+          - heading "The awkward questions" [level=2] [ref=e668]
+          - paragraph [ref=e669]: 72 questions are answered inside the guides. Here are six.
+        - link "All of them, by subject" [ref=e670] [cursor=pointer]:
+          - /url: plan.html
+      - generic [ref=e671]:
+        - generic [ref=e672]:
+          - generic [ref=e673]: Beaches, Tofino
+          - heading "Can you swim in Tofino?" [level=3] [ref=e674]
+          - paragraph [ref=e675]: Yes, but the water is cold and the ocean can be strong. Most people wear wetsuits. There are no lifeguards, so be careful.
+        - generic [ref=e676]:
+          - generic [ref=e677]: Whale watching, Ucluelet
+          - heading "When do whale watching tours run in Ucluelet?" [level=3] [ref=e678]
+          - paragraph [ref=e679]: Many tours run from March to October, but exact dates depend on the operator, the weather and the season.
+        - generic [ref=e680]:
+          - generic [ref=e681]: Storm watching, Tofino
+          - heading "Is storm watching in Tofino dangerous?" [level=3] [ref=e682]
+          - paragraph [ref=e683]: It can be, if you get too close. Watch from a safe distance, avoid wet rocks, and never turn your back on the waves.
+        - generic [ref=e684]:
+          - generic [ref=e685]: Surfing, Tofino
+          - heading "Can beginners surf in Tofino?" [level=3] [ref=e686]
+          - paragraph [ref=e687]: Yes. Tofino is one of the best places in Canada for a first surf lesson. Start with a surf school so you learn the right beach, gear and safety steps.
+        - generic [ref=e688]:
+          - generic [ref=e689]: Restaurants, Tofino
+          - heading "Is Tofino expensive for food?" [level=3] [ref=e690]
+          - paragraph [ref=e691]: It can be, because it is remote and popular. Mixing food trucks, cafes and takeout with one or two sit-down meals keeps it sensible.
+        - generic [ref=e692]:
+          - generic [ref=e693]: Camping, Tofino and Ucluelet
+          - heading "Can you camp on the beach in Tofino?" [level=3] [ref=e694]
+          - paragraph [ref=e695]: Only in official campgrounds or designated backcountry sites. Not on public beaches, parking lots, roadsides or pullouts.
+    - generic [ref=e697]:
+      - generic [ref=e698]:
+        - text: Why people trust the guides
+        - paragraph [ref=e699]: ★★★★★
+        - paragraph [ref=e700]: We went in February on your advice, which everyone told us was mad. Empty beaches, half the price, and the storms were the whole point. The tide times in the guide were exact.
+        - generic [ref=e702]:
+          - generic [ref=e703]: Maren H.
+          - text: Stayed four nights in Tofino
+        - link "Read the Tofino guide" [ref=e704] [cursor=pointer]:
+          - /url: tofino.html
+      - generic [ref=e705]:
+        - generic [ref=e706]:
+          - figure [ref=e707]:
+            - img "Two paddlers carrying a kayak down the sand to the water" [ref=e708]
+          - figure [ref=e709]:
+            - img "The Tofino shoreline under heavy cloud and breaking surf in winter" [ref=e710]
+        - paragraph [ref=e711]: February on the Tofino side, when the swell is biggest and the rooms are cheapest.
+    - generic [ref=e713]:
+      - img "A wide sand beach below a forested bluff on the west coast" [ref=e714]
+      - generic [ref=e716]:
+        - text: One letter a season
+        - heading "We write when the coast changes" [level=2] [ref=e717]
+        - paragraph [ref=e718]: "Four letters a year: when the greys arrive, when the surf turns, when the storms start, and when the trails dry out. Nothing else."
+        - generic [ref=e719]:
+          - generic [ref=e720]: Email address
+          - textbox "Email address" [ref=e721]:
+            - /placeholder: you@example.com
+          - button "Send me the letter" [ref=e722] [cursor=pointer]
+        - generic [ref=e723]:
+          - checkbox "Yes, send me the seasonal letter. You can unsubscribe from any email, and we never pass your address on." [ref=e724]
+          - text: Yes, send me the seasonal letter. You can unsubscribe from any email, and we never pass your address on.
+  - contentinfo [ref=e725]:
+    - generic [ref=e726]:
+      - generic [ref=e727]:
+        - generic [ref=e728]:
+          - text: Arctrips
+          - paragraph [ref=e729]: Stays and guides on the west coast of Vancouver Island, written by people who go there.
+        - generic [ref=e730]:
+          - heading "Destinations" [level=5] [ref=e731]
+          - list [ref=e732]:
+            - listitem [ref=e733]:
+              - link "Tofino" [ref=e734] [cursor=pointer]:
+                - /url: tofino.html
+            - listitem [ref=e735]:
+              - link "Ucluelet" [ref=e736] [cursor=pointer]:
+                - /url: ucluelet.html
+            - listitem [ref=e737]:
+              - link "Guides" [ref=e738] [cursor=pointer]:
+                - /url: search.html
+            - listitem [ref=e739]:
+              - link "British Columbia" [ref=e740] [cursor=pointer]:
+                - /url: province.html
+            - listitem [ref=e741]:
+              - link "Canada" [ref=e742] [cursor=pointer]:
+                - /url: country.html
+        - generic [ref=e743]:
+          - heading "Things to do" [level=5] [ref=e744]
+          - list [ref=e745]:
+            - listitem [ref=e746]:
+              - link "All nine subjects" [ref=e747] [cursor=pointer]:
+                - /url: things-to-do.html
+            - listitem [ref=e748]:
+              - link "Whale watching" [ref=e749] [cursor=pointer]:
+                - /url: whale-watching.html
+            - listitem [ref=e750]:
+              - link "Long Beach" [ref=e751] [cursor=pointer]:
+                - /url: long-beach.html
+            - listitem [ref=e752]:
+              - link "Search everything" [ref=e753] [cursor=pointer]:
+                - /url: search.html
+        - generic [ref=e754]:
+          - heading "Plan" [level=5] [ref=e755]
+          - list [ref=e756]:
+            - listitem [ref=e757]:
+              - link "When to go" [ref=e758] [cursor=pointer]:
+                - /url: plan.html
+            - listitem [ref=e759]:
+              - link "Getting there" [ref=e760] [cursor=pointer]:
+                - /url: plan.html
+            - listitem [ref=e761]:
+              - link "Where to stay" [ref=e762] [cursor=pointer]:
+                - /url: search.html
+            - listitem [ref=e763]:
+              - link "What to pack" [ref=e764] [cursor=pointer]:
+                - /url: guide.html
+        - generic [ref=e765]:
+          - heading "Arc Trips" [level=5] [ref=e766]
+          - list [ref=e767]:
+            - listitem [ref=e768]:
+              - link "About us" [ref=e769] [cursor=pointer]:
+                - /url: not-found.html
+            - listitem [ref=e770]:
+              - link "List your place" [ref=e771] [cursor=pointer]:
+                - /url: not-found.html
+            - listitem [ref=e772]:
+              - link "Fishing charters" [ref=e773] [cursor=pointer]:
+                - /url: search.html
+            - listitem [ref=e774]:
+              - link "Contact" [ref=e775] [cursor=pointer]:
+                - /url: not-found.html
+      - generic [ref=e776]:
+        - generic [ref=e777]: © 2026 Arc Trips
+        - generic [ref=e778]: Prices in CAD, before taxes and fees

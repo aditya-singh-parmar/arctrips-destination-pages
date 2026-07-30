@@ -2,26 +2,47 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Working mode — delegate, don't guess
+## Working mode — size first, then ceremony
 
-For any **substantive build/design/refactor request**, do NOT implement directly from the raw prompt. Translate it into a precise spec and run **Plan → Build → Verify** via subagents:
+**Pick the lane before the approach** (root `CLAUDE.md` §6). The pipeline below is right
+for a real feature and ruinous for a copy change — a plan agent plus a specialist agent
+is 50–80k tokens and several minutes *before the first edit*, and most requests here do
+not earn it.
+
+| The change | What to do |
+|---|---|
+| 1–3 files, CSS, copy, spacing, a small bug | **Inline. No subagent, no plan, no skill load.** `/tweak` |
+| One surface, up to ~10 files | `/task "<what>"` — plan only above ~5 files |
+| A new page or a real redesign | The full pipeline below |
+
+**Never spawn a subagent for small work.** Recon in the main thread, `Grep` for the
+string, edit the file. That is the single biggest cost in this repo.
+
+### The full pipeline — for a new page or a real redesign only
 
 1. **Decompose** the request into testable outcomes; read the in-scope files yourself so the brief carries real paths/line numbers.
 2. **Brief** — assemble a self-contained context brief (goal + acceptance criteria + exact files + the design rules below + any reference image/Figma path). Subagents don't auto-explore; hand them everything.
-3. **Plan agent** writes the implementation spec → you review it against the design system and correct any guessing.
+3. **Plan agent** writes the implementation spec → you review it against the design system and correct any guessing. Skip this below ~5 files.
 4. **Specialist agent** (`frontend-design-engineer` for UI, `backend-engineer` for server/Supabase) implements from the corrected plan.
-5. **Verify** — `npm run build` and Read/render the result before claiming done; loop back on any defect.
+5. **Verify** — `node scripts/shots.mjs`, read `.screens/manifest.json`, fix every non-clean shot. One review round, then one fix pass, then stop.
 
-You are the architect and reviewer. Trivial one-line tweaks and plain questions can be answered directly — the pipeline is for anything that would otherwise be reactive guesswork.
+## UI work
 
-## UI work: always use the design skills
+**Design-direction work** — a new page, a redesign, "make this look better", anything
+where the *composition* is the question — starts with the design skills: invoke
+**`/frontend-design`** and **`/impeccable`**, and read **`PRODUCT.md`** and **`DESIGN.md`**
+for the register, tone, anti-references and locked palette. Delegate implementation to
+`frontend-design-engineer` with a self-contained brief: exact file paths, the design
+direction, the hard rules below. Run independent surfaces in parallel; never let two
+agents edit `app/theme.css` at the same time.
 
-**Any** visual or frontend task (a page, a component, a layout, spacing, a "make this look better" request) MUST start by invoking the design skills. Do not hand-tune CSS from the raw prompt.
+**Everything else** — a spacing fix, a colour token, a broken breakpoint, a wrong string
+— skip all of that and just fix it. Loading two skills and two markdown files to change
+a `gap-4` is the ceremony this section used to mandate and no longer does.
 
-1. Invoke **`/frontend-design`** and **`/impeccable`** before touching any markup or stylesheet.
-2. Read **`PRODUCT.md`** and **`DESIGN.md`** at the repo root. They hold the register, the tone, the anti-references and the locked palette. `/impeccable` loads them automatically via its context loader.
-3. Delegate implementation to **`frontend-design-engineer`** subagents with a self-contained brief: exact file paths, the design direction, and the hard rules below. Run independent surfaces in parallel; never let two agents edit `app/theme.css` at the same time.
-4. Verify by rendering the page and looking at it, not by reading the diff.
+Verify by rendering and looking, never by reading the diff: `node scripts/shots.mjs
+--routes <route>` gives both viewports and both themes in one run, with overflow,
+console errors and non-200s already detected. Do not drive the browser route by route.
 
 **Locked, never change without the owner saying so:** the brand colours in `app/globals.css` (Azure `#2874BA`, Emerald `#3A9679`, navy `#0B3356`, the neutral ramp), and Inter as the only typeface (Satoshi for the `ARCTRIPS` wordmark only). Layout, spacing, density, hierarchy, composition and motion are all fair game and are usually where the real problem is.
 
@@ -147,5 +168,7 @@ Tests run with `npm test` (vitest). Only pure logic is tested: `app/lib/cta.test
 
 ## Token discipline (browser & subagents)
 
-- Default to the cheapest tool that answers the question: `curl -sL <url> | grep` for static content, chrome-devtools-mcp for functional/JS testing, ONE screenshot only for visual sign-off.
-- A subagent costs 25–40k tokens before doing any work. Recon in the main thread first (identify exact file:line), dispatch with explicit paths, and don't parallelize unless tasks are genuinely independent.
+- Default to the cheapest tool that answers the question: `curl -sL <url> | grep` for static content, chrome-devtools-mcp for functional/JS testing, `scripts/shots.mjs` for anything visual.
+- A subagent costs 25–40k tokens before doing any work. Recon in the main thread first (identify exact file:line), dispatch with explicit paths, and don't parallelize unless tasks are genuinely independent. Under three files, do not dispatch at all.
+- `node scripts/shots.mjs --fast --routes <route>` is ~2s and costs nothing. Reach for it instead of a browser session; read `.screens/manifest.json` rather than looking at every shot.
+- **One change per session, then `/clear`.** A session carrying four earlier tasks re-reads all of them.

@@ -1,0 +1,311 @@
+- generic [active] [ref=f845e1]:
+  - link "Skip to content" [ref=f845e2] [cursor=pointer]:
+    - /url: "#main"
+  - generic:
+    - img:
+      - generic:
+        - generic: "14"
+        - generic: "9"
+        - generic: "22"
+        - generic: "31"
+        - generic: "17"
+        - generic: "6"
+        - generic: "11"
+        - generic: "26"
+        - generic: "19"
+        - generic: "8"
+        - generic: "24"
+        - generic: "13"
+        - generic: "28"
+        - generic: "5"
+        - generic: "16"
+  - navigation [ref=f845e3]:
+    - generic [ref=f845e4]:
+      - link "Arctrips" [ref=f845e5] [cursor=pointer]:
+        - /url: "#top"
+      - list [ref=f845e6]:
+        - listitem [ref=f845e7]:
+          - link "Stays" [ref=f845e8] [cursor=pointer]:
+            - /url: search.html
+        - listitem [ref=f845e9]:
+          - link "Destinations" [ref=f845e10] [cursor=pointer]:
+            - /url: "#top"
+        - listitem [ref=f845e11]:
+          - link "Guides" [ref=f845e12] [cursor=pointer]:
+            - /url: search.html
+      - link "Sign in" [ref=f845e13] [cursor=pointer]:
+        - /url: not-found.html
+  - main [ref=f845e14]:
+    - generic [ref=f845e16]:
+      - generic [ref=f845e17]:
+        - text: Canada
+        - heading [level=1] [ref=f845e18]:
+          - text: Canada,
+          - generic [ref=f845e19]: town by town
+        - paragraph [ref=f845e22]: Twenty six towns across seven provinces, written up place by place. Start with a province, drill down to a town, then to the places inside it.
+        - generic [ref=f845e23]:
+          - link "Browse by province" [ref=f845e24] [cursor=pointer]:
+            - /url: "#canada"
+          - link "Or start with Tofino" [ref=f845e25] [cursor=pointer]:
+            - /url: tofino.html
+        - paragraph [ref=f845e26]
+      - generic [ref=f845e27]:
+        - link "Lake Louise, Banff Lake Louise, Banff" [ref=f845e35] [cursor=pointer]:
+          - /url: banff.html
+          - img "Lake Louise, Banff" [ref=f845e36]
+          - generic [ref=f845e37]: Lake Louise, Banff
+        - link "Chateau Frontenac, Quebec City Chateau Frontenac, Quebec City" [ref=f845e38] [cursor=pointer]:
+          - /url: quebec-city.html
+          - img "Chateau Frontenac, Quebec City" [ref=f845e39]
+          - generic [ref=f845e40]: Chateau Frontenac, Quebec City
+        - link "Lost Lake, Whistler Lost Lake, Whistler" [ref=f845e41] [cursor=pointer]:
+          - /url: whistler.html
+          - img "Lost Lake, Whistler" [ref=f845e42]
+          - generic [ref=f845e43]: Lost Lake, Whistler
+    - generic [ref=f845e45]:
+      - generic [ref=f845e46]: Tide today at Tofino Harbour
+      - paragraph
+      - paragraph [ref=f845e47]: Long Beach doubles in width at low water, so that is when the long walk is worth doing.
+    - generic [ref=f845e49]:
+      - generic [ref=f845e50]:
+        - generic [ref=f845e51]:
+          - text: Where we publish
+          - heading "Canada, province by province" [level=2] [ref=f845e52]
+          - paragraph [ref=f845e53]: "Start at the top and work down: a province, then a region, then a town, then the places inside it. British Columbia is the one we have finished."
+        - link "Open British Columbia" [ref=f845e54] [cursor=pointer]:
+          - /url: province.html
+      - generic [ref=f845e55]:
+        - link "British Columbia Tofino, Whistler, Ucluelet, Victoria 15 towns 1,067 places" [ref=f845e56] [cursor=pointer]:
+          - /url: province.html
+          - generic [ref=f845e57]: British Columbia
+          - generic [ref=f845e58]: Tofino, Whistler, Ucluelet, Victoria
+          - generic [ref=f845e59]:
+            - generic [ref=f845e60]: "15"
+            - text: towns
+            - generic [ref=f845e61]: 1,067 places
+        - link "Alberta Banff, Edmonton, Jasper 3 towns 91 places" [ref=f845e62] [cursor=pointer]:
+          - /url: index.html#towns
+          - generic [ref=f845e63]: Alberta
+          - generic [ref=f845e64]: Banff, Edmonton, Jasper
+          - generic [ref=f845e65]:
+            - generic [ref=f845e66]: "3"
+            - text: towns
+            - generic [ref=f845e67]: 91 places
+        - link "Ontario Ottawa, Niagara Falls 2 towns 78 places" [ref=f845e68] [cursor=pointer]:
+          - /url: index.html#towns
+          - generic [ref=f845e69]: Ontario
+          - generic [ref=f845e70]: Ottawa, Niagara Falls
+          - generic [ref=f845e71]:
+            - generic [ref=f845e72]: "2"
+            - text: towns
+            - generic [ref=f845e73]: 78 places
+        - link "Quebec Quebec City, Montreal 2 towns 81 places" [ref=f845e74] [cursor=pointer]:
+          - /url: index.html#towns
+          - generic [ref=f845e75]: Quebec
+          - generic [ref=f845e76]: Quebec City, Montreal
+          - generic [ref=f845e77]:
+            - generic [ref=f845e78]: "2"
+            - text: towns
+            - generic [ref=f845e79]: 81 places
+        - link "Nova Scotia Halifax 1 towns 38 places" [ref=f845e80] [cursor=pointer]:
+          - /url: index.html#towns
+          - generic [ref=f845e81]: Nova Scotia
+          - generic [ref=f845e82]: Halifax
+          - generic [ref=f845e83]:
+            - generic [ref=f845e84]: "1"
+            - text: towns
+            - generic [ref=f845e85]: 38 places
+        - link "Saskatchewan Saskatoon 1 towns 27 places" [ref=f845e86] [cursor=pointer]:
+          - /url: index.html#towns
+          - generic [ref=f845e87]: Saskatchewan
+          - generic [ref=f845e88]: Saskatoon
+          - generic [ref=f845e89]:
+            - generic [ref=f845e90]: "1"
+            - text: towns
+            - generic [ref=f845e91]: 27 places
+        - link "Prince Edward Island Charlottetown 1 towns 28 places" [ref=f845e92] [cursor=pointer]:
+          - /url: index.html#towns
+          - generic [ref=f845e93]: Prince Edward Island
+          - generic [ref=f845e94]: Charlottetown
+          - generic [ref=f845e95]:
+            - generic [ref=f845e96]: "1"
+            - text: towns
+            - generic [ref=f845e97]: 28 places
+    - generic [ref=f845e100]:
+      - generic [ref=f845e101]:
+        - generic [ref=f845e102]:
+          - text: Where we publish
+          - heading "Destinations" [level=2] [ref=f845e103]
+          - paragraph
+        - link "All of Vancouver Island" [ref=f845e104] [cursor=pointer]:
+          - /url: region.html
+      - generic [ref=f845e105]:
+        - heading [level=3]
+        - paragraph [ref=f845e106]: These are written and being checked. Each one goes live the same way the first two did, once we have been.
+    - generic [ref=f845e109]:
+      - generic [ref=f845e110]:
+        - generic [ref=f845e111]:
+          - heading "When should you go?" [level=2] [ref=f845e112]
+          - paragraph [ref=f845e113]: "Pick a month and you get the honest answer for Tofino: the weather it really has, what is in season, and what you can book."
+        - link "Plan a trip" [ref=f845e114] [cursor=pointer]:
+          - /url: plan.html
+      - generic [ref=f845e115]:
+        - paragraph [ref=f845e116]: Each column is that month's average rainfall in Tofino. Taller means wetter. Choose a month.
+        - group "Choose a town" [ref=f845e117]:
+          - button "Tofino" [pressed] [ref=f845e118] [cursor=pointer]
+          - button "Ucluelet" [ref=f845e119] [cursor=pointer]
+        - group "Choose a month" [ref=f845e120]
+        - paragraph [ref=f845e121]:
+          - generic [ref=f845e122]: Wettest November, 500 mm
+          - generic [ref=f845e123]: Driest July, 66 mm
+      - generic [ref=f845e124]:
+        - generic [ref=f845e125]:
+          - paragraph
+          - paragraph
+        - paragraph
+      - heading [level=3]
+      - paragraph [ref=f845e126]: Each row is one thing to do, and the twelve squares are the months. A filled square means that month is in season for it.
+      - table:
+        - rowgroup
+      - generic [ref=f845e127]:
+        - paragraph
+        - link "Search every place" [ref=f845e128] [cursor=pointer]:
+          - /url: search.html
+      - paragraph [ref=f845e131]: Climate figures are Environment and Climate Change Canada normals for Tofino, seeded for design.
+      - status [ref=f845e132]
+    - generic [ref=f845e133]:
+      - img "An empty stretch of sand on the west coast of Vancouver Island" [ref=f845e134]
+      - generic [ref=f845e136]:
+        - text: The index
+        - paragraph [ref=f845e137]:
+          - generic [ref=f845e138]: "127"
+          - text: places, documented by name.
+        - paragraph
+        - link "Search every one of them" [ref=f845e139] [cursor=pointer]:
+          - /url: search.html
+    - generic [ref=f845e141]:
+      - generic [ref=f845e142]:
+        - generic [ref=f845e143]:
+          - text: From the guides
+          - heading "Latest reading" [level=2] [ref=f845e144]
+          - paragraph
+        - link "Everything to do in Tofino" [ref=f845e145] [cursor=pointer]:
+          - /url: things-to-do.html
+      - 'link "A surfer in the shorebreak at sunset on the Tofino coast When to go Tofino and Ucluelet Best time to stay in Ucluelet or Tofino Weather, prices, and what is actually on across the seasons. The short version: there is no month here without an answer, and the cheapest ones are the most dramatic." [ref=f845e147] [cursor=pointer]':
+        - /url: guide.html
+        - img "A surfer in the shorebreak at sunset on the Tofino coast" [ref=f845e149]
+        - generic [ref=f845e150]:
+          - generic [ref=f845e151]: When to go
+          - generic [ref=f845e153]: Tofino and Ucluelet
+        - heading "Best time to stay in Ucluelet or Tofino" [level=3] [ref=f845e154]
+        - paragraph [ref=f845e155]: "Weather, prices, and what is actually on across the seasons. The short version: there is no month here without an answer, and the cheapest ones are the most dramatic."
+    - generic [ref=f845e158]:
+      - generic [ref=f845e159]:
+        - text: Asked and answered
+        - heading "The awkward questions" [level=2] [ref=f845e160]
+        - paragraph
+      - link "All of them, by subject" [ref=f845e161] [cursor=pointer]:
+        - /url: plan.html
+    - generic [ref=f845e163]:
+      - generic [ref=f845e164]:
+        - text: Why people trust the guides
+        - paragraph [ref=f845e165]: ★★★★★
+        - paragraph [ref=f845e166]: We went in February on your advice, which everyone told us was mad. Empty beaches, half the price, and the storms were the whole point. The tide times in the guide were exact.
+        - generic [ref=f845e168]:
+          - generic [ref=f845e169]: Maren H.
+          - text: Stayed four nights in Tofino
+        - link "Read the Tofino guide" [ref=f845e170] [cursor=pointer]:
+          - /url: tofino.html
+      - generic [ref=f845e171]:
+        - generic [ref=f845e172]:
+          - figure [ref=f845e173]:
+            - img "Two paddlers carrying a kayak down the sand to the water" [ref=f845e174]
+          - figure [ref=f845e175]:
+            - img "The Tofino shoreline under heavy cloud and breaking surf in winter" [ref=f845e176]
+        - paragraph [ref=f845e177]: February on the Tofino side, when the swell is biggest and the rooms are cheapest.
+    - generic [ref=f845e179]:
+      - img "A wide sand beach below a forested bluff on the west coast" [ref=f845e180]
+      - generic [ref=f845e182]:
+        - text: One letter a season
+        - heading "We write when the coast changes" [level=2] [ref=f845e183]
+        - paragraph [ref=f845e184]: "Four letters a year: when the greys arrive, when the surf turns, when the storms start, and when the trails dry out. Nothing else."
+        - generic [ref=f845e185]:
+          - generic [ref=f845e186]: Email address
+          - textbox "Email address" [ref=f845e187]:
+            - /placeholder: you@example.com
+          - button "Send me the letter" [ref=f845e188] [cursor=pointer]
+        - generic [ref=f845e189]:
+          - checkbox "Yes, send me the seasonal letter. You can unsubscribe from any email, and we never pass your address on." [ref=f845e190]
+          - text: Yes, send me the seasonal letter. You can unsubscribe from any email, and we never pass your address on.
+  - contentinfo [ref=f845e191]:
+    - generic [ref=f845e192]:
+      - generic [ref=f845e193]:
+        - generic [ref=f845e194]:
+          - text: Arctrips
+          - paragraph [ref=f845e195]: Stays and guides on the west coast of Vancouver Island, written by people who go there.
+        - generic [ref=f845e196]:
+          - heading "Destinations" [level=5] [ref=f845e197]
+          - list [ref=f845e198]:
+            - listitem [ref=f845e199]:
+              - link "Tofino" [ref=f845e200] [cursor=pointer]:
+                - /url: tofino.html
+            - listitem [ref=f845e201]:
+              - link "Ucluelet" [ref=f845e202] [cursor=pointer]:
+                - /url: ucluelet.html
+            - listitem [ref=f845e203]:
+              - link "Guides" [ref=f845e204] [cursor=pointer]:
+                - /url: search.html
+            - listitem [ref=f845e205]:
+              - link "British Columbia" [ref=f845e206] [cursor=pointer]:
+                - /url: province.html
+            - listitem [ref=f845e207]:
+              - link "Canada" [ref=f845e208] [cursor=pointer]:
+                - /url: country.html
+        - generic [ref=f845e209]:
+          - heading "Things to do" [level=5] [ref=f845e210]
+          - list [ref=f845e211]:
+            - listitem [ref=f845e212]:
+              - link "All nine subjects" [ref=f845e213] [cursor=pointer]:
+                - /url: things-to-do.html
+            - listitem [ref=f845e214]:
+              - link "Whale watching" [ref=f845e215] [cursor=pointer]:
+                - /url: whale-watching.html
+            - listitem [ref=f845e216]:
+              - link "Long Beach" [ref=f845e217] [cursor=pointer]:
+                - /url: long-beach.html
+            - listitem [ref=f845e218]:
+              - link "Search everything" [ref=f845e219] [cursor=pointer]:
+                - /url: search.html
+        - generic [ref=f845e220]:
+          - heading "Plan" [level=5] [ref=f845e221]
+          - list [ref=f845e222]:
+            - listitem [ref=f845e223]:
+              - link "When to go" [ref=f845e224] [cursor=pointer]:
+                - /url: plan.html
+            - listitem [ref=f845e225]:
+              - link "Getting there" [ref=f845e226] [cursor=pointer]:
+                - /url: plan.html
+            - listitem [ref=f845e227]:
+              - link "Where to stay" [ref=f845e228] [cursor=pointer]:
+                - /url: search.html
+            - listitem [ref=f845e229]:
+              - link "What to pack" [ref=f845e230] [cursor=pointer]:
+                - /url: guide.html
+        - generic [ref=f845e231]:
+          - heading "Arc Trips" [level=5] [ref=f845e232]
+          - list [ref=f845e233]:
+            - listitem [ref=f845e234]:
+              - link "About us" [ref=f845e235] [cursor=pointer]:
+                - /url: not-found.html
+            - listitem [ref=f845e236]:
+              - link "List your place" [ref=f845e237] [cursor=pointer]:
+                - /url: not-found.html
+            - listitem [ref=f845e238]:
+              - link "Fishing charters" [ref=f845e239] [cursor=pointer]:
+                - /url: search.html
+            - listitem [ref=f845e240]:
+              - link "Contact" [ref=f845e241] [cursor=pointer]:
+                - /url: not-found.html
+      - generic [ref=f845e242]:
+        - generic [ref=f845e243]: © 2026 Arc Trips
+        - generic [ref=f845e244]: Prices in CAD, before taxes and fees
