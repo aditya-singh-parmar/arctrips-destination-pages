@@ -16,12 +16,12 @@
       (b) the v2 navigation corrections: the system's own selectors lose to
           body>*:not(.chart), so sticky and fixed rows have to be restated
       (c) the components a category page needs that the system does not carry:
-          the spot index, the plain box, the photo strip, the reading index
+          the plain box, the almanac, the spot cards, the questions
       (d) on-navy corrections for system components used inside .almanac ── */
 
 /* (a) accessibility floors */
 :focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:var(--r-sm)}
-.almanac :focus-visible,.band :focus-visible,.proof :focus-visible{outline-color:var(--a300)}
+.almanac :focus-visible,.band :focus-visible{outline-color:var(--a300)}
 .btn{min-height:44px;white-space:nowrap}
 nav.top .btn{flex:none}
 .brand,.nav-links a{display:inline-flex;align-items:center;min-height:44px}
@@ -202,19 +202,6 @@ main [id]{scroll-margin-top:142px}
   .gsep{padding-block:0!important;border-bottom:0!important}
 }
 
-/* (c) the one band that escapes the container */
-.proof{position:relative;min-height:min(70vh,600px);display:flex;align-items:center;overflow:hidden;
-  margin-block:clamp(48px,6vw,88px)}
-.proof img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.proof__veil{position:absolute;inset:0;background:linear-gradient(96deg,rgba(11,51,86,.94) 0%,rgba(11,51,86,.8) 48%,rgba(11,51,86,.3) 100%)}
-.proof__in{position:relative;padding-block:clamp(44px,6vw,72px)}
-.proof__n{font-size:clamp(1.7rem,3.6vw,2.9rem);font-weight:700;color:var(--paper);letter-spacing:-.035em;
-  line-height:1.08;margin-top:14px;max-width:19ch}
-.proof__n b{font-size:clamp(3.6rem,9.4vw,7.4rem);font-weight:800;display:block;letter-spacing:-.05em;line-height:.88}
-.proof__d{color:rgba(255,255,255,.84);max-width:48ch;margin-top:20px;font-size:1.02rem;line-height:1.6}
-.proof__cta{margin-top:28px;border-color:rgba(255,255,255,.5);color:var(--paper)}
-.proof__cta:hover{border-color:var(--paper);background:rgba(255,255,255,.1)}
-
 /* (c) the six write-ups */
 .spots{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(26px,3vw,44px)}
 @media(max-width:760px){.spots{grid-template-columns:1fr}}
@@ -229,44 +216,6 @@ main [id]{scroll-margin-top:142px}
 .spot .btn{margin-top:17px}
 .emptyline{font-size:.95rem;color:var(--n600);margin-top:8px}
 .emptyline button{color:var(--azure);text-decoration:underline;font:inherit;font-weight:600;padding:8px 4px;min-height:44px}
-
-/* (c) the spot index: difficulty, road time, tide station, in one table */
-.sidx{width:100%;border-collapse:collapse;font-size:.92rem}
-.sidx th{text-align:left;font-size:.66rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
-  color:var(--n600);padding-bottom:12px;border-bottom:1px solid var(--n200);vertical-align:bottom}
-.sidx td{padding:16px 14px 16px 0;border-bottom:1px solid var(--n150);vertical-align:top;color:var(--n700)}
-.sidx td:last-child,.sidx th:last-child{padding-right:0}
-.sidx__n{font-size:1.04rem;font-weight:700;color:var(--navy);letter-spacing:-.012em}
-.sidx__n a{display:inline-flex;align-items:center;min-height:44px}
-.sidx__n a:hover{color:var(--azure)}
-.sidx__s{display:block;font-size:.82rem;color:var(--n600);margin-top:3px}
-.sidx b{color:var(--navy);font-weight:700}
-.sidx .tnum{white-space:nowrap}
-.sidxwrap{overflow-x:auto;scrollbar-width:thin}
-@media(max-width:860px){
-  .sidx thead{display:none}
-  .sidx tbody tr{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;padding-block:20px;border-bottom:1px solid var(--n150)}
-  .sidx tbody tr:last-child{border-bottom:0}
-  .sidx td{display:block;border-bottom:0;padding:0}
-  .sidx td:first-child{grid-column:1/-1}
-  .sidx td[data-l]::before{content:attr(data-l);display:block;font-size:.63rem;font-weight:700;
-    letter-spacing:.13em;text-transform:uppercase;color:var(--n600);margin-bottom:5px}
-  /* stacked, the tide line has to wrap rather than push a scroller */
-  .sidx .tnum{white-space:normal}
-}
-.sidx__foot{font-size:.84rem;color:var(--n600);line-height:1.6;margin-top:18px;max-width:82ch}
-.sidx__foot b{color:var(--navy);font-weight:700}
-
-/* (c) the photo strip: thirteen frames, scrolled, not stacked */
-.strip{margin-block:clamp(40px,5vw,72px)}
-.strip__h{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:20px}
-.strip__r{display:flex;gap:12px;overflow-x:auto;scrollbar-width:none;padding-inline:var(--gut);padding-bottom:4px}
-.strip__r::-webkit-scrollbar{display:none}
-.strip figure{flex:none;width:clamp(210px,26vw,320px)}
-.strip img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r);background:var(--n100)}
-.strip figcaption{font-size:.82rem;color:var(--n600);margin-top:9px;line-height:1.45}
-.strip figcaption b{display:block;color:var(--navy);font-weight:700;font-size:.7rem;letter-spacing:.12em;
-  text-transform:uppercase;margin-bottom:4px}
 
 /* (c) the plain box, used by boats, kit, safety and the comparison */
 .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.4vw,28px)}
@@ -286,35 +235,8 @@ main [id]{scroll-margin-top:142px}
 .kit dt{font-weight:700;color:var(--navy);font-size:1rem}
 .kit dd{color:var(--n600);font-size:.94rem;line-height:1.6;margin-top:6px;max-width:44ch}
 .kit dd cite{font-style:normal;font-weight:600;color:var(--n700);font-size:.85rem}
-.vs__l{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--azure)}
-.vs dl{display:flex;flex-direction:column;gap:11px;margin-top:16px}
-.vs dl div{display:flex;justify-content:space-between;gap:16px;font-size:.92rem;
-  border-top:1px solid var(--n150);padding-top:11px}
-.vs dt{color:var(--n600)}
-.vs dd{color:var(--navy);font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
-.verdict{margin-top:clamp(20px,2.4vw,28px);font-size:1.06rem;color:var(--navy);font-weight:600;
-  line-height:1.55;max-width:64ch;letter-spacing:-.012em}
 
-/* (c) the asymmetric reading block: heading held left, index running right */
-.split{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,2fr);gap:clamp(24px,4vw,64px);align-items:start}
 @media(max-width:900px){.split{grid-template-columns:1fr;gap:26px}}
-.rindex{display:grid;grid-template-columns:1fr;gap:0}
-.ri{display:grid;grid-template-columns:34px 96px 1fr;gap:18px;align-items:start;
-  border-top:1px solid var(--n150);padding:18px 0}
-.ri:last-child{border-bottom:1px solid var(--n150)}
-.ri__i{font-size:.8rem;font-weight:700;color:var(--n600);font-variant-numeric:tabular-nums;padding-top:3px}
-.ri__m{border-radius:var(--r-sm);overflow:hidden;aspect-ratio:4/3;background:var(--n100)}
-.ri__m img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
-.ri:hover .ri__m img{transform:scale(1.05)}
-.ri h3{font-size:1.08rem;line-height:1.3}
-.ri:hover h3{color:var(--azure)}
-.ri p{font-size:.9rem;color:var(--n600);margin-top:6px;line-height:1.5;max-width:56ch}
-.ri__meta{font-size:.76rem;color:var(--n600);margin-top:8px;display:flex;gap:9px;align-items:center;flex-wrap:wrap}
-.ri__meta .k{color:var(--azure);font-weight:700;letter-spacing:.09em;text-transform:uppercase;font-size:.66rem}
-@media(max-width:560px){
-  .ri{grid-template-columns:30px 1fr;gap:12px}
-  .ri__m{grid-column:1/-1;aspect-ratio:16/9;order:3}
-}
 
 /* (c) questions */
 .faq{border-top:1px solid var(--n150)}
@@ -366,14 +288,11 @@ main [id]{scroll-margin-top:142px}
 .btn--sm,.search kbd,.kmeta,.kmeta .k,.stat dt,.stat dd small,
 .msw__mm,.msw__l,.mswaxis,.bignums dt,.bignums dd small,
 .led th,.led__w,.led__b,.mon i,.pill,.gsep td,.jump,.innow__l a,.almanac__legend,
-.sidx th,.sidx__s,.sidx__foot,.sidx td[data-l]::before,
-.strip figcaption,.strip figcaption b,.box__best span,.kit dd cite,.vs__l,
-.ri__i,.ri__meta,.ri__meta .k,.faq cite,.kg .go,
+.box__best span,.kit dd cite,.faq cite,.kg .go,
 .consent,.dock__t,.fgrid h5,.fnote,.fbase,.filterrow button{font-size:.88rem}
 /* the uppercase micro-labels need less tracking once they are 14px */
-.label,.led th,.sidx th,.stat dt,.bignums dt,.gsep td,.vs__l,.box__best span,
-.ri__meta .k,.kmeta .k,.fgrid h5,.hero-facts dt,.strip figcaption b,
-.sidx td[data-l]::before{letter-spacing:.09em}
+.label,.led th,.stat dt,.bignums dt,.gsep td,.box__best span,
+.kmeta .k,.fgrid h5,.hero-facts dt{letter-spacing:.09em}
 </style>
 </head>
 <body>
@@ -531,7 +450,7 @@ main [id]{scroll-margin-top:142px}
     <a href="#where">The six places</a>
     <a href="#boats">Boats and cost</a>
     <a href="#kit">What to bring</a>
-    <a href="#reading">The guides</a>
+    <a href="#safety">Safety</a>
     <a href="#faq">Questions</a>
   </nav>
 </div>
@@ -549,7 +468,7 @@ main [id]{scroll-margin-top:142px}
   <div class="read">
     <div class="feat">
       <div class="feat__m"><img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1100,h_690/guides/tofino/whale-watching/_category-2" alt="Several whale blows hanging over the water below a dark forested hillside"></div>
-      <div class="kmeta"><span class="k">Clayoquot Sound</span><span class="dot"></span><span>Open Pacific, sheltered inlets, islands</span><span class="dot"></span><span class="tnum">321 blocks of writing</span></div>
+      <div class="kmeta"><span class="k">Clayoquot Sound</span><span class="dot"></span><span>Open Pacific, sheltered inlets, islands</span><span class="dot"></span><span>Gray, humpback and orca</span></div>
       <h3>The whales come for the food, and the food is here</h3>
       <p>Tofino sits beside Clayoquot Sound, a rich coastal area with ocean, islands, beaches, rainforest and rocky shorelines. It is one of the best places on Vancouver Island to see wild animals, and the reason is structural: the shelf here pushes cold water up, the cold water feeds the herring and the krill, and everything larger follows.</p>
       <p>Gray whales pass on their way from the calving lagoons in Baja California to the feeding grounds off Alaska. Humpbacks stay to feed through the summer. Orcas turn up when they turn up. The same water holds sea lions, harbour seals, sea otters, bald eagles, and a seabird passage twice a year.</p>
@@ -618,16 +537,7 @@ main [id]{scroll-margin-top:142px}
   </div>
 </div></section>
 
-<section class="proof">
-  <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_2400,h_1100/guides/ucluelet/whale-watching/_category-2" alt="A small tour boat crossing calm water below a forested island held in sea mist">
-  <div class="proof__veil"></div>
-  <div class="wrap proof__in">
-    <span class="label" style="color:var(--a300)">Live on this coast tonight</span>
-    <p class="proof__n"><b class="tnum">292</b> stays, and no operator listed until we have been out on the boat.</p>
-    <p class="proof__d">134 places in Tofino and 158 in Ucluelet, from $320 a night, bookable now. We are signing whale watching operators in both towns, and we will not put a price or a name on this page before we have paid it ourselves.</p>
-    <a class="btn btn--ghost btn--lg proof__cta" href="#notify">Tell me when the boats go live</a>
-  </div>
-</section>
+
 
 <section class="sec sec--top0" id="where"><div class="wrap">
   <div class="head">
@@ -644,37 +554,9 @@ main [id]{scroll-margin-top:142px}
   <p class="emptyline" id="spotempty" hidden>Nothing carries that tag. <button type="button" data-clear>Show all six places</button></p>
 </div></section>
 
-<section class="sec sec--top0" id="index"><div class="wrap">
-  <div class="head">
-    <div>
-      <span class="label label--n">The six places side by side</span>
-      <h2 style="margin-top:11px">How hard is it, and how far?</h2>
-      <p>The same six places as a table, for the morning you are deciding in the car park rather than reading in bed.</p>
-    </div>
-    <a class="btn btn--ghost btn--sm" href="search.html?in=tofino">Search everything in Tofino</a>
-  </div>
 
-  <div class="sidxwrap">
-    <table class="sidx">
-      <thead><tr>
-        <th>Place</th><th>Watch from</th><th>Effort</th><th>From Tofino by road</th>
-      </tr></thead>
-      <tbody id="sidx"></tbody>
-    </table>
-  </div>
-  <p class="sidx__foot" id="sidxfoot"></p>
-</div></section>
 
-<section class="strip" id="frames">
-  <div class="wrap strip__h">
-    <div>
-      <span class="label label--n">Photographs</span>
-      <h2 style="margin-top:11px">Thirteen photos from these two guides</h2>
-    </div>
-    <p class="sidx__foot" style="margin:0;max-width:40ch">Eight from Tofino, five from Ucluelet. Nothing here is stock.</p>
-  </div>
-  <div class="strip__r" id="frameStrip"></div>
-</section>
+
 
 <section class="sec sec--tight" id="boats"><div class="wrap">
   <div class="head">
@@ -765,70 +647,13 @@ main [id]{scroll-margin-top:142px}
   </div>
 </div></section>
 
-<section class="sec sec--tight" id="reading"><div class="wrap split">
-  <div>
-    <span class="label label--n">The reading</span>
-    <h2 style="margin-top:11px">Eight guides sit under this subject</h2>
-    <p style="color:var(--n600);margin-top:12px;font-size:.99rem;line-height:1.6">Two towns, one subject, eight separate pieces of writing. Six of them carry their own questions, which is where the twenty-four answers below come from.</p>
-    <a class="btn btn--ghost btn--sm" style="margin-top:22px" href="guide.html">Open the guide index</a>
-  </div>
-  <div class="rindex" id="rindex"></div>
-</div></section>
 
-<section class="sec sec--top0" id="faq"><div class="wrap">
-  <div class="head">
-    <div>
-      <span class="label label--n">Questions</span>
-      <h2 style="margin-top:11px">Twenty-four things people ask before they book</h2>
-      <p>Every answer below is the answer in the guide it came from, and that guide is named under each one.</p>
-    </div>
-  </div>
-  <div id="faqs"></div>
-</div></section>
 
-<section class="sec sec--tight" id="versus"><div class="wrap">
-  <div class="head">
-    <div>
-      <span class="label label--n">Tofino or Ucluelet</span>
-      <h2 style="margin-top:11px">Same whales, different water</h2>
-      <p>Forty minutes apart on the same road, facing the same ocean. For this one subject the difference is real, and it is about what the boat can reach.</p>
-    </div>
-  </div>
-  <div class="grid2 vs">
-    <div class="box">
-      <span class="vs__l">Tofino</span>
-      <h3 style="margin-top:8px">Clayoquot Sound and the open coast</h3>
-      <p>Boats work north and west into Clayoquot Sound: islands, inlets, and the open Pacific off Vargas and Flores. It is the bigger town, with more to do on the day the sea is too rough to sail.</p>
-      <dl>
-        <div><dt>Stays</dt><dd>134 from $320</dd></div>
-        <div><dt>Rain in January</dt><dd>489 mm</dd></div>
-        <div><dt>Rain in July</dt><dd>66 mm</dd></div>
-      </dl>
-    </div>
-    <div class="box">
-      <span class="vs__l">Ucluelet</span>
-      <h3 style="margin-top:8px">Barkley Sound and the Broken Group</h3>
-      <p>Boats run south into Barkley Sound, the Broken Group Islands and the kelp beds around them. It is the quieter town, and five of the six places in this guide are on its side of the park.</p>
-      <dl>
-        <div><dt>Stays</dt><dd>158 from $320</dd></div>
-        <div><dt>Rain in January</dt><dd>452 mm</dd></div>
-        <div><dt>Rain in July</dt><dd>62 mm</dd></div>
-      </dl>
-    </div>
-  </div>
-  <p class="verdict">Stay in Tofino and drive down for the boat, or stay in Ucluelet and walk to the lighthouse before breakfast. The whales do not know which town you booked.</p>
-</div></section>
 
-<section class="sec sec--top0"><div class="wrap">
-  <div class="head">
-    <div>
-      <span class="label label--n">Other things to do here</span>
-      <h2 style="margin-top:11px">Whale watching is one of nine subjects in Tofino</h2>
-      <p>The other eight are hiking, kayaking, beaches, surfing, storm watching, birding, fishing and eating.</p>
-    </div>
-    <a class="btn btn--ghost btn--sm" href="things-to-do.html">See all nine</a>
-  </div>
-</div></section>
+
+
+
+
 
 <section class="sec sec--tight" id="notify"><div class="wrap">
   <div class="band">
@@ -855,6 +680,17 @@ main [id]{scroll-margin-top:142px}
     <a class="btn btn--ghost btn--sm" href="search.html?in=tofino">All 292 stays</a>
   </div>
   <div class="dgrid dgrid--stay" id="stays"></div>
+</div></section>
+
+<section class="sec sec--top0" id="faq"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">Questions</span>
+      <h2 style="margin-top:11px">Twenty-four things people ask before they book</h2>
+      <p>Every answer below is the answer in the guide it came from, and that guide is named under each one.</p>
+    </div>
+  </div>
+  <div id="faqs"></div>
 </div></section>
 
 <!-- three fixed slots, so the page never ends on a footer -->
@@ -901,7 +737,7 @@ main [id]{scroll-margin-top:142px}
       <li><a href="search.html?in=tofino">Where to stay</a></li><li><a href="guide.html">What to pack</a></li></ul></div>
     <div><h5>Arc Trips</h5><ul>
       <li><a href="not-found.html">About us</a></li><li><a href="not-found.html">List your place</a></li>
-      <li><a href="search.html?in=tofino">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
+      <li><a href="things-to-do.html#fishing">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
   </div>
   <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees</span></div>
 </div></footer>
@@ -1126,7 +962,7 @@ function tideLine(t){
          `<span>Low <b>${t.low2}</b>, ${t.low2m} m</span><span>Sunset <b>${t.sunset}</b></span>`;
 }
 
-function paintStatic(){
+function paintStatic() {
   $("#tideStationA").textContent = "Tide today at " + DATA.tides.tofino.station;
   $("#tideReadA").innerHTML = tideLine(DATA.tides.tofino);
   $("#tideStationB").textContent = "Tide today at " + DATA.tides.ucluelet.station;
@@ -1140,35 +976,9 @@ function paintStatic(){
       <h4>${esc(a.t)}</h4></div>
     </a>`).join("");
 
-  /* the eight guides, as an index rather than another card grid */
-  $("#rindex").innerHTML = DATA.articles.map((a,i) =>
-    `<a class="ri" href="guide.html">
-      <span class="ri__i tnum">${String(i+1).padStart(2,"0")}</span>
-      <span class="ri__m"><img src="${cld(a.hero,260,195)}" alt="${esc(a.alt)}"></span>
-      <span>
-        <h3>${esc(a.t)}</h3>
-        <p>${esc(a.ex)}</p>
-        <span class="ri__meta"><span class="k">${esc(a.where)}</span><span class="dot"></span>
-          <span class="tnum">${a.q ? a.q + " questions answered" : "No questions attached"}</span></span>
-      </span>
-    </a>`).join("");
-
-  /* thirteen frames */
-  $("#frameStrip").innerHTML = DATA.frames.map((f) =>
-    `<figure><img src="${cld(f.id,640,480)}" alt="${esc(f.t)}" loading="lazy">
-      <figcaption><b>${esc(f.c)}</b>${esc(f.t)}</figcaption></figure>`).join("");
-
-  /* the spot index, four columns. The tide and the tag counts were the two
-     columns nobody could read, and both are said in plain words elsewhere. */
-  $("#sidx").innerHTML = DATA.spots.map((s) =>
-    `<tr>
-      <td><div class="sidx__n"><a href="${s.href}">${esc(s.name)}</a></div><div class="sidx__s">${esc(s.town)}</div></td>
-      <td data-l="Watch from">${s.g === "land" ? "Land, no booking" : "Boat or kayak"}</td>
-      <td data-l="Effort">${esc(s.effort)}</td>
-      <td data-l="By road" class="tnum">${esc(s.road)}</td>
-    </tr>`).join("");
-  $("#sidxfoot").innerHTML =
-    `Effort is taken from each write-up, not graded by us. <b>Four of the six are free and on foot.</b>`;
+  /* The guide index, the photo strip and the six-places table all said again
+     what the sections above already say, so they are gone. Their data stays in
+     DATA for the surfaces that still use it. */
 
   /* the stays that are live now */
   $("#stays").innerHTML = DATA.stays.map((s) =>
@@ -1183,7 +993,7 @@ function paintStatic(){
 /* ── the six places. Three filters, not nine: how you get there is the only
       question anyone asks first, and the tag chips were a wall. ───────────── */
 const SPOTFILTERS = [
-  {k:"all",  n:"All six places", f:() => true},
+  {k:"all",  n:"All six places", f: () => true},
   {k:"land", n:"From land",      f:(s) => s.g === "land"},
   {k:"boat", n:"By boat",        f:(s) => s.g === "boat"}
 ];
@@ -1207,7 +1017,7 @@ function spotCard(s){
       <a class="btn btn--ghost btn--sm" href="${s.href}">${esc(s.cta)}</a>
     </article>`;
 }
-function paintSpots(){
+function paintSpots() {
   const f = SPOTFILTERS.find((x) => x.k === spotKey);
   const list = DATA.spots.filter(f.f);
   $("#spots").innerHTML = list.map(spotCard).join("");
@@ -1215,7 +1025,7 @@ function paintSpots(){
   document.querySelectorAll("#spotfilter button[data-k]").forEach((b) =>
     b.setAttribute("aria-pressed", String(b.dataset.k === spotKey)));
 }
-function paintSpotFilter(){
+function paintSpotFilter() {
   $("#spotfilter").innerHTML = SPOTFILTERS.map((x) =>
     `<button type="button" data-k="${x.k}" aria-pressed="${x.k === spotKey}">${esc(x.n)}
       <span class="ct">${DATA.spots.filter(x.f).length}</span></button>`).join("") +
@@ -1225,14 +1035,14 @@ function paintSpotFilter(){
 /* ── the twenty-four questions. The by-guide filter row was six chips carrying
       full article titles, which is a wall. The questions are collapsed, so the
       list is already short on screen and needs no filter. ─────────────────── */
-function paintFaqs(){
+function paintFaqs() {
   $("#faqs").innerHTML = DATA.faqs.map((f,i) =>
     `<details class="faq"${i < 2 ? " open" : ""}><summary>${esc(f.q)}</summary>
       <p>${esc(f.a)}</p><cite>From ${esc(f.s)}</cite></details>`).join("");
 }
 
 /* ── the season module: the reference implementation of S1 to S7 ─────────── */
-function paintSwitcher(){
+function paintSwitcher() {
   const max = Math.max(...DATA.climate.map((x) => x.mm));
   $("#msw").innerHTML = DATA.climate.map((x,i) =>
     `<button class="msw__b" type="button" data-m="${i+1}" aria-pressed="${i+1 === month}"
@@ -1243,7 +1053,7 @@ function paintSwitcher(){
     </button>`).join("");
 }
 
-function paintAlmanac(){
+function paintAlmanac() {
   const c = DATA.climate[month-1];
   const season = seasonFor(month);
   const name = MON[month-1];
@@ -1266,12 +1076,12 @@ function paintAlmanac(){
   const gap = (3 - month + 12) % 12;
   $("#exits").innerHTML = boating
     ? `<a class="btn btn--ghost btn--sm" href="#where">The six places to watch from</a>
-       <a class="btn btn--ghost btn--sm" href="#index">The spot index, effort and road time</a>`
+       <a class="btn btn--ghost btn--sm" href="#boats">Which boat, and what it costs</a>`
     : `<a class="btn btn--ghost btn--sm" href="things-to-do.html">Storm watching, 8 places to watch from</a>
        <button class="btn btn--ghost btn--sm jumpbtn" type="button" data-m="3">Jump to March, when the boats go back out${gap ? `, ${gap} month${gap === 1 ? "" : "s"} away` : ""}</button>`;
 
   /* S3: rank, never gate. In season first, the rest at full strength below. */
-  const rows = DATA.rows.slice().sort((a,b) => {
+  const rows = DATA.rows.slice() .sort((a,b) => {
     const A = a.m.includes(month), B = b.m.includes(month);
     if (A !== B) return A ? -1 : 1;
     return a.m.length - b.m.length;
@@ -1345,7 +1155,7 @@ $("#spotfilter").addEventListener("click", (e) => {
   spotKey = b.dataset.clear !== undefined ? "all" : b.dataset.k;
   paintSpots();
 });
-$("#spotempty").addEventListener("click", () => { spotKey = "all"; paintSpots(); });
+$("#spotempty").addEventListener("click", () => { spotKey = "all"; paintSpots() ; });
 document.addEventListener("click", (e) => {
   const b = e.target.closest(".jumpbtn");
   if (!b) return;
@@ -1353,25 +1163,25 @@ document.addEventListener("click", (e) => {
   document.getElementById("best-time").scrollIntoView({ behavior:"smooth", block:"start" });
 });
 $("#capture").addEventListener("submit", (e) => {
-  e.preventDefault();
+  e.preventDefault() ;
   const btn = e.target.querySelector("button");
   btn.textContent = "Thank you, we will write once";
 });
 addEventListener("keydown", (e) => {
   if (e.key === "/" && !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)){
-    e.preventDefault(); $(".search input").focus();
+    e.preventDefault() ; $(".search input").focus() ;
   }
 });
 
 /* the reading hairline, and the in-body jump row tracking where you are */
 const sections = [...document.querySelectorAll("main section[id]")];
 const jumps = [...document.querySelectorAll("#jumprow a")];
-function onScroll(){
+function onScroll() {
   const h = document.documentElement;
   const p = h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight);
   $("#jumpbar").style.width = (p * 100).toFixed(2) + "%";
   let cur = null;
-  for (const s of sections){ if (s.getBoundingClientRect().top <= 170) cur = s.id; }
+  for (const s of sections){ if (s.getBoundingClientRect() .top <= 170) cur = s.id; }
   jumps.forEach((a) => {
     if (a.getAttribute("href") === "#" + cur) a.setAttribute("aria-current","true");
     else a.removeAttribute("aria-current");

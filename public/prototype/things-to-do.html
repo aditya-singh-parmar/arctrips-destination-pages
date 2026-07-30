@@ -320,7 +320,7 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
   <ul class="nav-links">
     <li><a href="search.html?in=tofino">Stays</a></li>
     <li><a href="index.html">Destinations</a></li>
-    <li><a href="search.html">Guides</a></li>
+    <li><a href="search.html?q=&amp;in=tofino">Guides</a></li>
   </ul>
   <form class="search" role="search" action="search.html" method="get">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
@@ -442,7 +442,7 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
       <h2 style="margin-top:11px" id="gridHead">All nine, ordered for the month</h2>
       <p id="gridNote"></p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="guide.html">Read the guides instead</a>
+    <a class="btn btn--ghost btn--sm" href="search.html?q=&amp;in=tofino">Read the guides instead</a>
   </div>
 
   <div class="filterrow" role="group" aria-label="Narrow the subjects" id="filters"></div>
@@ -481,7 +481,7 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
       <h2 style="margin-top:11px" id="qHead">What people ask about Tofino</h2>
       <p>Answered inside the guides, by the people who wrote them.</p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="guide.html">All 18 articles</a>
+    <a class="btn btn--ghost btn--sm" href="search.html?q=&amp;in=tofino">All 18 articles</a>
   </div>
   <div class="qagrid" id="qagrid"></div>
   <div class="qmore"><button class="btn btn--ghost btn--sm" type="button" id="qtoggle">Show all 40 questions</button></div>
@@ -511,7 +511,7 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
     <a class="sib" href="long-beach.html"><span class="sib__n">Long Beach</span><span class="sib__m">The area four subjects share</span></a>
     <a class="sib" href="whale-watching.html"><span class="sib__n">Whale watching</span><span class="sib__m">March to October</span></a>
     <a class="sib" href="plan.html"><span class="sib__n">Plan</span><span class="sib__m">Weather, prices, getting here</span></a>
-    <a class="sib" href="guide.html"><span class="sib__n">Guides</span><span class="sib__m"><b>18</b> articles</span></a>
+    <a class="sib" href="search.html?q=&amp;in=tofino"><span class="sib__n">Guides</span><span class="sib__m"><b>18</b> articles</span></a>
     <a class="sib" href="region.html"><span class="sib__n">Vancouver Island</span><span class="sib__m"><b>11</b> towns, Tofino and Ucluelet live</span></a>
   </nav>
 </div></section>
@@ -549,18 +549,18 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
     </div>
     <div><h5>Destinations</h5><ul>
       <li><a href="region.html">Vancouver Island, 11 towns</a></li>
-      <li><a href="province.html">British Columbia, 14 towns</a></li>
+      <li><a href="province.html">British Columbia, 15 towns</a></li>
       <li><a href="country.html">Canada, 26 towns</a></li>
-      <li><a href="search.html?in=tofino">Guides</a></li></ul></div>
+      <li><a href="search.html?q=&amp;in=tofino">Guides</a></li></ul></div>
     <div><h5>In Tofino</h5><ul>
       <li><a href="#top">Things to do</a></li><li><a href="whale-watching.html">Whale watching</a></li>
-      <li><a href="long-beach.html">Long Beach</a></li><li><a href="guide.html">Storm watching</a></li></ul></div>
+      <li><a href="long-beach.html">Long Beach</a></li><li><a href="storm-watching-tofino.html">Storm watching</a></li></ul></div>
     <div><h5>Trip</h5><ul>
       <li><a href="plan.html">When to go</a></li><li><a href="plan.html">Getting there</a></li>
       <li><a href="search.html?in=tofino">Where to stay</a></li><li><a href="search.html?in=tofino">Search everything</a></li></ul></div>
     <div><h5>Arc Trips</h5><ul>
       <li><a href="not-found.html">About us</a></li><li><a href="not-found.html">List your place</a></li>
-      <li><a href="search.html?in=tofino">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
+      <li><a href="search.html?q=Fishing&amp;in=tofino">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
   </div>
   <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees.</span></div>
 </div></footer>
@@ -587,10 +587,20 @@ const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const cld = (id,w,h) => `https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_${w},h_${h}/${id}`;
 
-/* Pages that exist in this prototype. Everything else reads through the guide. */
-const HREF = { "beaches":"guide.html","hiking":"guide.html","kayaking":"guide.html","restaurants":"guide.html",
-  "storm-watching":"guide.html","surfing":"guide.html","whale-watching":"whale-watching.html",
-  "birding":"guide.html","fishing":"guide.html" };
+/* Pages that exist in this prototype. Six subjects have one of their own. The
+   other three have no page, so they resolve to their own section here rather
+   than to a Tofino article that is about something else. */
+const HREF = { "beaches":"beaches-tofino.html","hiking":"hiking-tofino.html",
+  "kayaking":"kayaking-tofino.html","restaurants":"restaurants-tofino.html",
+  "storm-watching":"storm-watching-tofino.html","whale-watching":"whale-watching.html" };
+/* surfing, birding and fishing have no page of their own. Their section on this
+   page is where they live, so from here they resolve to a scoped result list
+   rather than back to the card you are already reading. */
+const subjHref = (s) => HREF[s.cat] || `search.html?q=${encodeURIComponent(s.name)}&in=tofino`;
+/* guide.html is the single article "Wildlife tours in Tofino". Every other
+   titled article resolves to a scoped result list that contains it. */
+const ART_HREF = (title) => /^wildlife tours in tofino$/i.test(title)
+  ? "guide.html" : `search.html?q=${encodeURIComponent(title)}&in=tofino`;
 
 /* Contiguous runs of months read round the year, so a winter window comes out
    as "November to February" rather than two broken halves. */
@@ -666,23 +676,23 @@ DATA.subjects.forEach((s) => { s.unit = UNIT[s.cat] || s.unit; });
 
 /* the questions come out of the corpus grouped by article, so they are dealt
    round the categories instead: the first screenful spans the whole town */
-DATA.questions = (() => {
-  const by = new Map();
+DATA.questions = ( () => {
+  const by = new Map() ;
   DATA.questions.forEach((q) => { if (!by.has(q.c)) by.set(q.c, []); by.get(q.c).push(q); });
-  const out = [], lists = [...by.values()];
+  const out = [], lists = [...by.values() ];
   for (let i = 0; out.length < DATA.questions.length; i++){
     lists.forEach((l) => { if (l[i]) out.push(l[i]); });
     if (i > 20) break;
   }
   return out;
-})();
+})() ;
 
 let month = new Date().getMonth() + 1;
 let filter = "all";
 let showAllQ = false;
 
 /* ── the tally: the corpus counting itself ─────────────────────────────── */
-function paintTally(){
+function paintTally() {
   const t = DATA.town;
   const rows = [
     [t.guides, "subjects"],
@@ -693,7 +703,7 @@ function paintTally(){
     `<div><b class="tnum">${n}</b><span>${l}</span></div>`).join("");
 }
 
-function paintTide(){
+function paintTide() {
   const t = DATA.tide;
   $("#tideStation").textContent = "Tide today at " + t.station;
   $("#tideRead").innerHTML =
@@ -702,7 +712,7 @@ function paintTide(){
 }
 
 /* ── the month control. Column height is that month's real rainfall. ────── */
-function paintMonths(){
+function paintMonths() {
   const max = Math.max(...DATA.climate.map((c) => c.mm));
   $("#mrow").innerHTML = DATA.climate.map((c,i) =>
     `<button class="mrow__b" type="button" data-m="${i+1}" aria-pressed="${i+1 === month}"
@@ -714,7 +724,7 @@ function paintMonths(){
 }
 
 /* ── S1, S4, S5, S7: lead with what is on, name the season, state the trade ── */
-function paintSeason(){
+function paintSeason() {
   const c = DATA.climate[month-1];
   const s = seasonFor(month);
   const name = MON[month-1];
@@ -740,8 +750,8 @@ function paintSeason(){
 }
 
 /* ── S3: rank, never gate. Everything renders at full strength. ─────────── */
-function ranked(){
-  return DATA.subjects.slice().sort((a,b) => {
+function ranked() {
+  return DATA.subjects.slice() .sort((a,b) => {
     const A = a.months.includes(month), B = b.months.includes(month);
     if (A !== B) return A ? -1 : 1;
     if (A) return a.months.length - b.months.length || b.places.length - a.places.length;
@@ -765,7 +775,7 @@ const FILTERS = [
 ];
 const test = (s) => (FILTERS.find((f) => f.k === filter) || FILTERS[0]).t(s);
 
-function paintFilters(){
+function paintFilters() {
   $("#filters").innerHTML = FILTERS.map((f) => {
     const n = DATA.subjects.filter(f.t).length;
     const label = f.k === "season" ? "In season in " + MON[month-1] : f.l;
@@ -782,7 +792,7 @@ function photoStrip(s, big){
   return `<div class="phstrip${big ? " phstrip--big" : ""}">` + pick.map((p) => `
     <figure>
       <img loading="lazy" src="${cld(p.id, big ? 760 : 560, big ? 476 : 420)}"
-           alt="${esc(p.p ? p.p + ", photographed for the Tofino " + s.name.toLowerCase() + " guide" : s.name + " in Tofino")}">
+           alt="${esc(p.p ? p.p + ", photographed for the Tofino " + s.name.toLowerCase + " guide" : s.name + " in Tofino")}">
       <figcaption>${esc(p.p || s.name + ", Tofino")}</figcaption>
     </figure>`).join("") + `</div>`;
 }
@@ -790,7 +800,7 @@ function photoStrip(s, big){
 /* One sentence and one link, in place of the old wall of names. The guide is
    where the ninety places belong, not an index page. */
 function placeBlock(s){
-  const href = HREF[s.cat];
+  const href = subjHref(s);
   if (s.places.length){
     const first = s.places[0].n, last = s.places[s.places.length-1].n;
     return `<p class="sline">All ${s.places.length} ${esc(s.unit)} are written up in the guide, from ${esc(first)} to ${esc(last)}.
@@ -799,13 +809,13 @@ function placeBlock(s){
   if (s.xref && s.xref.length){
     const lead = s.xref[0];
     return `<p class="sline">No pages of its own yet. ${s.xref.length === 1 ? "One place" : s.xref.length + " places"} in Tofino cover it, starting with ${esc(lead.n)}.
-      <a href="${href}">Read the ${esc(s.name.toLowerCase())} guide</a></p>`;
+      <a href="${href}">Read the ${esc(s.name.toLowerCase() )} guide</a></p>`;
   }
   return `<p class="sline">Written up in ${s.articles.length} ${s.articles.length === 1 ? "article" : "articles"} about Tofino.
-    <a href="${href}">Read the ${esc(s.name.toLowerCase())} guide</a></p>`;
+    <a href="${href}">Read the ${esc(s.name.toLowerCase() )} guide</a></p>`;
 }
 
-function paintGrid(){
+function paintGrid() {
   const rows = ranked().filter(test);
   const name = MON[month-1];
 
@@ -827,14 +837,14 @@ function paintGrid(){
       s.photos.length ? [s.photos.length, "photographs"] : null
     ].filter(Boolean);
 
-    return `<article class="sub" id="s-${s.cat}" style="--i:${i}">
+    return `<article class="sub" id="${s.cat}" style="--i:${i}">
       <div class="sub__l">
         <span class="sub__no" aria-hidden="true">${String(i+1).padStart(2,"0")}</span>
-        <a class="sub__hit" href="${HREF[s.cat]}"><h3 class="sub__n">${esc(s.name)}</h3></a>
+        <a class="sub__hit" href="${subjHref(s)}"><h3 class="sub__n">${esc(s.name)}</h3></a>
         <div class="strip" role="img" aria-label="${esc(s.name)}, ${esc(windowLong(s.months))}">${cells}</div>
         ${when}
         <dl class="sfacts">${facts.map(([n,l]) => `<div><b>${n}</b><span>${esc(l)}</span></div>`).join("")}</dl>
-        <p class="sbook">${BOOK[s.cta]()}</p>
+        <p class="sbook">${BOOK[s.cta] }</p>
       </div>
       <div class="sub__r">
         <p class="sub__lead">${esc(s.lead)}</p>
@@ -857,7 +867,7 @@ function shortAnswer(a){
   for (const p of parts){ if (out && (out + p).length > 190) break; out += p; }
   return out.trim() || a;
 }
-function paintQuestions(){
+function paintQuestions() {
   const rows = showAllQ ? DATA.questions : DATA.questions.slice(0,6);
   $("#qagrid").innerHTML = rows.map((q) => `
     <article class="qi">
@@ -868,9 +878,9 @@ function paintQuestions(){
   $("#qtoggle").textContent = showAllQ ? "Show fewer questions" : `Show all ${DATA.questions.length} questions`;
 }
 
-function paintTownArticles(){
+function paintTownArticles() {
   $("#townart").innerHTML = DATA.townArticles.map((a) => `
-    <li><a href="guide.html">${esc(a.t)}</a><span>${esc(a.x)}</span></li>`).join("");
+    <li><a href="${ART_HREF(a.t)}">${esc(a.t)}</a><span>${esc(a.x)}</span></li>`).join("");
 }
 
 function centerMonth(smooth){
@@ -904,7 +914,7 @@ $("#mrow").addEventListener("click", (e) => {
 });
 $("#grid").addEventListener("click", (e) => {
   const b = e.target.closest(".jumpm"); if (!b) return;
-  e.preventDefault();
+  e.preventDefault() ;
   setMonth(Number(b.dataset.m));
   document.getElementById("season").scrollIntoView({ behavior: "smooth", block: "start" });
 });
@@ -914,12 +924,12 @@ $("#filters").addEventListener("click", (e) => {
   paintFilters();
   paintGrid();
 });
-$("#resetFilter").addEventListener("click", () => { filter = "all"; paintFilters(); paintGrid(); });
-$("#qtoggle").addEventListener("click", () => { showAllQ = !showAllQ; paintQuestions(); });
+$("#resetFilter").addEventListener("click", () => { filter = "all"; paintFilters() ; paintGrid() ; });
+$("#qtoggle").addEventListener("click", () => { showAllQ = !showAllQ; paintQuestions() ; });
 
 /* reading progress, the one hairline the long page earns */
 const bar = $("#jumpbar");
-function progress(){
+function progress() {
   const h = document.documentElement.scrollHeight - innerHeight;
   bar.style.width = (h > 0 ? Math.min(100, scrollY / h * 100) : 0) + "%";
 }
@@ -928,7 +938,7 @@ progress();
 
 addEventListener("keydown", (e) => {
   if (e.key === "/" && !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)){
-    e.preventDefault(); $(".search input").focus();
+    e.preventDefault() ; $(".search input").focus() ;
   }
 });
 </script>

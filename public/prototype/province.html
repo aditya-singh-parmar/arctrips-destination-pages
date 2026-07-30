@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>British Columbia, Arc Trips</title>
-<meta name="description" content="Sixteen towns across four regions of British Columbia. Vancouver Island is the one we have finished: twelve towns, 666 places written up and 22 guides.">
+<meta name="description" content="Fifteen towns across four regions of British Columbia. Vancouver Island is the one we have finished: eleven towns, 385 places written up and 29 guides.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -244,7 +244,7 @@ body>a.skip:focus{top:0}
 <nav class="top"><div class="wrap nav-in">
   <a class="brand" href="index.html">Arctrips</a>
   <ul class="nav-links">
-    <li><a href="search.html">Stays</a></li>
+    <li><a href="search.html?q=stays&amp;show=stays">Stays</a></li>
     <li><a href="index.html">Destinations</a></li>
     <li><a href="search.html">Guides</a></li>
   </ul>
@@ -267,7 +267,7 @@ body>a.skip:focus{top:0}
     <li><a href="#regions">Rest of BC</a></li>
     <li><a href="#when">When to go</a></li>
   </ul>
-  <a class="btn btn--ghost btn--sm placebar__cta" href="search.html">Find a stay</a>
+  <a class="btn btn--ghost btn--sm placebar__cta" href="search.html?q=stays&amp;show=stays">Find a stay</a>
 </div></nav>
 
 <main id="main">
@@ -283,10 +283,10 @@ body>a.skip:focus{top:0}
 <header class="hero"><div class="wrap hero-grid">
   <div>
     <h1>British Columbia</h1>
-    <p class="lede">Four regions, sixteen towns. One of them is finished end to end, and it is the reason to come here first: Vancouver Island.</p>
+    <p class="lede">Four regions, fifteen towns. One of them is finished end to end, and it is the reason to come here first: Vancouver Island.</p>
     <div class="hero-cta">
       <a class="btn btn--primary" href="region.html">Open Vancouver Island</a>
-      <a class="btn btn--ghost" href="search.html">Search stays</a>
+      <a class="btn btn--ghost" href="search.html?q=stays&amp;show=stays">Search stays</a>
     </div>
     <dl class="hero-facts" id="herofacts"></dl>
   </div>
@@ -349,7 +349,7 @@ body>a.skip:focus{top:0}
       <h2 id="townsTitle">Every town on the island</h2>
       <p id="townsDek"></p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="search.html">Search stays on the island</a>
+    <a class="btn btn--ghost btn--sm" href="search.html?q=stays&amp;show=stays">Search stays on the island</a>
   </div>
   <ol class="tledger" id="tledger"></ol>
 </div></section>
@@ -375,7 +375,7 @@ body>a.skip:focus{top:0}
       <h2>Seven guides written across the whole island</h2>
       <p>These do not belong to any one town, so they sit at this level. Each one names its places, and the names are what you are reading below.</p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="guide.html">All island guides</a>
+    <a class="btn btn--ghost btn--sm" href="region.html#guides">All island guides</a>
   </div>
 </div>
   <div class="wrap"><div class="ggrid" id="ggrid"></div></div>
@@ -396,7 +396,7 @@ body>a.skip:focus{top:0}
       <h2>When should you go?</h2>
       <p>The island guides name four seasons, not twelve months. Each one is a different trip at a different price.</p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="plan.html">Plan the trip</a>
+    <a class="btn btn--ghost btn--sm" href="plan.html">Plan a Tofino trip</a>
   </div>
   <ol class="seasons" id="seasons"></ol>
   <p class="snote" id="snote"></p>
@@ -411,7 +411,7 @@ body>a.skip:focus{top:0}
       <span class="go">Open the region <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
     </a>
     <a href="tofino.html">
-      <span class="kg__k">The town with the most written up</span>
+      <span class="kg__k">The town with the most guides finished</span>
       <h3>Tofino, place by place</h3>
       <p id="kgTof"></p>
       <span class="go">Open the town <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
@@ -419,7 +419,7 @@ body>a.skip:focus{top:0}
     <a href="search.html">
       <span class="kg__k">The booking path</span>
       <h3>Stays in British Columbia</h3>
-      <p>Everything bookable across the sixteen towns, in CAD, before taxes and fees.</p>
+      <p>Everything bookable across the fifteen towns, in CAD, before taxes and fees.</p>
       <span class="go">Search stays <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
     </a>
   </div>
@@ -440,19 +440,19 @@ body>a.skip:focus{top:0}
       <li><a href="long-beach.html">Long Beach</a></li>
       <li><a href="region.html">The whole island</a></li></ul></div>
     <div><h5>Things to do</h5><ul>
-      <li><a href="things-to-do.html">All subjects</a></li>
+      <li><a href="things-to-do.html">All subjects in Tofino</a></li>
       <li><a href="whale-watching.html">Whale watching</a></li>
-      <li><a href="guide.html">Island guides</a></li>
+      <li><a href="region.html#guides">Island guides</a></li>
       <li><a href="search.html">Search everything</a></li></ul></div>
     <div><h5>Plan</h5><ul>
       <li><a href="plan.html">When to go</a></li>
-      <li><a href="plan.html">Getting there</a></li>
-      <li><a href="search.html">Where to stay</a></li>
+      <li><a href="plan.html">Month by month</a></li>
+      <li><a href="search.html?q=stays&amp;show=stays">Where to stay</a></li>
       <li><a href="country.html">Canada</a></li></ul></div>
     <div><h5>Arc Trips</h5><ul>
       <li><a href="not-found.html">About us</a></li>
       <li><a href="not-found.html">List your place</a></li>
-      <li><a href="search.html">Fishing charters</a></li>
+      <li><a href="not-found.html">Fishing charters</a></li>
       <li><a href="not-found.html">Contact</a></li></ul></div>
   </div>
   <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees</span></div>
@@ -463,18 +463,18 @@ body>a.skip:focus{top:0}
    from the town pages in this prototype. Nothing here is invented, and every
    total on the page is added up at run time from these rows. */
 const DATA = {
-  /* Vancouver Island, twelve towns. Places are the counted write-ups; the
+  /* Vancouver Island, eleven towns. Places are the counted write-ups; the
      descriptions are the real place names from each town's guide. */
   island: [
-    {n:"Tofino", h:"tofino.html", p:232, live:true,
-     d:"Long Beach, Chesterman Beach, Cox Bay, the Tonquin Trail, Wolf in the Fog. Eleven guides, from surfing to storm watching."},
-    {n:"Ucluelet", h:"region.html", p:197, live:true,
-     d:"The Wild Pacific Trail, the Lighthouse Loop, Big Beach, Pluvio and Heartwood. Nine guides, and the spring whale migration in full."},
-    {n:"Victoria", h:"victoria.html", p:79, live:true,
+    {n:"Tofino", h:"tofino.html", p:73, g:9, live:true,
+     d:"Long Beach, Chesterman Beach, Cox Bay, the Tonquin Trail, Wolf in the Fog. Nine guides, from surfing to storm watching."},
+    {n:"Ucluelet", h:"ucluelet.html", p:54, g:6, live:true,
+     d:"The Wild Pacific Trail, the Lighthouse Loop, Big Beach, Pluvio and Heartwood. Six guides, and the spring whale migration in full."},
+    {n:"Victoria", h:"victoria.html", p:100, live:true,
      d:"The Butchart Gardens, the Inner Harbour, the Royal BC Museum, Dallas Road, Esquimalt Lagoon."},
     {n:"Sooke", h:"sooke.html", p:30,
      d:"Sooke Potholes, East Sooke Regional Park, Whiffin Spit, Sheringham Point Lighthouse."},
-    {n:"Parksville", h:"nanoose.html", p:28,
+    {n:"Parksville", h:"parksville.html", p:28,
      d:"Rathtrevor Beach Provincial Park, Parksville Beach, and the whale and wildlife trips out of the bay."},
     {n:"Nanaimo", h:"nanaimo.html", p:27,
      d:"Saysutshun, the Harbourfront Walkway, whale and marine tours, and the fishing off Departure Bay."},
@@ -487,16 +487,14 @@ const DATA = {
     {n:"Campbell River", h:"campbell-river.html", p:14,
      d:"Discovery Passage, Tyee Spit, the Maritime Heritage Centre, cold water diving."},
     {n:"Shawnigan Lake", h:"shawnigan-lake.html", p:12,
-     d:"The Kinsol Trestle, the lake itself, the Cowichan Valley Trail, West Shawnigan Lake Park."},
-    {n:"Qualicum Beach", h:"nanoose.html", p:0, shared:"Parksville",
-     d:"Named on the island beach guide and written up inside the Parksville guide, which it shares."}
+     d:"The Kinsol Trestle, the lake itself, the Cowichan Valley Trail, West Shawnigan Lake Park."}
   ],
 
   /* Island-wide guides, all seven, with the numbered entries each one names. */
   guides: [
     {t:"Best Beaches on Vancouver Island", h:"guide.html", kind:"beaches",
      items:["Long Beach","Chesterman Beach","Cox Bay","Mackenzie Beach","Wickaninnish Beach","Florencia Bay",
-            "Big Beach","Little Beach","Rathtrevor Beach","Parksville Beach","Qualicum Beach","Tribune Bay","Botanical Beach"]},
+            "Big Beach","Little Beach","Rathtrevor Beach","Parksville Beach","Parksville","Tribune Bay","Botanical Beach"]},
     {t:"Best Day Hikes on Vancouver Island", h:"guide.html", kind:"trails",
      items:["Wild Pacific Trail","Rainforest Trails A and B","South Beach and Nuu-chah-nulth Trail","Mystic Beach",
             "Sombrio Beach","Botanical Beach","East Sooke Coast Trail","Mount Finlayson","Mount Work",
@@ -511,10 +509,10 @@ const DATA = {
             "Elk River Trail and Landslide Lake","Flower Ridge"]},
     {t:"Best Places for Whale Watching on Vancouver Island", h:"whale-watching.html", kind:"towns",
      items:["Victoria","Sooke","Ucluelet","Tofino","Telegraph Cove","Port McNeill","Campbell River","Nanaimo",
-            "Parksville and Qualicum Beach Area","Port Renfrew and the Juan de Fuca Coast"]},
+            "Parksville and Parksville Area","Port Renfrew and the Juan de Fuca Coast"]},
     {t:"Vancouver Island: Best Mountain Biking Spots", h:"guide.html", kind:"riding areas",
      items:["Cumberland and Comox Valley","Nanaimo","Cowichan Valley","Campbell River",
-            "Parksville Qualicum Beach and Hammerfest","Victoria and Hartland Mountain Bike Park",
+            "Parksville Parksville and Hammerfest","Victoria and Hartland Mountain Bike Park",
             "Mount Washington","Hornby Island","Sooke and the South Island"]},
     {t:"How to Choose a Vacation Rental on Vancouver Island", h:"guide.html", kind:"checks",
      wide:true, sep:" · ", show:10,
@@ -529,11 +527,11 @@ const DATA = {
      counts carried on their own town pages in this prototype. */
   rest: [
     {n:"Sea to Sky", w:"The highway north out of Vancouver, and the two towns on it.",
-     towns:[{n:"Whistler", h:"whistler.html", p:219, g:8},{n:"Squamish", h:"squamish.html", p:117, g:5}]},
+     towns:[{n:"Whistler", h:"whistler.html", p:219, g:8},{n:"Squamish", h:"squamish.html", p:73, g:4}]},
     {n:"Lower Mainland", w:"The city itself, its beaches and the mountains behind it.",
-     towns:[{n:"Vancouver", h:"vancouver.html", p:139, g:9}]},
+     towns:[{n:"Vancouver", h:"vancouver.html", p:76, g:2}]},
     {n:"Kootenays", w:"Mountain towns, deep snow, and the lake fishing that made them known.",
-     towns:[{n:"Nelson", h:"nelson.html", p:13, g:2}]}
+     towns:[{n:"Nelson", h:"nelson.html", p:12, g:2}]}
   ],
 
   /* The four seasons named in "Best Time to Stay in Ucluelet or Tofino". */
@@ -548,7 +546,7 @@ const DATA = {
      d:"The cheapest months and the loudest. People come for the weather, not in spite of it."}
   ],
 
-  islandGuideTotal: 22
+  islandGuideTotal: 29
 };
 
 const MON = ["January","February","March","April","May","June","July","August","September","October","November","December"];
@@ -598,7 +596,7 @@ $("#isleNum").innerHTML = [
   ["Guides finished", T.islandGuides]
 ].map(([k,v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("");
 
-/* ── the twelve towns ────────────────────────────────────────────────────── */
+/* ── the eleven towns ────────────────────────────────────────────────────── */
 $("#townsTitle").textContent = `All ${word(T.islandTowns)} towns on the island`;
 $("#townsDek").textContent =
   `Ordered by how much is written, not by size. The bar is that town's share of the ${num(T.islandPlaces)} places.`;
@@ -657,13 +655,13 @@ $("#seasons").innerHTML = DATA.seasons.map((s) => `
       MON.map((m,i) => `<i ${s.m.includes(i+1) ? "data-on" : ""} ${i === month-1 ? "data-now" : ""}>${SHORT[i]}</i>`).join("")
     }</div>
   </li>`).join("");
-(function(){
+(function() {
   const covered = new Set(DATA.seasons.flatMap((s) => s.m));
   const gaps = MON.map((m,i) => covered.has(i+1) ? null : m).filter(Boolean);
   const here = DATA.seasons.find((s) => s.m.includes(month));
   $("#snote").innerHTML =
     `The ring marks this month. Right now it is <b>${MON[month-1]}</b>` +
-    (here ? `, which the guides put in <b>${esc(here.n.toLowerCase())}</b>.` : `.`) +
+    (here ? `, which the guides put in <b>${esc(here.n.toLowerCase() )}</b>.` : `.`) +
     (gaps.length ? ` The four named seasons leave <b>${gaps.join(" and ")}</b> uncovered: they are the changeover, and the guides do not claim them.` : "");
 })();
 
@@ -671,11 +669,11 @@ $("#seasons").innerHTML = DATA.seasons.map((s) => `
 $("#kgIsle").textContent =
   `${cap(word(T.islandTowns))} towns, ${num(T.islandPlaces)} places and ${word(T.islandGuides)} guides, one level down.`;
 $("#kgTof").textContent =
-  `${TOP.p} places written up, more than any other town in British Columbia.`;
+  `${TOP.g} guides finished, more than any other town in British Columbia.`;
 
 addEventListener("keydown", (e) => {
   if (e.key === "/" && !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)){
-    const el = $(".search input"); if (el) { e.preventDefault(); el.focus(); }
+    const el = $(".search input"); if (el) { e.preventDefault() ; el.focus() ; }
   }
 });
 </script>

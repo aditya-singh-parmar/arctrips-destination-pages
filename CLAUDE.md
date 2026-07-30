@@ -26,6 +26,31 @@ string, edit the file. That is the single biggest cost in this repo.
 4. **Specialist agent** (`frontend-design-engineer` for UI, `backend-engineer` for server/Supabase) implements from the corrected plan.
 5. **Verify** — `node scripts/shots.mjs`, read `.screens/manifest.json`, fix every non-clean shot. One review round, then one fix pass, then stop.
 
+## The prototype ships from public/, not design/
+
+**The owner reviews the deployed Vercel site, never localhost.** The prototype is
+edited in `design/prototype/` but Vercel serves `public/prototype/` at
+`/prototype/<page>.html`. Verifying `design/` and stopping there means verifying a
+copy nobody looks at. On 2026-07-30 the deployed copy was a day stale and had no
+`ucluelet.html` at all, so every Ucluelet link 404'd on the live site while the
+local copy passed clean.
+
+After any prototype edit:
+
+```bash
+node scripts/sync-prototype.mjs                 # design/ -> public/, code only
+node scripts/qa-prototype.mjs public/prototype  # gates against the DEPLOYED copy
+QA_DIR=public/prototype QA_BASE=http://127.0.0.1:4399/prototype/ node scripts/qa-runtime.mjs
+git commit && git push                          # Vercel deploys on push
+```
+
+`media/` is deliberately not synced: `public/prototype/media` holds resized images
+(96 MB against 274 MB of originals). New images go in both, optimised on the public
+side. `sync-prototype.mjs` fails if a page exists in only one copy or if a deployed
+page references an image the deployed copy lacks.
+
+**A prototype change is not done until it is pushed and checked on the Vercel URL.**
+
 ## UI work
 
 **Design-direction work** — a new page, a redesign, "make this look better", anything

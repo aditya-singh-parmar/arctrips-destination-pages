@@ -1,6 +1,10 @@
 import {chromium} from '@playwright/test';
 import {readdirSync} from 'fs';
-const pages=readdirSync('design/prototype').filter(f=>f.endsWith('.html')&&!f.startsWith('_')).sort();
+/* QA_DIR / QA_BASE so the DEPLOYED copy (public/prototype, served at /prototype/)
+   can be checked, not just the local one. The owner reviews the deployed site. */
+const DIR=process.env.QA_DIR||'design/prototype';
+const BASE=process.env.QA_BASE||'http://127.0.0.1:4321/prototype/';
+const pages=readdirSync(DIR).filter(f=>f.endsWith('.html')&&!f.startsWith('_')).sort();
 const b=await chromium.launch();
 let bad=0;
 for(const p of pages){
@@ -9,7 +13,7 @@ for(const p of pages){
   const errs=[];
   pg.on('console',m=>{if(m.type()==='error')errs.push(m.text().slice(0,120));});
   pg.on('pageerror',e=>errs.push('PAGEERROR '+String(e.message).slice(0,120)));
-  await pg.goto('http://127.0.0.1:4321/prototype/'+p,{waitUntil:"load",timeout:20000}).catch(e=>errs.push('NAV '+e.message));
+  await pg.goto(BASE+p,{waitUntil:"load",timeout:20000}).catch(e=>errs.push('NAV '+e.message));
   const empty=await pg.evaluate(()=>{
     const out=[];
     document.querySelectorAll('[id]').forEach(el=>{

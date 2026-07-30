@@ -2,7 +2,7 @@
 // image and hard rule. Run: node scripts/qa-prototype.mjs
 import { readdirSync, readFileSync, existsSync } from 'fs';
 import { join } from 'path';
-const DIR = 'design/prototype';
+const DIR = process.argv[2] && !process.argv[2].startsWith('-') ? process.argv[2] : 'design/prototype';
 const pages = readdirSync(DIR).filter(f => f.endsWith('.html') && !f.startsWith('_'));
 let fail = 0;
 const say = (t, m) => { if (t) return; fail++; console.log('  FAIL ' + m); };

@@ -19,7 +19,9 @@
     "qa:prototype": "node scripts/qa-prototype.mjs",
     "shots": "node scripts/shots.mjs",
     "audit:ui": "node scripts/ui-audit.mjs",
-    "qa:runtime": "node scripts/qa-runtime.mjs"
+    "qa:runtime": "node scripts/qa-runtime.mjs",
+    "prototype:sync": "node scripts/sync-prototype.mjs",
+    "qa:deployed": "node scripts/qa-prototype.mjs public/prototype"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.0",
