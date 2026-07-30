@@ -21,14 +21,14 @@ Tofino", `long-beach.html` is a Tofino area.
 
 | Town | Town page | Subject index | Subject pages | Plan | Areas |
 |---|---|---|---|---|---|
-| Tofino | `tofino.html` | `things-to-do.html` | `beaches-tofino`, `hiking-tofino`, `kayaking-tofino`, `restaurants-tofino`, `storm-watching-tofino`, `whale-watching` | `plan.html` | `long-beach.html` |
+| Tofino | `tofino.html` | `things-to-do.html` | `beaches-tofino`, `hiking-tofino`, `kayaking-tofino`, `restaurants-tofino`, `storm-watching-tofino`, `whale-watching`, `surfing-tofino`, `birding-tofino`, `fishing-tofino` | `plan.html` | `long-beach.html` |
 | Ucluelet | `ucluelet.html` | `ucluelet.html#do` | `hiking-ucluelet`, `kayaking-ucluelet`, `restaurants-ucluelet`, `whale-watching-ucluelet` | none | none |
 | 24 others | `<slug>.html` | in-page `.jump` anchors | none | none | none |
 
 Hubs: `index.html` (the British Columbia home and root of the tree),
 `region.html`, `search.html`, `not-found.html`. `country.html` and
-`province.html` were deleted on 2026-07-30; see `bc-root-contract.md`. Tofino subjects with no page of their own: surfing, birding,
-fishing, camping, events.
+`province.html` were deleted on 2026-07-30; see `bc-root-contract.md`. All nine Tofino subjects now have a page. Camping and events are named in the
+taxonomy but are not subjects of this town's rail.
 
 Only one article page was built (`guide.html`). Search (`search.html`) carries real
 data for **Tofino and Ucluelet only**, though its town list names all 26.

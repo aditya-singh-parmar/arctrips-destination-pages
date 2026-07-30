@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Birding in Tofino, Arc Trips</title>
+<meta name="description" content="Two shorebird passages cross this coast every year, and late April and May are the peak. Eighteen birds, where each one is, and the month to come for it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap" rel="stylesheet">
+<link rel="icon" href="brand/arctrips-icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="_system.css">
+<style>
+/* Page-scoped only, built on the tokens in _system.css. No new colour values.
+   The block is the same one the other Tofino subject pages carry, so the
+   siblings a reader moves between through the subject rail cannot drift apart.
+   Two things are different here and both are deliberate:
+
+     (i)  no tide band. Tides belong to storm watching, kayaking and surfing.
+     (ii) the season strip carries four levels instead of three, because no
+          month on this coast is out of season for birds. Depth of azure and
+          height of bar both say the same thing: how much is moving through.
+
+   What it adds that the system does not carry:
+     (a) accessibility floors and the 14px reading floor
+     (b) the photographic hero
+     (c) the numbered index: a tile that is either a photograph or a promise
+     (d) the season strip, azure intensity carrying the size of the passage
+     (e) the place cards, the questions, the keep-going slots, the booking bar */
+
+/* (a) floors */
+:focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:var(--r-sm)}
+.btn{min-height:44px;white-space:nowrap}
+nav.top .btn{flex:none}
+.brand,.nav-links a{display:inline-flex;align-items:center;min-height:44px}
+.search{height:44px}
+.search input{align-self:stretch}
+.crumb,.crumb li{list-style:none}
+.crumb a{display:inline-flex;align-items:center;min-height:44px}
+.fgrid ul a{display:inline-block;padding-block:10px}
+.head>div{flex:1 1 min(560px,100%)}
+.head h2{margin-top:11px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.kmeta,.crumb,.fbase,.dest__meta{color:var(--n600)}
+.kmeta .dot{background:var(--n200)}
+body>.skip{position:absolute}
+.skip{left:var(--gut);top:-60px;z-index:99;background:var(--navy);color:var(--paper);
+  padding:13px 18px;border-radius:0 0 var(--r-sm) var(--r-sm);font-weight:600;font-size:.9rem;transition:top .18s var(--ease)}
+.skip:focus{top:0}
+main [id]{scroll-margin-top:142px}
+@media(max-width:760px){main [id]{scroll-margin-top:96px}}
+
+/* (b) the hero. One photograph, the subject's own, with the facts a traveller
+   acts on sitting under it. */
+.chero{position:relative;min-height:min(62vh,540px);display:flex;align-items:flex-end;overflow:hidden;background:var(--navy)}
+/* The veil runs harder here than on the sibling pages, and on purpose: a flock
+   of ten thousand pale birds is a far busier field than a kayak on flat water,
+   and the headline and standfirst have to clear 4.5:1 over the brightest of
+   them. Same two tokens, a quieter photograph and a longer solid run. */
+.chero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.6}
+.chero__v{position:absolute;inset:0;opacity:.92;
+  background:linear-gradient(0deg,var(--navy) 0%,var(--navy) 48%,transparent 100%)}
+.chero__in{position:relative;width:100%;padding-block:clamp(30px,4vw,56px)}
+.chero h1{margin-top:14px;color:var(--paper);font-size:clamp(2.4rem,5.6vw,4.1rem);letter-spacing:-.04em;line-height:1.02;max-width:16ch}
+.chero .label{color:var(--a300)}
+.chero__d{color:var(--paper);opacity:.92;max-width:54ch;margin-top:18px;font-size:clamp(1.02rem,1.3vw,1.14rem);line-height:1.55}
+.chero .btn--ghost{border-color:var(--paper);color:var(--paper)}
+.chero .btn--ghost:hover{background:var(--paper);color:var(--navy)}
+.chero__cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.cfacts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2.4vw,34px);margin-top:clamp(24px,3vw,34px);
+  padding-top:20px;border-top:1px solid var(--a400)}
+.cfacts dt{font-size:.88rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--a300)}
+.cfacts dd{font-size:clamp(1.02rem,1.5vw,1.34rem);font-weight:700;color:var(--paper);margin-top:6px;line-height:1.25}
+@media(max-width:720px){.cfacts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* (c) the numbered index. Media column left on every row, so the numbers read
+   as one column and the order is legible at a glance. */
+.grp{margin-top:clamp(44px,5vw,72px)}
+.grp:first-child{margin-top:0}
+.grp__h{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid var(--n150)}
+.grp__h h3{font-size:clamp(1.24rem,1.9vw,1.52rem)}
+.grp__c{font-size:.88rem;font-weight:700;color:var(--azure);font-variant-numeric:tabular-nums;letter-spacing:.06em}
+.grp__n{font-size:.95rem;color:var(--n600);margin-top:12px;max-width:62ch;line-height:1.6}
+.plist{display:grid;gap:clamp(30px,3.6vw,54px);margin-top:clamp(26px,3vw,40px)}
+.pent{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:clamp(20px,3vw,44px);align-items:start}
+@media(max-width:820px){.pent{grid-template-columns:1fr;gap:18px}}
+.tile{position:relative;margin:0;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:var(--n100)}
+@media(min-width:821px){.pent .tile{position:sticky;top:152px}}
+@media(max-width:820px){.tile{aspect-ratio:3/2}}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.pent:hover .tile img{transform:scale(1.04)}
+.tile__n{position:absolute;left:12px;top:12px;background:var(--navy);color:var(--paper);
+  font-size:.88rem;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:.04em;
+  padding:6px 11px;border-radius:var(--r-sm)}
+.pent h3{font-size:clamp(1.28rem,2vw,1.62rem);font-weight:800;letter-spacing:-.026em;margin-top:2px}
+.pent__k{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:.88rem;color:var(--n600);margin-bottom:11px}
+.pent__k .k{color:var(--azure);font-weight:700;letter-spacing:.09em;text-transform:uppercase;font-size:.88rem}
+.pent p{color:var(--n700);line-height:1.66;margin-top:11px;max-width:62ch}
+.gfline{margin-top:14px;font-size:.95rem;color:var(--n700);line-height:1.55;font-weight:500;max-width:62ch}
+.gfline b{color:var(--navy);font-weight:700}
+.note{display:flex;gap:11px;margin-top:15px;font-size:.94rem;color:var(--n600);line-height:1.6;
+  border-left:2px solid var(--a300);padding-left:14px;max-width:62ch}
+.note b{color:var(--navy);font-weight:700}
+
+/* (d) the season strip. Colour is the message: the deeper the azure, the more
+   birds are on the move. Four levels, because nothing here is a dead month.
+   Never emerald, which is the season signal elsewhere. */
+.when{background:var(--n50);border-block:1px solid var(--n150)}
+.mstrip{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(4px,.7vw,9px);list-style:none;
+  margin-top:clamp(22px,2.6vw,32px);align-items:end}
+.mstrip li{display:flex;flex-direction:column;align-items:center;gap:9px}
+.mstrip b{display:block;width:100%;border-radius:var(--r-sm);background:var(--a250);height:26px}
+.mstrip li[data-l="sea"] b{background:var(--a400);height:42px}
+.mstrip li[data-l="pass"] b{background:var(--azure);height:60px}
+.mstrip li[data-l="peak"] b{background:var(--a800);height:80px}
+.mstrip li[data-now] b{outline:2px solid var(--navy);outline-offset:2px}
+.mstrip span{font-size:.88rem;font-weight:600;color:var(--n600)}
+.mstrip li[data-l="peak"] span,.mstrip li[data-l="pass"] span{color:var(--navy);font-weight:700}
+.mkey{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px 20px;margin-top:20px;
+  font-size:.88rem;color:var(--n600);font-weight:600;list-style:none}
+.mkey li{display:flex;gap:9px;align-items:flex-start;line-height:1.45}
+.mkey b{flex:none;width:13px;height:13px;border-radius:4px;margin-top:3px;background:var(--a250)}
+.mkey b[data-l="sea"]{background:var(--a400)}
+.mkey b[data-l="pass"]{background:var(--azure)}
+.mkey b[data-l="peak"]{background:var(--a800)}
+@media(max-width:760px){.mkey{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.wnotes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(18px,2.4vw,30px);margin-top:clamp(30px,3.4vw,44px)}
+@media(max-width:860px){.wnotes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.wnotes{grid-template-columns:1fr}}
+.wnote{border-top:2px solid var(--a300);padding-top:14px}
+.wnote--peak{border-top-color:var(--a800)}
+.wnote h3{font-size:1.06rem}
+.wnote p{color:var(--n600);font-size:.95rem;line-height:1.6;margin-top:8px}
+
+/* (e) the place cards. Three per row, a photograph on every one, numbered so
+   the order carries the meaning the heading claims for it. */
+.spots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,2.6vw,32px);
+  margin-top:clamp(26px,3vw,38px)}
+@media(max-width:860px){.spots{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.spots{grid-template-columns:1fr}}
+.spot{display:block}
+.spot figure{position:relative;margin:0;border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;background:var(--n100)}
+.spot img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.spot:hover img{transform:scale(1.05)}
+.spot figure b{position:absolute;left:12px;top:12px;background:var(--navy);color:var(--paper);
+  font-size:.88rem;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:.04em;
+  padding:6px 11px;border-radius:var(--r-sm)}
+.spot h3{font-size:1.14rem;margin-top:14px}
+.spot p{color:var(--n600);font-size:.95rem;line-height:1.58;margin-top:8px}
+.spot .go{display:inline-flex;align-items:center;gap:7px;color:var(--azure);font-weight:700;font-size:.88rem;margin-top:12px}
+.spot .go svg{width:13px;height:13px}
+
+/* the plain box, used by the four things worth knowing */
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2.4vw,28px)}
+@media(max-width:760px){.grid2{grid-template-columns:1fr}}
+.box{border:1px solid var(--n150);border-radius:var(--r);padding:clamp(20px,2.4vw,28px);background:var(--paper)}
+.box h3{font-size:1.12rem}
+.box p{color:var(--n600);font-size:.95rem;line-height:1.62;margin-top:10px}
+
+/* questions: one column, collapsed, at the bottom */
+.faq{border-top:1px solid var(--n150)}
+.faq:last-of-type{border-bottom:1px solid var(--n150)}
+.faq summary{display:flex;gap:16px;align-items:center;justify-content:space-between;cursor:pointer;
+  min-height:60px;padding-block:14px;font-weight:700;color:var(--navy);font-size:1.02rem;
+  letter-spacing:-.012em;line-height:1.35;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";width:11px;height:11px;flex:none;border-right:2px solid var(--n500);
+  border-bottom:2px solid var(--n500);transform:rotate(45deg) translateY(-2px);transition:transform .2s var(--ease)}
+.faq[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.faq summary:hover{color:var(--azure)}
+.faq p{color:var(--n600);font-size:.97rem;line-height:1.66;padding-bottom:20px;max-width:72ch}
+
+/* keep going, three fixed slots, each with a photograph */
+.kg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.4vw,30px)}
+@media(max-width:860px){.kg{grid-template-columns:1fr}}
+.kg a{display:block}
+.kg figure{margin:0;border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;background:var(--n100)}
+.kg img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.kg a:hover img{transform:scale(1.05)}
+.kg h3{font-size:1.12rem;margin-top:14px}
+.kg p{color:var(--n600);font-size:.93rem;line-height:1.58;margin-top:8px;max-width:38ch}
+.kg .go{display:inline-flex;align-items:center;gap:7px;color:var(--azure);font-weight:700;font-size:.88rem;margin-top:13px}
+.kg .go svg{width:13px;height:13px}
+.kg .label{margin-top:14px;display:block}
+
+/* the mobile booking bar. Mutually exclusive with .placebar__cta by breakpoint,
+   so exactly one .btn--primary is ever on screen. */
+.dock{display:none}
+@media(max-width:760px){
+  body{padding-bottom:78px}
+  body>.dock{position:fixed}
+  .dock{display:flex;left:0;right:0;bottom:0;z-index:70;align-items:center;gap:14px;
+    background:var(--paper);border-top:1px solid var(--n150);
+    padding:11px var(--gut);padding-bottom:calc(11px + env(safe-area-inset-bottom))}
+  .dock__t{font-size:.88rem;color:var(--n600);line-height:1.35;flex:1;min-width:0}
+  .dock__t b{display:block;color:var(--navy);font-size:.95rem;font-weight:700}
+  .dock .btn{flex:none}
+}
+
+footer.f{margin-top:0}
+.sec--tight{padding-block:clamp(46px,5vw,72px)}
+.sec--top0{padding-top:0}
+
+/* the 14px reading floor, declared last so it beats everything above */
+.label,.crumb,.btn--sm,.search kbd,.kmeta,.kmeta .k,.pent__k,.pent__k .k,
+.mstrip span,.mkey,.grp__c,.fgrid h5,.fnote,.fbase,.kg .go,.spot .go,.dock__t,
+.cfacts dt,.tile__n,.spot figure b,.gfline{font-size:.88rem}
+.label,.fgrid h5,.cfacts dt,.kmeta .k,.pent__k .k{letter-spacing:.09em}
+</style>
+</head>
+<body>
+<span id="top" aria-hidden="true"></span>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="top"><div class="wrap nav-in">
+  <a class="brand" href="index.html"><img class="brand__mark" src="brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
+  <ul class="nav-links">
+    <li><a href="search.html?in=tofino">Stays</a></li>
+    <li><a href="index.html">Destinations</a></li>
+    <li><a href="search.html">Guides</a></li>
+  </ul>
+  <form class="search" role="search" action="search.html" method="get">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
+    <label class="vh" for="q">Go to a place, a beach, a trail or a guide</label>
+    <input id="q" name="q" type="search" placeholder="Tofino, Long Beach, Wild Pacific Trail" autocomplete="off">
+    <kbd>/</kbd>
+  </form>
+  <a class="btn btn--ink btn--sm" href="not-found.html">Sign in</a>
+</div></nav>
+<nav class="placebar" aria-label="Tofino"><div class="wrap placebar-in">
+  <a class="placebar__back" href="things-to-do.html"><span class="n">&larr; Things to do in Tofino</span></a>
+  <ul class="placebar__links">
+    <li><a href="tofino.html">Overview</a></li>
+    <li><a href="things-to-do.html" aria-current="page">Things to do</a></li>
+    <li><a href="plan.html">Plan</a></li>
+    <li><a href="guide.html">Guides</a></li>
+  </ul>
+  <a class="btn btn--primary btn--sm placebar__cta" href="search.html?in=tofino">Find a stay</a>
+</div></nav>
+<nav class="subjectbar" aria-label="Things to do in Tofino"><div class="wrap subjectbar-in">
+  <span class="subjectbar__l">Things to do</span>
+  <ul class="subjectbar__links">
+    <li><a href="beaches-tofino.html">Beaches</a></li>
+    <li><a href="hiking-tofino.html">Hiking &amp; trails</a></li>
+    <li><a href="kayaking-tofino.html">Kayaking</a></li>
+    <li><a href="whale-watching.html">Whale watching</a></li>
+    <li><a href="storm-watching-tofino.html">Storm watching</a></li>
+    <li><a href="restaurants-tofino.html">Restaurants</a></li>
+    <li><a href="surfing-tofino.html">Surfing</a></li>
+    <li><a href="#top" aria-current="page">Birding</a></li>
+    <li><a href="fishing-tofino.html">Fishing</a></li>
+  </ul>
+</div></nav>
+<main id="main">
+<div class="wrap">
+  <nav aria-label="Breadcrumb">
+    <ol class="crumb">
+      <li class="lvl-deep"><a href="index.html">British Columbia</a></li>
+      <li class="sep lvl-deep" aria-hidden="true">/</li>
+      <li><a href="region.html">Vancouver Island</a></li>
+      <li class="sep" aria-hidden="true">/</li>
+      <li><a href="tofino.html">Tofino</a></li>
+      <li class="sep" aria-hidden="true">/</li>
+      <li><a href="things-to-do.html">Things to do</a></li>
+      <li class="sep" aria-hidden="true">/</li>
+      <li aria-current="page">Birding in Tofino</li>
+    </ol>
+  </nav>
+</div>
+
+<header class="chero">
+  <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_2000,h_1000/guides/tofino/birding/_category-1" alt="Thousands of shorebirds packed along a tide line, with more of the flock lifting off the water behind them">
+  <div class="chero__v"></div>
+  <div class="chero__in"><div class="wrap">
+    <span class="label">Things to do in Tofino</span>
+    <h1>Birding in Tofino</h1>
+    <p class="chero__d">Two shorebird passages cross this coast every year, and for a few weeks in spring the tide line fills. The month you come decides almost everything you see, which is what this page is for.</p>
+    <div class="chero__cta">
+      <a class="btn btn--ghost" href="#when">When to come</a>
+      <a class="btn btn--ghost" href="#birds">What you will see</a>
+    </div>
+    <dl class="cfacts">
+      <div><dt>Peak of the passage</dt><dd>Late April and May</dd></div>
+      <div><dt>Second passage</dt><dd>September to November</dd></div>
+      <div><dt>Best hour</dt><dd>Low tide</dd></div>
+      <div><dt>Bring</dt><dd>Binoculars and rain gear</dd></div>
+    </dl>
+  </div></div>
+</header>
+
+<section class="when" id="when"><div class="wrap sec sec--tight">
+  <div class="head">
+    <div>
+      <span class="label label--n">When to come</span>
+      <h2>Two passages, and a coast that never empties</h2>
+      <p>Shorebirds move through in spring and again in fall, and those weeks are the reason to time a trip rather than take whatever week is free. No month is a write-off. Summer is when the offshore seabirds are reachable by boat, and winter is when the sea ducks, loons and grebes arrive.</p>
+    </div>
+  </div>
+  <p class="grp__n">How much is moving through, month by month. The deeper the blue and the taller the bar, the more birds are on the move.</p>
+  <ul class="mstrip">
+    <li data-l="cold" data-m="1"><b></b><span>Jan</span><span class="vh">January, sea ducks, loons and eagles</span></li>
+    <li data-l="cold" data-m="2"><b></b><span>Feb</span><span class="vh">February, sea ducks, loons and eagles</span></li>
+    <li data-l="pass" data-m="3"><b></b><span>Mar</span><span class="vh">March, the spring passage begins</span></li>
+    <li data-l="peak" data-m="4"><b></b><span>Apr</span><span class="vh">April, the peak of the spring passage</span></li>
+    <li data-l="peak" data-m="5"><b></b><span>May</span><span class="vh">May, the peak of the spring passage</span></li>
+    <li data-l="sea" data-m="6"><b></b><span>Jun</span><span class="vh">June, offshore seabirds by boat</span></li>
+    <li data-l="sea" data-m="7"><b></b><span>Jul</span><span class="vh">July, offshore seabirds by boat</span></li>
+    <li data-l="sea" data-m="8"><b></b><span>Aug</span><span class="vh">August, offshore seabirds by boat</span></li>
+    <li data-l="pass" data-m="9"><b></b><span>Sep</span><span class="vh">September, the fall passage begins</span></li>
+    <li data-l="pass" data-m="10"><b></b><span>Oct</span><span class="vh">October, a fall passage month</span></li>
+    <li data-l="pass" data-m="11"><b></b><span>Nov</span><span class="vh">November, a fall passage month</span></li>
+    <li data-l="cold" data-m="12"><b></b><span>Dec</span><span class="vh">December, sea ducks, loons and eagles</span></li>
+  </ul>
+  <ul class="mkey">
+    <li><b data-l="peak"></b>Peak of the spring passage, thousands at a time on the open sand</li>
+    <li><b data-l="pass"></b>Passage months, flocks moving through on both migrations</li>
+    <li><b data-l="sea"></b>Offshore seabirds, best reached on a boat</li>
+    <li><b></b>Sea ducks, loons, grebes and eagles on the water and the shore</li>
+  </ul>
+  <div class="wnotes">
+    <div class="wnote wnote--peak"><h3>Spring</h3><p>The best of the year. Migrating shorebirds pass through and everything else turns active. Sandpipers, plovers, whimbrels, black turnstones, gulls, bald eagles, surf scoters and cormorants. Late April and May are the weeks to aim at.</p></div>
+    <div class="wnote"><h3>Summer</h3><p>The boat season. Calm enough to get out to the offshore rocks and islands, which is where tufted puffins, common murres, rhinoceros auklets and pigeon guillemots are. Gulls and eagles carry on along the shore.</p></div>
+    <div class="wnote"><h3>Fall</h3><p>The second passage, and fewer people watching it. Shorebirds move south while loons, grebes, scoters and harlequin ducks arrive for the winter. Good bird activity without the summer crowd.</p></div>
+    <div class="wnote"><h3>Winter</h3><p>Wet and windy, and still excellent. Surf scoters, harlequin ducks, common and Pacific loons, horned and western grebes, cormorants, gulls and bald eagles. Bring warm layers and waterproofs.</p></div>
+  </div>
+</div></section>
+
+<section class="sec sec--tight" id="where"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">Where to stand</span>
+      <h2>Six places, ordered by how far you have to go</h2>
+      <p>The first is a five minute walk out of town. The last needs a boat. Everything in between is reachable by car with a short walk at the end, and all six are better within an hour or two of low tide.</p>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="things-to-do.html">All nine subjects in Tofino</a>
+  </div>
+  <div class="spots">
+    <a class="spot" href="kayaking-tofino.html">
+      <figure><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_760,h_475/guides/tofino/kayaking/tofino-harbour-and-sheltered-inlet-waters-1" alt="Boats, kayaks and a working dock on the Tofino waterfront"><b>01</b></figure>
+      <h3>Tofino Harbour</h3>
+      <p>Gulls on the docks, cormorants drying their wings on the pilings, eagles watching the boats from the treeline. The one place you can bird with a coffee in your hand.</p>
+      <span class="go">Open the kayaking page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="spot" href="beaches-tofino.html">
+      <figure><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_760,h_475/guides/tofino/beaches/chesterman-beach-1" alt="Chesterman Beach from the air at sunset, the sand curving out to a rocky islet"><b>02</b></figure>
+      <h3>Chesterman Beach</h3>
+      <p>Sand, rock and forest edge in one walk, so gulls, shorebirds at the waterline and eagles in the trees behind are all on the same short loop.</p>
+      <span class="go">Open the beaches page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="spot" href="long-beach.html">
+      <figure><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_760,h_475/guides/tofino/beaches/long-beach-1" alt="Surf breaking along Long Beach with a forested headland standing in the mist behind"><b>03</b></figure>
+      <h3>Long Beach</h3>
+      <p>The open sand between the two towns, and the place the spring flocks come down on in their thousands. At low tide the feeding line runs for kilometres.</p>
+      <span class="go">Open the Long Beach page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="spot" href="beaches-tofino.html">
+      <figure><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_760,h_475/guides/tofino/beaches/wickaninnish-beach-1" alt="Waves rolling in at Wickaninnish Beach with the park mountains behind at sunset"><b>04</b></figure>
+      <h3>Wickaninnish Beach</h3>
+      <p>The park end of the same sand, with a visitor centre, parking and a sheltered place to stand when the wind is up. Good for shorebirds and for scanning the water beyond the surf.</p>
+      <span class="go">Open the beaches page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="spot" href="beaches-tofino.html">
+      <figure><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_760,h_475/guides/tofino/beaches/grice-bay-1" alt="The calm blue water and gravel shore of Grice Bay with forested hills on both sides"><b>05</b></figure>
+      <h3>Grice Bay and the mudflats</h3>
+      <p>The sheltered inlet side, where the tide uncovers the flats the shorebirds are actually coming for. Calm water, no surf, and the richest feeding ground on this coast.</p>
+      <span class="go">Open the beaches page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="spot" href="whale-watching.html">
+      <figure><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_760,h_475/guides/tofino/birding/_category-48" alt="Two small wildlife tour boats sitting on flat water in front of a forested shore"><b>06</b></figure>
+      <h3>Clayoquot Sound, by boat</h3>
+      <p>Puffins, murres, auklets and shearwaters spend their time past the surf line and are hard to pick out from the sand. The wildlife boats go to the rocks and islands they sit on.</p>
+      <span class="go">Open the whale watching page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+</div></section>
+
+<section class="sec sec--top0" id="birds"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">What you will see</span>
+      <h2>Eighteen birds, ordered from the ones you cannot miss to the ones that need a boat</h2>
+      <p>The first three are on every beach in Tofino on any day of the year, and you will see them without trying. The last six are past the surf line and are the reason people book a boat. Every entry says where it is, the one clue that separates it from the bird beside it, and the month to come for it.</p>
+    </div>
+  </div>
+<div class="grp">
+  <div class="grp__h"><h3>On any beach, any month</h3><span class="grp__c">01 to 03</span></div>
+  <p class="grp__n">No plan needed and no binoculars needed. These three are the ones a visitor notices from the car park.</p>
+  <div class="plist">
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/tofino/birding/_category-3" alt="Two pale grey and white gulls swimming close together on open water"><b class="tile__n">01</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">Beaches, docks, rocks</span><span class="dot"></span><span>Grey and white, loud, everywhere</span></p>
+      <h3>Gulls</h3>
+      <p>The easiest birds to see here, on beaches, docks, rocks, rooftops and over the water. Most visitors stop at the word seagull, but there are several species mixed in the same flock: glaucous-winged, western, California, short-billed, and Heermann's in season.</p>
+      <p>Think of them as the beach cleanup crew. Grey and white bodies, long wings, strong bills, loud calls, always in groups near food.</p>
+      <p class="gfline"><b>When:</b> every month of the year, with no tour needed.</p>
+      <p class="note"><span><b>Good to know.</b> Glaucous-winged gulls, the common one here, show soft grey wingtips rather than the sharp black ones. Do not feed them: it makes them aggressive and unhealthy.</span></p>
+    </div>
+  </article>
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/tofino/birding/_category-54" alt="An adult bald eagle with a white head standing on wet sand at the top of a beach"><b class="tile__n">02</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">Tall trees, harbour, shoreline</span><span class="dot"></span><span>Huge, white head on adults</span></p>
+      <h3>Bald eagle</h3>
+      <p>Not a seabird, but the coastal bird most visitors most want to see, and one of the reliable ones. Look in the tallest trees along the shore, over the harbour, and on the beach itself.</p>
+      <p>Think of the eagle as the top watcher of the coast: it sits high and watches everything below. White head and tail, dark body, huge wings, slow and powerful flight.</p>
+      <p class="gfline"><b>When:</b> all twelve months, from shore.</p>
+      <p class="note"><span><b>Good to know.</b> Young bald eagles have no white head yet and stay mostly brown for several years, so a big brown raptor over the beach is very often the same bird.</span></p>
+    </div>
+  </article>
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/tofino/birding/_category-8" alt="A dark glossy cormorant flying low with its long neck stretched straight out"><b class="tile__n">03</b></figure>
+      <div>
+      <p class="pent__k"><span class="k">Rocks, pilings, open water</span><span class="dot"></span><span>Dark body, long neck, dives</span></p>
+      <h3>Cormorants</h3>
+      <p>Dark seabirds sitting on rocks, docks and pilings, or flying low and straight over the water. They are strong swimmers and dive to catch fish. Pelagic, double-crested and Brandt's cormorants all turn up around Tofino.</p>
+      <p>Think of them as underwater hunters that look like dark arrows in flight. The giveaway is a bird standing with its wings held open to dry.</p>
+      <p class="gfline"><b>When:</b> all year, and easiest in the calmer months when they raft up close to shore.</p>
+    </div>
+  </article>
+  </div>
+</div>
+<div class="grp">
+  <div class="grp__h"><h3>On the rocks and in the weed</h3><span class="grp__c">04 to 06</span></div>
+  <p class="grp__n">Three birds that live on the hard edges rather than the sand. Walk the rocky ends of a beach at low tide and you have a real chance at all three.</p>
+  <div class="plist">
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/tofino/birding/_category-24" alt="A dark oystercatcher wading on a weedy shore, its long bill bright orange-red"><b class="tile__n">04</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">Rocky shores, tide pools</span><span class="dot"></span><span>Black body, orange-red bill</span></p>
+      <h3>Black oystercatcher</h3>
+      <p>Not a true seabird, but the best coastal bird on this list to learn first. It lives on rocky shores and small islands and gives itself away long before you see it, because it is very loud.</p>
+      <p>Think of it as the black bird with a carrot bill. Black body, long orange-red bill, pink legs. If you remember one rocky shore bird, make it this one.</p>
+      <p class="gfline"><b>When:</b> all year, on any rocky headland at low tide.</p>
+    </div>
+  </article>
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/tofino/birding/_category-16" alt="A small black seabird on the water showing a white wing patch and bright red feet"><b class="tile__n">05</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">Rocky shores, docks, islands</span><span class="dot"></span><span>White wing patch, red feet</span></p>
+      <h3>Pigeon guillemot</h3>
+      <p>A small black seabird that keeps close to rocky shores, docks and islands rather than heading out to sea. In breeding plumage it is one of the easier small seabirds to name.</p>
+      <p>Think black bird with red feet. If you see a small dark seabird near rocks and it flashes white on the wing, look at the feet.</p>
+      <p class="gfline"><b>When:</b> best in the breeding months of late spring and summer, when the feet and wing patches are brightest.</p>
+    </div>
+  </article>
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/tofino/birding/_category-30" alt="A dark turnstone standing among wet cobbles at the tide line"><b class="tile__n">06</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">Rocks, seaweed, tide line</span><span class="dot"></span><span>Flips seaweed and small stones</span></p>
+      <h3>Black turnstone</h3>
+      <p>A dark, stocky shorebird that works the rocks and the weed rather than the open sand. It is easy to walk past, because it is the same colour as everything it stands on.</p>
+      <p>The behaviour names it: watch for a bird turning over seaweed and flipping small stones to get at what is underneath.</p>
+      <p class="gfline"><b>When:</b> strongest on both passages, and present through the winter.</p>
+    </div>
+  </article>
+  </div>
+</div>
+<div class="grp">
+  <div class="grp__h"><h3>At the tide line, in passage</h3><span class="grp__c">07 to 08</span></div>
+  <p class="grp__n">This is the group the spring trip is for. Go at low tide, when the flats are uncovered and the flocks are down and feeding rather than in the air.</p>
+  <div class="plist">
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/tofino/birding/_category-28" alt="Small sandpipers probing wet sand in a loose spread-out group"><b class="tile__n">07</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">Beaches, mudflats, tide line</span><span class="dot"></span><span>Small, fast, always in flocks</span></p>
+      <h3>Sandpipers and the small shorebirds</h3>
+      <p>The birds the passage is made of. Western and least sandpipers, sanderlings, dunlin, semipalmated and black-bellied plovers all move through together, and in the peak weeks they come down on the open sand in thousands at a time.</p>
+      <p>Think tiny runners at the tide line. Sandpipers move in busy flocks, sanderlings chase the waves in and out, and plovers stop and go instead of running without a break.</p>
+      <p class="gfline"><b>When:</b> the spring passage, at its heaviest in late April and May, and again from September to November. Low tide.</p>
+      <p class="note"><span><b>Good to know.</b> These birds are refuelling on a long flight. A flock put into the air burns exactly what it landed to gain, so keep your distance and keep dogs on a lead.</span></p>
+    </div>
+  </article>
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/tofino/birding/_category-35" alt="A whimbrel landing with its wings spread and its long curved bill held down"><b class="tile__n">08</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">Mudflats, shoreline, beaches</span><span class="dot"></span><span>Long down-curved bill</span></p>
+      <h3>Whimbrel</h3>
+      <p>Much bigger than the sandpipers it feeds alongside, and the one shorebird on this coast a beginner can name from a distance. It works the mudflats and the shoreline in ones and twos rather than in flocks.</p>
+      <p>The bill does it. Nothing else out there has that long, smooth downward curve.</p>
+      <p class="gfline"><b>When:</b> both passages, spring and fall. The curved bill makes it findable even in a busy flock.</p>
+    </div>
+  </article>
+  </div>
+</div>
+<div class="grp">
+  <div class="grp__h"><h3>On the water in the cold months</h3><span class="grp__c">09 to 12</span></div>
+  <p class="grp__n">The winter arrivals, and the reason a wet November trip is not a wasted one. All four sit on the water rather than the shore, so scan the bays and the sheltered water beyond the surf.</p>
+  <div class="plist">
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/tofino/birding/_category-36" alt="A dark sea duck floating on green water, its bill boldly marked in orange and white"><b class="tile__n">09</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">Bays, protected coast</span><span class="dot"></span><span>Dark duck, bold colourful bill</span></p>
+      <h3>Surf scoter</h3>
+      <p>The common sea duck here through the colder half of the year. Look for groups floating beyond the surf and diving together, often well out from the sand.</p>
+      <p>A dark duck with a surprisingly bright bill is almost always this one. White patches on the head of the male make it easier still.</p>
+      <p class="gfline"><b>When:</b> fall through winter, with the first birds back in September.</p>
+    </div>
+  </article>
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/tofino/birding/_category-39" alt="A harlequin duck in flight over water, white markings bright against dark plumage"><b class="tile__n">10</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">Rocky shores, surf zones</span><span class="dot"></span><span>Patterned duck in rough water</span></p>
+      <h3>Harlequin duck</h3>
+      <p>The one duck that chooses the wave-washed rock rather than the calm bay. It is worth walking a rocky headland in winter specifically for this bird.</p>
+      <p>Males carry white marks and rusty sides that look painted on. Any small duck riding the swell up against the rocks is worth a second look.</p>
+      <p class="gfline"><b>When:</b> winter, near rocky, wave-washed shore.</p>
+    </div>
+  </article>
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/tofino/birding/_category-43" alt="A common loon sitting low in the water in black and white breeding plumage"><b class="tile__n">11</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">Bays, calm nearshore water</span><span class="dot"></span><span>Long body, low in the water</span></p>
+      <h3>Loons</h3>
+      <p>Common and Pacific loons both turn up in the region on calm water in fall and winter. They sit low, dive smoothly and stay under a long time.</p>
+      <p>Think quiet spear-billed diver. Long body, pointed bill, no fuss on the surface, and a dive with no splash at the end of it.</p>
+      <p class="gfline"><b>When:</b> fall and winter, on the calmer water inside the surf line.</p>
+    </div>
+  </article>
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/tofino/birding/_category-45" alt="A grebe with a rust-coloured neck swimming on rippled grey water"><b class="tile__n">12</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">Bays and nearshore water</span><span class="dot"></span><span>Slim neck, pointed bill, vanishes</span></p>
+      <h3>Grebes</h3>
+      <p>Horned, red-necked and western grebes all use the bays and inlets here, and all three are more common outside summer.</p>
+      <p>Think little floating divers. They go under fast and come up somewhere you were not looking, which is the surest sign you are watching a grebe and not a duck.</p>
+      <p class="gfline"><b>When:</b> outside summer, and best on calm water.</p>
+    </div>
+  </article>
+  </div>
+</div>
+<div class="grp">
+  <div class="grp__h"><h3>Past the surf line, boat only</h3><span class="grp__c">13 to 18</span></div>
+  <p class="grp__n">These six spend their lives away from the sand. From the beach they are dots, and most visitors who see them see them from a wildlife or birding boat around the offshore rocks and islands.</p>
+  <div class="plist">
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/tofino/birding/_category-11" alt="A black and white seabird standing upright on a rock ledge above the sea"><b class="tile__n">13</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">Offshore water, boat tours</span><span class="dot"></span><span>Flying penguin shape</span></p>
+      <h3>Common murre</h3>
+      <p>A black and white seabird that spends most of its time out on the ocean. At a distance it can look like a small penguin, but it flies, low and fast, straight over the water.</p>
+      <p>Look for a black head and back, a white belly, a long pointed bill and a bird that sits low and dives rather than dabbles.</p>
+      <p class="gfline"><b>When:</b> summer is the practical season, on a boat or with binoculars from a headland.</p>
+    </div>
+  </article>
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/tofino/birding/_category-13" alt="A rhinoceros auklet close up, showing pale head plumes and the small horn on its bill"><b class="tile__n">14</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">Offshore water, boat tours</span><span class="dot"></span><span>Chunky, plain puffin cousin</span></p>
+      <h3>Rhinoceros auklet</h3>
+      <p>A chunky seabird related to the puffins and far more numerous here. In breeding season the adults carry a small pale horn on the bill, which is where the name comes from.</p>
+      <p>Think plain puffin cousin: heavier than a murre, less colourful than a puffin, and built entirely for diving.</p>
+      <p class="gfline"><b>When:</b> summer, on a wildlife or birding boat.</p>
+    </div>
+  </article>
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/tofino/birding/_category-15" alt="A dark seabird on the water carrying a heavy bright orange bill"><b class="tile__n">15</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">Offshore rocks and islands</span><span class="dot"></span><span>Bright bill, pale head tufts</span></p>
+      <h3>Tufted puffin</h3>
+      <p>The bird most visitors hope for, and the one that most often gets missed, because it is not a bird you see walking a town beach. It sits out around the offshore rocks and islands.</p>
+      <p>In breeding plumage there is nothing else like it: a large orange bill, a dark body, a pale face and long golden head tufts.</p>
+      <p class="gfline"><b>When:</b> summer, and only realistically on a boat tour to the offshore rocks.</p>
+      <p class="note"><span><b>Good to know.</b> Puffins are seasonal and offshore. If seeing one is the point of the trip, book a guided birding or wildlife tour rather than hoping from the sand.</span></p>
+    </div>
+  </article>
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/tofino/birding/_category-19" alt="A small chunky seabird alone on calm dark green water"><b class="tile__n">16</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">Calm nearshore water</span><span class="dot"></span><span>Small seabird, nests in old trees</span></p>
+      <h3>Marbled murrelet</h3>
+      <p>A small seabird with a connection to the rainforest that nothing else on this list has. It nests high in old-growth trees and flies out to feed at sea, which is why the forest behind the beach and the water in front of it are the same story.</p>
+      <p>Hard to name with confidence, and worth knowing anyway. Small, chunky, fast in flight, usually on calm water close in.</p>
+      <p class="gfline"><b>When:</b> possible all year on calm nearshore water, easiest from a boat.</p>
+    </div>
+  </article>
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/tofino/birding/_category-23" alt="A long-winged shearwater gliding low over the open sea"><b class="tile__n">17</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">Offshore water</span><span class="dot"></span><span>Long narrow wings, glides</span></p>
+      <h3>Shearwaters</h3>
+      <p>True offshore birds that glide low over the ocean on long narrow wings, sometimes in large numbers. Sooty, pink-footed and short-tailed shearwaters all pass this coast in season.</p>
+      <p>Think wind riders. They skim the waves and use the air just above the water like a road, barely beating a wing.</p>
+      <p class="gfline"><b>When:</b> in season offshore, most often seen from a boat.</p>
+    </div>
+  </article>
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/tofino/birding/_category-47" alt="Two brown pelicans on the water with their long pouched bills held down"><b class="tile__n">18</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">Outer coast, in season</span><span class="dot"></span><span>Big glider with a scoop bill</span></p>
+      <h3>Brown pelican</h3>
+      <p>The least predictable bird here, and the hardest to miss when it does turn up. Pelicans appear along the outer coast in season, and they are large enough to name from a long way off.</p>
+      <p>Think big glider with a scoop bill. They look far too heavy to fly and then move down a wave line with no effort at all.</p>
+      <p class="gfline"><b>When:</b> seasonal and unpredictable. Watch for low gliding groups over the outer coast.</p>
+    </div>
+  </article>
+  </div>
+</div>
+</div></section>
+
+<section class="sec sec--top0" id="tips"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">Before you go</span>
+      <h2>Four things that decide what you see</h2>
+      <p>Almost none of this is about knowing bird names. It is about turning up at the right state of tide, with something to see through, and not putting the flock into the air.</p>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Binoculars change the page</h3><p>Most seabirds are dots without them, and half the birds on this list are named by a detail you cannot see with the naked eye: a bill horn, a wing patch, the colour of a foot. One pair between two people is enough.</p></div>
+    <div class="box"><h3>Go at low tide</h3><p>The flats the shorebirds feed on are only uncovered as the tide drops, and that is when the birds are down and close rather than in the air or gone. Check the day's tide before you pick your hour.</p></div>
+    <div class="box"><h3>Give a flock its distance</h3><p>Birds on passage are refuelling for a long flight. Every time a flock is put up it burns what it stopped here to gain, so watch from where you are, keep dogs on a lead, and let the birds decide the distance.</p></div>
+    <div class="box"><h3>Do not feed the gulls</h3><p>It makes them bolder, more aggressive around people and less healthy, and it teaches them to work car parks and picnic tables instead of the tide line. This holds for every animal on this coast.</p></div>
+  </div>
+</div></section>
+
+<section class="sec sec--top0" id="questions"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">Questions</span>
+      <h2>Asked before people come</h2>
+      <p>Open the ones you need. Everything here is answered in the same words a guide would use on the beach.</p>
+    </div>
+  </div>
+  <details class="faq" open><summary>When is the best time for birdwatching in Tofino?</summary><p>Spring and fall are the two migration windows, and late April and May are the strongest weeks of the year. Summer is the season for offshore birds, because the water is calm enough for boats to reach the rocks and islands. Winter is for sea ducks, loons, grebes, gulls, cormorants and eagles. There is no month with nothing in it.</p></details>
+  <details class="faq"><summary>Where is the best place to birdwatch in Tofino?</summary><p>The Tofino mudflats and Grice Bay for shorebirds, Chesterman Beach, Long Beach and Wickaninnish Beach for the tide line, Tofino Harbour for gulls, cormorants and eagles without leaving town, and Clayoquot Sound by boat for anything offshore.</p></details>
+  <details class="faq"><summary>What seabirds can you see in Tofino?</summary><p>Gulls, cormorants, common murres, rhinoceros auklets, pigeon guillemots, tufted puffins, shearwaters, sea ducks, loons, grebes, black oystercatchers and bald eagles.</p></details>
+  <details class="faq"><summary>Can you see puffins in Tofino?</summary><p>Yes. Tufted puffins may be seen near Tofino, especially on summer boat tours near the offshore rocks and islands. They are not usually easy to see from town beaches, so a guided birding or wildlife tour gives you a much better chance.</p></details>
+  <details class="faq"><summary>What are the black birds on the rocks in Tofino?</summary><p>They may be cormorants, black oystercatchers or pigeon guillemots. Cormorants have long necks and often hold their wings open to dry. Black oystercatchers have bright orange-red bills. Pigeon guillemots are smaller and may show white wing patches.</p></details>
+  <details class="faq"><summary>What are the small birds running on the beach?</summary><p>Shorebirds, most likely sandpipers, sanderlings, dunlin or plovers. They feed along the tide line and on the mudflats, usually in groups, and they are at their most numerous during the spring and fall passages.</p></details>
+  <details class="faq"><summary>Do you need a boat tour to see seabirds?</summary><p>Not always. Gulls, cormorants, eagles, shorebirds, sea ducks, loons and grebes are all visible from shore. A boat helps if you want puffins, murres, auklets, shearwaters and the other birds that live past the surf line.</p></details>
+  <details class="faq"><summary>What should I bring for birdwatching in Tofino?</summary><p>Binoculars, rain gear, warm layers, waterproof shoes, a camera, and a bird app or field guide. The weather changes fast on this coast, and most of the good birding happens standing still in the open.</p></details>
+</div></section>
+
+<section class="sec sec--top0" id="more"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">Keep going</span>
+      <h2>Three ways on from here</h2>
+    </div>
+  </div>
+  <div class="kg">
+    <a href="whale-watching.html">
+      <figure><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_760,h_475/guides/tofino/whale-watching/_category-1" alt="A humpback fluke lifting clear of the water in front of a forested headland"></figure>
+      <span class="label">The boats that go offshore</span>
+      <h3>Whale watching in Tofino</h3>
+      <p>The same wildlife boats that reach the offshore rocks, plus gray whales north from March and humpbacks all summer.</p>
+      <span class="go">Open the subject <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="long-beach.html">
+      <figure><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_760,h_475/guides/tofino/beaches/long-beach-2" alt="A cyclist crossing the wide low-tide sand of Long Beach in golden morning mist"></figure>
+      <span class="label">Where the flocks come down</span>
+      <h3>Long Beach</h3>
+      <p>The open sand between the two towns, the park viewpoints, and the passage that crosses it twice a year.</p>
+      <span class="go">Open the area <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="search.html?in=tofino">
+      <figure><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_760,h_475/arc-trips/curated-cabin" alt="A timber cabin standing alone on a forested headland above the water"></figure>
+      <span class="label">The booking path</span>
+      <h3>Stays in Tofino</h3>
+      <p>134 places from $320 a night, a number of them a short walk from the tide line.</p>
+      <span class="go">Search stays <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+</div></section>
+</main>
+
+<footer class="f"><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <span class="fbrand"><img class="fbrand__mark" src="brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></span>
+      <p class="fnote">Stays and guides on the west coast of Vancouver Island, written by people who go there.</p>
+    </div>
+    <div><h5>Destinations</h5><ul>
+      <li><a href="tofino.html">Tofino</a></li><li><a href="region.html">Vancouver Island</a></li>
+      <li><a href="index.html">British Columbia</a></li></ul></div>
+    <div><h5>In Tofino</h5><ul>
+      <li><a href="things-to-do.html">All nine subjects</a></li><li><a href="#top" aria-current="page">Birding in Tofino</a></li>
+      <li><a href="long-beach.html">Long Beach</a></li><li><a href="search.html?in=tofino">Search everything</a></li></ul></div>
+    <div><h5>Plan</h5><ul>
+      <li><a href="plan.html">When to go</a></li><li><a href="plan.html">Getting there</a></li>
+      <li><a href="search.html?in=tofino">Where to stay</a></li><li><a href="guide.html">Guides</a></li></ul></div>
+    <div><h5>Arc Trips</h5><ul>
+      <li><a href="not-found.html">About us</a></li><li><a href="not-found.html">List your place</a></li>
+      <li><a href="fishing-tofino.html">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
+  </div>
+  <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees</span></div>
+</div></footer>
+
+<div class="dock">
+  <p class="dock__t"><b>Peak passage, late April and May</b>134 stays from $320</p>
+  <a class="btn btn--primary btn--sm" href="search.html?in=tofino">See stays</a>
+</div>
+
+<script>
+/* Mark the month the reader is actually in, so the strip is never stale. */
+var now = new Date().getMonth() + 1;
+var cell = document.querySelector('.mstrip li[data-m="' + now + '"]');
+if (cell) cell.setAttribute('data-now', '');
+addEventListener('keydown', function (e) {
+  if (e.key === '/' && !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)) {
+    e.preventDefault();
+    document.querySelector('.search input').focus();
+  }
+});
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

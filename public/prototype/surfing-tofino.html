@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Surfing in Tofino, Arc Trips</title>
+<meta name="description" content="Seven breaks inside twelve miles of coast, ordered from the beach the schools teach on to the point that only turns on a few days a year, with the swell, tide and wetsuit each one asks for.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap" rel="stylesheet">
+<link rel="icon" href="brand/arctrips-icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="_system.css">
+<style>
+/* Page-scoped only, built on the tokens in _system.css. No new colour values.
+   The same block is on all six Tofino subject pages, so the siblings a reader
+   moves between through the subject rail cannot drift apart.
+
+   What it adds that the system does not carry:
+     (a) accessibility floors and the 14px reading floor
+     (b) the photographic hero
+     (c) the numbered index: a tile that is either a photograph or a promise
+     (d) the season strip, azure intensity carrying how big the swell is
+     (e) the questions, the keep-going slots, the mobile booking bar
+
+   The tide rules are kept although this page carries no tide band yet, so the
+   band can be dropped in centrally without this block having to change. */
+
+/* (a) floors */
+:focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:var(--r-sm)}
+.btn{min-height:44px;white-space:nowrap}
+nav.top .btn{flex:none}
+.brand,.nav-links a{display:inline-flex;align-items:center;min-height:44px}
+.search{height:44px}
+.search input{align-self:stretch}
+.crumb,.crumb li{list-style:none}
+.crumb a{display:inline-flex;align-items:center;min-height:44px}
+.fgrid ul a{display:inline-block;padding-block:10px}
+.head>div{flex:1 1 min(560px,100%)}
+.head h2{margin-top:11px}
+.tide-why{flex:1 0 100%;font-size:.88rem;color:var(--n600);line-height:1.6;max-width:92ch}
+.tide-why b{color:var(--navy);font-weight:700}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.kmeta,.crumb,.fbase,.dest__meta{color:var(--n600)}
+.kmeta .dot{background:var(--n200)}
+body>.skip{position:absolute}
+.skip{left:var(--gut);top:-60px;z-index:99;background:var(--navy);color:var(--paper);
+  padding:13px 18px;border-radius:0 0 var(--r-sm) var(--r-sm);font-weight:600;font-size:.9rem;transition:top .18s var(--ease)}
+.skip:focus{top:0}
+main [id]{scroll-margin-top:142px}
+@media(max-width:760px){main [id]{scroll-margin-top:96px}}
+
+/* (b) the hero. One photograph, the subject's own, with the facts a traveller
+   acts on sitting under it. Nothing here counts our own work. */
+.chero{position:relative;min-height:min(62vh,540px);display:flex;align-items:flex-end;overflow:hidden;background:var(--navy)}
+.chero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.86}
+.chero__v{position:absolute;inset:0;opacity:.92;
+  background:linear-gradient(0deg,var(--navy) 0%,var(--navy) 38%,transparent 100%)}
+.chero__in{position:relative;width:100%;padding-block:clamp(30px,4vw,56px)}
+.chero h1{margin-top:14px;color:var(--paper);font-size:clamp(2.4rem,5.6vw,4.1rem);letter-spacing:-.04em;line-height:1.02;max-width:16ch}
+.chero .label{color:var(--a300)}
+.chero__d{color:var(--paper);opacity:.92;max-width:54ch;margin-top:18px;font-size:clamp(1.02rem,1.3vw,1.14rem);line-height:1.55}
+.chero .btn--ghost{border-color:var(--paper);color:var(--paper)}
+.chero .btn--ghost:hover{background:var(--paper);color:var(--navy)}
+.chero__cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.cfacts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2.4vw,34px);margin-top:clamp(24px,3vw,34px);
+  padding-top:20px;border-top:1px solid var(--a400)}
+.cfacts dt{font-size:.88rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--a300)}
+.cfacts dd{font-size:clamp(1.02rem,1.5vw,1.34rem);font-weight:700;color:var(--paper);margin-top:6px;line-height:1.25}
+@media(max-width:720px){.cfacts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* (c) the numbered index. Media column left on every row, so the numbers read
+   as one column and the order is legible at a glance. */
+.grp{margin-top:clamp(44px,5vw,72px)}
+.grp:first-child{margin-top:0}
+.grp__h{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid var(--n150)}
+.grp__h h3{font-size:clamp(1.24rem,1.9vw,1.52rem)}
+.grp__c{font-size:.88rem;font-weight:700;color:var(--azure);font-variant-numeric:tabular-nums;letter-spacing:.06em}
+.grp__n{font-size:.95rem;color:var(--n600);margin-top:12px;max-width:62ch;line-height:1.6}
+.plist{display:grid;gap:clamp(30px,3.6vw,54px);margin-top:clamp(26px,3vw,40px)}
+.pent{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:clamp(20px,3vw,44px);align-items:start}
+@media(max-width:820px){.pent{grid-template-columns:1fr;gap:18px}}
+.tile{position:relative;margin:0;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:var(--n100)}
+@media(min-width:821px){.pent .tile{position:sticky;top:152px}}
+@media(max-width:820px){.tile{aspect-ratio:3/2}}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.pent:hover .tile img{transform:scale(1.04)}
+.tile__n{position:absolute;left:12px;top:12px;background:var(--navy);color:var(--paper);
+  font-size:.88rem;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:.04em;
+  padding:6px 11px;border-radius:var(--r-sm)}
+/* Where a place carries no photograph of its own the tile is not left empty and
+   is not filled with a picture of somewhere else. It states the promise. */
+.tile--say{display:flex;flex-direction:column;gap:clamp(14px,1.8vw,20px);background:var(--a100);
+  border:1px solid var(--a200);padding:clamp(18px,2.4vw,26px)}
+.tile--say .tile__n{position:static;background:none;color:var(--azure);padding:0;
+  font-size:clamp(2.2rem,3.4vw,3rem);letter-spacing:-.04em;line-height:1}
+.tile__say{color:var(--navy);font-size:clamp(1.1rem,1.7vw,1.42rem);font-weight:700;
+  letter-spacing:-.02em;line-height:1.24;max-width:18ch}
+.tile__say span{display:block;font-size:.88rem;font-weight:700;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--a700);margin-bottom:8px}
+.pent h3{font-size:clamp(1.28rem,2vw,1.62rem);font-weight:800;letter-spacing:-.026em;margin-top:2px}
+.pent__k{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:.88rem;color:var(--n600);margin-bottom:11px}
+.pent__k .k{color:var(--azure);font-weight:700;letter-spacing:.09em;text-transform:uppercase;font-size:.88rem}
+.pent p{color:var(--n700);line-height:1.66;margin-top:11px;max-width:62ch}
+.gfline{margin-top:14px;font-size:.95rem;color:var(--n700);line-height:1.55;font-weight:500;max-width:62ch}
+.note{display:flex;gap:11px;margin-top:15px;font-size:.94rem;color:var(--n600);line-height:1.6;
+  border-left:2px solid var(--a300);padding-left:14px;max-width:62ch}
+.note b{color:var(--navy);font-weight:700}
+
+/* (d) the season strip. Colour is the message: the deeper the azure, the bigger
+   the swell. Never emerald, which is the season signal elsewhere. */
+.when{background:var(--n50);border-block:1px solid var(--n150)}
+.mstrip{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(4px,.7vw,9px);list-style:none;
+  margin-top:clamp(22px,2.6vw,32px);align-items:end}
+.mstrip li{display:flex;flex-direction:column;align-items:center;gap:9px}
+.mstrip b{display:block;width:100%;border-radius:var(--r-sm);background:var(--n150);height:22px}
+.mstrip li[data-l="peak"] b{background:var(--azure);height:64px}
+.mstrip li[data-l="shoulder"] b{background:var(--a300);height:42px}
+.mstrip li[data-now] b{outline:2px solid var(--navy);outline-offset:2px}
+.mstrip span{font-size:.88rem;font-weight:600;color:var(--n600)}
+.mstrip li[data-l="peak"] span{color:var(--navy);font-weight:700}
+.mkey{display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin-top:18px;font-size:.88rem;color:var(--n600);font-weight:600}
+.mkey b{display:inline-block;width:13px;height:13px;border-radius:4px;vertical-align:-2px;margin-right:8px;background:var(--n150)}
+.mkey b[data-l="peak"]{background:var(--azure)}
+.mkey b[data-l="shoulder"]{background:var(--a300)}
+.wnotes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(18px,2.4vw,30px);margin-top:clamp(30px,3.4vw,44px)}
+.wnotes--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:860px){.wnotes,.wnotes--3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.wnotes,.wnotes--3{grid-template-columns:1fr}}
+.wnote{border-top:2px solid var(--a300);padding-top:14px}
+.wnote h3{font-size:1.06rem}
+.wnote p{color:var(--n600);font-size:.95rem;line-height:1.6;margin-top:8px}
+
+/* the day arc, for the page where every month is as good as every other */
+.day{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.4vw,30px);margin-top:clamp(24px,3vw,36px)}
+@media(max-width:760px){.day{grid-template-columns:1fr}}
+.dstep{border-radius:var(--r);padding:clamp(20px,2.4vw,28px);background:var(--a100)}
+.dstep:nth-child(2){background:var(--a200)}
+.dstep:nth-child(3){background:var(--a300)}
+.dstep .label{color:var(--a800)}
+.dstep h3{font-size:1.16rem;margin-top:10px}
+.dstep p{color:var(--n700);font-size:.95rem;line-height:1.6;margin-top:9px}
+
+/* the plain box, used by the four things worth knowing */
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2.4vw,28px)}
+@media(max-width:760px){.grid2{grid-template-columns:1fr}}
+.box{border:1px solid var(--n150);border-radius:var(--r);padding:clamp(20px,2.4vw,28px);background:var(--paper)}
+.box h3{font-size:1.12rem}
+.box p{color:var(--n600);font-size:.95rem;line-height:1.62;margin-top:10px}
+
+/* (e) questions: one column, collapsed, at the bottom */
+.faq{border-top:1px solid var(--n150)}
+.faq:last-of-type{border-bottom:1px solid var(--n150)}
+.faq summary{display:flex;gap:16px;align-items:center;justify-content:space-between;cursor:pointer;
+  min-height:60px;padding-block:14px;font-weight:700;color:var(--navy);font-size:1.02rem;
+  letter-spacing:-.012em;line-height:1.35;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";width:11px;height:11px;flex:none;border-right:2px solid var(--n500);
+  border-bottom:2px solid var(--n500);transform:rotate(45deg) translateY(-2px);transition:transform .2s var(--ease)}
+.faq[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.faq summary:hover{color:var(--azure)}
+.faq p{color:var(--n600);font-size:.97rem;line-height:1.66;padding-bottom:20px;max-width:72ch}
+
+/* keep going, three fixed slots, each with a photograph */
+.kg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.4vw,30px)}
+@media(max-width:860px){.kg{grid-template-columns:1fr}}
+.kg a{display:block}
+.kg figure{margin:0;border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;background:var(--n100)}
+.kg img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.kg a:hover img{transform:scale(1.05)}
+.kg h3{font-size:1.12rem;margin-top:14px}
+.kg p{color:var(--n600);font-size:.93rem;line-height:1.58;margin-top:8px;max-width:38ch}
+.kg .go{display:inline-flex;align-items:center;gap:7px;color:var(--azure);font-weight:700;font-size:.88rem;margin-top:13px}
+.kg .go svg{width:13px;height:13px}
+.kg .label{margin-top:14px;display:block}
+
+/* the mobile booking bar. Mutually exclusive with .placebar__cta by breakpoint,
+   so exactly one .btn--primary is ever on screen. */
+.dock{display:none}
+@media(max-width:760px){
+  body{padding-bottom:78px}
+  body>.dock{position:fixed}
+  .dock{display:flex;left:0;right:0;bottom:0;z-index:70;align-items:center;gap:14px;
+    background:var(--paper);border-top:1px solid var(--n150);
+    padding:11px var(--gut);padding-bottom:calc(11px + env(safe-area-inset-bottom))}
+  .dock__t{font-size:.88rem;color:var(--n600);line-height:1.35;flex:1;min-width:0}
+  .dock__t b{display:block;color:var(--navy);font-size:.95rem;font-weight:700}
+  .dock .btn{flex:none}
+}
+
+footer.f{margin-top:0}
+.sec--tight{padding-block:clamp(46px,5vw,72px)}
+.sec--top0{padding-top:0}
+
+/* the 14px reading floor, declared last so it beats everything above */
+.label,.crumb,.btn--sm,.search kbd,.kmeta,.kmeta .k,.pent__k,.pent__k .k,
+.mstrip span,.mkey,.grp__c,.fgrid h5,.fnote,.fbase,.kg .go,.dock__t,
+.cfacts dt,.tile__n,.tile__say span,.gfline{font-size:.88rem}
+.label,.fgrid h5,.cfacts dt,.kmeta .k,.pent__k .k,.tile__say span{letter-spacing:.09em}
+</style>
+</head>
+<body>
+<span id="top" aria-hidden="true"></span>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="top"><div class="wrap nav-in">
+  <a class="brand" href="index.html"><img class="brand__mark" src="brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
+  <ul class="nav-links">
+    <li><a href="search.html?in=tofino">Stays</a></li>
+    <li><a href="index.html">Destinations</a></li>
+    <li><a href="search.html">Guides</a></li>
+  </ul>
+  <form class="search" role="search" action="search.html" method="get">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
+    <label class="vh" for="q">Go to a place, a beach, a trail or a guide</label>
+    <input id="q" name="q" type="search" placeholder="Tofino, Long Beach, Wild Pacific Trail" autocomplete="off">
+    <kbd>/</kbd>
+  </form>
+  <a class="btn btn--ink btn--sm" href="not-found.html">Sign in</a>
+</div></nav>
+<nav class="placebar" aria-label="Tofino"><div class="wrap placebar-in">
+  <a class="placebar__back" href="things-to-do.html"><span class="n">&larr; Things to do in Tofino</span></a>
+  <ul class="placebar__links">
+    <li><a href="tofino.html">Overview</a></li>
+    <li><a href="things-to-do.html" aria-current="page">Things to do</a></li>
+    <li><a href="plan.html">Plan</a></li>
+    <li><a href="guide.html">Guides</a></li>
+  </ul>
+  <a class="btn btn--primary btn--sm placebar__cta" href="search.html?in=tofino">Find a stay</a>
+</div></nav>
+<nav class="subjectbar" aria-label="Things to do in Tofino"><div class="wrap subjectbar-in">
+  <span class="subjectbar__l">Things to do</span>
+  <ul class="subjectbar__links">
+    <li><a href="beaches-tofino.html">Beaches</a></li>
+    <li><a href="hiking-tofino.html">Hiking &amp; trails</a></li>
+    <li><a href="kayaking-tofino.html">Kayaking</a></li>
+    <li><a href="whale-watching.html">Whale watching</a></li>
+    <li><a href="storm-watching-tofino.html">Storm watching</a></li>
+    <li><a href="restaurants-tofino.html">Restaurants</a></li>
+    <li><a href="#top" aria-current="page">Surfing</a></li>
+    <li><a href="birding-tofino.html">Birding</a></li>
+    <li><a href="fishing-tofino.html">Fishing</a></li>
+  </ul>
+</div></nav>
+<main id="main">
+<div class="wrap">
+  <nav aria-label="Breadcrumb">
+    <ol class="crumb">
+      <li class="lvl-deep"><a href="index.html">British Columbia</a></li>
+      <li class="sep lvl-deep" aria-hidden="true">/</li>
+      <li><a href="region.html">Vancouver Island</a></li>
+      <li class="sep" aria-hidden="true">/</li>
+      <li><a href="tofino.html">Tofino</a></li>
+      <li class="sep" aria-hidden="true">/</li>
+      <li><a href="things-to-do.html">Things to do</a></li>
+      <li class="sep" aria-hidden="true">/</li>
+      <li aria-current="page">Surfing in Tofino</li>
+    </ol>
+  </nav>
+</div>
+
+<header class="chero">
+  <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_2000,h_1000/guides/tofino/surfing/_category-1" alt="A surfer riding a wave at sunset with a dark rock headland behind">
+  <div class="chero__v"></div>
+  <div class="chero__in"><div class="wrap">
+    <span class="label">Things to do in Tofino</span>
+    <h1>Surfing in Tofino</h1>
+    <p class="chero__d">Something breaks here nearly every day of the year. Which beach you drive to depends on the swell, the tide and how long you have been surfing, and those three things are what this page is about.</p>
+    <div class="chero__cta">
+      <a class="btn btn--ghost" href="#places">Where to surf</a>
+      <a class="btn btn--ghost" href="#when">When to go</a>
+    </div>
+    <dl class="cfacts">
+      <div><dt>Water</dt><dd>8 to 15 C, all year</dd></div>
+      <div><dt>Wetsuit</dt><dd>4/3, boots, hood</dd></div>
+      <div><dt>To learn</dt><dd>June to August</dd></div>
+      <div><dt>Biggest swell</dt><dd>October to February</dd></div>
+    </dl>
+  </div></div>
+</header>
+
+<section class="when" id="when"><div class="wrap sec sec--tight">
+  <div class="head">
+    <div>
+      <span class="label label--n">When to go</span>
+      <h2>The swell is biggest in winter, and smallest exactly when you want to learn</h2>
+      <p>There is almost always something to ride, so the question is not whether there are waves but how big they are when you arrive. The strip below is swell size, not weather. Beginners want the short bars. Experienced surfers want the tall ones.</p>
+    </div>
+  </div>
+  <ul class="mstrip">
+    <li data-l="peak" data-m="1"><b></b><span>Jan</span><span class="vh">January, the biggest swell of the year</span></li>
+    <li data-l="peak" data-m="2"><b></b><span>Feb</span><span class="vh">February, the biggest swell of the year</span></li>
+    <li data-l="shoulder" data-m="3"><b></b><span>Mar</span><span class="vh">March, swell easing</span></li>
+    <li data-l="shoulder" data-m="4"><b></b><span>Apr</span><span class="vh">April, swell easing</span></li>
+    <li data-l="shoulder" data-m="5"><b></b><span>May</span><span class="vh">May, swell easing</span></li>
+    <li data-l="off" data-m="6"><b></b><span>Jun</span><span class="vh">June, the smallest waves, best for a first lesson</span></li>
+    <li data-l="off" data-m="7"><b></b><span>Jul</span><span class="vh">July, the smallest waves, best for a first lesson</span></li>
+    <li data-l="off" data-m="8"><b></b><span>Aug</span><span class="vh">August, the smallest waves, best for a first lesson</span></li>
+    <li data-l="shoulder" data-m="9"><b></b><span>Sep</span><span class="vh">September, swell building</span></li>
+    <li data-l="peak" data-m="10"><b></b><span>Oct</span><span class="vh">October, the biggest swell of the year</span></li>
+    <li data-l="peak" data-m="11"><b></b><span>Nov</span><span class="vh">November, the biggest swell of the year</span></li>
+    <li data-l="peak" data-m="12"><b></b><span>Dec</span><span class="vh">December, the biggest swell of the year</span></li>
+  </ul>
+  <p class="mkey"><span><b data-l="peak"></b>Biggest swell</span><span><b data-l="shoulder"></b>Building or easing</span><span><b></b>Smallest waves</span></p>
+  <div class="wnotes">
+    <div class="wnote"><h3>Fall</h3><p>September to November is the turn. The first winter swells arrive from a favourable angle, October and November bring the most frequent good alignments at Cox Bay, and South Chesterman opens its season in September.</p></div>
+    <div class="wnote"><h3>Winter</h3><p>Storm season sets in by November and usually holds until February or March. Three to six metre seas, gales to 70 km/h, and the rare days when Incinerator Rock is one of the best big wave spots in North America.</p></div>
+    <div class="wnote"><h3>Spring</h3><p>The northwest storm track is still running but easing. South Chesterman keeps working through to May, the light is getting longer, and the beaches are far emptier than they will be in July.</p></div>
+    <div class="wnote"><h3>Summer</h3><p>The smallest, cleanest waves of the year, which is exactly what a first lesson needs. The schools are busy, so book ahead. The water is still 8 to 15 C, so the wetsuit does not come off.</p></div>
+  </div>
+</div></section>
+
+<section class="sec sec--tight" id="places"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">Where to surf</span>
+      <h2>Seven breaks, ordered by what the wave asks of you</h2>
+      <p>They sit inside twelve miles of the same coast, so you can look at all of them in a morning. What separates them is what is on the bottom, the angle each one takes swell from, and what it turns into when a storm lands. The order runs from the beach the schools teach on to the point a handful of people ride a few days a year.</p>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="things-to-do.html">All nine subjects in Tofino</a>
+  </div>
+<div class="grp">
+  <div class="grp__h"><h3>Sand underneath, and where a first lesson happens</h3><span class="grp__c">01 to 02</span></div>
+  <p class="grp__n">Beach breaks over soft sand. Nothing hard to hit, and enough whitewater to stand up in.</p>
+  <div class="plist">
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/tofino/beaches/chesterman-beach-2" alt="Surfers in the water at Chesterman Beach with the sun going down behind the point"><b class="tile__n">01</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">Beginner to intermediate</span><span class="dot"></span><span>Long mellow lefts, soft sand</span></p>
+      <h3>North Chesterman Beach</h3>
+      <p>This is the schools' home break, and the reason most people's first wave in Canada happens here. Beginners are taken to the north end, where the whitewater is forgiving and the sand is soft.</p>
+      <p>The long mellow left point unfurls better at mid to higher tides and runs about 200 yards down the beach. It favours a short to mid length groveler around 7 feet, or a nimble longboard. Less steep and far less hollow than the reef break at the southern end of the same beach.</p>
+      <p class="gfline">Swell window: knee-high peelers up to overhead sets of 5 to 7 feet at a long 16 to 18 second interval, arriving on a 240 to 270 degree northwesterly fetch.</p>
+      <p class="note"><span><b>Good to know.</b> Alicia Bennett of Surf Sister puts the best lefts 2 to 3 hours either side of the daily high tide, between 9am and 3pm, with the most push on new and full moon cycles. Chesterman shifts end to end as its bars and channels move, so the day's peak zone is not always in the same place.</span></p>
+    </div>
+  </article>
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/tofino/beaches/long-beach-2" alt="A lone figure walking the wet sand of Long Beach in golden morning mist"><b class="tile__n">02</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">All levels on an ordinary day</span><span class="dot"></span><span>16 km of sand, room for everyone</span></p>
+      <h3>Long Beach</h3>
+      <p>Long Beach runs roughly 16 km inside Pacific Rim National Park Reserve, north from Ucluelet to Grice Bay. It faces due west and gathers swell straight off the open Pacific, so there is nearly always something breaking somewhere along it.</p>
+      <p>On an ordinary day it is the least crowded surf in the area for the simple reason that there is so much of it. Pick a peak, walk to it, and paddle out.</p>
+      <p class="gfline">Swell arrives from a due westerly direction. Its notorious break, Incinerator Rock, is listed further down: on most days it is not what you are here for.</p>
+      <p class="note"><span><b>Good to know.</b> The same open exposure that makes it consistent makes rip currents a real hazard, and if you drift it is a long walk back along the sand. Keep a fixed point on the shore in view and check it often.</span></p>
+    </div>
+  </article>
+  </div>
+</div>
+<div class="grp">
+  <div class="grp__h"><h3>Beach breaks with real power when the swell lands</h3><span class="grp__c">03 to 04</span></div>
+  <p class="grp__n">Still sand underneath, but these want a swell, and they get heavy once they have one.</p>
+  <div class="plist">
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/tofino/beaches/cox-bay-1" alt="Cox Bay from the air, lines of swell wrapping into the bay with mountains behind"><b class="tile__n">03</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">Intermediate</span><span class="dot"></span><span>One of the longest rides on this coast</span></p>
+      <h3>Cox Bay</h3>
+      <p>Cox Bay sits just short of the Pacific Rim National Park beaches and is where the shortboards come out when a real swell shows up. Locals rate it as one of the longest rides in the region when everything aligns.</p>
+      <p>Swell sweeps in from the west-southwest around 250 degrees and refracts off the islands lying offshore. The bay draws a crowd on overhead 6 to 10 ft cycles at 13 to 22 second intervals, on the falling afternoon tide after 1pm.</p>
+      <p>Alicia Bennett of Surf Sister rates it highest on a lower tide of 3 to 5 ft with a moderate south-southwesterly windswell in the 8 to 10 foot range at 15 seconds. The left can run 400 yards down the point towards the creek mouth when the sandbars and rips sync up, with easy speed and open walls.</p>
+      <p class="gfline">October and November bring the most frequent ideal alignments, as the first winter swells arrive from a favourable angle.</p>
+      <p class="note"><span><b>Good to know.</b> On smaller days the sheltered, sandy-bottomed cove is the warmest water of any break here, thin enough for a 3mm suit while the rest of the coast still wants a 4/3.</span></p>
+    </div>
+  </article>
+  <article class="pent">
+    <div class="tile tile--say"><b class="tile__n">04</b><p class="tile__say"><span>Best for</span>The most consistent break through storm season</p></div>
+    <div>
+      <p class="pent__k"><span class="k">Intermediate to advanced</span><span class="dot"></span><span>A-frame left point, October to April</span></p>
+      <h3>Florencia Beach North</h3>
+      <p>About 12 minutes drive from Ucluelet, the north end of Florencia Beach refracts and grooms swell arriving from several angles into clean peaks. Alicia Bennett of Surf Sister, who has spent twenty years reading this coastline, calls it an A-frame left point that turns on with a south or westerly windswell pushing in at a moderate 6 to 8 feet at 14 to 17 second intervals, on a mid rising tide of 6 to 8 ft.</p>
+      <p>Interval is what makes or breaks it. Longer groundswells over 17 seconds running bigger than 8 ft tend to close out, and short period windswell around 11 seconds does not wrap around the point coherently.</p>
+      <p class="gfline">It lights up several hours either side of the midday high tide, from October through April, when low pressure systems track down from the Gulf of Alaska on roughly a 260 degree line.</p>
+      <p class="note"><span><b>Good to know.</b> This is the one to check first during a storm cycle. It is the most consistent break in the area through the peak months, which also means you will not have it to yourself.</span></p>
+    </div>
+  </article>
+  </div>
+</div>
+<div class="grp">
+  <div class="grp__h"><h3>Reef, rock and exposure</h3><span class="grp__c">05 to 07</span></div>
+  <p class="grp__n">Something hard underneath, or nothing at all between you and the open Pacific. These ask for experience, not enthusiasm.</p>
+  <div class="plist">
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/tofino/beaches/chesterman-beach-1" alt="Chesterman Beach from the air at sunrise, with Frank Island sitting between its two arms"><b class="tile__n">05</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">Advanced</span><span class="dot"></span><span>Reef and point break, hollow, both ways</span></p>
+      <h3>South Chesterman Beach</h3>
+      <p>The most popular high performance wave in the Tofino area, and the least forgiving. A reef and point break due west of town next to the airport, throwing thick hollow barrels and steep walls that break both left and right on swells arriving 220 to 250 degrees from several storm tracks at once.</p>
+      <p>It is a magnet for advanced shortboarders and confident longboarders. Local pros Pete Devries and his brother Dan built their reputations on these walls, which demand experience with shifty peaks, strong rips and a shallow reef sitting just under the surface.</p>
+      <p>Devries puts the season from September through May as the northwest storms kick in, with the most rippable sizes running 6 to 8 feet at 15 seconds up to 12 foot faces in heavier weather. Interval matters more than height: a steady pulse around 15 seconds shapes the wave best, without the long flat spells between sets that cool a wetsuit off.</p>
+      <p class="gfline">Aim for the mid rising tide, from 3 to 5 feet up to the daily high, between 10am and 2pm, when 220 to 250 degree swell lights the reef up in front of the beach.</p>
+      <p class="note"><span><b>Good to know.</b> Above 8 feet the shallow reef becomes extremely dangerous, and it is not a place to discover that. That size is for a handful of people here and nobody else.</span></p>
+    </div>
+  </article>
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/website-ecc97676-f115-492a-acf7-c23536b49c0b/photo-long-beach-incinerator-rock-long-beach.jpg" alt="Driftwood along the sand at Long Beach with the rock standing offshore at Incinerator Rock"><b class="tile__n">06</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">Expert, a few days a year</span><span class="dot"></span><span>Big wave left point</span></p>
+      <h3>Incinerator Rock</h3>
+      <p>The rocky left point at Wolf Creek, on Long Beach. It needs one specific setup: an extreme low pressure system tracking northeast well offshore towards Haida Gwaii, sending 15 to 20 ft swell in at 270 to 290 degrees so it wraps into the point.</p>
+      <p>Joe Martin, who started surfing this coast in 1971, puts that at maybe four or five days a year. On those days the faces run to 25 feet and it is one of the best big wave spots in North America. He is equally clear about the price of entry: nothing thinner than a 7mm suit, and proper safety support in the water with you.</p>
+      <p class="gfline">If the forecast is not showing that exact alignment, Incinerator Rock is somewhere you park and walk onto Long Beach, not somewhere you paddle out.</p>
+      <p class="note"><span><b>Good to know.</b> Cold is the constraint people underestimate, not size. Martin's phrase for it is the bone chilling Pacific, and it is what ends most sessions here long before the surfer is ready to stop.</span></p>
+    </div>
+  </article>
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/website-ecc97676-f115-492a-acf7-c23536b49c0b/photo-wickaninnish-beach-wickanninnishbeach.jpg" alt="Two surfers waiting on small waves off the wide grey sand at Wickaninnish Beach"><b class="tile__n">07</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">Advanced, and rarely</span><span class="dot"></span><span>Rocky reef, remote, a few days a season</span></p>
+      <h3>Wickaninnish Beach</h3>
+      <p>North of Long Beach past Florencia, inside Pacific Rim National Park Reserve. It gets far less attention than Tofino's main breaks and holds both beach breaks and point break opportunities for surfers who already know this coast.</p>
+      <p>It comes alive a few times a season, when an intense northwest Pacific storm track sends swell directly ashore between 280 and 310 degrees. Local surfers Jeremiah Hermann and Gary Young have had 15 to 20 foot walls there, breaking over an unforgiving rocky reef along the beach.</p>
+      <p class="gfline">Hermann's recipe: a winter day carrying over 10 feet of swell energy at 14 to 16 second intervals, a mid rising tide stage up to 6 feet, and a light easterly offshore breeze.</p>
+      <p class="note"><span><b>Good to know.</b> Some of the point access crosses private and First Nations ground. Respect the signs and the people who live here, and treat any trip out there with care. Very few surfers ever see this place at its full size.</span></p>
+    </div>
+  </article>
+  </div>
+</div>
+</div></section>
+
+<section class="sec sec--top0" id="lessons"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">Getting in the water</span>
+      <h2>Two schools, and no reason to bring a board</h2>
+      <p>Board and wetsuit rental is easy to find in town, so most visitors arrive with nothing. Lessons run in the whitewater at the north end of Chesterman, where the sand is soft and the waves are patient. Start on a board that feels far too big: standing up is the whole of the first lesson, and a bigger board makes that much easier.</p>
+    </div>
+  </div>
+  <div class="plist">
+    <article class="pent">
+      <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/tofino/surfing/_category-5" alt="Beginners standing in shallow whitewater holding soft boards, forest behind the beach"></figure>
+      <div>
+        <p class="pent__k"><span class="k">Lessons and rentals</span><span class="dot"></span><span>Year round, every ability</span></p>
+        <h3>Pacific Surf School</h3>
+        <p>Runs surf and stand up paddle lessons all year, set to the ability of whoever turns up, from a first time on a board to a session working on turns.</p>
+        <p>It also rents surfboards, stand up paddle boards and wetsuits in every season, which is the practical answer for anyone who wants to go out twice without buying anything.</p>
+      </div>
+    </article>
+    <article class="pent">
+      <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/guides/tofino/surfing/_category-6" alt="A surfer in a full wetsuit and hood riding out of the whitewater"></figure>
+      <div>
+        <p class="pent__k"><span class="k">Lessons and coaching</span><span class="dot"></span><span>Teaching here since 1999</span></p>
+        <h3>Surf Sister</h3>
+        <p>Certified instructors teaching men, women, boys and girls, running since 1999 and long enough established that its owner, Alicia Bennett, is one of the voices quoted on the breaks above.</p>
+        <p>Beginner lessons are the bulk of it, but intermediate and advanced sessions run too, which is the harder thing to find here once you can already stand up.</p>
+      </div>
+    </article>
+  </div>
+</div></section>
+
+<section class="sec sec--top0" id="tips"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">Before you paddle out</span>
+      <h2>Four things that decide how the session goes</h2>
+      <p>The waves are rarely the problem. Cold, rips, what is under the water and the tide window are what turn a good forecast into a bad afternoon.</p>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Dress for 8 to 15 C, in August too</h3><p>The water sits between 8 and 15 C every month of the year. A 4/3 wetsuit with boots, and often a hood, is standard here in summer as much as in winter. All of it rents in town, so there is no reason to fly with a suit.</p></div>
+    <div class="box"><h3>Rips are what catch people out</h3><p>The sandbars move, and the channels between them run straight back out to sea. At South Chesterman local surfers name the rips alongside the reef as the reason it is an experienced surfer's wave. On Long Beach the exposure is the same and the walk back is far longer.</p></div>
+    <div class="box"><h3>Know what is under you</h3><p>Chesterman Reef sits shallow enough to be dangerous above 8 feet. Wickaninnish breaks over rock. Incinerator Rock is a rocky point. North Chesterman, Long Beach and Cox Bay are sand, which is where a mistake costs you nothing but your dignity.</p></div>
+    <div class="box"><h3>Every break here has a tide window</h3><p>Cox Bay wants a lower tide of 3 to 5 ft. South Chesterman wants the mid rising tide up to the daily high. North Chesterman peels best 2 to 3 hours either side of high. Florencia wants a mid rising tide of 6 to 8 ft. Check the tide before you drive, not after.</p></div>
+  </div>
+</div></section>
+
+<section class="sec sec--top0" id="questions"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">Questions</span>
+      <h2>Asked before people book a lesson</h2>
+      <p>Open the ones you need. Everything here comes from surfers who live on this coast.</p>
+    </div>
+  </div>
+  <details class="faq" open><summary>Can a complete beginner surf in Tofino?</summary><p>Yes, and most people who learn to surf in Canada learn here. Summer is the season for it, because the waves are at their smallest and cleanest. Lessons run in the whitewater at the north end of Chesterman Beach, where the sand is soft and the wave is forgiving. Book a lesson rather than renting a board and working it out yourself: an instructor puts you in the right part of the beach on the right tide, which is most of the difficulty removed.</p></details>
+  <details class="faq"><summary>What wetsuit do I need?</summary><p>A 4/3 with boots, and often a hood. The water runs 8 to 15 C every month of the year, August included, so this is not a summer versus winter decision. On small days in the sheltered cove at Cox Bay a 3mm is enough, and that is the warmest water on this coast. At the other end, for the biggest days at Incinerator Rock, Joe Martin says nothing under 7mm.</p></details>
+  <details class="faq"><summary>When is the surf biggest?</summary><p>October to February. Storm season sets in by November and usually holds until February or March, bringing three to six metre seas and gales up to 70 km/h. South Chesterman's season runs September through May, and Florencia is at its most consistent from October through April. If you want size, come in winter and dress for it.</p></details>
+  <details class="faq"><summary>Do I have to bring a board?</summary><p>No. Board and wetsuit rental is easy to find in town, and both schools rent as well as teach. If it is your first time, take the biggest board you are offered. Standing up is the whole first lesson, and a larger board makes that far easier.</p></details>
+  <details class="faq"><summary>Which break should I stay away from until I know the coast?</summary><p>South Chesterman above 8 feet, where the reef sits shallow and gets extremely dangerous. Incinerator Rock at any size, because it only breaks properly on the four or five days a year that the swell lines up and those are 25 foot faces. Wickaninnish, which breaks over rock and is remote enough that help is a long way off. All three are worth watching from the sand.</p></details>
+  <details class="faq"><summary>Where do the surf schools teach?</summary><p>The north end of Chesterman Beach. It is the mellowest of the beach breaks, the bottom is sand, and the whitewater there is enough to stand up in without being enough to hurt you. The same stretch keeps working as you improve: its long left runs about 200 yards at mid to high tide.</p></details>
+  <details class="faq"><summary>Does Tofino break all year?</summary><p>Nearly every day of it. That is the reason people call it Canada's surf capital: the coast faces straight into the North Pacific's storm track, so swell of some size is almost always arriving. What changes month to month is how big it is, not whether it is there.</p></details>
+</div></section>
+
+<section class="sec sec--top0" id="more"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">Keep going</span>
+      <h2>Three ways on from here</h2>
+    </div>
+  </div>
+  <div class="kg">
+    <a href="storm-watching-tofino.html">
+      <figure><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_760,h_475/guides/tofino/storm-watching/_category-1" alt="One person in a yellow jacket on wet sand as winter surf breaks around a snow-dusted islet"></figure>
+      <span class="label">The same swell, from dry land</span>
+      <h3>Storm watching in Tofino</h3>
+      <p>The winter systems that build these waves, and the places to stand and watch them arrive.</p>
+      <span class="go">Open the subject <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="beaches-tofino.html">
+      <figure><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_760,h_475/guides/tofino/beaches/_category-1" alt="Sunset over wet sand at low tide, with a wooded rock headland standing out in the surf"></figure>
+      <span class="label">The same sand, out of the water</span>
+      <h3>Beaches in Tofino</h3>
+      <p>What each beach is like to walk, and where the tide pools, the driftwood and the quiet ends are.</p>
+      <span class="go">Open the subject <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="search.html?in=tofino">
+      <figure><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_760,h_475/arc-trips/curated-cabin" alt="A timber cabin standing alone on a forested headland above the water"></figure>
+      <span class="label">The booking path</span>
+      <h3>Stays in Tofino</h3>
+      <p>134 places from $320 a night, several of them a short walk from the sand at Chesterman and Cox Bay.</p>
+      <span class="go">Search stays <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+</div></section>
+</main>
+
+<footer class="f"><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <span class="fbrand"><img class="fbrand__mark" src="brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></span>
+      <p class="fnote">Stays and guides on the west coast of Vancouver Island, written by people who go there.</p>
+    </div>
+    <div><h5>Destinations</h5><ul>
+      <li><a href="tofino.html">Tofino</a></li><li><a href="region.html">Vancouver Island</a></li>
+      <li><a href="index.html">British Columbia</a></li></ul></div>
+    <div><h5>In Tofino</h5><ul>
+      <li><a href="things-to-do.html">All nine subjects</a></li><li><a href="#top" aria-current="page">Surfing in Tofino</a></li>
+      <li><a href="long-beach.html">Long Beach</a></li><li><a href="search.html?in=tofino">Search everything</a></li></ul></div>
+    <div><h5>Plan</h5><ul>
+      <li><a href="plan.html">When to go</a></li><li><a href="plan.html">Getting there</a></li>
+      <li><a href="search.html?in=tofino">Where to stay</a></li><li><a href="guide.html">Guides</a></li></ul></div>
+    <div><h5>Arc Trips</h5><ul>
+      <li><a href="not-found.html">About us</a></li><li><a href="not-found.html">List your place</a></li>
+      <li><a href="fishing-tofino.html">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
+  </div>
+  <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees</span></div>
+</div></footer>
+
+<div class="dock">
+  <p class="dock__t"><b>Seven breaks in twelve miles</b>134 stays from $320</p>
+  <a class="btn btn--primary btn--sm" href="search.html?in=tofino">See stays</a>
+</div>
+
+<script>
+/* Mark the month the reader is actually in, so the strip is never stale. */
+var now = new Date().getMonth() + 1;
+var cell = document.querySelector('.mstrip li[data-m="' + now + '"]');
+if (cell) cell.setAttribute('data-now', '');
+addEventListener('keydown', function (e) {
+  if (e.key === '/' && !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)) {
+    e.preventDefault();
+    document.querySelector('.search input').focus();
+  }
+});
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

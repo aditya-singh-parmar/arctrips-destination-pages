@@ -32,9 +32,9 @@ const SUBJECTS = {
     { slug: 'whale-watching', label: 'Whale watching',     page: 'whale-watching.html' },
     { slug: 'storm-watching', label: 'Storm watching',     page: 'storm-watching-tofino.html' },
     { slug: 'restaurants',    label: 'Restaurants',        page: 'restaurants-tofino.html' },
-    { slug: 'surfing',        label: 'Surfing',            page: null },
-    { slug: 'birding',        label: 'Birding',            page: null },
-    { slug: 'fishing',        label: 'Fishing',            page: null },
+    { slug: 'surfing',        label: 'Surfing',            page: 'surfing-tofino.html' },
+    { slug: 'birding',        label: 'Birding',            page: 'birding-tofino.html' },
+    { slug: 'fishing',        label: 'Fishing',            page: 'fishing-tofino.html' },
   ],
   ucluelet: [
     { slug: 'hiking',         label: 'Hiking & trails',    page: 'hiking-ucluelet.html' },
@@ -75,6 +75,9 @@ const PAGES = {
   'whale-watching.html':        { town: 'tofino',   section: 'things', subject: 'whale-watching', back: ['things-to-do.html', 'Things to do in Tofino'] },
   'storm-watching-tofino.html': { town: 'tofino',   section: 'things', subject: 'storm-watching', back: ['things-to-do.html', 'Things to do in Tofino'] },
   'restaurants-tofino.html':    { town: 'tofino',   section: 'things', subject: 'restaurants',    back: ['things-to-do.html', 'Things to do in Tofino'] },
+  'surfing-tofino.html':        { town: 'tofino',   section: 'things', subject: 'surfing',        back: ['things-to-do.html', 'Things to do in Tofino'] },
+  'birding-tofino.html':        { town: 'tofino',   section: 'things', subject: 'birding',        back: ['things-to-do.html', 'Things to do in Tofino'] },
+  'fishing-tofino.html':        { town: 'tofino',   section: 'things', subject: 'fishing',        back: ['things-to-do.html', 'Things to do in Tofino'] },
 
   'ucluelet.html':              { town: 'ucluelet', section: 'overview', self: 'ucluelet.html', back: ['region.html', 'Vancouver Island'], rail: true },
   'hiking-ucluelet.html':       { town: 'ucluelet', section: 'things', subject: 'hiking',         back: ['ucluelet.html', 'Ucluelet'] },

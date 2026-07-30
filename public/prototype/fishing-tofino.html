@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fishing charters in Tofino, Arc Trips</title>
+<meta name="description" content="Chinook, halibut, coho and ling cod out of Tofino harbour, the months each one runs, what a four to six hour charter day is really like, and where the boat is booked.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap" rel="stylesheet">
+<link rel="icon" href="brand/arctrips-icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="_system.css">
+<style>
+/* Page-scoped only, built on the tokens in _system.css. No new colour values.
+   The block is the one carried by the other Tofino subject pages, so the
+   siblings a reader moves between through the subject rail cannot drift apart.
+   Two things are page-specific and marked as such: the booking handoff band,
+   because charters are not sold on Arc Trips, and the catch-limits table.
+
+   What it adds that the system does not carry:
+     (a) accessibility floors and the 14px reading floor
+     (b) the photographic hero
+     (c) the numbered index: a tile that is either a photograph or a promise
+     (d) the season strip, azure intensity carrying how good a month is
+     (e) the questions, the keep-going slots, the mobile booking bar */
+
+/* (a) floors */
+:focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:var(--r-sm)}
+.btn{min-height:44px;white-space:nowrap}
+nav.top .btn{flex:none}
+.brand,.nav-links a{display:inline-flex;align-items:center;min-height:44px}
+.search{height:44px}
+.search input{align-self:stretch}
+.crumb,.crumb li{list-style:none}
+.crumb a{display:inline-flex;align-items:center;min-height:44px}
+.fgrid ul a{display:inline-block;padding-block:10px}
+.head>div{flex:1 1 min(560px,100%)}
+.head h2{margin-top:11px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.kmeta,.crumb,.fbase,.dest__meta{color:var(--n600)}
+.kmeta .dot{background:var(--n200)}
+body>.skip{position:absolute}
+.skip{left:var(--gut);top:-60px;z-index:99;background:var(--navy);color:var(--paper);
+  padding:13px 18px;border-radius:0 0 var(--r-sm) var(--r-sm);font-weight:600;font-size:.9rem;transition:top .18s var(--ease)}
+.skip:focus{top:0}
+main [id]{scroll-margin-top:142px}
+@media(max-width:760px){main [id]{scroll-margin-top:96px}}
+
+/* (b) the hero. One photograph, the subject's own, with the facts a traveller
+   acts on sitting under it. The fourth fact is where the boat is booked,
+   because that is the first thing this page has to be straight about. */
+.chero{position:relative;min-height:min(62vh,540px);display:flex;align-items:flex-end;overflow:hidden;background:var(--navy)}
+.chero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.86}
+.chero__v{position:absolute;inset:0;opacity:.92;
+  background:linear-gradient(0deg,var(--navy) 0%,var(--navy) 38%,transparent 100%)}
+.chero__in{position:relative;width:100%;padding-block:clamp(30px,4vw,56px)}
+.chero h1{margin-top:14px;color:var(--paper);font-size:clamp(2.4rem,5.6vw,4.1rem);letter-spacing:-.04em;line-height:1.02;max-width:16ch}
+.chero .label{color:var(--a300)}
+.chero__d{color:var(--paper);opacity:.92;max-width:54ch;margin-top:18px;font-size:clamp(1.02rem,1.3vw,1.14rem);line-height:1.55}
+.chero .btn--ghost{border-color:var(--paper);color:var(--paper)}
+.chero .btn--ghost:hover{background:var(--paper);color:var(--navy)}
+.chero__cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.cfacts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2.4vw,34px);margin-top:clamp(24px,3vw,34px);
+  padding-top:20px;border-top:1px solid var(--a400)}
+.cfacts dt{font-size:.88rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--a300)}
+.cfacts dd{font-size:clamp(1.02rem,1.5vw,1.34rem);font-weight:700;color:var(--paper);margin-top:6px;line-height:1.25}
+@media(max-width:720px){.cfacts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* page-specific: the booking handoff. It sits in the slot the tide band uses on
+   the water pages, because it is the same kind of thing: one line of fact the
+   reader has to have before anything below it makes sense. */
+.handoff{background:var(--n50);border-block:1px solid var(--n150)}
+.handoff-in{display:flex;align-items:center;gap:clamp(16px,3vw,38px);padding-block:18px;flex-wrap:wrap}
+.handoff__t{flex:1 1 min(600px,100%);font-size:.95rem;color:var(--n700);line-height:1.6;max-width:88ch}
+.handoff__t b{color:var(--navy);font-weight:700}
+.handoff .btn{flex:none}
+
+/* (c) the numbered index. Media column left on every row, so the numbers read
+   as one column and the order is legible at a glance. */
+.grp{margin-top:clamp(44px,5vw,72px)}
+.grp:first-child{margin-top:0}
+.grp__h{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid var(--n150)}
+.grp__h h3{font-size:clamp(1.24rem,1.9vw,1.52rem)}
+.grp__c{font-size:.88rem;font-weight:700;color:var(--azure);font-variant-numeric:tabular-nums;letter-spacing:.06em}
+.grp__n{font-size:.95rem;color:var(--n600);margin-top:12px;max-width:62ch;line-height:1.6}
+.plist{display:grid;gap:clamp(30px,3.6vw,54px);margin-top:clamp(26px,3vw,40px)}
+.pent{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:clamp(20px,3vw,44px);align-items:start}
+@media(max-width:820px){.pent{grid-template-columns:1fr;gap:18px}}
+.tile{position:relative;margin:0;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:var(--n100)}
+@media(min-width:821px){.pent .tile{position:sticky;top:152px}}
+@media(max-width:820px){.tile{aspect-ratio:3/2}}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.pent:hover .tile img{transform:scale(1.04)}
+.tile__n{position:absolute;left:12px;top:12px;background:var(--navy);color:var(--paper);
+  font-size:.88rem;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:.04em;
+  padding:6px 11px;border-radius:var(--r-sm)}
+/* Where a fish carries no photograph we can vouch for, the tile is not left
+   empty and is not filled with a picture of a different fish. It says the job. */
+.tile--say{display:flex;flex-direction:column;gap:clamp(14px,1.8vw,20px);background:var(--a100);
+  border:1px solid var(--a200);padding:clamp(18px,2.4vw,26px)}
+.tile--say .tile__n{position:static;background:none;color:var(--azure);padding:0;
+  font-size:clamp(2.2rem,3.4vw,3rem);letter-spacing:-.04em;line-height:1}
+.tile__say{color:var(--navy);font-size:clamp(1.1rem,1.7vw,1.42rem);font-weight:700;
+  letter-spacing:-.02em;line-height:1.24;max-width:18ch}
+.tile__say span{display:block;font-size:.88rem;font-weight:700;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--a700);margin-bottom:8px}
+.pent h3{font-size:clamp(1.28rem,2vw,1.62rem);font-weight:800;letter-spacing:-.026em;margin-top:2px}
+.pent__k{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:.88rem;color:var(--n600);margin-bottom:11px}
+.pent__k .k{color:var(--azure);font-weight:700;letter-spacing:.09em;text-transform:uppercase;font-size:.88rem}
+.pent p{color:var(--n700);line-height:1.66;margin-top:11px;max-width:62ch}
+.gfline{margin-top:14px;font-size:.95rem;color:var(--n700);line-height:1.55;font-weight:500;max-width:62ch}
+.note{display:flex;gap:11px;margin-top:15px;font-size:.94rem;color:var(--n600);line-height:1.6;
+  border-left:2px solid var(--a300);padding-left:14px;max-width:62ch}
+.note b{color:var(--navy);font-weight:700}
+
+/* (d) the season strip. Colour is the message: the deeper the azure, the better
+   the month. Never emerald, which is the season signal elsewhere. */
+.when{background:var(--n50);border-block:1px solid var(--n150)}
+.mstrip{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(4px,.7vw,9px);list-style:none;
+  margin-top:clamp(22px,2.6vw,32px);align-items:end}
+.mstrip li{display:flex;flex-direction:column;align-items:center;gap:9px}
+.mstrip b{display:block;width:100%;border-radius:var(--r-sm);background:var(--n150);height:22px}
+.mstrip li[data-l="peak"] b{background:var(--azure);height:64px}
+.mstrip li[data-l="shoulder"] b{background:var(--a300);height:42px}
+.mstrip li[data-now] b{outline:2px solid var(--navy);outline-offset:2px}
+.mstrip span{font-size:.88rem;font-weight:600;color:var(--n600)}
+.mstrip li[data-l="peak"] span{color:var(--navy);font-weight:700}
+.mkey{display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin-top:18px;font-size:.88rem;color:var(--n600);font-weight:600}
+.mkey b{display:inline-block;width:13px;height:13px;border-radius:4px;vertical-align:-2px;margin-right:8px;background:var(--n150)}
+.mkey b[data-l="peak"]{background:var(--azure)}
+.mkey b[data-l="shoulder"]{background:var(--a300)}
+.wnotes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(18px,2.4vw,30px);margin-top:clamp(30px,3.4vw,44px)}
+@media(max-width:860px){.wnotes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.wnotes{grid-template-columns:1fr}}
+.wnote{border-top:2px solid var(--a300);padding-top:14px}
+.wnote h3{font-size:1.06rem}
+.wnote p{color:var(--n600);font-size:.95rem;line-height:1.6;margin-top:8px}
+
+/* the day arc */
+.day{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.4vw,30px);margin-top:clamp(24px,3vw,36px)}
+@media(max-width:760px){.day{grid-template-columns:1fr}}
+.dstep{border-radius:var(--r);padding:clamp(20px,2.4vw,28px);background:var(--a100)}
+.dstep:nth-child(2){background:var(--a200)}
+.dstep:nth-child(3){background:var(--a300)}
+.dstep .label{color:var(--a800)}
+.dstep h3{font-size:1.16rem;margin-top:10px}
+.dstep p{color:var(--n700);font-size:.95rem;line-height:1.6;margin-top:9px}
+
+/* one full-width photograph inside a section, used where the text is describing
+   a thing the reader has never seen: the boat, and a finished day's catch */
+.figwide{margin:0;border-radius:var(--r);overflow:hidden;aspect-ratio:16/7;background:var(--n100)}
+@media(max-width:760px){.figwide{aspect-ratio:3/2}}
+.figwide img{width:100%;height:100%;object-fit:cover}
+.figcap{font-size:.88rem;color:var(--n600);line-height:1.6;margin-top:11px;max-width:70ch}
+
+/* the plain box, used by the four things worth knowing */
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2.4vw,28px)}
+@media(max-width:760px){.grid2{grid-template-columns:1fr}}
+.box{border:1px solid var(--n150);border-radius:var(--r);padding:clamp(20px,2.4vw,28px);background:var(--paper)}
+.box h3{font-size:1.12rem}
+.box p{color:var(--n600);font-size:.95rem;line-height:1.62;margin-top:10px}
+
+/* page-specific: the catch-limits table. Plain, on paper, and it stacks into
+   labelled rows on a phone rather than scrolling sideways. */
+.lic{font-size:1rem;color:var(--n700);line-height:1.7;max-width:72ch;margin-top:clamp(24px,3vw,32px);
+  border-left:2px solid var(--a300);padding-left:16px}
+.lic b{color:var(--navy);font-weight:700}
+.lim{width:100%;max-width:66ch;border-collapse:collapse;margin-top:clamp(26px,3vw,36px);font-variant-numeric:tabular-nums}
+.lim th{text-align:left;font-size:.88rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--n500);
+  padding-bottom:12px;border-bottom:1px solid var(--n200)}
+.lim td{padding:15px 16px 15px 0;border-bottom:1px solid var(--n150);color:var(--n700);font-size:1rem}
+.lim td:first-child{color:var(--navy);font-weight:700}
+.lim tbody tr:last-child td{border-bottom:1px solid var(--n200)}
+.limnote{font-size:.88rem;color:var(--n600);line-height:1.7;margin-top:16px;max-width:78ch}
+.limnote b{color:var(--navy);font-weight:700}
+@media(max-width:640px){
+  .lim thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .lim tr{display:block;border-bottom:1px solid var(--n150);padding-block:16px}
+  .lim tbody tr:last-child{border-bottom:1px solid var(--n200)}
+  .lim td{display:flex;justify-content:space-between;gap:16px;border:0;padding:3px 0;font-size:.95rem}
+  .lim td::before{content:attr(data-l);color:var(--n600);font-weight:600}
+  .lim td:first-child{display:block;font-size:1.08rem;margin-bottom:7px}
+  .lim td:first-child::before{content:none}
+}
+
+/* (e) questions: one column, collapsed, at the bottom */
+.faq{border-top:1px solid var(--n150)}
+.faq:last-of-type{border-bottom:1px solid var(--n150)}
+.faq summary{display:flex;gap:16px;align-items:center;justify-content:space-between;cursor:pointer;
+  min-height:60px;padding-block:14px;font-weight:700;color:var(--navy);font-size:1.02rem;
+  letter-spacing:-.012em;line-height:1.35;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";width:11px;height:11px;flex:none;border-right:2px solid var(--n500);
+  border-bottom:2px solid var(--n500);transform:rotate(45deg) translateY(-2px);transition:transform .2s var(--ease)}
+.faq[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.faq summary:hover{color:var(--azure)}
+.faq p{color:var(--n600);font-size:.97rem;line-height:1.66;padding-bottom:20px;max-width:72ch}
+
+/* keep going, three fixed slots, each with a photograph */
+.kg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.4vw,30px)}
+@media(max-width:860px){.kg{grid-template-columns:1fr}}
+.kg a{display:block}
+.kg figure{margin:0;border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;background:var(--n100)}
+.kg img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.kg a:hover img{transform:scale(1.05)}
+.kg h3{font-size:1.12rem;margin-top:14px}
+.kg p{color:var(--n600);font-size:.93rem;line-height:1.58;margin-top:8px;max-width:38ch}
+.kg .go{display:inline-flex;align-items:center;gap:7px;color:var(--azure);font-weight:700;font-size:.88rem;margin-top:13px}
+.kg .go svg{width:13px;height:13px}
+.kg .label{margin-top:14px;display:block}
+
+/* the mobile bar. Mutually exclusive with .placebar__cta by breakpoint, so
+   exactly one .btn--primary is ever on screen, and it is the stay, because the
+   stay is the only thing this site can actually sell you. */
+.dock{display:none}
+@media(max-width:760px){
+  body{padding-bottom:78px}
+  body>.dock{position:fixed}
+  .dock{display:flex;left:0;right:0;bottom:0;z-index:70;align-items:center;gap:14px;
+    background:var(--paper);border-top:1px solid var(--n150);
+    padding:11px var(--gut);padding-bottom:calc(11px + env(safe-area-inset-bottom))}
+  .dock__t{font-size:.88rem;color:var(--n600);line-height:1.35;flex:1;min-width:0}
+  .dock__t b{display:block;color:var(--navy);font-size:.95rem;font-weight:700}
+  .dock .btn{flex:none}
+}
+
+footer.f{margin-top:0}
+.sec--tight{padding-block:clamp(46px,5vw,72px)}
+.sec--top0{padding-top:0}
+
+/* the 14px reading floor, declared last so it beats everything above */
+.label,.crumb,.btn--sm,.search kbd,.kmeta,.kmeta .k,.pent__k,.pent__k .k,
+.mstrip span,.mkey,.grp__c,.fgrid h5,.fnote,.fbase,.kg .go,.dock__t,
+.cfacts dt,.tile__n,.tile__say span,.gfline,.figcap,.limnote,.lim th{font-size:.88rem}
+.label,.fgrid h5,.cfacts dt,.kmeta .k,.pent__k .k,.tile__say span,.lim th{letter-spacing:.09em}
+</style>
+</head>
+<body>
+<span id="top" aria-hidden="true"></span>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="top"><div class="wrap nav-in">
+  <a class="brand" href="index.html"><img class="brand__mark" src="brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
+  <ul class="nav-links">
+    <li><a href="search.html?in=tofino">Stays</a></li>
+    <li><a href="index.html">Destinations</a></li>
+    <li><a href="search.html">Guides</a></li>
+  </ul>
+  <form class="search" role="search" action="search.html" method="get">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
+    <label class="vh" for="q">Go to a place, a beach, a trail or a guide</label>
+    <input id="q" name="q" type="search" placeholder="Tofino, Long Beach, Wild Pacific Trail" autocomplete="off">
+    <kbd>/</kbd>
+  </form>
+  <a class="btn btn--ink btn--sm" href="not-found.html">Sign in</a>
+</div></nav>
+<nav class="placebar" aria-label="Tofino"><div class="wrap placebar-in">
+  <a class="placebar__back" href="things-to-do.html"><span class="n">&larr; Things to do in Tofino</span></a>
+  <ul class="placebar__links">
+    <li><a href="tofino.html">Overview</a></li>
+    <li><a href="things-to-do.html" aria-current="page">Things to do</a></li>
+    <li><a href="plan.html">Plan</a></li>
+    <li><a href="guide.html">Guides</a></li>
+  </ul>
+  <a class="btn btn--primary btn--sm placebar__cta" href="search.html?in=tofino">Find a stay</a>
+</div></nav>
+<nav class="subjectbar" aria-label="Things to do in Tofino"><div class="wrap subjectbar-in">
+  <span class="subjectbar__l">Things to do</span>
+  <ul class="subjectbar__links">
+    <li><a href="beaches-tofino.html">Beaches</a></li>
+    <li><a href="hiking-tofino.html">Hiking &amp; trails</a></li>
+    <li><a href="kayaking-tofino.html">Kayaking</a></li>
+    <li><a href="whale-watching.html">Whale watching</a></li>
+    <li><a href="storm-watching-tofino.html">Storm watching</a></li>
+    <li><a href="restaurants-tofino.html">Restaurants</a></li>
+    <li><a href="surfing-tofino.html">Surfing</a></li>
+    <li><a href="birding-tofino.html">Birding</a></li>
+    <li><a href="#top" aria-current="page">Fishing</a></li>
+  </ul>
+</div></nav>
+<main id="main">
+<div class="wrap">
+  <nav aria-label="Breadcrumb">
+    <ol class="crumb">
+      <li class="lvl-deep"><a href="index.html">British Columbia</a></li>
+      <li class="sep lvl-deep" aria-hidden="true">/</li>
+      <li><a href="region.html">Vancouver Island</a></li>
+      <li class="sep" aria-hidden="true">/</li>
+      <li><a href="tofino.html">Tofino</a></li>
+      <li class="sep" aria-hidden="true">/</li>
+      <li><a href="things-to-do.html">Things to do</a></li>
+      <li class="sep" aria-hidden="true">/</li>
+      <li aria-current="page">Fishing charters in Tofino</li>
+    </ol>
+  </nav>
+</div>
+
+<header class="chero">
+  <img src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,g_auto,w_2000,h_1100/website-fdaf5cf0-e06f-4307-9aa8-72f84110a5a0/mvnamygco9cbzc2wyvep" alt="A guide steadying a bent rod while a guest plays a fish, low forested islands behind the boat">
+  <div class="chero__v"></div>
+  <div class="chero__in"><div class="wrap">
+    <span class="label">Things to do in Tofino</span>
+    <h1>Fishing charters in Tofino</h1>
+    <p class="chero__d">Salmon and halibut out of a working harbour ten minutes from town. Which of the two you are really fishing for is decided by the month you come.</p>
+    <div class="chero__cta">
+      <a class="btn btn--ghost" href="#fish">What you can catch</a>
+      <a class="btn btn--ghost" href="#when">When to come</a>
+    </div>
+    <dl class="cfacts">
+      <div><dt>Best window</dt><dd>Jun 15 to Sep 15</dd></div>
+      <div><dt>A short trip</dt><dd>4 to 6 hours</dd></div>
+      <div><dt>Boats</dt><dd>24 to 32 feet</dd></div>
+      <div><dt>Boat booked at</dt><dd>ArcTrips Fishing</dd></div>
+    </dl>
+  </div></div>
+</header>
+
+<div class="handoff"><div class="wrap handoff-in">
+  <p class="handoff__t"><b>You cannot book a charter on Arc Trips.</b> Boats out of Tofino and Ucluelet are booked through ArcTrips Fishing, the sister brand, which lists guides for salmon and halibut in both towns. What Arc Trips books here is the stay: 134 places in Tofino, from $320 a night.</p>
+  <a class="btn btn--ghost btn--sm" href="not-found.html">Go to ArcTrips Fishing</a>
+</div></div>
+
+<section class="when" id="when"><div class="wrap sec sec--tight">
+  <div class="head">
+    <div>
+      <span class="label label--n">When to come</span>
+      <h2>Best from June 15 to September 15, and the shoulders are not empty</h2>
+      <p>April, May and early June can bring rewarding salmon fishing. Halibut normally picks up after June 1. From mid August the fall run of Chinook heading back to Barkley Sound comes past Tofino.</p>
+    </div>
+  </div>
+  <ul class="mstrip">
+    <li data-l="off" data-m="1"><b></b><span>Jan</span><span class="vh">January, out of season</span></li>
+    <li data-l="off" data-m="2"><b></b><span>Feb</span><span class="vh">February, out of season</span></li>
+    <li data-l="off" data-m="3"><b></b><span>Mar</span><span class="vh">March, out of season</span></li>
+    <li data-l="shoulder" data-m="4"><b></b><span>Apr</span><span class="vh">April, a shoulder month</span></li>
+    <li data-l="shoulder" data-m="5"><b></b><span>May</span><span class="vh">May, a shoulder month</span></li>
+    <li data-l="peak" data-m="6"><b></b><span>Jun</span><span class="vh">June, one of the best months</span></li>
+    <li data-l="peak" data-m="7"><b></b><span>Jul</span><span class="vh">July, one of the best months</span></li>
+    <li data-l="peak" data-m="8"><b></b><span>Aug</span><span class="vh">August, one of the best months</span></li>
+    <li data-l="peak" data-m="9"><b></b><span>Sep</span><span class="vh">September, one of the best months</span></li>
+    <li data-l="off" data-m="10"><b></b><span>Oct</span><span class="vh">October, out of season</span></li>
+    <li data-l="off" data-m="11"><b></b><span>Nov</span><span class="vh">November, out of season</span></li>
+    <li data-l="off" data-m="12"><b></b><span>Dec</span><span class="vh">December, out of season</span></li>
+  </ul>
+  <p class="mkey"><span><b data-l="peak"></b>Best months</span><span><b data-l="shoulder"></b>Shoulder</span><span><b></b>Out of season</span></p>
+  <div class="wnotes">
+    <div class="wnote"><h3>April to early June</h3><p>Salmon fishing can already be rewarding and boats are easier to get on. Halibut is the thing you are waiting for, and it does not normally pick up until after June 1.</p></div>
+    <div class="wnote"><h3>June</h3><p>Halibut gets better as the month rolls on, often just a few miles offshore. Chinook is on throughout. From June 15 the season proper has started.</p></div>
+    <div class="wnote"><h3>July to mid August</h3><p>The busiest stretch. By July, halibut catches often involve limits. Coho are more prevalent after July 1, and from July 15 you can fish for Chinook anywhere rather than inside a mile of shore.</p></div>
+    <div class="wnote"><h3>Mid August to mid September</h3><p>The fall run of Chinook returning to Barkley Sound comes past Tofino. Halibut moves further out, sometimes more than ten miles offshore. Coho holds up to mid September.</p></div>
+  </div>
+</div></section>
+
+<section class="sec sec--tight" id="fish"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">What you can catch</span>
+      <h2>Six fish, ordered by how much of the season each one carries</h2>
+      <p>A Tofino skipper plans the day around the first two. The rest come over the side while you are out there. This is the order you are most likely to be fishing for, not the order of size.</p>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="things-to-do.html">All nine subjects in Tofino</a>
+  </div>
+<div class="grp">
+  <div class="grp__h"><h3>What the day is planned around</h3><span class="grp__c">01 to 02</span></div>
+  <p class="grp__n">Every Tofino charter is built around one of these two, or both. Everything else is what else was down there.</p>
+  <div class="plist">
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/website-fdaf5cf0-e06f-4307-9aa8-72f84110a5a0/th5evj6rqmabhq34rlnx" alt="An angler holding a large Chinook salmon on the back deck, a forested channel behind him"><b class="tile__n">01</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">May to September</span><span class="dot"></span><span>The salmon most commonly caught here</span></p>
+      <h3>Chinook salmon (King)</h3>
+      <p>Chinook, called King on the American side, is the salmon most commonly caught out of Tofino. Until July 15 you fish for them within a mile of shore. After July 15 you can fish anywhere.</p>
+      <p>Many of the Chinook from the fall run returning to Barkley Sound, beside Ucluelet, come past Tofino from mid August. That run is why the last month of the season is worth planning around.</p>
+      <p class="gfline">On through the summer, with a second push from mid August to mid September.</p>
+      <p class="note"><span><b>Good to know.</b> Where they sit moves from year to year. Colder water close to shore through 2022 and 2023 kept Chinook inshore. In 2024 more of them were offshore.</span></p>
+    </div>
+  </article>
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/website-fdaf5cf0-e06f-4307-9aa8-72f84110a5a0/p3tldfegg5eriufwgvie" alt="Five anglers holding halibut up on gaffs at the back of a charter boat"><b class="tile__n">02</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">June 1 onward</span><span class="dot"></span><span>Better every week through June</span></p>
+      <h3>Halibut</h3>
+      <p>Halibut fishing is better after June 1 and picks up as the month rolls on. By July, catches often involve limits. In June and July the ground is often only a few miles offshore. Later in the summer it can be more than ten miles out.</p>
+      <p>Some summers Tofino pulls good numbers all season. Other summers the offshore ground out of Ucluelet is significantly better. If halibut is the whole reason for the trip, Tofino has been quite good recently.</p>
+      <p class="gfline">Best from mid June to September, and best again on the calm water days.</p>
+      <p class="note"><span><b>Good to know.</b> If you are American and you want to keep halibut, your licence has to be bought in person rather than online. In Tofino that is Method Marine.</span></p>
+    </div>
+  </article>
+  </div>
+</div>
+<div class="grp">
+  <div class="grp__h"><h3>In season alongside them</h3><span class="grp__c">03 to 04</span></div>
+  <p class="grp__n">Both are real targets in the second half of the summer. Neither is usually the reason the trip was booked.</p>
+  <div class="plist">
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/website-198882f2-6c82-48cd-ba87-b341c8f63add/v1xi8xezzzqfyfvpzenu" alt="Two anglers on the back deck, each holding a pair of salmon, the coast range behind them"><b class="tile__n">03</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">July 1 to mid September</span><span class="dot"></span><span>Fin clipped only, outside the surfline</span></p>
+      <h3>Coho salmon (Silver)</h3>
+      <p>Coho, Silvers to Americans, are more prevalent after July 1 and fish well through to mid September. Outside the surfline you may only keep fin clipped Coho. Inshore of the surfline that restriction does not apply.</p>
+      <p>Clayoquot Sound has Coho at sporadic times through the summer. Barkley Sound, south of Ucluelet, is the more consistent Coho water, and much of that fishing happens in protected water.</p>
+      <p class="gfline">Best from July 1 to mid September, often close in.</p>
+      <p class="note"><span><b>Good to know.</b> The combined daily limit across all salmon is 4, so Coho and Chinook come out of the same allowance.</span></p>
+    </div>
+  </article>
+  <article class="pent">
+    <figure class="tile"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1000,h_750/website-fdaf5cf0-e06f-4307-9aa8-72f84110a5a0/t8mptwglv7fsj7didmdp" alt="Ling cod laid out across the deck of a charter boat on a grey morning, with the four anglers who caught them"><b class="tile__n">04</b></figure>
+    <div>
+      <p class="pent__k"><span class="k">Bottom fishing</span><span class="dot"></span><span>The white meat in the Tacofino tacos</span></p>
+      <h3>Ling cod</h3>
+      <p>Ling cod is not what most people book a charter for, and it is some of the tastiest white meat you will eat on this coast. It is the fish in the Tacofino tacos.</p>
+      <p>It comes off the bottom, which in practice means it comes aboard on the same drops as the halibut rather than on a trip of its own.</p>
+      <p class="gfline">Alongside halibut, so from June onward.</p>
+      <p class="note"><span><b>Good to know.</b> Daily limit 3, possession limit 6, on the west coast of Vancouver Island.</span></p>
+    </div>
+  </article>
+  </div>
+</div>
+<div class="grp">
+  <div class="grp__h"><h3>Also aboard</h3><span class="grp__c">05 to 06</span></div>
+  <p class="grp__n">What comes up rather than what you go out for. Worth knowing so nothing on the deck is a surprise.</p>
+  <div class="plist">
+  <article class="pent">
+    <div class="tile tile--say"><b class="tile__n">05</b><p class="tile__say"><span>What it is</span>A bottom fish, caught beside the ling cod</p></div>
+    <div>
+      <p class="pent__k"><span class="k">Bottom fishing</span></p>
+      <h3>Rockfish</h3>
+      <p>There are rockfish in the same water as the ling cod. Guides are not generally keen on cleaning them: they are old fish and there is less meat on them for the work involved.</p>
+      <p class="gfline">Present through the season, targeted by almost nobody.</p>
+      <p class="note"><span><b>Good to know.</b> Rockfish are not on the salmon and halibut limits below and are managed on their own terms. Ask the boat what is open before you keep one.</span></p>
+    </div>
+  </article>
+  <article class="pent">
+    <div class="tile tile--say"><b class="tile__n">06</b><p class="tile__say"><span>What it is</span>A bonus fish, not a reason to book</p></div>
+    <div>
+      <p class="pent__k"><span class="k">Occasional</span></p>
+      <h3>Pink and sockeye salmon</h3>
+      <p>You can catch Pink salmon here. Guides are not generally happy about it, because the Chinook and Coho fishing is often very good and a Pink is the lesser of the three.</p>
+      <p>Sockeye can be caught inside Barkley Sound and up the Port Alberni inlet, which is a different day out from a Tofino charter, not a variation on one.</p>
+      <p class="gfline">Turns up in summer, and is nobody's booking reason.</p>
+      <p class="note"><span><b>Good to know.</b> Pink and chum each carry a daily limit of 4, and they still come out of the combined salmon limit of 4 a day.</span></p>
+    </div>
+  </article>
+  </div>
+</div>
+</div></section>
+
+<section class="sec sec--top0" id="day"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">A day on the water</span>
+      <h2>Ten minutes to the dock, four to six hours out</h2>
+      <p>Tofino's harbour is a working one. Float planes, whale watching boats, water taxis and private boats all use it, against a backdrop most people photograph before they have left the dock.</p>
+    </div>
+  </div>
+  <figure class="figwide"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1600,h_760/website-198882f2-6c82-48cd-ba87-b341c8f63add/keawvzog0jrloia6qpoo" alt="An aluminium charter boat with a heated cabin working close to a forested shore, the coast range behind it"></figure>
+  <p class="figcap">A heated cabin, a walk around deck and twin outboards. This is the shape most boats on this coast take, and the cabin is the part worth asking about.</p>
+  <div class="day">
+    <div class="dstep">
+      <span class="label">Before you leave</span>
+      <h3>The dock is ten minutes from town</h3>
+      <p>Trips of four to six hours are the popular length here, because most visitors have something else planned for the same day. Eight hour mornings are the format when salmon and halibut are both on the list. Afternoon trips of four to six hours are usually salmon only.</p>
+    </div>
+    <div class="dstep">
+      <span class="label">The boat</span>
+      <h3>Twenty four to thirty two feet, and the cabin decides the day</h3>
+      <p>Charter boats out of Tofino average 24 to 32 feet. Most days are not the sunny flat calm of the photographs, so look for a heated cabin big enough for your whole group. Most boats have walk around cabins, which means less shelter on deck than people expect.</p>
+    </div>
+    <div class="dstep">
+      <span class="label">On the water</span>
+      <h3>Ten to fifteen degrees, inshore or offshore</h3>
+      <p>A normal temperature on the water is 10 to 15 C (50 to 60 F). Whether the boat runs inshore or offshore is decided on the year and on the morning, not booked in advance: 2022 and 2023 held the Chinook close in, 2024 put more of them out.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec sec--top0" id="limits"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">Licence and limits</span>
+      <h2>One licence to sort out, and a table the boat confirms on the day</h2>
+      <p>Charters in both towns provide all the gear and tackle. The licence is the one thing that is yours to arrange, and it is both cheap and quick.</p>
+    </div>
+  </div>
+  <figure class="figwide"><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_1600,h_760/website-198882f2-6c82-48cd-ba87-b341c8f63add/ulsyjhemgi2ymozlikua" alt="A day's catch of salmon and halibut laid out across the deck between the four anglers who caught them"></figure>
+  <p class="lic"><b>Canadians</b> buy a tidal waters licence online. <b>Americans</b> can buy online as well, with one exception: to keep halibut, the licence has to be bought in person. In Tofino that is Method Marine.</p>
+  <table class="lim">
+    <caption class="vh">Catch limits for the west coast of Vancouver Island</caption>
+    <thead>
+      <tr><th scope="col">Species</th><th scope="col">Daily limit</th><th scope="col">Possession limit</th><th scope="col">Minimum size</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Chinook (King)</td><td data-l="Daily limit">2</td><td data-l="Possession limit">4</td><td data-l="Minimum size">25 inches</td></tr>
+      <tr><td>Coho (Silver)</td><td data-l="Daily limit">2</td><td data-l="Possession limit">4</td><td data-l="Minimum size">12 inches</td></tr>
+      <tr><td>Pink</td><td data-l="Daily limit">4</td><td data-l="Possession limit">8</td><td data-l="Minimum size">12 inches</td></tr>
+      <tr><td>Chum</td><td data-l="Daily limit">4</td><td data-l="Possession limit">8</td><td data-l="Minimum size">12 inches</td></tr>
+      <tr><td>Sockeye</td><td data-l="Daily limit">4</td><td data-l="Possession limit">8</td><td data-l="Minimum size">12 inches</td></tr>
+      <tr><td>Halibut</td><td data-l="Daily limit">1</td><td data-l="Possession limit">2</td><td data-l="Minimum size">None set</td></tr>
+      <tr><td>Ling cod</td><td data-l="Daily limit">3</td><td data-l="Possession limit">6</td><td data-l="Minimum size">None set</td></tr>
+    </tbody>
+  </table>
+  <p class="limnote"><b>Reading the table.</b> These figures are for the west coast of Vancouver Island. The possession limit is what you can take home. The combined daily limit across all salmon is 4 and the combined possession limit is 8, so the rows do not add up. Sockeye limits are subject to change, and outside the surfline only fin clipped Coho may be kept. Openings and limits move inside a season, so the boat confirms what is current on the morning you go out.</p>
+</div></section>
+
+<section class="sec sec--top0" id="tips"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">Before you go</span>
+      <h2>Four things that decide how the day goes</h2>
+      <p>The boat brings the gear and the knowledge. These four are the parts nobody can do for you.</p>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>The two things you have to bring</h3><p>Your fishing licence and, if you have never been offshore, motion sickness medication or a patch. Both are worth sorting before the morning of the trip rather than on the way to the dock.</p></div>
+    <div class="box"><h3>Dress for ten degrees and rain</h3><p>A normal day on the water is 10 to 15 C. Walk around cabins mean less protection on deck than most people expect, so bring layers and a real rain shell. Ask whether the boat carries rain gear, because not all of them do.</p></div>
+    <div class="box"><h3>Ask what is aboard before you book</h3><p>Whether the cabin is heated and big enough for your group is the question that decides how the last two hours feel. Ask about the toilet at the same time: whether there is one, and how much room there is around it.</p></div>
+    <div class="box"><h3>Do not plan around last year's fish</h3><p>Where the fish sit moves. Colder water close to shore through 2022 and 2023 held Chinook inshore, and 2024 put more of them offshore. The skipper makes that call on the morning, so go with a target rather than a spot.</p></div>
+  </div>
+</div></section>
+
+<section class="sec sec--top0" id="questions"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">Questions</span>
+      <h2>Asked before people book</h2>
+      <p>Open the ones you need. The first one is the one this page exists to answer plainly.</p>
+    </div>
+  </div>
+  <details class="faq" open><summary>Can you book a fishing charter on Arc Trips?</summary><p>No. Charters out of Tofino are booked through ArcTrips Fishing, the sister brand, which lists guides for salmon and halibut in both Tofino and Ucluelet. Arc Trips books the stay. If you want both, book the stay here and the boat there.</p></details>
+  <details class="faq"><summary>What can you catch out of Tofino?</summary><p>Chinook salmon and halibut are what trips are built around. Coho comes on after July 1. Ling cod and rockfish come off the bottom on the same drops as the halibut, and Pink salmon turns up. Sockeye is caught inside Barkley Sound and up the Port Alberni inlet rather than off Tofino.</p></details>
+  <details class="faq"><summary>When is the best time to fish in Tofino?</summary><p>June 15 to September 15. April, May and early June can still bring rewarding salmon fishing. Halibut normally picks up after June 1, and by July catches often involve limits.</p></details>
+  <details class="faq"><summary>Do you need a fishing licence?</summary><p>Yes, a tidal waters licence, and it is cheap and quick to get. Canadians buy online. Americans can buy online too, unless they want to keep halibut, in which case the licence has to be bought in person. In Tofino that is Method Marine.</p></details>
+  <details class="faq"><summary>How long is a trip?</summary><p>Four to six hours is the popular length in Tofino, because most visitors have other plans the same day. Eight hour mornings are the format when salmon and halibut are both on the list, and afternoon trips of four to six hours are usually salmon only.</p></details>
+  <details class="faq"><summary>Should you fish out of Tofino or Ucluelet?</summary><p>Mostly it comes down to how far you want to drive. The dock in Tofino is about ten minutes from town. Ucluelet is 35 minutes down the road and sits beside the largest salmon and halibut feeding grounds on this coast. Tofino runs slightly more expensive, because the cost of doing business here is higher, and many of the Chinook that pass Ucluelet come past Tofino as well.</p></details>
+  <details class="faq"><summary>Is the gear provided?</summary><p>Yes. Charters in both towns provide all the gear and tackle. Rain gear is the thing to ask about separately, because it is not always aboard.</p></details>
+  <details class="faq"><summary>Can a solo angler get on a boat?</summary><p>In Tofino, more easily than in most places. If you are on your own and looking to be matched up with other anglers, Tofino charters are the better bet.</p></details>
+</div></section>
+
+<section class="sec sec--top0" id="more"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">Keep going</span>
+      <h2>Three ways on from here</h2>
+    </div>
+  </div>
+  <div class="kg">
+    <a href="not-found.html">
+      <figure><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_760,h_475/website-198882f2-6c82-48cd-ba87-b341c8f63add/keawvzog0jrloia6qpoo" alt="An angler holding a large Chinook salmon aboard a boat in sheltered water"></figure>
+      <span class="label">Where the boat is booked</span>
+      <h3>ArcTrips Fishing</h3>
+      <p>The sister brand. Guides for Tofino and Ucluelet, for both salmon and halibut, held to one standard.</p>
+      <span class="go">Go to the sister brand <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="whale-watching.html">
+      <figure><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_760,h_475/guides/tofino/whale-watching/_category-1" alt="A humpback fluke lifting clear of the water in front of a forested headland"></figure>
+      <span class="label">The same harbour, a different boat</span>
+      <h3>Whale watching in Tofino</h3>
+      <p>Gray whales north from March and humpbacks all summer, and the six places you can watch them from.</p>
+      <span class="go">Open the subject <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="search.html?in=tofino">
+      <figure><img loading="lazy" src="https://res.cloudinary.com/djqswlfat/image/upload/f_auto,q_auto,c_fill,w_760,h_475/arc-trips/curated-cabin" alt="A timber cabin standing alone on a forested headland above the water"></figure>
+      <span class="label">The booking path that is live</span>
+      <h3>Stays in Tofino</h3>
+      <p>134 places from $320 a night, in the town the boats leave from.</p>
+      <span class="go">Search stays <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+</div></section>
+</main>
+
+<footer class="f"><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <span class="fbrand"><img class="fbrand__mark" src="brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></span>
+      <p class="fnote">Stays and guides on the west coast of Vancouver Island, written by people who go there.</p>
+    </div>
+    <div><h5>Destinations</h5><ul>
+      <li><a href="tofino.html">Tofino</a></li><li><a href="region.html">Vancouver Island</a></li>
+      <li><a href="index.html">British Columbia</a></li></ul></div>
+    <div><h5>In Tofino</h5><ul>
+      <li><a href="things-to-do.html">All nine subjects</a></li><li><a href="#top" aria-current="page">Fishing charters in Tofino</a></li>
+      <li><a href="long-beach.html">Long Beach</a></li><li><a href="search.html?in=tofino">Search everything</a></li></ul></div>
+    <div><h5>Plan</h5><ul>
+      <li><a href="plan.html">When to go</a></li><li><a href="plan.html">Getting there</a></li>
+      <li><a href="search.html?in=tofino">Where to stay</a></li><li><a href="guide.html">Guides</a></li></ul></div>
+    <div><h5>Arc Trips</h5><ul>
+      <li><a href="not-found.html">About us</a></li><li><a href="not-found.html">List your place</a></li>
+      <li><a href="not-found.html">ArcTrips Fishing</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
+  </div>
+  <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees</span></div>
+</div></footer>
+
+<div class="dock">
+  <p class="dock__t"><b>Boats book at ArcTrips Fishing</b>134 stays in Tofino from $320</p>
+  <a class="btn btn--primary btn--sm" href="search.html?in=tofino">See stays</a>
+</div>
+
+<script>
+/* Mark the month the reader is actually in, so the strip is never stale. */
+var now = new Date().getMonth() + 1;
+var cell = document.querySelector('.mstrip li[data-m="' + now + '"]');
+if (cell) cell.setAttribute('data-now', '');
+addEventListener('keydown', function (e) {
+  if (e.key === '/' && !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)) {
+    e.preventDefault();
+    document.querySelector('.search input').focus();
+  }
+});
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>
