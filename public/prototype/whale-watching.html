@@ -104,12 +104,21 @@ main [id]{scroll-margin-top:142px}
 .hero-facts dd small{font-size:.52em;font-weight:700;color:var(--n600);margin-left:3px;letter-spacing:0}
 
 /* two harbours, because five of the six places are on the Ucluelet side */
-.tide2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px clamp(20px,4vw,56px);padding-block:14px}
-@media(max-width:760px){.tide2{grid-template-columns:1fr;gap:14px}}
-.tide2 .label{display:block;margin-bottom:7px;color:var(--n600)}
-.tide2 .tide-read{font-size:.9rem}
-.tide2__why{grid-column:1/-1;font-size:.95rem;color:var(--n600);line-height:1.55;max-width:80ch;margin-top:2px}
-.tide2__why b{color:var(--navy);font-weight:700}
+/* (c) the three whales: a portrait, the months, and what you are looking at.
+      Photograph leads, because the whole point of the section is the animal. */
+.whales{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.4vw,28px)}
+@media(max-width:860px){.whales{grid-template-columns:1fr}}
+.wh{border:1px solid var(--n150);border-radius:var(--r);overflow:hidden;background:var(--paper);display:flex;flex-direction:column}
+.wh__m{margin:0;aspect-ratio:4/3;overflow:hidden;background:var(--n100)}
+.wh__m img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.wh:hover .wh__m img{transform:scale(1.04)}
+.wh__b{padding:clamp(16px,2vw,22px);display:flex;flex-direction:column;gap:9px;flex:1}
+.wh h3{font-size:1.16rem;letter-spacing:-.018em}
+.wh__w{font-size:.7rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--azure)}
+.wh p{font-size:.94rem;color:var(--n600);line-height:1.6}
+.wh__f{margin-top:auto;padding-top:12px;border-top:1px solid var(--n150);font-size:.88rem;color:var(--navy);font-weight:600}
+.wh__f span{display:block;font-size:.66rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--n600);margin-bottom:4px}
+
 
 /* the numbers, at section scale */
 .statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,44px) clamp(18px,3vw,40px);
@@ -430,23 +439,24 @@ main [id]{scroll-margin-top:142px}
   </div>
 </div></header>
 
-<!-- N3. Say what it is. Plain label, then the readings, then one line on why a
-     person planning a trip should care. Both harbours, because five of the six
-     places sit on the Ucluelet side. -->
-<div class="tide"><div class="wrap tide2">
-  <div>
-    <span class="label" id="tideStationA">Tide today at Tofino Harbour</span>
-    <p class="tide-read" id="tideReadA"></p>
+<!-- The tide readings used to sit here. On a whale page they answered a question
+     nobody asked, so the space goes to the animals the page is named after:
+     which three whales, when each one is here, and what each looks like on the
+     water. Built from DATA.rows and DATA.frames, so nothing is invented. -->
+<section class="sec sec--tight" id="whales"><div class="wrap">
+  <div class="head">
+    <div>
+      <span class="label label--n">The whales</span>
+      <h2 style="margin-top:11px">Three whales, and when each one is here</h2>
+      <p>Gray whales are passing through, humpbacks stay to feed, and orcas turn up when they turn up. Nobody sells you a guarantee on the third.</p>
+    </div>
   </div>
-  <div>
-    <span class="label" id="tideStationB">Tide today at Ucluelet Harbour</span>
-    <p class="tide-read" id="tideReadB"></p>
-  </div>
-  <p class="tide2__why">Why it matters: <b>at low water Long Beach doubles in width</b>, and the rock shelves below the Amphitrite Point lighthouse open up, which is where the shore watching is done.</p>
-</div></div>
+  <div class="whales" id="whales3"></div>
+</div></section>
 
 <div class="wrap">
   <nav class="jumprow" aria-label="On this page" id="jumprow">
+    <a href="#whales">The whales</a>
     <a href="#best-time">When to go</a>
     <a href="#where">The six places</a>
     <a href="#boats">Boats and cost</a>
@@ -751,10 +761,6 @@ main [id]{scroll-margin-top:142px}
 <script>
 /* ── Real rows, read out of corpus.json, climate.json and best-months.json ─── */
 const DATA = {
-  tides: {
-    tofino:{station:"Tofino Harbour", low1:"06:14", low1m:0.8, high1:"12:38", high1m:3.1, low2:"18:52", low2m:1.2, sunset:"21:07"},
-    ucluelet:{station:"Ucluelet Harbour", low1:"06:02", low1m:0.7, high1:"12:26", high1m:3.0, low2:"18:40", low2m:1.1, sunset:"21:05"}
-  },
   climate: [
     {hi:8.6,lo:2.6,mm:489,days:22},{hi:9.3,lo:2.3,mm:368,days:19},{hi:10.4,lo:3.1,mm:337,days:21},
     {hi:12.3,lo:4.3,mm:213,days:18},{hi:14.6,lo:6.7,mm:132,days:15},{hi:16.3,lo:9.1,mm:102,days:13},
@@ -958,17 +964,32 @@ const qm = Number(new URLSearchParams(location.search).get("m"));
 if (qm >= 1 && qm <= 12) month = qm;
 
 /* ── static content ─────────────────────────────────────────────────────── */
-function tideLine(t){
-  return `<span>Low <b>${t.low1}</b>, ${t.low1m} m</span><span>High <b>${t.high1}</b>, ${t.high1m} m</span>` +
-         `<span>Low <b>${t.low2}</b>, ${t.low2m} m</span><span>Sunset <b>${t.sunset}</b></span>`;
+/* The three whales. Months and copy come from DATA.rows, the portrait from the
+   frame whose caption names that animal, so a photograph is never mislabelled. */
+const WHALES = ["Gray whale", "Humpback whale", "Orca"];
+function whalePortrait(name) {
+  const key = name.split(" ")[0].toLowerCase();
+  return DATA.frames.find((f) => f.t.toLowerCase().includes(key)) || DATA.frames[0];
+}
+
+function paintWhales() {
+  $("#whales3").innerHTML = WHALES.map((name) => {
+    const r = DATA.rows.find((x) => x.n === name);
+    if (!r) return "";
+    const f = whalePortrait(name);
+    return `<article class="wh">
+      <figure class="wh__m"><img src="${cld(f.id,760,570)}" alt="${esc(f.t)}" loading="lazy"></figure>
+      <div class="wh__b">
+        <span class="wh__w">${esc(windowText(r.m))}</span>
+        <h3>${esc(r.n)}</h3>
+        <p>${esc(r.w)}</p>
+        <p class="wh__f"><span>Watch from</span>${esc(r.from)}</p>
+      </div>
+    </article>`;
+  }).join("");
 }
 
 function paintStatic() {
-  $("#tideStationA").textContent = "Tide today at " + DATA.tides.tofino.station;
-  $("#tideReadA").innerHTML = tideLine(DATA.tides.tofino);
-  $("#tideStationB").textContent = "Tide today at " + DATA.tides.ucluelet.station;
-  $("#tideReadB").innerHTML = tideLine(DATA.tides.ucluelet);
-
   /* the three reads that sit beside the overview feature */
   $("#topreads").innerHTML = DATA.articles.slice(0,3).map((a) =>
     `<a class="ritem" href="guide.html">
@@ -1140,6 +1161,7 @@ function setMonth(m){
 }
 
 paintStatic();
+paintWhales();
 paintSpotFilter();
 paintSpots();
 paintFaqs();

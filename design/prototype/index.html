@@ -126,7 +126,6 @@ nav.top .btn{flex:none}
 .stat dt{font-size:.88rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--azure);margin-bottom:12px}
 .stat p{font-size:.95rem;color:var(--n600);margin-top:12px;line-height:1.5;max-width:24ch}
 
-/* ═══ destinations: two published cards, then twenty-six by province ═══ */
 .sec--dest{padding-block:clamp(50px,5.4vw,80px) clamp(44px,4.6vw,68px)}
 .dgrid--feat{grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.6vw,34px)}
 .dgrid--feat .dest__m{aspect-ratio:4/3}
@@ -141,7 +140,6 @@ nav.top .btn{flex:none}
 .dgrid--feat .dest__m::after{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;
   background:linear-gradient(180deg,rgba(11,51,86,0),rgba(11,51,86,.62));pointer-events:none}
 
-/* the roster. Nine provinces and regions, each a short scannable line. */
 .rosterhd{margin-top:clamp(38px,4vw,56px);padding-top:clamp(24px,2.6vw,32px);border-top:1px solid var(--n200)}
 .rosterhd h3{font-size:1.3rem;font-weight:700}
 .rosterhd p{font-size:.99rem;color:var(--n600);margin-top:8px;max-width:58ch}
@@ -314,17 +312,6 @@ footer.f{margin-top:0}
 
 /* The top of the tree. A destinations index should open at the country and let you
    drill down, not open inside one town. */
-.sec--canada{padding-block:clamp(44px,5vw,76px) 0}
-.pvs{display:grid;grid-template-columns:repeat(auto-fill,minmax(292px,1fr));gap:1px;background:var(--paper);
-  border:1px solid var(--n150);border-radius:var(--r);overflow:hidden;margin-top:24px}
-.pvs::after{content:"";background:var(--paper);grid-column:1/-1;display:none}
-.pv{background:var(--paper);outline:1px solid var(--n150);outline-offset:0;padding:22px 24px;display:grid;grid-template-columns:1fr auto;gap:6px 18px;align-items:baseline}
-.pv:hover{background:var(--n50)}
-.pv__n{font-size:1.14rem;font-weight:800;color:var(--navy);letter-spacing:-.022em}
-.pv__t{grid-column:1;font-size:.9rem;color:var(--n600);line-height:1.45}
-.pv__c{grid-row:1/3;grid-column:2;text-align:right;font-size:.86rem;color:var(--n600);white-space:nowrap}
-.pv__c b{display:block;font-size:1.6rem;font-weight:800;color:var(--navy);letter-spacing:-.03em;line-height:1}
-.pv__d{display:block;font-size:.82rem;color:var(--n500);margin-top:3px}
 </style>
 </head>
 <body>
@@ -384,9 +371,9 @@ footer.f{margin-top:0}
     <h1>Canada,
       <span class="mark">town by town<svg viewBox="0 0 200 12" fill="none" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8.4C38 3.2 92 2.1 132 5.1c22 1.7 44 3.6 66 1.2" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg></span>
     </h1>
-    <p class="lede">Twenty six towns across eight provinces, written up place by place. Start with a province, drill down to a town, then to the places inside it.</p>
+    <p class="lede">Twenty six towns across eight provinces, written up place by place. Start with a town, then work down to the places inside it.</p>
     <div class="hero-cta">
-      <a class="btn btn--primary btn--lg" href="#canada">Browse by province</a>
+      <a class="btn btn--primary btn--lg" href="#destinations">Browse destinations</a>
       <a class="btn btn--ghost" href="tofino.html">Or start with Tofino</a>
     </div>
     <p class="hero-note" id="heroNote"></p>
@@ -433,17 +420,7 @@ footer.f{margin-top:0}
 </div></div>
 
 
-<section class="sec sec--canada" id="canada"><div class="wrap">
-  <div class="head">
-    <div>
-      <span class="label label--n">Where we publish</span>
-      <h2 style="margin-top:11px">Canada, province by province</h2>
-      <p>Start at the top and work down: a province, then a region, then a town, then the places inside it. British Columbia is the one we have finished.</p>
-    </div>
-    <a class="btn btn--ghost btn--sm" href="province.html">Open British Columbia</a>
-  </div>
-  <div class="pvs"><a class="pv" href="province.html"><span class="pv__n">British Columbia</span><span class="pv__t">Tofino, Whistler, Ucluelet, Victoria</span><span class="pv__c"><b class="tnum">15</b> towns<span class="pv__d">1,067 places</span></span></a><a class="pv" href="country.html#provinces"><span class="pv__n">Alberta</span><span class="pv__t">Banff, Edmonton, Jasper</span><span class="pv__c"><b class="tnum">3</b> towns<span class="pv__d">91 places</span></span></a><a class="pv" href="country.html#provinces"><span class="pv__n">Ontario</span><span class="pv__t">Ottawa, Niagara Falls</span><span class="pv__c"><b class="tnum">2</b> towns<span class="pv__d">78 places</span></span></a><a class="pv" href="country.html#provinces"><span class="pv__n">Quebec</span><span class="pv__t">Quebec City, Montreal</span><span class="pv__c"><b class="tnum">2</b> towns<span class="pv__d">81 places</span></span></a><a class="pv" href="country.html#provinces"><span class="pv__n">Nova Scotia</span><span class="pv__t">Halifax</span><span class="pv__c"><b class="tnum">1</b> towns<span class="pv__d">38 places</span></span></a><a class="pv" href="country.html#provinces"><span class="pv__n">Saskatchewan</span><span class="pv__t">Saskatoon</span><span class="pv__c"><b class="tnum">1</b> towns<span class="pv__d">27 places</span></span></a><a class="pv" href="country.html#provinces"><span class="pv__n">Prince Edward Island</span><span class="pv__t">Charlottetown</span><span class="pv__c"><b class="tnum">1</b> towns<span class="pv__d">28 places</span></span></a><a class="pv" href="country.html#provinces"><span class="pv__n">Newfoundland and Labrador</span><span class="pv__t">St John's</span><span class="pv__c"><b class="tnum">1</b> towns<span class="pv__d">31 places</span></span></a></div>
-</div></section>
+
 <section class="statband"><div class="wrap">
   <dl class="statgrid" id="statgrid"></dl>
 </div></section>

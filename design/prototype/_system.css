@@ -137,6 +137,11 @@ nav.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.9);backdro
 
 /* the offset collage over a mapped ground */
 .collage{position:relative;aspect-ratio:1/.92;min-height:380px}
+/* .coast bleeds 4% past the collage on purpose. Nothing was clipping it, so on
+   the landing hero it reached 60px past a 1440 viewport and put a horizontal
+   scrollbar on the page. Clipping at the collage costs nothing visible: the
+   bleed that gets cut was already off-screen. */
+.collage{overflow:hidden}
 .coast{position:absolute;inset:-6% -4%;z-index:0;color:var(--a200);opacity:.85}
 .coast svg{width:100%;height:100%}
 .plate{position:absolute;border-radius:var(--r);overflow:hidden;box-shadow:0 18px 42px -18px rgba(11,51,86,.34),0 2px 8px rgba(11,51,86,.06);background:var(--n100)}
