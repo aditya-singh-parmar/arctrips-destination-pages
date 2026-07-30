@@ -55,7 +55,14 @@ body>*:not(.chart){position:relative;z-index:1}
 /* ── nav, with the global search as a real control ──────────────────────── */
 nav.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--n150)}
 .nav-in{display:flex;align-items:center;gap:clamp(16px,2.4vw,34px);height:70px}
-.brand{font-family:Satoshi,Inter,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.045em;font-size:1.02rem;color:var(--navy);flex:none}
+/* The brand is a lockup: the mark, then the Satoshi wordmark. The mark is an
+   <img> rather than inline SVG so 46 pages share one cached file instead of
+   carrying 19 KB of path data each. alt is empty because the wordmark beside it
+   already names the brand, and the link should announce once. */
+.brand{font-family:Satoshi,Inter,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.045em;font-size:1.02rem;color:var(--navy);flex:none;
+  display:inline-flex;align-items:center;gap:9px}
+.brand__mark{height:20px;width:auto;flex:none;display:block}
+@media(max-width:420px){.brand__mark{height:18px}.brand{gap:7px}}
 .nav-links{display:flex;gap:clamp(14px,2vw,26px);list-style:none;font-size:.94rem;font-weight:500}
 .nav-links a{color:var(--n600)}
 .nav-links a:hover,.nav-links a[aria-current]{color:var(--navy)}
@@ -266,7 +273,9 @@ footer.f{border-top:1px solid var(--n150);margin-top:var(--pad);padding-block:cl
 .fgrid h5{font-size:.71rem;letter-spacing:.14em;text-transform:uppercase;color:var(--n500);font-weight:700;margin-bottom:14px}
 .fgrid ul{list-style:none;display:flex;flex-direction:column;gap:9px;font-size:.9rem;color:var(--n600)}
 .fgrid a:hover{color:var(--azure)}
-.fbrand{font-family:Satoshi,Inter,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.045em;color:var(--navy);font-size:1.02rem}
+.fbrand{font-family:Satoshi,Inter,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.045em;color:var(--navy);font-size:1.02rem;
+  display:inline-flex;align-items:center;gap:9px}
+.fbrand__mark{height:20px;width:auto;flex:none;display:block}
 .fnote{font-size:.87rem;color:var(--n600);margin-top:13px;max-width:34ch;line-height:1.6}
 .fbase{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-top:clamp(34px,4vw,52px);padding-top:22px;border-top:1px solid var(--n150);font-size:.83rem;color:var(--n500)}
 .cbar{background:var(--navy);color:#fff;font-size:.8rem;padding:9px 0}

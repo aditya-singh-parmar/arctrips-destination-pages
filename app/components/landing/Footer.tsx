@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const COLS = [
   {
     heading: "Support",
@@ -17,7 +19,10 @@ export function Footer() {
   return (
     <footer className="footer">
       <div className="container footer__inner">
-        <p className="footer__logo">ARCTRIPS</p>
+        <p className="footer__logo">
+          <Image src="/brand/arctrips-mark-azure.svg" alt="" width={45} height={20} className="footer__mark" />
+          <span>ARCTRIPS</span>
+        </p>
         <div className="footer__cols">
           {COLS.map((col) => (
             <div className="footer__col" key={col.heading}>
