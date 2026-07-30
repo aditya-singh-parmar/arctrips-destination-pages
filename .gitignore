@@ -61,3 +61,7 @@ next-env.d.ts
 scripts/.cloudinary-cache.json
 
 .screens/
+
+# screenshot debris at the repo root; real images live in public/
+/*.png
+/*.jpg
