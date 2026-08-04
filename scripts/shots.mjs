@@ -13,6 +13,12 @@
  *   node scripts/shots.mjs --fast           desktop + light only
  *   node scripts/shots.mjs --routes /a,/b   just these
  *   node scripts/shots.mjs --base http://localhost:5173
+ *   node scripts/shots.mjs --fresh-images   bypass the remote-image disk cache
+ *
+ * Remote images are cached to node_modules/.cache/shots-images across runs.
+ * Without it every shot re-downloads every image (a fresh context has an empty
+ * HTTP cache), which is what made this script the largest single consumer on the
+ * shared Cloudinary account. See cacheRemoteImages().
  *
  * Env: BASE_URL, PW_EXECUTABLE_PATH
  */
@@ -20,11 +26,21 @@
 import { chromium } from '@playwright/test'
 import { mkdir, writeFile, readFile, rm, glob } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
+import { createHash } from 'node:crypto'
 import path from 'node:path'
 
 const ROOT = process.env.CLAUDE_PROJECT_DIR || process.cwd()
 const OUT = path.join(ROOT, '.screens')
 const CONFIG = path.join(ROOT, '.claude', 'routes.json')
+
+// Remote images are cached to disk across runs. NOT under .screens/ — that
+// directory is wiped at the start of every sweep (see `rm(OUT)` below), so a
+// cache inside it would be cold every single time, which is the bug this fixes.
+const IMG_CACHE = path.join(ROOT, 'node_modules', '.cache', 'shots-images')
+
+// The image CDNs worth caching. Add a host here and its bytes are fetched once
+// per URL for the life of the cache instead of once per shot.
+const REMOTE_IMAGE_HOSTS = /^https?:\/\/(res\.cloudinary\.com|images\.unsplash\.com|placehold\.net|placehold\.co)\//
 
 const argv = process.argv.slice(2)
 const hasFlag = (f) => argv.includes(f)
@@ -175,6 +191,59 @@ const OVERFLOW_PROBE = `(() => {
   }
 })()`
 
+/**
+ * Serve remote images from a disk cache instead of re-downloading them.
+ *
+ * Every shot gets its own browser context (below), and a fresh context has an
+ * empty HTTP cache — so a 70-route sweep at two viewports and two themes was
+ * pulling every image on every page 280 times over. On 2026-07-30 that put
+ * 25,325 requests and 1.8 GB through the shared Cloudinary account in one day,
+ * 29% of the month's bandwidth, and pushed a free-tier account to 112%.
+ *
+ * The bytes are real, so what you look at is unchanged; only the second and
+ * later fetches of the same URL are served locally. Pass --fresh-images to
+ * bypass (use it when checking that a newly uploaded asset actually resolves).
+ */
+const imgCacheStats = { hits: 0, misses: 0, bytesServed: 0 }
+
+async function cacheRemoteImages(context) {
+  if (hasFlag('--fresh-images')) return
+  // Scoped to the image CDNs by pattern, NOT '**/*' with a resourceType check in
+  // the handler. Playwright matches this natively, so the dev server's hundreds
+  // of module requests are never routed through Node. Intercepting everything
+  // added enough per-request latency to blow the 30s goto timeout on every shot.
+  await context.route(REMOTE_IMAGE_HOSTS, async (route, request) => {
+    const stem = path.join(IMG_CACHE, createHash('sha1').update(request.url()).digest('hex'))
+    try {
+      if (existsSync(`${stem}.bin`)) {
+        const body = await readFile(`${stem}.bin`)
+        imgCacheStats.hits++
+        imgCacheStats.bytesServed += body.length
+        return route.fulfill({
+          status: 200,
+          headers: JSON.parse(await readFile(`${stem}.json`, 'utf8')),
+          body,
+        })
+      }
+      imgCacheStats.misses++
+      const res = await route.fetch()
+      const body = await res.body()
+      // Only cache successes. A 404 cached here would silently hide a broken
+      // image from every later sweep, which is exactly what this script exists
+      // to catch — let those fall through to the response listener each run.
+      if (res.status() === 200 && body.length) {
+        const ct = res.headers()['content-type']
+        await writeFile(`${stem}.bin`, body)
+        await writeFile(`${stem}.json`, JSON.stringify(ct ? { 'content-type': ct } : {}))
+      }
+      return route.fulfill({ response: res, body })
+    } catch {
+      // Never let a cache fault fail the shot.
+      return route.continue()
+    }
+  })
+}
+
 async function capture(browser, { route, viewport, theme, baseUrl }) {
   const context = await browser.newContext({
     viewport: { width: viewport.width, height: viewport.height },
@@ -182,6 +251,7 @@ async function capture(browser, { route, viewport, theme, baseUrl }) {
     deviceScaleFactor: 1,
     reducedMotion: 'reduce',
   })
+  await cacheRemoteImages(context)
 
   // Dark mode is driven two ways and the repos here use both. `colorScheme` above
   // covers the media-query strategy natively, from the very first paint. Tailwind's
@@ -345,6 +415,7 @@ if (config.discovered) {
 
 await rm(OUT, { recursive: true, force: true })
 await mkdir(OUT, { recursive: true })
+await mkdir(IMG_CACHE, { recursive: true })
 
 const started = Date.now()
 const browser = await chromium.launch({
@@ -407,6 +478,19 @@ await writeFile(
 console.log(
   `\n  ${shots.length} shots · ${config.routes.length} routes · ${elapsed}s · ${shots.length - problems.length}/${shots.length} clean`
 )
+
+{
+  const { hits, misses, bytesServed } = imgCacheStats
+  if (hits || misses) {
+    const mb = (bytesServed / 1e6).toFixed(1)
+    console.log(
+      `  images: ${hits} from cache (${mb} MB not re-downloaded) · ${misses} fetched` +
+        (misses ? '' : ' · nothing hit the CDN')
+    )
+  } else if (hasFlag('--fresh-images')) {
+    console.log('  images: cache bypassed (--fresh-images) — every image re-downloaded')
+  }
+}
 
 for (const s of problems) {
   const why = [

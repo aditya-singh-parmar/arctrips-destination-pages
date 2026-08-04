@@ -159,14 +159,26 @@ async function uploadImage(buf, publicId) {
   const key = `${publicId}:${crypto.createHash("sha1").update(buf).digest("hex")}`;
   if (cache[key]) return cache[key];
 
+  // Overwriting an existing public id DESTROYS every derived variant Cloudinary
+  // has cached for it, and each one is re-generated (and re-billed) on next
+  // request. So only overwrite when the bytes genuinely changed — which is
+  // exactly when the cache already holds this public id under a different hash.
+  //
+  // A cold cache (fresh machine, cleared .ingest-cache) means we cannot tell, so
+  // we assume the remote copy is current and pass overwrite=false: Cloudinary
+  // returns the existing asset untouched instead of re-uploading all 1,800 and
+  // invalidating the entire derived set. Force a genuine replace with --overwrite.
+  const contentChanged = Object.keys(cache).some((k) => k.startsWith(`${publicId}:`));
+  const overwrite = contentChanged || process.argv.includes("--overwrite") ? "true" : "false";
+
   const timestamp = Math.floor(Date.now() / 1000);
   const form = new FormData();
   form.append("file", new Blob([buf]));
   form.append("api_key", CK);
   form.append("timestamp", String(timestamp));
   form.append("public_id", publicId);
-  form.append("overwrite", "true");
-  form.append("signature", sign({ overwrite: "true", public_id: publicId, timestamp }));
+  form.append("overwrite", overwrite);
+  form.append("signature", sign({ overwrite, public_id: publicId, timestamp }));
   const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD}/image/upload`, { method: "POST", body: form });
   const json = await res.json();
   if (!res.ok) throw new Error(`cloudinary ${publicId}: ${JSON.stringify(json)}`);
