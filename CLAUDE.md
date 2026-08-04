@@ -81,7 +81,7 @@ Route model:
 - **`/`** — destinations index (list/grid of destination guides).
 - **`/destinations/[slug]`** — the destination page template: hero · overview · gallery · stays · footer.
 
-**Visual feel is deferred.** The committed look for these pages comes from **Figma screens the owner will provide**. Until then, the app renders on the locked Arc Trips brand tokens with restrained placeholder styling in `app/theme.css` — do not over-invest in section aesthetics before Figma lands; replace the starter section styles there once it does.
+**Visual feel is settled, not deferred.** An earlier version of this line said the look was waiting on Figma screens the owner would provide. It is not: the design system landed and is in-repo — brand tokens in `app/globals.css`, the marketplace component system in `app/theme.css`, described under **Design theme** below. **There is no live Figma to consult.** Build against the token files, and treat the direction as locked rather than provisional.
 
 ## Content source of truth
 
@@ -95,9 +95,9 @@ The real copy and imagery live in **`New Articles - 2026/`** at the repo root �
 
 Run order: `npm run seed` (creates rows) **then** `node --env-file=.env.local scripts/ingest-articles.mjs` — re-running seed wipes ingested content, so re-ingest after. Currently ingested: Tofino + Ucluelet (127 places, 284 photos, 13 categories). The other 23 cities are a data job, no new components needed.
 
-## Design theme (Figma source of truth)
+## Design theme
 
-The committed look is the Arc Trips **"Full system" — Inter** marketplace style (an Airbnb-style stays browse experience), NOT the splash's Hanken editorial variant. Source: the Figma CSS export Sam provided (1440 frame, 1280 content / 80px gutters). Two page types:
+The committed look is the Arc Trips **"Full system" — Inter** marketplace style (an Airbnb-style stays browse experience), NOT the splash's Hanken editorial variant. It originated in a Figma CSS export Sam provided (1440 frame, 1280 content / 80px gutters); that export has since been absorbed into `app/globals.css` and `app/theme.css`, which are now the source of truth. Do not go looking for the Figma file to settle a question. Two page types:
 
 1. **Destinations landing page** (`/`, `app/page.tsx`) — nav → hero + search → listing rails (recently viewed, per-destination, holiday) → Explore destinations → Culture of excellence → Real stories (reviews + video card) → How it works → email capture → List-your-accommodation banner → Promise cards → Find-a-stay band → footer. **Built (Phase 1), faithful + responsive.**
 2. **Destination tree pages**: **deep hierarchy, Plan 1 built (2026-07-27).** Source of truth: `docs/superpowers/specs/2026-07-27-destinations-experience-design.md`. Read that before changing structure or navigation. It supersedes the v1.1 spec on URL structure only; v1.1's taxonomy, CTA engine and navigation rulings still stand.
@@ -142,17 +142,37 @@ Next.js reads `.env.local` automatically at dev/build. For a standalone Bash scr
 
 ```bash
 npm install          # install deps
-npm run dev          # local dev at http://localhost:3000
+npm run dev          # local dev at http://localhost:3000 — shared default, see note
 npm run build        # production build (run before pushing)
 npm run lint         # eslint
 npm start            # serve the production build
+npm test             # vitest — cta.test.ts + decompose.test.mjs
+
+npm run shots        # sweep every route, both viewports + themes
+npm run audit:ui     # static UI-law scan, whole repo, ~1s
 ```
+
+**Port:** three sibling ArcTrips repos also default to 3000. Whichever starts first wins and the rest land on 3001+ silently. This repo answers 200 on `/`, so a sweep meant for another ArcTrips app can land here and report clean — confirm what is on the port first.
+
+**Data and content scripts** (all need `.env.local`; `seed` wipes ingested content, so re-ingest after):
+
+```bash
+npm run seed                 # create rows      npm run seed:geo    # geo tree
+npm run seed:facts           # facts            npm run concepts    # concept rows
+npm run ingest               # docx -> Supabase (see Content source of truth)
+npm run verify:ingest        # check what landed
+npm run backfill:categories  # category backfill
+```
+
+**Prototype gates** — `prototype:sync`, `qa:prototype`, `qa:runtime`, `qa:deployed`. See the section above; the deployed copy is what counts.
 
 **Node version note**: scripts invoke `node node_modules/next/dist/bin/next ...` directly to work around a Node 25 `.bin/` shim resolution bug on the host machine. This form also works on Vercel (Node 22) — no change needed for deploy.
 
 ## Git workflow
 
-The repository will be provided by the owner (not yet initialized here). Once connected: after completing a change, run `npm run build`, then commit and push to `origin main` so Vercel auto-deploys for review. **Attribute commits to the owner (Aditya Parmar)** — do **not** add a `Co-Authored-By: Claude` trailer and do **not** override the author. Just `git commit` / `git push` normally.
+This **is** a git repo with a remote. After completing a change, run `npm run build`, then commit and push to `origin main` so Vercel auto-deploys for review. **Attribute commits to the owner (Aditya Parmar)** — do **not** add a `Co-Authored-By: Claude` trailer and do **not** override the author. Just `git commit` / `git push` normally.
+
+**Check `git status` before assuming `main` is current.** As of 2026-08-04 this repo carries an unpushed `fix/cloudinary-credit-usage` branch, one commit ahead and clean to fast-forward. See `../HANDOFF-CLOUDINARY.md` before merging it — two sibling repos are *not* safe to fast-forward, and the ladder in `app/lib/cloudinary.ts` must stay byte-identical across all four repos that build Cloudinary URLs.
 
 ## Design system & hard rules
 
