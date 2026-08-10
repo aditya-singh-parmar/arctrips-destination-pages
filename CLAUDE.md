@@ -126,7 +126,7 @@ The committed look is the Arc Trips **"Full system" — Inter** marketplace styl
 - **Styling**: Tailwind v4. Brand tokens (Azure/Emerald/Neutral ramps, fonts) live in `app/globals.css` `@theme`. The marketplace design system (type ramp `.t-*`, `.container`, `.card`, `.nav`, `.hero`, `.searchbar`, `.panel`, `.masonry`, `.steps`, `.promise__*`, `.footer`, …) lives in `app/theme.css` — use these classes for structure.
 - **Fonts**: **Inter** via `next/font/google` (`--font-inter`) for all headings + body; **Satoshi** (Fontshare `@import` in `globals.css`) ONLY for the `ARCTRIPS` wordmark, per the Figma.
 - **Content / data**: **Supabase** (`@supabase/ssr` + `@supabase/supabase-js`), tables `destinations` / `listings` / `reviews`. Read via the typed data layer in `app/lib/content.ts`, which **falls back to the `SEED_*` content** in that file when Supabase env is absent or a table/row is missing — so the app renders identically before the tables exist. The seed is also the source for `scripts/seed.ts`. Schema in `supabase/migrations/`.
-- **Images**: `next/image` + Cloudinary (cloud `djqswlfat`). `app/lib/cloudinary.ts` holds `cld()` + an `IMG` map. **Caveat:** many old `arcstudio/*` public IDs have been deleted (return 404) — always verify an ID resolves (`curl -sI https://res.cloudinary.com/djqswlfat/image/upload/<id>`) before adding it to `IMG`. `next.config.ts` allows `res.cloudinary.com/djqswlfat/**`.
+- **Images**: `next/image` + Cloudinary (cloud `du9doarye`). `app/lib/cloudinary.ts` holds `cld()` + an `IMG` map. **Caveat:** many old `arcstudio/*` public IDs have been deleted (return 404) — always verify an ID resolves (`curl -sI https://res.cloudinary.com/du9doarye/image/upload/<id>`) before adding it to `IMG`. `next.config.ts` allows `res.cloudinary.com/du9doarye/**`.
 - **Deploy**: Vercel (zero-config, auto-deploys on push once the repo is connected). Repository to be provided by the owner.
 
 ## Credentials
@@ -134,7 +134,7 @@ The committed look is the Arc Trips **"Full system" — Inter** marketplace styl
 Project credentials live in **`.env.local`** at the repo root (gitignored — never commit). `.env.example` documents the keys. Current values (setup 2026-07-23):
 
 - **Supabase** — reused from the sibling **Website-Builder (ArcStudio)** instance: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`.
-- **Cloudinary** — cloud `djqswlfat` (public): `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`.
+- **Cloudinary** — cloud `du9doarye` (public): `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`.
 
 Next.js reads `.env.local` automatically at dev/build. For a standalone Bash script that needs the vars, source the file first: `set -a; source .env.local; set +a`. Gemini/Nanobanana image-gen keys are **not** used in this project. If `.env.local` is missing on a fresh machine, ask the owner for the values (don't guess) and recreate it with the same gitignored status.
 

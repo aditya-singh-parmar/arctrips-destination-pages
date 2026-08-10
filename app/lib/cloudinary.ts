@@ -1,4 +1,4 @@
-const CLOUD = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME ?? "djqswlfat";
+const CLOUD = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME ?? "du9doarye";
 const BASE = `https://res.cloudinary.com/${CLOUD}/image/upload`;
 
 /**
@@ -25,7 +25,7 @@ export function placeholder(w: number, h: number): string {
 /**
  * Shared Arc Trips Cloudinary public IDs used as neutral placeholders until the
  * real property/area photography (New Articles corpus) is ingested. All live
- * under cloud `djqswlfat`.
+ * under cloud `du9doarye`.
  */
 export const IMG = {
   hero: "arcstudio/jhrn4nwfk4vsnvtqwkvz",

@@ -18,7 +18,7 @@ Copied verbatim from `CLAUDE.md` and the spec. Every task's requirements implici
 - **One `.btn--primary` per screen.** Secondary actions use `.btn--ghost` or `.btn--outline`.
 - **No hardcoded hex colours in components.** Use the brand tokens in `app/globals.css` and `app/theme.css`.
 - **Commits are attributed to the owner.** No `Co-Authored-By: Claude` trailer, no author override.
-- **Cloudinary IDs must be verified before use:** `curl -sI https://res.cloudinary.com/djqswlfat/image/upload/<id>` must return 200. Many old `arcstudio/*` IDs are deleted.
+- **Cloudinary IDs must be verified before use:** `curl -sI https://res.cloudinary.com/du9doarye/image/upload/<id>` must return 200. Many old `arcstudio/*` IDs are deleted.
 - **Node invocation:** scripts call `node node_modules/next/dist/bin/next ...` directly. Do not "fix" this to `npx next`.
 - **Ingestion run order:** `npm run seed` first (creates rows), then the ingest (fills bodies). Re-running seed wipes ingested content.
 - Fonts: Inter for everything, Satoshi only for the `ARCTRIPS` wordmark.
