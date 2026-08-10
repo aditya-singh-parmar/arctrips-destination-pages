@@ -1,13 +1,13 @@
 import { describe, it, expect } from "vitest";
 import { cld, snapWidth, IMAGE_WIDTHS } from "./cloudinary";
 
-const BASE = "https://res.cloudinary.com/djqswlfat/image/upload";
+const BASE = "https://res.cloudinary.com/du9doarye/image/upload";
 const ID = "arcstudio/jhrn4nwfk4vsnvtqwkvz";
 
 describe("snapWidth", () => {
   it("snaps up to a ladder rung, never down", () => {
     // Snapping down would render soft. Each of these is a real off-ladder width
-    // found on cloud djqswlfat in the 2026-08-03 credit audit.
+    // found on cloud du9doarye in the 2026-08-03 credit audit.
     expect(snapWidth(412)).toBe(540);
     expect(snapWidth(620)).toBe(768);
     expect(snapWidth(912)).toBe(1024);

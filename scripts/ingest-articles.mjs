@@ -42,7 +42,7 @@ import { extractDoc } from "./lib/docx.mjs";
 
 const URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
-const CLOUD = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "djqswlfat";
+const CLOUD = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "du9doarye";
 const CK = process.env.CLOUDINARY_API_KEY;
 const CS = process.env.CLOUDINARY_API_SECRET;
 const SKIP_IMAGES = process.env.SKIP_IMAGES === "1";

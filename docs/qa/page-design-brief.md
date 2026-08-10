@@ -64,7 +64,7 @@ Do not replace a cut section with another one. Fewer, better sections.
   can never show different places. Never a stock or generic image where a real one
   exists in `media/` or Cloudinary.
 - **Verify every image renders.** Cloudinary IDs in this project 404 silently:
-  `curl -sI https://res.cloudinary.com/djqswlfat/image/upload/<id>`. A local
+  `curl -sI https://res.cloudinary.com/du9doarye/image/upload/<id>`. A local
   `media/...` path must exist on disk and in `public/prototype/`.
 - Check the photo matches the subject. A surf beach was standing in for mountain
   biking.

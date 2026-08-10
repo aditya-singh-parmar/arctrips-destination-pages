@@ -10,7 +10,7 @@ const MONTH_N = ["January","February","March","April","May","June",
                  "July","August","September","October","November","December"];
 const NOW = new Date().getMonth() + 1;
 
-const CLOUD = "https://res.cloudinary.com/djqswlfat/image/upload";
+const CLOUD = "https://res.cloudinary.com/du9doarye/image/upload";
 const img = (id, w, h) =>
   id ? `${CLOUD}/f_auto,q_auto,c_fill,w_${w},h_${h}/${id}`
      : `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E`;

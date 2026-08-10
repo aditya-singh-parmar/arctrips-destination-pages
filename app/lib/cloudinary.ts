@@ -1,11 +1,11 @@
-const CLOUD = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME ?? "djqswlfat";
+const CLOUD = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME ?? "du9doarye";
 const BASE = `https://res.cloudinary.com/${CLOUD}/image/upload`;
 
 /**
  * The canonical width ladder. EVERY width that reaches a Cloudinary URL must be
  * one of these rungs — see `snapWidth`. Keep identical to the copies in
  * Website-Builder/src/lib/cloudinary.ts, Arctrips-Splash-Page and arc-auto-pilot:
- * all four repos share cloud `djqswlfat`, so a rung added in one repo only is a
+ * all four repos share cloud `du9doarye`, so a rung added in one repo only is a
  * rung the other three will not reuse.
  */
 export const IMAGE_WIDTHS = [96, 160, 240, 360, 540, 768, 1024, 1280, 1600, 1920, 2560, 3840];
@@ -64,7 +64,7 @@ export function placeholder(w: number, h: number): string {
 /**
  * Shared Arc Trips Cloudinary public IDs used as neutral placeholders until the
  * real property/area photography (New Articles corpus) is ingested. All live
- * under cloud `djqswlfat`.
+ * under cloud `du9doarye`.
  */
 export const IMG = {
   hero: "arcstudio/jhrn4nwfk4vsnvtqwkvz",
