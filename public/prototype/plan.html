@@ -65,10 +65,9 @@ body>.skip:focus{top:0}
 .placebar__cta{display:inline-flex}
 @media(max-width:760px){.placebar__cta{display:none}}
 /* Vancouver Island must stay reachable in one tap at every width, so the nav
-   sheds the search box before it sheds a link. */
-@media(max-width:860px){.nav-in{gap:12px}.finder{display:none}}
+   tightens its gaps rather than shedding a link. */
+@media(max-width:860px){.nav-in{gap:12px}}
 @media(max-width:620px){
-  nav.top .btn--ink{display:none}
   .nav-in{gap:10px}
   .nav-links{gap:10px;font-size:.88rem}
   .brand{font-size:.92rem}

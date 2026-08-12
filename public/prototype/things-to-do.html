@@ -27,14 +27,12 @@ nav.top .btn{flex:none}
 .brand,.nav-links a{display:inline-flex;align-items:center;min-height:44px}
 .search{height:44px}
 .search input{align-self:stretch}
-/* at 390 the three global links have to survive, because Vancouver Island is
-   the one-click route to the region. Search moves to the Stays link. */
+/* at 390 the global links have to survive, because Vancouver Island is the
+   one-click route to the region, and the search field has to survive with them,
+   because switching town happens in search and nowhere else. */
 @media(max-width:760px){
-  nav.top .search,nav.top .btn--ink{display:none}
   .nav-in{gap:12px}
   .brand{font-size:.96rem}
-  .nav-links{flex:1;min-width:0;gap:12px;font-size:.875rem;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
-  .nav-links::-webkit-scrollbar{display:none}
 }
 .fgrid ul{gap:2px}
 .fgrid ul a{display:inline-block;padding-block:12px}

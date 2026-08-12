@@ -101,22 +101,36 @@ nav.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.9);backdro
   .nav-links::-webkit-scrollbar{display:none}
   .nav-links a{white-space:nowrap}
 }
-/* Below 760px the brand, three links and a search field cannot share one row:
-   the links were clipping to "De" and "Sear". Wrap onto a second row so all three stay
-   readable and reachable, and drop the search field, which the page carries anyway. */
+/* Below 760px the row still cannot hold brand, links and a search field, so it
+   wraps: brand and the search field share the first row, the links take the
+   second. Search used to be dropped here entirely, which left a phone with no
+   way to reach another town at all, since destination switching lives in search
+   and never in the breadcrumb. It is now present at every width.
+
+   The links are laid out on their own row rather than spread across it: when
+   the row also carried a sign-in chip, `margin-left:auto` on that chip pushed
+   everything apart, and once the chip was removed the two remaining links sat
+   at opposite ends of the screen with a void between them. */
 @media(max-width:760px){
-  .nav-in{flex-wrap:wrap;height:auto;padding-block:10px;row-gap:6px;gap:12px}
+  .nav-in{flex-wrap:wrap;height:auto;padding-block:9px;row-gap:4px;gap:12px}
   .brand{order:1;flex:none}
-  nav.top .btn{order:2;margin-left:auto;flex:none}
-  nav.top .search{display:none}
-  .nav-links{order:3;flex:1 0 100%;gap:20px;overflow:visible;font-size:.95rem}
+  .finder,nav.top .search{order:2;flex:1 1 auto;margin-left:auto}
+  .finder{min-width:0}
+  .finder .search{min-width:0;width:100%}
+  nav.top .search{display:flex;min-width:0;height:40px;padding-left:14px}
+  .nav-links{order:3;flex:1 0 100%;justify-content:flex-start;gap:22px;overflow:visible;font-size:.95rem}
   .nav-links a{min-height:40px}
 }
-/* the active place-bar tab was clipping at the right edge on a phone */
+/* The place bar scrolls horizontally on a phone, and a scrolled row whose last
+   item is flush with the viewport edge reads as a full row rather than a
+   scrollable one. The trailing pad is what makes the overflow legible, and it
+   has to sit inside the scroller, not on it, or it collapses at the scroll end. */
 @media(max-width:760px){
-  .placebar-in{padding-right:14px}
-  .placebar__links{padding-right:8px}
-  .placebar__links a:last-child{margin-right:6px}
+  .placebar-in{padding-right:0}
+  .placebar__links{padding-right:0}
+  .placebar__links::after{content:"";flex:none;width:16px}
+  .placebar__links a:last-child{margin-right:0}
+  .subjectbar__links::after{content:"";flex:none;width:16px}
 }
 @media(max-width:620px){.search kbd{display:none}.search{min-width:0}}
 

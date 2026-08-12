@@ -26,10 +26,10 @@ nav.top .btn{flex:none}
 /* a form control does not inherit the page font on its own, so the nav field
    was rendering in Arial */
 .search input{align-self:stretch;font-family:inherit}
-/* On a phone the nav field would squeeze the three global links down to two
-   clipped words. This page has a full size field of its own six lines below,
-   so the small one steps aside and Stays, Destinations and Vancouver Island
-   all stay reachable. */
+/* This page carries a full size search field of its own six lines below, so
+   the small one in the nav would be the same control twice. It steps aside
+   here, and only here: everywhere else the nav field is present at every
+   width, because destination switching lives in search. */
 @media(max-width:760px){nav.top .search{display:none}}
 .fgrid ul{gap:2px}
 .fgrid ul a{display:inline-block;padding-block:12px}
