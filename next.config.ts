@@ -4,48 +4,20 @@ const nextConfig: NextConfig = {
   allowedDevOrigins: ["192.168.0.3", "localhost"],
 
   /**
-   * Next would answer a trailing slash with a 308. The taxonomy PRD forbids
-   * redirects, so middleware.ts rewrites to the canonical path instead and
-   * this turns the built-in redirect off.
-   */
-  skipTrailingSlashRedirect: true,
-
-  /**
-   * Every rule here covers a URL shipped BEFORE the tree took its current
-   * shape: the S1 restructure of 2026-07-24, the tier layout before it, and
-   * the country segment removed on 2026-07-30 (docs/qa/bc-root-contract.md).
-   * No URL inside the tree ever redirects; archived places return 410.
-   *
-   * These must all stay specific. The old generic rules (/:city/:category,
-   * /destinations/:city) would swallow the tree itself, and for the same
-   * reason the country rules below match the literal `canada` segment rather
-   * than `/destinations/:country/:rest*`, which would match `/destinations/bc/
-   * vancouver-island` and redirect the tree into itself.
+   * The site is the static prototype in public/prototype. This has to be a
+   * redirect, not a rewrite: every page references `_system.css`, `_nav.js`
+   * and its images relatively, so serving index.html at `/` 404s all of them.
    */
   async redirects() {
-    const ISLAND = "/destinations/bc/vancouver-island";
-    const CITIES = ["tofino", "ucluelet"];
-    return [
-      // The country segment is gone. Both trees keep every deeper segment.
-      { source: "/destinations/canada", destination: "/destinations", permanent: true },
-      { source: "/destinations/canada/:rest*", destination: "/destinations/:rest*", permanent: true },
-      { source: "/travel-guides/canada", destination: "/travel-guides", permanent: true },
-      { source: "/travel-guides/canada/:rest*", destination: "/travel-guides/:rest*", permanent: true },
-
-      { source: "/destinations/vancouver-island", destination: ISLAND, permanent: true },
-      { source: "/destinations/sea-to-sky", destination: "/destinations/bc/sea-to-sky", permanent: true },
-      // Flat S1 city URLs move under the deep tree.
-      ...CITIES.flatMap((city) => [
-        { source: `/${city}`, destination: `${ISLAND}/${city}`, permanent: true },
-        { source: `/${city}/things-to-do`, destination: `${ISLAND}/${city}/things-to-do`, permanent: true },
-        { source: `/${city}/guides`, destination: `${ISLAND}/${city}`, permanent: true },
-        { source: `/${city}/gallery`, destination: `${ISLAND}/${city}`, permanent: true },
-        { source: `/${city}/:category`, destination: `${ISLAND}/${city}/things-to-do/:category`, permanent: true },
-        // Place pages were folded into their guide, e.g. /tofino/beaches/long-beach.
-        { source: `/${city}/:category/:place`, destination: `${ISLAND}/${city}/things-to-do/:category`, permanent: true },
-      ]),
-    ];
+    return [{ source: "/", destination: "/prototype/index.html", permanent: false }];
   },
+
+  /**
+   * The Next.js marketplace + destination-tree app was removed on 2026-08-12;
+   * the prototype replaced it. Its URLs no longer exist, so the deep-tree
+   * redirects that used to live here went with it. Every internal link now
+   * lives inside /prototype.
+   */
   images: {
     // Cloudinary already applies f_auto/q_auto/resize/dpr, so Next's optimizer
     // is redundant here and only adds a slow re-optimization pass. Serve the

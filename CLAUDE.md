@@ -59,7 +59,7 @@ where the *composition* is the question — starts with the design skills: invok
 for the register, tone, anti-references and locked palette. Delegate implementation to
 `frontend-design-engineer` with a self-contained brief: exact file paths, the design
 direction, the hard rules below. Run independent surfaces in parallel; never let two
-agents edit `app/theme.css` at the same time.
+agents edit `design/prototype/_system.css` at the same time.
 
 **Everything else** — a spacing fix, a colour token, a broken breakpoint, a wrong string
 — skip all of that and just fix it. Loading two skills and two markdown files to change
@@ -77,63 +77,60 @@ console errors and non-200s already detected. Do not drive the browser route by 
 
 **Arc Trips — Destination Pages.** Text- and image-heavy destination/activity guide pages for the Arc Trips **stays** experience. Each page covers a place (Tofino, Ucluelet, Victoria, Whistler, Squamish, Banff, and more) or an activity within it (day hikes, kayaking, whale watching, storm-watching), and points travelers toward curated stays there.
 
-Route model:
-- **`/`** — destinations index (list/grid of destination guides).
-- **`/destinations/[slug]`** — the destination page template: hero · overview · gallery · stays · footer.
+**The site IS the prototype.** On 2026-08-12 the owner ruled that the deployed prototype
+(`https://arctrips-destination-pages.vercel.app/prototype/index.html`) is the primary
+site, and the parallel Next.js app that used to serve `/` and the
+`/destinations/{country}/{province}/…` tree was deleted. There is now **one** site, not
+two. Build new routes as prototype pages.
 
-**Visual feel is settled, not deferred.** An earlier version of this line said the look was waiting on Figma screens the owner would provide. It is not: the design system landed and is in-repo — brand tokens in `app/globals.css`, the marketplace component system in `app/theme.css`, described under **Design theme** below. **There is no live Figma to consult.** Build against the token files, and treat the direction as locked rather than provisional.
+Route model:
+- **`/`** — 307 to `/prototype/index.html` (`next.config.ts`). It has to be a redirect,
+  not a rewrite: every prototype page references `_system.css`, `_nav.js` and its images
+  **relatively**, so serving `index.html` at `/` 404s all of them. That was measured, not
+  assumed.
+- **`/prototype/<page>.html`** — 47 static pages in `public/prototype/`, edited in
+  `design/prototype/`. Navigation is generated into each page by `scripts/nav-rebuild.mjs`;
+  shared content lives in `corpus.json`.
+- The Next.js app that remains is a **shell**: `app/layout.tsx`, `app/globals.css`,
+  `app/not-found.tsx`, `app/icon.svg`. Nothing else renders. Do not rebuild the deleted
+  React site to satisfy a page request; add the page to the prototype.
+
+**Visual feel is settled, not deferred.** An earlier version of this line said the look was waiting on Figma screens the owner would provide. It is not. **There is no live Figma to consult.** The prototype's design system is `design/prototype/_system.css`; brand tokens for the Next.js shell are in `app/globals.css`. Treat the direction as locked rather than provisional.
 
 ## Content source of truth
 
-The real copy and imagery live in **`New Articles - 2026/`** at the repo root — ~74 image-heavy `.docx` guides (Tofino, Ucluelet, Victoria, Whistler, Squamish, Banff, "Agent Trek" city guides, plus activity guides: hikes, kayaking, whale watching, biking, etc.). This folder is **gitignored** (large binaries) and is treated as **read-only reference** — edit the rendered content/Supabase rows, never the docs.
+The real copy and imagery live in **`New Articles - 2026/`** at the repo root — ~74 image-heavy `.docx` guides (Tofino, Ucluelet, Victoria, Whistler, Squamish, Banff, "Agent Trek" city guides, plus activity guides: hikes, kayaking, whale watching, biking, etc.). This folder is **gitignored** (large binaries) and is treated as **read-only reference** — edit the rendered prototype pages, never the docs.
 
 **Ingestion is a decomposer, not a copier.** The docs are already shaped like the tree: `Tofino - Beaches.docx` is not an article about beaches, it **is** the Beaches category page, where H1 is the category, H2s are its sections, and each H3 under a place-listing H2 is one beach with its own copy, "good for" bullets, "Good to know" note, and two to three embedded images.
 
-`scripts/ingest-articles.mjs` (driver) plus `scripts/lib/decompose.mjs` (pure classifier, unit-tested) therefore split **one `.docx` into a category intro + N place pages + place-tagged photos + FAQs**. Because each embedded image sits directly under its place's H3, `photos.place_slug` is populated automatically, which is what lets the gallery say "Long Beach".
+`scripts/lib/decompose.mjs` (pure classifier, unit-tested) therefore splits **one `.docx` into a category intro + N place entries + place-tagged photos + FAQs**. Its Supabase driver (`ingest-articles.mjs`) went with the deleted app on 2026-08-12; the classifier and its tests were kept because the prototype's `corpus.json` is built from the same decomposition. A driver that writes prototype pages instead of Supabase rows does not exist yet — write one rather than resurrecting the Supabase path.
 
-**Critical:** `placeHeadings` is an explicit per-doc whitelist of which H2s yield places. Without it the "Frequently Asked Questions" H3s become place pages titled "Can you swim in Tofino?". When mapping a new doc, open it and read its real H2 list; never guess. Docs that are not category-shaped (Whale Festival, Best Time to Stay, Campgrounds) stay whole as `articles`, and `articles.city_slugs` is an array because several span two towns.
+**Critical:** `placeHeadings` is an explicit per-doc whitelist of which H2s yield places. Without it the "Frequently Asked Questions" H3s become place pages titled "Can you swim in Tofino?". When mapping a new doc, open it and read its real H2 list; never guess. Docs that are not category-shaped (Whale Festival, Best Time to Stay, Campgrounds) stay whole as articles, and several span two towns.
 
-Run order: `npm run seed` (creates rows) **then** `node --env-file=.env.local scripts/ingest-articles.mjs` — re-running seed wipes ingested content, so re-ingest after. Currently ingested: Tofino + Ucluelet (127 places, 284 photos, 13 categories). The other 23 cities are a data job, no new components needed.
+Covered so far: Tofino + Ucluelet. The other 23 cities are a content job.
 
 ## Design theme
 
-The committed look is the Arc Trips **"Full system" — Inter** marketplace style (an Airbnb-style stays browse experience), NOT the splash's Hanken editorial variant. It originated in a Figma CSS export Sam provided (1440 frame, 1280 content / 80px gutters); that export has since been absorbed into `app/globals.css` and `app/theme.css`, which are now the source of truth. Do not go looking for the Figma file to settle a question. Two page types:
+The committed look is the Arc Trips **"Full system" — Inter** style (an Airbnb-style stays browse experience), NOT the splash's Hanken editorial variant. It originated in a Figma CSS export Sam provided (1440 frame, 1280 content / 80px gutters). Do not go looking for the Figma file to settle a question — `design/prototype/_system.css` (426 lines) is the source of truth for the prototype, and it is what ships.
 
-1. **Destinations landing page** (`/`, `app/page.tsx`) — nav → hero + search → listing rails (recently viewed, per-destination, holiday) → Explore destinations → Culture of excellence → Real stories (reviews + video card) → How it works → email capture → List-your-accommodation banner → Promise cards → Find-a-stay band → footer. **Built (Phase 1), faithful + responsive.**
-2. **Destination tree pages**: **deep hierarchy, Plan 1 built (2026-07-27).** Source of truth: `docs/superpowers/specs/2026-07-27-destinations-experience-design.md`. Read that before changing structure or navigation. It supersedes the v1.1 spec on URL structure only; v1.1's taxonomy, CTA engine and navigation rulings still stand.
+Navigation is the **TripAdvisor destination-page idiom**: a sticky horizontal nav plus horizontal rails and filter chips. There is deliberately **no sidebar**: a persistent left sidebar was built, reviewed against TripAdvisor's Tofino page, and rejected by the owner as hard to navigate. The **breadcrumb is a plain non-interactive trail**; dropdown segments were also built and rejected, because the control moved horizontally with URL depth. Destination switching belongs in the top-nav search, never the breadcrumb. Do not reintroduce either pattern.
 
-   ```
-   /destinations/{country}/{province}/[{region}/]{town}
-   /destinations/{country}/{province}/[{region}/]{town}/{area}
-   /destinations/{country}/{province}/[{region}/]{town}/things-to-do[/{category}]
-   /destinations/{country}/{province}/[{region}/]{town}/plan
-   /travel-guides/{country}/{province}/[{region}/][{town}/]{guide}
-   ```
-
-   **Region is optional**, so a town sits at segment 3 or 4 and every deeper segment shifts with it. Position-based routing cannot express that: both trees are single catch-alls (`app/destinations/[[...path]]`, `app/travel-guides/[[...path]]`) driven by `app/lib/resolver.ts`, which walks segments and looks each slug up **scoped to its parent**, branching on the resolved node's `type`. Never add a fixed route file under these trees.
-
-   Model is **Country → Province → [Region] → Town → Area**, with **Category as the canonical node** for subjects, drawn from one finite 22-category taxonomy (`app/lib/taxonomy.ts`), so a subject has exactly one URL. A category page exists **if and only if** a `destination_categories` row exists. Guides likewise have exactly one home, enforced by `guideBelongsToScope`.
-
-   **No redirects inside the tree.** Archived places return 410. Trailing slashes are **rewritten** by `middleware.ts`, never redirected, because a 308 would breach the no-redirect rule. Redirects in `next.config.ts` cover only URLs shipped before this tree existed, and must stay city-specific: a generic `/:city/:category/:place` rule matches `/destinations/canada/bc` and redirects the tree into itself.
-
-   Navigation is the **TripAdvisor destination-page idiom**: a **sticky horizontal tab bar** (`app/components/nav/TabBar.tsx`) plus horizontal **rails** and filter **chips**. There is deliberately **no sidebar**: a persistent left sidebar was built, reviewed against TripAdvisor's Tofino page, and rejected by the owner as hard to navigate. The **breadcrumb is a plain non-interactive trail**; dropdown segments were also built and rejected, because the control moved horizontally with URL depth. Destination switching belongs in the top-nav search, never the breadcrumb. Do not reintroduce either pattern.
-
-   Every page carries a booking path via the **CTA engine** (`app/lib/cta.ts`), which derives the button from `product_lines` rows: Stays is live on Arc Trips, fishing charters hand off to the ArcTrips Fishing sister brand, and whale watching / kayaking / hot springs are coming soon. A coming-soon category captures an email **and** falls through to stays, so no page dead-ends. The **one `.btn--primary` per screen** rule is carried by the tab bar (desktop) and `DockBar` (mobile, mutually exclusive by breakpoint); `CtaBlock` is therefore `.btn--outline`.
+The deleted Next.js app carried a taxonomy, a resolver and a CTA engine. Their **rulings still stand** as product decisions even though the code is gone: a subject has exactly one URL, a guide has exactly one home, and every page carries a booking path (Stays live on Arc Trips, fishing hands off to the sister brand, whale watching / kayaking / hot springs coming soon with an email capture that falls through to stays, so no page dead-ends). The old spec is `docs/superpowers/specs/2026-07-27-destinations-experience-design.md` — read it for intent, not for file paths.
 
 ## Stack
 
-- **Framework**: Next.js 16 (App Router) + React 19 + TypeScript.
-- **Styling**: Tailwind v4. Brand tokens (Azure/Emerald/Neutral ramps, fonts) live in `app/globals.css` `@theme`. The marketplace design system (type ramp `.t-*`, `.container`, `.card`, `.nav`, `.hero`, `.searchbar`, `.panel`, `.masonry`, `.steps`, `.promise__*`, `.footer`, …) lives in `app/theme.css` — use these classes for structure.
-- **Fonts**: **Inter** via `next/font/google` (`--font-inter`) for all headings + body; **Satoshi** (Fontshare `@import` in `globals.css`) ONLY for the `ARCTRIPS` wordmark, per the Figma.
-- **Content / data**: **Supabase** (`@supabase/ssr` + `@supabase/supabase-js`), tables `destinations` / `listings` / `reviews`. Read via the typed data layer in `app/lib/content.ts`, which **falls back to the `SEED_*` content** in that file when Supabase env is absent or a table/row is missing — so the app renders identically before the tables exist. The seed is also the source for `scripts/seed.ts`. Schema in `supabase/migrations/`.
-- **Images**: `next/image` + Cloudinary (cloud `du9doarye`). `app/lib/cloudinary.ts` holds `cld()` + an `IMG` map. **Caveat:** many old `arcstudio/*` public IDs have been deleted (return 404) — always verify an ID resolves (`curl -sI https://res.cloudinary.com/du9doarye/image/upload/<id>`) before adding it to `IMG`. `next.config.ts` allows `res.cloudinary.com/du9doarye/**`.
+- **Framework**: Next.js 16 (App Router) + React 19 + TypeScript — a thin shell that serves `public/` and redirects `/`. The pages themselves are hand-written static HTML.
+- **Styling**: the prototype is plain CSS in `design/prototype/_system.css`. Tailwind v4 remains wired for the shell, with brand tokens (Azure/Emerald/Neutral ramps, fonts) in `app/globals.css` `@theme`.
+- **Fonts**: **Inter** for all headings + body; **Satoshi** ONLY for the `ARCTRIPS` wordmark, per the Figma.
+- **Content / data**: static. `public/prototype/corpus.json` plus the per-topic JSON beside it (`climate.json`, `best-months.json`, `deep.json`). **Supabase is gone** — the client, the typed data layer, the seed/ingest scripts and `supabase/migrations/` were deleted with the app on 2026-08-12. The shared instance still exists for the sibling Website-Builder project; do not re-add a dependency on it here without the owner saying so.
+- **Images**: Cloudinary (cloud `du9doarye`), referenced by plain URLs in the HTML, with resized copies under `public/prototype/media`. **Caveat:** many old `arcstudio/*` public IDs have been deleted (return 404) — always verify an ID resolves (`curl -sI https://res.cloudinary.com/du9doarye/image/upload/<id>`) before using it.
 - **Deploy**: Vercel (zero-config, auto-deploys on push once the repo is connected). Repository to be provided by the owner.
 
 ## Credentials
 
 Project credentials live in **`.env.local`** at the repo root (gitignored — never commit). `.env.example` documents the keys. Current values (setup 2026-07-23):
 
-- **Supabase** — reused from the sibling **Website-Builder (ArcStudio)** instance: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`.
+- **Supabase** — no longer used here (the app that read it was deleted on 2026-08-12). The keys may still sit in `.env.local`; nothing reads them.
 - **Cloudinary** — cloud `du9doarye` (public): `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`.
 
 Next.js reads `.env.local` automatically at dev/build. For a standalone Bash script that needs the vars, source the file first: `set -a; source .env.local; set +a`. Gemini/Nanobanana image-gen keys are **not** used in this project. If `.env.local` is missing on a fresh machine, ask the owner for the values (don't guess) and recreate it with the same gitignored status.
@@ -146,23 +143,16 @@ npm run dev          # local dev at http://localhost:3000 — shared default, se
 npm run build        # production build (run before pushing)
 npm run lint         # eslint
 npm start            # serve the production build
-npm test             # vitest — cta.test.ts + decompose.test.mjs
+npm test             # vitest — clean.test.mjs + decompose.test.mjs
 
 npm run shots        # sweep every route, both viewports + themes
 npm run audit:ui     # static UI-law scan, whole repo, ~1s
 ```
 
-**Port:** three sibling ArcTrips repos also default to 3000. Whichever starts first wins and the rest land on 3001+ silently. This repo answers 200 on `/`, so a sweep meant for another ArcTrips app can land here and report clean — confirm what is on the port first.
+**Port:** three sibling ArcTrips repos also default to 3000. Whichever starts first wins and the rest land on 3001+ silently. This repo redirects `/` to `/prototype/index.html`, so a sweep meant for another ArcTrips app can land here — confirm what is on the port first.
 
-**Data and content scripts** (all need `.env.local`; `seed` wipes ingested content, so re-ingest after):
-
-```bash
-npm run seed                 # create rows      npm run seed:geo    # geo tree
-npm run seed:facts           # facts            npm run concepts    # concept rows
-npm run ingest               # docx -> Supabase (see Content source of truth)
-npm run verify:ingest        # check what landed
-npm run backfill:categories  # category backfill
-```
+The Supabase seed and ingest scripts (`seed`, `seed:geo`, `seed:facts`, `ingest`,
+`verify:ingest`, `backfill:categories`) were deleted with the app on 2026-08-12.
 
 **Prototype gates** — `prototype:sync`, `qa:prototype`, `qa:runtime`, `qa:deployed`. See the section above; the deployed copy is what counts.
 
@@ -172,7 +162,7 @@ npm run backfill:categories  # category backfill
 
 This **is** a git repo with a remote. After completing a change, run `npm run build`, then commit and push to `origin main` so Vercel auto-deploys for review. **Attribute commits to the owner (Aditya Parmar)** — do **not** add a `Co-Authored-By: Claude` trailer and do **not** override the author. Just `git commit` / `git push` normally.
 
-**Check `git status` before assuming `main` is current.** As of 2026-08-04 this repo carries an unpushed `fix/cloudinary-credit-usage` branch, one commit ahead and clean to fast-forward. See `../HANDOFF-CLOUDINARY.md` before merging it — two sibling repos are *not* safe to fast-forward, and the ladder in `app/lib/cloudinary.ts` must stay byte-identical across all four repos that build Cloudinary URLs.
+**Check `git status` before assuming `main` is current.** As of 2026-08-04 this repo carries an unpushed `fix/cloudinary-credit-usage` branch, one commit ahead and clean to fast-forward. See `../HANDOFF-CLOUDINARY.md` before merging it — two sibling repos are *not* safe to fast-forward, and the Cloudinary width ladder must stay byte-identical across the sibling repos that build Cloudinary URLs. This repo's copy went with `app/lib/` on 2026-08-12.
 
 ## Design system & hard rules
 
@@ -180,36 +170,27 @@ Built on the **official Arc Trips brand** (from the splash + product surfaces): 
 
 Hard rules (carried from sibling projects, non-negotiable):
 
-1. **No italics anywhere** — the owner (Sam) has difficulty reading italic text. `em, i` are neutralized to normal weight-600 in `theme.css`. Applies to copy, UI, and code comments meant to render.
+1. **No italics anywhere** — the owner (Sam) has difficulty reading italic text. `em, i` are neutralized to normal weight-600 in `_system.css`. Applies to copy, UI, and code comments meant to render.
 2. **No em dashes (—)** in rendered copy, UI text, commit messages, or chat replies. Use a comma, colon, parentheses, or "to" for ranges. Strip any you find when editing.
 3. **No emoji** in product copy unless the owner asks.
 4. **One primary CTA per screen** (`.btn--primary`); secondary actions use `.btn--ghost`.
-5. No hardcoded hex colors in components — use the brand tokens / CSS vars from `globals.css` and `theme.css`.
+5. No hardcoded hex colors — use the CSS vars from `_system.css` (or `globals.css` in the Next.js shell).
 
 ## Key files
 
-- `app/globals.css` — Tailwind v4 `@theme` brand tokens (color ramps, fonts, radius/shadow).
-- `app/theme.css` — all component classes + hard-rule enforcement (`em,i` reset). v1.1 blocks: `.tabbar`, `.rail`, `.chiprow`, `.pcard`, `.cta--live/--sister/--soon`, `.dockbar`, `.toc`.
-- `app/layout.tsx` — root layout, Inter font wiring, metadata.
-- `app/page.tsx` — marketplace landing page.
-- `app/destinations/[[...path]]/page.tsx`: the whole destination tree. One catch-all, no fixed route files beneath it.
-- `app/travel-guides/[[...path]]/page.tsx`: the guide tree. The location path may terminate at province, region or town.
-- `app/lib/resolver.ts`: segment resolvers for both trees plus `guideBelongsToScope`. Pure over an injected lookup, unit-tested.
-- `app/lib/geo-types.ts`: `GeoNode`, child-type legality, `geoPath` / `guidePath` URL builders. Pure.
-- `app/lib/geo.ts`: geo tree reads, Supabase with SEED fallback, plus `pathForTownSlug` for building links from a city slug.
-- `app/lib/slug.ts`: ASCII transliteration and the reserved-slug list.
-- `app/components/templates/`: `DestinationsLanding`, `DestinationHub`, `CategoryGuide`, `GuideDetail`. Routes resolve, templates render.
-- `middleware.ts`: trailing-slash rewrite.
-- `app/guides/[slug]/page.tsx`: pre-tree article URLs, kept alive, sharing `GuideDetail` so the two routes cannot drift.
-- `app/lib/taxonomy.ts` — the finite 22-category list, themes, product lines, `THEME_GRID_THRESHOLD`.
-- `app/lib/cta.ts` — pure CTA resolver. Unit-tested. Never hardcode a booking button; render what this returns.
-- `app/lib/content.ts` — types + reads for region/city/category/place/photo/experience, all Supabase→SEED fallback so pages render without Supabase.
-- `app/lib/supabase.ts` — `getServerSupabase()` (anon, read-only) + `getServiceSupabase()` (service role, ingestion only).
-- `app/lib/cloudinary.ts` — `cld()` URL builder + `IMG` public-ID map.
-- `supabase/migrations/0001_destinations.sql` — `destinations` (the city table) + RLS.
-- `supabase/migrations/0002_tree.sql` — regions, categories, city_categories, places, photos, product_lines, category_products, experiences, notify_signups. **Additive only**: the Supabase instance is shared with the sibling Website-Builder project, so never drop or rename anything here.
+- `design/prototype/` — the site source. Edit here, then `npm run prototype:sync`.
+- `design/prototype/_system.css` — the whole design system, 426 lines. Source of truth for the look.
+- `design/prototype/_nav.js` — shared nav behaviour; `scripts/nav-rebuild.mjs` writes the nav into each page.
+- `public/prototype/` — the deployed copy, plus `media/` (resized images, deliberately not synced).
+- `public/prototype/corpus.json` — shared content, read by `guide.html`, `search.html`, `things-to-do.html`, `long-beach.html`, `not-found.html`.
+- `next.config.ts` — the `/` redirect to the prototype, and the Cloudinary image host allowlist.
+- `app/layout.tsx`, `app/globals.css`, `app/not-found.tsx` — the entire remaining Next.js shell.
+- `scripts/sync-prototype.mjs` — design to public, code only. Fails if a page exists in one copy only.
+- `scripts/qa-prototype.mjs` / `qa-runtime.mjs` — link, anchor, image and runtime gates over 47 pages.
+- `scripts/lib/decompose.mjs` — docx classifier, unit-tested, kept from the deleted ingestion pipeline.
+- `.claude/routes.json` — the 48 routes `shots.mjs` sweeps. Regenerate by listing `public/prototype/*.html`.
 
-Tests run with `npm test` (vitest). Only pure logic is tested: `app/lib/cta.test.ts` and `scripts/lib/decompose.test.mjs`. Pages are verified with `npm run build` and by loading them.
+Tests run with `npm test` (vitest): `scripts/lib/clean.test.mjs` and `scripts/lib/decompose.test.mjs`, 69 tests. Pages are verified with the prototype QA gates and `scripts/shots.mjs`, not with unit tests.
 
 ## Token discipline (browser & subagents)
 

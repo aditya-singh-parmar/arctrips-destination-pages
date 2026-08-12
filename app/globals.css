@@ -99,10 +99,3 @@
   --space-10: 128px;
 }
 
-/* Surface-specific layers. Split so page work can proceed in parallel
-   without two authors editing theme.css at once. */
-@import "./styles/landing.css";
-@import "./styles/tree.css";
-/* The destinations experience, ported from design/concepts/2026-07-27.
-   Scoped under `.dx`, so it never reaches the marketplace home page. */
-@import "./styles/experience.css";
