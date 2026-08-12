@@ -84,6 +84,10 @@ site, and the parallel Next.js app that used to serve `/` and the
 two. Build new routes as prototype pages.
 
 Route model:
+**Full routing reference: `docs/routing.md`** — the route table, how a request is
+served, the asset invariant, the decisions behind the tree, and the verification on
+record. Read it instead of re-deriving routing from `next.config.ts` and 47 HTML files.
+
 **`scripts/lib/routes.mjs` is the URL map, and the only place it is written down.**
 `next.config.ts`, both QA gates, `scripts/nav-rebuild.mjs` and `.claude/routes.json`
 all read it. Adding a page means adding one line there; never hand-edit the routes
@@ -201,6 +205,7 @@ Hard rules (carried from sibling projects, non-negotiable):
 - `scripts/sync-prototype.mjs` — design to public, code only. Fails if a page exists in one copy only.
 - `scripts/qa-prototype.mjs` / `qa-runtime.mjs` — link, anchor, image and runtime gates over 47 pages.
 - `scripts/lib/decompose.mjs` — docx classifier, unit-tested, kept from the deleted ingestion pipeline.
+- `docs/routing.md` — the routing reference: route table, request flow, invariants, gates.
 - `scripts/lib/routes.mjs` — the URL map. One entry per page; every route consumer reads it.
 - `.claude/routes.json` — the 47 routes `shots.mjs` sweeps. Regenerate from `ROUTES`, never by hand.
 
