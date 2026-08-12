@@ -15,7 +15,12 @@ const nextConfig: NextConfig = {
    * page was served from a different depth.
    */
   async rewrites() {
-    return entries.map(([file, route]) => ({ source: route, destination: fileToPath(file) }));
+    return [
+      ...entries.map(([file, route]) => ({ source: route, destination: fileToPath(file) })),
+      /* Design exploration, not a site page: deliberately outside ROUTES so the
+         QA gates and the route sweep do not treat a mockup as a destination. */
+      { source: "/ideation/nav", destination: "/ideation/nav/index.html" },
+    ];
   },
 
   /**
