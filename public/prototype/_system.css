@@ -362,7 +362,6 @@ body>.placebar,.placebar{position:sticky;top:71px;z-index:18;background:var(--pa
   border-bottom:2px solid transparent}
 .placebar__links a:hover{color:var(--navy)}
 .placebar__links a[aria-current]{color:var(--navy);font-weight:700;border-bottom-color:var(--azure)}
-.placebar__cta{flex:none;margin-left:auto}
 
 /* ── the subject rail ───────────────────────────────────────────────────────
    The tab bar carries the town's sections and nothing else. A subject page used
@@ -407,7 +406,6 @@ body>.subjectbar,.subjectbar{position:sticky;top:128px;z-index:17;background:var
 @media(max-width:760px){
   nav.top{position:static}
   body>.placebar,.placebar{top:0}
-  .placebar__cta{display:none}
 }
 
 /* --- in-page jumps, in the body, deliberately unlike the place bar ------- */

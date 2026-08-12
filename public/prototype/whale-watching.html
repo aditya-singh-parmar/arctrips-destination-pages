@@ -41,7 +41,6 @@ nav.top .btn{flex:none}
 body>.skip{position:absolute}
 
 body>.jumpbar{position:fixed;z-index:59}
-body>.dock{position:fixed}
 /* the system parks the place bar at top:0 on small screens, where the sticky
    global nav is still 70px tall and covers it. N1 says the town anchor never
    leaves, so it stays under the nav at every width. */
@@ -98,18 +97,6 @@ body>.dock{position:fixed}
 main [id]{scroll-margin-top:142px}
 @media(max-width:760px){main [id]{scroll-margin-top:136px}}
 
-/* the mobile booking bar. Mutually exclusive with .placebar__cta by breakpoint,
-   so exactly one .btn--primary is ever on screen. */
-.dock{display:none}
-@media(max-width:760px){
-  body{padding-bottom:78px}
-  .dock{display:flex;left:0;right:0;bottom:0;z-index:70;align-items:center;gap:14px;
-    background:var(--paper);border-top:1px solid var(--n150);
-    padding:11px var(--gut);padding-bottom:calc(11px + env(safe-area-inset-bottom))}
-  .dock__t{font-size:.82rem;color:var(--n600);line-height:1.35;flex:1;min-width:0}
-  .dock__t b{display:block;color:var(--navy);font-size:.94rem;font-weight:700}
-  .dock .btn{flex:none}
-}
 
 /* (c) hero. Display type at four times body, weight 800 against the 400 deck. */
 .hero{padding-block:clamp(24px,3vw,40px) clamp(30px,4vw,54px)}

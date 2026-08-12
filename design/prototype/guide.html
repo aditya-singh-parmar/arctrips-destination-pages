@@ -289,18 +289,6 @@ body>.jumpbar{position:fixed;left:0;top:0}
 .slot:hover .slot__go{color:var(--azure)}
 footer.f{margin-top:clamp(48px,5.6vw,80px)}
 
-/* ── mobile dock. Mutually exclusive with the place bar CTA by breakpoint,
-      so there is exactly one primary button on screen at any width. ────── */
-.dock{display:none}
-@media(max-width:760px){
-  body>.dock{display:block;position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--paper);
-    border-top:1px solid var(--n150);padding:9px var(--gut) calc(9px + env(safe-area-inset-bottom))}
-  .dock-in{display:flex;align-items:center;gap:12px}
-  .dock__t{font-size:.88rem;color:var(--n600);line-height:1.3;min-width:0}
-  .dock__t b{display:block;color:var(--navy);font-weight:700;font-size:.94rem}
-  .dock .btn{margin-left:auto;flex:none}
-  body{padding-bottom:80px}
-}
 </style>
 </head>
 <body>

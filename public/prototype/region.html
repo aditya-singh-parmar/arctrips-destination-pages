@@ -164,12 +164,6 @@ body>a.skip:focus{top:0}
 .bandnums dd{font-size:clamp(1.6rem,2.6vw,2.2rem);font-weight:800;color:var(--paper);letter-spacing:-.035em;
   line-height:1.05;margin-top:5px;font-variant-numeric:tabular-nums}
 
-/* Below 760px the locked system hides .placebar__cta, which would leave this
-   page with no visible primary action. The first hero button, which is the same
-   stays search, is promoted there instead of adding a second primary at desktop. */
-@media(max-width:760px){
-  .hero-cta > a:first-child{background:var(--azure);color:var(--paper);border-color:var(--azure)}
-}
 </style>
 </head>
 <body>
@@ -242,7 +236,7 @@ body>a.skip:focus{top:0}
     <p class="lede">Eleven towns on one long island, from Victoria in the south to Campbell River in the north, with the surf coast reached by a single road west through the mountains.</p>
     <p class="hero-note">That road ends in Tofino and Ucluelet, <b>42 km</b> and about <b>40 minutes</b> apart. They are the two towns taking bookings now, <b>292</b> places to stay from <b>$320</b> a night.</p>
     <div class="hero-cta">
-      <a class="btn btn--ghost" href="#towns">The eleven towns</a>
+      <a class="btn btn--primary" href="#towns">The eleven towns</a>
     </div>
   </div>
 

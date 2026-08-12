@@ -171,19 +171,6 @@ main [id]{scroll-margin-top:142px}
 .kg .go svg{width:13px;height:13px}
 .kg .label{margin-top:14px;display:block}
 
-/* the mobile booking bar. Mutually exclusive with .placebar__cta by breakpoint,
-   so exactly one .btn--primary is ever on screen. */
-.dock{display:none}
-@media(max-width:760px){
-  body{padding-bottom:78px}
-  body>.dock{position:fixed}
-  .dock{display:flex;left:0;right:0;bottom:0;z-index:70;align-items:center;gap:14px;
-    background:var(--paper);border-top:1px solid var(--n150);
-    padding:11px var(--gut);padding-bottom:calc(11px + env(safe-area-inset-bottom))}
-  .dock__t{font-size:.88rem;color:var(--n600);line-height:1.35;flex:1;min-width:0}
-  .dock__t b{display:block;color:var(--navy);font-size:.95rem;font-weight:700}
-  .dock .btn{flex:none}
-}
 
 footer.f{margin-top:0}
 .sec--tight{padding-block:clamp(46px,5vw,72px)}
