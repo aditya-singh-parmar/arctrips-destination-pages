@@ -4,12 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Navigation directions, Arc Trips destinations</title>
-<meta name="description" content="Two navigation directions for the Arc Trips destination pages, built independently from two audits of the same complaint.">
+<meta name="description" content="Five navigation directions for the Arc Trips destination pages, across two rounds. Round two is the simpler set.">
 <style>
   :root{
     --azure:#2874BA; --navy:#0B3356; --emerald:#3A9679;
-    --n0:#fff; --n50:#F7F9FB; --n150:#E4E9EF; --n500:#6B7A8C; --n700:#38485B;
-    --wrap:1080px;
+    --n0:#fff; --n50:#F7F9FB; --n150:#E4E9EF; --n400:#93A1B0; --n500:#6B7A8C; --n700:#38485B;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{
@@ -18,127 +17,177 @@
     -webkit-font-smoothing:antialiased;
   }
   em,i{font-style:normal;font-weight:600}
-  .wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(20px,5vw,40px)}
-  header.top{padding-block:clamp(56px,7vw,96px) clamp(32px,4vw,48px);border-bottom:1px solid var(--n150)}
+  .wrap{max-width:1080px;margin-inline:auto;padding-inline:clamp(20px,5vw,40px)}
+  header.top{padding-block:clamp(56px,7vw,96px) clamp(30px,4vw,44px)}
   .label{
     display:block;font-size:.71rem;font-weight:700;letter-spacing:.15em;
     text-transform:uppercase;color:var(--azure);
   }
   h1{font-size:clamp(2.1rem,4.4vw,3.2rem);font-weight:800;line-height:1.08;margin-top:12px;max-width:20ch}
   .lede{font-size:clamp(1.05rem,1.4vw,1.22rem);color:var(--n700);max-width:66ch;margin-top:18px}
-  .brief{margin-top:26px;padding:18px 20px;background:var(--n50);border:1px solid var(--n150);border-radius:14px;max-width:66ch}
-  .brief p{font-size:.95rem;color:var(--n700)}
-  .brief p + p{margin-top:8px}
-  .brief b{color:var(--navy)}
 
-  .grid{display:grid;gap:clamp(20px,2.6vw,32px);grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-        padding-block:clamp(40px,5vw,64px)}
-  .card{border:1px solid var(--n150);border-radius:14px;padding:26px 24px 24px;display:flex;flex-direction:column;
+  .quote{margin-top:26px;padding:20px 22px;border-left:3px solid var(--azure);background:var(--n50);
+         border-radius:0 14px 14px 0;max-width:66ch}
+  .quote p{font-size:1.05rem;font-weight:600;color:var(--navy)}
+  .quote span{display:block;margin-top:8px;font-size:.86rem;font-weight:400;color:var(--n500)}
+
+  .rules{margin-top:26px;max-width:66ch}
+  .rules h3{font-size:.71rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--azure)}
+  .rules ul{list-style:none;margin-top:12px;display:flex;flex-direction:column;gap:8px}
+  .rules li{font-size:.95rem;color:var(--n700);padding-left:20px;position:relative}
+  .rules li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:2px;background:var(--azure)}
+
+  section{padding-block:clamp(38px,4.6vw,60px)}
+  .shead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;
+         padding-bottom:20px;border-bottom:1px solid var(--n150)}
+  h2{font-size:clamp(1.9rem,3.2vw,2.5rem);font-weight:800;line-height:1.12}
+  .shead p{font-size:.95rem;color:var(--n500);max-width:44ch}
+
+  .grid{display:grid;gap:clamp(18px,2.4vw,26px);grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:26px}
+  .card{border:1px solid var(--n150);border-radius:14px;padding:24px 22px 22px;display:flex;flex-direction:column;
         transition:border-color .18s ease, box-shadow .18s ease}
-  .card:hover{border-color:var(--azure);box-shadow:0 10px 30px -18px rgba(11,51,86,.4)}
-  .card h2{font-size:1.5rem;font-weight:800;line-height:1.2;margin-top:10px}
-  .card .from{font-size:.82rem;color:var(--n500);margin-top:6px}
-  .card p.t{margin-top:14px;font-size:.97rem;color:var(--n700)}
-  ul.pts{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:8px}
-  ul.pts li{font-size:.93rem;color:var(--n700);padding-left:18px;position:relative}
-  ul.pts li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--azure)}
-  .num{margin-top:18px;display:flex;gap:10px;align-items:baseline}
-  .num b{font-size:2rem;font-weight:800;line-height:1;color:var(--emerald)}
-  .num span{font-size:.86rem;color:var(--n500)}
-  .go{margin-top:auto;padding-top:22px}
+  .card:hover{border-color:var(--azure);box-shadow:0 12px 32px -20px rgba(11,51,86,.45)}
+  .card h3{font-size:1.35rem;font-weight:800;line-height:1.2;margin-top:9px}
+  .card p.t{margin-top:12px;font-size:.95rem;color:var(--n700)}
+  .card p.ref{margin-top:10px;font-size:.86rem;color:var(--n500)}
+  .stat{margin-top:16px;display:flex;gap:18px;flex-wrap:wrap}
+  .stat div{display:flex;flex-direction:column}
+  .stat b{font-size:1.5rem;font-weight:800;line-height:1.1;color:var(--emerald)}
+  .stat span{font-size:.78rem;color:var(--n500)}
+  .risk{margin-top:16px;font-size:.88rem;color:var(--n500);padding-top:14px;border-top:1px solid var(--n150)}
+  .risk b{color:var(--navy);font-weight:600}
+  .go{margin-top:auto;padding-top:20px}
   .btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 22px;border-radius:999px;
        background:var(--azure);color:#fff;text-decoration:none;font-weight:600;font-size:.95rem}
   .btn:hover{background:var(--navy)}
   .btn:focus-visible{outline:3px solid var(--emerald);outline-offset:2px}
+  .btn--quiet{background:transparent;color:var(--n500);border:1px solid var(--n150)}
+  .btn--quiet:hover{background:var(--n50);color:var(--navy);border-color:var(--n400)}
 
-  section.shared{padding-block:clamp(36px,4.5vw,56px);border-top:1px solid var(--n150)}
-  h3{font-size:1.22rem;font-weight:700}
-  .cols{display:grid;gap:clamp(20px,3vw,44px);grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-top:20px}
-  .cols ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-  .cols li{font-size:.95rem;color:var(--n700);padding-left:18px;position:relative}
-  .cols li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--n500)}
-  .cols h4{font-size:.71rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--azure);margin-bottom:12px}
-  footer{padding-block:32px 64px;border-top:1px solid var(--n150);color:var(--n500);font-size:.88rem}
+  .old .card{background:var(--n50);border-style:dashed}
+  .old .card h3{color:var(--n500)}
+  .old .card:hover{border-color:var(--n400);box-shadow:none}
+  .strike{text-decoration:line-through;text-decoration-color:var(--n400)}
+
+  .ask{margin-top:26px;padding:22px 24px;border:1px solid var(--n150);border-radius:14px}
+  .ask h3{font-size:1.22rem;font-weight:700}
+  .ask ol{margin-top:14px;padding-left:20px;display:flex;flex-direction:column;gap:10px}
+  .ask li{font-size:.95rem;color:var(--n700)}
+  footer{padding-block:30px 64px;border-top:1px solid var(--n150);color:var(--n500);font-size:.88rem}
 </style>
 </head>
 <body>
 
 <header class="top"><div class="wrap">
-  <span class="label">Two directions, one complaint</span>
-  <h1>What the destination navigation should be</h1>
-  <p class="lede">The owner's note was "navigation is cumbersome here". Two audits ran against the same live site, independently and without seeing each other's work: one through Apple's interface guidelines, one through a UX and information architecture review. Each then built its own recommendation as a working mockup.</p>
-  <div class="brief">
-    <p><b>They agreed on the diagnosis.</b> Three stacked sticky bars take 175px, about 19 percent of a 900px viewport, on a site whose job is long-form reading. The place bar means three different things on three different page types. On a subject page "Things to do" appears four or five times before the hero. Search and the primary CTA are both deleted below 760px.</p>
-    <p><b>They disagreed on the cure.</b> One puts the whole tree into a menu behind the place name. The other strips the chrome and moves the tree into the page as content. Both mockups are interactive, at desktop and at 390px, over the same two real pages.</p>
+  <span class="label">Navigation, round two</span>
+  <h1>Three simpler ways back</h1>
+  <p class="lede">Round one produced two directions and both were rejected for the same reason. Round two is subtraction only, and every direction answers one question: from a subject page, how do you get back?</p>
+
+  <div class="quote">
+    <p>Both are making things complex. Once I am in things to do, it is difficult to back.</p>
+    <span>The owner, on round one</span>
+  </div>
+
+  <div class="rules">
+    <h3>The rules all three were held to</h3>
+    <ul>
+      <li>One sticky row, 64px maximum. Not two, not one plus a contextual one.</li>
+      <li>The way back is the most prominent control on the page, and it names its destination in words.</li>
+      <li>No popovers, no menus, no dropdowns in the chrome. A direction that needs a menu has failed.</li>
+      <li>No component appears twice. If the trail carries "up", the chrome does not.</li>
+      <li>Lateral movement between subjects lives in the page body, never in sticky chrome.</li>
+    </ul>
   </div>
 </div></header>
 
 <div class="wrap">
-<div class="grid">
 
-  <article class="card">
-    <span class="label">Direction one</span>
-    <h2>Title as Menu</h2>
-    <p class="from">From the apple-design audit</p>
-    <p class="t">One 56px translucent row on every route, with the place name itself as the menu. Tapping "Tofino" opens a popover holding the town's sections, all nine subjects, and the nearby places. Matching the iOS and macOS navigation bar whose title is the menu: Safari tab groups, the Finder path popup.</p>
-    <ul class="pts">
-      <li>Every lateral move is one tap from any page, including from a town overview, which today costs three</li>
-      <li>The two rows read as one translucent material with a scroll edge fade, not three bordered slabs</li>
-      <li>Search and "Find a stay" survive at 390px</li>
-    </ul>
-    <p class="num"><b>104px</b><span>sticky chrome, against 175px today</span></p>
-    <p class="go"><a class="btn" href="/ideation/nav/apple-design.html">Open the mockup</a></p>
-  </article>
-
-  <article class="card">
-    <span class="label">Direction two</span>
-    <h2>One Rail</h2>
-    <p class="from">From the impeccable audit</p>
-    <p class="t">Strip the chrome instead of enriching it. One global rail plus a town context bar, and the nine subject chips demoted out of the sticky stack into the page body, where they appear once under the breadcrumb and again at the foot under "More things to do in Tofino". The breadcrumb becomes the only way up.</p>
-    <ul class="pts">
-      <li>"Things to do" drops from five appearances before the hero to two</li>
-      <li>Fixes the aria-current lie the generator writes on all nine subject pages</li>
-      <li>Gives the fourteen towns with zero inbound links a route in, with a QA gate to keep it that way</li>
-    </ul>
-    <p class="num"><b>108px</b><span>sticky chrome, against 175px today</span></p>
-    <p class="go"><a class="btn" href="/ideation/nav/impeccable.html">Open the mockup</a></p>
-  </article>
-
-</div>
-</div>
-
-<section class="shared"><div class="wrap">
-  <h3>How to read them against each other</h3>
-  <div class="cols">
-    <div>
-      <h4>The real question</h4>
-      <ul>
-        <li>Should the tree live in a control, or in the page?</li>
-        <li>Title as Menu bets that a reader wants to jump sideways at any moment, and hides the cost behind one tap.</li>
-        <li>One Rail bets that a reader wants to read, and that the sideways move belongs after the article, not above it.</li>
-      </ul>
-    </div>
-    <div>
-      <h4>What to click first</h4>
-      <ul>
-        <li>Title as Menu: click "Tofino" in any frame. That popover is the entire proposal.</li>
-        <li>One Rail: look at the top 130px of the subject frame and count the repeats, then scroll to the foot.</li>
-        <li>Both: the 390px frame, where the live site currently has neither search nor a CTA.</li>
-      </ul>
-    </div>
-    <div>
-      <h4>What is settled either way</h4>
-      <ul>
-        <li>No sidebar and no breadcrumb dropdown. Both were built before and rejected.</li>
-        <li>The breadcrumb stays a plain trail.</li>
-        <li>Sticky offsets move to one variable instead of the two hardcoded values that already disagree.</li>
-      </ul>
-    </div>
+<section>
+  <div class="shead">
+    <h2>Round two</h2>
+    <p>Same four frames in each: town, index, subject, and mobile. The back path really works, so click through it.</p>
   </div>
-</div></section>
+
+  <div class="grid">
+
+    <article class="card">
+      <span class="label">Direction A</span>
+      <h3>One Way Back</h3>
+      <p class="t">One control, and it is the way back. The row holds a labelled pill naming its parent in words, the page title, and search. Nothing else. On a subject it says "Things to do in Tofino", on the index "Tofino", on the town "Vancouver Island". Same control, same place, every depth.</p>
+      <p class="ref">Matching the iOS navigation back button, taken literally.</p>
+      <div class="stat">
+        <div><b>64px</b><span>chrome, from 175px</span></div>
+        <div><b>1</b><span>control leading up</span></div>
+      </div>
+      <p class="risk"><b>Watch for:</b> it tells you the one step up, never the whole shape of where you are.</p>
+      <p class="go"><a class="btn" href="/ideation/nav/one-way-back.html">Open One Way Back</a></p>
+    </article>
+
+    <article class="card">
+      <span class="label">Direction B</span>
+      <h3>The Trail</h3>
+      <p class="t">Delete the place bar and promote the breadcrumb to be the navigation. The full trail is the sticky row: every ancestor a target, the leaf plain text. It is the way back, the sense of depth and the sense of place in one component, which is why there is no back button and no tabs.</p>
+      <p class="ref">Solves the jitter that got breadcrumb dropdowns rejected: four fixed slots, so nothing moves as depth changes.</p>
+      <div class="stat">
+        <div><b>64px</b><span>chrome, from 175px</span></div>
+        <div><b>1</b><span>control leading up</span></div>
+      </div>
+      <p class="risk"><b>Watch for:</b> a trail is smaller and quieter than a button. Test whether it reads as the way back at a glance.</p>
+      <p class="go"><a class="btn" href="/ideation/nav/the-trail.html">Open The Trail</a></p>
+    </article>
+
+    <article class="card">
+      <span class="label">Direction C</span>
+      <h3>Flat Town</h3>
+      <p class="t">The depth is the bug, so remove a level. There is no separate Things-to-do page: the town page is the index. Depth becomes exactly two everywhere, so "All of Tofino" is always correct and always means the same thing, from any subject on the site.</p>
+      <p class="ref">Hub and spoke where the hub is a real destination. One room, many exhibits, one door.</p>
+      <div class="stat">
+        <div><b>64px</b><span>chrome, from 175px</span></div>
+        <div><b>2</b><span>levels, site-wide</span></div>
+      </div>
+      <p class="risk"><b>Watch for:</b> the merged town page runs 5,558px, about 6.2 screens, and has to serve both the person deciding whether to come and the person picking a subject. The mock prints that number rather than hiding it.</p>
+      <p class="go"><a class="btn" href="/ideation/nav/flat-town.html">Open Flat Town</a></p>
+    </article>
+
+  </div>
+
+  <div class="ask">
+    <h3>What to do with these</h3>
+    <ol>
+      <li>In each one, start on the subject frame and get back to the town. Count the taps and notice how hard you had to look for the control.</li>
+      <li>Then do it at 390px, which is where the live site currently has no search and no CTA at all.</li>
+      <li>The three are not exclusive. Flat Town is a content decision, and either One Way Back or The Trail can sit on top of it.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="old">
+  <div class="shead">
+    <h2 class="strike">Round one</h2>
+    <p>Kept for the record. Both were rejected as too complex; the diagnosis in their audits still holds.</p>
+  </div>
+
+  <div class="grid">
+    <article class="card">
+      <span class="label">Rejected</span>
+      <h3>Title as Menu</h3>
+      <p class="t">The place name opens a popover holding sections, subjects and nearby places. One tap to anywhere, but the whole tree is still there, behind a door.</p>
+      <p class="go"><a class="btn btn--quiet" href="/ideation/nav/apple-design.html">Open anyway</a></p>
+    </article>
+
+    <article class="card">
+      <span class="label">Rejected</span>
+      <h3>One Rail</h3>
+      <p class="t">A global rail plus a town context bar, with the subject chips moved into the page body. 108px of chrome, and still three systems saying "up".</p>
+      <p class="go"><a class="btn btn--quiet" href="/ideation/nav/impeccable.html">Open anyway</a></p>
+    </article>
+  </div>
+</section>
+
+</div>
 
 <footer><div class="wrap">
-  Exploration only. Neither direction is built into the site. Palette and typeface are the locked brand set; composition, density and motion are what is being decided here.
+  Exploration only. Nothing here is built into the site. Palette and typeface are the locked brand set; composition, density and motion are what is being decided.
 </div></footer>
 
 </body>

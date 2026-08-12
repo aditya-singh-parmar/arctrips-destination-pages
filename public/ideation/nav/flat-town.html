@@ -1,0 +1,930 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flat Town, navigation round two</title>
+<style>
+/* ═══════════════════════════════════════════════════════════════════════════
+   FLAT TOWN. Navigation round two, direction 1 of 3.
+   Palette and typeface are the locked ArcTrips ones. Everything else is open.
+   Self-contained: no external CSS, no external JS, no webfont request.
+   ═══════════════════════════════════════════════════════════════════════════ */
+:root{
+  --a100:#EAF2FB; --a200:#D4E4F6; --a300:#A9C9EC; --a400:#7EAFDF;
+  --azure:#2874BA; --a700:#21639E; --a800:#1A4F7E; --navy:#0B3356;
+  --emerald:#3A9679; --em700:#2F7D64; --em100:#E8F4F0;
+  --paper:#FFFFFF; --n50:#F9F9F9; --n100:#EBEBEB; --n150:#E5E6E7; --n200:#D1D3D5;
+  --n300:#BABDC1; --n400:#A3A7AD; --n500:#7F8490; --n600:#5F616C; --n700:#474B53; --n800:#26272E;
+  --r:14px; --r-sm:9px; --r-full:999px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:17px;line-height:1.65;color:var(--n800);background:var(--n50);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+h1,h2,h3,h4{color:var(--navy);letter-spacing:-.028em;font-weight:800;line-height:1.07;text-wrap:balance}
+:focus-visible{outline:2px solid var(--azure);outline-offset:2px;border-radius:2px}
+
+/* ── the document that frames the mock ─────────────────────────────────── */
+.doc{max-width:1240px;margin-inline:auto;padding:0 clamp(16px,4vw,40px) 96px}
+.masthead{padding:clamp(40px,6vw,80px) 0 clamp(24px,3vw,36px);max-width:74ch}
+.kicker{font-size:.71rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--azure)}
+.masthead h1{font-size:clamp(2.4rem,5.2vw,3.9rem);margin-top:12px}
+.masthead .thesis{margin-top:20px;font-size:clamp(1.02rem,1.3vw,1.14rem);color:var(--n700);line-height:1.62}
+.masthead .thesis + .thesis{margin-top:14px}
+.refbox{margin-top:26px;border-left:3px solid var(--azure);background:var(--paper);
+  border-radius:0 var(--r) var(--r) 0;padding:18px 22px;box-shadow:0 1px 0 var(--n150)}
+.refbox b{display:block;font-size:.71rem;letter-spacing:.15em;text-transform:uppercase;color:var(--azure);margin-bottom:6px}
+.refbox p{font-size:.97rem;color:var(--n700);line-height:1.6}
+.rules{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px;list-style:none}
+.rules li{font-size:.83rem;font-weight:600;color:var(--n700);background:var(--paper);
+  border:1px solid var(--n200);border-radius:var(--r-full);padding:7px 14px}
+.rules li[data-warn]{border-color:var(--a300);color:var(--a800);background:var(--a100)}
+
+/* ── frame shell ───────────────────────────────────────────────────────── */
+.frame{margin-top:clamp(40px,5vw,72px);scroll-margin-top:16px}
+.frame__head{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px 22px;margin-bottom:14px}
+.frame__no{font-size:.71rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--n500);
+  border:1px solid var(--n200);border-radius:var(--r-full);padding:5px 12px;background:var(--paper)}
+.frame__t{font-size:1.22rem;font-weight:700;color:var(--navy);letter-spacing:-.012em}
+.frame__t code{font:inherit;color:var(--azure)}
+.frame__note{flex-basis:100%;font-size:.95rem;color:var(--n600);max-width:88ch;line-height:1.6}
+.frame__note b{color:var(--navy);font-weight:700}
+
+.gauges{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.gauge{display:flex;align-items:baseline;gap:9px;background:var(--paper);border:1px solid var(--n200);
+  border-radius:var(--r-sm);padding:9px 14px}
+.gauge span{font-size:.71rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--n500)}
+.gauge b{font-size:1.02rem;font-weight:800;color:var(--navy);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.gauge s{color:var(--n400);font-size:.88rem;font-weight:600}
+.gauge--good b{color:var(--em700)}
+
+.stagewrap{overflow:hidden;border-radius:var(--r);border:1px solid var(--n200);background:var(--paper);
+  box-shadow:0 18px 42px -26px rgba(11,51,86,.36);position:relative;transition:box-shadow .3s var(--ease)}
+.stagewrap--m{max-width:390px}
+.stagewrap.is-flash{box-shadow:0 0 0 3px var(--azure),0 18px 42px -26px rgba(11,51,86,.36)}
+.stage{transform-origin:top left;position:relative}
+.viewport{overflow-y:auto;overflow-x:hidden;height:100%;container-type:inline-size;background:var(--paper);
+  scrollbar-width:thin}
+.hint{font-size:.85rem;color:var(--n500);margin-top:9px}
+.hint b{color:var(--azure);font-weight:700}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   THE PROTOTYPE ITSELF. Everything below is scoped under .viewport so the
+   mock's chrome cannot leak into the document that presents it.
+   ═══════════════════════════════════════════════════════════════════════════ */
+.viewport{font-size:17px;line-height:1.65;color:var(--n800)}
+.viewport .wrap{max-width:1200px;margin-inline:auto;padding-inline:40px}
+.viewport h2{font-size:2.35rem}
+.viewport h3{font-size:1.22rem;font-weight:700;letter-spacing:-.012em;line-height:1.28}
+.viewport .lede{font-size:1.18rem;line-height:1.6;color:var(--n700);max-width:52ch}
+.viewport .label{font-size:.71rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--azure)}
+.viewport .sec{padding-block:72px}
+
+/* ── THE ONE STICKY ROW. 64px. One control. ────────────────────────────── */
+/* Hub and spoke: this row is the door out of the room you are standing in.
+   Because the tree is exactly two deep, that door always exists, always sits in
+   the same place, and always says the name of the place it opens onto. */
+.chrome{position:sticky;top:0;z-index:30;height:64px;background:rgba(255,255,255,.94);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--n150)}
+.chrome-in{max-width:1200px;margin-inline:auto;padding-inline:40px;height:64px;
+  display:flex;align-items:center;gap:20px}
+
+/* the way back, and the only control in the chrome that moves you in the tree */
+.back{display:inline-flex;align-items:center;gap:12px;height:44px;padding:0 22px 0 14px;
+  border-radius:var(--r-full);background:var(--navy);color:#fff;font-weight:700;font-size:1.02rem;
+  letter-spacing:-.012em;transition:background .2s var(--ease),transform .2s var(--ease);flex:none;max-width:100%}
+.back:hover{background:var(--a800);transform:translateX(-2px)}
+.back:active{transform:translateX(-4px)}
+.back__arrow{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.16);
+  display:grid;place-items:center;flex:none}
+.back__arrow svg{width:14px;height:14px}
+.back__t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* At depth one the door leads out of the town, so it is quieter on purpose:
+   the same control, the same slot, one visual rung up. */
+.back--up{background:var(--paper);color:var(--navy);border:1px solid var(--n200);font-weight:600;padding-left:13px}
+.back--up:hover{background:var(--n50);border-color:var(--navy)}
+.back--up .back__arrow{background:var(--n100);color:var(--navy)}
+
+/* depth, shown rather than read: two rungs, the lit one is where you stand */
+.rungs{display:flex;align-items:center;gap:4px;flex:none}
+.rungs i{width:18px;height:4px;border-radius:2px;background:var(--n200);display:block}
+.rungs i[data-on]{background:var(--azure)}
+em,i{font-style:normal}
+.rungs em{font-style:normal;font-weight:600;font-size:.71rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--n500);margin-left:6px}
+
+.chrome__right{margin-left:auto;display:flex;align-items:center;gap:16px;flex:none}
+.wordmark{font-weight:700;letter-spacing:-.01em;font-size:1.04rem;color:var(--navy)}
+.chrome__icon{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:var(--n600);
+  border:1px solid var(--n200);background:var(--paper)}
+.chrome__icon:hover{color:var(--azure);border-color:var(--a300)}
+.chrome__icon svg{width:18px;height:18px}
+.chrome__cta{display:inline-flex;align-items:center;height:44px;padding:0 20px;border-radius:var(--r-full);
+  background:var(--azure);color:#fff;font-weight:600;font-size:.93rem;white-space:nowrap}
+.chrome__cta:hover{background:var(--a700)}
+
+/* ── hero ──────────────────────────────────────────────────────────────── */
+.hero{padding-block:44px 20px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:52px;align-items:center}
+.hero h1{font-size:3.9rem;letter-spacing:-.04em;line-height:1.0;max-width:12ch;margin-top:12px}
+.hero .lede{margin-top:20px}
+.hero__m{border-radius:var(--r);overflow:hidden;aspect-ratio:16/11;background:var(--n100);
+  box-shadow:0 18px 42px -18px rgba(11,51,86,.34)}
+.hero__m img{width:100%;height:100%;object-fit:cover}
+.facts{display:flex;gap:38px;margin-top:30px;padding-top:22px;border-top:1px solid var(--n150);flex-wrap:wrap}
+.facts dt{font-size:.71rem;letter-spacing:.13em;text-transform:uppercase;color:var(--n500);font-weight:700}
+.facts dd{font-size:1.6rem;font-weight:800;color:var(--navy);letter-spacing:-.03em;margin-top:3px;
+  font-variant-numeric:tabular-nums}
+
+/* ── the in-body jump strip. NOT sticky. Scrolls away with the page. ───── */
+/* The merged page is long, and this is the honest cost of merging. The strip
+   pays part of it back, but it is content, not chrome: it never pins. */
+.jumps{border-block:1px solid var(--n150);background:var(--n50)}
+.jumps-in{max-width:1200px;margin-inline:auto;padding:14px 40px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.jumps__l{font-size:.71rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--n500);flex:none}
+.jumps ul{display:flex;gap:8px;list-style:none;flex-wrap:wrap}
+.jumps a{display:inline-flex;align-items:center;min-height:38px;padding:0 14px;border-radius:var(--r-sm);
+  font-size:.88rem;font-weight:600;color:var(--n700);background:var(--paper);border:1px solid var(--n200)}
+.jumps a:hover{color:var(--azure);border-color:var(--a300)}
+.jumps__tag{margin-left:auto;font-size:.78rem;color:var(--n500);font-weight:600;flex:none}
+
+/* ── section heads ─────────────────────────────────────────────────────── */
+.head{margin-bottom:28px;max-width:60ch}
+.head h2{margin-top:9px}
+.head p{color:var(--n600);margin-top:11px;font-size:1rem}
+.head p b{color:var(--navy);font-weight:700}
+
+/* ── the subject grid. The index, living in the town page body. ────────── */
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.subj{display:block;border-radius:var(--r);overflow:hidden;background:var(--paper);border:1px solid var(--n150);
+  transition:border-color .2s var(--ease),transform .2s var(--ease),box-shadow .2s var(--ease);
+  width:100%;text-align:left}
+.subj:hover{border-color:var(--a300);transform:translateY(-3px);box-shadow:0 20px 34px -24px rgba(11,51,86,.42)}
+.subj__m{aspect-ratio:16/10;background:var(--n100);position:relative}
+.subj__m img{width:100%;height:100%;object-fit:cover}
+.subj__ct{position:absolute;right:11px;top:11px;background:rgba(255,255,255,.94);color:var(--navy);
+  font-size:.71rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:var(--r-full)}
+.subj__b{padding:17px 19px 20px}
+.subj h3{color:var(--navy)}
+.subj p{font-size:.93rem;color:var(--n600);margin-top:6px;line-height:1.52}
+.subj--soon{opacity:.72}
+.subj--soon .subj__m img{filter:grayscale(1)}
+
+/* ── months ────────────────────────────────────────────────────────────── */
+.months{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:26px}
+.months i{font-style:normal;width:56px;height:44px;border-radius:var(--r-sm);display:grid;place-items:center;
+  font-size:.83rem;font-weight:700;background:var(--n100);color:var(--n500)}
+.months i[data-on]{background:var(--navy);color:#fff}
+.months i[data-now]{outline:2px solid var(--azure);outline-offset:2px}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{border:1px solid var(--n150);border-radius:var(--r);padding:22px;background:var(--paper)}
+.card p{font-size:.95rem;color:var(--n600);margin-top:9px;line-height:1.55}
+
+/* ── stays / guides / nearby ───────────────────────────────────────────── */
+.stay{border-radius:var(--r);overflow:hidden;border:1px solid var(--n150);background:var(--paper)}
+.stay__m{aspect-ratio:16/10;background:var(--n100)}
+.stay__m img{width:100%;height:100%;object-fit:cover}
+.stay__b{padding:16px 18px 19px}
+.stay__b b{display:block;color:var(--navy);font-size:1.02rem}
+.stay__b span{font-size:.9rem;color:var(--n600)}
+.glist{display:flex;flex-direction:column}
+.gitem{display:grid;grid-template-columns:120px 1fr;gap:18px;padding:18px 0;border-top:1px solid var(--n150);align-items:center}
+.gitem:first-child{border-top:0;padding-top:0}
+.gitem__m{border-radius:var(--r-sm);overflow:hidden;aspect-ratio:4/3;background:var(--n100)}
+.gitem__m img{width:100%;height:100%;object-fit:cover}
+.gitem h4{font-size:1.04rem;font-weight:700;color:var(--navy);line-height:1.3}
+.gitem p{font-size:.92rem;color:var(--n600);margin-top:5px}
+.qa{border-top:1px solid var(--n150);padding:20px 0}
+.qa b{display:block;color:var(--navy);font-size:1.04rem;font-weight:700}
+.qa p{font-size:.96rem;color:var(--n600);margin-top:7px;max-width:74ch}
+
+/* ── the return block. The way back also lives at the foot, as content. ── */
+.ret{border-radius:var(--r);background:var(--navy);color:#fff;padding:38px 40px;
+  display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.ret h2{color:#fff;font-size:1.9rem;max-width:18ch}
+.ret p{color:rgba(255,255,255,.76);margin-top:9px;font-size:.98rem;max-width:52ch}
+.ret .label{color:var(--a300)}
+.ret__btn{display:inline-flex;align-items:center;gap:11px;height:52px;padding:0 26px;border-radius:var(--r-full);
+  background:#fff;color:var(--navy);font-weight:700;font-size:1.02rem;flex:none}
+.ret__btn:hover{background:var(--a100)}
+.ret__btn svg{width:15px;height:15px}
+
+/* ── subject leaf page ─────────────────────────────────────────────────── */
+.leaf{padding-block:44px 0}
+.leaf h1{font-size:3.1rem;letter-spacing:-.038em;max-width:16ch;margin-top:11px}
+.leaf .lede{margin-top:18px;max-width:58ch}
+.leafm{display:flex;gap:34px;margin-top:28px;padding:20px 0;border-block:1px solid var(--n150);flex-wrap:wrap}
+.leafm dt{font-size:.71rem;letter-spacing:.13em;text-transform:uppercase;color:var(--n500);font-weight:700}
+.leafm dd{font-size:1.04rem;font-weight:700;color:var(--navy);margin-top:3px}
+.leafhero{border-radius:var(--r);overflow:hidden;aspect-ratio:21/8;background:var(--n100);margin-top:26px}
+.leafhero img{width:100%;height:100%;object-fit:cover}
+.trail{display:grid;grid-template-columns:280px 1fr;gap:26px;padding:26px 0;border-top:1px solid var(--n150);align-items:start}
+.trail:first-of-type{border-top:0}
+.trail__m{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:var(--n100)}
+.trail__m img{width:100%;height:100%;object-fit:cover}
+.trail__n{font-size:.71rem;font-weight:700;letter-spacing:.13em;color:var(--n400);font-variant-numeric:tabular-nums}
+.trail h3{margin-top:5px;font-size:1.32rem}
+.trail p{font-size:.98rem;color:var(--n600);margin-top:9px;max-width:64ch}
+.trail__f{display:flex;gap:9px;flex-wrap:wrap;margin-top:13px}
+.trail__f span{font-size:.83rem;font-weight:600;color:var(--n700);background:var(--n50);border:1px solid var(--n150);
+  border-radius:var(--r-full);padding:6px 13px}
+
+/* the lateral move, at the foot, as content */
+.chips{display:flex;gap:9px;flex-wrap:wrap}
+.chips a{display:inline-flex;align-items:center;min-height:44px;padding:0 17px;border-radius:var(--r-full);
+  font-size:.93rem;font-weight:600;color:var(--n700);background:var(--paper);border:1px solid var(--n200)}
+.chips a:hover{color:var(--azure);border-color:var(--a300)}
+.chips a[data-soon]{color:var(--n500)}
+
+.foot{border-top:1px solid var(--n150);background:var(--n50);padding:36px 0 30px;margin-top:72px}
+.foot-in{max-width:1200px;margin-inline:auto;padding-inline:40px;display:flex;justify-content:space-between;
+  gap:20px;flex-wrap:wrap;font-size:.88rem;color:var(--n600)}
+
+/* ── container queries: the stage is 390px wide in frame four ──────────── */
+@container (max-width:760px){
+  .viewport .wrap,.chrome-in,.jumps-in,.foot-in{padding-inline:20px}
+  .viewport .sec{padding-block:44px}
+  .viewport h2{font-size:1.9rem}
+  .chrome__cta,.wordmark{display:none}
+  .chrome-in{gap:12px}
+  .back{font-size:.95rem;min-width:0}
+  .rungs em{display:none}
+  .hero-grid{grid-template-columns:1fr;gap:26px}
+  .hero h1{font-size:2.5rem;max-width:none}
+  .leaf h1{font-size:2.2rem;max-width:none}
+  .sgrid,.cards3{grid-template-columns:1fr}
+  .trail{grid-template-columns:1fr;gap:16px}
+  .trail__m{max-width:100%}
+  .gitem{grid-template-columns:88px 1fr;gap:14px}
+  .facts,.leafm{gap:22px}
+  .ret{padding:26px 22px;flex-direction:column;align-items:flex-start}
+  .ret h2{font-size:1.6rem}
+  .jumps ul{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .jumps ul::-webkit-scrollbar{display:none}
+  .jumps a{white-space:nowrap}
+  .jumps__tag{margin-left:0;flex-basis:100%}
+}
+
+/* ── the toast, for the one link that leaves the mock ──────────────────── */
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,20px);z-index:90;
+  background:var(--navy);color:#fff;font-size:.93rem;font-weight:600;padding:13px 20px;border-radius:var(--r-full);
+  box-shadow:0 16px 34px -14px rgba(11,51,86,.6);opacity:0;pointer-events:none;transition:opacity .22s,transform .22s}
+.toast.is-on{opacity:1;transform:translate(-50%,0)}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="doc">
+
+  <header class="masthead">
+    <p class="kicker">Navigation, round two</p>
+    <h1>Flat Town</h1>
+    <p class="thesis">Getting back is hard because the tree is too deep, so this direction flattens the tree
+      instead of decorating it. There is no separate Things to do index page. The town page is the index.
+      Every subject is one step down from the town and one step back up to it, so depth is exactly two
+      everywhere on the site: town, subject.</p>
+    <p class="thesis">Because depth is two, the single control in the 64px sticky row is always correct and
+      always means the same thing. On a subject it reads <b>All of Tofino</b>. On the town page itself that
+      same slot steps out of the town and reads <b>All of Vancouver Island</b>. One slot, one meaning, never
+      a menu, never a second bar, never a breadcrumb repeating what the bar already says.</p>
+
+    <div class="refbox">
+      <b>Reference pattern</b>
+      <p>A hub and spoke app shell where the hub is a real destination people return to, not a routing
+        waypoint. The museum floor plan: one room, many exhibits, one door. Or a well made recipe site,
+        where every recipe returns you to the collection it came from rather than to a directory listing.</p>
+    </div>
+
+    <ul class="rules">
+      <li>One sticky row, 64px</li>
+      <li>One upward control per screen</li>
+      <li>No popovers, no menus, no dropdowns</li>
+      <li>No breadcrumb: the bar carries up</li>
+      <li>Lateral movement in the body only</li>
+      <li data-warn>Consequence: /tofino/things-to-do is absorbed into /tofino</li>
+    </ul>
+  </header>
+
+  <!-- ═════════════ FRAME 1 ═════════════ -->
+  <section class="frame" id="f1">
+    <div class="frame__head">
+      <span class="frame__no">Frame 1</span>
+      <span class="frame__t">Desktop 1440 <code>/tofino</code>, the hub</span>
+      <p class="frame__note">The town page as the reviewer first meets it. The subject grid is deliberately the
+        first thing under the hero, because in this model it <b>is</b> the index and nothing else on the page
+        outranks it.</p>
+    </div>
+    <div class="gauges">
+      <div class="gauge gauge--good"><span>Sticky chrome</span><b data-measure="chrome">64px</b><s>today: 175px</s></div>
+      <div class="gauge"><span>Controls leading upward</span><b>1</b></div>
+      <div class="gauge"><span>Depth here</span><b>1 of 2</b></div>
+    </div>
+    <div class="stagewrap" data-w="1440" data-h="760" id="w1"><div class="stage"><div class="viewport" id="vp1" data-page="town"></div></div></div>
+    <p class="hint">Scroll inside the frame. Click any subject card to open <b>Hiking and trails</b> in frame 3.</p>
+  </section>
+
+  <!-- ═════════════ FRAME 2 ═════════════ -->
+  <section class="frame" id="f2">
+    <div class="frame__head">
+      <span class="frame__no">Frame 2</span>
+      <span class="frame__t"><code>/tofino/things-to-do</code> does not exist here</span>
+      <p class="frame__note">This is the consequence of the direction, shown rather than hidden. The URL
+        <b>/tofino/things-to-do</b> resolves to <b>/tofino#things-to-do</b>: the same document as frame 1,
+        opened at its index section. The frame below is that same page, pre-scrolled, so you can judge the
+        merged length honestly. <b>The real risk of this direction is that this page is long</b>, and the
+        measured height is printed below it. The in-body jump strip, which scrolls away and never pins, is
+        the only concession made to that length.</p>
+    </div>
+    <div class="gauges">
+      <div class="gauge gauge--good"><span>Sticky chrome</span><b data-measure="chrome">64px</b><s>today: 175px</s></div>
+      <div class="gauge"><span>Controls leading upward</span><b>1</b></div>
+      <div class="gauge"><span>Pages removed from the tree</span><b>1</b></div>
+    </div>
+    <div class="stagewrap" data-w="1440" data-h="760" id="w2"><div class="stage"><div class="viewport" id="vp2" data-page="town"></div></div></div>
+    <p class="hint">Merged page height at 1440: <b data-measure="townheight">measuring</b>. That is the number
+      to argue about.</p>
+  </section>
+
+  <!-- ═════════════ FRAME 3 ═════════════ -->
+  <section class="frame" id="f3">
+    <div class="frame__head">
+      <span class="frame__no">Frame 3</span>
+      <span class="frame__t">Desktop 1440 <code>/tofino/hiking</code>, the leaf</span>
+      <p class="frame__note">Where the complaint was made. The way back is the largest, darkest, leftmost thing
+        on the screen and it names Tofino in words. Press it and you land back in frame 1 at the subject grid,
+        which is the thing the old <b>things-to-do</b> page used to be. The other eight subjects sit at the
+        foot of this page as content, never in the chrome.</p>
+    </div>
+    <div class="gauges">
+      <div class="gauge gauge--good"><span>Sticky chrome</span><b data-measure="chrome">64px</b><s>today: 175px</s></div>
+      <div class="gauge"><span>Controls leading upward</span><b>1</b></div>
+      <div class="gauge"><span>Depth here</span><b>2 of 2</b></div>
+    </div>
+    <div class="stagewrap" data-w="1440" data-h="760" id="w3"><div class="stage"><div class="viewport" id="vp3" data-page="leaf"></div></div></div>
+    <p class="hint">Press <b>All of Tofino</b> in the sticky row. It moves you to frame 1, at the index.</p>
+  </section>
+
+  <!-- ═════════════ FRAME 4 ═════════════ -->
+  <section class="frame" id="f4">
+    <div class="frame__head">
+      <span class="frame__no">Frame 4</span>
+      <span class="frame__t">Mobile 390 <code>/tofino/hiking</code></span>
+      <p class="frame__note">Same row, same height, same control. On a phone the wordmark and the stay button
+        drop out and the back control takes the width it needs, because on a phone it is the only thing in the
+        row that has a job.</p>
+    </div>
+    <div class="gauges">
+      <div class="gauge gauge--good"><span>Sticky chrome</span><b data-measure="chrome">64px</b><s>today: 175px</s></div>
+      <div class="gauge"><span>Controls leading upward</span><b>1</b></div>
+      <div class="gauge"><span>Touch target</span><b>44px</b></div>
+    </div>
+    <div class="stagewrap stagewrap--m" data-w="390" data-h="800" id="w4"><div class="stage"><div class="viewport" id="vp4" data-page="leaf"></div></div></div>
+    <p class="hint">The back control works here too.</p>
+  </section>
+
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     PAGE TEMPLATES. Written once, cloned into the frames, so the two copies
+     of the merged town page cannot drift apart.
+     ═══════════════════════════════════════════════════════════════════════ -->
+<template id="tpl-chrome-town">
+  <header class="chrome">
+    <div class="chrome-in">
+      <a class="back back--up" href="#" data-act="out">
+        <span class="back__arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2 4 8l6 6"/></svg></span>
+        <span class="back__t">All of Vancouver Island</span>
+      </a>
+      <span class="rungs" aria-label="Depth one of two"><i data-on></i><i></i><em>Tofino</em></span>
+      <div class="chrome__right">
+        <span class="wordmark">ArcTrips</span>
+        <button class="chrome__icon" type="button" data-act="search" aria-label="Search everything">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="9" cy="9" r="6"/><path d="m13.5 13.5 3.5 3.5"/></svg>
+        </button>
+        <a class="chrome__cta" href="#" data-act="stay">Find a stay</a>
+      </div>
+    </div>
+  </header>
+</template>
+
+<template id="tpl-chrome-leaf">
+  <header class="chrome">
+    <div class="chrome-in">
+      <a class="back" href="#" data-act="back-to-town">
+        <span class="back__arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2 4 8l6 6"/></svg></span>
+        <span class="back__t">All of Tofino</span>
+      </a>
+      <span class="rungs" aria-label="Depth two of two"><i data-on></i><i data-on></i><em>Hiking</em></span>
+      <div class="chrome__right">
+        <span class="wordmark">ArcTrips</span>
+        <button class="chrome__icon" type="button" data-act="search" aria-label="Search everything">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="9" cy="9" r="6"/><path d="m13.5 13.5 3.5 3.5"/></svg>
+        </button>
+        <a class="chrome__cta" href="#" data-act="stay">Find a stay</a>
+      </div>
+    </div>
+  </header>
+</template>
+
+<template id="tpl-town">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <p class="label">Clayoquot Sound, British Columbia</p>
+          <h1>Tofino, thirteen beaches on the open Pacific</h1>
+          <p class="lede">Storm-swept sand, old-growth rainforest, and the best surf in Canada. The rainfall
+            explains all three.</p>
+          <dl class="facts">
+            <div><dt>Stays</dt><dd>134</dd></div>
+            <div><dt>Subjects</dt><dd>9</dd></div>
+            <div><dt>From</dt><dd>$320</dd></div>
+            <div><dt>Rainfall</dt><dd>3,306mm</dd></div>
+          </dl>
+        </div>
+        <figure class="hero__m">
+          <img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_1000,h_690/guides/tofino/beaches/long-beach-1" alt="Long Beach in Pacific Rim National Park Reserve, wide wet sand under low cloud" width="1000" height="690" loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <nav class="jumps" aria-label="Sections of this page">
+    <div class="jumps-in">
+      <span class="jumps__l">On this page</span>
+      <ul>
+        <li><a href="#things-to-do" data-jump="things-to-do">Things to do</a></li>
+        <li><a href="#when" data-jump="when">When to go</a></li>
+        <li><a href="#stays" data-jump="stays">Stays</a></li>
+        <li><a href="#guides" data-jump="guides">Guides</a></li>
+        <li><a href="#nearby" data-jump="nearby">Nearby</a></li>
+        <li><a href="#questions" data-jump="questions">Questions</a></li>
+      </ul>
+      <span class="jumps__tag">In the body. Scrolls away, never pins.</span>
+    </div>
+  </nav>
+
+  <section class="sec" id="things-to-do">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">Things to do</p>
+        <h2>Everything there is to do in Tofino</h2>
+        <p>Nine subjects, each one step from here and one step back. <b>This is the index.</b> There is no
+          separate page for it, which is why the way back from any of the nine is a single control that always
+          says Tofino.</p>
+      </div>
+      <div class="sgrid" data-subjects></div>
+    </div>
+  </section>
+
+  <section class="sec" id="when" style="background:var(--n50)">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">When to go</p>
+        <h2>Any month, for a different reason</h2>
+        <p>Nothing here is closed in any month. The filled squares are the months the town is at its busiest,
+          not the only months worth coming.</p>
+      </div>
+      <div class="months">
+        <i>Jan</i><i>Feb</i><i>Mar</i><i data-on>Apr</i><i data-on>May</i><i data-on>Jun</i>
+        <i data-on data-now>Jul</i><i data-on>Aug</i><i data-on>Sep</i><i data-on>Oct</i><i>Nov</i><i>Dec</i>
+      </div>
+      <div class="cards3">
+        <article class="card"><h3>April to October</h3><p>The long, dry-ish window. Boardwalks are still
+          slippery after rain, but the light lasts and the trailhead parking is open.</p></article>
+        <article class="card"><h3>November to February</h3><p>Storm season. The reason a lot of people come at
+          all, and the reason the rooms facing the water cost what they cost.</p></article>
+        <article class="card"><h3>Rain, any month</h3><p>Rainforest is at its best in the rain. Waterproof
+          clothing and shoes with grip, because roots and boardwalks turn greasy.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="stays">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">Stays</p>
+        <h2>Places to stay in Tofino</h2>
+        <p>134 stays, from $320 a night in CAD, before taxes and fees.</p>
+      </div>
+      <div class="cards3">
+        <article class="stay"><div class="stay__m"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_620,h_388/arc-trips/curated-cabin" alt="A cedar cabin among trees near the water" width="620" height="388" loading="lazy"></div><div class="stay__b"><b>Cedar cabin, Chesterman</b><span>Sleeps 4, two minutes from the sand</span></div></article>
+        <article class="stay"><div class="stay__m"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_620,h_388/guides/tofino/storm-watching/_category-1" alt="Waves breaking against the shore during a winter storm" width="620" height="388" loading="lazy"></div><div class="stay__b"><b>Storm suite, Cox Bay</b><span>Sleeps 2, water-facing, winter rate</span></div></article>
+        <article class="stay"><div class="stay__m"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_620,h_388/guides/tofino/kayaking/_category-1" alt="Calm inlet water with a kayak at the shoreline" width="620" height="388" loading="lazy"></div><div class="stay__b"><b>Inlet house, Lemmens</b><span>Sleeps 6, launch at the door</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="guides" style="background:var(--n50)">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">Guides</p>
+        <h2>Guides to read before you go</h2>
+        <p>Longer reading that is not one of the nine subjects. It sits here rather than behind a fifth tab.</p>
+      </div>
+      <div class="glist">
+        <a class="gitem" href="#"><div class="gitem__m"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_240,h_180/guides/tofino/storm-watching/_category-1" alt="Storm surf at the edge of the beach" width="240" height="180" loading="lazy"></div><div><h4>Best time to stay in Tofino</h4><p>Month by month, with what it actually costs.</p></div></a>
+        <a class="gitem" href="#"><div class="gitem__m"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_240,h_180/guides/tofino/whale-watching/_category-1" alt="A grey whale surfacing off the coast" width="240" height="180" loading="lazy"></div><div><h4>The Pacific Rim Whale Festival</h4><p>Three weeks in March, and what is worth booking.</p></div></a>
+        <a class="gitem" href="#"><div class="gitem__m"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_240,h_180/guides/tofino/hiking/rainforest-trail-1" alt="Boardwalk through old-growth rainforest" width="240" height="180" loading="lazy"></div><div><h4>Campgrounds in and around Tofino</h4><p>Which ones book out in January, and which never do.</p></div></a>
+        <a class="gitem" href="#"><div class="gitem__m"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_240,h_180/guides/tofino/beaches/_category-1" alt="Wide beach with driftwood at the treeline" width="240" height="180" loading="lazy"></div><div><h4>Getting to Tofino from Victoria</h4><p>The four and a half hours, and where to stop.</p></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="nearby">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">Nearby</p>
+        <h2>Where Tofino sits</h2>
+        <p>Ucluelet is forty minutes south on the same road, and the two of them are the Vancouver Island
+          towns with a full guide so far. Moving between towns is a step out and a step back in, which is the
+          only three-step path this model has.</p>
+      </div>
+      <div class="chips">
+        <a href="#" data-act="out">Ucluelet</a>
+        <a href="#" data-act="out">Port Alberni</a>
+        <a href="#" data-act="out">Victoria</a>
+        <a href="#" data-act="out">Nanaimo</a>
+        <a href="#" data-act="out">All of Vancouver Island</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="questions" style="background:var(--n50)">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">Questions</p>
+        <h2>The questions people actually ask</h2>
+      </div>
+      <div class="qa"><b>Can you swim in Tofino?</b><p>Yes, and most people wear a wetsuit. The water sits
+        between 10 and 14 degrees through the summer, and the two calm-water beaches are the ones to pick if
+        you are swimming rather than surfing.</p></div>
+      <div class="qa"><b>Do you need a car?</b><p>For the village and the town beaches, no. For the park
+        trails strung along the highway, effectively yes, unless you are cycling the pathway.</p></div>
+      <div class="qa"><b>Is a park pass required?</b><p>Inside Pacific Rim National Park Reserve, yes, daily
+        or annual. The village trails and the town beaches are free.</p></div>
+      <div class="qa"><b>How many nights is enough?</b><p>Three. The pace here rewards staying rather than
+        passing through, and one full day is usually lost to weather.</p></div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="ret">
+        <div>
+          <p class="label">One step out</p>
+          <h2>Tofino is one of four towns on the island</h2>
+          <p>The only way up from here, and the same control that sits in the row at the top of this page.</p>
+        </div>
+        <a class="ret__btn" href="#" data-act="out">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2 4 8l6 6"/></svg>
+          All of Vancouver Island
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot"><div class="foot-in"><span>Arc Trips, Tofino</span><span>Prices in CAD, before taxes and fees</span></div></footer>
+</template>
+
+<template id="tpl-leaf">
+  <section class="leaf">
+    <div class="wrap">
+      <p class="label">Things to do in Tofino</p>
+      <h1>Hiking and trails in Tofino</h1>
+      <p class="lede">Rainforest boardwalks, beach walks and two island climbs. Most of them are short, and the
+        muddy ones are muddy all year.</p>
+      <dl class="leafm">
+        <div><dt>Best months</dt><dd>Apr to Oct</dd></div>
+        <div><dt>Shortest</dt><dd>Tonquin Beach Trail</dd></div>
+        <div><dt>Hardest</dt><dd>Lone Cone</dd></div>
+        <div><dt>Park pass</dt><dd>Needed in the park</dd></div>
+      </dl>
+      <figure class="leafhero">
+        <img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_1400,h_534/guides/tofino/hiking/_category-1" alt="A boardwalk trail winding through mossy old-growth rainforest" width="1400" height="534" loading="lazy">
+      </figure>
+    </div>
+  </section>
+
+  <nav class="jumps" aria-label="Sections of this page" style="margin-top:36px">
+    <div class="jumps-in">
+      <span class="jumps__l">On this page</span>
+      <ul>
+        <li><a href="#when" data-jump="when">When to go</a></li>
+        <li><a href="#trails" data-jump="trails">The trails</a></li>
+        <li><a href="#rules" data-jump="rules">Four rules</a></li>
+        <li><a href="#more" data-jump="more">More in Tofino</a></li>
+      </ul>
+      <span class="jumps__tag">In the body. Scrolls away, never pins.</span>
+    </div>
+  </nav>
+
+  <section class="sec" id="when">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">When to go</p>
+        <h2>April to October, and the rest of the year with better boots</h2>
+        <p>The short trails stay open all year. What changes is how much mud, wind and daylight you get.</p>
+      </div>
+      <div class="months">
+        <i>Jan</i><i>Feb</i><i>Mar</i><i data-on>Apr</i><i data-on>May</i><i data-on>Jun</i>
+        <i data-on data-now>Jul</i><i data-on>Aug</i><i data-on>Sep</i><i data-on>Oct</i><i>Nov</i><i>Dec</i>
+      </div>
+      <div class="cards3">
+        <article class="card"><h3>April to October</h3><p>The long, dry-ish window. Boardwalks are still
+          slippery after rain, but the light lasts and the trailhead parking is open.</p></article>
+        <article class="card"><h3>Winter</h3><p>Many short trails stay open. Winter weather makes them muddy,
+          slippery and windy, so choose shorter trails and start in daylight.</p></article>
+        <article class="card"><h3>Rain, any month</h3><p>Rainforest trails are at their best in the rain. Wear
+          waterproof clothing and shoes with grip, because boardwalks, stairs and roots turn greasy.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="trails" style="background:var(--n50)">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">Where to walk</p>
+        <h2>Eighteen walks, from the village outward</h2>
+        <p>The ones you can start on foot first, then the national park trails strung along the highway, then
+          the three that need a boat. Difficulty climbs with the distance.</p>
+      </div>
+      <article class="trail">
+        <div class="trail__m"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_560,h_420/guides/tofino/hiking/tonquin-beach-trail-1" alt="Steps down through forest to Tonquin Beach" width="560" height="420" loading="lazy"></div>
+        <div>
+          <p class="trail__n">01</p>
+          <h3>Tonquin Beach Trail</h3>
+          <p>Twenty minutes from the village on a wide gravel path, then a long staircase down to a sheltered
+            beach that faces the sunset. The shortest walk in Tofino that still feels like arriving somewhere.</p>
+          <div class="trail__f"><span>1.4 km return</span><span>Easy</span><span>No pass needed</span><span>Sunset</span></div>
+        </div>
+      </article>
+      <article class="trail">
+        <div class="trail__m"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_560,h_420/guides/tofino/hiking/rainforest-trail-1" alt="Raised boardwalk through dense mossy rainforest" width="560" height="420" loading="lazy"></div>
+        <div>
+          <p class="trail__n">02</p>
+          <h3>Rainforest Trail</h3>
+          <p>Two boardwalk loops on either side of the highway, through old growth that was never logged. The
+            boardwalk is greasy in the wet, which is most of the time, and that is not a reason to skip it.</p>
+          <div class="trail__f"><span>2 x 1 km loops</span><span>Easy</span><span>Park pass</span><span>Best in rain</span></div>
+        </div>
+      </article>
+      <article class="trail">
+        <div class="trail__m"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_560,h_420/guides/tofino/hiking/long-beach-hike-1" alt="Wide open sand and surf at Long Beach" width="560" height="420" loading="lazy"></div>
+        <div>
+          <p class="trail__n">03</p>
+          <h3>Long Beach Hike</h3>
+          <p>Sixteen kilometres of sand if you walk the whole thing, and nobody does. Start at Incinerator
+            Rock, walk until the crowd thins, turn around. Check the tide before you commit to the headlands.</p>
+          <div class="trail__f"><span>Up to 16 km</span><span>Easy, long</span><span>Park pass</span><span>Tide dependent</span></div>
+        </div>
+      </article>
+      <article class="trail">
+        <div class="trail__m"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_560,h_420/guides/tofino/hiking/lone-cone-trail-1" alt="Steep forested slope of Lone Cone above the water" width="560" height="420" loading="lazy"></div>
+        <div>
+          <p class="trail__n">04</p>
+          <h3>Lone Cone Trail</h3>
+          <p>A water taxi to Meares Island, then 730 metres of climb over roots and mud to the best view of
+            Clayoquot Sound there is. The hardest walk on this page by a wide margin. Book the boat both ways.</p>
+          <div class="trail__f"><span>5 km return</span><span>Hard</span><span>Boat access</span><span>Six hours</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="rules">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">Before you walk</p>
+        <h2>Four rules the trails here run on</h2>
+      </div>
+      <div class="cards3">
+        <article class="card"><h3>Stay on the marked trail</h3><p>The moss either side of a boardwalk takes
+          decades to recover from a footprint, and the ground under it is rarely solid.</p></article>
+        <article class="card"><h3>Grip beats boots</h3><p>Wet cedar boardwalk is the most slippery surface in
+          Tofino. Tread pattern matters more than ankle support here.</p></article>
+        <article class="card"><h3>Check the tide</h3><p>Every trail that ends at the ocean can be cut off.
+          The headland you walked around at low tide is not there at high tide.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lateral movement lives here, in the body, at the foot. Never in the chrome. -->
+  <section class="sec" id="more" style="background:var(--n50)">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">More in Tofino</p>
+        <h2>The other eight subjects in this town</h2>
+        <p>Sideways from here, as content. The sticky row above carries one job and does not carry this one.</p>
+      </div>
+      <div class="sgrid" data-subjects data-exclude="hiking" data-compact></div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="ret">
+        <div>
+          <p class="label">The way back</p>
+          <h2>All of Tofino, in one page</h2>
+          <p>Every subject, the season, the stays and the guides. The same destination the control at the top
+            of this screen opens, repeated here because the foot of a long read is where people look for it.</p>
+        </div>
+        <a class="ret__btn" href="#" data-act="back-to-town">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2 4 8l6 6"/></svg>
+          All of Tofino
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot"><div class="foot-in"><span>Arc Trips, Tofino, Hiking and trails</span><span>Prices in CAD, before taxes and fees</span></div></footer>
+</template>
+
+<script>
+(function(){
+  "use strict";
+  var CL = "https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,";
+
+  var SUBJECTS = [
+    {slug:"beaches",   name:"Beaches",            n:"13 beaches",  img:"guides/tofino/beaches/_category-1",       alt:"Wide sand beach backed by rainforest",           line:"Tofino is not one beach. Best known first, and the two calm-water ones at the end."},
+    {slug:"hiking",    name:"Hiking and trails",  n:"18 walks",    img:"guides/tofino/hiking/_category-1",        alt:"Boardwalk through mossy old-growth rainforest",   line:"Rainforest boardwalks, beach walks and two island climbs. Most of them are short."},
+    {slug:"surfing",   name:"Surfing",            n:"6 breaks",    img:"guides/tofino/surfing/_category-1",       alt:"A surfer walking out into grey Pacific surf",     line:"The surf capital of Canada, and a wetsuit town every month of the year."},
+    {slug:"whale",     name:"Whale watching",     n:"4 operators", img:"guides/tofino/whale-watching/_category-1",alt:"A grey whale surfacing beside a boat",            line:"Grey whales from March, resident humpbacks through the summer."},
+    {slug:"kayaking",  name:"Kayaking and paddling", n:"7 launches", img:"guides/tofino/kayaking/_category-1",    alt:"A kayak on flat water in a forested inlet",       line:"Calm inlets, islands and rainforest shoreline in Clayoquot Sound."},
+    {slug:"storm",     name:"Storm watching",     n:"Nov to Feb",  img:"guides/tofino/storm-watching/_category-1",alt:"Heavy surf breaking against a rocky shore",       line:"In winter this becomes one of the best places in Canada to watch a storm land."},
+    {slug:"birding",   name:"Birding and wildlife", n:"40+ species", img:"guides/tofino/birding/_category-1",     alt:"Seabirds on a rock at the edge of the water",     line:"Gulls, cormorants, murres, auklets and puffins, and where to stand to see them."},
+    {slug:"food",      name:"Restaurants",        n:"24 tables",   img:"guides/tofino/restaurants/_category-1",   alt:"A plate of seafood on a wooden table",            line:"Seafood, tacos, fine dining, coffee and the bakeries worth queuing for."},
+    {slug:"fishing",   name:"Fishing",            n:"Handed off",  img:"thomas-lipke-M12HGHNVJ2s-unsplash_nttcvc",alt:"A fishing boat leaving harbour at first light",   line:"Salmon and halibut charters out of the harbour, booked through our sister brand.", soon:true}
+  ];
+
+  function el(tag, cls){ var n = document.createElement(tag); if(cls) n.className = cls; return n; }
+
+  function buildSubjects(host){
+    var exclude = host.getAttribute("data-exclude");
+    var compact = host.hasAttribute("data-compact");
+    SUBJECTS.forEach(function(s){
+      if(exclude && s.slug === exclude) return;
+      var card = el("button", "subj" + (s.soon ? " subj--soon" : ""));
+      card.type = "button";
+      card.setAttribute("data-open", s.slug);
+      var m = el("div", "subj__m");
+      var img = el("img");
+      img.src = CL + (compact ? "w_520,h_325/" : "w_640,h_400/") + s.img;
+      img.alt = s.alt; img.loading = "lazy"; img.width = 640; img.height = 400;
+      var ct = el("span", "subj__ct"); ct.textContent = s.n;
+      m.appendChild(img); m.appendChild(ct);
+      var b = el("div", "subj__b");
+      var h = el("h3"); h.textContent = s.name;
+      b.appendChild(h);
+      if(!compact){ var p = el("p"); p.textContent = s.line; b.appendChild(p); }
+      card.appendChild(m); card.appendChild(b);
+      host.appendChild(card);
+    });
+  }
+
+  /* ── assemble the four viewports from the templates ───────────────────── */
+  var TPL = {
+    town: document.getElementById("tpl-town"),
+    leaf: document.getElementById("tpl-leaf"),
+    chromeTown: document.getElementById("tpl-chrome-town"),
+    chromeLeaf: document.getElementById("tpl-chrome-leaf")
+  };
+
+  ["vp1","vp2","vp3","vp4"].forEach(function(id){
+    var vp = document.getElementById(id);
+    var kind = vp.getAttribute("data-page");
+    vp.appendChild((kind === "town" ? TPL.chromeTown : TPL.chromeLeaf).content.cloneNode(true));
+    vp.appendChild((kind === "town" ? TPL.town : TPL.leaf).content.cloneNode(true));
+    Array.prototype.forEach.call(vp.querySelectorAll("[data-subjects]"), buildSubjects);
+  });
+
+  /* ── scale each 1440 or 390 stage down to whatever width it is given ──── */
+  var wraps = Array.prototype.slice.call(document.querySelectorAll(".stagewrap"));
+  function layout(){
+    wraps.forEach(function(w){
+      var stage = w.firstElementChild;
+      var vw = parseFloat(w.getAttribute("data-w"));
+      var vh = parseFloat(w.getAttribute("data-h"));
+      var s = Math.min(1, w.clientWidth / vw);
+      stage.style.width = vw + "px";
+      stage.style.height = vh + "px";
+      stage.style.transform = "scale(" + s + ")";
+      stage.dataset.scale = String(s);
+      w.style.height = Math.round(vh * s) + "px";
+    });
+    measure();
+  }
+
+  function measure(){
+    var chrome = document.querySelector("#vp1 .chrome");
+    if(chrome){
+      var h = Math.round(chrome.getBoundingClientRect().height / parseFloat(document.getElementById("w1").firstElementChild.dataset.scale || 1));
+      Array.prototype.forEach.call(document.querySelectorAll('[data-measure="chrome"]'), function(n){ n.textContent = h + "px"; });
+    }
+    var vp1 = document.getElementById("vp1");
+    var th = document.querySelector('[data-measure="townheight"]');
+    if(vp1 && th){
+      var px = Math.round(vp1.scrollHeight);
+      th.textContent = px.toLocaleString("en-CA") + "px, about " + (Math.round(px / 900 * 10) / 10) + " screens";
+    }
+  }
+
+  window.addEventListener("resize", layout);
+  window.addEventListener("load", function(){ measure(); openFrameTwoAtIndex(); });
+  layout();
+
+  /* Frame two is the same document as frame one, opened where the URL
+     /tofino/things-to-do now lands: at the index section. */
+  function openFrameTwoAtIndex(){
+    var vp = document.getElementById("vp2");
+    var t = vp.querySelector("#things-to-do");
+    if(t){ vp.scrollTop = 0; scrollViewportTo(vp, "#things-to-do"); }
+  }
+
+  /* ── the toast, for the two links that leave the mock ─────────────────── */
+  var toast = document.getElementById("toast"), toastT;
+  function say(msg){
+    toast.textContent = msg;
+    toast.classList.add("is-on");
+    clearTimeout(toastT);
+    toastT = setTimeout(function(){ toast.classList.remove("is-on"); }, 2600);
+  }
+
+  function flash(wrap){
+    wrap.classList.add("is-flash");
+    setTimeout(function(){ wrap.classList.remove("is-flash"); }, 1400);
+  }
+
+  /* Scroll a frame's own viewport to one of its sections, accounting for the
+     CSS scale applied to the stage. */
+  function scrollViewportTo(vp, sel){
+    var target = vp.querySelector(sel);
+    if(!target) return;
+    var stage = vp.closest(".stage");
+    var scale = parseFloat(stage.dataset.scale || 1);
+    var t = target.getBoundingClientRect(), v = vp.getBoundingClientRect();
+    vp.scrollTop += (t.top - v.top) / scale - 68;
+  }
+
+  /* The back path. Depth is two, so there is exactly one destination:
+     the town page, opened at the index the subject came from. */
+  function goToTown(){
+    var w = document.getElementById("w1");
+    w.scrollIntoView({behavior:"smooth", block:"center"});
+    flash(w);
+    setTimeout(function(){ scrollViewportTo(document.getElementById("vp1"), "#things-to-do"); }, 260);
+    say("Back at /tofino, at the index. One step, and the only step.");
+  }
+
+  function goToLeaf(name){
+    var w = document.getElementById("w3");
+    w.scrollIntoView({behavior:"smooth", block:"center"});
+    flash(w);
+    document.getElementById("vp3").scrollTop = 0;
+    say(name + " opens at /tofino/hiking in this mock. Depth two, one step from the town.");
+  }
+
+  document.addEventListener("click", function(e){
+    var open = e.target.closest("[data-open]");
+    if(open){
+      e.preventDefault();
+      goToLeaf(open.querySelector("h3") ? open.querySelector("h3").textContent : "Subject");
+      return;
+    }
+    var jump = e.target.closest("[data-jump]");
+    if(jump){
+      e.preventDefault();
+      var vp = jump.closest(".viewport");
+      scrollViewportTo(vp, "#" + jump.getAttribute("data-jump"));
+      return;
+    }
+    var act = e.target.closest("[data-act]");
+    if(!act) return;
+    e.preventDefault();
+    var kind = act.getAttribute("data-act");
+    if(kind === "back-to-town"){ goToTown(); }
+    else if(kind === "out"){ say("One step out of the town, to /vancouver-island. Not drawn in this mock."); }
+    else if(kind === "search"){ say("Search is where destination switching lives. Never in the back control."); }
+    else if(kind === "stay"){ say("The booking path. Not drawn in this mock."); }
+  });
+
+  /* Two ids repeat across four cloned pages, which is fine for a mock because
+     nothing here navigates by fragment: every jump is resolved inside its own
+     viewport. Kept explicit so a reviewer does not read it as a bug. */
+})();
+</script>
+</body>
+</html>
