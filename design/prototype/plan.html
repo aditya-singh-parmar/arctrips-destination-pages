@@ -364,7 +364,6 @@ main [id]{scroll-margin-top:146px}
 <nav class="top"><div class="wrap nav-in">
   <a class="brand" href="/"><img class="brand__mark" src="/prototype/brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
   <ul class="nav-links">
-    <li><a href="/search?in=tofino">Stays</a></li>
     <li><a href="/">Destinations</a></li>
     <li><a href="/search?q=&amp;in=tofino">Guides</a></li>
   </ul>
@@ -388,7 +387,6 @@ main [id]{scroll-margin-top:146px}
     <li><a href="#top" aria-current="page">Plan</a></li>
     <li><a href="/tofino/guides">Guides</a></li>
   </ul>
-  <a class="btn btn--primary btn--sm placebar__cta" href="/not-found?in=tofino">Find a stay</a>
 </div></nav>
 
 <main id="main">
@@ -559,7 +557,7 @@ main [id]{scroll-margin-top:146px}
       <h2>134 rooms, open in every month</h2>
       <p id="stayLine"></p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="/search?in=tofino">Search every stay</a>
+    <a class="btn btn--ghost btn--sm" href="/not-found?in=tofino">See every stay</a>
   </div>
   <div class="stay">
     <a class="stayfeat" href="/search?in=tofino" id="stayFeat"></a>
@@ -626,7 +624,7 @@ main [id]{scroll-margin-top:146px}
       <li><a href="/tofino/long-beach">Long Beach</a></li><li><a href="/search?in=tofino">Search everything</a></li></ul></div>
     <div><h5>Plan</h5><ul>
       <li><a href="#top">When to go</a></li><li><a href="#topics">Getting there</a></li>
-      <li><a href="/not-found?in=tofino">Where to stay</a></li><li><a href="#months">What to pack</a></li></ul></div>
+      <li><a href="#months">What to pack</a></li></ul></div>
     <div><h5>Arc Trips</h5><ul>
       <li><a href="/not-found">About us</a></li><li><a href="/not-found">List your place</a></li>
       <li><a href="/tofino/fishing">Fishing charters</a></li><li><a href="/not-found">Contact</a></li></ul></div>
@@ -733,7 +731,7 @@ const TOPICS = [
     href:"/vancouver-island", go:"Open Vancouver Island" },
   { t:"Where to stay", k:"Rooms", n:PLAN.town.stays, u:"stays in Tofino",
     p:`From $${cheapest} a night, and bookable in all twelve months. Ucluelet adds ${PLAN.ucluelet.stays} rooms forty minutes down the same road.`,
-    href:"/search?in=tofino", go:"Search stays" },
+    href:"/not-found?in=tofino", go:"See the stays" },
   { t:"What to pack", k:"Kit", n:num(TOTMM), u:"mm of rain a year",
     p:`Waterproofs are not a winter item here. Even July has ${CLI[6].mm} mm across ${CLI[6].days} days.`,
     href:"#months", go:"See the rain by month" },

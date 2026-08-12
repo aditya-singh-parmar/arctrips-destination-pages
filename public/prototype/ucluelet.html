@@ -145,14 +145,7 @@ body>a.skip:focus{top:0}
 .qi p{font-size:.96rem;color:var(--n700);line-height:1.64;padding-bottom:17px;max-width:66ch}
 
 /* the mobile booking path, mutually exclusive with the place bar's button */
-.dock{display:none}
 @media(max-width:760px){
-  body>.dock{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;align-items:center;gap:14px;
-    background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--n150);
-    padding:10px var(--gut);padding-bottom:calc(10px + env(safe-area-inset-bottom))}
-  .dock__t{font-size:.88rem;color:var(--n600);line-height:1.35;min-width:0}
-  .dock__t b{display:block;color:var(--navy);font-weight:700;font-size:.96rem;font-variant-numeric:tabular-nums}
-  .dock .btn{margin-left:auto}
   body{padding-bottom:78px}
   footer.f{margin-bottom:0}
 }
@@ -165,7 +158,6 @@ body>a.skip:focus{top:0}
 <nav class="top"><div class="wrap nav-in">
   <a class="brand" href="/"><img class="brand__mark" src="/prototype/brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
   <ul class="nav-links">
-    <li><a href="/search?in=ucluelet">Stays</a></li>
     <li><a href="/" aria-current="true">Destinations</a></li>
     <li><a href="/search?in=ucluelet">Guides</a></li>
   </ul>
@@ -183,7 +175,6 @@ body>a.skip:focus{top:0}
     <li><a href="#top" aria-current="page">Overview</a></li>
     <li><a href="/ucluelet#do">Things to do</a></li>
   </ul>
-  <a class="btn btn--primary btn--sm placebar__cta" href="/not-found?in=ucluelet">Find a stay</a>
 </div></nav>
 <nav class="subjectbar" aria-label="Things to do in Ucluelet"><div class="wrap subjectbar-in">
   <span class="subjectbar__l">Things to do</span>
@@ -295,7 +286,7 @@ body>a.skip:focus{top:0}
         <div><dt>Nightly, from</dt><dd class="tnum">$320<small>CAD</small></dd></div>
       </dl>
       <p class="staynote">Prices in CAD, before taxes and fees. Summer is the tightest stretch: campground sites in the area go months ahead.</p>
-      <a class="btn btn--ghost" href="/search?in=ucluelet">Search stays in Ucluelet</a>
+      <a class="btn btn--ghost" href="/not-found?in=ucluelet">See stays in Ucluelet</a>
     </div>
   </div>
 </div></section>
@@ -377,11 +368,6 @@ body>a.skip:focus{top:0}
   </div>
   <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees</span></div>
 </div></footer>
-
-<div class="dock">
-  <p class="dock__t"><b>158 stays in Ucluelet</b>from $320 a night</p>
-  <a class="btn btn--primary btn--sm" href="/not-found?in=ucluelet">Find a stay</a>
-</div>
 
 <script src="/prototype/_nav.js"></script>
 </body>

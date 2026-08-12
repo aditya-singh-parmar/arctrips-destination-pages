@@ -376,7 +376,6 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
 <nav class="top"><div class="wrap nav-in">
   <a class="brand" href="/"><img class="brand__mark" src="/prototype/brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
   <ul class="nav-links">
-    <li><a href="/search?in=tofino">Stays</a></li>
     <li><a href="/">Destinations</a></li>
     <li><a href="/search?q=&amp;in=tofino">Guides</a></li>
   </ul>
@@ -397,7 +396,6 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
     <li><a href="/tofino/plan">Plan</a></li>
     <li><a href="/tofino/guides">Guides</a></li>
   </ul>
-  <a class="btn btn--primary btn--sm placebar__cta" href="/not-found?in=tofino">Find a stay</a>
 </div></nav>
 
 <div class="jumpbar" id="jumpbar" aria-hidden="true"></div>
@@ -626,12 +624,11 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
       <h2>Where to stay</h2>
       <p>Nothing on Long Beach itself is bookable. It is a national park beach, so the rooms sit in the two towns at either end, both about twenty minutes away.</p>
     </div>
-    <a class="btn btn--ghost btn--sm only-lg" href="/search?in=tofino">Search every stay</a>
-    <a class="btn btn--primary only-sm" href="/not-found?in=tofino">Find a stay</a>
+    <a class="btn btn--ghost btn--sm only-lg" href="/not-found?in=tofino">See every stay</a>
   </div>
 
   <p class="stayhead" id="stayHeadN"></p>
-  <a class="staylead" href="/search?in=tofino" id="stayLead"></a>
+  <a class="staylead" href="/not-found?in=tofino" id="stayLead"></a>
   <div class="stayrest" id="stayRest"></div>
 
   <p class="stayhead" id="stayHeadS"></p>
@@ -686,10 +683,10 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
       <p>Tofino and Ucluelet are two of eleven. Victoria, Nanaimo, Campbell River and the rest sit on the same island.</p>
       <span class="go">See the island <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
     </a>
-    <a href="/search?in=tofino">
+    <a href="/not-found?in=tofino">
       <b>Rooms within twenty minutes</b>
       <p>Cabins, lofts and chalets at both ends of this road, from $320 a night.</p>
-      <span class="go">Search stays <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+      <span class="go">See the stays <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
     </a>
   </div>
 </div></section>
@@ -711,7 +708,7 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
       <li><a href="/tofino/beaches">Beaches guide</a></li><li><a href="/search?in=tofino">Search everything</a></li></ul></div>
     <div><h5>Plan</h5><ul>
       <li><a href="/tofino/plan">When to go</a></li><li><a href="/tofino/plan">Getting there</a></li>
-      <li><a href="/not-found?in=tofino">Where to stay</a></li><li><a href="/tofino/plan">What to pack</a></li></ul></div>
+      <li><a href="/tofino/plan">What to pack</a></li></ul></div>
     <div><h5>Arc Trips</h5><ul>
       <li><a href="/not-found">About us</a></li><li><a href="/not-found">List your place</a></li>
       <li><a href="/tofino/fishing">Fishing charters</a></li><li><a href="/not-found">Contact</a></li></ul></div>
@@ -855,14 +852,14 @@ function paintStatic() {
      </div>`;
 
   $("#stayRest").innerHTML = t.slice(1).map((s) =>
-    `<a class="stay" href="/search?in=tofino">
+    `<a class="stay" href="/not-found?in=tofino">
       <div class="stay__m"><img src="${cld(s.hero,520,390)}" alt="${esc(s.alt)}"><span class="rate">${s.rating.toFixed(1)}</span></div>
       <h4>${esc(s.t)}</h4>
       <p class="meta">Tofino &middot; ${s.r} rooms &middot; ${s.b} beds &middot; ${s.ba} baths</p>
       <p class="price">$${s.p} <span>a night</span></p></a>`).join("");
 
   $("#stayRows").innerHTML = u.map((s) =>
-    `<a href="/search?in=ucluelet">
+    `<a href="/not-found?in=ucluelet">
       <div class="sr__m"><img src="${cld(s.hero,200,150)}" alt="${esc(s.alt)}"></div>
       <div><p class="sr__n">${esc(s.t)}</p>
       <p class="sr__d">Ucluelet &middot; ${s.r} rooms &middot; ${s.b} beds &middot; ${s.ba} baths &middot; ${s.rating.toFixed(1)} rated</p></div>

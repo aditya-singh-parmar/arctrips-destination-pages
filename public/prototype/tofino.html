@@ -283,16 +283,7 @@ body>a.skip:focus{top:0}
 
 /* (b) the mobile booking path. Mutually exclusive with the place bar's button,
        so exactly one primary is visible at any width. */
-.dock{display:none}
 @media(max-width:760px){
-  /* the system sets position:relative on every body child at (0,1,1), so the
-     dock has to be written as a child selector or it lands in the flow */
-  body>.dock{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;align-items:center;gap:14px;
-    background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--n150);
-    padding:10px var(--gut);padding-bottom:calc(10px + env(safe-area-inset-bottom))}
-  .dock__t{font-size:.88rem;color:var(--n600);line-height:1.35;min-width:0}
-  .dock__t b{display:block;color:var(--navy);font-weight:700;font-size:.96rem;font-variant-numeric:tabular-nums}
-  .dock .btn{margin-left:auto}
   body{padding-bottom:78px}
   footer.f{margin-bottom:0}
 }
@@ -330,7 +321,6 @@ body>a.skip:focus{top:0}
 <nav class="top"><div class="wrap nav-in">
   <a class="brand" href="/"><img class="brand__mark" src="/prototype/brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
   <ul class="nav-links">
-    <li><a href="/search?in=tofino">Stays</a></li>
     <li><a href="/" aria-current="true">Destinations</a></li>
     <li><a href="/search?q=&amp;in=tofino">Guides</a></li>
   </ul>
@@ -352,7 +342,6 @@ body>a.skip:focus{top:0}
     <li><a href="/tofino/plan">Plan</a></li>
     <li><a href="/tofino/guides">Guides</a></li>
   </ul>
-  <a class="btn btn--primary btn--sm placebar__cta" href="/not-found?in=tofino">Find a stay</a>
 </div></nav>
 
 <main id="main">
@@ -493,7 +482,7 @@ body>a.skip:focus{top:0}
       <h2 style="margin-top:11px" id="stayHead">Places to stay in Tofino</h2>
       <p id="stayDek"></p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="/search?in=tofino">See all 134</a>
+    <a class="btn btn--ghost btn--sm" href="/not-found?in=tofino">See all 134</a>
   </div>
   <ol class="ledger" id="ledger"></ol>
 </div></section>
@@ -553,11 +542,11 @@ body>a.skip:focus{top:0}
       <p>Every beach, trail, launch and table in the town, in one searchable index.</p>
       <span class="go">Open the index <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
     </a>
-    <a href="/search?in=tofino">
+    <a href="/not-found?in=tofino">
       <span>The booking path</span>
       <h3>134 stays in Tofino</h3>
       <p>From $320 a night in CAD, before taxes and fees. Storm season rooms face the water for a reason.</p>
-      <span class="go">Search stays <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+      <span class="go">See the stays <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
     </a>
   </div>
 </div></section>
@@ -586,11 +575,6 @@ body>a.skip:focus{top:0}
   </div>
   <div class="fbase"><span>&copy; 2026 Arc Trips</span><span id="fnote2">Prices in CAD, before taxes and fees</span></div>
 </div></footer>
-
-<div class="dock">
-  <p class="dock__t"><b id="dockN">134 stays in Tofino</b>from $320 a night</p>
-  <a class="btn btn--primary btn--sm" href="/not-found?in=tofino">Find a stay</a>
-</div>
 
 <script>
 /* Real rows, read off corpus.json, climate.json and best-months.json at build
@@ -827,9 +811,8 @@ function paintRest() {
   ];
   $("#stayHead").textContent = `${T.stays} places to stay in Tofino`;
   $("#stayDek").innerHTML = `Four of them here, cheapest first. Prices in CAD, before taxes and fees.`;
-  $("#dockN").textContent = `${T.stays} stays in Tofino`;
   $("#ledger").innerHTML = DATA.stays.map((s,i) =>
-    `<li><a class="lrow" href="/search?in=tofino">
+    `<li><a class="lrow" href="/not-found?in=tofino">
       <span class="lrow__m"><img src="${cld(pics[i][0],240,180)}" alt="${esc(pics[i][1])}" loading="lazy"></span>
       <span><span class="lrow__t">${esc(s.title)}</span>
         <span class="lrow__d">${s.rooms} rooms &middot; ${s.beds} beds &middot; ${s.baths} baths &middot; ${s.rating} out of 5</span></span>

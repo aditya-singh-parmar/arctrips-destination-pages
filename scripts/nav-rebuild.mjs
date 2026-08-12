@@ -109,7 +109,6 @@ function bar(file, cfg) {
   <ul class="placebar__links">
 ${tabs}
   </ul>
-  <a class="btn btn--primary btn--sm placebar__cta" href="/not-found?in=${cfg.town}">Find a stay</a>
 </div></nav>`;
 
   /* The subject rail: on every subject page, and on the two indexes that list

@@ -17,11 +17,11 @@
       be read one row at a time rather than scanned as a wall: one subject per
       row, one photograph per row, one sentence of place names per row. What
       lives here and not in the system: (a) the type raise, (b) the subject
-      entry, (c) the place line, (d) the questions, (e) the mobile dock. ─── */
+      entry, (c) the place line, (d) the questions. ───────────────────── */
 
 /* a11y floors the system leaves open */
 :focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:var(--r-sm)}
-.almanac :focus-visible,.dock :focus-visible{outline-color:var(--a300)}
+.almanac :focus-visible{outline-color:var(--a300)}
 .btn{min-height:44px;white-space:nowrap}
 nav.top .btn{flex:none}
 .brand,.nav-links a{display:inline-flex;align-items:center;min-height:44px}
@@ -230,17 +230,6 @@ body>.skip:focus{top:0}
 .sib{box-shadow:0 0 0 1px var(--n150)}
 .sib__m b{color:var(--navy);font-weight:700}
 
-/* ── (e) mobile dock. Mutually exclusive with the place bar CTA by
-      breakpoint, so exactly one primary button is on screen at any width. ── */
-body>.dock{display:none}
-@media(max-width:760px){
-  body>.dock{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:70;align-items:center;gap:14px;
-    background:var(--navy);padding:10px var(--gut);padding-bottom:calc(10px + env(safe-area-inset-bottom))}
-  .dock div{min-width:0}
-  .dock b{display:block;color:var(--paper);font-size:.95rem;font-weight:700;letter-spacing:-.015em;
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .dock span{display:block;font-size:.875rem;color:rgba(255,255,255,.8);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .dock .btn{margin-left:auto}
   body{padding-bottom:78px}
 }
 footer.f{margin-top:clamp(48px,6vw,80px)}
@@ -277,7 +266,6 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
 <nav class="top"><div class="wrap nav-in">
   <a class="brand" href="/"><img class="brand__mark" src="/prototype/brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
   <ul class="nav-links">
-    <li><a href="/search?in=tofino">Stays</a></li>
     <li><a href="/">Destinations</a></li>
     <li><a href="/search?q=&amp;in=tofino">Guides</a></li>
   </ul>
@@ -299,7 +287,6 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
     <li><a href="/tofino/plan">Plan</a></li>
     <li><a href="/tofino/guides">Guides</a></li>
   </ul>
-  <a class="btn btn--primary btn--sm placebar__cta" href="/not-found?in=tofino">Find a stay</a>
 </div></nav>
 <nav class="subjectbar" aria-label="Things to do in Tofino"><div class="wrap subjectbar-in">
   <span class="subjectbar__l">Things to do</span>
@@ -464,7 +451,7 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
       <li><a href="/tofino/long-beach">Long Beach</a></li><li><a href="/tofino/storm-watching">Storm watching</a></li></ul></div>
     <div><h5>Trip</h5><ul>
       <li><a href="/tofino/plan">When to go</a></li><li><a href="/tofino/plan">Getting there</a></li>
-      <li><a href="/not-found?in=tofino">Where to stay</a></li><li><a href="/search?in=tofino">Search everything</a></li></ul></div>
+      <li><a href="/search?in=tofino">Search everything</a></li></ul></div>
     <div><h5>Arc Trips</h5><ul>
       <li><a href="/not-found">About us</a></li><li><a href="/not-found">List your place</a></li>
       <li><a href="/search?q=Fishing&amp;in=tofino">Fishing charters</a></li><li><a href="/not-found">Contact</a></li></ul></div>
@@ -473,14 +460,6 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
 </div></footer>
 
 <!-- the town anchor and the booking path stay in reach on small screens -->
-<div class="dock">
-  <div>
-    <b>Tofino</b>
-    <span>134 stays from $320</span>
-  </div>
-  <a class="btn btn--primary btn--sm" href="/not-found?in=tofino">Find a stay</a>
-</div>
-
 <script>
 /* Real rows, read out of corpus.json (guides, places and articles for
    city=tofino), best-months.json and climate.json. Inlined so the page opens

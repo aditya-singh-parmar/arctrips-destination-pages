@@ -1,0 +1,14 @@
+[    3037ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3100/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2489
+[    3193ms] [LOG] [HMR] connected @ http://localhost:3100/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2489
+[    4410ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3100/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2489
+[    4411ms] [LOG] [Fast Refresh] done in 135ms @ http://localhost:3100/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2489
+[    5320ms] [WARNING] Image with src "/photos/grey-whale-blow.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading @ http://localhost:3100/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2489
+[   17747ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3100/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2489
+[   17751ms] [LOG] [Fast Refresh] done in 105ms @ http://localhost:3100/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2489
+[   17921ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3100/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2489
+[   18122ms] [LOG] [Fast Refresh] done in 302ms @ http://localhost:3100/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2489
+[   25949ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3100/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2489
+[   26075ms] [LOG] [Fast Refresh] done in 227ms @ http://localhost:3100/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2489
+[   34527ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3100/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2489
+[   34681ms] [LOG] [Fast Refresh] done in 254ms @ http://localhost:3100/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2489
