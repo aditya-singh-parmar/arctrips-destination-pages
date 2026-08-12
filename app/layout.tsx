@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import "./theme.css";
 
 /* Arc Trips "Full system" typography: Inter carries all headings + body.
    Satoshi (loaded via Fontshare in globals.css) is used ONLY for the

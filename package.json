@@ -7,15 +7,9 @@
     "build": "node node_modules/next/dist/bin/next build",
     "start": "node node_modules/next/dist/bin/next start",
     "lint": "eslint",
-    "seed": "node --env-file=.env.local scripts/seed.mjs",
-    "seed:geo": "node --env-file=.env.local scripts/seed-geo.mjs",
     "concepts": "node scripts/serve-design.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
-    "backfill:categories": "node --env-file=.env.local scripts/backfill-destination-categories.mjs",
-    "seed:facts": "node --env-file=.env.local scripts/seed-town-facts.mjs",
-    "ingest": "node --env-file=.env.local scripts/ingest-articles.mjs",
-    "verify:ingest": "node --env-file=.env.local scripts/verify-ingest.mjs",
     "qa:prototype": "node scripts/qa-prototype.mjs",
     "shots": "node scripts/shots.mjs",
     "audit:ui": "node scripts/ui-audit.mjs",
@@ -24,8 +18,6 @@
     "qa:deployed": "node scripts/qa-prototype.mjs public/prototype"
   },
   "dependencies": {
-    "@supabase/ssr": "^0.10.0",
-    "@supabase/supabase-js": "^2.101.1",
     "next": "16.2.4",
     "react": "19.2.4",
     "react-dom": "19.2.4"
