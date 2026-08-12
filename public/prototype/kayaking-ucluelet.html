@@ -8,8 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="icon" href="brand/arctrips-icon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="_system.css">
+<link rel="icon" href="/prototype/brand/arctrips-icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/prototype/_system.css">
 <style>
 /* Page-scoped only. Every value comes from _system.css tokens: no new hue, no
    hardcoded colour, no emerald (emerald is the season signal elsewhere). */
@@ -110,44 +110,44 @@ main [id]{scroll-margin-top:150px}
 <span id="top" aria-hidden="true"></span>
 <a class="skip" href="#main">Skip to content</a>
 <nav class="top"><div class="wrap nav-in">
-  <a class="brand" href="index.html"><img class="brand__mark" src="brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
+  <a class="brand" href="/"><img class="brand__mark" src="/prototype/brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
   <ul class="nav-links">
-    <li><a href="search.html?in=ucluelet">Stays</a></li>
-    <li><a href="index.html">Destinations</a></li>
-    <li><a href="region.html">Vancouver Island</a></li>
+    <li><a href="/search?in=ucluelet">Stays</a></li>
+    <li><a href="/">Destinations</a></li>
+    <li><a href="/vancouver-island">Vancouver Island</a></li>
   </ul>
-  <form class="search" role="search" action="search.html" method="get">
+  <form class="search" role="search" action="/search" method="get">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
     <label class="vh" for="q">Search Ucluelet for a trail, a beach or a place to eat</label>
     <input id="q" name="q" type="search" placeholder="Wild Pacific Trail, Barkley Sound" autocomplete="off">
     <input type="hidden" name="in" value="ucluelet">
     <kbd>/</kbd>
   </form>
-  <a class="btn btn--ink btn--sm" href="not-found.html">Sign in</a>
+  <a class="btn btn--ink btn--sm" href="/not-found">Sign in</a>
 </div></nav>
 <nav class="placebar" aria-label="Ucluelet"><div class="wrap placebar-in">
-  <a class="placebar__back" href="ucluelet.html"><span class="n">&larr; Ucluelet</span></a>
+  <a class="placebar__back" href="/ucluelet"><span class="n">&larr; Ucluelet</span></a>
   <ul class="placebar__links">
-    <li><a href="ucluelet.html">Overview</a></li>
-    <li><a href="ucluelet.html#do" aria-current="page">Things to do</a></li>
+    <li><a href="/ucluelet">Overview</a></li>
+    <li><a href="/ucluelet#do" aria-current="page">Things to do</a></li>
   </ul>
-  <a class="btn btn--primary btn--sm placebar__cta" href="search.html?in=ucluelet">Find a stay</a>
+  <a class="btn btn--primary btn--sm placebar__cta" href="/search?in=ucluelet">Find a stay</a>
 </div></nav>
 <nav class="subjectbar" aria-label="Things to do in Ucluelet"><div class="wrap subjectbar-in">
   <span class="subjectbar__l">Things to do</span>
   <ul class="subjectbar__links">
-    <li><a href="hiking-ucluelet.html">Hiking &amp; trails</a></li>
+    <li><a href="/ucluelet/hiking">Hiking &amp; trails</a></li>
     <li><a href="#top" aria-current="page">Kayaking</a></li>
-    <li><a href="whale-watching-ucluelet.html">Whale watching</a></li>
-    <li><a href="restaurants-ucluelet.html">Restaurants</a></li>
+    <li><a href="/ucluelet/whale-watching">Whale watching</a></li>
+    <li><a href="/ucluelet/restaurants">Restaurants</a></li>
   </ul>
 </div></nav>
 <main id="main">
 <div class="wrap"><nav class="crumb" aria-label="Breadcrumb">
-  <a class="lvl-deep" href="index.html">British Columbia</a><span class="sep lvl-deep">/</span>
-  <a href="region.html">Vancouver Island</a><span class="sep">/</span>
-  <a href="ucluelet.html">Ucluelet</a><span class="sep">/</span>
-  <a href="ucluelet.html#do">Things to do</a><span class="sep">/</span>
+  <a class="lvl-deep" href="/">British Columbia</a><span class="sep lvl-deep">/</span>
+  <a href="/vancouver-island">Vancouver Island</a><span class="sep">/</span>
+  <a href="/ucluelet">Ucluelet</a><span class="sep">/</span>
+  <a href="/ucluelet#do">Things to do</a><span class="sep">/</span>
   <span aria-current="page">Kayaking &amp; paddling</span>
 </nav></div>
 <header class="chero">
@@ -360,15 +360,15 @@ main [id]{scroll-margin-top:150px}
 <section class="sec" style="padding-top:0"><div class="wrap">
   <span class="label label--n">Keep going</span>
   <div class="kg">
-    <a href="search.html?q=Kayaking%20in%20Ucluelet&in=ucluelet">
+    <a href="/search?q=Kayaking%20in%20Ucluelet&in=ucluelet">
       <figure><img loading="lazy" src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_640,h_400/guides/ucluelet/kayaking/_category-3" alt="Rock and surf on the Ucluelet coast at dusk"></figure>
       <div><h3>Kayaking in Ucluelet</h3><p>Sheltered launches and open-water paddles from the harbour town, in one read.</p><span class="go">Find it in Ucluelet guides</span></div>
     </a>
-    <a href="whale-watching-ucluelet.html">
+    <a href="/ucluelet/whale-watching">
       <figure><img loading="lazy" src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_640,h_400/guides/ucluelet/whale-watching/_category-1" alt="An orca surfacing beside a small white tour boat off Ucluelet"></figure>
       <div><h3>Whale watching in Ucluelet</h3><p>Four places to watch from shore, two that need a boat, and when each whale is here.</p><span class="go">Open the whale watching page</span></div>
     </a>
-    <a href="search.html?in=ucluelet">
+    <a href="/search?in=ucluelet">
       <figure><img loading="lazy" src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_640,h_400/arcstudio/wnrrcrf4lnalgzbjvsz8" alt="The Ucluelet coast and its wooded inlets from the air"></figure>
       <div><h3>Stays in Ucluelet</h3><p>Rooms and cabins in town, a few minutes from the harbour launch.</p><span class="go">Search stays in Ucluelet</span></div>
     </a>
@@ -376,6 +376,6 @@ main [id]{scroll-margin-top:150px}
 </div></section>
 </main>
 <footer class="f"><div class="wrap fbase">&copy; 2026 Arc Trips. Prices in CAD, before taxes and fees.</div></footer>
-<script src="_nav.js"></script>
+<script src="/prototype/_nav.js"></script>
 </body>
 </html>

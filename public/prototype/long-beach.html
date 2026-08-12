@@ -9,8 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap" rel="stylesheet">
-<link rel="icon" href="brand/arctrips-icon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="_system.css">
+<link rel="icon" href="/prototype/brand/arctrips-icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/prototype/_system.css">
 <style>
 /* ── Page scoped only. Built from _system.css tokens, no new colour values. ──
       (a) the a11y floors the system leaves open,
@@ -375,31 +375,31 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
 <!-- Global nav. Identical on every page: Stays, Destinations, Vancouver Island.
      The region stays one click away from anywhere in the tree. -->
 <nav class="top"><div class="wrap nav-in">
-  <a class="brand" href="index.html"><img class="brand__mark" src="brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
+  <a class="brand" href="/"><img class="brand__mark" src="/prototype/brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
   <ul class="nav-links">
-    <li><a href="search.html?in=tofino">Stays</a></li>
-    <li><a href="index.html">Destinations</a></li>
-    <li><a href="search.html?q=&amp;in=tofino">Guides</a></li>
+    <li><a href="/search?in=tofino">Stays</a></li>
+    <li><a href="/">Destinations</a></li>
+    <li><a href="/search?q=&amp;in=tofino">Guides</a></li>
   </ul>
-  <form class="search" role="search" action="search.html" method="get">
+  <form class="search" role="search" action="/search" method="get">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
     <label class="vh" for="q">Go to a place, a beach, a trail or a guide</label>
     <input id="q" name="q" type="search" placeholder="Tofino, Cox Bay, Rainforest Trail">
     <kbd>/</kbd>
   </form>
-  <a class="btn btn--ink btn--sm" href="not-found.html">Sign in</a>
+  <a class="btn btn--ink btn--sm" href="/not-found">Sign in</a>
 </div></nav>
 
 <!-- The only sticky row below the global nav. Identical on every Tofino page. -->
 <nav class="placebar" aria-label="Tofino"><div class="wrap placebar-in">
-  <a class="placebar__back" href="tofino.html"><span class="n">&larr; Tofino</span></a>
+  <a class="placebar__back" href="/tofino"><span class="n">&larr; Tofino</span></a>
   <ul class="placebar__links">
-    <li><a href="tofino.html">Overview</a></li>
-    <li><a href="things-to-do.html">Things to do</a></li>
-    <li><a href="plan.html">Plan</a></li>
-    <li><a href="guide.html">Guides</a></li>
+    <li><a href="/tofino">Overview</a></li>
+    <li><a href="/tofino/things-to-do">Things to do</a></li>
+    <li><a href="/tofino/plan">Plan</a></li>
+    <li><a href="/tofino/guides">Guides</a></li>
   </ul>
-  <a class="btn btn--primary btn--sm placebar__cta" href="search.html?in=tofino">Find a stay</a>
+  <a class="btn btn--primary btn--sm placebar__cta" href="/search?in=tofino">Find a stay</a>
 </div></nav>
 
 <div class="jumpbar" id="jumpbar" aria-hidden="true"></div>
@@ -408,9 +408,9 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
 
 <div class="wrap">
   <nav class="crumb" aria-label="Breadcrumb">
-    <a class="lvl-deep" href="index.html">British Columbia</a><span class="sep lvl-deep">/</span>
-    <a class="lvl-deep keep-sm" href="region.html">Vancouver Island</a><span class="sep lvl-deep keep-sm">/</span>
-    <a href="tofino.html">Tofino</a><span class="sep">/</span>
+    <a class="lvl-deep" href="/">British Columbia</a><span class="sep lvl-deep">/</span>
+    <a class="lvl-deep keep-sm" href="/vancouver-island">Vancouver Island</a><span class="sep lvl-deep keep-sm">/</span>
+    <a href="/tofino">Tofino</a><span class="sep">/</span>
     <span aria-current="page">Long Beach</span>
   </nav>
 </div>
@@ -526,7 +526,7 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
     <span class="label" style="color:var(--a300)">Pacific Rim National Park Reserve</span>
     <p class="proof__n">Nothing stands between the sand and the open ocean.</p>
     <p class="proof__d">No promenade, no line of hotels, no boardwalk. The car park, then the sand, then the Pacific, and rainforest standing behind you the whole way along.</p>
-    <a class="btn btn--ghost btn--lg" href="things-to-do.html">Everything worth doing in Tofino</a>
+    <a class="btn btn--ghost btn--lg" href="/tofino/things-to-do">Everything worth doing in Tofino</a>
   </div>
 </section>
 
@@ -537,7 +537,7 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
         <h2>When should you go?</h2>
         <p class="standing">Summer for the long dry days, winter for the storms. The sand itself is open, free and walkable every day of the year. Pick a month to see what it is like.</p>
       </div>
-      <a class="btn btn--ghost btn--sm" href="plan.html">Plan a trip to Tofino</a>
+      <a class="btn btn--ghost btn--sm" href="/tofino/plan">Plan a trip to Tofino</a>
     </div>
 
     <div class="mrow" role="group" aria-label="Choose a month" id="mrow"></div>
@@ -593,7 +593,7 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
 
   <div class="oneline">
     <p>Ten rainforest trails and paths run off the same road, between the beaches and behind them.</p>
-    <a href="things-to-do.html">See everything to do in Tofino
+    <a href="/tofino/things-to-do">See everything to do in Tofino
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
   </div>
 
@@ -628,12 +628,12 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
       <h2>Where to stay</h2>
       <p>Nothing on Long Beach itself is bookable. It is a national park beach, so the rooms sit in the two towns at either end, both about twenty minutes away.</p>
     </div>
-    <a class="btn btn--ghost btn--sm only-lg" href="search.html?in=tofino">Search every stay</a>
-    <a class="btn btn--primary only-sm" href="search.html?in=tofino">Find a stay</a>
+    <a class="btn btn--ghost btn--sm only-lg" href="/search?in=tofino">Search every stay</a>
+    <a class="btn btn--primary only-sm" href="/search?in=tofino">Find a stay</a>
   </div>
 
   <p class="stayhead" id="stayHeadN"></p>
-  <a class="staylead" href="search.html?in=tofino" id="stayLead"></a>
+  <a class="staylead" href="/search?in=tofino" id="stayLead"></a>
   <div class="stayrest" id="stayRest"></div>
 
   <p class="stayhead" id="stayHeadS"></p>
@@ -645,11 +645,11 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
     <div>
       <h2>More to read</h2>
     </div>
-    <a class="btn btn--ghost btn--sm" href="search.html?q=&amp;in=tofino">More Tofino guides</a>
+    <a class="btn btn--ghost btn--sm" href="/search?q=&amp;in=tofino">More Tofino guides</a>
   </div>
 
   <div class="read">
-    <a class="feat" href="search.html?q=The%20Best%20Beaches%20in%20Tofino&amp;in=tofino">
+    <a class="feat" href="/search?q=The%20Best%20Beaches%20in%20Tofino&amp;in=tofino">
       <div class="feat__m"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_1100,h_690/guides/tofino/beaches/_category-1" alt="A wide empty beach on the Tofino coast with surf running in and forest along the back of the sand"></div>
       <div class="kmeta"><span class="k">Beaches</span><span class="dot"></span><span>Tofino</span></div>
       <h3>The Best Beaches in Tofino</h3>
@@ -665,7 +665,7 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
       <h2>The other twelve beaches in Tofino</h2>
       <p>Grouped by the kind of day each one suits.</p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="beaches-tofino.html">Beaches, by subject</a>
+    <a class="btn btn--ghost btn--sm" href="/tofino/beaches">Beaches, by subject</a>
   </div>
   <nav aria-label="The other beaches in Tofino" id="sibs"></nav>
 </div></section>
@@ -678,17 +678,17 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
     </div>
   </div>
   <div class="next">
-    <a href="tofino.html">
+    <a href="/tofino">
       <b>Tofino, the whole town</b>
       <p>The beaches, the trails, the boats and the restaurants, and the read on when to come.</p>
       <span class="go">Back to Tofino <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
     </a>
-    <a href="region.html">
+    <a href="/vancouver-island">
       <b>Vancouver Island, all eleven towns</b>
       <p>Tofino and Ucluelet are two of eleven. Victoria, Nanaimo, Campbell River and the rest sit on the same island.</p>
       <span class="go">See the island <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
     </a>
-    <a href="search.html?in=tofino">
+    <a href="/search?in=tofino">
       <b>Rooms within twenty minutes</b>
       <p>Cabins, lofts and chalets at both ends of this road, from $320 a night.</p>
       <span class="go">Search stays <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
@@ -701,22 +701,22 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
 <footer class="f"><div class="wrap">
   <div class="fgrid">
     <div>
-      <span class="fbrand"><img class="fbrand__mark" src="brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></span>
+      <span class="fbrand"><img class="fbrand__mark" src="/prototype/brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></span>
       <p class="fnote">Stays and guides on the west coast of Vancouver Island, written by people who go there.</p>
     </div>
     <div><h5>This coast</h5><ul>
-      <li><a href="tofino.html">Tofino</a></li><li><a href="#top">Long Beach</a></li>
-      <li><a href="search.html?q=&amp;in=tofino">Guides</a></li><li><a href="index.html">British Columbia</a></li>
+      <li><a href="/tofino">Tofino</a></li><li><a href="#top">Long Beach</a></li>
+      <li><a href="/search?q=&amp;in=tofino">Guides</a></li><li><a href="/">British Columbia</a></li>
 </ul></div>
     <div><h5>In Tofino</h5><ul>
-      <li><a href="things-to-do.html">Things to do</a></li><li><a href="whale-watching.html">Whale watching</a></li>
-      <li><a href="beaches-tofino.html">Beaches guide</a></li><li><a href="search.html?in=tofino">Search everything</a></li></ul></div>
+      <li><a href="/tofino/things-to-do">Things to do</a></li><li><a href="/tofino/whale-watching">Whale watching</a></li>
+      <li><a href="/tofino/beaches">Beaches guide</a></li><li><a href="/search?in=tofino">Search everything</a></li></ul></div>
     <div><h5>Plan</h5><ul>
-      <li><a href="plan.html">When to go</a></li><li><a href="plan.html">Getting there</a></li>
-      <li><a href="search.html?in=tofino">Where to stay</a></li><li><a href="plan.html">What to pack</a></li></ul></div>
+      <li><a href="/tofino/plan">When to go</a></li><li><a href="/tofino/plan">Getting there</a></li>
+      <li><a href="/search?in=tofino">Where to stay</a></li><li><a href="/tofino/plan">What to pack</a></li></ul></div>
     <div><h5>Arc Trips</h5><ul>
-      <li><a href="not-found.html">About us</a></li><li><a href="not-found.html">List your place</a></li>
-      <li><a href="fishing-tofino.html">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
+      <li><a href="/not-found">About us</a></li><li><a href="/not-found">List your place</a></li>
+      <li><a href="/tofino/fishing">Fishing charters</a></li><li><a href="/not-found">Contact</a></li></ul></div>
   </div>
   <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees</span></div>
 </div></footer>
@@ -811,10 +811,10 @@ const DIM = [31,28,31,30,31,30,31,31,30,31,30,31];
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const cld = (id,w,h) => `https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_${w},h_${h}/${id}`;
-/* guide.html is the single article "Wildlife tours in Tofino". Every other
+/* /tofino/guides is the single article "Wildlife tours in Tofino". Every other
    titled article resolves to a scoped result list that contains it. */
 const ART_HREF = (t) => /^wildlife tours in tofino$/i.test(t)
-  ? "guide.html" : `search.html?q=${encodeURIComponent(t)}&in=tofino`;
+  ? "/tofino/guides" : `/search?q=${encodeURIComponent(t)}&in=tofino`;
 const listOf = (a) => a.length < 2 ? (a[0] || "") : a.slice(0,-1).join(", ") + " and " + a[a.length-1];
 
 /* ══ stays, reading, siblings ═════════════════════════════════════════════ */
@@ -834,7 +834,7 @@ function paintStatic() {
   $("#sibs").innerHTML = groups.map((g) =>
     `<p class="grouph"><b>${esc(g.gr)}</b><span>${g.rows.length} ${g.rows.length === 1 ? "place" : "places"}</span></p>
      <span class="siblings">${g.rows.map((s) =>
-       `<a class="sib" href="beaches-tofino.html">
+       `<a class="sib" href="/tofino/beaches">
           <span class="sib__m"><img loading="lazy" src="${cld("guides/tofino/beaches/" + s.img,520,390)}" alt="${esc(s.n)}, Tofino"></span>
           <span class="sib__n">${esc(s.n)}</span>
           <span class="sib__t">${esc(s.t)}</span></a>`).join("")}</span>`).join("");
@@ -857,14 +857,14 @@ function paintStatic() {
      </div>`;
 
   $("#stayRest").innerHTML = t.slice(1).map((s) =>
-    `<a class="stay" href="search.html?in=tofino">
+    `<a class="stay" href="/search?in=tofino">
       <div class="stay__m"><img src="${cld(s.hero,520,390)}" alt="${esc(s.alt)}"><span class="rate">${s.rating.toFixed(1)}</span></div>
       <h4>${esc(s.t)}</h4>
       <p class="meta">Tofino &middot; ${s.r} rooms &middot; ${s.b} beds &middot; ${s.ba} baths</p>
       <p class="price">$${s.p} <span>a night</span></p></a>`).join("");
 
   $("#stayRows").innerHTML = u.map((s) =>
-    `<a href="search.html?in=ucluelet">
+    `<a href="/search?in=ucluelet">
       <div class="sr__m"><img src="${cld(s.hero,200,150)}" alt="${esc(s.alt)}"></div>
       <div><p class="sr__n">${esc(s.t)}</p>
       <p class="sr__d">Ucluelet &middot; ${s.r} rooms &middot; ${s.b} beds &middot; ${s.ba} baths &middot; ${s.rating.toFixed(1)} rated</p></div>
@@ -1016,6 +1016,6 @@ addEventListener("keydown", (e) => {
   }
 });
 </script>
-<script src="_nav.js"></script>
+<script src="/prototype/_nav.js"></script>
 </body>
 </html>

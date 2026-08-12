@@ -17,6 +17,11 @@
    Run: node scripts/nav-rebuild.mjs [--check]
 */
 import { readFileSync, writeFileSync } from 'fs';
+import { ROUTES } from './lib/routes.mjs';
+
+/* The tables below name pages by file, because that is what is on disk. Every
+   href they emit is the page's public route. */
+const R = (h) => h.replace(/^([a-z0-9-]+\.html)/, (m) => ROUTES[m] || m);
 
 const DIR = 'design/prototype';
 const CHECK = process.argv.includes('--check');
@@ -95,16 +100,16 @@ function bar(file, cfg) {
   const tabs = SECTIONS[cfg.town].map((s) => {
     const current = cfg.section === s.key;
     /* the tab for the page you are on is an in-page anchor, never a self-reload */
-    const href = current && s.href === cfg.self ? '#top' : s.href;
+    const href = current && s.href === cfg.self ? '#top' : R(s.href);
     return `    <li><a href="${href}"${current ? ' aria-current="page"' : ''}>${s.label}</a></li>`;
   }).join('\n');
 
   let out = `<nav class="placebar" aria-label="${town}"><div class="wrap placebar-in">
-  <a class="placebar__back" href="${backHref}"><span class="n">&larr; ${esc(backLabel)}</span></a>
+  <a class="placebar__back" href="${R(backHref)}"><span class="n">&larr; ${esc(backLabel)}</span></a>
   <ul class="placebar__links">
 ${tabs}
   </ul>
-  <a class="btn btn--primary btn--sm placebar__cta" href="search.html?in=${cfg.town}">Find a stay</a>
+  <a class="btn btn--primary btn--sm placebar__cta" href="/search?in=${cfg.town}">Find a stay</a>
 </div></nav>`;
 
   /* The subject rail: on every subject page, and on the two indexes that list
@@ -113,8 +118,8 @@ ${tabs}
     const chips = SUBJECTS[cfg.town].map((s) => {
       const current = cfg.subject === s.slug;
       const href = current ? '#top'
-        : s.page ? s.page
-        : cfg.town === 'tofino' ? `things-to-do.html#${s.slug}` : 'ucluelet.html#do';
+        : s.page ? R(s.page)
+        : cfg.town === 'tofino' ? `/tofino/things-to-do#${s.slug}` : '/ucluelet#do';
       return `    <li><a href="${href}"${current ? ' aria-current="page"' : ''}${s.page ? '' : ' data-soon'}>${esc(s.label)}</a></li>`;
     }).join('\n');
     out += `\n<nav class="subjectbar" aria-label="Things to do in ${town}"><div class="wrap subjectbar-in">

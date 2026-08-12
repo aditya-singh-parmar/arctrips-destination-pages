@@ -1,10 +1,10 @@
 import {chromium} from '@playwright/test';
-import {readdirSync} from 'fs';
-/* QA_DIR / QA_BASE so the DEPLOYED copy (public/prototype, served at /prototype/)
-   can be checked, not just the local one. The owner reviews the deployed site. */
-const DIR=process.env.QA_DIR||'design/prototype';
-const BASE=process.env.QA_BASE||'http://127.0.0.1:4321/prototype/';
-const pages=readdirSync(DIR).filter(f=>f.endsWith('.html')&&!f.startsWith('_')).sort();
+import {ROUTES} from './lib/routes.mjs';
+/* Clean URLs are served by next.config.ts rewrites, so this needs a Next server
+   (npm run dev / npm start) or the deployed origin, not a static file server.
+   QA_BASE points it at the deployed site: the owner reviews that, not localhost. */
+const BASE=(process.env.QA_BASE||'http://localhost:3000').replace(/\/$/,'');
+const pages=Object.values(ROUTES).sort();
 const b=await chromium.launch();
 let bad=0;
 for(const p of pages){

@@ -9,8 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap" rel="stylesheet">
-<link rel="icon" href="brand/arctrips-icon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="_system.css">
+<link rel="icon" href="/prototype/brand/arctrips-icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/prototype/_system.css">
 <style>
 /* ── Page-scoped only. Built from _system.css tokens, no new colour values. ──
       This page is the root of the tree. British Columbia is not a level you
@@ -442,15 +442,15 @@ footer.f{margin-top:0}
 
 <!-- GLOBAL NAV. Identical on every page: Stays, Destinations, Guides. -->
 <nav class="top"><div class="wrap nav-in">
-  <a class="brand" href="#top"><img class="brand__mark" src="brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
+  <a class="brand" href="#top"><img class="brand__mark" src="/prototype/brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
   <ul class="nav-links">
-    <li><a href="search.html?q=stays&amp;show=stays">Stays</a></li>
+    <li><a href="/search?q=stays&amp;show=stays">Stays</a></li>
     <li><a href="#top" aria-current="page">Destinations</a></li>
-    <li><a href="search.html">Guides</a></li>
+    <li><a href="/search">Guides</a></li>
   </ul>
 
   <div class="finder">
-    <form class="search" role="search" action="search.html" method="get" id="finder">
+    <form class="search" role="search" action="/search" method="get" id="finder">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
       <label class="vh" for="q">Search towns, places and guides</label>
       <input id="q" name="q" type="search" placeholder="Tofino, Long Beach, Wild Pacific Trail"
@@ -460,7 +460,7 @@ footer.f{margin-top:0}
     <div class="qpanel" id="qpanel" role="listbox" aria-label="Towns, places and guides" hidden></div>
   </div>
 
-  <a class="btn btn--ink btn--sm" href="not-found.html">Sign in</a>
+  <a class="btn btn--ink btn--sm" href="/not-found">Sign in</a>
 </div></nav>
 
 <!-- PLACE BAR. Same bar as every other level of the tree. British Columbia is
@@ -474,7 +474,7 @@ footer.f{margin-top:0}
     <li><a href="#guides">Island guides</a></li>
     <li><a href="#almanac">When to go</a></li>
   </ul>
-  <a class="btn btn--ghost btn--sm placebar__cta" href="search.html?q=stays&amp;show=stays">Find a stay</a>
+  <a class="btn btn--ghost btn--sm placebar__cta" href="/search?q=stays&amp;show=stays">Find a stay</a>
 </div></nav>
 
 <main id="main">
@@ -488,7 +488,7 @@ footer.f{margin-top:0}
     <p class="lede">Fifteen towns across four regions. The two we know best sit forty kilometres apart on the same stretch of west coast, at the end of one road through the rainforest.</p>
     <div class="hero-cta">
       <a class="btn btn--primary btn--lg" href="#destinations">Browse the towns</a>
-      <a class="btn btn--ghost" href="region.html">Open Vancouver Island</a>
+      <a class="btn btn--ghost" href="/vancouver-island">Open Vancouver Island</a>
     </div>
     <p class="hero-note" id="heroNote"></p>
   </div>
@@ -503,9 +503,9 @@ footer.f{margin-top:0}
       </svg>
     </div>
 
-    <a class="plate p1" href="tofino.html"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_760,h_1000/arcstudio/wnrrcrf4lnalgzbjvsz8" alt="A small town on a forested inlet seen from the air, with a boat wake crossing the channel and mountains behind"><figcaption>Tofino, from above the inlet</figcaption></a>
-    <a class="plate p2" href="victoria.html"><img src="media/victoria/image31.jpg" alt="The red and gold Gate of Harmonious Interest across the street at the entrance to Victoria's Chinatown"><figcaption>Victoria, the Chinatown gate</figcaption></a>
-    <a class="plate p3" href="whistler.html"><img src="media/whistler/image5.jpg" alt="Two children with skis riding a red gondola cabin above snow-covered peaks and forest"><figcaption>Whistler, up the Sea to Sky</figcaption></a>
+    <a class="plate p1" href="/tofino"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_760,h_1000/arcstudio/wnrrcrf4lnalgzbjvsz8" alt="A small town on a forested inlet seen from the air, with a boat wake crossing the channel and mountains behind"><figcaption>Tofino, from above the inlet</figcaption></a>
+    <a class="plate p2" href="/victoria"><img src="/prototype/media/victoria/image31.jpg" alt="The red and gold Gate of Harmonious Interest across the street at the entrance to Victoria's Chinatown"><figcaption>Victoria, the Chinatown gate</figcaption></a>
+    <a class="plate p3" href="/whistler"><img src="/prototype/media/whistler/image5.jpg" alt="Two children with skis riding a red gondola cabin above snow-covered peaks and forest"><figcaption>Whistler, up the Sea to Sky</figcaption></a>
 
     <div class="route" aria-hidden="true">
       <svg viewBox="0 0 520 480" fill="none">
@@ -535,8 +535,8 @@ footer.f{margin-top:0}
     <p class="isle__l" id="isleLead"></p>
     <dl class="isle-num" id="isleNum"></dl>
     <div class="isle-cta">
-      <a class="btn btn--light" href="region.html">Open the region</a>
-      <a class="btn btn--ghost" href="tofino.html">Start in Tofino</a>
+      <a class="btn btn--light" href="/vancouver-island">Open the region</a>
+      <a class="btn btn--ghost" href="/tofino">Start in Tofino</a>
     </div>
   </div>
 </section>
@@ -548,7 +548,7 @@ footer.f{margin-top:0}
       <h2 style="margin-top:11px">Start on the west coast</h2>
       <p id="destDek"></p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="region.html">All of Vancouver Island</a>
+    <a class="btn btn--ghost btn--sm" href="/vancouver-island">All of Vancouver Island</a>
   </div>
 
   <div class="dgrid dgrid--feat" id="dfeat"></div>
@@ -577,7 +577,7 @@ footer.f{margin-top:0}
       <h2 style="margin-top:11px">Planning the whole island</h2>
       <p>These cross every town line on Vancouver Island, so they sit at this level. Each one names its places, and the names are what you are reading below.</p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="region.html#guides">All island guides</a>
+    <a class="btn btn--ghost btn--sm" href="/vancouver-island#guides">All island guides</a>
   </div>
   <div class="ggrid" id="ggrid"></div>
 </div></section>
@@ -589,7 +589,7 @@ footer.f{margin-top:0}
         <h2>When should you go?</h2>
         <p>Pick a month and you get the honest answer for the two finished towns: the weather they really have, what is in season, and what you can book.</p>
       </div>
-      <a class="btn btn--ghost btn--sm" href="plan.html">Plan a Tofino trip</a>
+      <a class="btn btn--ghost btn--sm" href="/tofino/plan">Plan a Tofino trip</a>
     </div>
 
     <div class="mswwrap">
@@ -626,7 +626,7 @@ footer.f{margin-top:0}
 
     <div class="innow">
       <p id="innowH"></p>
-      <a href="search.html">Search every place<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+      <a href="/search">Search every place<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
     </div>
 
     <p class="almanac__legend">Climate figures are Environment and Climate Change Canada normals for Tofino and Ucluelet, seeded for design.</p>
@@ -642,11 +642,11 @@ footer.f{margin-top:0}
       <h2 style="margin-top:11px">Latest reading</h2>
       <p id="readDek"></p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="things-to-do.html">Everything to do in Tofino</a>
+    <a class="btn btn--ghost btn--sm" href="/tofino/things-to-do">Everything to do in Tofino</a>
   </div>
 
   <div class="read">
-    <a class="feat" href="search.html?q=Best%20Time%20to%20Stay%20in%20Ucluelet%20or%20Tofino">
+    <a class="feat" href="/search?q=Best%20Time%20to%20Stay%20in%20Ucluelet%20or%20Tofino">
       <div class="feat__m"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_1100,h_690/guides/tofino/when-to-go/_category-1" alt="A surfer in the shorebreak at sunset on the Tofino coast"></div>
       <div class="kmeta"><span class="k">When to go</span><span class="dot"></span><span>Tofino and Ucluelet</span></div>
       <h3>Best time to stay in Ucluelet or Tofino</h3>
@@ -664,7 +664,7 @@ footer.f{margin-top:0}
       <h2 style="margin-top:11px">The awkward questions</h2>
       <p id="qaDek"></p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="things-to-do.html#questions">All of them, by subject</a>
+    <a class="btn btn--ghost btn--sm" href="/tofino/things-to-do#questions">All of them, by subject</a>
   </div>
   <div class="qagrid" id="qa"></div>
 </div></section>
@@ -678,7 +678,7 @@ footer.f{margin-top:0}
       <img class="who__a" src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_120,h_120/andrea-davis-44f42VRbGQg-unsplash_q9h9op" alt="">
       <div><b>Maren H.</b><span>Stayed four nights in Tofino</span></div>
     </div>
-    <a class="btn btn--ghost btn--sm" style="margin-top:26px" href="tofino.html">Read the Tofino guide</a>
+    <a class="btn btn--ghost btn--sm" style="margin-top:26px" href="/tofino">Read the Tofino guide</a>
   </div>
   <div>
     <div class="vmedia">
@@ -711,22 +711,22 @@ footer.f{margin-top:0}
 <footer class="f"><div class="wrap">
   <div class="fgrid">
     <div>
-      <span class="fbrand"><img class="fbrand__mark" src="brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></span>
+      <span class="fbrand"><img class="fbrand__mark" src="/prototype/brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></span>
       <p class="fnote">Stays and guides in British Columbia, written by people who go there.</p>
     </div>
     <div><h5>British Columbia</h5><ul>
-      <li><a href="tofino.html">Tofino</a></li><li><a href="ucluelet.html">Ucluelet</a></li>
-      <li><a href="region.html">Vancouver Island</a></li><li><a href="#mainland">The mainland</a></li>
-      <li><a href="search.html">Search everything</a></li></ul></div>
+      <li><a href="/tofino">Tofino</a></li><li><a href="/ucluelet">Ucluelet</a></li>
+      <li><a href="/vancouver-island">Vancouver Island</a></li><li><a href="#mainland">The mainland</a></li>
+      <li><a href="/search">Search everything</a></li></ul></div>
     <div><h5>Things to do</h5><ul>
-      <li><a href="things-to-do.html">All nine subjects</a></li><li><a href="whale-watching.html">Whale watching</a></li>
-      <li><a href="long-beach.html">Long Beach</a></li><li><a href="region.html#guides">Island guides</a></li></ul></div>
+      <li><a href="/tofino/things-to-do">All nine subjects</a></li><li><a href="/tofino/whale-watching">Whale watching</a></li>
+      <li><a href="/tofino/long-beach">Long Beach</a></li><li><a href="/vancouver-island#guides">Island guides</a></li></ul></div>
     <div><h5>Plan</h5><ul>
-      <li><a href="plan.html">When to go</a></li><li><a href="#almanac">Month by month</a></li>
-      <li><a href="search.html?q=stays&amp;show=stays">Where to stay</a></li><li><a href="guide.html">Wildlife tours in Tofino</a></li></ul></div>
+      <li><a href="/tofino/plan">When to go</a></li><li><a href="#almanac">Month by month</a></li>
+      <li><a href="/search?q=stays&amp;show=stays">Where to stay</a></li><li><a href="/tofino/guides">Wildlife tours in Tofino</a></li></ul></div>
     <div><h5>Arc Trips</h5><ul>
-      <li><a href="not-found.html">About us</a></li><li><a href="not-found.html">List your place</a></li>
-      <li><a href="not-found.html">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
+      <li><a href="/not-found">About us</a></li><li><a href="/not-found">List your place</a></li>
+      <li><a href="/not-found">Fishing charters</a></li><li><a href="/not-found">Contact</a></li></ul></div>
   </div>
   <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees</span></div>
 </div></footer>
@@ -744,27 +744,27 @@ const DATA = {"counts":{"places":127,"photos":84,"guidePhotos":88,"notes":124,"t
    tree and must never appear in a British Columbia count. */
 const BC = {
   island: [
-    {n:"Tofino", h:"tofino.html", p:73, g:9, open:true,
+    {n:"Tofino", h:"/tofino", p:73, g:9, open:true,
      d:"Long Beach, Chesterman Beach, Cox Bay, the Tonquin Trail, Wolf in the Fog. Nine guides, from surfing to storm watching."},
-    {n:"Ucluelet", h:"ucluelet.html", p:54, g:6, open:true,
+    {n:"Ucluelet", h:"/ucluelet", p:54, g:6, open:true,
      d:"The Wild Pacific Trail, the Lighthouse Loop, Big Beach, Pluvio and Heartwood. Six guides, and the spring whale migration in full."},
-    {n:"Victoria", img:"media/victoria/image30.jpg", h:"victoria.html", p:100, g:6,
+    {n:"Victoria", img:"/prototype/media/victoria/image30.jpg", h:"/victoria", p:100, g:6,
      d:"The Butchart Gardens, the Inner Harbour, the Royal BC Museum, Dallas Road, Esquimalt Lagoon."},
-    {n:"Sooke", img:"media/sooke/image32.jpg", h:"sooke.html", p:30, g:1,
+    {n:"Sooke", img:"/prototype/media/sooke/image32.jpg", h:"/sooke", p:30, g:1,
      d:"Sooke Potholes, East Sooke Regional Park, Whiffin Spit, Sheringham Point Lighthouse."},
-    {n:"Parksville", img:"media/parksville/image19.jpg", h:"parksville.html", p:28, g:1,
+    {n:"Parksville", img:"/prototype/media/parksville/image19.jpg", h:"/parksville", p:28, g:1,
      d:"Rathtrevor Beach Provincial Park, Parksville Beach, and the whale and wildlife trips out of the bay."},
-    {n:"Nanaimo", img:"media/nanaimo/image1.jpg", h:"nanaimo.html", p:27, g:1,
+    {n:"Nanaimo", img:"/prototype/media/nanaimo/image1.jpg", h:"/nanaimo", p:27, g:1,
      d:"Saysutshun, the Harbourfront Walkway, whale and marine tours, and the fishing off Departure Bay."},
-    {n:"Nanoose Bay", img:"media/nanoose/image4.jpg", h:"nanoose.html", p:16, g:1,
+    {n:"Nanoose Bay", img:"/prototype/media/nanoose/image4.jpg", h:"/nanoose", p:16, g:1,
      d:"Moorecroft Regional Park, Notch Hill, Fairwinds Marina, Beachcomber Regional Park."},
-    {n:"Sidney", img:"media/sidney/image6.jpg", h:"sidney.html", p:16, g:1,
+    {n:"Sidney", img:"/prototype/media/sidney/image6.jpg", h:"/sidney", p:16, g:1,
      d:"Sidney Spit in the Gulf Islands National Park Reserve, the Butchart Gardens, and the Saanich Peninsula."},
-    {n:"Chemainus", img:"media/chemainus/image9.jpg", h:"chemainus.html", p:15, g:1,
+    {n:"Chemainus", img:"/prototype/media/chemainus/image9.jpg", h:"/chemainus", p:15, g:1,
      d:"The murals, the Chemainus Theatre Festival, the galleries, and the harbour views."},
-    {n:"Campbell River", img:"media/campbell-river/image3.jpg", h:"campbell-river.html", p:14, g:1,
+    {n:"Campbell River", img:"/prototype/media/campbell-river/image3.jpg", h:"/campbell-river", p:14, g:1,
      d:"Discovery Passage, Tyee Spit, the Maritime Heritage Centre, cold water diving."},
-    {n:"Shawnigan Lake", img:"media/shawnigan-lake/image12.jpg", h:"shawnigan-lake.html", p:12, g:1,
+    {n:"Shawnigan Lake", img:"/prototype/media/shawnigan-lake/image12.jpg", h:"/shawnigan-lake", p:12, g:1,
      d:"The Kinsol Trestle, the lake itself, the Cowichan Valley Trail, West Shawnigan Lake Park."}
   ],
 
@@ -772,11 +772,11 @@ const BC = {
      pages in this prototype. */
   mainland: [
     {n:"Sea to Sky", w:"The highway north out of Vancouver, and the two towns on it.",
-     towns:[{n:"Whistler", h:"whistler.html", p:219, g:8},{n:"Squamish", h:"squamish.html", p:73, g:4}]},
+     towns:[{n:"Whistler", h:"/whistler", p:219, g:8},{n:"Squamish", h:"/squamish", p:73, g:4}]},
     {n:"Lower Mainland", w:"The city itself, its shoreline and the mountains behind it.",
-     towns:[{n:"Vancouver", h:"vancouver.html", p:76, g:2}]},
+     towns:[{n:"Vancouver", h:"/vancouver", p:76, g:2}]},
     {n:"Kootenays", w:"Mountain towns, deep snow, and the lake country that made them known.",
-     towns:[{n:"Nelson", h:"nelson.html", p:12, g:2}]}
+     towns:[{n:"Nelson", h:"/nelson", p:12, g:2}]}
   ],
 
   /* Guides written across the whole island, belonging to no single town. */
@@ -816,11 +816,11 @@ const BC = {
 /* The towns that carry real content outside British Columbia. They are here
    so the search can still reach them, and nowhere else on this page. */
 const OFF_TREE = [
-  ["Banff","banff.html","Alberta"], ["Jasper","jasper.html","Alberta"], ["Edmonton","edmonton.html","Alberta"],
-  ["Saskatoon","saskatoon.html","Saskatchewan"], ["Montreal","montreal.html","Quebec"],
-  ["Quebec City","quebec-city.html","Quebec"], ["Ottawa","ottawa.html","Ontario"],
-  ["Niagara Falls","niagara-falls.html","Ontario"], ["Halifax","halifax.html","Nova Scotia"],
-  ["Charlottetown","charlottetown.html","Prince Edward Island"], ["St John's","st-john.html","Newfoundland and Labrador"]
+  ["Banff","/banff","Alberta"], ["Jasper","/jasper","Alberta"], ["Edmonton","/edmonton","Alberta"],
+  ["Saskatoon","/saskatoon","Saskatchewan"], ["Montreal","/montreal","Quebec"],
+  ["Quebec City","/quebec-city","Quebec"], ["Ottawa","/ottawa","Ontario"],
+  ["Niagara Falls","/niagara-falls","Ontario"], ["Halifax","/halifax","Nova Scotia"],
+  ["Charlottetown","/charlottetown","Prince Edward Island"], ["St John's","/st-john","Newfoundland and Labrador"]
 ];
 
 /* ── helpers ─────────────────────────────────────────────────────────────── */
@@ -867,25 +867,25 @@ T.guides = T.islandTownGuides + T.islandWideGuides + T.mainlandGuides;
    town the label names. A subject with no page of its own goes to the subject
    index for its town, never to a page about a different town. */
 const SUBJECT_PAGE = {
-  "tofino/beaches":"beaches-tofino.html", "tofino/hiking":"hiking-tofino.html",
-  "tofino/kayaking":"kayaking-tofino.html", "tofino/restaurants":"restaurants-tofino.html",
-  "tofino/storm-watching":"storm-watching-tofino.html", "tofino/whale-watching":"whale-watching.html",
-  "ucluelet/hiking":"hiking-ucluelet.html", "ucluelet/kayaking":"kayaking-ucluelet.html",
-  "ucluelet/restaurants":"restaurants-ucluelet.html", "ucluelet/whale-watching":"whale-watching-ucluelet.html"
+  "tofino/beaches":"/tofino/beaches", "tofino/hiking":"/tofino/hiking",
+  "tofino/kayaking":"/tofino/kayaking", "tofino/restaurants":"/tofino/restaurants",
+  "tofino/storm-watching":"/tofino/storm-watching", "tofino/whale-watching":"/tofino/whale-watching",
+  "ucluelet/hiking":"/ucluelet/hiking", "ucluelet/kayaking":"/ucluelet/kayaking",
+  "ucluelet/restaurants":"/ucluelet/restaurants", "ucluelet/whale-watching":"/ucluelet/whale-watching"
 };
-const SUBJECT_INDEX = (town) => town === "Ucluelet" ? "ucluelet.html#do" : "things-to-do.html#subjects";
+const SUBJECT_INDEX = (town) => town === "Ucluelet" ? "/ucluelet#do" : "/tofino/things-to-do#subjects";
 const SUBJECT_PAGE_FOR = (cat, towns) => {
   const t = (towns && towns.indexOf("Tofino") >= 0) || !towns || !towns.length ? "tofino" : towns[0].toLowerCase();
   return SUBJECT_PAGE[t + "/" + cat] || SUBJECT_INDEX(t === "tofino" ? "Tofino" : towns[0]);
 };
-const PAGE = (cat, name, city) => name === "Long Beach" ? "long-beach.html"
+const PAGE = (cat, name, city) => name === "Long Beach" ? "/tofino/long-beach"
   : SUBJECT_PAGE[(city || "Tofino").toLowerCase() + "/" + cat] || SUBJECT_INDEX(city || "Tofino");
-const TOWN_PAGE = (slug) => slug === "tofino" ? "tofino.html" : slug === "ucluelet" ? "ucluelet.html" : "region.html";
+const TOWN_PAGE = (slug) => slug === "tofino" ? "/tofino" : slug === "ucluelet" ? "/ucluelet" : "/vancouver-island";
 /* Only one article page was built. Every other title goes to the result list
    that contains it rather than to somebody else's article. */
 const ARTICLE_HREF = (title, where) => /^wildlife tours in tofino$/i.test(title)
-  ? "guide.html"
-  : "search.html?q=" + encodeURIComponent(title) +
+  ? "/tofino/guides"
+  : "/search?q=" + encodeURIComponent(title) +
     (where === "Tofino" || where === "Ucluelet" ? "&in=" + where.toLowerCase() : "");
 
 /* Longest contiguous runs of months, read round the year, so a winter season
@@ -944,7 +944,7 @@ const G_OFF = "Towns elsewhere in Canada";
 const FIND = [
   ...BC.island.map((t) => ({ n: t.n, m: `Vancouver Island, ${t.p} places`, href: t.h, g: G_BC })),
   ...BC.mainland.flatMap((r) => r.towns.map((t) => ({ n: t.n, m: `${r.n}, ${t.p} places`, href: t.h, g: G_BC }))),
-  { n: "Vancouver Island", m: "Region, 11 towns", href: "region.html", g: G_BC },
+  { n: "Vancouver Island", m: "Region, 11 towns", href: "/vancouver-island", g: G_BC },
   ...PLACES.map((p) => ({ n: p.n, m: p.city, href: PAGE(p.cat, p.n, p.city), g: "Places" })),
   ...DATA.subjects.map((s) => ({ n: s.name, m: `${plural(s.guides,"guide")}, ${list(s.towns)}`,
     href: SUBJECT_PAGE_FOR(s.cat, s.towns), g: "Subjects" })),
@@ -968,7 +968,7 @@ function paintFinder(q){
   fIdx = -1;
   const panel = $("#qpanel");
   if (!fRows.length){
-    panel.innerHTML = `<p class="qnone">Nothing by that name yet. <a href="search.html" style="color:var(--azure);font-weight:600">Search everything</a>.</p>`;
+    panel.innerHTML = `<p class="qnone">Nothing by that name yet. <a href="/search" style="color:var(--azure);font-weight:600">Search everything</a>.</p>`;
   } else {
     let g = "", html = "";
     fRows.forEach((r, i) => {
@@ -1111,7 +1111,7 @@ function paintGuides(){
   $("#ggrid").innerHTML = BC.islandGuides.map((g,i) => `
     <a class="gc" href="${ARTICLE_HREF(g.t)}">
       <span class="gc__i tnum">${String(i+1).padStart(2,"0")}</span>
-      <span class="gc__m"><img src="${g.img.startsWith("media/") ? g.img : cld(g.img,520,390)}" alt="${esc(g.t)}" loading="lazy"></span>
+      <span class="gc__m"><img src="${g.img.startsWith("/prototype/media/") ? g.img : cld(g.img,520,390)}" alt="${esc(g.t)}" loading="lazy"></span>
       <span class="gc__b">
         <h3>${esc(g.t.replace(/ on Vancouver Island$/,"").replace(/^Vancouver Island: /,""))}</h3>
         <span class="gc__p">${g.items.slice(0,3).map(esc).join(", ")}, and ${g.items.length - 3} more</span>
@@ -1319,6 +1319,6 @@ addEventListener("keydown", (e) => {
   }
 });
 </script>
-<script src="_nav.js"></script>
+<script src="/prototype/_nav.js"></script>
 </body>
 </html>

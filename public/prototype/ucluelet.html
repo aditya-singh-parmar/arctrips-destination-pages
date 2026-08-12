@@ -9,11 +9,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap" rel="stylesheet">
-<link rel="icon" href="brand/arctrips-icon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="_system.css">
+<link rel="icon" href="/prototype/brand/arctrips-icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/prototype/_system.css">
 <style>
 /* Page-scoped only. Tokens from _system.css, no new colour values.
-   Ucluelet has no plan.html and no things-to-do.html of its own, so this page
+   Ucluelet has no /tofino/plan and no /tofino/things-to-do of its own, so this page
    IS the town's subject index: #do is the numbered list other pages link into.
    Sections are ordered the way a trip is planned: where am I, what is here,
    where do I sleep, what is next door, what do I still need to ask. */
@@ -163,36 +163,36 @@ body>a.skip:focus{top:0}
 <a class="skip" href="#main">Skip to content</a>
 
 <nav class="top"><div class="wrap nav-in">
-  <a class="brand" href="index.html"><img class="brand__mark" src="brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
+  <a class="brand" href="/"><img class="brand__mark" src="/prototype/brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
   <ul class="nav-links">
-    <li><a href="search.html?in=ucluelet">Stays</a></li>
-    <li><a href="index.html" aria-current="true">Destinations</a></li>
-    <li><a href="search.html?in=ucluelet">Guides</a></li>
+    <li><a href="/search?in=ucluelet">Stays</a></li>
+    <li><a href="/" aria-current="true">Destinations</a></li>
+    <li><a href="/search?in=ucluelet">Guides</a></li>
   </ul>
-  <form class="search" role="search" action="search.html" method="get">
+  <form class="search" role="search" action="/search" method="get">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
     <label class="vh" for="q">Go to a place, a trail or a guide</label>
     <input id="q" name="q" type="search" placeholder="Wild Pacific Trail, Ucluelet Harbour, Pluvio">
     <kbd>/</kbd>
   </form>
-  <a class="btn btn--ink btn--sm" href="not-found.html">Sign in</a>
+  <a class="btn btn--ink btn--sm" href="/not-found">Sign in</a>
 </div></nav>
 
 <nav class="placebar" aria-label="Ucluelet"><div class="wrap placebar-in">
-  <a class="placebar__back" href="region.html"><span class="n">&larr; Vancouver Island</span></a>
+  <a class="placebar__back" href="/vancouver-island"><span class="n">&larr; Vancouver Island</span></a>
   <ul class="placebar__links">
     <li><a href="#top" aria-current="page">Overview</a></li>
-    <li><a href="ucluelet.html#do">Things to do</a></li>
+    <li><a href="/ucluelet#do">Things to do</a></li>
   </ul>
-  <a class="btn btn--primary btn--sm placebar__cta" href="search.html?in=ucluelet">Find a stay</a>
+  <a class="btn btn--primary btn--sm placebar__cta" href="/search?in=ucluelet">Find a stay</a>
 </div></nav>
 <nav class="subjectbar" aria-label="Things to do in Ucluelet"><div class="wrap subjectbar-in">
   <span class="subjectbar__l">Things to do</span>
   <ul class="subjectbar__links">
-    <li><a href="hiking-ucluelet.html">Hiking &amp; trails</a></li>
-    <li><a href="kayaking-ucluelet.html">Kayaking</a></li>
-    <li><a href="whale-watching-ucluelet.html">Whale watching</a></li>
-    <li><a href="restaurants-ucluelet.html">Restaurants</a></li>
+    <li><a href="/ucluelet/hiking">Hiking &amp; trails</a></li>
+    <li><a href="/ucluelet/kayaking">Kayaking</a></li>
+    <li><a href="/ucluelet/whale-watching">Whale watching</a></li>
+    <li><a href="/ucluelet/restaurants">Restaurants</a></li>
   </ul>
 </div></nav>
 
@@ -200,8 +200,8 @@ body>a.skip:focus{top:0}
 
 <div class="wrap">
   <nav class="crumb" aria-label="Breadcrumb">
-    <a class="lvl-deep" href="index.html">British Columbia</a><span class="sep lvl-deep" aria-hidden="true">/</span>
-    <a href="region.html">Vancouver Island</a><span class="sep" aria-hidden="true">/</span>
+    <a class="lvl-deep" href="/">British Columbia</a><span class="sep lvl-deep" aria-hidden="true">/</span>
+    <a href="/vancouver-island">Vancouver Island</a><span class="sep" aria-hidden="true">/</span>
     <span aria-current="page">Ucluelet</span>
   </nav>
 </div>
@@ -248,7 +248,7 @@ body>a.skip:focus{top:0}
     </div>
   </div>
   <ol class="ixlist">
-    <li><a class="ix" href="hiking-ucluelet.html">
+    <li><a class="ix" href="/ucluelet/hiking">
       <div class="ix__m"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_620,h_465/guides/ucluelet/hiking/wild-pacific-trail-1" alt="A gravel path and a bench on the Wild Pacific Trail above the rocky Ucluelet shore" loading="lazy"></div>
       <div class="ix__b">
         <div class="ix__h"><span class="ix__n tnum">01</span><h3>Hiking &amp; trails</h3></div>
@@ -256,7 +256,7 @@ body>a.skip:focus{top:0}
         <p class="ix__k">Most of the Wild Pacific Trail is easy and well marked: gravel path, benches and ocean viewpoints, with stairs or uneven ground in places.</p>
       </div>
     </a></li>
-    <li><a class="ix" href="whale-watching-ucluelet.html">
+    <li><a class="ix" href="/ucluelet/whale-watching">
       <div class="ix__m"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_620,h_465/guides/ucluelet/whale-watching/_category-1" alt="An orca surfacing beside a whale watching boat off Ucluelet" loading="lazy"></div>
       <div class="ix__b">
         <div class="ix__h"><span class="ix__n tnum">02</span><h3>Whale watching</h3></div>
@@ -264,7 +264,7 @@ body>a.skip:focus{top:0}
         <p class="ix__k">Gray whales on the spring migration March to May, humpbacks through September. Boat tours run about 2.5 to 3 hours. From shore, bring binoculars.</p>
       </div>
     </a></li>
-    <li><a class="ix" href="kayaking-ucluelet.html">
+    <li><a class="ix" href="/ucluelet/kayaking">
       <div class="ix__m"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_620,h_465/guides/ucluelet/kayaking/_category-1" alt="Two kayaks on flat sheltered water below a forested hillside near Ucluelet" loading="lazy"></div>
       <div class="ix__b">
         <div class="ix__h"><span class="ix__n tnum">03</span><h3>Kayaking &amp; paddling</h3></div>
@@ -272,7 +272,7 @@ body>a.skip:focus{top:0}
         <p class="ix__k">The harbour is the beginner water and stays sheltered. Barkley Sound is the scenic sea paddle. The Broken Group is a multi-day trip with island camping.</p>
       </div>
     </a></li>
-    <li><a class="ix" href="restaurants-ucluelet.html">
+    <li><a class="ix" href="/ucluelet/restaurants">
       <div class="ix__m"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_620,h_465/guides/ucluelet/restaurants/floathouse-patio-grill-1" alt="The Floathouse Patio and Grill on the Ucluelet harbourfront, moored among fishing boats" loading="lazy"></div>
       <div class="ix__b">
         <div class="ix__h"><span class="ix__n tnum">04</span><h3>Restaurants</h3></div>
@@ -296,7 +296,7 @@ body>a.skip:focus{top:0}
         <div><dt>Nightly, from</dt><dd class="tnum">$320<small>CAD</small></dd></div>
       </dl>
       <p class="staynote">Prices in CAD, before taxes and fees. Summer is the tightest stretch: campground sites in the area go months ahead.</p>
-      <a class="btn btn--ghost" href="search.html?in=ucluelet">Search stays in Ucluelet</a>
+      <a class="btn btn--ghost" href="/search?in=ucluelet">Search stays in Ucluelet</a>
     </div>
   </div>
 </div></section>
@@ -309,25 +309,25 @@ body>a.skip:focus{top:0}
     </div>
   </div>
   <nav class="siblings" aria-label="Nearby towns and levels above">
-    <a class="sib" href="tofino.html"><span class="sib__n">Tofino</span><span class="sib__m tnum">Forty minutes north &middot; 134 stays</span><span class="sib__d">The busier of the pair, and the long surf beaches are on that side.</span></a>
-    <a class="sib" href="region.html"><span class="sib__n">Vancouver Island</span><span class="sib__m tnum">11 towns</span><span class="sib__d">The region page, with every town on the island.</span></a>
-    <a class="sib" href="index.html"><span class="sib__n">British Columbia</span><span class="sib__m tnum">15 towns</span><span class="sib__d">Whistler, Squamish, Vancouver and the rest of the province.</span></a>
+    <a class="sib" href="/tofino"><span class="sib__n">Tofino</span><span class="sib__m tnum">Forty minutes north &middot; 134 stays</span><span class="sib__d">The busier of the pair, and the long surf beaches are on that side.</span></a>
+    <a class="sib" href="/vancouver-island"><span class="sib__n">Vancouver Island</span><span class="sib__m tnum">11 towns</span><span class="sib__d">The region page, with every town on the island.</span></a>
+    <a class="sib" href="/"><span class="sib__n">British Columbia</span><span class="sib__m tnum">15 towns</span><span class="sib__d">Whistler, Squamish, Vancouver and the rest of the province.</span></a>
   </nav>
   <div class="roster">
     <h3>Other towns on Vancouver Island</h3>
     <p>These do not have a full guide yet. Tofino and Ucluelet are the two that do.</p>
     <ul>
-      <li><a href="victoria.html">Victoria</a></li>
-      <li><a href="nanaimo.html">Nanaimo</a></li>
-      <li><a href="campbell-river.html">Campbell River</a></li>
-      <li><a href="parksville.html">Parksville</a></li>
-      <li><a href="sooke.html">Sooke</a></li>
-      <li><a href="sidney.html">Sidney</a></li>
-      <li><a href="chemainus.html">Chemainus</a></li>
-      <li><a href="nanoose.html">Nanoose Bay</a></li>
-      <li><a href="shawnigan-lake.html">Shawnigan Lake</a></li>
+      <li><a href="/victoria">Victoria</a></li>
+      <li><a href="/nanaimo">Nanaimo</a></li>
+      <li><a href="/campbell-river">Campbell River</a></li>
+      <li><a href="/parksville">Parksville</a></li>
+      <li><a href="/sooke">Sooke</a></li>
+      <li><a href="/sidney">Sidney</a></li>
+      <li><a href="/chemainus">Chemainus</a></li>
+      <li><a href="/nanoose">Nanoose Bay</a></li>
+      <li><a href="/shawnigan-lake">Shawnigan Lake</a></li>
     </ul>
-    <a class="go" href="region.html">Open the Vancouver Island page
+    <a class="go" href="/vancouver-island">Open the Vancouver Island page
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
   </div>
 </div></section>
@@ -360,30 +360,30 @@ body>a.skip:focus{top:0}
 <footer class="f"><div class="wrap">
   <div class="fgrid">
     <div>
-      <span class="fbrand"><img class="fbrand__mark" src="brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></span>
+      <span class="fbrand"><img class="fbrand__mark" src="/prototype/brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></span>
       <p class="fnote">Stays and guides on the west coast of Vancouver Island, written by people who go there.</p>
     </div>
     <div><h5>This town</h5><ul>
       <li><a href="#top">Ucluelet overview</a></li><li><a href="#do">Things to do</a></li>
       <li><a href="#stays">Stays</a></li><li><a href="#questions">Questions</a></li></ul></div>
     <div><h5>Up the tree</h5><ul>
-      <li><a href="region.html">Vancouver Island</a></li><li><a href="index.html">British Columbia</a></li>
+      <li><a href="/vancouver-island">Vancouver Island</a></li><li><a href="/">British Columbia</a></li>
 </ul></div>
     <div><h5>Subjects</h5><ul>
-      <li><a href="hiking-ucluelet.html">Hiking &amp; trails</a></li><li><a href="whale-watching-ucluelet.html">Whale watching</a></li>
-      <li><a href="kayaking-ucluelet.html">Kayaking &amp; paddling</a></li><li><a href="restaurants-ucluelet.html">Restaurants</a></li></ul></div>
+      <li><a href="/ucluelet/hiking">Hiking &amp; trails</a></li><li><a href="/ucluelet/whale-watching">Whale watching</a></li>
+      <li><a href="/ucluelet/kayaking">Kayaking &amp; paddling</a></li><li><a href="/ucluelet/restaurants">Restaurants</a></li></ul></div>
     <div><h5>Arc Trips</h5><ul>
-      <li><a href="not-found.html">About us</a></li><li><a href="not-found.html">List your place</a></li>
-      <li><a href="search.html?in=ucluelet">Guides in Ucluelet</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
+      <li><a href="/not-found">About us</a></li><li><a href="/not-found">List your place</a></li>
+      <li><a href="/search?in=ucluelet">Guides in Ucluelet</a></li><li><a href="/not-found">Contact</a></li></ul></div>
   </div>
   <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees</span></div>
 </div></footer>
 
 <div class="dock">
   <p class="dock__t"><b>158 stays in Ucluelet</b>from $320 a night</p>
-  <a class="btn btn--primary btn--sm" href="search.html?in=ucluelet">Find a stay</a>
+  <a class="btn btn--primary btn--sm" href="/search?in=ucluelet">Find a stay</a>
 </div>
 
-<script src="_nav.js"></script>
+<script src="/prototype/_nav.js"></script>
 </body>
 </html>

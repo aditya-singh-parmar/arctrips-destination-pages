@@ -11,7 +11,7 @@ export default function NotFound() {
       <h1 className="text-4xl font-semibold tracking-tight">We could not find that page</h1>
       <p className="text-lg">The link may be out of date, or the page may not be published yet.</p>
       <p>
-        <a href="/prototype/index.html">Back to Arc Trips</a>
+        <a href="/">Back to Arc Trips</a>
       </p>
     </main>
   );

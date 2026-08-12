@@ -29,8 +29,8 @@ string, edit the file. That is the single biggest cost in this repo.
 ## The prototype ships from public/, not design/
 
 **The owner reviews the deployed Vercel site, never localhost.** The prototype is
-edited in `design/prototype/` but Vercel serves `public/prototype/` at
-`/prototype/<page>.html`. Verifying `design/` and stopping there means verifying a
+edited in `design/prototype/` but Vercel serves `public/prototype/`, rewritten
+onto the clean routes in `scripts/lib/routes.mjs`. Verifying `design/` and stopping there means verifying a
 copy nobody looks at. On 2026-07-30 the deployed copy was a day stale and had no
 `ucluelet.html` at all, so every Ucluelet link 404'd on the live site while the
 local copy passed clean.
@@ -40,7 +40,7 @@ After any prototype edit:
 ```bash
 node scripts/sync-prototype.mjs                 # design/ -> public/, code only
 node scripts/qa-prototype.mjs public/prototype  # gates against the DEPLOYED copy
-QA_DIR=public/prototype QA_BASE=http://127.0.0.1:4399/prototype/ node scripts/qa-runtime.mjs
+node scripts/qa-runtime.mjs                     # needs a Next server; QA_BASE=<origin> for prod
 git commit && git push                          # Vercel deploys on push
 ```
 
@@ -78,19 +78,32 @@ console errors and non-200s already detected. Do not drive the browser route by 
 **Arc Trips — Destination Pages.** Text- and image-heavy destination/activity guide pages for the Arc Trips **stays** experience. Each page covers a place (Tofino, Ucluelet, Victoria, Whistler, Squamish, Banff, and more) or an activity within it (day hikes, kayaking, whale watching, storm-watching), and points travelers toward curated stays there.
 
 **The site IS the prototype.** On 2026-08-12 the owner ruled that the deployed prototype
-(`https://arctrips-destination-pages.vercel.app/prototype/index.html`) is the primary
+(`https://arctrips-destination-pages.vercel.app/`) is the primary
 site, and the parallel Next.js app that used to serve `/` and the
 `/destinations/{country}/{province}/…` tree was deleted. There is now **one** site, not
 two. Build new routes as prototype pages.
 
 Route model:
-- **`/`** — 307 to `/prototype/index.html` (`next.config.ts`). It has to be a redirect,
-  not a rewrite: every prototype page references `_system.css`, `_nav.js` and its images
-  **relatively**, so serving `index.html` at `/` 404s all of them. That was measured, not
-  assumed.
-- **`/prototype/<page>.html`** — 47 static pages in `public/prototype/`, edited in
-  `design/prototype/`. Navigation is generated into each page by `scripts/nav-rebuild.mjs`;
-  shared content lives in `corpus.json`.
+**`scripts/lib/routes.mjs` is the URL map, and the only place it is written down.**
+`next.config.ts`, both QA gates, `scripts/nav-rebuild.mjs` and `.claude/routes.json`
+all read it. Adding a page means adding one line there; never hand-edit the routes
+in any of the consumers.
+
+- **Clean, nested URLs** (since 2026-08-13): `/`, `/tofino`, `/tofino/things-to-do`,
+  `/tofino/hiking`, `/ucluelet/whale-watching`, `/vancouver-island`, `/search`, and one
+  segment per other town. A town owns its sections and its subjects, which is also what
+  fixed `things-to-do.html`, `plan.html` and `guide.html` sitting at global URLs when
+  all three are Tofino's.
+- **Served by rewrites, not redirects.** Each route rewrites onto its static file in
+  `public/prototype/`, so the clean URL is what the visitor keeps. This works only
+  because every page now references `_system.css`, `_nav.js`, `brand/` and `media/`
+  as **root-absolute `/prototype/...`**. Relative asset paths are what forced the old
+  `/` redirect, and a new page that uses one will 404 its own CSS at depth 2.
+- **The old `/prototype/<page>.html` URLs 301 to their route.** Do not link to them.
+  `qa-prototype.mjs` fails any page that still writes a `.html` href.
+- 47 static pages in `public/prototype/`, edited in `design/prototype/`. Navigation is
+  generated into each page by `scripts/nav-rebuild.mjs`; shared content lives in
+  `corpus.json`.
 - The Next.js app that remains is a **shell**: `app/layout.tsx`, `app/globals.css`,
   `app/not-found.tsx`, `app/icon.svg`. Nothing else renders. Do not rebuild the deleted
   React site to satisfy a page request; add the page to the prototype.
@@ -149,7 +162,7 @@ npm run shots        # sweep every route, both viewports + themes
 npm run audit:ui     # static UI-law scan, whole repo, ~1s
 ```
 
-**Port:** three sibling ArcTrips repos also default to 3000. Whichever starts first wins and the rest land on 3001+ silently. This repo redirects `/` to `/prototype/index.html`, so a sweep meant for another ArcTrips app can land here — confirm what is on the port first.
+**Port:** three sibling ArcTrips repos also default to 3000. Whichever starts first wins and the rest land on 3001+ silently. This repo answers 200 on `/` with the destination home, so a sweep meant for another ArcTrips app can land here — confirm what is on the port first.
 
 The Supabase seed and ingest scripts (`seed`, `seed:geo`, `seed:facts`, `ingest`,
 `verify:ingest`, `backfill:categories`) were deleted with the app on 2026-08-12.
@@ -188,7 +201,8 @@ Hard rules (carried from sibling projects, non-negotiable):
 - `scripts/sync-prototype.mjs` — design to public, code only. Fails if a page exists in one copy only.
 - `scripts/qa-prototype.mjs` / `qa-runtime.mjs` — link, anchor, image and runtime gates over 47 pages.
 - `scripts/lib/decompose.mjs` — docx classifier, unit-tested, kept from the deleted ingestion pipeline.
-- `.claude/routes.json` — the 48 routes `shots.mjs` sweeps. Regenerate by listing `public/prototype/*.html`.
+- `scripts/lib/routes.mjs` — the URL map. One entry per page; every route consumer reads it.
+- `.claude/routes.json` — the 47 routes `shots.mjs` sweeps. Regenerate from `ROUTES`, never by hand.
 
 Tests run with `npm test` (vitest): `scripts/lib/clean.test.mjs` and `scripts/lib/decompose.test.mjs`, 69 tests. Pages are verified with the prototype QA gates and `scripts/shots.mjs`, not with unit tests.
 

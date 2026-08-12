@@ -33,14 +33,14 @@ const missing = [...a].filter((f) => !b.has(f)), extra = [...b].filter((f) => !a
 if (missing.length) console.log(`  MISSING from the deployed copy: ${missing.join(', ')}`);
 if (extra.length) console.log(`  ONLY in the deployed copy: ${extra.join(', ')}`);
 
-/* Every relative asset has to resolve in the deployed copy too, or the page
-   renders with holes on Vercel and looks fine locally. Covers media/ and
-   brand/, and anything added later, because it matches any relative path. */
+/* Every asset has to resolve in the deployed copy too, or the page renders with
+   holes on Vercel and looks fine locally. Asset URLs are root-absolute under
+   /prototype/ since the clean-URL move, so they map straight onto public/. */
 let broken = 0;
 for (const f of b) {
   const s = readFileSync(TO + f, 'utf8');
-  for (const [, attr, src] of s.matchAll(/\b(src|href)="((?!https?:|mailto:|tel:|#|\/)[^":]+\.(?:png|jpe?g|webp|avif|gif|svg|css|js))"/g)) {
-    try { statSync(TO + src); } catch { broken++; console.log(`  ${f}: deployed copy is missing ${attr}="${src}"`); }
+  for (const [, attr, src] of s.matchAll(/\b(src|href)="\/prototype\/([^":]+\.(?:png|jpe?g|webp|avif|gif|svg|css|js))"/g)) {
+    try { statSync(TO + src); } catch { broken++; console.log(`  ${f}: deployed copy is missing ${attr}="/prototype/${src}"`); }
   }
 }
 const bad = missing.length + extra.length + broken;

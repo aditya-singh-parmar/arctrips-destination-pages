@@ -9,8 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap" rel="stylesheet">
-<link rel="icon" href="brand/arctrips-icon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="_system.css">
+<link rel="icon" href="/prototype/brand/arctrips-icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/prototype/_system.css">
 <style>
 /* ── Page-scoped only. Tokens from _system.css, no new colour values, no hex.
       This page had a production report on it: a place count as the headline
@@ -202,39 +202,39 @@ body>a.skip:focus{top:0}
 
 <!-- Global nav, identical to the town pages. -->
 <nav class="top"><div class="wrap nav-in">
-  <a class="brand" href="index.html"><img class="brand__mark" src="brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
+  <a class="brand" href="/"><img class="brand__mark" src="/prototype/brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
   <ul class="nav-links">
-    <li><a href="search.html?q=stays&amp;show=stays">Stays</a></li>
-    <li><a href="index.html">Destinations</a></li>
-    <li><a href="search.html">Guides</a></li>
+    <li><a href="/search?q=stays&amp;show=stays">Stays</a></li>
+    <li><a href="/">Destinations</a></li>
+    <li><a href="/search">Guides</a></li>
   </ul>
-  <form class="search" role="search" action="search.html" method="get">
+  <form class="search" role="search" action="/search" method="get">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
     <label class="vh" for="q">Go to a town, a beach, a trail or a guide</label>
     <input id="q" name="q" type="search" placeholder="Tofino, Wild Pacific Trail, Rathtrevor">
     <kbd>/</kbd>
   </form>
-  <a class="btn btn--ink btn--sm" href="not-found.html">Sign in</a>
+  <a class="btn btn--ink btn--sm" href="/not-found">Sign in</a>
 </div></nav>
 
 <!-- The place bar. Same shape as the town pages: the parent anchor, this
      place's sections, and the booking path. The one primary on the screen. -->
 <nav class="placebar" aria-label="Vancouver Island"><div class="wrap placebar-in">
-  <a class="placebar__back" href="index.html"><span class="n">&larr; British Columbia</span></a>
+  <a class="placebar__back" href="/"><span class="n">&larr; British Columbia</span></a>
   <ul class="placebar__links">
     <li><a href="#top" aria-current="page">Overview</a></li>
     <li><a href="#towns">Towns</a></li>
     <li><a href="#guides">Island guides</a></li>
     <li><a href="#next">Plan</a></li>
   </ul>
-  <a class="btn btn--primary btn--sm placebar__cta" href="search.html?q=stays&amp;show=stays">Find a stay</a>
+  <a class="btn btn--primary btn--sm placebar__cta" href="/search?q=stays&amp;show=stays">Find a stay</a>
 </div></nav>
 
 <main id="main">
 
 <div class="wrap">
   <nav class="crumb" aria-label="Breadcrumb">
-    <a href="index.html">British Columbia</a><span class="sep" aria-hidden="true">&rsaquo;</span>
+    <a href="/">British Columbia</a><span class="sep" aria-hidden="true">&rsaquo;</span>
     <span aria-current="page">Vancouver Island</span>
   </nav>
 </div>
@@ -246,7 +246,7 @@ body>a.skip:focus{top:0}
     <p class="lede">Eleven towns on one long island, from Victoria in the south to Campbell River in the north, with the surf coast reached by a single road west through the mountains.</p>
     <p class="hero-note">That road ends in Tofino and Ucluelet, <b>42 km</b> and about <b>40 minutes</b> apart. They are the two towns taking bookings now, <b>292</b> places to stay from <b>$320</b> a night.</p>
     <div class="hero-cta">
-      <a class="btn btn--ghost" href="search.html?q=stays&amp;show=stays">Find a stay on the island</a>
+      <a class="btn btn--ghost" href="/search?q=stays&amp;show=stays">Find a stay on the island</a>
       <a class="btn btn--ghost" href="#towns">The island, south to north</a>
     </div>
   </div>
@@ -265,7 +265,7 @@ body>a.skip:focus{top:0}
       <h2 style="margin-top:11px">The island, in the order you drive it</h2>
       <p>From the ferry terminals and the airport at the south end to the salmon water in the north. Tofino and Ucluelet, at nine and ten, take bookings now. The other nine open on their photographs and the places worth the drive, with their full guides still being walked.</p>
     </div>
-    <a class="btn btn--ghost" href="index.html#mainland">Rest of British Columbia</a>
+    <a class="btn btn--ghost" href="/#mainland">Rest of British Columbia</a>
   </div>
 
   <div class="stretch">
@@ -275,9 +275,9 @@ body>a.skip:focus{top:0}
     </div>
     <ol class="drive">
 
-      <li class="rrow"><a href="victoria.html">
+      <li class="rrow"><a href="/victoria">
         <span class="rn">01</span>
-        <span class="rm"><img src="media/victoria/image30.jpg" alt="Formal flower beds and clipped lawns in the sunken garden at The Butchart Gardens, Victoria" loading="lazy"></span>
+        <span class="rm"><img src="/prototype/media/victoria/image30.jpg" alt="Formal flower beds and clipped lawns in the sunken garden at The Butchart Gardens, Victoria" loading="lazy"></span>
         <span>
           <span class="rt"><b>Victoria</b></span>
           <span class="rd">The Butchart Gardens, the Inner Harbour, Beacon Hill Park, Fisherman's Wharf and the Royal BC Museum.</span>
@@ -285,9 +285,9 @@ body>a.skip:focus{top:0}
         <svg class="rgo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
       </a></li>
 
-      <li class="rrow"><a href="sooke.html">
+      <li class="rrow"><a href="/sooke">
         <span class="rn">02</span>
-        <span class="rm"><img src="media/sooke/image32.jpg" alt="Green pools and smooth rock in the river canyon at Sooke Potholes Provincial Park" loading="lazy"></span>
+        <span class="rm"><img src="/prototype/media/sooke/image32.jpg" alt="Green pools and smooth rock in the river canyon at Sooke Potholes Provincial Park" loading="lazy"></span>
         <span>
           <span class="rt"><b>Sooke</b></span>
           <span class="rd">Sooke Potholes, East Sooke Regional Park, Whiffin Spit, Sheringham Point Lighthouse and the start of the Juan de Fuca Marine Trail.</span>
@@ -295,9 +295,9 @@ body>a.skip:focus{top:0}
         <svg class="rgo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
       </a></li>
 
-      <li class="rrow"><a href="sidney.html">
+      <li class="rrow"><a href="/sidney">
         <span class="rn">03</span>
-        <span class="rm"><img src="media/sidney/image6.jpg" alt="Curving paths and banked planting seen from above at The Butchart Gardens on the Saanich Peninsula" loading="lazy"></span>
+        <span class="rm"><img src="/prototype/media/sidney/image6.jpg" alt="Curving paths and banked planting seen from above at The Butchart Gardens on the Saanich Peninsula" loading="lazy"></span>
         <span>
           <span class="rt"><b>Sidney</b></span>
           <span class="rd">Sidney Spit in the Gulf Islands National Park Reserve, The Butchart Gardens, and whale watching off the Saanich Peninsula.</span>
@@ -305,9 +305,9 @@ body>a.skip:focus{top:0}
         <svg class="rgo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
       </a></li>
 
-      <li class="rrow"><a href="shawnigan-lake.html">
+      <li class="rrow"><a href="/shawnigan-lake">
         <span class="rn">04</span>
-        <span class="rm"><img src="media/shawnigan-lake/image12.jpg" alt="The long timber deck of the Kinsol Trestle running out through second-growth forest" loading="lazy"></span>
+        <span class="rm"><img src="/prototype/media/shawnigan-lake/image12.jpg" alt="The long timber deck of the Kinsol Trestle running out through second-growth forest" loading="lazy"></span>
         <span>
           <span class="rt"><b>Shawnigan Lake</b></span>
           <span class="rd">The Kinsol Trestle, the lake itself, the Cowichan Valley Trail and the climb up Old Baldy Mountain.</span>
@@ -325,9 +325,9 @@ body>a.skip:focus{top:0}
     </div>
     <ol class="drive">
 
-      <li class="rrow"><a href="chemainus.html">
+      <li class="rrow"><a href="/chemainus">
         <span class="rn">05</span>
-        <span class="rm"><img src="media/chemainus/image9.jpg" alt="A quiet main street of low painted storefronts running down towards the water in Chemainus" loading="lazy"></span>
+        <span class="rm"><img src="/prototype/media/chemainus/image9.jpg" alt="A quiet main street of low painted storefronts running down towards the water in Chemainus" loading="lazy"></span>
         <span>
           <span class="rt"><b>Chemainus</b></span>
           <span class="rd">The murals, the Chemainus Theatre Festival, Waterwheel Park and the harbour views.</span>
@@ -335,9 +335,9 @@ body>a.skip:focus{top:0}
         <svg class="rgo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
       </a></li>
 
-      <li class="rrow"><a href="nanaimo.html">
+      <li class="rrow"><a href="/nanaimo">
         <span class="rn">06</span>
-        <span class="rm"><img src="media/nanaimo/image1.jpg" alt="Boats at the docks below the waterfront promenade in Nanaimo harbour" loading="lazy"></span>
+        <span class="rm"><img src="/prototype/media/nanaimo/image1.jpg" alt="Boats at the docks below the waterfront promenade in Nanaimo harbour" loading="lazy"></span>
         <span>
           <span class="rt"><b>Nanaimo</b></span>
           <span class="rd">Saysutshun, the Harbourfront Walkway, Pipers Lagoon, Ammonite Falls and the crossing to Gabriola Island.</span>
@@ -345,9 +345,9 @@ body>a.skip:focus{top:0}
         <svg class="rgo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
       </a></li>
 
-      <li class="rrow"><a href="nanoose.html">
+      <li class="rrow"><a href="/nanoose">
         <span class="rn">07</span>
-        <span class="rm"><img src="media/nanoose/image4.jpg" alt="A sheltered blue bay ringed by dense forest, seen from the air at Nanoose" loading="lazy"></span>
+        <span class="rm"><img src="/prototype/media/nanoose/image4.jpg" alt="A sheltered blue bay ringed by dense forest, seen from the air at Nanoose" loading="lazy"></span>
         <span>
           <span class="rt"><b>Nanoose</b></span>
           <span class="rd">Moorecroft Regional Park, the Notch Hill loop, Beachcomber Regional Park and the tide pools along the bay.</span>
@@ -355,9 +355,9 @@ body>a.skip:focus{top:0}
         <svg class="rgo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
       </a></li>
 
-      <li class="rrow"><a href="parksville.html">
+      <li class="rrow"><a href="/parksville">
         <span class="rn">08</span>
-        <span class="rm"><img src="media/parksville/image19.jpg" alt="Ribbons of wet sand and shallow water on the tidal flats at Parksville, with mountains on the far shore" loading="lazy"></span>
+        <span class="rm"><img src="/prototype/media/parksville/image19.jpg" alt="Ribbons of wet sand and shallow water on the tidal flats at Parksville, with mountains on the far shore" loading="lazy"></span>
         <span>
           <span class="rt"><b>Parksville</b></span>
           <span class="rd">Rathtrevor Beach, the two kilometre waterfront walkway, Cathedral Grove and Englishman River Falls.</span>
@@ -375,7 +375,7 @@ body>a.skip:focus{top:0}
     </div>
     <ol class="drive">
 
-      <li class="rrow"><a href="ucluelet.html">
+      <li class="rrow"><a href="/ucluelet">
         <span class="rn">09</span>
         <span class="rm"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_540,h_360/arcstudio/dtz692xbgvvwjopu7vcs" alt="The forested Ucluelet peninsula with open water on three sides" loading="lazy" width="540" height="360"></span>
         <span>
@@ -385,7 +385,7 @@ body>a.skip:focus{top:0}
         <svg class="rgo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
       </a></li>
 
-      <li class="rrow"><a href="tofino.html">
+      <li class="rrow"><a href="/tofino">
         <span class="rn">10</span>
         <span class="rm"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_540,h_360/guides/tofino/beaches/long-beach-2" alt="One walker alone on the wet sand at Long Beach in low mist" loading="lazy" width="540" height="360"></span>
         <span>
@@ -405,9 +405,9 @@ body>a.skip:focus{top:0}
     </div>
     <ol class="drive">
 
-      <li class="rrow"><a href="campbell-river.html">
+      <li class="rrow"><a href="/campbell-river">
         <span class="rn">11</span>
-        <span class="rm"><img src="media/campbell-river/image3.jpg" alt="Water dropping over a rock lip into a mossy canyon at Elk Falls near Campbell River" loading="lazy"></span>
+        <span class="rm"><img src="/prototype/media/campbell-river/image3.jpg" alt="Water dropping over a rock lip into a mossy canyon at Elk Falls near Campbell River" loading="lazy"></span>
         <span>
           <span class="rt"><b>Campbell River</b></span>
           <span class="rd">Elk Falls, the Rotary Seawalk, Discovery Fishing Pier, the Ripple Rock Trail and the way in to Strathcona Provincial Park.</span>
@@ -427,12 +427,12 @@ body>a.skip:focus{top:0}
       <h2 style="margin-top:11px">Seven guides for the whole island</h2>
       <p>Subjects that belong to no single town, so they live here. In order of how much time each one asks of you, from an afternoon on the sand to a week on the West Coast Trail.</p>
     </div>
-    <a class="btn btn--ghost" href="search.html">Search all guides</a>
+    <a class="btn btn--ghost" href="/search">Search all guides</a>
   </div>
 
   <ol class="gseq">
 
-    <li class="grow"><a href="search.html?q=Best%20Beaches%20on%20Vancouver%20Island">
+    <li class="grow"><a href="/search?q=Best%20Beaches%20on%20Vancouver%20Island">
       <span class="gn">01</span>
       <span class="gm"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_560,h_420/guides/tofino/beaches/_category-1" alt="Low sun over wet sand and shallow tide channels on a west coast beach" loading="lazy" width="560" height="420"></span>
       <span>
@@ -442,7 +442,7 @@ body>a.skip:focus{top:0}
       <svg class="rgo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
     </a></li>
 
-    <li class="grow"><a href="search.html?q=Best%20Day%20Hikes%20on%20Vancouver%20Island">
+    <li class="grow"><a href="/search?q=Best%20Day%20Hikes%20on%20Vancouver%20Island">
       <span class="gn">02</span>
       <span class="gm"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_560,h_420/guides/tofino/hiking/_category-1" alt="A walker in a yellow jacket on a boardwalk stair through dense rainforest" loading="lazy" width="560" height="420"></span>
       <span>
@@ -452,7 +452,7 @@ body>a.skip:focus{top:0}
       <svg class="rgo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
     </a></li>
 
-    <li class="grow"><a href="search.html?q=Best%20Kayaking%20Spots%20on%20Vancouver%20Island">
+    <li class="grow"><a href="/search?q=Best%20Kayaking%20Spots%20on%20Vancouver%20Island">
       <span class="gn">03</span>
       <span class="gm"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_560,h_420/guides/ucluelet/kayaking/_category-1" alt="Two kayaks crossing flat water below a long forested ridge" loading="lazy" width="560" height="420"></span>
       <span>
@@ -462,7 +462,7 @@ body>a.skip:focus{top:0}
       <svg class="rgo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
     </a></li>
 
-    <li class="grow"><a href="search.html?q=Best%20Places%20for%20Whale%20Watching%20on%20Vancouver%20Island">
+    <li class="grow"><a href="/search?q=Best%20Places%20for%20Whale%20Watching%20on%20Vancouver%20Island">
       <span class="gn">04</span>
       <span class="gm"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_560,h_420/guides/tofino/whale-watching/_category-1" alt="A humpback whale tail raised above calm water in front of a forested shore" loading="lazy" width="560" height="420"></span>
       <span>
@@ -472,7 +472,7 @@ body>a.skip:focus{top:0}
       <svg class="rgo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
     </a></li>
 
-    <li class="grow"><a href="search.html?q=Vancouver%20Island%3A%20Best%20Mountain%20Biking%20Spots">
+    <li class="grow"><a href="/search?q=Vancouver%20Island%3A%20Best%20Mountain%20Biking%20Spots">
       <span class="gn">05</span>
       <span class="gm"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_560,h_420/guides/tofino/hiking/multi-use-path-in-tofino-1" alt="A packed gravel riding path curving away through tall rainforest on Vancouver Island" loading="lazy" width="560" height="420"></span>
       <span>
@@ -482,7 +482,7 @@ body>a.skip:focus{top:0}
       <svg class="rgo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
     </a></li>
 
-    <li class="grow"><a href="search.html?q=Best%20Overnight%20Hikes%20on%20Vancouver%20Island">
+    <li class="grow"><a href="/search?q=Best%20Overnight%20Hikes%20on%20Vancouver%20Island">
       <span class="gn">06</span>
       <span class="gm"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_560,h_420/guides/tofino/hiking/lone-cone-trail-1" alt="A rocky summit ledge looking out over islands and open water from high above the coast" loading="lazy" width="560" height="420"></span>
       <span>
@@ -492,7 +492,7 @@ body>a.skip:focus{top:0}
       <svg class="rgo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
     </a></li>
 
-    <li class="grow"><a href="search.html?q=How%20to%20Choose%20a%20Vacation%20Rental%20on%20Vancouver%20Island">
+    <li class="grow"><a href="/search?q=How%20to%20Choose%20a%20Vacation%20Rental%20on%20Vancouver%20Island">
       <span class="gn">07</span>
       <span class="gm"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_560,h_420/guides/tofino/storm-watching/oceanfront-resorts-and-cabins-1" alt="Wooden chairs on a terrace above the dune grass, looking out at breaking surf" loading="lazy" width="560" height="420"></span>
       <span>
@@ -514,8 +514,8 @@ body>a.skip:focus{top:0}
       <h2 style="margin-top:12px">Pick the town, then the week</h2>
       <p>Tofino and Ucluelet take bookings now. Forty minutes apart on one road, and two very different weeks.</p>
       <div class="bandcta">
-        <a class="btn btn--ghost" href="tofino.html">Tofino, place by place</a>
-        <a class="btn btn--ghost" href="plan.html">When should you go to Tofino?</a>
+        <a class="btn btn--ghost" href="/tofino">Tofino, place by place</a>
+        <a class="btn btn--ghost" href="/tofino/plan">When should you go to Tofino?</a>
       </div>
       <dl class="bandnums">
         <div><dt>Places to stay</dt><dd class="tnum">292</dd></div>
@@ -531,28 +531,28 @@ body>a.skip:focus{top:0}
 <footer class="f"><div class="wrap">
   <div class="fgrid">
     <div>
-      <span class="fbrand"><img class="fbrand__mark" src="brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></span>
+      <span class="fbrand"><img class="fbrand__mark" src="/prototype/brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></span>
       <p class="fnote">Stays and guides on Vancouver Island, written by people who go there.</p>
     </div>
     <div><h5>This island</h5><ul>
       <li><a href="#towns">All eleven towns</a></li><li><a href="#guides">Island guides</a></li>
-      <li><a href="search.html?q=stays&amp;show=stays">Find a stay</a></li>
-      <li><a href="search.html">Search everything</a></li></ul></div>
+      <li><a href="/search?q=stays&amp;show=stays">Find a stay</a></li>
+      <li><a href="/search">Search everything</a></li></ul></div>
     <div><h5>Up the tree</h5><ul>
-      <li><a href="index.html">British Columbia</a></li>
-      <li><a href="index.html#mainland">Rest of British Columbia</a></li>
-      <li><a href="search.html">Guides</a></li></ul></div>
+      <li><a href="/">British Columbia</a></li>
+      <li><a href="/#mainland">Rest of British Columbia</a></li>
+      <li><a href="/search">Guides</a></li></ul></div>
     <div><h5>Towns</h5><ul>
-      <li><a href="tofino.html">Tofino</a></li><li><a href="ucluelet.html">Ucluelet</a></li>
-      <li><a href="victoria.html">Victoria</a></li><li><a href="nanaimo.html">Nanaimo</a></li>
-      <li><a href="campbell-river.html">Campbell River</a></li></ul></div>
+      <li><a href="/tofino">Tofino</a></li><li><a href="/ucluelet">Ucluelet</a></li>
+      <li><a href="/victoria">Victoria</a></li><li><a href="/nanaimo">Nanaimo</a></li>
+      <li><a href="/campbell-river">Campbell River</a></li></ul></div>
     <div><h5>Arc Trips</h5><ul>
-      <li><a href="not-found.html">About us</a></li><li><a href="not-found.html">List your place</a></li>
-      <li><a href="not-found.html">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
+      <li><a href="/not-found">About us</a></li><li><a href="/not-found">List your place</a></li>
+      <li><a href="/not-found">Fishing charters</a></li><li><a href="/not-found">Contact</a></li></ul></div>
   </div>
   <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees</span></div>
 </div></footer>
 
-<script src="_nav.js"></script>
+<script src="/prototype/_nav.js"></script>
 </body>
 </html>

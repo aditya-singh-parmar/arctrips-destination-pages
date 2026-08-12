@@ -9,8 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap" rel="stylesheet">
-<link rel="icon" href="brand/arctrips-icon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="_system.css">
+<link rel="icon" href="/prototype/brand/arctrips-icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/prototype/_system.css">
 <style>
 /* ── Page-scoped only. Tokens from _system.css, no new colour values. ────────
       This page is the town's index of subjects. It is long, so it is built to
@@ -148,7 +148,7 @@ body>.skip:focus{top:0}
 @media(max-width:900px){
   .sub{grid-template-columns:minmax(0,1fr);gap:24px;padding-block:clamp(30px,5vw,44px)}
 }
-/* other pages link straight at a subject (things-to-do.html#fishing), and the
+/* other pages link straight at a subject (/tofino/things-to-do#fishing), and the
    sticky stack above is 177px at 1440 and 58px at 390. Without this the card
    they were sent to lands underneath it. Page-scoped: _system.css is shared. */
 .sub,#season,#subjects,#questions{scroll-margin-top:192px}
@@ -275,45 +275,45 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
 <!-- Global nav. Identical on every page: Stays, Destinations, Vancouver Island.
      The region stays one click away from anywhere in the tree. -->
 <nav class="top"><div class="wrap nav-in">
-  <a class="brand" href="index.html"><img class="brand__mark" src="brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
+  <a class="brand" href="/"><img class="brand__mark" src="/prototype/brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
   <ul class="nav-links">
-    <li><a href="search.html?in=tofino">Stays</a></li>
-    <li><a href="index.html">Destinations</a></li>
-    <li><a href="search.html?q=&amp;in=tofino">Guides</a></li>
+    <li><a href="/search?in=tofino">Stays</a></li>
+    <li><a href="/">Destinations</a></li>
+    <li><a href="/search?q=&amp;in=tofino">Guides</a></li>
   </ul>
-  <form class="search" role="search" action="search.html" method="get">
+  <form class="search" role="search" action="/search" method="get">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
     <label class="vh" for="q">Go to a place, a beach, a trail or a guide</label>
     <input id="q" name="q" type="search" placeholder="Tofino, Long Beach, Wild Pacific Trail" autocomplete="off">
     <kbd>/</kbd>
   </form>
-  <a class="btn btn--ink btn--sm" href="not-found.html">Sign in</a>
+  <a class="btn btn--ink btn--sm" href="/not-found">Sign in</a>
 </div></nav>
 
 <!-- The place bar. One tap back to the town, the town's five sections, and the
      booking path. Identical on every page below Tofino. -->
 <nav class="placebar" aria-label="Tofino"><div class="wrap placebar-in">
-  <a class="placebar__back" href="tofino.html"><span class="n">&larr; Tofino</span></a>
+  <a class="placebar__back" href="/tofino"><span class="n">&larr; Tofino</span></a>
   <ul class="placebar__links">
-    <li><a href="tofino.html">Overview</a></li>
+    <li><a href="/tofino">Overview</a></li>
     <li><a href="#top" aria-current="page">Things to do</a></li>
-    <li><a href="plan.html">Plan</a></li>
-    <li><a href="guide.html">Guides</a></li>
+    <li><a href="/tofino/plan">Plan</a></li>
+    <li><a href="/tofino/guides">Guides</a></li>
   </ul>
-  <a class="btn btn--primary btn--sm placebar__cta" href="search.html?in=tofino">Find a stay</a>
+  <a class="btn btn--primary btn--sm placebar__cta" href="/search?in=tofino">Find a stay</a>
 </div></nav>
 <nav class="subjectbar" aria-label="Things to do in Tofino"><div class="wrap subjectbar-in">
   <span class="subjectbar__l">Things to do</span>
   <ul class="subjectbar__links">
-    <li><a href="beaches-tofino.html">Beaches</a></li>
-    <li><a href="hiking-tofino.html">Hiking &amp; trails</a></li>
-    <li><a href="kayaking-tofino.html">Kayaking</a></li>
-    <li><a href="whale-watching.html">Whale watching</a></li>
-    <li><a href="storm-watching-tofino.html">Storm watching</a></li>
-    <li><a href="restaurants-tofino.html">Restaurants</a></li>
-    <li><a href="surfing-tofino.html">Surfing</a></li>
-    <li><a href="birding-tofino.html">Birding</a></li>
-    <li><a href="fishing-tofino.html">Fishing</a></li>
+    <li><a href="/tofino/beaches">Beaches</a></li>
+    <li><a href="/tofino/hiking">Hiking &amp; trails</a></li>
+    <li><a href="/tofino/kayaking">Kayaking</a></li>
+    <li><a href="/tofino/whale-watching">Whale watching</a></li>
+    <li><a href="/tofino/storm-watching">Storm watching</a></li>
+    <li><a href="/tofino/restaurants">Restaurants</a></li>
+    <li><a href="/tofino/surfing">Surfing</a></li>
+    <li><a href="/tofino/birding">Birding</a></li>
+    <li><a href="/tofino/fishing">Fishing</a></li>
   </ul>
 </div></nav>
 
@@ -322,9 +322,9 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
 
 <div class="wrap">
   <nav class="crumb" aria-label="Breadcrumb">
-    <a class="lvl-deep" href="index.html">British Columbia</a><span class="sep lvl-deep" aria-hidden="true">/</span>
-    <a href="region.html">Vancouver Island</a><span class="sep" aria-hidden="true">/</span>
-    <a href="tofino.html">Tofino</a><span class="sep" aria-hidden="true">/</span>
+    <a class="lvl-deep" href="/">British Columbia</a><span class="sep lvl-deep" aria-hidden="true">/</span>
+    <a href="/vancouver-island">Vancouver Island</a><span class="sep" aria-hidden="true">/</span>
+    <a href="/tofino">Tofino</a><span class="sep" aria-hidden="true">/</span>
     <span aria-current="page">Things to do</span>
   </nav>
 </div>
@@ -370,7 +370,7 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
         <h2 style="margin-top:12px">Pick your month</h2>
         <p id="seasonHead"></p>
       </div>
-      <a class="btn btn--ghost btn--sm" href="plan.html">Plan the trip</a>
+      <a class="btn btn--ghost btn--sm" href="/tofino/plan">Plan the trip</a>
     </div>
 
     <!-- the columns are Tofino's real monthly rainfall in millimetres, drawn to
@@ -400,7 +400,7 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
       <h2 style="margin-top:11px" id="gridHead">All nine, in the order the month suits them</h2>
       <p id="gridNote"></p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="search.html?q=&amp;in=tofino">Search the Tofino guides</a>
+    <a class="btn btn--ghost btn--sm" href="/search?q=&amp;in=tofino">Search the Tofino guides</a>
   </div>
 
   <div class="subs" id="grid"></div>
@@ -426,12 +426,12 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
     </div>
   </div>
   <nav class="siblings" aria-label="Elsewhere in Tofino">
-    <a class="sib" href="tofino.html"><span class="sib__n">Tofino overview</span><span class="sib__m">The town in one page</span></a>
-    <a class="sib" href="long-beach.html"><span class="sib__n">Long Beach</span><span class="sib__m">Sixteen kilometres of open Pacific sand</span></a>
-    <a class="sib" href="whale-watching.html"><span class="sib__n">Whale watching</span><span class="sib__m">Grey whales from March, humpbacks all summer</span></a>
-    <a class="sib" href="plan.html"><span class="sib__n">Plan the trip</span><span class="sib__m">Weather, prices, getting here</span></a>
-    <a class="sib" href="search.html?in=tofino"><span class="sib__n">Stays in Tofino</span><span class="sib__m"><b>134</b> places from <b>$320</b> a night</span></a>
-    <a class="sib" href="region.html"><span class="sib__n">Vancouver Island</span><span class="sib__m"><b>11</b> towns, Tofino at the far west</span></a>
+    <a class="sib" href="/tofino"><span class="sib__n">Tofino overview</span><span class="sib__m">The town in one page</span></a>
+    <a class="sib" href="/tofino/long-beach"><span class="sib__n">Long Beach</span><span class="sib__m">Sixteen kilometres of open Pacific sand</span></a>
+    <a class="sib" href="/tofino/whale-watching"><span class="sib__n">Whale watching</span><span class="sib__m">Grey whales from March, humpbacks all summer</span></a>
+    <a class="sib" href="/tofino/plan"><span class="sib__n">Plan the trip</span><span class="sib__m">Weather, prices, getting here</span></a>
+    <a class="sib" href="/search?in=tofino"><span class="sib__n">Stays in Tofino</span><span class="sib__m"><b>134</b> places from <b>$320</b> a night</span></a>
+    <a class="sib" href="/vancouver-island"><span class="sib__n">Vancouver Island</span><span class="sib__m"><b>11</b> towns, Tofino at the far west</span></a>
   </nav>
 </div></section>
 
@@ -443,7 +443,7 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
       <h2 style="margin-top:11px">What people ask about Tofino</h2>
       <p>Tap a question to read the answer.</p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="search.html?q=&amp;in=tofino">Search the Tofino guides</a>
+    <a class="btn btn--ghost btn--sm" href="/search?q=&amp;in=tofino">Search the Tofino guides</a>
   </div>
   <div class="qlist" id="qagrid"></div>
 </div></section>
@@ -453,22 +453,22 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
 <footer class="f"><div class="wrap">
   <div class="fgrid">
     <div>
-      <span class="fbrand"><img class="fbrand__mark" src="brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></span>
+      <span class="fbrand"><img class="fbrand__mark" src="/prototype/brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></span>
       <p class="fnote">Stays and guides on the west coast of Vancouver Island, written by people who go there.</p>
     </div>
     <div><h5>Destinations</h5><ul>
-      <li><a href="region.html">Vancouver Island, 11 towns</a></li>
-      <li><a href="index.html">British Columbia, 15 towns</a></li>
-      <li><a href="search.html?q=&amp;in=tofino">Guides</a></li></ul></div>
+      <li><a href="/vancouver-island">Vancouver Island, 11 towns</a></li>
+      <li><a href="/">British Columbia, 15 towns</a></li>
+      <li><a href="/search?q=&amp;in=tofino">Guides</a></li></ul></div>
     <div><h5>In Tofino</h5><ul>
-      <li><a href="#top">Things to do</a></li><li><a href="whale-watching.html">Whale watching</a></li>
-      <li><a href="long-beach.html">Long Beach</a></li><li><a href="storm-watching-tofino.html">Storm watching</a></li></ul></div>
+      <li><a href="#top">Things to do</a></li><li><a href="/tofino/whale-watching">Whale watching</a></li>
+      <li><a href="/tofino/long-beach">Long Beach</a></li><li><a href="/tofino/storm-watching">Storm watching</a></li></ul></div>
     <div><h5>Trip</h5><ul>
-      <li><a href="plan.html">When to go</a></li><li><a href="plan.html">Getting there</a></li>
-      <li><a href="search.html?in=tofino">Where to stay</a></li><li><a href="search.html?in=tofino">Search everything</a></li></ul></div>
+      <li><a href="/tofino/plan">When to go</a></li><li><a href="/tofino/plan">Getting there</a></li>
+      <li><a href="/search?in=tofino">Where to stay</a></li><li><a href="/search?in=tofino">Search everything</a></li></ul></div>
     <div><h5>Arc Trips</h5><ul>
-      <li><a href="not-found.html">About us</a></li><li><a href="not-found.html">List your place</a></li>
-      <li><a href="search.html?q=Fishing&amp;in=tofino">Fishing charters</a></li><li><a href="not-found.html">Contact</a></li></ul></div>
+      <li><a href="/not-found">About us</a></li><li><a href="/not-found">List your place</a></li>
+      <li><a href="/search?q=Fishing&amp;in=tofino">Fishing charters</a></li><li><a href="/not-found">Contact</a></li></ul></div>
   </div>
   <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees.</span></div>
 </div></footer>
@@ -479,7 +479,7 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
     <b>Tofino</b>
     <span>134 stays from $320</span>
   </div>
-  <a class="btn btn--primary btn--sm" href="search.html?in=tofino">Find a stay</a>
+  <a class="btn btn--primary btn--sm" href="/search?in=tofino">Find a stay</a>
 </div>
 
 <script>
@@ -498,17 +498,17 @@ const cld = (id,w,h) => `https://res.cloudinary.com/du9doarye/image/upload/f_aut
 /* Pages that exist in this prototype. Six subjects have one of their own. The
    other three have no page, so they resolve to their own section here rather
    than to a Tofino article that is about something else. */
-const HREF = { "beaches":"beaches-tofino.html","hiking":"hiking-tofino.html",
-  "kayaking":"kayaking-tofino.html","restaurants":"restaurants-tofino.html",
-  "storm-watching":"storm-watching-tofino.html","whale-watching":"whale-watching.html" };
+const HREF = { "beaches":"/tofino/beaches","hiking":"/tofino/hiking",
+  "kayaking":"/tofino/kayaking","restaurants":"/tofino/restaurants",
+  "storm-watching":"/tofino/storm-watching","whale-watching":"/tofino/whale-watching" };
 /* surfing, birding and fishing have no page of their own. Their section on this
    page is where they live, so from here they resolve to a scoped result list
    rather than back to the card you are already reading. */
-const subjHref = (s) => HREF[s.cat] || `search.html?q=${encodeURIComponent(s.name)}&in=tofino`;
-/* guide.html is the single article "Wildlife tours in Tofino". Every other
+const subjHref = (s) => HREF[s.cat] || `/search?q=${encodeURIComponent(s.name)}&in=tofino`;
+/* /tofino/guides is the single article "Wildlife tours in Tofino". Every other
    titled article resolves to a scoped result list that contains it. */
 const ART_HREF = (title) => /^wildlife tours in tofino$/i.test(title)
-  ? "guide.html" : `search.html?q=${encodeURIComponent(title)}&in=tofino`;
+  ? "/tofino/guides" : `/search?q=${encodeURIComponent(title)}&in=tofino`;
 
 /* Contiguous runs of months read round the year, so a winter window comes out
    as "November to February" rather than two broken halves. */
@@ -831,6 +831,6 @@ addEventListener("keydown", (e) => {
   }
 });
 </script>
-<script src="_nav.js"></script>
+<script src="/prototype/_nav.js"></script>
 </body>
 </html>
