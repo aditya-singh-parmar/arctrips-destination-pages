@@ -204,7 +204,7 @@ body>a.skip:focus{top:0}
 <nav class="top"><div class="wrap nav-in">
   <a class="brand" href="/"><img class="brand__mark" src="/prototype/brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
   <ul class="nav-links">
-    <li><a href="/search?q=stays&amp;show=stays">Stays</a></li>
+    <li><a href="/not-found">Stays</a></li>
     <li><a href="/">Destinations</a></li>
     <li><a href="/search">Guides</a></li>
   </ul>
@@ -214,7 +214,6 @@ body>a.skip:focus{top:0}
     <input id="q" name="q" type="search" placeholder="Tofino, Wild Pacific Trail, Rathtrevor">
     <kbd>/</kbd>
   </form>
-  <a class="btn btn--ink btn--sm" href="/not-found">Sign in</a>
 </div></nav>
 
 <!-- The place bar. Same shape as the town pages: the parent anchor, this
@@ -227,7 +226,7 @@ body>a.skip:focus{top:0}
     <li><a href="#guides">Island guides</a></li>
     <li><a href="#next">Plan</a></li>
   </ul>
-  <a class="btn btn--primary btn--sm placebar__cta" href="/search?q=stays&amp;show=stays">Find a stay</a>
+  <a class="btn btn--primary btn--sm placebar__cta" href="/not-found">Find a stay</a>
 </div></nav>
 
 <main id="main">
@@ -246,8 +245,8 @@ body>a.skip:focus{top:0}
     <p class="lede">Eleven towns on one long island, from Victoria in the south to Campbell River in the north, with the surf coast reached by a single road west through the mountains.</p>
     <p class="hero-note">That road ends in Tofino and Ucluelet, <b>42 km</b> and about <b>40 minutes</b> apart. They are the two towns taking bookings now, <b>292</b> places to stay from <b>$320</b> a night.</p>
     <div class="hero-cta">
-      <a class="btn btn--ghost" href="/search?q=stays&amp;show=stays">Find a stay on the island</a>
-      <a class="btn btn--ghost" href="#towns">The island, south to north</a>
+      <a class="btn btn--ghost" href="/not-found">Find a stay on the island</a>
+      <a class="btn btn--ghost" href="#towns">The eleven towns</a>
     </div>
   </div>
 
@@ -257,15 +256,45 @@ body>a.skip:focus{top:0}
   </figure>
 </div></header>
 
-<!-- ═══ 1. The eleven towns, in the order the road takes them ═══════════════ -->
+<!-- ═══ 1. The eleven towns. The two open towns lead; the rest run south to north. ══ -->
 <section class="sec" id="towns" style="padding-block:0 clamp(40px,4.6vw,68px)"><div class="wrap">
   <div class="head">
     <div>
-      <span class="label">South to north</span>
-      <h2 style="margin-top:11px">The island, in the order you drive it</h2>
-      <p>From the ferry terminals and the airport at the south end to the salmon water in the north. Tofino and Ucluelet, at nine and ten, take bookings now. The other nine open on their photographs and the places worth the drive, with their full guides still being walked.</p>
+      <span class="label">Where we publish first</span>
+      <h2 style="margin-top:11px">Ucluelet and Tofino first, then the island end to end</h2>
+      <p>Ucluelet and Tofino lead, because they are the two towns taking bookings now and the two we have walked properly. Behind them the island runs south to north, from the ferry terminals and the airport at the south end to the salmon water above Campbell River. Those nine open on their photographs and the places worth the drive, with their full guides still being walked.</p>
     </div>
     <a class="btn btn--ghost" href="/#mainland">Rest of British Columbia</a>
+  </div>
+
+  <div class="stretch">
+    <div class="stretch__h">
+      <h3>The end of Highway 4</h3>
+      <p>One road leaves the east coast near Parksville and crosses the mountains to the open Pacific. It ends in these two, and these two are the ones taking bookings now.</p>
+    </div>
+    <ol class="drive">
+
+      <li class="rrow"><a href="/ucluelet">
+        <span class="rn">01</span>
+        <span class="rm"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_540,h_360/arcstudio/dtz692xbgvvwjopu7vcs" alt="The forested Ucluelet peninsula with open water on three sides" loading="lazy" width="540" height="360"></span>
+        <span>
+          <span class="rt"><b>Ucluelet</b><span class="tag">Book tonight</span></span>
+          <span class="rd">The Wild Pacific Trail and its Lighthouse Loop, Big Beach, the islands of Barkley Sound, and the gray whales in spring.</span>
+        </span>
+        <svg class="rgo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </a></li>
+
+      <li class="rrow"><a href="/tofino">
+        <span class="rn">02</span>
+        <span class="rm"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_540,h_360/guides/tofino/beaches/long-beach-2" alt="One walker alone on the wet sand at Long Beach in low mist" loading="lazy" width="540" height="360"></span>
+        <span>
+          <span class="rt"><b>Tofino</b><span class="tag">Book tonight</span></span>
+          <span class="rd">Long Beach, Chesterman Beach, Cox Bay, the Tonquin Trail and the islands of Clayoquot Sound.</span>
+        </span>
+        <svg class="rgo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </a></li>
+
+    </ol>
   </div>
 
   <div class="stretch">
@@ -276,7 +305,7 @@ body>a.skip:focus{top:0}
     <ol class="drive">
 
       <li class="rrow"><a href="/victoria">
-        <span class="rn">01</span>
+        <span class="rn">03</span>
         <span class="rm"><img src="/prototype/media/victoria/image30.jpg" alt="Formal flower beds and clipped lawns in the sunken garden at The Butchart Gardens, Victoria" loading="lazy"></span>
         <span>
           <span class="rt"><b>Victoria</b></span>
@@ -286,7 +315,7 @@ body>a.skip:focus{top:0}
       </a></li>
 
       <li class="rrow"><a href="/sooke">
-        <span class="rn">02</span>
+        <span class="rn">04</span>
         <span class="rm"><img src="/prototype/media/sooke/image32.jpg" alt="Green pools and smooth rock in the river canyon at Sooke Potholes Provincial Park" loading="lazy"></span>
         <span>
           <span class="rt"><b>Sooke</b></span>
@@ -296,7 +325,7 @@ body>a.skip:focus{top:0}
       </a></li>
 
       <li class="rrow"><a href="/sidney">
-        <span class="rn">03</span>
+        <span class="rn">05</span>
         <span class="rm"><img src="/prototype/media/sidney/image6.jpg" alt="Curving paths and banked planting seen from above at The Butchart Gardens on the Saanich Peninsula" loading="lazy"></span>
         <span>
           <span class="rt"><b>Sidney</b></span>
@@ -306,7 +335,7 @@ body>a.skip:focus{top:0}
       </a></li>
 
       <li class="rrow"><a href="/shawnigan-lake">
-        <span class="rn">04</span>
+        <span class="rn">06</span>
         <span class="rm"><img src="/prototype/media/shawnigan-lake/image12.jpg" alt="The long timber deck of the Kinsol Trestle running out through second-growth forest" loading="lazy"></span>
         <span>
           <span class="rt"><b>Shawnigan Lake</b></span>
@@ -326,7 +355,7 @@ body>a.skip:focus{top:0}
     <ol class="drive">
 
       <li class="rrow"><a href="/chemainus">
-        <span class="rn">05</span>
+        <span class="rn">07</span>
         <span class="rm"><img src="/prototype/media/chemainus/image9.jpg" alt="A quiet main street of low painted storefronts running down towards the water in Chemainus" loading="lazy"></span>
         <span>
           <span class="rt"><b>Chemainus</b></span>
@@ -336,7 +365,7 @@ body>a.skip:focus{top:0}
       </a></li>
 
       <li class="rrow"><a href="/nanaimo">
-        <span class="rn">06</span>
+        <span class="rn">08</span>
         <span class="rm"><img src="/prototype/media/nanaimo/image1.jpg" alt="Boats at the docks below the waterfront promenade in Nanaimo harbour" loading="lazy"></span>
         <span>
           <span class="rt"><b>Nanaimo</b></span>
@@ -346,7 +375,7 @@ body>a.skip:focus{top:0}
       </a></li>
 
       <li class="rrow"><a href="/nanoose">
-        <span class="rn">07</span>
+        <span class="rn">09</span>
         <span class="rm"><img src="/prototype/media/nanoose/image4.jpg" alt="A sheltered blue bay ringed by dense forest, seen from the air at Nanoose" loading="lazy"></span>
         <span>
           <span class="rt"><b>Nanoose</b></span>
@@ -356,41 +385,11 @@ body>a.skip:focus{top:0}
       </a></li>
 
       <li class="rrow"><a href="/parksville">
-        <span class="rn">08</span>
+        <span class="rn">10</span>
         <span class="rm"><img src="/prototype/media/parksville/image19.jpg" alt="Ribbons of wet sand and shallow water on the tidal flats at Parksville, with mountains on the far shore" loading="lazy"></span>
         <span>
           <span class="rt"><b>Parksville</b></span>
           <span class="rd">Rathtrevor Beach, the two kilometre waterfront walkway, Cathedral Grove and Englishman River Falls.</span>
-        </span>
-        <svg class="rgo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
-      </a></li>
-
-    </ol>
-  </div>
-
-  <div class="stretch">
-    <div class="stretch__h">
-      <h3>West on Highway 4</h3>
-      <p>One road leaves the east coast near Parksville and crosses the mountains to the open Pacific. It ends in these two.</p>
-    </div>
-    <ol class="drive">
-
-      <li class="rrow"><a href="/ucluelet">
-        <span class="rn">09</span>
-        <span class="rm"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_540,h_360/arcstudio/dtz692xbgvvwjopu7vcs" alt="The forested Ucluelet peninsula with open water on three sides" loading="lazy" width="540" height="360"></span>
-        <span>
-          <span class="rt"><b>Ucluelet</b><span class="tag">Book tonight</span></span>
-          <span class="rd">The Wild Pacific Trail and its Lighthouse Loop, Big Beach, the islands of Barkley Sound, and the gray whales in spring.</span>
-        </span>
-        <svg class="rgo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
-      </a></li>
-
-      <li class="rrow"><a href="/tofino">
-        <span class="rn">10</span>
-        <span class="rm"><img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_540,h_360/guides/tofino/beaches/long-beach-2" alt="One walker alone on the wet sand at Long Beach in low mist" loading="lazy" width="540" height="360"></span>
-        <span>
-          <span class="rt"><b>Tofino</b><span class="tag">Book tonight</span></span>
-          <span class="rd">Long Beach, Chesterman Beach, Cox Bay, the Tonquin Trail and the islands of Clayoquot Sound.</span>
         </span>
         <svg class="rgo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
       </a></li>
@@ -536,7 +535,7 @@ body>a.skip:focus{top:0}
     </div>
     <div><h5>This island</h5><ul>
       <li><a href="#towns">All eleven towns</a></li><li><a href="#guides">Island guides</a></li>
-      <li><a href="/search?q=stays&amp;show=stays">Find a stay</a></li>
+      <li><a href="/not-found">Find a stay</a></li>
       <li><a href="/search">Search everything</a></li></ul></div>
     <div><h5>Up the tree</h5><ul>
       <li><a href="/">British Columbia</a></li>

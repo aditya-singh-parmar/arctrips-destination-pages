@@ -65,7 +65,7 @@ body>.skip:focus{top:0}
 .placebar__cta{display:inline-flex}
 @media(max-width:760px){.placebar__cta{display:none}}
 /* Vancouver Island must stay reachable in one tap at every width, so the nav
-   sheds the search box, then the sign-in chip, before it sheds a link. */
+   sheds the search box before it sheds a link. */
 @media(max-width:860px){.nav-in{gap:12px}.finder{display:none}}
 @media(max-width:620px){
   nav.top .btn--ink{display:none}
@@ -376,7 +376,6 @@ main [id]{scroll-margin-top:146px}
       <kbd>/</kbd>
     </form>
   </div>
-  <a class="btn btn--ink btn--sm" href="/not-found">Sign in</a>
 </div></nav>
 
 <!-- The place bar. Identical on every Tofino page: back to the town, the same
@@ -389,7 +388,7 @@ main [id]{scroll-margin-top:146px}
     <li><a href="#top" aria-current="page">Plan</a></li>
     <li><a href="/tofino/guides">Guides</a></li>
   </ul>
-  <a class="btn btn--primary btn--sm placebar__cta" href="/search?in=tofino">Find a stay</a>
+  <a class="btn btn--primary btn--sm placebar__cta" href="/not-found?in=tofino">Find a stay</a>
 </div></nav>
 
 <main id="main">
@@ -627,7 +626,7 @@ main [id]{scroll-margin-top:146px}
       <li><a href="/tofino/long-beach">Long Beach</a></li><li><a href="/search?in=tofino">Search everything</a></li></ul></div>
     <div><h5>Plan</h5><ul>
       <li><a href="#top">When to go</a></li><li><a href="#topics">Getting there</a></li>
-      <li><a href="/search?in=tofino">Where to stay</a></li><li><a href="#months">What to pack</a></li></ul></div>
+      <li><a href="/not-found?in=tofino">Where to stay</a></li><li><a href="#months">What to pack</a></li></ul></div>
     <div><h5>Arc Trips</h5><ul>
       <li><a href="/not-found">About us</a></li><li><a href="/not-found">List your place</a></li>
       <li><a href="/tofino/fishing">Fishing charters</a></li><li><a href="/not-found">Contact</a></li></ul></div>

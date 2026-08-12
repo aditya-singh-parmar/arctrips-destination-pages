@@ -25,8 +25,8 @@
 .almanac :focus-visible,.proof :focus-visible{outline-color:var(--a300)}
 .btn{min-height:44px;white-space:nowrap}
 nav.top .btn{flex:none}
-/* On a phone the one row cannot hold brand, search, three links and Sign in,
-   and Vancouver Island was being clipped off the right edge. The links drop to
+/* On a phone the one row cannot hold brand, search and three links, and
+   Vancouver Island was being clipped off the right edge. The links drop to
    their own row instead, because the region has to stay one tap from anywhere. */
 @media(max-width:760px){
   :root{--nav:114px}
@@ -347,7 +347,6 @@ footer.f{margin-top:clamp(48px,5.6vw,80px)}
     <input id="q" name="q" type="search" placeholder="Tofino, Long Beach, Wild Pacific Trail">
     <kbd>/</kbd>
   </form>
-  <a class="btn btn--ink btn--sm" href="/not-found">Sign in</a>
 </div></nav>
 
 <!-- The only sticky row under the global nav. Identical on every Tofino page:
@@ -360,7 +359,7 @@ footer.f{margin-top:clamp(48px,5.6vw,80px)}
     <li><a href="/tofino/plan">Plan</a></li>
     <li><a href="#top" aria-current="page">Guides</a></li>
   </ul>
-  <a class="btn btn--primary btn--sm placebar__cta" href="/search?in=tofino">Find a stay</a>
+  <a class="btn btn--primary btn--sm placebar__cta" href="/not-found?in=tofino">Find a stay</a>
 </div></nav>
 
 <main id="main">
@@ -691,7 +690,7 @@ footer.f{margin-top:clamp(48px,5.6vw,80px)}
       <li><a href="/tofino/long-beach">Long Beach</a></li><li><a href="/search?in=tofino">Search everything</a></li></ul></div>
     <div><h5>Plan</h5><ul>
       <li><a href="/tofino/plan">When to go</a></li><li><a href="/tofino/plan">Getting there</a></li>
-      <li><a href="/search?in=tofino">Where to stay</a></li><li><a href="/tofino/plan">What to pack</a></li></ul></div>
+      <li><a href="/not-found?in=tofino">Where to stay</a></li><li><a href="/tofino/plan">What to pack</a></li></ul></div>
     <div><h5>Arc Trips</h5><ul>
       <li><a href="/not-found">About us</a></li><li><a href="/not-found">List your place</a></li>
       <li><a href="/tofino/fishing">Fishing charters</a></li><li><a href="/not-found">Contact</a></li></ul></div>

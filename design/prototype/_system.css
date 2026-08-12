@@ -101,7 +101,7 @@ nav.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.9);backdro
   .nav-links::-webkit-scrollbar{display:none}
   .nav-links a{white-space:nowrap}
 }
-/* Below 760px the brand, three links, a search field and Sign in cannot share one row:
+/* Below 760px the brand, three links and a search field cannot share one row:
    the links were clipping to "De" and "Sear". Wrap onto a second row so all three stay
    readable and reachable, and drop the search field, which the page carries anyway. */
 @media(max-width:760px){
