@@ -11,8 +11,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "qa:prototype": "node scripts/qa-prototype.mjs",
-    "shots": "node scripts/shots.mjs",
-    "audit:ui": "node scripts/ui-audit.mjs",
+    "shots": "node /Users/aditya/Projects/arctrips/harness/scripts/shots.mjs",
+    "audit:ui": "node /Users/aditya/Projects/arctrips/harness/scripts/ui-audit.mjs",
     "qa:runtime": "node scripts/qa-runtime.mjs",
     "prototype:sync": "node scripts/sync-prototype.mjs",
     "qa:deployed": "node scripts/qa-prototype.mjs public/prototype"
