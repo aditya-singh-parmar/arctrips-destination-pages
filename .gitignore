@@ -65,3 +65,4 @@ scripts/.cloudinary-cache.json
 # screenshot debris at the repo root; real images live in public/
 /*.png
 /*.jpg
+.harness/
