@@ -93,9 +93,8 @@ Next.js reads `.env.local` automatically at dev/build. For a standalone Bash scr
 ## Commands
 
 Root table plus `prototype:sync`, `qa:prototype`, `qa:runtime`, `qa:deployed`. Pages are
-verified by the QA gates and `shots`, not unit tests. Port 3000 is shared with three
-sibling repos: confirm who answers. Scripts call `node node_modules/next/dist/bin/next`
-directly (Node 25 `.bin/` shim bug).
+verified by the QA gates and `shots`, not unit tests. Scripts call
+`node node_modules/next/dist/bin/next` directly (Node 25 `.bin/` shim bug).
 
 ## Key files
 
