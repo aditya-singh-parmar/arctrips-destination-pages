@@ -11,7 +11,7 @@ Two parts. Section 1 to 3 describe the data that exists today (static JSON), der
 | How the JSON was made | `.docx` guides through `scripts/lib/docx.mjs` and `decompose.mjs`. The driver that ran it was deleted ([ARCHITECTURE.md](ARCHITECTURE.md) section 6) |
 | Unverified numbers | `climate.json` states of itself: "Seeded for design. NOT VERIFIED against the station record. Never present as fact while unverified." The pages nevertheless print it under "Climate figures are Environment Canada normals for the Tofino station" (`tofino.html`, `long-beach.html`). **Verify against the ECCC record or remove the attribution before the backend publishes weather.** The `tides` block is a fixed sample day, not a tide table |
 | Counts that are not derived | "134 stays" (Tofino), "158" (Ucluelet) and "from $320 a night" are hardcoded. They match `corpus.destinations[].stays` but not `listings`, which has 12 sample rows |
-| Data defects that do not render | `deep.json`: 758 of 1,075 places have a bare source URL as a body line; numbered prefixes such as `1. Lake Louise` in `name`. `vancouver-island.json`: 21 `Meta description:` prefixes; FAQ questions listed in `places`. Strip before import |
+| Source data to clean before import | `deep.json`: 758 of 1,075 places have a bare source URL as a body line; numbered prefixes such as `1. Lake Louise` in `name`. `vancouver-island.json`: 21 `Meta description:` prefixes; FAQ questions listed in `places`. Strip before import |
 
 ## 1. `corpus.json` (150 KB)
 
@@ -179,7 +179,7 @@ create table stay_summaries (
   synced_at timestamptz
 );
 
--- Subscriptions (replaces the three fake forms) ------------------------------------------
+-- Subscriptions (backs the three prototype forms) ------------------------------------------
 create table subscription_topics (
   key text primary key,                             -- 'seasonal-letter','whale-watching-tofino'
   label text not null, consent_text text not null, consent_version int not null, active boolean default true

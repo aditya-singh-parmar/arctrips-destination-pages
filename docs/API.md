@@ -33,7 +33,7 @@ Business rules for stays (fees, deposits, cancellation, availability) are not de
 
 Admin endpoints require `Authorization: Bearer <Supabase Auth JWT>` with a `role` claim. Public endpoints need no credential. The Cloudinary secret and the Supabase service-role key exist only on the server.
 
-## 3. Subscriptions (replaces the three fake forms)
+## 3. Subscriptions (backs the three prototype forms)
 
 Topics, seeded from the copy on the pages today:
 
@@ -92,7 +92,7 @@ Marks the subscription `confirmed`. Responds `303` to `{source_path}?confirmed=1
 
 ### Front-end change
 
-In `index.html`, `whale-watching.html`, `guide.html` the submit handler currently does `preventDefault()` and fakes success. Replace it with: disable the button and show "Sending" while the request runs; on `202` show "Check your inbox to confirm" (not "you are on the list", because confirmation is pending); on `400` show the field message next to the input; on `429` or a network failure show a retry message and keep the form. Keep the existing rule: confirm by replacing the form, never by greying a control out.
+In `index.html`, `whale-watching.html`, `guide.html` the submit handler currently shows the confirmation state only (the prototype stub). Wire it to the API as follows: disable the button and show "Sending" while the request runs; on `202` show "Check your inbox to confirm" (not "you are on the list", because confirmation is pending); on `400` show the field message next to the input; on `429` or a network failure show a retry message and keep the form. Keep the existing rule: confirm by replacing the form, never by greying a control out.
 
 ## 4. Public content (read)
 
