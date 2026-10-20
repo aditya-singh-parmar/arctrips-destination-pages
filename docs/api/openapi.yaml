@@ -196,7 +196,7 @@ paths:
                 items:
                   type: object
                   properties:
-                    path: { type: string, example: /tofino/hiking }
+                    path: { type: string, example: /destinations/canada/bc/tofino/things-to-do/hiking }
                     entity_type: { type: string }
                     noindex: { type: boolean }
   /search:
@@ -350,7 +350,7 @@ components:
         email: { type: string, format: email, maxLength: 254 }
         topic: { type: string, example: whale-watching-tofino }
         consent: { type: boolean, enum: [true] }
-        source_path: { type: string, example: /tofino/whale-watching }
+        source_path: { type: string, example: /whale-watching/canada/bc/tofino }
         website: { type: string, description: "Honeypot, must be empty", maxLength: 0 }
     Topic:
       type: object
@@ -379,7 +379,7 @@ components:
         overview: { type: array, items: { type: string } }
         hero: { $ref: '#/components/schemas/Media' }
         stays_count: { type: integer, nullable: true }
-        path: { type: string, example: /tofino }
+        path: { type: string, example: /destinations/canada/bc/tofino }
     Guide:
       type: object
       properties:

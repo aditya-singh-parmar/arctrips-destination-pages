@@ -21,14 +21,14 @@ Owner rulings and the reasons, so the next developer does not re-litigate them. 
 | D-15 | 2026-10-20 | Add `rel=canonical`, `sitemap.xml`, `robots.txt`, all from the route map. Canonical origin is the Vercel URL until a domain exists. No trailing slash; root is the bare origin | Duplicate 200s (`/Tofino`, query strings) and no crawl surface; the PRD requires self-referencing canonicals without a trailing slash | `scripts/canonical-rebuild.mjs`, `app/sitemap.ts`, `app/robots.ts` |
 | D-16 | 2026-10-20 | Handover documentation lives in this repo (`docs/`) | The backend developer works from GitHub | this folder |
 | D-17 | 2026-10-20 | The prototype's stubs are intentional: email forms show confirmation only, stays and fishing and About/List/Contact links go to `/not-found`, sample listings, placeholder counts and weather. They exist so the build team has the finished UI and copy to implement against | Owner: the prototype is fake on purpose and is being handed to the real build | [HANDOVER.md](HANDOVER.md) section 2 |
+| D-18 | 2026-10-20 | URL structure follows the PRD (Confluence ADS 117735426): `/{section}/{country}/{province}/{town}/{slug}`. The flat tree is retired and its URLs are **not** redirected (they 404). Whale watching, kayaking and fishing guide pages sit in their PRD sections; other subjects under `things-to-do`; the Tofino plan page is the travel guide; the wildlife-tours article uses the blog pattern; the British Columbia index is `/destinations/canada/bc`, also served at `/` and `/destinations` by rewrite. Supersedes D-10 and D-11 for URL shape. D-5 (no Canada crumb) still governs the visible breadcrumb | Owner: "the URL structure has to be what's there in the PRD. Flat structure will not work"; prototype URLs may break because production does not need them | [routing.md](routing.md) |
 
 ## Assumptions awaiting an owner ruling
 
 | # | Assumption in force | Needs | Owner |
 |---|---|---|---|
-| A-1 | The flat URL tree stands over the PRD's `/destinations/canada/bc/...` | Ruling on production URL shape and the "no redirects" clause ([routing.md](routing.md)) | Aditya Parmar |
-| A-2 | `SITE_ORIGIN` is the Vercel URL | Production domain | Aditya Parmar |
+| A-2 | `SITE_ORIGIN` is the Vercel URL | Production domain, decided when the backend is built | Aditya Parmar |
 | A-3 | Whale watching forms are one topic | Confirm, or split into two | Aditya Parmar |
-| A-4 | Province for `st-john` | St. John's NL or Saint John NB | Aditya Parmar |
+| A-4 | Province codes for the non-BC towns are inferred from each town (`ab`, `sk`, `on`, `qc`, `ns`, `pe`, `nl`); `st-john` is St. John's, Newfoundland and Labrador per its page | Confirm | Aditya Parmar |
 | A-5 | Climate figures are unverified and must not be asserted as Environment Canada data | Verify or reword | Aditya Parmar |
 | A-6 | Rate limits and token lifetimes in [API.md](API.md) | Confirm | Aditya Parmar |

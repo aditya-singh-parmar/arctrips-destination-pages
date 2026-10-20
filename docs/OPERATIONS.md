@@ -51,7 +51,7 @@ Recommended flow until CI exists:
 
 1. Branch, commit, push, open a PR. Vercel builds a **preview** for the PR.
 2. Run the loop in section 3 locally; run `QA_BASE=<preview-url> node scripts/qa-runtime.mjs` against the preview.
-3. Spot check the preview: `/robots.txt`, `/sitemap.xml`, one page's canonical, `/tofino/` to `/tofino` (308), `/prototype/hiking-tofino.html` to `/tofino/hiking` (308).
+3. Spot check the preview: `/robots.txt`, `/sitemap.xml`, one page's canonical, `/destinations/canada/bc/tofino/` to `/destinations/canada/bc/tofino` (308), `/prototype/hiking-tofino.html` to `/destinations/canada/bc/tofino/things-to-do/hiking` (308).
 4. Merge only when the above is green.
 
 Vercel Deployment Protection must stay on "Preview deployments only". Setting "All deployments" puts a login in front of production and any webhook. After touching it, `curl -sI https://<production>/` and confirm it is not a 302 to `sso-api`.
@@ -69,7 +69,7 @@ Commit author is the owner (`Aditya Parmar`); no `Co-Authored-By` trailers.
 4. Regenerate `.claude/routes.json` from `Object.values(ROUTES)`.
 
 ### Change a URL
-Edit `ROUTES`. Keep the old URL alive with a 308: `next.config.ts` generates redirects only for the legacy `/prototype/*.html` paths, so add an explicit entry to `redirects()` for any route that was ever public. Re-run canonicals and the loop. Read [routing.md](routing.md) first, especially "Production URL target".
+Edit `ROUTES`. Old URLs are not redirected (the PRD forbids redirects; decision D-18). After production launch this needs revisiting, because moving a live URL loses its search ranking. `next.config.ts` redirects only `/prototype/<file>.html` to the route. Re-run canonicals and the loop. Read [routing.md](routing.md) first, especially "Production URL target".
 
 ### Cut over to a production domain
 1. Add the domain in Vercel, wait for it to verify.

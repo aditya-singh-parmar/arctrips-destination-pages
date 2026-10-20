@@ -10,11 +10,11 @@ What the site does today, page by page, from the code. "Client-side" means the l
 |---|---|---|---|
 | Home | `/` | 1 | Hand HTML, inline JS: finder, seasonal almanac, accordions, email capture |
 | Search | `/search` | 1 | Hand HTML, 170 KB inline data blob and search engine |
-| Region | `/vancouver-island` | 1 | Hand HTML, minimal JS, data from `vancouver-island.json` |
-| Town hub, fully designed | `/tofino` | 1 | Hand HTML (84 KB), three inline scripts driven by `corpus.json`, `climate.json`, `best-months.json` |
-| Town hub, lighter | `/ucluelet` | 1 | Hand HTML (23 KB), one script. Not at parity with Tofino |
-| Tofino section pages | `/tofino/things-to-do`, `/plan`, `/guides`, `/long-beach` | 4 | Hand HTML with seasonal logic |
-| Subject pages | `/tofino/{beaches,hiking,kayaking,whale-watching,storm-watching,restaurants,surfing,birding,fishing}`, `/ucluelet/{hiking,kayaking,whale-watching,restaurants}` | 13 | Hand HTML; most are mostly static, `whale-watching` and `guide` are interactive |
+| Region | `/destinations/canada/bc/vancouver-island` | 1 | Hand HTML, minimal JS, data from `vancouver-island.json` |
+| Town hub, fully designed | `/destinations/canada/bc/tofino` | 1 | Hand HTML (84 KB), three inline scripts driven by `corpus.json`, `climate.json`, `best-months.json` |
+| Town hub, lighter | `/destinations/canada/bc/ucluelet` | 1 | Hand HTML (23 KB), one script. Not at parity with Tofino |
+| Tofino section pages | `/destinations/canada/bc/tofino/things-to-do`, `/destinations/canada/bc/tofino/long-beach`, `/travel-guides/canada/bc/tofino` (the plan page), `/blog/whale-watching/canada/bc/tofino/wildlife-tours-in-tofino` (the article) | 4 | Hand HTML with seasonal logic |
+| Subject pages | Under `/destinations/canada/bc/{tofino,ucluelet}/things-to-do/`: beaches, hiking, storm-watching, restaurants, surfing, birding (Tofino), hiking, restaurants (Ucluelet). In their own PRD sections: `/whale-watching/canada/bc/{tofino,ucluelet}`, `/kayaking/canada/bc/{tofino,ucluelet}`, `/fishing/canada/bc/tofino` | 13 | Hand HTML; most are mostly static, `whale-watching` and `guide` are interactive |
 | Town pages, content only | 24 further towns, one segment each | 24 | Static sections written from `deep.json` (by hand, see [HANDOVER.md](HANDOVER.md) section 4), a search box, a place bar, one script |
 | 404 design | `/not-found` | 1 | Hand HTML, address-walking logic |
 
@@ -59,7 +59,7 @@ A backend equivalent is specified in [API.md](API.md) section 4. The scoring wei
 
 ## 5. Town hubs
 
-`/tofino` is the reference hub. `/ucluelet` is a shorter page with the same place bar and no almanac. Tofino's sections: overview (the "why"), month almanac, what to do (best for), areas (Tofino has thirteen beaches), places to stay, guides to read, nearby towns, FAQ accordion.
+`/destinations/canada/bc/tofino` is the reference hub. `/destinations/canada/bc/ucluelet` is a shorter page with the same place bar and no almanac. Tofino's sections: overview (the "why"), month almanac, what to do (best for), areas (Tofino has thirteen beaches), places to stay, guides to read, nearby towns, FAQ accordion.
 
 | Logic | Source |
 |---|---|
@@ -68,33 +68,33 @@ A backend equivalent is specified in [API.md](API.md) section 4. The scoring wei
 | Daylight | Computed in the browser from latitude 49.153 N, solar declination and hour angle. No data file |
 | Tides and sunset | `climate.json` `tides` block per town |
 | Stay cards | Four distinct Tofino listings from the `listings` sample; all link to `/not-found` |
-| Link resolution | A place goes to the subject page that owns it, never by name. Subjects with no page of their own land on their section of `/tofino/things-to-do` |
+| Link resolution | A place goes to the subject page that owns it, never by name. Subjects with no page of their own land on their section of `/destinations/canada/bc/tofino/things-to-do` |
 
 ## 6. Tofino section pages
 
 | Route | Feature |
 |---|---|
-| `/tofino/things-to-do` | Nine subject cards, ranked by whether they are in season now. Ordering is stated twice (number plus a divider where the in-season run ends). One photograph per subject, the same one the subject page opens on. Questions dealt round the subjects so the first screen spans the whole town. Collapsed answers |
-| `/tofino/plan` | "When should you go to Tofino?" Twelve-month board, **two-month compare**, "at their best in {month}", nine topic cards with counts matched from the guides' own "good for" wording, a stays strip, FAQ. Counts only Tofino's eleven subjects, never the 22-category taxonomy |
-| `/tofino/guides` | The single built article, "Wildlife tours in Tofino". Whale-watching booking status panel with the email form, a year strip, spots, month switcher, questions, reading minutes (not word counts) |
-| `/tofino/long-beach` | The one built area page: six things people do there with best months, the other twelve beaches grouped by the kind of day they suit, stays from the Tofino end to the far end, climate |
+| `/destinations/canada/bc/tofino/things-to-do` | Nine subject cards, ranked by whether they are in season now. Ordering is stated twice (number plus a divider where the in-season run ends). One photograph per subject, the same one the subject page opens on. Questions dealt round the subjects so the first screen spans the whole town. Collapsed answers |
+| `/travel-guides/canada/bc/tofino` | "When should you go to Tofino?" Twelve-month board, **two-month compare**, "at their best in {month}", nine topic cards with counts matched from the guides' own "good for" wording, a stays strip, FAQ. Counts only Tofino's eleven subjects, never the 22-category taxonomy |
+| `/blog/whale-watching/canada/bc/tofino/wildlife-tours-in-tofino` | The single built article, "Wildlife tours in Tofino". Whale-watching booking status panel with the email form, a year strip, spots, month switcher, questions, reading minutes (not word counts) |
+| `/destinations/canada/bc/tofino/long-beach` | The one built area page: six things people do there with best months, the other twelve beaches grouped by the kind of day they suit, stays from the Tofino end to the far end, climate |
 
 ## 7. Subject pages
 
 Pattern: a "when" band (season window), a list of places ordered from the village outward, rules or tips, "Asked before people book", "Three ways on from here". Each place shows blurb, "good for" bullets, a note, and photographs.
 
-`/tofino/whale-watching` adds: three whale portraits (gray, humpback, orca) with a month switcher that shows three states (at peak, possible, not here), `?m=1`..`12` to land on a month (the only month deep link in the site), a six-places table, filters, and a "coming soon" panel with the email form. `/ucluelet/*` subject pages follow the same pattern with fewer sections.
+`/whale-watching/canada/bc/tofino` adds: three whale portraits (gray, humpback, orca) with a month switcher that shows three states (at peak, possible, not here), `?m=1`..`12` to land on a month (the only month deep link in the site), a six-places table, filters, and a "coming soon" panel with the email form. `/destinations/canada/bc/ucluelet/*` subject pages follow the same pattern with fewer sections.
 
 ## 8. Forms and calls to action
 
 | Control | Page | Behaviour today | Needs backend |
 |---|---|---|---|
 | Seasonal letter, "Send me the letter" | `/` | Prototype stub: the button text becomes "Thank you, you are on the list". Email is required; the consent checkbox is not yet enforced (the build must enforce it) | Yes |
-| "Tell me when boats go live" | `/tofino/whale-watching` | Same stub, text "Thank you, we will write once" | Yes |
-| "Tell me when tours open" | `/tofino/guides` | Prototype stub: form replaced by a confirmation paragraph, consent line removed | Yes |
+| "Tell me when boats go live" | `/whale-watching/canada/bc/tofino` | Same stub, text "Thank you, we will write once" | Yes |
+| "Tell me when tours open" | `/blog/whale-watching/canada/bc/tofino/wildlife-tours-in-tofino` | Prototype stub: form replaced by a confirmation paragraph, consent line removed | Yes |
 | Search forms (about 24) | most pages | Real `GET /search?q=` | No |
 | Stays links ("See all 134", "See every stay", stay cards) | many | Link to `/not-found?in=tofino` (or `ucluelet`). `not-found` reads `in` but only to offer that town | Stays product |
-| "Go to ArcTrips Fishing", "ArcTrips Fishing" | fishing, others | `/not-found`. The "Fishing charters" links mostly go to the Tofino fishing guide `/tofino/fishing` (an editorial page, not a booking page); three go to `/not-found` | Sister brand URL |
+| "Go to ArcTrips Fishing", "ArcTrips Fishing" | fishing, others | `/not-found`. The "Fishing charters" links mostly go to the Tofino fishing guide `/fishing/canada/bc/tofino` (an editorial page, not a booking page); three go to `/not-found` | Sister brand URL |
 | Footer "About us", "List your place", "Contact" | 18 pages | `/not-found` | Pages or product links |
 
 Booking-path ruling carried from the deleted app: every page carries a way forward. Stays are live on Arc Trips, fishing hands off to the sister brand, whale watching, kayaking and hot springs are "coming soon" with an email capture that falls through to stays. Today the stays and fishing targets do not exist, which is seam 2 and 3 in [HANDOVER.md](HANDOVER.md).

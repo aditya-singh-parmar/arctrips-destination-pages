@@ -36,10 +36,10 @@ Runtime dependencies are `next`, `react`, `react-dom` only.
 ## 3. Request flow
 
 ```
-GET /tofino/hiking
+GET /destinations/canada/bc/tofino/things-to-do/hiking
   1. next.config.ts redirects()   no match
   2. filesystem / public          no match
-  3. next.config.ts rewrites()    /tofino/hiking -> /prototype/hiking-tofino.html
+  3. next.config.ts rewrites()    /destinations/canada/bc/tofino/things-to-do/hiking -> /prototype/hiking-tofino.html
   4. response: the static file, URL unchanged
 ```
 

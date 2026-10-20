@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-import { ROUTES, fileToPath } from "./scripts/lib/routes.mjs";
+import { ROUTES, ALIASES, fileToPath } from "./scripts/lib/routes.mjs";
 
 const entries = Object.entries(ROUTES as Record<string, string>);
 
@@ -17,6 +17,12 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       ...entries.map(([file, route]) => ({ source: route, destination: fileToPath(file) })),
+      /* Non-canonical addresses that serve a page. Rewrites, never redirects: the
+         URL PRD forbids redirects. The page's canonical tag names the real route. */
+      ...Object.entries(ALIASES as Record<string, string>).map(([source, file]) => ({
+        source,
+        destination: fileToPath(file),
+      })),
       /* Design exploration, not a site page: deliberately outside ROUTES so the
          QA gates and the route sweep do not treat a mockup as a destination. */
       { source: "/ideation/nav", destination: "/ideation/nav/index.html" },
@@ -24,8 +30,10 @@ const nextConfig: NextConfig = {
   },
 
   /**
-   * The pre-2026-08-13 URLs. Every one of them is a real link somewhere, so
-   * they move permanently to their route rather than 404.
+   * The static files are also reachable at /prototype/<file>.html because they
+   * live in public/. Send those to the route so a page has one address. The old
+   * flat routes (/tofino, /tofino/hiking, ...) are deliberately NOT redirected:
+   * the owner ruled on 2026-10-20 that prototype URLs may break.
    */
   async redirects() {
     return entries.map(([file, route]) => ({
