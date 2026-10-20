@@ -66,3 +66,8 @@ scripts/.cloudinary-cache.json
 /*.png
 /*.jpg
 .harness/
+
+# local tool output
+.playwright-mcp/
+.superpowers/
+.ucl-shot*.tmp.mjs

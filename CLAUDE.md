@@ -33,7 +33,7 @@ done until pushed and checked on the Vercel URL.**
   `nav-rebuild.mjs` and `.claude/routes.json` all read it. Never hand-edit a consumer.
 - Clean nested URLs (`/tofino/hiking`) are **rewrites**, so every page references
   `_system.css`, `_nav.js`, `brand/`, `media/` as root-absolute `/prototype/...`.
-- Never link to `/prototype/<page>.html` (301s; `qa-prototype.mjs` fails `.html` hrefs).
+- Never link to `/prototype/<page>.html` (308s; `qa-prototype.mjs` fails `.html` hrefs).
 - Reference: `docs/routing.md`.
 
 ## Product rulings that still stand
