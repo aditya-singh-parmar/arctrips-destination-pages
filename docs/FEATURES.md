@@ -39,7 +39,7 @@ What the site does today, page by page, from the code. "Client-side" means the l
 | Regions | Vancouver Island (11 towns) first, then three mainland regions. Totals are summed once from the BC data |
 | "When should you go?" almanac | Month strip; picking a month re-paints the figures with a count-up. Heat cells are shaded by how many subjects are in season |
 | Awkward questions | Native `<details>` accordion, one column, no JS |
-| Seasonal letter | **Email form. Submits nowhere.** See section 8 |
+| Seasonal letter | Email form (prototype stub, see section 8) |
 
 ## 4. Search (`/search`)
 
@@ -89,9 +89,9 @@ Pattern: a "when" band (season window), a list of places ordered from the villag
 
 | Control | Page | Behaviour today | Needs backend |
 |---|---|---|---|
-| Seasonal letter, "Send me the letter" | `/` | `preventDefault`, then button text becomes "Thank you, you are on the list". Required email, unchecked consent box that is **not** validated | Yes |
-| "Tell me when boats go live" | `/tofino/whale-watching` | Same, text "Thank you, we will write once" | Yes |
-| "Tell me when tours open" | `/tofino/guides` | `preventDefault`, form replaced by a confirmation paragraph, consent line removed | Yes |
+| Seasonal letter, "Send me the letter" | `/` | Prototype stub: the button text becomes "Thank you, you are on the list". Email is required; the consent checkbox is not yet enforced (the build must enforce it) | Yes |
+| "Tell me when boats go live" | `/tofino/whale-watching` | Same stub, text "Thank you, we will write once" | Yes |
+| "Tell me when tours open" | `/tofino/guides` | Prototype stub: form replaced by a confirmation paragraph, consent line removed | Yes |
 | Search forms (about 24) | most pages | Real `GET /search?q=` | No |
 | Stays links ("See all 134", "See every stay", stay cards) | many | Link to `/not-found?in=tofino` (or `ucluelet`). `not-found` reads `in` but only to offer that town | Stays product |
 | "Go to ArcTrips Fishing", "ArcTrips Fishing" | fishing, others | `/not-found`. The "Fishing charters" links mostly go to the Tofino fishing guide `/tofino/fishing` (an editorial page, not a booking page); three go to `/not-found` | Sister brand URL |

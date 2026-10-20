@@ -20,6 +20,7 @@ Owner rulings and the reasons, so the next developer does not re-litigate them. 
 | D-14 | 2026-08-12 | Supabase is not a dependency of this repo. The shared instance serves Website-Builder; do not re-add a dependency without the owner | Instance is shared; keys may linger in `.env.local` | `CLAUDE.md` |
 | D-15 | 2026-10-20 | Add `rel=canonical`, `sitemap.xml`, `robots.txt`, all from the route map. Canonical origin is the Vercel URL until a domain exists. No trailing slash; root is the bare origin | Duplicate 200s (`/Tofino`, query strings) and no crawl surface; the PRD requires self-referencing canonicals without a trailing slash | `scripts/canonical-rebuild.mjs`, `app/sitemap.ts`, `app/robots.ts` |
 | D-16 | 2026-10-20 | Handover documentation lives in this repo (`docs/`) | The backend developer works from GitHub | this folder |
+| D-17 | 2026-10-20 | The prototype's stubs are intentional: email forms show confirmation only, stays and fishing and About/List/Contact links go to `/not-found`, sample listings, placeholder counts and weather. They exist so the build team has the finished UI and copy to implement against | Owner: the prototype is fake on purpose and is being handed to the real build | [HANDOVER.md](HANDOVER.md) section 2 |
 
 ## Assumptions awaiting an owner ruling
 

@@ -4,7 +4,7 @@ Destination and activity guides for 26 Canadian towns (15 in British Columbia, 1
 
 Live: https://arctrips-destination-pages.vercel.app
 
-**This is a static site with no runtime backend.** The pages are hand-written HTML in `design/prototype/`, served by a thin Next.js 16 shell through URL rewrites. All content is baked into the pages at authoring time. Nothing is read from or written to a database or API at runtime. A backend is the next piece of work, and this repo's docs are written to hand it over.
+**This is a static site with no runtime backend.** The pages are hand-written HTML in `design/prototype/`, served by a thin Next.js 16 shell through URL rewrites. All content is baked into the pages at authoring time. Nothing is read from or written to a database or API at runtime. This is a deliberate front-end prototype: the forms, stays and fishing links, weather and counts are stubs that the real build replaces. [docs/HANDOVER.md](docs/HANDOVER.md) lists what to build.
 
 ## Start here
 

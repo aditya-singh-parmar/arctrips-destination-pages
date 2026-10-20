@@ -81,7 +81,7 @@ scripts/
   strip-echo-labels.mjs        one-off copy cleanup, re-runnable
   analyze-corpus.mjs propose-map.mjs   inspect docx structure
   serve-design.mjs             static server for design/ (npm run concepts)
-  qa.mjs                       DEAD, written for the deleted app
+  qa.mjs                       obsolete, written for the earlier app
 docs/                        this documentation, plus working notes (qa/, ideation/, superpowers/)
 New Articles - 2026/         source .docx guides, gitignored, read-only
 supabase/                    empty
@@ -124,7 +124,7 @@ The backend developer chooses; the constraint is that every URL in `ROUTES` keep
 | B. Build-time render | Content store feeds a generator that writes `design/prototype/*.html` (or replaces them with Next routes using `generateStaticParams`), triggered by a Vercel deploy hook on publish | Medium. Needs the missing JSON-to-page generator | Static speed and SEO |
 | C. Dynamic render | Pages become Next server components reading the store | Highest. Rewrites 47 hand pages | Needs care to keep the same markup, the design system and the QA gates |
 
-Recommended sequence: A first (removes the fake email forms, adds uploads), then B for content. `app/api/` does not exist yet; a Next route handler is the lowest-friction place for A because the project already deploys on Vercel and the host already has the project, env and domain.
+Recommended sequence: A first (implements the prototype's email forms, adds uploads), then B for content. `app/api/` does not exist yet; a Next route handler is the lowest-friction place for A because the project already deploys on Vercel and the host already has the project, env and domain.
 
 ## 8. Configuration and secrets
 
