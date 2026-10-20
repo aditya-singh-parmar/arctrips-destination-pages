@@ -1,66 +1,88 @@
 /* The site's URL map, and the only place it is written down.
-   next.config.ts, the QA gates, the nav generator and shots.mjs all read this.
+   next.config.ts, the QA gates, the nav generator, the canonical generator,
+   sitemap.ts and robots.ts all read this.
 
-   The pages are static files in public/prototype, but the URLs are a proper
-   nested tree: a town owns its sections and its subjects. That also fixes three
-   names that were global and shouldn't have been: things-to-do.html, plan.html
-   and guide.html are Tofino's pages, not the site's.
-
-   Underscore-prefixed files (_map.html, partials) are not routes. They stay
-   reachable at /prototype/<file> for internal use.
+   The pages are static files in public/prototype, served at the PRD's URLs by
+   rewrites. The PRD is Confluence ADS 117735426 "PRD: URL Structure & Site
+   Taxonomy". Underscore-prefixed files (_map.html, partials) are not routes.
+   They stay reachable at /prototype/<file> for internal use.
 */
 
+const BC = '/destinations/canada/bc';
+const PROV = (prov, town) => `/destinations/canada/${prov}/${town}`;
+
 export const ROUTES = {
-  'index.html': '/',
+  /* British Columbia is the root of the content tree. PRD: URL Structure and Site
+     Taxonomy (Confluence ADS 117735426), "the one rule":
+     /{section}/{country}/{province}/{town}/{page-slug}. */
+  'index.html': BC,
+  'region.html': `${BC}/vancouver-island`,
   'search.html': '/search',
-  'region.html': '/vancouver-island',
   'not-found.html': '/not-found',
 
-  'tofino.html': '/tofino',
-  'things-to-do.html': '/tofino/things-to-do',
-  'plan.html': '/tofino/plan',
-  'guide.html': '/tofino/guides',
-  'long-beach.html': '/tofino/long-beach',
-  'beaches-tofino.html': '/tofino/beaches',
-  'hiking-tofino.html': '/tofino/hiking',
-  'kayaking-tofino.html': '/tofino/kayaking',
-  'whale-watching.html': '/tofino/whale-watching',
-  'storm-watching-tofino.html': '/tofino/storm-watching',
-  'restaurants-tofino.html': '/tofino/restaurants',
-  'surfing-tofino.html': '/tofino/surfing',
-  'birding-tofino.html': '/tofino/birding',
-  'fishing-tofino.html': '/tofino/fishing',
+  /* Tofino */
+  'tofino.html': `${BC}/tofino`,
+  'things-to-do.html': `${BC}/tofino/things-to-do`,
+  'long-beach.html': `${BC}/tofino/long-beach`,
+  'beaches-tofino.html': `${BC}/tofino/things-to-do/beaches`,
+  'hiking-tofino.html': `${BC}/tofino/things-to-do/hiking`,
+  'storm-watching-tofino.html': `${BC}/tofino/things-to-do/storm-watching`,
+  'restaurants-tofino.html': `${BC}/tofino/things-to-do/restaurants`,
+  'surfing-tofino.html': `${BC}/tofino/things-to-do/surfing`,
+  'birding-tofino.html': `${BC}/tofino/things-to-do/birding`,
+  /* The three bookable verticals own a PRD section of their own. */
+  'whale-watching.html': '/whale-watching/canada/bc/tofino',
+  'kayaking-tofino.html': '/kayaking/canada/bc/tofino',
+  'fishing-tofino.html': '/fishing/canada/bc/tofino',
+  /* Travel guide and blog patterns from the PRD. */
+  'plan.html': '/travel-guides/canada/bc/tofino',
+  'guide.html': '/blog/whale-watching/canada/bc/tofino/wildlife-tours-in-tofino',
 
-  'ucluelet.html': '/ucluelet',
-  'hiking-ucluelet.html': '/ucluelet/hiking',
-  'kayaking-ucluelet.html': '/ucluelet/kayaking',
-  'whale-watching-ucluelet.html': '/ucluelet/whale-watching',
-  'restaurants-ucluelet.html': '/ucluelet/restaurants',
+  /* Ucluelet */
+  'ucluelet.html': `${BC}/ucluelet`,
+  'hiking-ucluelet.html': `${BC}/ucluelet/things-to-do/hiking`,
+  'restaurants-ucluelet.html': `${BC}/ucluelet/things-to-do/restaurants`,
+  'whale-watching-ucluelet.html': '/whale-watching/canada/bc/ucluelet',
+  'kayaking-ucluelet.html': '/kayaking/canada/bc/ucluelet',
 
-  'banff.html': '/banff',
-  'campbell-river.html': '/campbell-river',
-  'charlottetown.html': '/charlottetown',
-  'chemainus.html': '/chemainus',
-  'edmonton.html': '/edmonton',
-  'halifax.html': '/halifax',
-  'jasper.html': '/jasper',
-  'montreal.html': '/montreal',
-  'nanaimo.html': '/nanaimo',
-  'nanoose.html': '/nanoose',
-  'nelson.html': '/nelson',
-  'niagara-falls.html': '/niagara-falls',
-  'ottawa.html': '/ottawa',
-  'parksville.html': '/parksville',
-  'quebec-city.html': '/quebec-city',
-  'saskatoon.html': '/saskatoon',
-  'shawnigan-lake.html': '/shawnigan-lake',
-  'sidney.html': '/sidney',
-  'sooke.html': '/sooke',
-  'squamish.html': '/squamish',
-  'st-john.html': '/st-john',
-  'vancouver.html': '/vancouver',
-  'victoria.html': '/victoria',
-  'whistler.html': '/whistler',
+  /* The other thirteen BC towns */
+  'victoria.html': `${BC}/victoria`,
+  'vancouver.html': `${BC}/vancouver`,
+  'whistler.html': `${BC}/whistler`,
+  'squamish.html': `${BC}/squamish`,
+  'sooke.html': `${BC}/sooke`,
+  'sidney.html': `${BC}/sidney`,
+  'chemainus.html': `${BC}/chemainus`,
+  'nanaimo.html': `${BC}/nanaimo`,
+  'nanoose.html': `${BC}/nanoose`,
+  'parksville.html': `${BC}/parksville`,
+  'shawnigan-lake.html': `${BC}/shawnigan-lake`,
+  'campbell-river.html': `${BC}/campbell-river`,
+  'nelson.html': `${BC}/nelson`,
+
+  /* Elsewhere in Canada: the province segment is the postal abbreviation, as in
+     the PRD's "bc". */
+  'banff.html': PROV('ab', 'banff'),
+  'jasper.html': PROV('ab', 'jasper'),
+  'edmonton.html': PROV('ab', 'edmonton'),
+  'saskatoon.html': PROV('sk', 'saskatoon'),
+  'niagara-falls.html': PROV('on', 'niagara-falls'),
+  'ottawa.html': PROV('on', 'ottawa'),
+  'montreal.html': PROV('qc', 'montreal'),
+  'quebec-city.html': PROV('qc', 'quebec-city'),
+  'halifax.html': PROV('ns', 'halifax'),
+  'charlottetown.html': PROV('pe', 'charlottetown'),
+  'st-john.html': PROV('nl', 'st-john'), // St. John's, Newfoundland and Labrador
+};
+
+/* Extra URLs that serve a page without being its canonical address. Rewrites,
+   not redirects (the PRD forbids redirects), and the page's canonical tag names
+   the real route. The prototype's own root and the PRD's /destinations section
+   both show the British Columbia index until the real build gives each its own
+   page. */
+export const ALIASES = {
+  '/': 'index.html',
+  '/destinations': 'index.html',
 };
 
 /* route -> file, for the QA gates that have to resolve a link back to disk */

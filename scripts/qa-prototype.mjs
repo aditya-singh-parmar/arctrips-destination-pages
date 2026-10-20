@@ -2,7 +2,7 @@
 // image and hard rule. Run: node scripts/qa-prototype.mjs
 import { readdirSync, readFileSync, existsSync } from 'fs';
 import { join } from 'path';
-import { FILE_FOR } from './lib/routes.mjs';
+import { FILE_FOR, ALIASES } from './lib/routes.mjs';
 const DIR = process.argv[2] && !process.argv[2].startsWith('-') ? process.argv[2] : 'design/prototype';
 const pages = readdirSync(DIR).filter(f => f.endsWith('.html') && !f.startsWith('_'));
 let fail = 0;
@@ -10,7 +10,7 @@ const say = (t, m) => { if (t) return; fail++; console.log('  FAIL ' + m); };
 for (const p of pages) {
   const s = readFileSync(join(DIR, p), 'utf8');
   const self = p;
-  const selfRoute = Object.entries(FILE_FOR).find(([, f]) => f === p)?.[0];
+  const selfRoutes = [...Object.entries(FILE_FOR), ...Object.entries(ALIASES)].filter(([, f]) => f === p).map(([r]) => r);
   const ids = new Set([...s.matchAll(/id="([^"]+)"/g)].map(m => m[1]));
   for (const [, h, txt] of s.matchAll(/href="([^"]+)"[^>]*>([^<]{0,40})/g)) {
     if (/^(https?:|mailto:|tel:)/.test(h)) continue;
@@ -22,11 +22,11 @@ for (const p of pages) {
     else if (h.startsWith('/prototype/')) { /* asset, checked below and by sync-prototype */ }
     else if (h.startsWith('/')) {
       const route = h.split(/[?#]/)[0];
-      const f = FILE_FOR[route];
+      const f = FILE_FOR[route] || ALIASES[route];
       say(!!f && existsSync(join(DIR, f)), `${p}: broken link ${h}`);
       /* a bare link to your own route reloads the page; the same route with a
          hash or a query is an in-page jump or a new search, and is fine */
-      if (h === selfRoute) say(false, `${p}: self-reload "${txt.trim()}"`);
+      if (selfRoutes.includes(h)) say(false, `${p}: self-reload "${txt.trim()}"`);
     }
   }
   for (const [, src] of s.matchAll(/src="\/prototype\/(media\/[^"]+)"/g))
@@ -37,7 +37,8 @@ for (const p of pages) {
   const SUBJ = ['beaches','hiking','kayaking','restaurants','surfing','birding','fishing','storm-watching','whale-watching','camping'];
   for (const [, h, txt] of s.matchAll(/href="(\/[a-z0-9\-\/]+)"[^>]*>([^<]{4,60})</g)) {
     const t = txt.toLowerCase();
-    const generic = /\/(things-to-do|search|plan|guides|not-found|vancouver-island)$|^\/(tofino|ucluelet)?$/.test(h);
+    /* pages that are about a town or the whole site rather than one subject */
+    const generic = /\/(things-to-do|search|not-found|vancouver-island)$|^\/$|^\/destinations\/canada\/[a-z]{2}(\/[a-z-]+)?$|^\/travel-guides\//.test(h);
     if (generic) continue;
     for (const sub of SUBJ) {
       const word = sub.split('-')[0];

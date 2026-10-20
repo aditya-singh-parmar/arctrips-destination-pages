@@ -118,7 +118,7 @@ ${tabs}
       const current = cfg.subject === s.slug;
       const href = current ? '#top'
         : s.page ? R(s.page)
-        : cfg.town === 'tofino' ? `/tofino/things-to-do#${s.slug}` : '/ucluelet#do';
+        : cfg.town === 'tofino' ? `${R('things-to-do.html')}#${s.slug}` : `${R('ucluelet.html')}#do`;
       return `    <li><a href="${href}"${current ? ' aria-current="page"' : ''}${s.page ? '' : ' data-soon'}>${esc(s.label)}</a></li>`;
     }).join('\n');
     out += `\n<nav class="subjectbar" aria-label="Things to do in ${town}"><div class="wrap subjectbar-in">

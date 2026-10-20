@@ -40,7 +40,7 @@ Topics, seeded from the copy on the pages today:
 | `topic` | Page that uses it | Consent text on the page |
 |---|---|---|
 | `seasonal-letter` | `/` | "Yes, send me the seasonal letter. You can unsubscribe from any email, and we never pass your address on." |
-| `whale-watching-tofino` | `/tofino/whale-watching`, `/tofino/guides` | "Yes, tell me when whale watching opens in Tofino. You can unsubscribe from any email, and we never pass your address on." |
+| `whale-watching-tofino` | `/whale-watching/canada/bc/tofino`, `/blog/whale-watching/canada/bc/tofino/wildlife-tours-in-tofino` | "Yes, tell me when whale watching opens in Tofino. You can unsubscribe from any email, and we never pass your address on." |
 
 The two whale watching forms carry different wording and different success copy today. Treat them as one topic and unify the copy, or add `whale-watching-boats` as a third topic (Assumption: one topic; owner to confirm).
 
@@ -51,7 +51,7 @@ The two whale watching forms carry different wording and different success copy 
   "email": "you@example.com",
   "topic": "whale-watching-tofino",
   "consent": true,
-  "source_path": "/tofino/whale-watching",
+  "source_path": "/whale-watching/canada/bc/tofino",
   "website": ""
 }
 ```

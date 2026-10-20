@@ -1,10 +1,15 @@
 import {chromium} from '@playwright/test';
-import {ROUTES} from './lib/routes.mjs';
+import {ROUTES, ALIASES} from './lib/routes.mjs';
 /* Clean URLs are served by next.config.ts rewrites, so this needs a Next server
    (npm run dev / npm start) or the deployed origin, not a static file server.
    QA_BASE points it at the deployed site: the owner reviews that, not localhost. */
 const BASE=(process.env.QA_BASE||'http://localhost:3000').replace(/\/$/,'');
-const pages=Object.values(ROUTES).sort();
+/* /search renders its links from the query, so a few queries stand in for the
+   states a visitor reaches: towns, places, guides, questions. */
+const SEARCH_STATES=['/search?q=a','/search?q=e','/search?q=banff','/search?q=whale','/search?q=beach&in=tofino','/search?q=where&show=questions'];
+const pages=[...Object.values(ROUTES),...Object.keys(ALIASES),...SEARCH_STATES].sort();
+/* every internal path an anchor may point at: a route, an alias, or a static asset */
+const VALID=new Set([...Object.values(ROUTES),...Object.keys(ALIASES)]);
 const b=await chromium.launch();
 let bad=0;
 for(const p of pages){
@@ -22,7 +27,17 @@ for(const p of pages){
     });
     return out;
   }).catch(()=>['<eval failed>']);
-  if(errs.length||empty.length){bad++;console.log('### '+p);
+  /* Every rendered anchor must be a route, an alias or an asset. This is what
+     catches links assembled in JavaScript, which no static scan can see (a
+     relative "banff.html" shipped to production this way). */
+  const hrefs=await pg.evaluate(()=>[...document.querySelectorAll('a[href]')].map(a=>a.getAttribute('href'))).catch(()=>[]);
+  const broken=[...new Set(hrefs.filter(h=>{
+    if(!h||h[0]==='#'||/^(https?:|mailto:|tel:|\/\/)/.test(h))return false;
+    const path=h.split(/[?#]/)[0];
+    return !path.startsWith('/prototype/')&&!VALID.has(path);
+  }))];
+  if(errs.length||empty.length||broken.length){bad++;console.log('### '+p);
+    if(broken.length)console.log('   BROKEN LINKS '+broken.slice(0,6).join(', '));
     errs.slice(0,4).forEach(e=>console.log('   ERR  '+e));
     if(empty.length)console.log('   EMPTY '+empty.join(', '));}
   await ctx.close();

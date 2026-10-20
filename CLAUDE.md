@@ -30,8 +30,10 @@ done until pushed and checked on the Vercel URL.**
 ## Routing
 
 - `scripts/lib/routes.mjs` is the URL map; `next.config.ts`, the QA gates,
-  `nav-rebuild.mjs` and `.claude/routes.json` all read it. Never hand-edit a consumer.
-- Clean nested URLs (`/tofino/hiking`) are **rewrites**, so every page references
+  `nav-rebuild.mjs`, `canonical-rebuild.mjs`, the sitemap and `.claude/routes.json` all read it. Never hand-edit a consumer.
+  Never build a URL by string concatenation in page JavaScript; resolve it from a map. `docs/routing.md` is the reference.
+- URLs follow the PRD (Confluence ADS 117735426): `/{section}/{country}/{province}/{town}/{slug}`, for example
+  `/destinations/canada/bc/tofino/things-to-do/hiking`. Old flat URLs are not redirected (owner, 2026-10-20). They are **rewrites**, so every page references
   `_system.css`, `_nav.js`, `brand/`, `media/` as root-absolute `/prototype/...`.
 - Never link to `/prototype/<page>.html` (308s; `qa-prototype.mjs` fails `.html` hrefs).
 - Reference: `docs/routing.md`.
@@ -83,10 +85,10 @@ Composition-level work starts with `/frontend-design`, `/impeccable`, `PRODUCT.m
 
 ## Credentials
 
-Project credentials live in **`.env.local`** at the repo root (gitignored — never commit). `.env.example` documents the keys. Current values (setup 2026-07-23):
+Project credentials live in **`.env.local`** at the repo root (gitignored, never commit). `.env.example` documents the keys. Current values (setup 2026-07-23):
 
-- **Supabase** — no longer used here (the app that read it was deleted on 2026-08-12). The keys may still sit in `.env.local`; nothing reads them.
-- **Cloudinary** — cloud `du9doarye` (public): `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`.
+- **Supabase**: no longer used here (the app that read it was deleted on 2026-08-12). The keys may still sit in `.env.local`; nothing reads them.
+- **Cloudinary**: cloud `du9doarye` (public): `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`.
 
 Next.js reads `.env.local` automatically at dev/build. For a standalone Bash script that needs the vars, source the file first: `set -a; source .env.local; set +a`. Gemini/Nanobanana image-gen keys are **not** used in this project. If `.env.local` is missing on a fresh machine, ask the owner for the values (don't guess) and recreate it with the same gitignored status.
 

@@ -1,214 +1,157 @@
-# Routing, the URL map, how it is served, and what breaks it
+# Routing: the URL map, how it is served, and what breaks it
 
-Written 2026-08-13, after the move off `/prototype/<page>.html`. Read this instead of
-re-deriving the routing from `next.config.ts` and 47 HTML files.
+URLs follow the PRD "URL Structure & Site Taxonomy" (Confluence space ADS, page 117735426, last modified 2026-07-22). Rewritten 2026-10-20 when the site moved from a flat tree (`/tofino/hiking`) to the PRD tree (`/destinations/canada/bc/tofino/things-to-do/hiking`). Read this instead of re-deriving the routing from `next.config.ts` and 47 HTML files.
 
 ## The one rule
 
 **`scripts/lib/routes.mjs` is the URL map, and the only place it is written down.**
 
-Five things read it and none of them carries its own copy:
+Nothing else carries its own copy:
 
 | Consumer | What it uses the map for |
 |---|---|
-| `next.config.ts` | generates every rewrite and every legacy redirect (308) |
-| `scripts/qa-prototype.mjs` | resolves a link back to a file on disk; fails raw `.html` hrefs |
-| `scripts/qa-runtime.mjs` | the list of URLs to load in a real browser |
+| `next.config.ts` | every rewrite (routes and aliases) and the `/prototype/<file>.html` redirects |
+| `app/sitemap.ts`, `app/robots.ts` | the sitemap and robots.txt |
+| `scripts/canonical-rebuild.mjs` | writes `<link rel="canonical">` into each page |
 | `scripts/nav-rebuild.mjs` | turns its filename tables into hrefs at emit time |
+| `scripts/qa-prototype.mjs` | resolves a link back to a file on disk; fails raw `.html` hrefs |
+| `scripts/qa-runtime.mjs` | the URLs to load in a real browser, and the set of valid link targets |
+| `scripts/lib/routes.test.mjs` | the URL contract test |
 | `.claude/routes.json` | regenerated from `ROUTES`; the route list the owner's screenshot sweep reads (that script lives outside this repo) |
 
-Adding a page is one line in `ROUTES` plus the HTML file. Hand-editing a route in any
-consumer puts the site and its gates out of sync, and the gates are the only thing that
-notices.
+Adding a page is one line in `ROUTES` plus the HTML file.
 
 ## How a request is served
 
 ```
-GET /tofino/hiking
+GET /destinations/canada/bc/tofino/things-to-do/hiking
   -> next.config.ts redirects()   no match
   -> filesystem / public          no match
-  -> next.config.ts rewrites()    /tofino/hiking -> /prototype/hiking-tofino.html
-  -> public/prototype/hiking-tofino.html, served at the clean URL
+  -> next.config.ts rewrites()    -> /prototype/hiking-tofino.html
+  -> public/prototype/hiking-tofino.html, served at the PRD URL
 ```
 
 ```
 GET /prototype/hiking-tofino.html
-  -> next.config.ts redirects()   308 -> /tofino/hiking
+  -> next.config.ts redirects()   308 -> /destinations/canada/bc/tofino/things-to-do/hiking
 ```
 
-Rewrites, not redirects, so the clean URL is the one the visitor keeps. Verified
-empirically: the rewrite destination is resolved against the filesystem and is **not**
-re-run through `redirects()`, so the pair does not loop.
+Rewrites, not redirects, so the PRD URL is the one the visitor keeps. The rewrite destination is resolved against the filesystem and is **not** re-run through `redirects()`, so the pair does not loop.
 
 ## The invariant that makes it work
 
-**Every asset reference in a prototype page is root-absolute `/prototype/...`** , 
-`_system.css`, `_nav.js`, `brand/*.svg`, `media/*`, and the `media/` strings inside the
-inlined JS data blobs.
+**Every asset reference in a page is root-absolute `/prototype/...`**: `_system.css`, `_nav.js`, `brand/*.svg`, `media/*`, and the `media/` strings inside the inlined JS data blobs. A page rendered six segments deep would resolve a relative `_system.css` against its own folder and lose its entire stylesheet.
 
-This is not stylistic. A page rendered at `/tofino/hiking` resolves `_system.css`
-against `/tofino/`, so a single relative path 404s that page's entire stylesheet. That
-is exactly why `/` used to be a 307 to `/prototype/index.html` rather than a rewrite:
-the old redirect existed to work around relative paths, and removing them removed the
-need for it.
-
-The failure is silent in two specific places, so both are gated:
+The failure is silent in places, so it is gated:
 
 - `scripts/sync-prototype.mjs` maps `/prototype/<path>` onto `public/` and stats it.
-- `scripts/qa-runtime.mjs` loads each route in Chromium and fails on any 404 response.
-  The JS-data `media/` strings were caught **only** here, because they are assembled at
-  runtime and no static scan sees them.
+- `scripts/qa-runtime.mjs` loads each route in Chromium, fails on any 404 sub-request, and **checks every rendered `<a href>`** against the route table. Links assembled in JavaScript are invisible to a static scan. This gate found that the live `/search` linked towns to relative `banff.html`, `victoria.html` and so on, which 404 on a clean-URL site. Fixed in the same change.
 
 ## The route table
 
-47 routes. A town owns its sections and its subjects.
+47 routes plus 2 aliases. Pattern from the PRD: `/{section}/{country}/{province}/{town}/{page-slug}`, always location order, lowercase, hyphenated, no trailing slash.
 
-| Route | File |
+| Route | File | PRD basis |
+|---|---|---|
+| `/destinations/canada/bc` | `index.html` | PRD tree; British Columbia index |
+| `/destinations/canada/bc/vancouver-island` | `region.html` | optional area level |
+| `/search` | `search.html` | named in the PRD's WebSite `SearchAction` |
+| `/not-found` | `not-found.html` | design surface, `noindex` |
+| `/destinations/canada/bc/tofino` | `tofino.html` | PRD destination page example |
+| `/destinations/canada/bc/tofino/things-to-do` | `things-to-do.html` | inferred (Spec 2026-07-27) |
+| `/destinations/canada/bc/tofino/long-beach` | `long-beach.html` | PRD destination area page |
+| `/destinations/canada/bc/tofino/things-to-do/beaches` | `beaches-tofino.html` | inferred |
+| `/destinations/canada/bc/tofino/things-to-do/hiking` | `hiking-tofino.html` | inferred |
+| `/destinations/canada/bc/tofino/things-to-do/storm-watching` | `storm-watching-tofino.html` | inferred |
+| `/destinations/canada/bc/tofino/things-to-do/restaurants` | `restaurants-tofino.html` | inferred |
+| `/destinations/canada/bc/tofino/things-to-do/surfing` | `surfing-tofino.html` | inferred |
+| `/destinations/canada/bc/tofino/things-to-do/birding` | `birding-tofino.html` | inferred |
+| `/whale-watching/canada/bc/tofino` | `whale-watching.html` | PRD "whale watching town page" |
+| `/kayaking/canada/bc/tofino` | `kayaking-tofino.html` | PRD "kayaking town page" |
+| `/fishing/canada/bc/tofino` | `fishing-tofino.html` | PRD "fishing town page" |
+| `/travel-guides/canada/bc/tofino` | `plan.html` | PRD "travel guide" |
+| `/blog/whale-watching/canada/bc/tofino/wildlife-tours-in-tofino` | `guide.html` | PRD blog pattern |
+| `/destinations/canada/bc/ucluelet` | `ucluelet.html` | PRD destination page example |
+| `/destinations/canada/bc/ucluelet/things-to-do/hiking` | `hiking-ucluelet.html` | inferred |
+| `/destinations/canada/bc/ucluelet/things-to-do/restaurants` | `restaurants-ucluelet.html` | inferred |
+| `/whale-watching/canada/bc/ucluelet` | `whale-watching-ucluelet.html` | PRD |
+| `/kayaking/canada/bc/ucluelet` | `kayaking-ucluelet.html` | PRD "kayaking town page" |
+| `/destinations/canada/bc/{town}` | 13 files: victoria, vancouver, whistler, squamish, sooke, sidney, chemainus, nanaimo, nanoose, parksville, shawnigan-lake, campbell-river, nelson | PRD |
+| `/destinations/canada/{ab,sk,on,qc,ns,pe,nl}/{town}` | 11 files: banff, jasper, edmonton (ab); saskatoon (sk); niagara-falls, ottawa (on); montreal, quebec-city (qc); halifax (ns); charlottetown (pe); st-john (nl, St. John's) | PRD pattern; province code inferred from the town |
+
+**Aliases** (`ALIASES` in `routes.mjs`): `/` and `/destinations` both serve the British Columbia index with HTTP 200 by rewrite, not redirect. Their canonical is `/destinations/canada/bc`. They stay until the real build gives each its own page (see "Not built yet").
+
+"Inferred" means the PRD defines the pattern but not that specific page. The owner chose these on 2026-10-20:
+
+- The three bookable verticals (whale watching, kayaking, fishing) use their PRD sections; every other subject sits under the town's `things-to-do`.
+- The Tofino plan page ("When should you go") is the town's travel guide; the single article "Wildlife tours in Tofino" uses the PRD blog pattern.
+- The British Columbia index is `/destinations/canada/bc`.
+
+`_map.html` and any underscore-prefixed file are not routes. They stay reachable at `/prototype/<file>` for internal use and are excluded from every gate.
+
+## Not built yet (the PRD requires these for production)
+
+The prototype has no page for these, so they return 404. They belong to the real build ([HANDOVER.md](HANDOVER.md) section 2):
+
+| Missing | PRD requirement |
 |---|---|
-| `/` | `index.html` |
-| `/search` | `search.html` |
-| `/vancouver-island` | `region.html` |
-| `/not-found` | `not-found.html` |
-| `/tofino` | `tofino.html` |
-| `/tofino/things-to-do` | `things-to-do.html` |
-| `/tofino/plan` | `plan.html` |
-| `/tofino/guides` | `guide.html` |
-| `/tofino/long-beach` | `long-beach.html` |
-| `/tofino/beaches` | `beaches-tofino.html` |
-| `/tofino/hiking` | `hiking-tofino.html` |
-| `/tofino/kayaking` | `kayaking-tofino.html` |
-| `/tofino/whale-watching` | `whale-watching.html` |
-| `/tofino/storm-watching` | `storm-watching-tofino.html` |
-| `/tofino/restaurants` | `restaurants-tofino.html` |
-| `/tofino/surfing` | `surfing-tofino.html` |
-| `/tofino/birding` | `birding-tofino.html` |
-| `/tofino/fishing` | `fishing-tofino.html` |
-| `/ucluelet` | `ucluelet.html` |
-| `/ucluelet/hiking` | `hiking-ucluelet.html` |
-| `/ucluelet/kayaking` | `kayaking-ucluelet.html` |
-| `/ucluelet/whale-watching` | `whale-watching-ucluelet.html` |
-| `/ucluelet/restaurants` | `restaurants-ucluelet.html` |
-| `/<town>` | 24 further towns, one segment each: banff, campbell-river, charlottetown, chemainus, edmonton, halifax, jasper, montreal, nanaimo, nanoose, nelson, niagara-falls, ottawa, parksville, quebec-city, saskatoon, shawnigan-lake, sidney, sooke, squamish, st-john, vancouver, victoria, whistler |
-
-Not routes: `_map.html` and any underscore-prefixed file. They stay reachable at
-`/prototype/<file>` for internal use and are excluded from every gate.
-
-### Decisions inside the table
-
-- **`things-to-do`, `plan`, `guides` are Tofino's.** All three were global filenames for
-  Tofino-only pages. Nesting them under `/tofino/` was the fix, not a side effect. When
-  Ucluelet gets its own, they are new files at `/ucluelet/things-to-do`, not a shared page.
-- **`whale-watching.html` is Tofino's** despite the generic filename (its `<title>` is
-  "Whale watching in Tofino"). Ucluelet's is a separate file. Do not merge them.
-- **`region.html` became `/vancouver-island`, not `/regions`.** The page is Vancouver
-  Island, and towns already sit at root, so places share one flat namespace.
-- **The geo tree was rejected.** `docs/superpowers/specs/2026-07-27-destinations-experience-design.md`
-  proposed `/destinations/{country}/{province}/{town}`. It belongs to the deleted app,
-  and BC is the tree root here, not Canada.
-- `/not-found` returns **200**. It is a design surface the sweep checks, not the 404
-  handler. Real 404s are `app/not-found.tsx`.
+| `/destinations` as its own page, `/destinations/canada` | Section landing pages must be real indexable pages, not redirects. Today `/destinations` is an alias of the BC index |
+| `/travel-guides`, `/whale-watching`, `/kayaking`, `/fishing`, `/species`, `/fishing-reports`, `/stays`, `/aboutus`, `/blog` | Section landing pages; the homepage must link to the main sections with the PRD's anchor text |
+| `/{section}/canada` and `/{section}/canada/bc` for non-destination sections | BreadcrumbList items point at them |
+| BreadcrumbList JSON-LD on every page; WebSite and Organization JSON-LD on the home page | PRD section 7. Visible breadcrumbs exist but omit the Canada level (decision D-5) |
+| One sitemap per section (`sitemap-destinations.xml`, ...) | PRD section 7. Today one `sitemap.xml` |
+| Unique titles and descriptions, `robots: index,follow` | Present on every page today; `follow` is implicit |
+| Production host `arctrips.com`; root `/` is the stays landing | The prototype root serves the BC index. The domain is decided when the backend is built |
+| Species, fishing report, regulations, stays and charter URL shapes | Out of scope for this repo |
 
 ## Changing routes
 
-1. Edit `ROUTES` in `scripts/lib/routes.mjs`.
-2. Regenerate the sweep list into `.claude/routes.json` from `Object.values(ROUTES)`.
-3. Write links as clean routes. `qa-prototype.mjs` fails any literal `.html` href.
-4. Write assets as `/prototype/...`. Never relative.
-5. `node scripts/sync-prototype.mjs`, design/ to public/. The deployed copy is what ships.
-6. Gates, in this order: `qa-prototype.mjs`, `qa-runtime.mjs` (needs a Next server,
-   `QA_BASE=<origin>` aims it at production), `npm run build`.
+1. Edit `ROUTES` (and `ALIASES`) in `scripts/lib/routes.mjs`; add new exports to `routes.d.mts`.
+2. Write links as routes. `qa-prototype.mjs` fails any literal `.html` href. Do not build a URL by concatenating strings in page JavaScript; resolve it from a map (see `TOWN_ROUTE` in `search.html`).
+3. Write assets as `/prototype/...`. Never relative.
+4. `node scripts/nav-rebuild.mjs`, `node scripts/canonical-rebuild.mjs`, then `node scripts/sync-prototype.mjs`.
+5. Regenerate `.claude/routes.json` from `Object.values(ROUTES)`.
+6. Gates, in this order: `npm test`, `qa-prototype.mjs public/prototype`, `npm run build`, `qa-runtime.mjs` (needs a Next server; `QA_BASE=<origin>` aims it elsewhere).
 
-Renaming an existing route needs a permanent redirect (308) from the old one. The legacy `/prototype/*.html`
-redirects are generated from the same map, so they follow a rename for free.
+**Old URLs are not redirected.** The PRD forbids redirects and the owner ruled on 2026-10-20 that prototype-era URLs may break. If a route changes after production launches, that decision must be revisited with real traffic in mind. The only redirects are `/prototype/<file>.html` to its route, so a page has one address.
 
 ## Indexing surface: canonical, sitemap, robots
 
-Added 2026-10-20. All three are generated from `ROUTES` and `SITE_ORIGIN`
-(`scripts/lib/routes.mjs`), so none of them can disagree with the map.
+All three are generated from `ROUTES` and `SITE_ORIGIN` (`scripts/lib/routes.mjs`), so none can disagree with the map.
 
 | Piece | Where | Behaviour |
 |---|---|---|
-| `<link rel="canonical">` | every routed page except `/not-found` | absolute URL, no trailing slash (the root is the bare origin). Written by `node scripts/canonical-rebuild.mjs`, which edits `design/prototype/*.html`; then run `sync-prototype.mjs`. `--check` exits 1 when a page is stale. |
-| `/sitemap.xml` | `app/sitemap.ts` | 46 URLs: every route except `/not-found` |
-| `/robots.txt` | `app/robots.ts` | allows `/`; disallows `/prototype/_` (internal pages) and `/ideation/` (design exploration); names the sitemap |
+| `<link rel="canonical">` | every routed page except `/not-found` | absolute URL, no trailing slash (PRD section 7). Written by `node scripts/canonical-rebuild.mjs`, which edits `design/prototype/*.html`; then run `sync-prototype.mjs`. `--check` exits 1 when a page is stale |
+| `/sitemap.xml` | `app/sitemap.ts` | 46 URLs: every route except `/not-found`. Aliases are excluded |
+| `/robots.txt` | `app/robots.ts` | allows `/`; disallows `/prototype/_` and `/ideation/`; names the sitemap |
 | `/not-found` | `not-found.html` | `noindex,follow`, deliberately not disallowed in robots.txt so a crawler can read the noindex |
 
-`SITE_ORIGIN` is `https://arctrips-destination-pages.vercel.app` because that is the only
-domain attached to the Vercel project (checked 2026-10-20). **At domain cutover change that
-one line, run `canonical-rebuild.mjs` and `sync-prototype.mjs`, and commit.**
-`scripts/lib/routes.test.mjs` fails the build if any page's canonical drifts from its route.
+`SITE_ORIGIN` is `https://arctrips-destination-pages.vercel.app`, the only domain attached to the Vercel project. The PRD names `arctrips.com`; the owner decides the domain when the backend is built. **At cutover change that one line, run `canonical-rebuild.mjs` and `sync-prototype.mjs`, and commit.**
 
-## URL policy, as served today
+## URL policy, as served
 
-| Case | Behaviour | Verified |
-|---|---|---|
-| Trailing slash, `/tofino/` | 308 to `/tofino` (Vercel `trailingSlash:false`) | yes |
-| Legacy `/prototype/<file>.html` | 308 to the route (generated from `ROUTES`) | yes |
-| Unknown path, `/nope` | 404 from `app/not-found.tsx` (plain page, not the designed `/not-found`) | yes |
-| Uppercase, `/Tofino` | **200, same page.** Not redirected. The canonical tag names the lowercase URL, which is what consolidates it for crawlers. A redirect would need middleware. | yes |
-| Query string, `/tofino/hiking?x=1` | 200, same page. Canonical strips it. Only `/search` reads parameters: `q`, `in`, `show`. | yes |
-| `/index.html` | 404 | yes |
-| `/not-found` | 200 by design (it is a design surface), `noindex` | yes |
+| Case | Behaviour |
+|---|---|
+| Trailing slash, `/destinations/canada/bc/tofino/` | 308 to the same path without the slash (Vercel `trailingSlash:false`) |
+| `/prototype/<file>.html` | 308 to the route |
+| Old flat route, `/tofino`, `/tofino/hiking` | 404 (not redirected, by decision) |
+| Unknown path | 404 from `app/not-found.tsx` (plain page, not the designed `/not-found`) |
+| Uppercase, `/Destinations/Canada/BC/Tofino` | 200, same page. The canonical names the lowercase URL, which consolidates it for crawlers. A redirect would need middleware, and the PRD forbids redirects |
+| Query string, `?x=1` | 200, same page; canonical strips it. Only `/search` reads parameters (`q`, `in`, `show`), and `?m=1` to `?m=12` on the whale watching page |
+| `/` and `/destinations` | 200, the BC index, canonical `/destinations/canada/bc` |
+| `/not-found` | 200 by design, `noindex` |
 
-Segment rules, enforced by `routes.test.mjs`: lowercase letters, digits and hyphens;
-one segment for a town, two for a town's section or subject; no trailing slash; no
-duplicates; every deployed non-underscore page is routed.
+`routes.test.mjs` enforces: unique routes; lowercase hyphenated segments with no trailing slash; every non-search page follows `{section}/canada/{2-letter province}/...`; no old flat route remains; every file is deployed and every deployed page is routed; every page's canonical equals its route; aliases serve a real page whose canonical is the real route.
 
-## Production URL target: PRD versus what is built
+## How it got here
 
-**Status: unresolved, owner decision needed. This is the largest open item in the handover.**
+1. Until 2026-08-12 the site lived at `/prototype/<page>.html`.
+2. 2026-08-12/13: flat clean routes (`/tofino`, `/tofino/hiking`), served by rewrites. British Columbia was made the tree root and Canada dropped as a breadcrumb (D-5, D-10, D-11).
+3. 2026-10-20: the owner ruled that the PRD's URL structure is required and the flat tree "will not work". The tree was rebuilt to the PRD and old URLs were allowed to break (D-18).
 
-The Confluence PRD "PRD, URL Structure & Site Taxonomy" (space ADS, page 117735426,
-last modified 2026-07-22) says production lives on `arctrips.com`, with no subdomains,
-no trailing slash, no redirects, and location pages shaped
-`/{section}/{country}/{province}/{town}/{slug}`. For this repo's content it names:
+## Verification on record, 2026-10-20
 
-- destinations: `/destinations/canada/bc/ucluelet`, area pages `/destinations/canada/bc/tofino/clayoquot-sound`
-- travel guides: `/travel-guides/canada/bc/ucluelet`
-- section landing pages that must be real, indexable pages: `/destinations`, `/travel-guides`, `/whale-watching`, `/kayaking`, `/fishing`, `/stays`
-- BreadcrumbList JSON-LD on every page, WebSite and Organization JSON-LD on the homepage, a sitemap per section
-
-What is built is the flat tree in the route table above (`/tofino`, `/tofino/hiking`),
-chosen by the owner on 2026-08-13 after the deep tree (`/destinations/{country}/{province}/...`,
-spec dated 2026-07-27) had been tried and the deleted Next.js app removed. The PRD page
-has not been updated since, and the two disagree. Nothing in this repo was re-routed to
-match the PRD.
-
-Proposed mapping, for the owner to accept or amend. "Spec" means
-`docs/superpowers/specs/2026-07-27-destinations-experience-design.md`; the PRD does not
-define subject or section URLs under a town, so those rows are inferred.
-
-| Built today | PRD-shaped target | Basis |
-|---|---|---|
-| `/` | `/destinations` | PRD section landing. `arctrips.com` itself is the stays landing, a different product. |
-| `/vancouver-island` | `/destinations/canada/bc/vancouver-island` | Spec |
-| `/tofino`, `/ucluelet` and the other 13 BC towns | `/destinations/canada/bc/{town}` | PRD example |
-| `/tofino/long-beach` | `/destinations/canada/bc/tofino/long-beach` | PRD area-page example |
-| `/tofino/{subject}`, `/ucluelet/{subject}` (beaches, hiking, kayaking, surfing, birding, restaurants, storm-watching) | `/destinations/canada/bc/{town}/things-to-do/{subject}` | Spec |
-| `/tofino/things-to-do` | `/destinations/canada/bc/tofino/things-to-do` | Spec |
-| `/tofino/guides`, `/tofino/plan` | `/travel-guides/canada/bc/tofino` and a plan page under it | PRD, inferred |
-| `/tofino/whale-watching`, `/ucluelet/whale-watching`, `/tofino/kayaking`, `/tofino/fishing` | **Conflict**: the PRD gives `/whale-watching/canada/bc/{town}`, `/kayaking/...` and `/fishing/...` to bookable products. Whether these guide pages live there or under `things-to-do` is undecided. | PRD vs Spec |
-| Alberta, Saskatchewan, Ontario, Quebec, Maritime towns (banff, jasper, edmonton, saskatoon, montreal, quebec-city, ottawa, niagara-falls, halifax, charlottetown) | `/destinations/canada/{ab,sk,qc,on,ns,pe}/{town}` | Province inferred from the town. `st-john` is ambiguous (St. John's NL or Saint John NB) and must be confirmed before it gets a URL. |
-| `/search`, `/not-found` | not in the PRD | |
-
-Consequences the PRD sets: with "no redirects" the legacy URLs would 404, so a move needs
-either an owner exception for 308s from the current URLs or acceptance that the
-deployed prototype URLs die. The current `/prototype/*.html` to route redirects would
-need to be retargeted in the same change. Because every URL is derived from
-`ROUTES`, a move is one edit to that table plus `canonical-rebuild.mjs`, `nav-rebuild.mjs`
-and the gates; the backend should still treat URLs as data (a `slug` plus a parent chain),
-not as strings baked into code.
-
-## Verification on record, 2026-08-13, commit 49da45f
-
-- `qa-prototype.mjs`: clean, 47 pages, every link, anchor and image valid
-- `qa-runtime.mjs` against localhost: 0 of 47 pages with errors or empty containers
-- `qa-runtime.mjs` against `https://arctrips-destination-pages.vercel.app`: 0 of 47
-- `npm run build`, `npx tsc --noEmit`, `npm test` (69 tests): pass. `npm run lint` has
-  one pre-existing warning in `decompose.mjs`, unrelated.
-- Production spot checks: `/`, `/tofino`, `/tofino/hiking`, `/tofino/things-to-do`,
-  `/ucluelet/whale-watching`, `/vancouver-island`, `/search`, `/whistler` all 200;
-  `/prototype/hiking-tofino.html` 308 to `/tofino/hiking`; `/prototype/_system.css` 200.
-
-The codemod that did the one-time conversion rewrote **1,720 links and 1,063 asset
-references across 48 files**. It was a throwaway; the map is the durable artefact.
+- `npm test`: 79 passed (URL contract included). `tsc`, `npm run build`: pass.
+- `qa-prototype.mjs public/prototype`: 47 pages, every link, anchor and image valid.
+- `qa-runtime.mjs` (47 routes, 2 aliases, 6 search states): 0 of 55 pages with errors, empty containers or broken rendered links.
+- Local server: every route above 200; `/tofino`, `/tofino/hiking`, `/destinations/canada` 404; `/prototype/hiking-tofino.html` 308 to `/destinations/canada/bc/tofino/things-to-do/hiking`; sitemap 46 URLs.

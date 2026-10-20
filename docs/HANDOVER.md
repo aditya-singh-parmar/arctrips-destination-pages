@@ -34,6 +34,7 @@ Checks run on 2026-10-20, all green: `npm test` (76 tests), `npm run build`, `ts
 | 8 | **Real 404s** | Unknown paths show Next's plain 404. The designed 404 lives at `/not-found` so it can be reviewed | Serve the designed page for real 404s with status 404 | [FEATURES.md](FEATURES.md) section 9 |
 | 9 | **Weather and tides** | `climate.json` is seeded sample data, shown as "Environment Canada normals for the Tofino station". The tide block is one sample day | A verified source (ECCC normals; Canadian Hydrographic Service for tides) before launch | [DATA-SCHEMA.md](DATA-SCHEMA.md) section 0 |
 | 10 | **Analytics, privacy, consent** | None | Analytics, a privacy page (the forms promise "unsubscribe from any email"), cookie handling if needed | |
+| 11 | **PRD-required pages and markup** | URLs already follow the PRD ([routing.md](routing.md)). `/` and `/destinations` are aliases of the BC index. No section landing pages, no BreadcrumbList or Organization JSON-LD, one sitemap | The section landing pages (`/destinations`, `/travel-guides`, `/whale-watching`, `/kayaking`, `/fishing`, `/stays`, `/species`, `/fishing-reports`, `/aboutus`), the country and province level pages, JSON-LD, per-section sitemaps | [routing.md](routing.md) "Not built yet" |
 
 ### Build checklist (done when)
 
@@ -48,6 +49,7 @@ Checks run on 2026-10-20, all green: `npm test` (76 tests), `npm run build`, `ts
 | 8 | `GET /nonsense` returns HTTP 404 with the designed page |
 | 9 | Every weather figure on the site has a cited, verified source |
 | 10 | A privacy page exists and is linked from every form |
+| 11 | Every PRD section landing page returns 200 and is indexable; every page carries BreadcrumbList JSON-LD; `/` is the stays landing on `arctrips.com` |
 
 ## 3. Fixed during this handover
 
@@ -65,13 +67,12 @@ Found during the audit and deliberately left unchanged: owner decisions, accepte
 
 | Item | Why it matters |
 |---|---|
-| **The URL structure disagrees with the PRD** | See [routing.md](routing.md) "Production URL target". The PRD (ADS page 117735426) wants `/destinations/canada/bc/{town}` on `arctrips.com`. The site is flat (`/tofino`). The PRD also says "no redirects", which conflicts with the legacy-URL 308s. Nothing was re-routed |
 | Canonicals and the sitemap point at the Vercel domain | Correct today. One line to change at cutover (`SITE_ORIGIN` in `scripts/lib/routes.mjs`) |
 | The 24 content-only town pages cannot be regenerated | `deep.json` holds their content, but no script in the repo turns it into HTML. The Supabase driver that did so was deleted on 2026-08-12. Pages are edited by hand. Only the nav bar (`nav-rebuild.mjs`) and canonicals are generated |
 | Page data is inlined, not fetched | `corpus.json` is not read at runtime. Pages carry their own copy. Editing the JSON changes nothing on the site until the HTML is edited |
 | `deep.json` needs clean-up before import | 758 of 1,075 places carry a bare source URL (often iStock) as a body line; `vancouver-island.json` has 21 `Meta description:` prefixes and lists FAQ questions inside `places`. Clean before any of it is published |
 | Weather figures are placeholder data | `climate.json` is seeded for design and marked unverified, while `tofino.html` and `long-beach.html` label it "Environment Canada normals for the Tofino station". Build item 9 replaces it with verified data. The `tides` sample is a single fixed day |
-| `/Tofino` (uppercase) returns 200 | Handled by the canonical tag. A true redirect needs middleware |
+| Uppercase URLs (`/Destinations/Canada/BC/Tofino`) return 200 | Handled by the canonical tag. A true redirect needs middleware and conflicts with the PRD's "no redirects" |
 | `package.json` scripts `shots` and `audit:ui` point at `/Users/aditya/Projects/arctrips/harness/...` | The owner's local screenshot and UI-audit harness, kept on purpose (PR #1). They fail anywhere else. Ignore them or delete them on your machine |
 | `scripts/qa.mjs` is obsolete | Written for the deleted app (port 3111, sitemaps, SEO contract). It will fail. Use `qa-prototype.mjs` and `qa-runtime.mjs` |
 | `docs/design-system.md` references `app/theme.css` | That file is gone. The real design system is `design/prototype/_system.css` |
@@ -87,16 +88,14 @@ Each is a stated assumption until the named person rules. None blocks reading th
 
 | # | Decision | Assumed until decided | Owner |
 |---|---|---|---|
-| 1 | Production URL shape: keep flat, or move to the PRD tree. Whale watching, kayaking and fishing guide pages: under `things-to-do` or under their own section | Flat tree stays | Aditya Parmar |
-| 2 | Production domain and cutover date | Vercel URL | Aditya Parmar |
-| 3 | Email provider, double opt-in copy, retention, who receives the lists | Double opt-in, one list per topic, see [API.md](API.md) section 3 | Aditya Parmar |
-| 4 | Where stays links go before stay pages exist | `/not-found` stays | Aditya Parmar |
-| 5 | Province for `st-john` (St. John's NL or Saint John NB) | Unresolved, no URL assigned | Aditya Parmar |
-| 6 | Business rules for stays (fees, availability, cancellation) | **Out of scope here.** This repo shows no prices beyond sample "from $X" copy; the stays rules live in the ADS PRDs | Owner of the ADS stays PRDs (to be named) |
+| 1 | Production domain and cutover date (decided when the backend is built) | Vercel URL | Aditya Parmar |
+| 2 | Email provider, double opt-in copy, retention, who receives the lists | Double opt-in, one list per topic, see [API.md](API.md) section 3 | Aditya Parmar |
+| 3 | Where stays links go before stay pages exist | `/not-found` stays | Aditya Parmar |
+| 4 | Business rules for stays (fees, availability, cancellation) | **Out of scope here.** This repo shows no prices beyond sample "from $X" copy; the stays rules live in the ADS PRDs | Owner of the ADS stays PRDs (to be named) |
 
 ## 6. Suggested order of work
 
-1. Read [routing.md](routing.md) and get decision 1 and 2 made, because everything else keys off URLs.
+1. Read [routing.md](routing.md). The URLs already follow the PRD, so treat them as the contract; the domain (decision 1) is the one open input.
 2. Stand up the content store from [DATA-SCHEMA.md](DATA-SCHEMA.md) and load the existing JSON (a loader outline is in section 6 of that file).
 3. Ship `POST /subscriptions` and point the three forms at it (build item 1), the smallest end-to-end slice.
 4. Add admin content CRUD and signed media upload.
@@ -107,7 +106,7 @@ Each is a stated assumption until the named person rules. None blocks reading th
 
 - Generate town pages from the content store, retiring hand-edited HTML.
 - BreadcrumbList, WebSite and Organization JSON-LD, Open Graph tags.
-- Redirect uppercase URLs in middleware.
+- Decide uppercase URL handling. The canonical tag covers indexing; a redirect would conflict with the PRD's "no redirects".
 - Remove `scripts/qa.mjs` and `docs/design-system.md` drift.
 - CI workflow with `npm test`, `qa:prototype`, `build`, `qa:runtime`.
 - Retire `public/ideation/`.

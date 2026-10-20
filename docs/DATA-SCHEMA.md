@@ -47,7 +47,7 @@ One per (town, subject). `city`, `cat`, `name`, `hero`, `lead` (all 15/15); `blo
 
 ### `articles` (31)
 
-`slug`, `title`, `excerpt`, `cat` (31/31); `hero` string or null (29/31); `cities` string[] (30/31); `faqs` `{ q, a }[]` (18/31 non-empty). Subjects (11): whale-watching, restaurants, hiking, kayaking, events, camping, when-to-go, beaches, surfing, storm-watching, birding. **Only one article has a page**: "Wildlife tours in Tofino" at `/tofino/guides`. Every other title resolves to a scoped search.
+`slug`, `title`, `excerpt`, `cat` (31/31); `hero` string or null (29/31); `cities` string[] (30/31); `faqs` `{ q, a }[]` (18/31 non-empty). Subjects (11): whale-watching, restaurants, hiking, kayaking, events, camping, when-to-go, beaches, surfing, storm-watching, birding. **Only one article has a page**: "Wildlife tours in Tofino" at `/blog/whale-watching/canada/bc/tofino/wildlife-tours-in-tofino`. Every other title resolves to a scoped search.
 
 ### `listings` (12)
 
@@ -190,7 +190,7 @@ create table subscriptions (
   topic_key text not null references subscription_topics(key),
   status text not null default 'pending' check (status in ('pending','confirmed','unsubscribed','bounced')),
   consent_version int not null, consented_at timestamptz not null,
-  source_path text,                                 -- page the form was on, e.g. /tofino/whale-watching
+  source_path text,                                 -- page the form was on, e.g. /whale-watching/canada/bc/tofino
   ip_hash text,                                     -- hashed, never raw
   confirm_token_hash text, confirmed_at timestamptz, unsubscribed_at timestamptz,
   created_at timestamptz default now(),
@@ -199,7 +199,7 @@ create table subscriptions (
 
 -- URLs as data ---------------------------------------------------------------------------------
 create table routes (
-  path text primary key,                            -- '/tofino/hiking'; lowercase, no trailing slash
+  path text primary key,                            -- '/destinations/canada/bc/tofino/things-to-do/hiking'; lowercase, no trailing slash
   entity_type text not null,                        -- 'town','guide','place','article','page'
   entity_id text not null,
   noindex boolean not null default false,
@@ -247,3 +247,4 @@ Import order: `subjects`, `towns`, `media_assets`, `guides`, `places`, `articles
 4. Months wrap: windows are contiguous runs read round the year ("November to February").
 5. Counts shown to visitors are counts of things they can use, never of what the team has produced.
 6. Nothing renders an unverified figure as fact.
+7. URLs are derived, not authored, and follow the PRD: `/{section}/{country}/{province}/{town}/{slug}`, lowercase, hyphenated, no trailing slash ([routing.md](routing.md)). `towns.country_code` and `province_code` are part of every town URL, so changing either changes the URL and must write a `routes` row. Slugs are immutable once published. The PRD forbids redirects, so the `redirects` table is for the owner's explicit exceptions only.
