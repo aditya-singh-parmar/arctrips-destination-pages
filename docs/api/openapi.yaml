@@ -1,0 +1,454 @@
+openapi: 3.0.3
+info:
+  title: Arc Trips Destination Pages API (proposed)
+  version: 0.1.0
+  description: >
+    Proposed contract. Nothing here is implemented; the deployed site has no runtime API.
+    Narrative and rationale: docs/API.md. Data model: docs/DATA-SCHEMA.md.
+servers:
+  - url: /api/v1
+tags:
+  - name: subscriptions
+  - name: content
+  - name: search
+  - name: stays
+  - name: admin
+paths:
+  /subscriptions:
+    post:
+      tags: [subscriptions]
+      summary: Request a subscription (double opt-in)
+      description: Always returns 202 with the same body, whether or not the address is already known.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/SubscriptionRequest' }
+      responses:
+        '202':
+          description: Accepted, confirmation email queued
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [status]
+                properties:
+                  status: { type: string, enum: [pending] }
+        '400': { $ref: '#/components/responses/ValidationFailed' }
+        '422': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/RateLimited' }
+  /subscriptions/confirm:
+    get:
+      tags: [subscriptions]
+      summary: Confirm a subscription from the emailed link
+      parameters:
+        - { name: token, in: query, required: true, schema: { type: string } }
+      responses:
+        '303': { description: "Redirect to the originating page with ?confirmed=1, or to /?confirm=expired" }
+  /subscriptions/unsubscribe:
+    post:
+      tags: [subscriptions]
+      summary: Unsubscribe with the token from any email
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [token]
+              properties: { token: { type: string } }
+      responses:
+        '200':
+          description: Unsubscribed (idempotent)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: { status: { type: string, enum: [unsubscribed] } }
+  /subscription-topics:
+    get:
+      tags: [subscriptions]
+      summary: Active topics with the exact consent text to display
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Topic' }
+  /destinations:
+    get:
+      tags: [content]
+      summary: Published towns
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Town' } }
+  /destinations/{slug}:
+    get:
+      tags: [content]
+      parameters: [{ $ref: '#/components/parameters/Slug' }]
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Town' }
+        '404': { $ref: '#/components/responses/Error' }
+  /guides:
+    get:
+      tags: [content]
+      parameters:
+        - { name: town, in: query, schema: { type: string } }
+        - { name: subject, in: query, schema: { type: string } }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Guide' } }
+  /places:
+    get:
+      tags: [content]
+      parameters:
+        - { name: town, in: query, schema: { type: string } }
+        - { name: subject, in: query, schema: { type: string } }
+        - { name: q, in: query, schema: { type: string } }
+        - { $ref: '#/components/parameters/Limit' }
+        - { $ref: '#/components/parameters/Cursor' }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Place' } }
+                  page: { $ref: '#/components/schemas/Page' }
+  /places/{town}/{subject}/{slug}:
+    get:
+      tags: [content]
+      parameters:
+        - { name: town, in: path, required: true, schema: { type: string } }
+        - { name: subject, in: path, required: true, schema: { type: string } }
+        - { $ref: '#/components/parameters/Slug' }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Place' }
+        '404': { $ref: '#/components/responses/Error' }
+  /articles/{slug}:
+    get:
+      tags: [content]
+      parameters: [{ $ref: '#/components/parameters/Slug' }]
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Article' }
+        '404': { $ref: '#/components/responses/Error' }
+  /climate/{town}:
+    get:
+      tags: [content]
+      summary: Monthly normals. Must not be served while verified is false.
+      parameters:
+        - { name: town, in: path, required: true, schema: { type: string } }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  source: { type: string }
+                  verified: { type: boolean }
+                  months:
+                    type: array
+                    minItems: 12
+                    maxItems: 12
+                    items: { $ref: '#/components/schemas/ClimateMonth' }
+        '404': { $ref: '#/components/responses/Error' }
+  /routes:
+    get:
+      tags: [content]
+      summary: Every published path (source of the sitemap)
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    path: { type: string, example: /tofino/hiking }
+                    entity_type: { type: string }
+                    noindex: { type: boolean }
+  /search:
+    get:
+      tags: [search]
+      parameters:
+        - { name: q, in: query, schema: { type: string } }
+        - { name: in, in: query, description: Town slug scope, schema: { type: string } }
+        - name: show
+          in: query
+          schema: { type: string, enum: [all, destinations, guides, places, articles, questions], default: all }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  counts: { type: object, additionalProperties: { type: integer } }
+                  hits: { type: array, items: { $ref: '#/components/schemas/Hit' } }
+  /stays:
+    get:
+      tags: [stays]
+      parameters:
+        - { name: town, in: query, schema: { type: string } }
+        - { $ref: '#/components/parameters/Limit' }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Stay' } }
+  /admin/media/signature:
+    post:
+      tags: [admin]
+      security: [{ bearer: [] }]
+      summary: Signed Cloudinary upload parameters; the server builds the public_id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [town, subject]
+              properties:
+                town: { type: string }
+                subject: { type: string }
+                place_slug: { type: string }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  cloud_name: { type: string, example: du9doarye }
+                  api_key: { type: string }
+                  timestamp: { type: integer }
+                  signature: { type: string }
+                  public_id: { type: string, example: guides/tofino/beaches/cox-bay-4 }
+                  allowed_formats: { type: array, items: { type: string } }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+  /admin/media:
+    post:
+      tags: [admin]
+      security: [{ bearer: [] }]
+      summary: Register an uploaded asset (alt text required)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [public_id, alt]
+              properties:
+                public_id: { type: string }
+                alt: { type: string, minLength: 5 }
+                caption: { type: string }
+                credit: { type: string }
+                license: { type: string }
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Media' }
+        '400': { $ref: '#/components/responses/ValidationFailed' }
+        '409': { $ref: '#/components/responses/Error' }
+  /admin/{type}/{id}/publish:
+    post:
+      tags: [admin]
+      security: [{ bearer: [] }]
+      summary: Publish a draft. Refuses on missing alt text, unredirected URL change, or unverified climate.
+      parameters:
+        - { name: type, in: path, required: true, schema: { type: string, enum: [towns, guides, places, articles] } }
+        - { name: id, in: path, required: true, schema: { type: string } }
+      responses:
+        '200': { description: Published }
+        '422': { $ref: '#/components/responses/Error' }
+components:
+  securitySchemes:
+    bearer: { type: http, scheme: bearer, bearerFormat: JWT }
+  parameters:
+    Slug: { name: slug, in: path, required: true, schema: { type: string, pattern: '^[a-z0-9-]+$' } }
+    Limit: { name: limit, in: query, schema: { type: integer, minimum: 1, maximum: 200, default: 50 } }
+    Cursor: { name: cursor, in: query, schema: { type: string } }
+  responses:
+    Error:
+      description: Error
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    ValidationFailed:
+      description: Validation failed
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    RateLimited:
+      description: Too many requests
+      headers:
+        Retry-After: { schema: { type: integer } }
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+  schemas:
+    Error:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: object
+          required: [code, message]
+          properties:
+            code: { type: string, example: validation_failed }
+            message: { type: string }
+            fields: { type: object, additionalProperties: { type: string } }
+    Page:
+      type: object
+      properties:
+        next: { type: string, nullable: true }
+    SubscriptionRequest:
+      type: object
+      required: [email, topic, consent]
+      properties:
+        email: { type: string, format: email, maxLength: 254 }
+        topic: { type: string, example: whale-watching-tofino }
+        consent: { type: boolean, enum: [true] }
+        source_path: { type: string, example: /tofino/whale-watching }
+        website: { type: string, description: "Honeypot, must be empty", maxLength: 0 }
+    Topic:
+      type: object
+      properties:
+        key: { type: string }
+        label: { type: string }
+        consent_text: { type: string }
+        consent_version: { type: integer }
+    Media:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        public_id: { type: string }
+        url: { type: string }
+        alt: { type: string }
+        width: { type: integer }
+        height: { type: integer }
+    Town:
+      type: object
+      properties:
+        slug: { type: string }
+        name: { type: string }
+        province_code: { type: string, example: BC }
+        region_slug: { type: string, nullable: true }
+        standfirst: { type: string, nullable: true }
+        overview: { type: array, items: { type: string } }
+        hero: { $ref: '#/components/schemas/Media' }
+        stays_count: { type: integer, nullable: true }
+        path: { type: string, example: /tofino }
+    Guide:
+      type: object
+      properties:
+        town: { type: string }
+        subject: { type: string }
+        name: { type: string }
+        lead: { type: string, nullable: true }
+        hero: { $ref: '#/components/schemas/Media' }
+        photos: { type: array, items: { $ref: '#/components/schemas/Media' } }
+        path: { type: string }
+    Place:
+      type: object
+      properties:
+        town: { type: string }
+        subject: { type: string }
+        slug: { type: string }
+        name: { type: string }
+        blurb: { type: string, nullable: true }
+        note: { type: string, nullable: true }
+        body: { type: array, items: { type: string } }
+        good_for: { type: array, items: { type: string } }
+        hero: { $ref: '#/components/schemas/Media' }
+        position: { type: integer }
+    Article:
+      type: object
+      properties:
+        slug: { type: string }
+        title: { type: string }
+        excerpt: { type: string }
+        subject: { type: string, nullable: true }
+        towns: { type: array, items: { type: string } }
+        hero: { $ref: '#/components/schemas/Media' }
+        faqs:
+          type: array
+          items:
+            type: object
+            properties:
+              question: { type: string }
+              answer: { type: string }
+    ClimateMonth:
+      type: object
+      properties:
+        month: { type: integer, minimum: 1, maximum: 12 }
+        hi_c: { type: number }
+        lo_c: { type: number }
+        rain_mm: { type: integer }
+        rain_days: { type: integer }
+    Hit:
+      type: object
+      properties:
+        type: { type: string, enum: [destinations, guides, places, articles, questions] }
+        name: { type: string }
+        kicker: { type: string }
+        body: { type: string }
+        href: { type: string }
+        hero: { type: string }
+        cities: { type: array, items: { type: string } }
+        cat: { type: string, nullable: true }
+    Stay:
+      type: object
+      properties:
+        id: { type: string }
+        slug: { type: string, nullable: true }
+        title: { type: string }
+        town: { type: string }
+        price_cents: { type: integer }
+        currency: { type: string, example: CAD }
+        rooms: { type: integer }
+        beds: { type: integer }
+        baths: { type: number }
+        rating: { type: number }
+        url: { type: string, nullable: true }

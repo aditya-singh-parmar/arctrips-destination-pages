@@ -76,3 +76,15 @@ export const fileToPath = (file) => `${STATIC_PREFIX}/${file}`;
 /* Longest first, so whale-watching-ucluelet.html is not eaten by
    whale-watching.html when rewriting link text. */
 export const FILES_BY_LENGTH = Object.keys(ROUTES).sort((a, b) => b.length - a.length);
+
+/* The public origin. Canonical tags, sitemap.xml and robots.txt are all built
+   from this and ROUTES, so a domain cutover is this one line plus
+   `node scripts/canonical-rebuild.mjs`. ASSUMPTION: no custom domain exists
+   yet, so this is the Vercel production URL. */
+export const SITE_ORIGIN = 'https://arctrips-destination-pages.vercel.app';
+
+/* Absolute canonical URL for a route. Never a trailing slash (PRD: URL Structure and Site Taxonomy, section 7). */
+export const canonicalFor = (route) => (route === '/' ? SITE_ORIGIN : `${SITE_ORIGIN}${route}`);
+
+/* Routes that must never be indexed or listed in the sitemap. */
+export const NOINDEX_ROUTES = ['/not-found'];
