@@ -1,7 +1,7 @@
 <!doctype html><html lang="en-CA"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Sooke, Arc Trips</title>
-<meta name="description" content="Sooke, Vancouver Island. 30 places featured.">
+<meta name="description" content="Sooke, Vancouver Island. 30 places written up, 20 with photographs.">
 <link rel="canonical" href="https://arctrips-destination-pages.vercel.app/destinations/canada/bc/sooke">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" href="/prototype/brand/arctrips-icon.svg" type="image/svg+xml">
@@ -68,10 +68,12 @@
 .mrow__w{color:var(--n600);font-size:.92rem}
 .mcells{display:flex;gap:3px}
 .mcells span{flex:1;min-width:0;height:30px;display:flex;align-items:center;justify-content:center;border-radius:var(--r-sm);font-size:.8rem;font-weight:700;background:var(--n50);color:var(--n600);box-shadow:inset 0 0 0 1px var(--n150)}
-.mcells span[data-on]{background:var(--azure);color:var(--paper);box-shadow:none}
+.mcells span[data-on="1"]{background:var(--a250);color:var(--navy);box-shadow:none}
+.mcells span[data-on="2"]{background:var(--azure);color:var(--paper);box-shadow:none}
 .mkey{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:16px;padding-top:14px;border-top:1px solid var(--n150);font-size:.86rem;color:var(--n600);font-weight:600}
 .mkey i{width:14px;height:14px;border-radius:4px;display:inline-block;background:var(--n50);border:1px solid var(--n200)}
-.mkey i[data-on]{background:var(--azure);border-color:var(--azure)}
+.mkey i[data-on="2"]{background:var(--azure);border-color:var(--azure)}
+.mkey i[data-on="1"]{background:var(--a250);border-color:var(--a250)}
 .hnotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(18px,2.4vw,30px);margin-top:clamp(26px,3vw,38px)}
 .hnote{border-top:2px solid var(--a300);padding-top:14px}
 .hnote h3{font-size:1.04rem}
@@ -90,6 +92,7 @@
 .hsub>h4 span{font-weight:600;color:var(--n600);font-size:.9rem}
 .hgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:clamp(22px,2.6vw,34px) clamp(18px,2.2vw,28px);margin-top:20px}
 .hc{display:flex;flex-direction:column;min-width:0}
+.hc[hidden]{display:none}
 .hc__m{margin:0 0 14px;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:var(--n100)}
 .hc__m img{width:100%;height:100%;object-fit:cover}
 .hc--t{border-top:2px solid var(--a300);padding-top:14px}
@@ -135,7 +138,8 @@
     <h1>Sooke</h1>
     <p>Sooke Potholes Provincial Park is a 7.3-hectare natural area on the banks of the Sooke River, famous for its unique geological formations. These potholes, deep, smooth rock pools, were carved out of volcanic rock by boulders trapped in swirling river currents over thousands of years.</p>
     <dl class="tfacts">
-      <div><dt>Places featured</dt><dd class="tnum">30</dd></div>
+      <div><dt>Places written up</dt><dd class="tnum">30</dd></div>
+      <div><dt>With photographs</dt><dd class="tnum">20</dd></div>
       <div><dt>Travel guides</dt><dd class="tnum">1</dd></div>
     </dl>
   </div></div>
@@ -143,6 +147,7 @@
 <section class="hwhy" id="why"><div class="wrap">
 <div class="head"><div><span class="label label--n">Why go</span>
 <h2 style="margin-top:11px">Why go to Sooke</h2></div></div>
+<div class="hlead"><p>Set along the southwest coast of Vancouver Island, Sooke is one of British Columbia’s most scenic small-town escapes. Known for its rugged shoreline, forested hills, and relaxed west coast character, it offers a refreshing change of pace from the busier streets of nearby Victoria. Sooke feels peaceful and rural, yet still close enough to the city to make it an easy and rewarding getaway.</p><p>What makes Sooke especially appealing is the way it blends natural beauty with a strong sense of place. This is a community shaped by the ocean, the rainforest, and a long Indigenous history tied to the land and water. The area has long been home to the T’Sou-ke Nation, whose connection to these coastal landscapes stretches back countless generations. Surrounded by salmon-bearing waters, rich forests, and abundant shoreline resources, this part of Vancouver Island has supported life for centuries.</p></div>
 <div class="hstart">
 <a href="#do"><figure><img loading="lazy" src="/prototype/media/sooke/image32.jpg" alt="Sooke Potholes Provincial Park, Sooke"></figure><h3>Sooke Potholes Provincial Park</h3><p>Natural Swimming Holes: The park is a premier destination for freshwater swimming.</p></a>
 <a href="#do"><figure><img loading="lazy" src="/prototype/media/sooke/image43.jpg" alt="East Sooke Regional Park, Sooke"></figure><h3>East Sooke Regional Park</h3><p>East Sooke Regional Park is often described as a miniature West Coast Trail, offering over 50 kilometers of trails through 1,400 hectares of rugged coastal wilderness.</p></a>
@@ -153,7 +158,8 @@
 <div class="head"><div><span class="label label--n">When to go</span>
 <h2 style="margin-top:11px">When to go to Sooke</h2>
 <p>The months each activity is at its best.</p></div></div>
-<div class="mband"><div class="mrow"><span class="mrow__n">Hiking and walking</span><div class="mcells" role="img" aria-label="Hiking and walking: April to October"><span>J</span><span>F</span><span>M</span><span data-on>A</span><span data-on>M</span><span data-on>J</span><span data-on>J</span><span data-on>A</span><span data-on>S</span><span data-on>O</span><span>N</span><span>D</span></div><p class="mrow__w">April to October</p></div><div class="mrow"><span class="mrow__n">Parks and coast</span><div class="mcells" role="img" aria-label="Parks and coast: April to October"><span>J</span><span>F</span><span>M</span><span data-on>A</span><span data-on>M</span><span data-on>J</span><span data-on>J</span><span data-on>A</span><span data-on>S</span><span data-on>O</span><span>N</span><span>D</span></div><p class="mrow__w">April to October</p></div><div class="mrow"><span class="mrow__n">Events and markets</span><div class="mcells" role="img" aria-label="Events and markets: March to August"><span>J</span><span>F</span><span data-on>M</span><span data-on>A</span><span data-on>M</span><span data-on>J</span><span data-on>J</span><span data-on>A</span><span>S</span><span>O</span><span>N</span><span>D</span></div><p class="mrow__w">March to August</p></div><p class="mkey"><i data-on></i>Best months<i></i>Other months</p></div>
+<div class="mband"><div class="mrow"><span class="mrow__n">Visiting Sooke</span><div class="mcells" role="img" aria-label="Visiting Sooke: best May to September"><span data-on="1">J</span><span data-on="1">F</span><span data-on="1">M</span><span data-on="1">A</span><span data-on="2">M</span><span data-on="2">J</span><span data-on="2">J</span><span data-on="2">A</span><span data-on="2">S</span><span data-on="1">O</span><span data-on="1">N</span><span data-on="1">D</span></div><p class="mrow__w">Best: May to September</p></div><p class="mkey"><i data-on="2"></i>Best months<i data-on="1"></i>Also possible<i></i>Not the time</p></div>
+<div class="hnotes"><div class="hnote"><h3>Year-round, busiest May to September</h3><p>Sooke is also a place where the weather becomes part of the experience. The area has a mild, Mediterranean-like coastal climate, which helps make it a year-round destination, though the most popular months are May through September when conditions are generally drier and warmer. Summers are pleasantly mild rather than intensely hot, while the cooler months bring more rain, dramatic skies, and the kind of moody ocean scenery that suits the west coast perfectly.</p></div></div>
 </div></section>
 <section class="hdo" id="do"><div class="wrap">
 <div class="head"><div><span class="label label--n">Things to do</span>
@@ -169,6 +175,7 @@
 <details class="hq"><summary>What is East Sooke Regional Park known for?</summary><div class="hq__a"><p>East Sooke Regional Park is often described as a miniature West Coast Trail, offering over 50 kilometers of trails through 1,400 hectares of rugged coastal wilderness.</p></div></details>
 <details class="hq"><summary>How long is Whiffin Spit?</summary><div class="hq__a"><p>Whiffin Spit is a naturally formed gravel bar that stretches for about 1.5 kilometers into Sooke Harbour, acting as a scenic breakwater between the calm inner basin and the rugged Juan de Fuca Strait.</p></div></details>
 <details class="hq"><summary>How long is the Galloping Goose Regional Trail?</summary><div class="hq__a"><p>The Galloping Goose Regional Trail is a picturesque 55-kilometer multi-use path that follows a decommissioned railway line from downtown Victoria to the ghost town of Leechtown.</p></div></details>
+<details class="hq"><summary>When is the best time to visit Sooke?</summary><div class="hq__a"><p>The area has a mild, Mediterranean-like coastal climate, which helps make it a year-round destination, though the most popular months are May through September when conditions are generally drier and warmer.</p></div></details>
 </div>
 </div>
 <div class="hpanel" role="tabpanel" id="panel-water" aria-labelledby="tab-water" data-g="water">

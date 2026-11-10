@@ -144,8 +144,6 @@ main [id]{scroll-margin-top:142px}
 .chartlead{color:rgba(255,255,255,.84);font-size:.99rem;line-height:1.55;max-width:66ch;
   margin-top:clamp(22px,3vw,32px)}
 .chartlead b{color:var(--paper);font-weight:700}
-.msw{display:flex;gap:4px;margin:14px 0 0;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
-.msw::-webkit-scrollbar{display:none}
 .msw__b{flex:1;min-width:46px;display:flex;flex-direction:column;align-items:center;gap:7px;
   padding:8px 0 9px;border-radius:var(--r-sm);transition:background .2s var(--ease)}
 .msw__b:hover{background:rgba(255,255,255,.07)}
@@ -169,8 +167,6 @@ main [id]{scroll-margin-top:142px}
 .msw__b[data-noboat] .msw__l{text-decoration:line-through;text-decoration-thickness:1px}
 .msw__b[aria-pressed="true"]{background:rgba(255,255,255,.12);opacity:1}
 .msw__b[aria-pressed="true"] .msw__l{color:var(--paper)}
-.mswkey{display:flex;align-items:center;gap:7px;flex-wrap:wrap;padding-top:12px;
-  margin-bottom:clamp(24px,3vw,34px);font-size:.78rem;font-weight:600;color:rgba(255,255,255,.72)}
 .mswkey__i{width:10px;height:10px;border-radius:999px;margin-left:10px}
 .mswkey__i:first-child{margin-left:0}
 .mswkey__i[data-w="gray"]{background:var(--paper)}
@@ -180,56 +176,21 @@ main [id]{scroll-margin-top:142px}
 .mswkey__x{width:10px;height:10px;border-radius:999px;background:var(--paper);opacity:.55;margin-left:14px}
 .mswkey__x[data-peak]{width:24px;opacity:1}
 .mswkey__no{margin-left:15px;opacity:.5;text-decoration:line-through;text-decoration-thickness:1px}
-
-
-.claim{border-top:1px solid rgba(255,255,255,.2);border-bottom:1px solid rgba(255,255,255,.2);
-  padding-block:clamp(22px,3vw,32px);display:grid;grid-template-columns:1fr auto;align-items:start;
-  column-gap:clamp(20px,4vw,52px);row-gap:clamp(16px,2vw,26px)}
-@media(max-width:900px){.claim{grid-template-columns:1fr;gap:24px}}
 .claim__n{font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;color:var(--paper);letter-spacing:-.035em;line-height:1.06;margin-top:10px}
 .claim__c{color:rgba(255,255,255,.82);font-size:1rem;margin-top:10px;max-width:42ch;line-height:1.55}
-.bignums{display:flex;gap:clamp(20px,3vw,38px)}
-.bignums dt{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.72)}
-.bignums dd{font-size:clamp(1.9rem,3vw,2.7rem);font-weight:800;color:var(--paper);letter-spacing:-.035em;
-  line-height:1;margin-top:9px;font-variant-numeric:tabular-nums;white-space:nowrap}
-.bignums dd small{font-size:.42em;font-weight:700;color:rgba(255,255,255,.72);margin-left:4px;letter-spacing:0}
-@media(max-width:560px){
-  .bignums{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-  .bignums dt{font-size:.58rem;letter-spacing:.08em;white-space:nowrap}
-  .bignums dd{font-size:1.7rem;margin-top:7px}
-}
 .claim__r{grid-column:1/-1;color:rgba(255,255,255,.8);font-size:.97rem;line-height:1.6;max-width:80ch;margin-top:4px}
 .claim__r b{color:var(--paper);font-weight:600}
-/* S6, the two exits. Present in every month, in season or not. */
-.offer{background:rgba(255,255,255,.07);border-radius:var(--r);padding:clamp(20px,2.6vw,28px);
-  margin:clamp(24px,3vw,34px) 0}
-.ledlead{color:var(--paper);font-size:1.06rem;font-weight:700;margin-bottom:14px;letter-spacing:-.012em}
-.offer h3{font-size:1.06rem}
-.offer p{color:rgba(255,255,255,.84);font-size:.97rem;line-height:1.6;margin-top:9px;max-width:74ch}
-.exits{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-
-.led tbody tr{animation:rowin .3s var(--ease) both;animation-delay:calc(var(--i,0)*26ms)}
 @keyframes rowin{from{opacity:0;transform:translateY(7px)}}
 .gsep td{padding:26px 0 6px!important;border-bottom:0!important;
   font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.72)}
 .led__w{color:rgba(255,255,255,.78)}
 .led__b{color:rgba(255,255,255,.84);white-space:normal}
-.jump{display:inline-flex;align-items:center;gap:7px;min-height:44px;font-size:.87rem;font-weight:600;
-  color:var(--a300);transition:color .2s var(--ease)}
-.jump:hover{color:var(--paper)}
-.jump svg{width:13px;height:13px;flex:none}
-.almanac .btn--ghost{border-color:rgba(255,255,255,.42);color:var(--paper)}
-.almanac .btn--ghost:hover{border-color:var(--paper);background:rgba(255,255,255,.09)}
-.innow{margin-top:clamp(24px,3vw,34px);padding-top:clamp(18px,2.2vw,26px);border-top:1px solid rgba(255,255,255,.2)}
 .innow__h{font-size:.94rem;color:rgba(255,255,255,.8);line-height:1.55;max-width:76ch}
 .innow__h b{color:var(--paper);font-weight:700;font-variant-numeric:tabular-nums}
 .innow__l{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
 .innow__l a{font-size:.86rem;font-weight:600;color:var(--paper);background:rgba(255,255,255,.11);
   border-radius:999px;padding:10px 15px;min-height:44px;display:inline-flex;align-items:center}
 .innow__l a:hover{background:rgba(255,255,255,.2)}
-.almanac__legend{border-top:1px solid rgba(255,255,255,.14);padding-top:20px;display:block;
-  margin-top:clamp(22px,2.6vw,32px);color:rgba(255,255,255,.68);line-height:1.6;max-width:80ch;font-size:.82rem}
-.almanac__legend b{color:var(--paper);font-weight:700;font-variant-numeric:tabular-nums}
 @media(max-width:800px){
   .led thead{display:none}
   .led tbody tr{display:block;padding-block:17px;border-bottom:1px solid rgba(255,255,255,.12)}
@@ -240,50 +201,20 @@ main [id]{scroll-margin-top:142px}
   .led__b{text-align:left;margin-top:11px;white-space:normal}
   .gsep{padding-block:0!important;border-bottom:0!important}
 }
-
-/* (c) the six places */
-.spots{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(26px,3vw,44px)}
-@media(max-width:760px){.spots{grid-template-columns:1fr}}
-/* the six are numbered, and the number belongs to the place, not to its
-   position in the filtered list: narrowing to "by boat" still shows 5 and 6.
-   The order is how hard the place is to reach, the four you can walk to first. */
-.spot h3{font-size:1.36rem;margin-top:16px;display:flex;align-items:center;gap:12px}
 .spot__n{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;
   border-radius:999px;background:var(--navy);color:var(--paper);font-weight:800;font-size:.95rem;
   letter-spacing:0;flex:none}
-.spot{display:flex;flex-direction:column}
-.spot p{margin-top:9px}
-.spot p+p{margin-top:11px}
-/* the two cards in a row rarely run to the same length, so the button is
-   pinned to the foot of the card and the pair line up */
-.spot .btn{margin-top:auto;align-self:flex-start}
 /* one sentence, not a wall of tags */
 .gfline{margin-top:14px;font-size:.95rem;color:var(--n700);line-height:1.55;font-weight:500}
 .note{display:flex;gap:10px;margin-top:15px;font-size:.92rem;color:var(--n600);line-height:1.55;
   border-left:2px solid var(--a300);padding-left:13px}
 .note b{color:var(--navy);font-weight:700}
-.spot .note{margin-bottom:17px}
-.emptyline{font-size:.95rem;color:var(--n600);margin-top:8px}
-.emptyline button{color:var(--azure);text-decoration:underline;font:inherit;font-weight:600;padding:8px 4px;min-height:44px}
-
-/* (c) the plain box, used by boats, kit, safety and the comparison */
-.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.4vw,28px)}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,28px)}
 @media(max-width:860px){.grid3{grid-template-columns:1fr}}
-@media(max-width:700px){.grid2{grid-template-columns:1fr}}
-.box{border:1px solid var(--n150);border-radius:var(--r);padding:clamp(20px,2.4vw,28px);background:var(--paper)}
-/* the three boats carry a photograph each. Three text-only cards asked the
-   reader to picture a zodiac from a description of one. */
-.box--pic{padding:0;overflow:hidden;display:flex;flex-direction:column}
 .box__m{margin:0;aspect-ratio:16/10;background:var(--n100);overflow:hidden}
 .box__m img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
-.box--pic:hover .box__m img{transform:scale(1.04)}
 .box__in{padding:clamp(20px,2.4vw,28px);display:flex;flex-direction:column;flex:1}
 .box__in .box__best{margin-top:auto;padding-top:18px}
-.box h3{font-size:1.14rem}
-.box>.label{display:block;margin-bottom:10px}
-.box p{color:var(--n600);font-size:.95rem;line-height:1.6;margin-top:10px}
-.box p+p{margin-top:12px}
 .box__best{margin-top:16px;padding-top:14px;border-top:1px solid var(--n150);font-size:.94rem;color:var(--navy);font-weight:700}
 .box__best span{display:block;font-size:.66rem;font-weight:700;letter-spacing:.14em;
   text-transform:uppercase;color:var(--n600);margin-bottom:6px}
@@ -379,6 +310,25 @@ main [id]{scroll-margin-top:142px}
 .mkey i{width:14px;height:14px;border-radius:4px;display:inline-block;background:var(--n50);border:1px solid var(--n200)}
 .mkey i[data-i="1"]{background:var(--a250)}
 .mkey i[data-i="2"]{background:var(--azure)}
+/* boat cards and plain boxes */
+
+.jump{display:inline-flex;align-items:center;gap:7px;min-height:44px;font-size:.87rem;font-weight:600;
+  color:var(--a300);transition:color .2s var(--ease)}
+.jump:hover{color:var(--paper)}
+.jump svg{width:13px;height:13px;flex:none}
+
+/* (c) the plain box, used by boats, kit, safety and the comparison */
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.4vw,28px)}
+@media(max-width:700px){.grid2{grid-template-columns:1fr}}
+.box{border:1px solid var(--n150);border-radius:var(--r);padding:clamp(20px,2.4vw,28px);background:var(--paper)}
+/* the three boats carry a photograph each. Three text-only cards asked the
+   reader to picture a zodiac from a description of one. */
+.box--pic{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.box--pic:hover .box__m img{transform:scale(1.04)}
+.box h3{font-size:1.14rem}
+.box>.label{display:block;margin-bottom:10px}
+.box p{color:var(--n600);font-size:.95rem;line-height:1.6;margin-top:10px}
+.box p+p{margin-top:12px}
 </style>
 </head>
 <body>
@@ -480,7 +430,7 @@ main [id]{scroll-margin-top:142px}
     </h1>
     <div class="hero-cta">
       <a class="btn btn--ghost" href="#best-time">When should you go</a>
-      <a class="btn btn--ghost" href="#where">The six places</a>
+      <a class="btn btn--ghost" href="#where">Where to watch</a>
     </div>
     <dl class="hero-facts">
       <div><dt>Season</dt><dd>Mar to Oct</dd></div>
@@ -557,7 +507,7 @@ main [id]{scroll-margin-top:142px}
       <h3>The whales come for the food, and the food is here</h3>
       <p>Tofino sits beside Clayoquot Sound, a rich coastal area with ocean, islands, beaches, rainforest and rocky shorelines. It is one of the best places on Vancouver Island to see wild animals, and the reason is structural: the shelf here pushes cold water up, the cold water feeds the herring and the krill, and everything larger follows.</p>
       <p>Gray whales pass on their way from the calving lagoons in Baja California to the feeding grounds off Alaska. Humpbacks stay to feed through the summer. Orcas turn up when they turn up. The same water holds sea lions, harbour seals, sea otters, bald eagles, and a seabird passage twice a year.</p>
-      <p>Forty minutes south, Ucluelet faces Barkley Sound and the Broken Group Islands. That is the quieter half of the same shelf, and it is where five of the six places in this guide sit.</p>
+      <p>Forty minutes south, Ucluelet faces Barkley Sound and the Broken Group Islands. That is the quieter half of the same shelf, and it is where the viewpoints and boat routes for this coast are.</p>
     </div>
   </div>
 
@@ -636,15 +586,11 @@ main [id]{scroll-margin-top:142px}
   <div class="head">
     <div>
       <span class="label label--n">Where to watch</span>
-      <h2 style="margin-top:11px">Four on foot, two by boat</h2>
-      <p>They are numbered by how hard they are to reach. One to four you can walk to. Five and six need a boat. Five of the six sit on the Ucluelet side of the park, forty minutes south of Tofino on the one road.</p>
+      <h2 style="margin-top:11px">The viewpoints and boat routes are on the Ucluelet page</h2>
+      <p>The shore stops, the harbour and the boat routes for this coast sit around Ucluelet, forty minutes south of Tofino on the one road. They are listed there, with what to bring and the rules at each one.</p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="/destinations/canada/bc/tofino/long-beach">Long Beach, the area page</a>
+    <a class="btn btn--ghost btn--sm" href="/whale-watching/canada/bc/ucluelet">Whale watching in Ucluelet</a>
   </div>
-
-  <div class="filterrow" role="group" aria-label="Narrow the six places" id="spotfilter"></div>
-  <div class="spots" id="spots"></div>
-  <p class="emptyline" id="spotempty" hidden>Nothing carries that tag. <button type="button" data-clear>Show all six places</button></p>
 </div></section>
 
 <section class="sec sec--top0" id="kit"><div class="wrap">
@@ -664,46 +610,6 @@ main [id]{scroll-margin-top:142px}
     <div><dt>Sunglasses and sunscreen</dt><dd>Flat grey water reflects hard, and the three hours you spend squinting at the horizon are the three hours you get burned.</dd></div>
   </dl>
 </div></section>
-
-<section class="sec sec--top0" id="safety"><div class="wrap">
-  <div class="head">
-    <div>
-      <span class="label label--n">Safety</span>
-      <h2 style="margin-top:11px">Four rules, one for each place they belong to</h2>
-      <p>None of this is theoretical. Each rule is the thing to get right at one of the places above, and they run in the same order.</p>
-    </div>
-  </div>
-  <div class="grid2">
-    <div class="box">
-      <span class="label label--n">1. Amphitrite Point Lighthouse</span>
-      <h3>Stay off wet rock</h3>
-      <p>Stay on the marked paths and away from wet rock. Large waves can be dangerous, and the ones that reach the path arrive without a set warning you.</p>
-    </div>
-    <div class="box">
-      <span class="label label--n">2. Ucluelet Harbour</span>
-      <h3>The harbour is a workplace</h3>
-      <p>Watch for boat traffic and keep a safe distance from the docks and the working areas. The fleet is not on holiday.</p>
-    </div>
-    <div class="box">
-      <span class="label label--n">3. Pacific Rim National Park Reserve</span>
-      <h3>Give wildlife the distance</h3>
-      <p>Give wildlife space, store food properly and never feed animals. Black bears work the same shoreline you are walking.</p>
-    </div>
-    <div class="box">
-      <span class="label label--n">4. Broken Group Islands</span>
-      <h3>Boat access means boat access</h3>
-      <p>They are reachable only by water. Plan ahead if you are paddling or camping, and treat the crossing as the serious part of the day.</p>
-    </div>
-  </div>
-</div></section>
-
-
-
-
-
-
-
-
 
 <section class="sec sec--tight" id="notify"><div class="wrap">
   <div class="band">
@@ -725,7 +631,7 @@ main [id]{scroll-margin-top:142px}
     <div>
       <span class="label label--n">Bookable now</span>
       <h2 style="margin-top:11px">Where to stay for the boat</h2>
-      <p>134 places in Tofino and 158 in Ucluelet, bookable tonight. Two on each side, because five of the six places to watch from are on Ucluelet's.</p>
+      <p>134 places in Tofino and 158 in Ucluelet, bookable tonight. Two on each side, because the places to watch from are mostly on Ucluelet's.</p>
     </div>
     <a class="btn btn--ghost btn--sm" href="/search?in=tofino">All 292 stays</a>
   </div>
@@ -763,7 +669,7 @@ main [id]{scroll-margin-top:142px}
     <a href="/whale-watching/canada/bc/ucluelet">
       <span class="label">The other side</span>
       <h3>Whale watching in Ucluelet</h3>
-      <p>Five of the six places on this page are on the Ucluelet side, forty minutes south on the one road. This is that town's own page.</p>
+      <p>The viewpoints and boat routes are on the Ucluelet side, forty minutes south on the one road. This is that town's own page.</p>
       <span class="go">Open the Ucluelet page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
     </a>
     <a href="/destinations/canada/bc/tofino/long-beach">
@@ -850,59 +756,6 @@ const DATA = {
     "Storm season at full strength. The whales are in Mexico, the swell is here, and every place worth standing to watch a storm come in is a short drive from town."
   ],
   /* the six whale watching places, verbatim from the corpus */
-  spots: [
-    {no:1, g:"land", slug:"wild-pacific-trail", name:"Wild Pacific Trail", town:"Ucluelet", road:"40 min south",
-     effort:"Easy walking", station:"ucluelet",
-     hero:"guides/ucluelet/whale-watching/wild-pacific-trail-1",
-     alt:"A bench on the Wild Pacific Trail looking through wind-bent trees to the open Pacific at sunset",
-     body:["The Wild Pacific Trail is one of the best places in Ucluelet to watch wildlife from land. It follows the rocky coast and gives you one ocean viewpoint after another.",
-           "You may see whales offshore, eagles flying above the trees, sea lions on rocks, seals in the water, cormorants near the shore, and many types of coastal bird.",
-           "It is also the easiest way to enjoy wildlife here without booking a tour."],
-     gf:["Whale watching from shore","Bald eagles","Sea lions and seals","Coastal birds","Storm watching","Photography","Easy walking"],
-     note:"Bring binoculars. Wildlife may be far from shore.", cta:"More on the Wild Pacific Trail"},
-    {no:2, g:"land", slug:"amphitrite-point-lighthouse", name:"Amphitrite Point Lighthouse", town:"Ucluelet", road:"40 min south",
-     effort:"Marked cliff paths", station:"ucluelet",
-     hero:"guides/ucluelet/whale-watching/amphitrite-point-lighthouse-1",
-     alt:"Amphitrite Point Lighthouse on the grass above the rocks, with benches facing the water",
-     body:["Amphitrite Point Lighthouse is the most famous stop on the Wild Pacific Trail. It has wide ocean views and is a good place to watch for whales, sea lions, seals and birds.",
-           "In spring you have a real chance of migrating gray whales offshore. In any other season you still get eagles, seals, sea lions and seabirds."],
-     gf:["Whale watching from land","Ocean views","Photography","Eagles","Seals and sea lions","Storm watching"],
-     note:"Stay on marked paths and away from wet rocks. Large waves can be dangerous.", cta:"More on Amphitrite Point"},
-    {no:3, g:"land", slug:"ucluelet-harbour", name:"Ucluelet Harbour", town:"Ucluelet", road:"40 min south",
-     effort:"Flat, five minutes from a coffee", station:"ucluelet",
-     hero:"guides/ucluelet/whale-watching/ucluelet-harbour-1",
-     alt:"Fishing boats and floats in Ucluelet Harbour with cloud sitting on the hills behind",
-     body:["Ucluelet Harbour is a good place to look for wildlife close to town. You may see seals, eagles, gulls, cormorants, river otters and shorebirds.",
-           "It is also where many of the wildlife and whale watching tours depart from."],
-     gf:["Easy wildlife watching","Boat tour departures","Seals","Eagles","River otters","Harbour birds"],
-     note:"Watch for boat traffic and keep a safe distance from docks and working harbour areas.", cta:"More on Ucluelet Harbour"},
-    {no:4, g:"land", slug:"pacific-rim-national-park-reserve", name:"Pacific Rim National Park Reserve", town:"Between the towns", road:"20 min south",
-     effort:"Viewpoints and boardwalk trails", station:"tofino",
-     hero:"guides/ucluelet/whale-watching/pacific-rim-national-park-reserve-1",
-     alt:"Shorebirds lifting off the wet sand at Long Beach with the park mountains behind",
-     body:["The park takes in the Long Beach Unit, the Broken Group Islands and the West Coast Trail area, protecting coastal rainforest, beaches and marine ecosystems.",
-           "Wildlife here may include black bears, wolves, cougars, deer, whales, seals, sea lions, shorebirds and many other coastal species.",
-           "Give wildlife space, store food properly, and never feed animals."],
-     gf:["Whale watching from viewpoints","Bird watching","Beach wildlife","Tidepool life","Coastal rainforest wildlife","Black bear awareness","Guided nature learning"],
-     note:"You may need a national park pass if you stop in the park.", href:"/destinations/canada/bc/tofino/long-beach", cta:"Open the Long Beach area page"},
-    {no:5, g:"boat", slug:"barkley-sound", name:"Barkley Sound", town:"Boat from Ucluelet", road:"40 min south, then a boat",
-     effort:"Guided boat or kayak tour", station:"ucluelet",
-     hero:"guides/ucluelet/whale-watching/barkley-sound-1",
-     alt:"Sea lions hauled out on a rock islet in Barkley Sound with mountains behind",
-     body:["Barkley Sound is the top wildlife watching area near Ucluelet: islands, channels, rocky shores, kelp beds and sheltered water.",
-           "This is where most boat and kayak trips go, and it is the gateway to the Broken Group Islands."],
-     gf:["Whales","Sea lions","Seals","Sea otters","Bald eagles","Seabirds","Black bears along shorelines","Boat tours and kayaking"],
-     note:"The best way to explore Barkley Sound wildlife is by guided boat or kayak tour.", cta:"More on Barkley Sound"},
-    {no:6, g:"boat", slug:"broken-group-islands", name:"Broken Group Islands", town:"Boat from Ucluelet", road:"40 min south, then a boat",
-     effort:"Boat access only", station:"ucluelet",
-     hero:"guides/ucluelet/whale-watching/broken-group-islands-1",
-     alt:"Islands of the Broken Group silhouetted in sea mist at sunset",
-     body:["The Broken Group Islands sit inside Barkley Sound as part of Pacific Rim National Park Reserve: forested islands, shell beaches, sheltered channels, reefs and rocky outcrops.",
-           "It is the best paddling wildlife on this coast. Seals, sea lions, sea otters, bald eagles, seabirds and shorebirds, with whales in the water nearby."],
-     gf:["Kayak wildlife watching","Boat tours","Sea otters","Seals and sea lions","Bald eagles","Seabirds","Multi-day paddling trips"],
-     note:"The Broken Group Islands are boat-access only. Plan ahead if you are kayaking or camping.", cta:"More on the Broken Group Islands"}
-  ],
-  /* all eight whale watching guides in the corpus */
   articles: [
     {t:"Whale Watching in Ucluelet", where:"Ucluelet", ex:"Best time and what you might see, from the base with the shortest run to Barkley Sound.", q:4, hero:"guides/ucluelet/whale-watching/_category-1", alt:"An orca surfacing beside a small whale watching boat"},
     {t:"Whale Watching Tours in Ucluelet", where:"Ucluelet", ex:"What to expect, how to choose between a covered boat and a zodiac, and booking tips.", q:4, hero:"guides/ucluelet/whale-watching/_category-4", alt:"An orca surfacing beside a red zodiac carrying passengers in survival suits"},
@@ -1051,49 +904,6 @@ function paintStatic() {
 
 /* ── the six places. Three filters, not nine: how you get there is the only
       question anyone asks first, and the tag chips were a wall. ───────────── */
-const SPOTFILTERS = [
-  {k:"all",  n:"All six places", f: () => true},
-  {k:"land", n:"From land",      f:(s) => s.g === "land"},
-  {k:"boat", n:"By boat",        f:(s) => s.g === "boat"}
-];
-let spotKey = "all";
-
-/* one sentence instead of seven chips per card, and no count of our own tags
-   on the end of it */
-function goodFor(s){
-  return `Good for ${s.gf.slice(0,3).map((g) => g.toLowerCase()).join(", ")}.`;
-}
-/* N3: only "Wildlife tours in Tofino" lives at /blog/whale-watching/canada/bc/tofino/wildlife-tours-in-tofino, so a card about an
-   Ucluelet place goes to the result list that actually contains that place,
-   scoped to its own town. Long Beach has a real area page, so it keeps it. */
-const spotHref = (s) => s.href || `/search?q=${encodeURIComponent(s.name)}&in=${s.station}`;
-function spotCard(s){
-  return `<article class="feat spot">
-      <div class="feat__m"><img src="${cld(s.hero,900,564)}" alt="${esc(s.alt)}" loading="lazy"></div>
-      <div class="kmeta"><span class="k">${s.g === "land" ? "From land" : "By boat"}</span><span class="dot"></span>
-        <span>${esc(s.town)}</span><span class="dot"></span><span class="tnum">${esc(s.road)}</span></div>
-      <h3><span class="spot__n tnum">${s.no}</span>${esc(s.name)}</h3>
-      ${s.body.slice(0,2).map((p) => `<p>${esc(p)}</p>`).join("")}
-      <p class="gfline">${esc(goodFor(s))}</p>
-      <p class="note"><span><b>Good to know.</b> ${esc(s.note)}</span></p>
-      <a class="btn btn--ghost btn--sm" href="${spotHref(s)}">${esc(s.cta)}</a>
-    </article>`;
-}
-function paintSpots() {
-  const f = SPOTFILTERS.find((x) => x.k === spotKey);
-  const list = DATA.spots.filter(f.f);
-  $("#spots").innerHTML = list.map(spotCard).join("");
-  $("#spotempty").hidden = list.length > 0;
-  document.querySelectorAll("#spotfilter button[data-k]").forEach((b) =>
-    b.setAttribute("aria-pressed", String(b.dataset.k === spotKey)));
-}
-function paintSpotFilter() {
-  $("#spotfilter").innerHTML = SPOTFILTERS.map((x) =>
-    `<button type="button" data-k="${x.k}" aria-pressed="${x.k === spotKey}">${esc(x.n)}
-      <span class="ct">${DATA.spots.filter(x.f).length}</span></button>`).join("") +
-    `<button class="clear" type="button" data-clear>Clear</button>`;
-}
-
 /* ── the questions. Collapsed, one column, and grouped in the order a reader
       decides things: which month, which boat, where to stand, what they are
       looking at. A flat run of twenty-four was a wall in a different shape.
@@ -1134,17 +944,9 @@ function paintBand() {
 
 paintStatic();
 paintWhales();
-paintSpotFilter();
-paintSpots();
 paintFaqs();
 paintBand();
 
-$("#spotfilter").addEventListener("click", (e) => {
-  const b = e.target.closest("button"); if (!b) return;
-  spotKey = b.dataset.clear !== undefined ? "all" : b.dataset.k;
-  paintSpots();
-});
-$("#spotempty").addEventListener("click", () => { spotKey = "all"; paintSpots() ; });
 $("#capture").addEventListener("submit", (e) => {
   e.preventDefault() ;
   const btn = e.target.querySelector("button");
