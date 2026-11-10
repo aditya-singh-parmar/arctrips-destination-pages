@@ -129,7 +129,7 @@ body>.skip:focus{top:0}
 .mbest{display:flex;align-items:center;gap:10px;min-width:0;grid-column:1/-1}
 @media(min-width:1001px){.mbest{grid-column:auto}}
 /* ── the one place colour carries meaning: how much of Tofino is in season.
-      Six steps up the azure ramp, palest at three subjects, azure at nine.
+      Six steps up the azure ramp, palest at three subjects, azure at eight.
       Navy holds 4.5:1 on every tint through a400; the top step flips to white. */
 .mint{display:inline-flex;align-items:center;justify-content:center;min-width:78px;min-height:36px;
   padding:5px 13px;border-radius:999px;font-size:1rem;font-weight:700;letter-spacing:-.012em;
@@ -466,7 +466,7 @@ main [id]{scroll-margin-top:146px}
   </div>
   <div class="mboard" id="mboard"></div>
   <p class="mkey"><span class="mramp" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
-    Palest blue is three of Tofino's eleven subjects in season. Deepest is nine, in May and September.</p>
+    Palest blue is three of Tofino's nine subjects in season. Deepest is eight, in September.</p>
   <p class="msrc">Climate normals for the Tofino station. Rain bars run against November, the wettest month.</p>
 </div></section>
 
@@ -665,9 +665,9 @@ const CATPAGE = { "beaches":"/destinations/canada/bc/tofino/things-to-do/beaches
   "kayaking":"/kayaking/canada/bc/tofino","restaurants":"/destinations/canada/bc/tofino/things-to-do/restaurants",
   "storm-watching":"/destinations/canada/bc/tofino/things-to-do/storm-watching","whale-watching":"/whale-watching/canada/bc/tofino" };
 /* This is a Tofino page: "at their best" must count Tofino's own subjects
-   (nine guides plus camping and events), never the sitewide 22-category
+   (the nine on the things-to-do list), never the sitewide 22-category
    taxonomy /destinations/canada/bc/tofino/things-to-do and /destinations/canada/bc/tofino are scoped to. */
-const TOFINO_CATS = PLAN.guides.map((g) => g.c).concat(["camping","events"]);
+const TOFINO_CATS = PLAN.guides.map((g) => g.c);
 const TOFINO_N = TOFINO_CATS.length;
 const inSeasonTofino = (m) => TOFINO_CATS.filter((c) => (PLAN.bestMonths[c] || []).includes(m));
 const CLI = PLAN.climate;
@@ -753,7 +753,7 @@ const TOPICS = [
     href:"/destinations/canada/bc/tofino/things-to-do/beaches", go:"Where the rules change" }
 ];
 
-/* the Tofino subjects: nine guides plus the two article-backed ones */
+/* the Tofino subjects: the nine guides */
 const CTA = {
   "beaches":{k:"free",t:"Free to visit"}, "hiking":{k:"free",t:"Free to walk"},
   "surfing":{k:"free",t:"Free to paddle out"}, "birding":{k:"free",t:"Free to visit"},
@@ -768,10 +768,6 @@ PLAN.faqs.forEach((f) => (faqByCat[f.c] = faqByCat[f.c] || []).push(f));
 const SUBJECTS = PLAN.guides.map((g) => ({
   cat:g.c, name:g.n, places:catCount[g.c] || 0, blocks:g.b, photos:g.p,
   faqs:(faqByCat[g.c] || []).length, months:PLAN.bestMonths[g.c] || [], cta:CTA[g.c]
-})).concat(["camping","events"].map((c) => {
-  const a = PLAN.articles.find((x) => x.c === c);
-  return { cat:c, name:c === "camping" ? "Camping" : "Events and festivals", places:0, blocks:0, photos:0,
-    faqs:(faqByCat[c] || []).length, months:PLAN.bestMonths[c] || [], cta:CTA[c], article:a };
 }));
 SUBJECTS.forEach((s) => s.name = s.name.replace(/ & /g, " and "));
 const tofinoOn = (m) => SUBJECTS.filter((s) => s.months.includes(m));
@@ -818,7 +814,7 @@ const BLURB = {
 /* one month, one photograph: the subject that is genuinely at its best then.
    Storm watching repeats across the three deep winter months, which is the
    point rather than an oversight. */
-const MONTHPIC = ["storm-watching","storm-watching","whale-watching","hiking","kayaking","camping",
+const MONTHPIC = ["storm-watching","storm-watching","whale-watching","hiking","kayaking","whale-watching",
   "beaches","fishing","surfing","hiking","birding","storm-watching"];
 /* ── state ───────────────────────────────────────────────────────────────── */
 let month = 2, other = 7;
@@ -837,7 +833,7 @@ function paintStatic() {
 /* ── the twelve month board. Every month is a row, at full strength, in
       calendar order, and nothing is dimmed or withheld. The only colour that
       carries meaning on this page lives in the last cell: six steps up the
-      azure ramp, from three subjects in season to nine. ─────────────────── */
+      azure ramp, from three subjects in season to eight. ─────────────────── */
 const ONMIN = Math.min(...MON.map((_,i) => inSeasonTofino(i+1).length));
 const ONMAX = Math.max(...MON.map((_,i) => inSeasonTofino(i+1).length));
 const intensity = (n) => 1 + Math.round((n - ONMIN) / Math.max(1, ONMAX - ONMIN) * 5);
@@ -921,7 +917,7 @@ function paintBest() {
 
   $("#bestTitle").textContent = `At their best in ${MON[month-1]}`;
   $("#bestSub").textContent =
-    `${on} of the eleven things Tofino is good at are in season in ${MON[month-1]}. ` +
+    `${on} of the nine things Tofino is good at are in season in ${MON[month-1]}. ` +
     `The rest are underneath, with the months they come into their own.`;
 
   let sep = false, i = 0;

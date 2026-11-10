@@ -100,6 +100,29 @@ main [id]{scroll-margin-top:150px}
 .kg h3{font-size:1.06rem}
 .kg p{color:var(--n600);font-size:.92rem;line-height:1.55}
 .kg .go{margin-top:auto;padding-top:6px;color:var(--azure);font-weight:700;font-size:.88rem}
+/* (d) the season strip. Colour is the message: the deeper the azure, the better
+   the month. Never emerald, which is the season signal elsewhere. */
+.when{background:var(--n50);border-block:1px solid var(--n150)}
+.mstrip{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(4px,.7vw,9px);list-style:none;
+  margin-top:clamp(22px,2.6vw,32px);align-items:end}
+.mstrip li{display:flex;flex-direction:column;align-items:center;gap:9px}
+.mstrip b{display:block;width:100%;border-radius:var(--r-sm);background:var(--n150);height:22px}
+.mstrip li[data-l="peak"] b{background:var(--azure);height:64px}
+.mstrip li[data-l="shoulder"] b{background:var(--a300);height:42px}
+.mstrip li[data-now] b{outline:2px solid var(--navy);outline-offset:2px}
+.mstrip span{font-size:.88rem;font-weight:600;color:var(--n600)}
+.mstrip li[data-l="peak"] span{color:var(--navy);font-weight:700}
+.mkey{display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin-top:18px;font-size:.88rem;color:var(--n600);font-weight:600}
+.mkey b{display:inline-block;width:13px;height:13px;border-radius:4px;vertical-align:-2px;margin-right:8px;background:var(--n150)}
+.mkey b[data-l="peak"]{background:var(--azure)}
+.mkey b[data-l="shoulder"]{background:var(--a300)}
+.wnotes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(18px,2.4vw,30px);margin-top:clamp(30px,3.4vw,44px)}
+.wnotes--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:860px){.wnotes,.wnotes--3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.wnotes,.wnotes--3{grid-template-columns:1fr}}
+.wnote{border-top:2px solid var(--a300);padding-top:14px}
+.wnote h3{font-size:1.06rem}
+.wnote p{color:var(--n600);font-size:.95rem;line-height:1.6;margin-top:8px}
 </style>
 </head>
 <body>
@@ -161,6 +184,35 @@ main [id]{scroll-margin-top:150px}
   <div class="standfirst">
     <p><b>Almost everything here is easy.</b> The Wild Pacific Trail runs along the edge of the Ucluelet peninsula on gravel paths with benches and viewpoints, and its Lighthouse Loop is the short section most people walk first. If it is raining, the boardwalks in the national park are the better call.</p>
     <p>The list below runs from the walks you can reach from town, out to the park, and finishes with the two that are trips rather than walks.</p>
+  </div>
+</div></section>
+<section class="when" id="when"><div class="wrap sec sec--tight">
+  <div class="head">
+    <div>
+      <span class="label label--n">When to go</span>
+      <h2>April to October, and the rest of the year with better boots</h2>
+      <p>The Ucluelet walks stay open all year. What changes is how much mud, wind and daylight you get.</p>
+    </div>
+  </div>
+  <ul class="mstrip">
+    <li data-l="off" data-m="1"><b></b><span>Jan</span><span class="vh">January, out of season</span></li>
+    <li data-l="off" data-m="2"><b></b><span>Feb</span><span class="vh">February, out of season</span></li>
+    <li data-l="shoulder" data-m="3"><b></b><span>Mar</span><span class="vh">March, a shoulder month</span></li>
+    <li data-l="peak" data-m="4"><b></b><span>Apr</span><span class="vh">April, one of the best months</span></li>
+    <li data-l="peak" data-m="5"><b></b><span>May</span><span class="vh">May, one of the best months</span></li>
+    <li data-l="peak" data-m="6"><b></b><span>Jun</span><span class="vh">June, one of the best months</span></li>
+    <li data-l="peak" data-m="7"><b></b><span>Jul</span><span class="vh">July, one of the best months</span></li>
+    <li data-l="peak" data-m="8"><b></b><span>Aug</span><span class="vh">August, one of the best months</span></li>
+    <li data-l="peak" data-m="9"><b></b><span>Sep</span><span class="vh">September, one of the best months</span></li>
+    <li data-l="peak" data-m="10"><b></b><span>Oct</span><span class="vh">October, one of the best months</span></li>
+    <li data-l="shoulder" data-m="11"><b></b><span>Nov</span><span class="vh">November, a shoulder month</span></li>
+    <li data-l="off" data-m="12"><b></b><span>Dec</span><span class="vh">December, out of season</span></li>
+  </ul>
+  <p class="mkey"><span><b data-l="peak"></b>Best months</span><span><b data-l="shoulder"></b>Shoulder</span><span><b></b>Out of season</span></p>
+  <div class="wnotes wnotes--3">
+    <div class="wnote"><h3>April to October</h3><p>The long, dry-ish window. Boardwalks are still slippery after rain, but the light lasts and the trailhead parking is open.</p></div>
+    <div class="wnote"><h3>Winter</h3><p>Many short trails stay open. Winter weather makes them muddy, slippery and windy, so choose shorter trails and start in daylight.</p></div>
+    <div class="wnote"><h3>Rain, any month</h3><p>Rainforest trails are at their best in the rain. Wear waterproof clothing and shoes with grip, because boardwalks, stairs and roots turn greasy.</p></div>
   </div>
 </div></section>
 <section class="sec" style="padding-top:0"><div class="wrap">

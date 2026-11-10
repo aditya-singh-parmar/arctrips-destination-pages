@@ -359,6 +359,26 @@ main [id]{scroll-margin-top:142px}
 /* the uppercase micro-labels need less tracking once they are 14px */
 .label,.led th,.stat dt,.bignums dt,.gsep td,.box__best span,
 .kmeta .k,.fgrid h5,.hero-facts dt{letter-spacing:.09em}
+
+/* the month calendar, the same rows and cells as the Ucluelet page */
+.mband{border:1px solid var(--n150);border-radius:var(--r);padding:clamp(20px,2.6vw,30px);margin-top:clamp(24px,3vw,34px)}
+.mrow{display:grid;grid-template-columns:minmax(140px,1fr) minmax(260px,1.6fr) minmax(0,2fr);
+  gap:clamp(14px,2vw,26px);align-items:center;padding-block:16px;border-top:1px solid var(--n150)}
+.mrow:first-child{border-top:0;padding-top:0}
+@media(max-width:900px){.mrow{grid-template-columns:1fr;gap:10px;padding-block:18px}}
+.mrow__n{font-weight:700;color:var(--navy);font-size:1.02rem}
+.mrow__w{color:var(--n600);font-size:.92rem;line-height:1.5}
+.mcells{display:flex;gap:3px}
+.mcells span{flex:1;min-width:0;height:30px;display:flex;align-items:center;justify-content:center;
+  border-radius:var(--r-sm);font-size:.8rem;font-weight:700;background:var(--n50);color:var(--n600);
+  box-shadow:inset 0 0 0 1px var(--n150)}
+.mcells span[data-i="1"]{background:var(--a250);color:var(--navy);box-shadow:none}
+.mcells span[data-i="2"]{background:var(--azure);color:var(--paper);box-shadow:none}
+.mkey{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:18px;padding-top:16px;
+  border-top:1px solid var(--n150);font-size:.86rem;color:var(--n600);font-weight:600}
+.mkey i{width:14px;height:14px;border-radius:4px;display:inline-block;background:var(--n50);border:1px solid var(--n200)}
+.mkey i[data-i="1"]{background:var(--a250)}
+.mkey i[data-i="2"]{background:var(--azure)}
 </style>
 </head>
 <body>
@@ -549,65 +569,16 @@ main [id]{scroll-margin-top:142px}
 </div></section>
 
 <section class="sec sec--top0" id="best-time"><div class="wrap">
-  <div class="almanac">
-    <div class="head">
-      <div>
-        <span class="label">Month by month</span>
-        <h2 style="margin-top:11px">When should you go?</h2>
-        <p>March to October, and the answer changes inside that. Gray whales March to May, humpbacks July to September, and no boats at all from November to February.</p>
-      </div>
-      <a class="btn btn--ghost btn--sm" href="/travel-guides/canada/bc/tofino">Plan the trip</a>
+  <div class="head">
+    <div>
+      <span class="label label--n">Month by month</span>
+      <h2 style="margin-top:11px">When should you go?</h2>
+      <p>March to October, and the answer changes inside that. Gray whales March to May, humpbacks July to September, and no boats at all from November to February.</p>
     </div>
-
-    <!-- These columns used to be that month's rainfall in millimetres, which is
-         a hard read and answers nothing a whale page is being asked. Each month
-         now shows which of the three whales are in the water, and whether the
-         boats run at all. -->
-    <p class="chartlead"><b>Pick a month below.</b> Each month shows which of the three whales are in the water, and how strong that month is for each of them. The boats do not run from November to February.</p>
-    <div class="msw" role="group" aria-label="Choose a month" id="msw"></div>
-    <p class="mswkey" aria-hidden="true">
-      <span class="mswkey__i" data-w="gray"></span>Gray
-      <span class="mswkey__i" data-w="humpback"></span>Humpback
-      <span class="mswkey__i" data-w="orca"></span>Orca
-      <span class="mswkey__gap"></span>
-      <span class="mswkey__x" data-peak></span>Peak
-      <span class="mswkey__x"></span>Possible
-      <span class="mswkey__no">No boats</span>
-    </p>
-
-    <div class="claim">
-      <div>
-        <span class="label">The season</span>
-        <p class="claim__n" id="seasonName"></p>
-        <p class="claim__c" id="seasonClaim"></p>
-      </div>
-      <dl class="bignums" id="bignums"></dl>
-      <p class="claim__r" id="seasonReason"></p>
-    </div>
-
-    <div class="offer">
-      <h3 id="offerTitle"></h3>
-      <p id="offerBody"></p>
-      <div class="exits" id="exits"></div>
-    </div>
-
-    <p class="ledlead" id="almTitle">What is in the water</p>
-    <table class="led">
-      <thead><tr><th>In the water</th><th class="led__mon">Months</th><th>Where you watch from</th></tr></thead>
-      <tbody id="ledger"></tbody>
-    </table>
-
-    <div class="innow">
-      <p class="innow__h" id="innowH"></p>
-      <div class="innow__l" id="innowL"></div>
-    </div>
-
-    <p class="almanac__legend" id="footnote"></p>
-    <p class="vh" role="status" aria-live="polite" id="live"></p>
+    <a class="btn btn--ghost btn--sm" href="/travel-guides/canada/bc/tofino">Plan the trip</a>
   </div>
+  <div class="mband" id="mband"></div>
 </div></section>
-
-
 
 <section class="sec sec--tight" id="boats"><div class="wrap">
   <div class="head">
@@ -699,27 +670,27 @@ main [id]{scroll-margin-top:142px}
     <div>
       <span class="label label--n">Safety</span>
       <h2 style="margin-top:11px">Four rules, one for each place they belong to</h2>
-      <p>None of this is theoretical. Each rule is the thing to get right at one of the numbered places above, and they run in the same order.</p>
+      <p>None of this is theoretical. Each rule is the thing to get right at one of the places above, and they run in the same order.</p>
     </div>
   </div>
   <div class="grid2">
     <div class="box">
-      <span class="label label--n">2. Amphitrite Point Lighthouse</span>
+      <span class="label label--n">1. Amphitrite Point Lighthouse</span>
       <h3>Stay off wet rock</h3>
       <p>Stay on the marked paths and away from wet rock. Large waves can be dangerous, and the ones that reach the path arrive without a set warning you.</p>
     </div>
     <div class="box">
-      <span class="label label--n">3. Ucluelet Harbour</span>
+      <span class="label label--n">2. Ucluelet Harbour</span>
       <h3>The harbour is a workplace</h3>
       <p>Watch for boat traffic and keep a safe distance from the docks and the working areas. The fleet is not on holiday.</p>
     </div>
     <div class="box">
-      <span class="label label--n">4. Pacific Rim National Park Reserve</span>
+      <span class="label label--n">3. Pacific Rim National Park Reserve</span>
       <h3>Give wildlife the distance</h3>
       <p>Give wildlife space, store food properly and never feed animals. Black bears work the same shoreline you are walking.</p>
     </div>
     <div class="box">
-      <span class="label label--n">6. Broken Group Islands</span>
+      <span class="label label--n">4. Broken Group Islands</span>
       <h3>Boat access means boat access</h3>
       <p>They are reachable only by water. Plan ahead if you are paddling or camping, and treat the crossing as the serious part of the day.</p>
     </div>
@@ -952,22 +923,6 @@ const DATA = {
     {s:"Whale Tails, Blows, and Backs", g:"seeing", q:"What does a whale tail mean?", a:"If a whale lifts its tail fluke before disappearing, it usually means the whale is making a deeper dive."},
     {s:"Whale Tails, Blows, and Backs", g:"seeing", q:"Why do whales show their backs?", a:"Whales show their backs when they surface to breathe, travel, or prepare for another dive. This is one of the most common things to see on a whale watching tour."},
     {s:"Whale Tails, Blows, and Backs", g:"seeing", q:"Does seeing a fluke mean the whale is leaving?", a:"Not always. A fluke usually means the whale is diving deeper. It may surface again nearby after several minutes, or it may come up farther away."},
-    {s:"Whales in Ucluelet: The Spring Migration Explained", g:"when", q:"What whales migrate past Ucluelet in spring?", a:"Pacific gray whales are the main whales associated with the spring migration in Ucluelet. Humpbacks may also appear later in spring and become more common during summer."},
-    {s:"Whales in Ucluelet: The Spring Migration Explained", g:"when", q:"When is the gray whale migration in Ucluelet?", a:"The main spring migration period is usually March to May. Early sightings may happen in February, and some whales may still be present into early summer."},
-    {s:"Whales in Ucluelet: The Spring Migration Explained", g:"when", q:"Why do gray whales migrate past Ucluelet?", a:"Gray whales pass Ucluelet as they travel north from winter breeding and calving areas in Baja California, Mexico, toward northern feeding grounds near Alaska and the Arctic."},
-    {s:"Whales in Ucluelet: The Spring Migration Explained", g:"when", q:"Is March a good time for whale watching in Ucluelet?", a:"Yes. March is a key month because gray whales are returning along the coast, and the Pacific Rim Whale Festival celebrates their migration."},
-    {s:"Whale Watching Tours in Ucluelet", g:"boat", q:"Are whale watching tours in Ucluelet worth it?", a:"Yes. Ucluelet is a strong whale watching base because tours can access Barkley Sound, the Broken Group Islands area, and nearby Pacific waters with whales and other marine wildlife."},
-    {s:"Whale Watching Tours in Ucluelet", g:"boat", q:"What is the best whale watching tour in Ucluelet?", a:"The best tour depends on your needs. Families and comfort-focused travelers may prefer a covered boat. Adventure travelers may prefer a zodiac. Photographers or groups may prefer a smaller tour or private charter."},
-    {s:"Whale Watching Tours in Ucluelet", g:"when", q:"When do whale watching tours run in Ucluelet?", a:"Many whale watching tours run from March to October, but exact dates depend on the operator, weather, and season."},
-    {s:"Whale Watching Tours in Ucluelet", g:"boat", q:"How long are Ucluelet whale watching tours?", a:"Many tours are about 2.5 to 3 hours, but timing can vary. Always check the operator's current tour details."},
-    {s:"Whale watching FAQs, Ucluelet", g:"where", q:"Is Ucluelet good for wildlife watching?", a:"Yes. Ucluelet is one of the best wildlife watching areas on Vancouver Island. You can see whales, black bears, sea lions, seals, sea otters, bald eagles, shorebirds, seabirds, and more."},
-    {s:"Whale watching FAQs, Ucluelet", g:"where", q:"What animals can you see in Ucluelet?", a:"You may see gray whales, humpback whales, orcas, black bears, sea lions, harbor seals, sea otters, river otters, bald eagles, great blue herons, shorebirds, and seabirds."},
-    {s:"Whale watching FAQs, Ucluelet", g:"where", q:"Can you see whales from Ucluelet?", a:"Yes. You can see whales on boat tours, and sometimes from shore along the Wild Pacific Trail, especially during migration seasons."},
-    {s:"Whale watching FAQs, Ucluelet", g:"where", q:"Where is the best place to see whales from shore in Ucluelet?", a:"The Wild Pacific Trail and Amphitrite Point Lighthouse area are among the best shore-based places to scan for whales. Bring binoculars."},
-    {s:"Whale Watching in Ucluelet", g:"where", q:"Is Ucluelet good for whale watching?", a:"Yes. Ucluelet is one of the best whale watching bases on Vancouver Island because it gives access to Barkley Sound, the Broken Group Islands area, and Pacific feeding and migration waters."},
-    {s:"Whale Watching in Ucluelet", g:"where", q:"What whales can you see in Ucluelet?", a:"You may see gray whales, humpback whales, and sometimes orcas. Tours may also see sea lions, harbor seals, sea otters, bald eagles, and seabirds."},
-    {s:"Whale Watching in Ucluelet", g:"when", q:"When is the best time for whale watching in Ucluelet?", a:"March to May is best for gray whale migration. Mid-summer to September is often good for humpback whales. Orcas are possible but less predictable."},
-    {s:"Whale Watching in Ucluelet", g:"when", q:"Can you see gray whales in Ucluelet?", a:"Yes. Gray whales are one of the main whale species associated with Ucluelet, especially during spring migration."}
   ],
   /* the thirteen photographs the two whale watching guides carry */
   frames: [
@@ -1003,7 +958,6 @@ const DIM = [31,28,31,30,31,30,31,31,30,31,30,31];
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const cld = (id,w,h) => `https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_${w},h_${h}/${id}`;
-const BOATS = DATA.rows[DATA.rows.length-1].m;
 
 /* Longest contiguous runs of months, read round the year, so a winter window
    comes out as "November to February" rather than two broken halves. */
@@ -1031,18 +985,6 @@ const windowLong = (months) => {
   if (!r.length) return "in the water all year";
   return "in the water " + r.map(([a,b]) => a === b ? MON[a-1] : `${MON[a-1]} to ${MON[b-1]}`).join(", and ");
 };
-const seasonFor = (m) => Object.values(DATA.seasons).find((s) => s.months.includes(m));
-const REASON = {
-  "Storm season":"The rain is the reason. It is what keeps this a rainforest, what piles the swell up at Cox Bay, and what fills the rooms at Chesterman Beach with people watching it arrive.",
-  "The green months":"Rain eases week by week, the gray whales come back through it, and the rates have not caught up with the weather.",
-  "Long days":"The dry window. Long light, water warm enough to stay in, and every boat in both harbours running."
-};
-
-/* ?m=1 lands the page on a chosen month, so a winter reading can be linked to */
-let month = new Date().getMonth() + 1;
-const qm = Number(new URLSearchParams(location.search).get("m"));
-if (qm >= 1 && qm <= 12) month = qm;
-
 /* ── static content ─────────────────────────────────────────────────────── */
 /* The three whales. Months and copy come from DATA.rows, the portrait from the
    frame whose caption names that animal, so a photograph is never mislabelled. */
@@ -1176,140 +1118,18 @@ function paintFaqs() {
   }).join("");
 }
 
-/* ── the season module: the reference implementation of S1 to S7 ─────────── */
-/* The three whales, and the months the boats run, straight out of DATA.rows. */
-const WH_KEYS = [["gray","Gray whale"],["humpback","Humpback whale"],["orca","Orca"]];
-const monthsFor = (name) => (DATA.rows.find((r) => r.n === name) || {m:[]}).m;
-const peakFor = (name) => (DATA.rows.find((r) => r.n === name) || {}).p || [];
-const BOAT_MONTHS = monthsFor("Tour boats running");
-const PLURAL = {gray:"gray whales", humpback:"humpbacks", orca:"orcas"};
-const listOf = (a) => a.length < 2 ? (a[0] || "") : a.slice(0,-1).join(", ") + " and " + a[a.length-1];
-/* three states, not two: at its peak, possible, or not here. The switcher, the
-   ledger strip and the spoken label all read off these two helpers. */
-const peaksIn = (m) => WH_KEYS.filter(([,n]) => peakFor(n).includes(m)).map(([k]) => PLURAL[k]);
-const maybeIn = (m) => WH_KEYS.filter(([,n]) => monthsFor(n).includes(m) && !peakFor(n).includes(m)).map(([k]) => PLURAL[k]);
-
-function monthSpoken(m){
-  const pk = peaksIn(m), mb = maybeIn(m);
-  if (pk.length && mb.length) return `${listOf(pk)} at their peak, ${listOf(mb)} possible`;
-  if (pk.length) return `${listOf(pk)} at their peak`;
-  if (mb.length) return `${listOf(mb)} possible`;
-  return "no whales on this coast";
-}
-
-function paintSwitcher() {
-  $("#msw").innerHTML = MON.map((mn,i) => {
-    const m = i + 1;
-    const boats = BOAT_MONTHS.includes(m);
-    const dots = WH_KEYS.map(([k,name]) =>
-      `<span class="msw__w" data-w="${k}"${monthsFor(name).includes(m) ? " data-on" : ""}${peakFor(name).includes(m) ? " data-peak" : ""}></span>`).join("");
-    return `<button class="msw__b" type="button" data-m="${m}" aria-pressed="${m === month}"
-       ${boats ? "" : 'data-noboat'} aria-label="${MON[i]}, ${monthSpoken(m)}, ${boats ? "boats running" : "no boats"}">
-      <span class="msw__ws">${dots}</span>
-      <span class="msw__l">${SHORT[i]}</span>
-    </button>`;
-  }).join("");
-}
-
-function paintAlmanac() {
-  const c = DATA.climate[month-1];
-  const season = seasonFor(month);
-  const name = MON[month-1];
-  const boating = BOATS.includes(month);
-
-  $("#almTitle").textContent = "What is in the water in " + name;
-  $("#seasonName").textContent = season.name;
-  $("#seasonClaim").textContent = season.claim;
-  const whalesNow = WH_KEYS.filter(([,n]) => monthsFor(n).includes(month));
-  /* the month's line separates the run that is peaking from the one that is
-     merely possible, which is the difference the switcher is now drawing */
-  const pk = peaksIn(month), mb = maybeIn(month);
-  let said;
-  if (pk.length && mb.length) said = `In ${name} ${listOf(pk)} are at their peak, and ${listOf(mb)} are possible.`;
-  else if (pk.length) said = `In ${name} ${listOf(pk)} are at their peak.`;
-  else if (mb.length) said = `In ${name} ${listOf(mb)} are possible, none of them at their peak.`;
-  else said = `No whales are on this coast in ${name}.`;
-  $("#seasonReason").innerHTML = `<b>${said}</b> ` + REASON[season.name];
-
-  /* These were average high, rain and rain days. On a whale page the month's
-     answer is which whales are in the water and whether a boat can take you. */
-  $("#bignums").innerHTML =
-    `<div><dt>Whales in the water</dt><dd>${whalesNow.length}<small>of 3</small></dd></div>` +
-    `<div><dt>Boats</dt><dd>${boating ? "Running" : "Off"}</dd></div>` +
-    `<div><dt>Typical tour</dt><dd>${boating ? "2.5<small>to 3 h</small>" : "None"}</dd></div>`;
-
-  /* S1 and S6: what the water is doing, then two exits, in every month. */
-  $("#offerTitle").textContent = "What the water is doing in " + name;
-  $("#offerBody").textContent = DATA.note[month-1];
-  const gap = (3 - month + 12) % 12;
-  $("#exits").innerHTML = boating
-    ? `<a class="btn btn--ghost btn--sm" href="#where">The six places to watch from</a>
-       <a class="btn btn--ghost btn--sm" href="#boats">Which boat, and what it costs</a>`
-    : `<a class="btn btn--ghost btn--sm" href="/destinations/canada/bc/tofino/things-to-do/storm-watching">Storm watching in Tofino</a>
-       <button class="btn btn--ghost btn--sm jumpbtn" type="button" data-m="3">Jump to March, when the boats go back out${gap ? `, ${gap} month${gap === 1 ? "" : "s"} away` : ""}</button>`;
-
-  /* S3: rank, never gate. In season first, the rest at full strength below. */
-  const rows = DATA.rows.slice() .sort((a,b) => {
-    const A = a.m.includes(month), B = b.m.includes(month);
-    if (A !== B) return A ? -1 : 1;
-    return a.m.length - b.m.length;
-  });
-
-  let sepDone = false, i = 0;
-  $("#ledger").innerHTML = rows.map((r) => {
-    const live = r.m.includes(month);
-    let sep = "";
-    if (!live && !sepDone){ sepDone = true; sep = `<tr class="gsep"><td colspan="3">In their own window, and here is when</td></tr>`; }
-    const cells = MON.map((mn,k) =>
-      `<i${r.m.includes(k+1) ? " data-on" : ""}${(r.p || []).includes(k+1) ? " data-peak" : ""}${k === month-1 ? " data-now" : ""}>${mn[0]}</i>`).join("");
-    let right;
-    if (r.from === "soon"){
-      right = live
-        ? `<span class="pill pill--soon">Coming soon</span> <b>Stays from $320</b>`
-        : `<button class="jump jumpbtn" type="button" data-m="3">Back out ${esc(windowText(r.m))}
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>`;
-    } else if (live){
-      right = `<b>${esc(r.from)}</b>`;
-    } else {
-      /* "Peaks" is only true of a row that has a peak. Everything else gets the
-         window it is actually in, and the jump lands on the month that matters:
-         the start of the peak where there is one, the start of the window
-         otherwise. */
-      const pk = r.p && r.p.length;
-      const w = pk ? windows(r.p)[0][0] : windows(r.m)[0][0];
-      const say = pk ? `Peaks ${windowText(r.p)}` : `In the water ${windowText(r.m)}`;
-      right = `<button class="jump jumpbtn" type="button" data-m="${w}">${esc(say)}
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>`;
-    }
-    return sep + `<tr style="--i:${i++}">
-      <td><div class="led__s">${esc(r.n)}</div><div class="led__w">${esc(r.w)}</div></td>
-      <td class="led__mon"><div class="mon" role="img" aria-label="${esc(r.n)}, ${esc(windowLong(r.m))}">${cells}</div></td>
-      <td class="led__b">${right}</td></tr>`;
-  }).join("");
-
-  /* named places rather than a count of what is shut */
-  const open = boating ? DATA.spots : DATA.spots.filter((s) => s.g === "land");
-  $("#innowH").innerHTML = boating
-    ? `Every one of the <b>6</b> places is worth the drive in ${name}, four of them without booking anything.`
-    : `The boats are tied up in ${name}, so these <b>${open.length}</b> are the ones that still pay you back, and none of them needs a booking.`;
-  $("#innowL").innerHTML = open.map((s) => `<a href="${spotHref(s)}">${s.no}. ${esc(s.name)}</a>`).join("");
-
-  $("#footnote").innerHTML =
-    `A wide bar is the peak of that whale's season, a small dot means possible but not likely. Operators pick the route on the day from weather, swell and the last few days of sightings, so nothing here is a guarantee of a sighting.`;
-
-  $("#live").textContent = `Showing ${name}. ` + (boating ? "Boats are running." : "Boats are back out in March.");
-}
-
-function centerMonth(smooth){
-  const c = $("#msw"), el = c.querySelector('[aria-pressed="true"]');
-  if (!el || c.scrollWidth <= c.clientWidth) return;
-  c.scrollTo({ left: el.offsetLeft - (c.clientWidth - el.offsetWidth)/2, behavior: smooth ? "smooth" : "auto" });
-}
-function setMonth(m){
-  month = m;
-  document.querySelectorAll(".msw__b").forEach((b) => b.setAttribute("aria-pressed", String(Number(b.dataset.m) === m)));
-  centerMonth(true);
-  paintAlmanac();
+/* the month calendar: three whales and the boats, most likely / possible / not here */
+function paintBand() {
+  const rowOf = (n) => DATA.rows.find((r) => r.n === n);
+  const lines = [["Gray whale","Gray whale"],["Humpback whale","Humpback whale"],["Orca","Orca"],["Tour boats running","Tours running"]];
+  $("#mband").innerHTML = lines.map(([key,label]) => {
+    const r = rowOf(key);
+    const cells = SHORT.map((_,k) => {
+      const m = k + 1, lvl = (r.p || []).includes(m) ? 2 : r.m.includes(m) ? (key === "Tour boats running" ? 2 : 1) : 0;
+      return `<span data-i="${lvl}">${MON[k][0]}</span>`;
+    }).join("");
+    return `<div class="mrow"><span class="mrow__n">${esc(label)}</span><div class="mcells" role="img" aria-label="${esc(label)}, ${esc(windowLong(r.m))}">${cells}</div><p class="mrow__w">${esc(r.w)}</p></div>`;
+  }).join("") + `<p class="mkey"><i data-i="2"></i>Most likely<i data-i="1"></i>Possible<i></i>Not here</p>`;
 }
 
 paintStatic();
@@ -1317,26 +1137,14 @@ paintWhales();
 paintSpotFilter();
 paintSpots();
 paintFaqs();
-paintSwitcher();
-paintAlmanac();
-centerMonth(false);
-addEventListener("resize", () => centerMonth(false));
+paintBand();
 
-$("#msw").addEventListener("click", (e) => {
-  const b = e.target.closest(".msw__b"); if (b) setMonth(Number(b.dataset.m));
-});
 $("#spotfilter").addEventListener("click", (e) => {
   const b = e.target.closest("button"); if (!b) return;
   spotKey = b.dataset.clear !== undefined ? "all" : b.dataset.k;
   paintSpots();
 });
 $("#spotempty").addEventListener("click", () => { spotKey = "all"; paintSpots() ; });
-document.addEventListener("click", (e) => {
-  const b = e.target.closest(".jumpbtn");
-  if (!b) return;
-  setMonth(Number(b.dataset.m));
-  document.getElementById("best-time").scrollIntoView({ behavior:"smooth", block:"start" });
-});
 $("#capture").addEventListener("submit", (e) => {
   e.preventDefault() ;
   const btn = e.target.querySelector("button");

@@ -196,6 +196,9 @@ body>.jumpbar{position:fixed;left:0;top:0}
   font-size:1rem;color:rgba(255,255,255,.82);max-width:60ch}
 /* inline, but padded to a 44px hit area without breaking the sentence */
 .alsoline a{color:var(--paper);font-weight:600;text-decoration:underline;text-underline-offset:3px;padding-block:12px}
+/* the page's prose rules were winning on specificity and turning these two grey on navy */
+.almanac .yr__how,.almanac .alsoline{color:rgba(255,255,255,.86)}
+.almanac .alsoline a{color:var(--paper)}
 .exits{display:flex;gap:10px;flex-wrap:wrap;margin-top:clamp(20px,2.6vw,26px)}
 .when .btn--ghost{border-color:rgba(255,255,255,.44);color:var(--paper)}
 .when .btn--ghost:hover{border-color:var(--paper);background:rgba(255,255,255,.1)}
