@@ -6,7 +6,7 @@ import {ROUTES, ALIASES} from './lib/routes.mjs';
 const BASE=(process.env.QA_BASE||'http://localhost:3000').replace(/\/$/,'');
 /* /search renders its links from the query, so a few queries stand in for the
    states a visitor reaches: towns, places, guides, questions. */
-const SEARCH_STATES=['/search?q=a','/search?q=e','/search?q=banff','/search?q=whale','/search?q=beach&in=tofino','/search?q=where&show=questions'];
+const SEARCH_STATES=['/search?q=a','/search?q=e','/search?q=whale','/search?q=beach&in=tofino','/search?q=where&show=questions'];
 const pages=[...Object.values(ROUTES),...Object.keys(ALIASES),...SEARCH_STATES].sort();
 /* every internal path an anchor may point at: a route, an alias, or a static asset */
 const VALID=new Set([...Object.values(ROUTES),...Object.keys(ALIASES)]);

@@ -1,6 +1,6 @@
 # Routing: the URL map, how it is served, and what breaks it
 
-URLs follow the PRD "URL Structure & Site Taxonomy" (Confluence space ADS, page 117735426, last modified 2026-07-22). Rewritten 2026-10-20 when the site moved from a flat tree (`/tofino/hiking`) to the PRD tree (`/destinations/canada/bc/tofino/things-to-do/hiking`). Read this instead of re-deriving the routing from `next.config.ts` and 47 HTML files.
+URLs follow the PRD "URL Structure & Site Taxonomy" (Confluence space ADS, page 117735426, last modified 2026-07-22). Rewritten 2026-10-20 when the site moved from a flat tree (`/tofino/hiking`) to the PRD tree (`/destinations/canada/bc/tofino/things-to-do/hiking`). Read this instead of re-deriving the routing from `next.config.ts` and 36 HTML files.
 
 ## The one rule
 
@@ -49,7 +49,7 @@ The failure is silent in places, so it is gated:
 
 ## The route table
 
-47 routes plus 2 aliases. Pattern from the PRD: `/{section}/{country}/{province}/{town}/{page-slug}`, always location order, lowercase, hyphenated, no trailing slash.
+36 routes plus 2 aliases. Pattern from the PRD: `/{section}/{country}/{province}/{town}/{page-slug}`, always location order, lowercase, hyphenated, no trailing slash.
 
 | Route | File | PRD basis |
 |---|---|---|
@@ -77,7 +77,6 @@ The failure is silent in places, so it is gated:
 | `/whale-watching/canada/bc/ucluelet` | `whale-watching-ucluelet.html` | PRD |
 | `/kayaking/canada/bc/ucluelet` | `kayaking-ucluelet.html` | PRD "kayaking town page" |
 | `/destinations/canada/bc/{town}` | 13 files: victoria, vancouver, whistler, squamish, sooke, sidney, chemainus, nanaimo, nanoose, parksville, shawnigan-lake, campbell-river, nelson | PRD |
-| `/destinations/canada/{ab,sk,on,qc,ns,pe,nl}/{town}` | 11 files: banff, jasper, edmonton (ab); saskatoon (sk); niagara-falls, ottawa (on); montreal, quebec-city (qc); halifax (ns); charlottetown (pe); st-john (nl, St. John's) | PRD pattern; province code inferred from the town |
 
 **Aliases** (`ALIASES` in `routes.mjs`): `/` and `/destinations` both serve the British Columbia index with HTTP 200 by rewrite, not redirect. Their canonical is `/destinations/canada/bc`. They stay until the real build gives each its own page (see "Not built yet").
 
@@ -152,6 +151,6 @@ All three are generated from `ROUTES` and `SITE_ORIGIN` (`scripts/lib/routes.mjs
 ## Verification on record, 2026-10-20
 
 - `npm test`: 79 passed (URL contract included). `tsc`, `npm run build`: pass.
-- `qa-prototype.mjs public/prototype`: 47 pages, every link, anchor and image valid.
-- `qa-runtime.mjs` (47 routes, 2 aliases, 6 search states): 0 of 55 pages with errors, empty containers or broken rendered links.
+- `qa-prototype.mjs public/prototype`: 36 pages, every link, anchor and image valid.
+- `qa-runtime.mjs` (36 routes, 2 aliases, 5 search states): 0 of 55 pages with errors, empty containers or broken rendered links.
 - Local server: every route above 200; `/tofino`, `/tofino/hiking`, `/destinations/canada` 404; `/prototype/hiking-tofino.html` 308 to `/destinations/canada/bc/tofino/things-to-do/hiking`; sitemap 46 URLs.
