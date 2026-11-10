@@ -59,20 +59,6 @@ export const ROUTES = {
   'shawnigan-lake.html': `${BC}/shawnigan-lake`,
   'campbell-river.html': `${BC}/campbell-river`,
   'nelson.html': `${BC}/nelson`,
-
-  /* Elsewhere in Canada: the province segment is the postal abbreviation, as in
-     the PRD's "bc". */
-  'banff.html': PROV('ab', 'banff'),
-  'jasper.html': PROV('ab', 'jasper'),
-  'edmonton.html': PROV('ab', 'edmonton'),
-  'saskatoon.html': PROV('sk', 'saskatoon'),
-  'niagara-falls.html': PROV('on', 'niagara-falls'),
-  'ottawa.html': PROV('on', 'ottawa'),
-  'montreal.html': PROV('qc', 'montreal'),
-  'quebec-city.html': PROV('qc', 'quebec-city'),
-  'halifax.html': PROV('ns', 'halifax'),
-  'charlottetown.html': PROV('pe', 'charlottetown'),
-  'st-john.html': PROV('nl', 'st-john'), // St. John's, Newfoundland and Labrador
 };
 
 /* Extra URLs that serve a page without being its canonical address. Rewrites,
