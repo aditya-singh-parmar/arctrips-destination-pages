@@ -105,6 +105,29 @@ main [id]{scroll-margin-top:150px}
 .tide-in{padding-inline:clamp(18px,2.4vw,28px)}
 .tide-why{font-size:.92rem;color:var(--n600);line-height:1.55;flex-basis:100%;max-width:78ch}
 .tide-why b{color:var(--navy);font-weight:700}
+/* (d) the season strip. Colour is the message: the deeper the azure, the better
+   the month. Never emerald, which is the season signal elsewhere. */
+.when{background:var(--n50);border-block:1px solid var(--n150)}
+.mstrip{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(4px,.7vw,9px);list-style:none;
+  margin-top:clamp(22px,2.6vw,32px);align-items:end}
+.mstrip li{display:flex;flex-direction:column;align-items:center;gap:9px}
+.mstrip b{display:block;width:100%;border-radius:var(--r-sm);background:var(--n150);height:22px}
+.mstrip li[data-l="peak"] b{background:var(--azure);height:64px}
+.mstrip li[data-l="shoulder"] b{background:var(--a300);height:42px}
+.mstrip li[data-now] b{outline:2px solid var(--navy);outline-offset:2px}
+.mstrip span{font-size:.88rem;font-weight:600;color:var(--n600)}
+.mstrip li[data-l="peak"] span{color:var(--navy);font-weight:700}
+.mkey{display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin-top:18px;font-size:.88rem;color:var(--n600);font-weight:600}
+.mkey b{display:inline-block;width:13px;height:13px;border-radius:4px;vertical-align:-2px;margin-right:8px;background:var(--n150)}
+.mkey b[data-l="peak"]{background:var(--azure)}
+.mkey b[data-l="shoulder"]{background:var(--a300)}
+.wnotes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(18px,2.4vw,30px);margin-top:clamp(30px,3.4vw,44px)}
+.wnotes--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:860px){.wnotes,.wnotes--3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.wnotes,.wnotes--3{grid-template-columns:1fr}}
+.wnote{border-top:2px solid var(--a300);padding-top:14px}
+.wnote h3{font-size:1.06rem}
+.wnote p{color:var(--n600);font-size:.95rem;line-height:1.6;margin-top:8px}
 </style>
 </head>
 <body>
@@ -173,6 +196,36 @@ main [id]{scroll-margin-top:150px}
     <p class="tide-read"><span>Low <b>06:02</b></span><span>High <b>12:26</b></span><span>Low <b>18:40</b></span><span>Sunset <b>21:05</b></span></p>
     <p class="tide-why">Why it matters: <b>Barkley Sound runs hard through the narrows on a big exchange.</b> Plan the crossing around slack water, not around the forecast. The tide moves 2.3 m here.</p>
   </div></div>
+</div></section>
+<section class="when" id="when"><div class="wrap sec sec--tight">
+  <div class="head">
+    <div>
+      <span class="label label--n">When to go</span>
+      <h2>Spring to early fall, and winter only with a local guide</h2>
+      <p>The water is cold every month of the year. What changes is the wind, the daylight and how many boats are out with you.</p>
+    </div>
+  </div>
+  <ul class="mstrip">
+    <li data-l="off" data-m="1"><b></b><span>Jan</span><span class="vh">January, out of season</span></li>
+    <li data-l="off" data-m="2"><b></b><span>Feb</span><span class="vh">February, out of season</span></li>
+    <li data-l="off" data-m="3"><b></b><span>Mar</span><span class="vh">March, out of season</span></li>
+    <li data-l="shoulder" data-m="4"><b></b><span>Apr</span><span class="vh">April, a shoulder month</span></li>
+    <li data-l="peak" data-m="5"><b></b><span>May</span><span class="vh">May, one of the best months</span></li>
+    <li data-l="peak" data-m="6"><b></b><span>Jun</span><span class="vh">June, one of the best months</span></li>
+    <li data-l="peak" data-m="7"><b></b><span>Jul</span><span class="vh">July, one of the best months</span></li>
+    <li data-l="peak" data-m="8"><b></b><span>Aug</span><span class="vh">August, one of the best months</span></li>
+    <li data-l="peak" data-m="9"><b></b><span>Sep</span><span class="vh">September, one of the best months</span></li>
+    <li data-l="shoulder" data-m="10"><b></b><span>Oct</span><span class="vh">October, a shoulder month</span></li>
+    <li data-l="off" data-m="11"><b></b><span>Nov</span><span class="vh">November, out of season</span></li>
+    <li data-l="off" data-m="12"><b></b><span>Dec</span><span class="vh">December, out of season</span></li>
+  </ul>
+  <p class="mkey"><span><b data-l="peak"></b>Best months</span><span><b data-l="shoulder"></b>Shoulder</span><span><b></b>Out of season</span></p>
+  <div class="wnotes">
+    <div class="wnote"><h3>Spring</h3><p>Fresh and quiet. Wildlife is starting to build, tours are easier to get on, and the rainforest is at its greenest.</p></div>
+    <div class="wnote"><h3>Summer</h3><p>The busiest and the mildest. Long daylight, the widest choice of tours, and calm morning paddles. Book ahead in July and August.</p></div>
+    <div class="wnote"><h3>Fall</h3><p>Early fall is still good. The crowds thin out, the light gets long, and the wildlife is still working the shoreline.</p></div>
+    <div class="wnote"><h3>Winter</h3><p>Not the season for most visitors. Strong wind, heavy rain, cold water and rough weather. If you paddle in winter, go with an experienced local guide.</p></div>
+  </div>
 </div></section>
 <section class="sec" style="padding-top:0"><div class="wrap">
   <div class="grp" id="harbour">
