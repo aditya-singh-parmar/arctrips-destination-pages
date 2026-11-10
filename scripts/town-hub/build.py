@@ -386,9 +386,10 @@ JS = '''
 '''
 
 MEDIA = ['whistler']
+USED_TEXT = set()
 def card(it, pics, nophoto=False):
     name = clean_name(it['name'])
-    body = it['body']
+    body = re.sub(r'<p>(.*?)</p>', lambda m: '' if norm(m.group(1)) in USED_TEXT else m.group(0), it['body'], flags=re.S)
     img = it.get('img')
     if nophoto:
         img = None; alt = ''
@@ -406,6 +407,10 @@ def card(it, pics, nophoto=False):
 def build(town):
     cfg = CONFIG[town]
     MEDIA[0] = cfg.get('media', town)
+    USED_TEXT.clear()
+    for dn, pi in cfg.get('why_src', []): USED_TEXT.add(norm(html.escape(para(dn, pi), quote=False)))
+    for _t, dn, idxs in cfg.get('when_notes', []):
+        for i_ in idxs: USED_TEXT.add(norm(html.escape(para(dn, i_), quote=False)))
     s, secs = parse(town)
     by = {x['id']: x for x in secs}
     def normalize(secs_):
@@ -593,6 +598,11 @@ def build(town):
     head = head.replace('</style>', CSS + '</style>', 1)
     tail = tail.replace('<script src="/prototype/_nav.js"></script>', '<script>' + JS + '</script>\n<script src="/prototype/_nav.js"></script>', 1)
     out = head + crumb + hero + '\n' + '\n'.join(wh) + '\n' + '\n'.join(wn) + '\n' + '\n'.join(do) + '\n' + tail
+    # labels fixed after the pre-hub pages were saved: Places featured, no photograph count
+    out = re.sub(r'<div><dt>With photographs</dt><dd class="tnum">\d+</dd></div>\s*', '', out)
+    out = out.replace('<dt>Places written up</dt>', '<dt>Places featured</dt>')
+    out = re.sub(r'(\d+) places written up, \d+ with photographs\.', r'\1 places featured.', out)
+    # a paragraph already quoted in Why go, When to go or a question is not repeated on a place card
     out = re.sub(r'\s*\u2014\s*', ', ', out)           # no em dashes in copy
     out = re.sub(r'(?<=[\w)])\s*\u2013\s*(?=[\w(])', ' to ', out)   # ranges read "May to September"
     return out, dict(groups=[(g['label'], len(g['faqs'])) for g in all_groups], why=len(why), whenq=len(whenq), faqs=len(faqs))
