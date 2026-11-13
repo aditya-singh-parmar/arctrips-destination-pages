@@ -281,6 +281,8 @@ body>a.skip:focus{top:0}
   font-size:.92rem;font-weight:700;color:var(--azure)}
 .kg .go svg{width:14px;height:14px}
 
+/* months are a picker, not a rainfall chart (review 2026-11-13) */
+.msw__col{display:none!important}
 </style>
 </head>
 <body>
@@ -664,16 +666,16 @@ function paintStatic() {
 
   /* two facts a traveller acts on, not a tally of what has been produced */
   $("#heroNote").innerHTML =
-    `Four hours from Nanaimo by road, with rain on <b>${rdays}</b> days in an average year. ` +
+    `Four hours from Nanaimo by road. Busiest in <b>July and August</b>, quietest in <b>January and February</b>. ` +
     `<b>${T.stays}</b> stays, from $${T.from} a night.`;
 
   /* six lines, not fifteen. Everything a person planning the trip would read. */
   $("#spec").innerHTML = [
     ["Where it is", "The western edge of Vancouver Island, where the rainforest meets open Pacific beach."],
     ["Getting there", "Four hours from Nanaimo by road, and the last stretch is slow. Book the ferry first."],
-    ["Driest month", `<b>${MON[dryIx]}</b>, at ${c[dryIx].mm} mm of rain.`],
-    ["Wettest month", `<b>${MON[wetIx]}</b>, at ${c[wetIx].mm} mm. That is the storm season people book for.`],
-    ["Rain in a year", `<b>${num(total)} mm</b> across ${rdays} days. Bring the shell.`],
+    ["Busiest", `<b>July and August</b>, when the beaches, surf schools and tours fill. Book ahead.`],
+    ["Quietest", `<b>November to February</b>, storm season, when rooms are cheapest and the coast is at its most dramatic.`],
+    ["Weather", `Rain falls in every month. Pack layers and a waterproof shell and every season works.`],
     ["Nearest town", `Ucluelet, forty minutes south on the same road.`]
   ].map(([k,v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("");
 
@@ -681,13 +683,14 @@ function paintStatic() {
 }
 
 /* ── the month switcher, columns at true rainfall height ─────────────────── */
+/* crowd level by month, from scripts/town-page/data/_best-time.json */
+const CROWDS = ["Lowest", "Lowest", "Building", "Low", "Building", "Busy", "Busiest", "Busiest", "Busy", "Building", "Low", "Low"];
 function paintSwitcher() {
   const max = Math.max(...DATA.climate.map((x) => x.mm));
   const maxIx = DATA.climate.findIndex((x) => x.mm === max);
   const minIx = DATA.climate.reduce((b,x,i) => x.mm < DATA.climate[b].mm ? i : b, 0);
   $("#mswlead").textContent =
-    `Each column below is how much rain falls in that month. Taller means wetter: ` +
-    `${MON[maxIx]} is the wettest, ${MON[minIx]} the driest. Tap a month to see what it is like.`;
+    `Tap a month to see what is on, how busy it gets, and what it is like.`;
   $("#msw").innerHTML = DATA.climate.map((x,i) =>
     `<button class="msw__b" type="button" data-m="${i+1}" aria-pressed="${i+1 === month}"
        aria-label="${MON[i]}, ${x.mm} millimetres of rain">
@@ -706,12 +709,12 @@ function paintMonth() {
 
   $("#monthTitle").textContent = "Any month, for a different reason";
   $("#monthAnswer").textContent =
-    "July and August are the driest and warmest. November to February is storm season, which is when the coast is at its most dramatic and rooms are cheapest. " +
+    "July and August are the busiest, with the beaches and tours full. November to February is storm season and the quietest stretch, when the coast is at its most dramatic and rooms are cheapest. " +
     "Right now it is " + name + ".";
   $("#seasonName").textContent = season.name;
   $("#seasonClaim").textContent = season.claim;
   $("#seasonReason").innerHTML =
-    `<b>${name}: ${c.hi} degrees by day, ${c.mm} mm of rain.</b> ` + REASON[season.name];
+    `<b>${name}: crowds ${CROWDS[month-1].toLowerCase()}.</b> ` + REASON[season.name];
 
   $("#bignums").innerHTML =
     `<div><dt>Average high</dt><dd>${c.hi}&deg;</dd></div>` +

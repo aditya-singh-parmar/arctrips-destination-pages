@@ -1090,7 +1090,7 @@ function paintGuides(){
       <span class="gc__m"><img src="${g.img.startsWith("/prototype/media/") ? g.img : cld(g.img,520,390)}" alt="${esc(g.t)}" loading="lazy"></span>
       <span class="gc__b">
         <h3>${esc(g.t.replace(/ on Vancouver Island$/,"").replace(/^Vancouver Island: /,""))}</h3>
-        <span class="gc__p">${esc(list(g.items))}</span>
+        <span class="gc__p">${esc(list(g.items.slice(0, 6)))}</span>
       </span>
       ${ARROW_TL}
     </a>`).join("");

@@ -229,6 +229,8 @@ body>.skip:focus{top:0}
 .sib{box-shadow:0 0 0 1px var(--n150)}
 .sib__m b{color:var(--navy);font-weight:700}
 footer.f{margin-top:clamp(48px,6vw,80px)}
+/* months are a picker, not a rainfall chart (review 2026-11-13) */
+.mrow__col,.mrow__mm{display:none!important}
 </style>
 </head>
 <body>
@@ -338,9 +340,8 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
 
     <!-- the columns are Tofino's real monthly rainfall in millimetres, drawn to
          true relative height, and the line above says so before you meet them -->
-    <p class="mrow__say">Each column is how much rain that month usually gets. Taller means wetter. Pick a month.</p>
+    <p class="mrow__say">Pick a month to see what is at its best and how busy it gets.</p>
     <div class="mrow" role="group" aria-label="Choose a month" id="mrow"></div>
-    <p class="mraxis">Wettest is November at 500 mm. Driest is July at 66 mm.</p>
 
     <div class="claim">
       <div>
@@ -600,19 +601,18 @@ function paintSeason() {
   $("#seasonName").textContent = s.name;
   $("#seasonClaim").textContent = s.claim;
   $("#bignums").innerHTML =
-    `<div><dt>Average high</dt><dd>${c.hi}&deg;</dd></div>` +
-    `<div><dt>Average low</dt><dd>${c.lo}&deg;</dd></div>` +
-    `<div><dt>Rain</dt><dd>${c.mm}<small>mm</small></dd></div>` +
-    `<div><dt>Rain days</dt><dd>${c.days}<small>of ${DIM[month-1]}</small></dd></div>`;
+    `<div><dt>Crowds</dt><dd>${CROWDS[month-1]}</dd></div>` +
+    `<div><dt>Average high</dt><dd>${c.hi}&deg;</dd></div>`;
 
   const on = on0;
   const rest = DATA.subjects.length - on.length;
   $("#sum").innerHTML =
-    `<b>${on.length}</b> of the nine are at their best in ${name}. ` +
-    (rest ? `<span class="q">The other ${rest === 1 ? "one is" : rest + " are"} still open, each saying when it peaks.</span>`
+    `At their best in ${name}: <b>${on.map((x) => x.name.toLowerCase()).join(", ")}</b>. ` +
+    (rest ? `<span class="q">Everything else is still open, each saying when it peaks.</span>`
           : `<span class="q">Nothing here is out of season this month.</span>`);
 }
 
+const CROWDS = ["Lowest", "Lowest", "Building", "Low", "Building", "Busy", "Busiest", "Busiest", "Busy", "Building", "Low", "Low"];
 /* ── S3: rank, never gate. Everything renders at full strength. ─────────── */
 function ranked() {
   return DATA.subjects.slice() .sort((a,b) => {
@@ -638,13 +638,14 @@ function photo(s, first){
     </figure>`;
 }
 
-/* The places, every one of them named in the guide's own order (review
+/* The places, the first six named in the guide's own order (review
    2026-11-13: "and N more" told the reader there was more without letting
    them reach it). Section headings the corpus files alongside real places are
    skipped when the guide has enough real ones. */
 function namesLine(s){
   const real = s.places.filter((p) => p.note);
-  const pick = (real.length >= 3 ? real : s.places).map((p) => p.n);
+  /* the popular ones only (D-20): the guide's first six, every one named */
+  const pick = (real.length >= 3 ? real : s.places).map((p) => p.n).slice(0, 6);
   const seen = new Set(); const names = pick.filter((n) => !seen.has(n) && seen.add(n));
   const list = names.length > 1 ? names.slice(0,-1).join(", ") + " and " + names[names.length-1] : names[0];
   return `${list}.`;

@@ -1,313 +1,313 @@
 {
-  "slug": "campbell-river",
-  "name": "Campbell River",
-  "region": "island",
-  "title": "Campbell River, Arc Trips",
-  "description": "Campbell River on Vancouver Island: whale watching, salmon fishing, Elk Falls, Strathcona Provincial Park and Quadra Island around Discovery Passage.",
-  "hero": {
-    "img": "/prototype/media/campbell-river/image11.jpg",
-    "alt": "Campbell River waterfront and marina seen from the water",
-    "standfirst": "A coastal outdoor hub on the east coast of Vancouver Island, where forest meets the sea, known for whales, salmon fishing and easy trips to waterfalls and mountains."
-  },
-  "why": {
-    "h2": "Where forest meets the sea",
-    "paras": [
-      "Set on the east coast of Vancouver Island, where dense coastal forest meets the sea, Campbell River is built for adventure. The water is never far away, and something wild is always just beyond town: whales offshore, waterfalls inland, and mountain and ocean views in between. Wildlife tours, fishing, hiking and water-based adventure all play a big part.",
-      "It is promoted as the Salmon Capital of the World because its waters support all five Pacific salmon species, and the town built an international reputation for sport fishing, especially for giant Chinook known as Tyee. The Tyee Club was founded in 1924. It suits families after easy outdoor fun as well as travellers chasing bigger adventures."
-    ],
-    "facts": [
-      {
-        "k": "Where it is",
-        "v": "East coast of Vancouver Island, beside the narrow ocean passages of Discovery Passage."
-      },
-      {
-        "k": "Getting there",
-        "v": "Highways 19 and 19A run through town. Highway 28 leads west to Strathcona Provincial Park, and a 10-minute ferry reaches Quadra Island."
-      },
-      {
-        "k": "Known for",
-        "v": "Salmon fishing, whale watching, Elk Falls and cold-water diving."
-      },
-      {
-        "k": "When to come",
-        "v": "Whale watching runs April to October. Salmon fishing peaks in July and August, and bears and spawning salmon draw visitors in September and October."
-      }
-    ]
-  },
-  "when": {
-    "h2": "Busy in summer, wild all year",
-    "intro": "Summer is the busiest season, when whale tours, the main salmon run and the Quadra Island ferry are at their fullest. Fall brings spawning salmon and bears, and winter suits cold-water diving, sea lions and snowshoeing. Dress warmly on the water in any season.",
-    "rows": [
-      {
-        "name": "Whale watching",
-        "best": [
-          5,
-          6,
-          7,
-          8,
-          9,
-          10
-        ],
-        "shoulder": [
-          4
-        ],
-        "note": "Tours run April to October; best May to October."
-      },
-      {
-        "name": "Salmon fishing",
-        "best": [
-          7,
-          8,
-          9
-        ],
-        "shoulder": [
-          5,
-          6
-        ],
-        "note": "Peak run July to September; early Chinook May to June."
-      },
-      {
-        "name": "Hatchery salmon and bears",
-        "best": [
-          9,
-          10
-        ],
-        "shoulder": [
-          11
-        ],
-        "note": "Pinks in September, Chinook and Coho in October and November."
-      },
-      {
-        "name": "Strathcona hiking",
-        "best": [
-          7,
-          8,
-          9
-        ],
-        "shoulder": [],
-        "note": "Snow-free hiking July to September; winter sports December to March."
-      }
-    ],
-    "crowds": [
-      1,
-      1,
-      1,
-      2,
-      2,
-      3,
-      4,
-      4,
-      3,
-      2,
-      1,
-      1
-    ],
-    "crowdsNote": "Peak summer fishing, whale tours and the Quadra Island ferry drive July and August.",
-    "seasons": [
-      {
-        "h": "Summer, June to August",
-        "p": "Peak fishing runs in July and August, the Tyee Club fishes July 15 to September 15, and the Quadra Island ferry can be very busy. Book charters and tours well ahead."
-      },
-      {
-        "h": "Fall, September to November",
-        "p": "Pink salmon arrive in late August and September, chum run north of town in October, and black bears gather at the rivers. The hatchery is most exciting in September and October."
-      },
-      {
-        "h": "Winter, December to February",
-        "p": "Quiet on the water but good for feeder Chinook. Divers get the clearest water and sea lion encounters, and Paradise Meadows turns to cross-country skiing and snowshoeing."
-      },
-      {
-        "h": "Spring, March to May",
-        "p": "Whale season starts in April, Elk Falls is at its loudest in the spring melt, and early Chinook bite in May and June. The aquarium opens in May."
-      }
-    ]
-  },
-  "tabs": [
-    {
-      "id": "wildlife-water",
-      "label": "Wildlife and water",
-      "intro": "Tours, charters and the pier put you on or beside the water, with wildlife all around.",
-      "places": [
-        {
-          "name": "Whale and Wildlife Discovery Tours",
-          "img": "/prototype/media/campbell-river/image22.jpg",
-          "alt": "An orca surfaces beside a whale watching boat",
-          "text": "Campbell River sits beside narrow ocean passages full of fish, so it acts like a highway for whales. Tours look for humpbacks and orcas, Pacific white-sided dolphins, sea lions and bald eagles around the Discovery Islands, and late-summer grizzly bear expeditions run into the inlets. Choose a fast Zodiac or a covered boat.",
-          "note": "Best May to October. Most tours last 4 to 7 hours; book the morning trip."
-        },
-        {
-          "name": "Fishing Charters",
-          "img": "/prototype/media/campbell-river/image1.jpg",
-          "alt": "Fishing boats on the water with mountains behind",
-          "text": "Dubbed the Salmon Capital of the World, Campbell River became famous for its Tyee salmon derby in rowboats. Charters can target all five Pacific salmon species by season, with Chinook the ultimate prize, and a local guide reads the tides of the Passage. Numbers are not what they once were, but summer still offers a shot at Chinook.",
-          "note": "You need a BC Tidal Waters Sport Fishing Licence with a Salmon Conservation Stamp. Book early for July and August."
-        },
-        {
-          "name": "Discovery Fishing Pier",
-          "img": "/prototype/media/campbell-river/image5.jpg",
-          "alt": "Fishing rods lined along the Discovery Fishing Pier",
-          "text": "Canada's first saltwater fishing pier stretches 180 metres into Discovery Passage. You do not need a boat: people catch Chinook and Coho from the pier, and rods and tackle can be rented at the pier office. Look down for starfish and anemones, and stop at the concession stand for its famous soft-serve ice cream.",
-          "note": "Free to walk on and open 24 hours. Rod rentals and the ice cream shop usually run May to September."
-        },
-        {
-          "name": "Quinsam River Salmon Hatchery",
-          "img": "/prototype/media/campbell-river/image13.jpg",
-          "alt": "Salmon swimming upstream in a river",
-          "text": "Five kilometres west of downtown, this large hatchery shows the salmon life cycle up close, with an interpretive centre, indoor and outdoor tanks and river trails. In fall the river turns silver and pink as thousands of salmon swim home, and black bears are common along the water.",
-          "note": "Free. Gates open at 8:00 AM and lock at 3:30 PM. September and October are the best months."
-        },
-        {
-          "name": "Cold Water Diving",
-          "img": "/prototype/media/campbell-river/image23.jpg",
-          "alt": "A red sea anemone on a colourful reef",
-          "text": "Known as one of the top cold-water diving destinations in the world, Campbell River sits on the edge of Discovery Passage, where tidal currents feed a vibrant emerald sea. Divers meet Giant Pacific octopus and wolf eels, explore the sunk HMCS Columbia, and in August and September can snorkel with salmon in the river.",
-          "note": "Most sites are dived at slack tide only. A drysuit or 7mm+ wetsuit is mandatory."
-        }
-      ],
-      "faqs": [
-        {
-          "q": "When is the best time for whale watching in Campbell River?",
-          "a": "Whale watching season is typically centred from April to October, and tours see whales best from May to October. Grizzly bear expeditions usually run from late August to October."
-        },
-        {
-          "q": "Can I catch salmon without a boat?",
-          "a": "Yes. People catch Chinook and Coho from the Discovery Fishing Pier. Rent a rod and buy tackle at the pier office, and carry a tidal water fishing licence. Fishing from the pier costs about $2 to $3 for the day."
-        },
-        {
-          "q": "Which months are best for salmon fishing?",
-          "a": "May and June are good for early Chinook, and July to September is peak season for all salmon species. Pinks are around in late August and September, and chum can be caught in October. Winter is quiet but good for feeder Chinook."
-        },
-        {
-          "q": "What do I need to dive in Campbell River?",
-          "a": "Exposure protection is mandatory, a drysuit or a very thick 7mm+ wetsuit, because water runs from 7°C in winter to 12°C in late summer. Most sites are dived at slack tide, and local shops offer Cold Water Orientations."
-        }
-      ]
-    },
-    {
-      "id": "parks-trails",
-      "label": "Parks and trails",
-      "intro": "Waterfalls, old-growth forest, a seaside path and a mountain park are all within a short drive.",
-      "places": [
-        {
-          "name": "Elk Falls Provincial Park",
-          "img": "/prototype/media/campbell-river/image18.jpg",
-          "alt": "A suspension bridge among the trees in Elk Falls Provincial Park",
-          "text": "Just a ten-minute drive from downtown, this is the most popular nature spot in Campbell River. Walk a 60-metre suspension bridge high above the canyon, watch the 25-metre waterfall drop into a rocky gorge, and hike among giant Douglas firs. The falls are loudest and most powerful in spring.",
-          "note": "Free, open year-round in daylight. It is 15 to 20 minutes from the car to the bridge, and the metal stairs can be slippery when wet."
-        },
-        {
-          "name": "Strathcona Provincial Park",
-          "img": "/prototype/media/campbell-river/image14.jpg",
-          "alt": "A lake and forested mountains seen from a lookout",
-          "text": "Established in 1911, Strathcona is the oldest provincial park in BC, a 250,000-hectare wilderness of snow-capped peaks, alpine meadows and clear lakes. Highlights include Lady Falls, Lower Myra Falls, Buttle Lake and the boardwalks of Paradise Meadows. It is a 45 to 60 minute drive west on Highway 28.",
-          "note": "Entry is free. There are no gas stations or services before Gold River, and cell signal fades. Best July to September."
-        },
-        {
-          "name": "Ripple Rock Trail",
-          "img": "/prototype/media/campbell-river/image12.jpg",
-          "alt": "View over the fast water of Seymour Narrows through forest",
-          "text": "The most famous hike in Campbell River is an 8-kilometre return trail through mossy forest to a high cliff above Seymour Narrows, where whirlpools and rapids race below. The lookout overlooks the site of the 1958 blast that destroyed Ripple Rock, the world's largest non-nuclear explosion.",
-          "note": "Moderate, about 2.5 to 3 hours. The cliffs have no fences. Time your visit for a running tide to see whirlpools."
-        },
-        {
-          "name": "Rotary Seawalk",
-          "img": null,
-          "alt": null,
-          "text": "A beautiful, paved pathway stretches 13 kilometres along the ocean edge, connecting the south of the city to downtown. It is the favourite place for locals to walk dogs, run or sit and watch the waves. Look for humpbacks and orcas just offshore, First Nations carvings, a famous beach boulder called the Big Rock, and sea glass at low tide.",
-          "note": "Free, open 24 hours and fully paved and flat. It faces east, so it is the best place in town to watch the sunrise."
-        },
-        {
-          "name": "Tyee Spit (Dick Murphy Park)",
-          "img": "/prototype/media/campbell-river/image19.jpg",
-          "alt": "A paved path and a lone tree on the grassy spit",
-          "text": "A finger of land at the mouth of the Campbell River with a front-row seat on the region's maritime culture. From July 15 to September 15, watch anglers in wooden rowboats fish for 30+ lb Chinook the traditional Tyee way. Spot humpbacks, orcas and seals, watch floatplanes land, and catch the sunset over Quadra Island.",
-          "note": "3200 Spit Road. Open daily 6:00 AM to 10:00 PM with free parking. Bring a windbreaker."
-        },
-        {
-          "name": "Quadra Island",
-          "img": "/prototype/media/campbell-river/image4.jpg",
-          "alt": "A lighthouse with red-roofed buildings on a gravel shoreline",
-          "text": "Just a 10-minute ferry ride from downtown, Quadra is the largest and most populated of the Discovery Islands, known for artists, hidden beaches and deep Indigenous history. See Rebecca Spit, the 1898 Cape Mudge Lighthouse and the Nuyumbalees Cultural Centre, hike Chinese Mountains, or paddle from Heriot Bay.",
-          "note": "The ferry runs roughly hourly and gets busy in summer; arrive 30 minutes early with a vehicle. You need a car or bike to reach Rebecca Spit."
-        }
-      ],
-      "faqs": [
-        {
-          "q": "How long does it take to get to Strathcona Provincial Park?",
-          "a": "It is roughly a 45 to 60 minute drive (about 48 km) west on Highway 28 to the Buttle Lake area. Fill your tank first, as there are no services until Gold River, and download maps because cell signal fades."
-        },
-        {
-          "q": "Is Elk Falls Provincial Park free?",
-          "a": "Yes. It is free to enter and use the parking lot, and open year-round during daylight hours. It is about a ten-minute drive from downtown, then a 15 to 20 minute walk from the car to the suspension bridge."
-        },
-        {
-          "q": "How long is the Ripple Rock Trail?",
-          "a": "About 8 kilometres return, at moderate difficulty, taking roughly 2.5 to 3 hours. The trailhead is about 15 minutes north of Campbell River on Highway 19, and it is free to hike and park."
-        },
-        {
-          "q": "How do I get to Quadra Island?",
-          "a": "Take the ferry from the terminal in downtown Campbell River. The crossing takes 10 minutes and runs roughly hourly, and you can drive on or walk on. In summer, arrive at least 30 minutes early."
-        }
-      ]
-    },
-    {
-      "id": "museums-family",
-      "label": "Museums and family",
-      "intro": "Local history, Indigenous art and a catch-and-release aquarium make good rainy-day and family stops.",
-      "places": [
-        {
-          "name": "Museum at Campbell River",
-          "img": null,
-          "alt": null,
-          "text": "Widely considered one of the best local museums in Canada, it brings the coast's history to life. See the Mask Gallery of Kwakwaka'wakw ceremonial masks, a short film on the 1958 Ripple Rock explosion, a 1920s float house and a steam donkey, then walk the gardens and totem poles above the passage.",
-          "note": "470 Island Highway. Plan 1.5 to 2 hours. Open daily 10:00 AM to 5:00 PM in summer, with shorter winter hours."
-        },
-        {
-          "name": "Maritime Heritage Centre",
-          "img": "/prototype/media/campbell-river/image26.jpg",
-          "alt": "The Maritime Heritage Centre building with its lighthouse-style tower",
-          "text": "Housed in a former fish processing plant next to the government wharf, the centre preserves the salty history of the Salmon Capital of the World. Walk the deck of the BCP 45, a restored 1927 seine boat featured on the Canadian five-dollar bill from 1972 to 1986, and see shipwreck, diving and model ship exhibits.",
-          "note": "621 Island Highway. Typically open Monday to Friday, 10:00 AM to 4:00 PM, with summer weekends often added."
-        },
-        {
-          "name": "Discovery Passage Aquarium",
-          "img": "/prototype/media/campbell-river/image2.jpg",
-          "alt": "A blue aquarium building with a painted starfish beside the pier",
-          "text": "A catch-and-release aquarium right on the pier. Animals are collected from local waters each spring and returned to the same spot every fall. Touch sea stars, urchins and sea cucumbers, see octopuses and anemones, and in late September help carry buckets of fish and crabs back to the ocean for the big release.",
-          "note": "Usually open May to September. Small entry fee, about $8 to $12 for adults. Most visits take 45 to 60 minutes."
-        }
-      ],
-      "faqs": [
-        {
-          "q": "Is the Discovery Passage Aquarium open in winter?",
-          "a": "No. It is seasonal, usually open from May to September, and closed in winter while the animals are back in the wild. It sits at the entrance to the Discovery Fishing Pier, so you can visit both in one afternoon."
-        },
-        {
-          "q": "What is the BCP 45?",
-          "a": "A restored 1927 wooden seine fishing boat at the Maritime Heritage Centre. It was featured on the Canadian five-dollar bill from 1972 to 1986, and you can walk onto the deck and explore the cabin."
-        },
-        {
-          "q": "How long should I spend at the Museum at Campbell River?",
-          "a": "Plan for at least 1.5 to 2 hours. It sits on a hill just south of downtown at 470 Island Highway with a large free parking lot, and the Ripple Rock film is a highlight."
-        }
-      ]
-    }
+ "slug": "campbell-river",
+ "name": "Campbell River",
+ "region": "island",
+ "title": "Campbell River, Arc Trips",
+ "description": "Campbell River on Vancouver Island: whale watching, salmon fishing, Elk Falls, Strathcona Provincial Park and Quadra Island around Discovery Passage.",
+ "hero": {
+  "img": "/prototype/media/campbell-river/image11.jpg",
+  "alt": "Campbell River waterfront and marina seen from the water",
+  "standfirst": "A coastal outdoor hub on the east coast of Vancouver Island, where forest meets the sea, known for whales, salmon fishing and easy trips to waterfalls and mountains."
+ },
+ "why": {
+  "h2": "Where forest meets the sea",
+  "paras": [
+   "Set on the east coast of Vancouver Island, where dense coastal forest meets the sea, Campbell River is built for adventure. The water is never far away, and something wild is always just beyond town: whales offshore, waterfalls inland, and mountain and ocean views in between. Wildlife tours, fishing, hiking and water-based adventure all play a big part.",
+   "It is promoted as the Salmon Capital of the World because its waters support all five Pacific salmon species, and the town built an international reputation for sport fishing, especially for giant Chinook known as Tyee. The Tyee Club was founded in 1924. It suits families after easy outdoor fun as well as travellers chasing bigger adventures."
   ],
-  "planning": [
-    {
-      "q": "When is the best time to visit Campbell River?",
-      "a": "For wildlife and fishing, May to October. Peak salmon fishing is July and August, and bears and spawning salmon are best seen in September and October. Winter suits diving and snowshoeing."
-    },
-    {
-      "q": "Where do whale tours leave from?",
-      "a": "Most tours depart from the marinas in downtown Campbell River or near the famous Painter's Lodge. Most last 4 to 7 hours, so plan a half-day or full-day adventure."
-    }
-  ],
-  "nearby": [
-    "parksville",
-    "nanaimo"
-  ],
-  "sources": [
-    "Campbell River.docx"
+  "facts": [
+   {
+    "k": "Where it is",
+    "v": "East coast of Vancouver Island, beside the narrow ocean passages of Discovery Passage."
+   },
+   {
+    "k": "Getting there",
+    "v": "Highways 19 and 19A run through town. Highway 28 leads west to Strathcona Provincial Park, and a 10-minute ferry reaches Quadra Island."
+   },
+   {
+    "k": "Known for",
+    "v": "Salmon fishing, whale watching, Elk Falls and cold-water diving."
+   },
+   {
+    "k": "When to come",
+    "v": "Whale watching runs April to October. Salmon fishing peaks in July and August, and bears and spawning salmon draw visitors in September and October."
+   }
   ]
+ },
+ "when": {
+  "h2": "Busy in summer, wild all year",
+  "intro": "Summer is the busiest season, when whale tours, the main salmon run and the Quadra Island ferry are at their fullest. Fall brings spawning salmon and bears, and winter suits cold-water diving, sea lions and snowshoeing. Dress warmly on the water in any season.",
+  "rows": [
+   {
+    "name": "Whale watching",
+    "best": [
+     5,
+     6,
+     7,
+     8,
+     9,
+     10
+    ],
+    "shoulder": [
+     4
+    ],
+    "note": "Tours run April to October; best May to October."
+   },
+   {
+    "name": "Salmon fishing",
+    "best": [
+     7,
+     8,
+     9
+    ],
+    "shoulder": [
+     5,
+     6
+    ],
+    "note": "Peak run July to September; early Chinook May to June."
+   },
+   {
+    "name": "Hatchery salmon and bears",
+    "best": [
+     9,
+     10
+    ],
+    "shoulder": [
+     11
+    ],
+    "note": "Pinks in September, Chinook and Coho in October and November."
+   },
+   {
+    "name": "Strathcona hiking",
+    "best": [
+     7,
+     8,
+     9
+    ],
+    "shoulder": [],
+    "note": "Snow-free hiking July to September; winter sports December to March."
+   }
+  ],
+  "crowds": [
+   1,
+   1,
+   1,
+   2,
+   2,
+   3,
+   4,
+   4,
+   3,
+   2,
+   1,
+   1
+  ],
+  "crowdsNote": "Peak summer fishing, whale tours and the Quadra Island ferry drive July and August.",
+  "seasons": [
+   {
+    "h": "Summer, June to August",
+    "p": "Peak fishing runs in July and August, the Tyee Club fishes July 15 to September 15, and the Quadra Island ferry can be very busy. Book charters and tours well ahead."
+   },
+   {
+    "h": "Fall, September to November",
+    "p": "Pink salmon arrive in late August and September, chum run north of town in October, and black bears gather at the rivers. The hatchery is most exciting in September and October."
+   },
+   {
+    "h": "Winter, December to February",
+    "p": "Quiet on the water but good for feeder Chinook. Divers get the clearest water and sea lion encounters, and Paradise Meadows turns to cross-country skiing and snowshoeing."
+   },
+   {
+    "h": "Spring, March to May",
+    "p": "Whale season starts in April, Elk Falls is at its loudest in the spring melt, and early Chinook bite in May and June. The aquarium opens in May."
+   }
+  ]
+ },
+ "tabs": [
+  {
+   "id": "wildlife-water",
+   "label": "Wildlife and water",
+   "intro": "Tours, charters and the pier put you on or beside the water, with wildlife all around.",
+   "places": [
+    {
+     "name": "Whale and Wildlife Discovery Tours",
+     "img": "/prototype/media/campbell-river/image22.jpg",
+     "alt": "An orca surfaces beside a whale watching boat",
+     "text": "Campbell River sits beside narrow ocean passages full of fish, so it acts like a highway for whales. Tours look for humpbacks and orcas, Pacific white-sided dolphins, sea lions and bald eagles around the Discovery Islands, and late-summer grizzly bear expeditions run into the inlets. Choose a fast Zodiac or a covered boat.",
+     "note": "Best May to October. Most tours last 4 to 7 hours; book the morning trip."
+    },
+    {
+     "name": "Fishing Charters",
+     "img": "/prototype/media/campbell-river/image1.jpg",
+     "alt": "Fishing boats on the water with mountains behind",
+     "text": "Dubbed the Salmon Capital of the World, Campbell River became famous for its Tyee salmon derby in rowboats. Charters can target all five Pacific salmon species by season, with Chinook the ultimate prize, and a local guide reads the tides of the Passage. Numbers are not what they once were, but summer still offers a shot at Chinook.",
+     "note": "You need a BC Tidal Waters Sport Fishing Licence with a Salmon Conservation Stamp. Book early for July and August."
+    },
+    {
+     "name": "Discovery Fishing Pier",
+     "img": "/prototype/media/campbell-river/image5.jpg",
+     "alt": "Fishing rods lined along the Discovery Fishing Pier",
+     "text": "Canada's first saltwater fishing pier stretches 180 metres into Discovery Passage. You do not need a boat: people catch Chinook and Coho from the pier, and rods and tackle can be rented at the pier office. Look down for starfish and anemones, and stop at the concession stand for its famous soft-serve ice cream.",
+     "note": "Free to walk on and open 24 hours. Rod rentals and the ice cream shop usually run May to September."
+    },
+    {
+     "name": "Quinsam River Salmon Hatchery",
+     "img": "/prototype/media/campbell-river/image13.jpg",
+     "alt": "Salmon swimming upstream in a river",
+     "text": "Five kilometres west of downtown, this large hatchery shows the salmon life cycle up close, with an interpretive centre, indoor and outdoor tanks and river trails. In fall the river turns silver and pink as thousands of salmon swim home, and black bears are common along the water.",
+     "note": "Free. Gates open at 8:00 AM and lock at 3:30 PM. September and October are the best months."
+    },
+    {
+     "name": "Cold Water Diving",
+     "img": "/prototype/media/campbell-river/image23.jpg",
+     "alt": "A red sea anemone on a colourful reef",
+     "text": "Known as one of the top cold-water diving destinations in the world, Campbell River sits on the edge of Discovery Passage, where tidal currents feed a vibrant emerald sea. Divers meet Giant Pacific octopus and wolf eels, explore the sunk HMCS Columbia, and in August and September can snorkel with salmon in the river.",
+     "note": "Most sites are dived at slack tide only. A drysuit or 7mm+ wetsuit is mandatory."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "When is the best time for whale watching in Campbell River?",
+     "a": "Whale watching season is typically centred from April to October, and tours see whales best from May to October. Grizzly bear expeditions usually run from late August to October."
+    },
+    {
+     "q": "Can I catch salmon without a boat?",
+     "a": "Yes. People catch Chinook and Coho from the Discovery Fishing Pier. Rent a rod and buy tackle at the pier office, and carry a tidal water fishing licence. Fishing from the pier costs about $2 to $3 for the day."
+    },
+    {
+     "q": "Which months are best for salmon fishing?",
+     "a": "May and June are good for early Chinook, and July to September is peak season for all salmon species. Pinks are around in late August and September, and chum can be caught in October. Winter is quiet but good for feeder Chinook."
+    },
+    {
+     "q": "What do I need to dive in Campbell River?",
+     "a": "Exposure protection is mandatory, a drysuit or a very thick 7mm+ wetsuit, because water runs from 7°C in winter to 12°C in late summer. Most sites are dived at slack tide, and local shops offer Cold Water Orientations."
+    }
+   ]
+  },
+  {
+   "id": "parks-trails",
+   "label": "Parks and trails",
+   "intro": "Waterfalls, old-growth forest, a seaside path and a mountain park are all within a short drive.",
+   "places": [
+    {
+     "name": "Elk Falls Provincial Park",
+     "img": "/prototype/media/campbell-river/image18.jpg",
+     "alt": "A suspension bridge among the trees in Elk Falls Provincial Park",
+     "text": "Just a ten-minute drive from downtown, this is the most popular nature spot in Campbell River. Walk a 60-metre suspension bridge high above the canyon, watch the 25-metre waterfall drop into a rocky gorge, and hike among giant Douglas firs. The falls are loudest and most powerful in spring.",
+     "note": "Free, open year-round in daylight. It is 15 to 20 minutes from the car to the bridge, and the metal stairs can be slippery when wet."
+    },
+    {
+     "name": "Strathcona Provincial Park",
+     "img": null,
+     "alt": null,
+     "text": "Established in 1911, Strathcona is the oldest provincial park in BC, a 250,000-hectare wilderness of snow-capped peaks, alpine meadows and clear lakes. Highlights include Lady Falls, Lower Myra Falls, Buttle Lake and the boardwalks of Paradise Meadows. It is a 45 to 60 minute drive west on Highway 28.",
+     "note": "Entry is free. There are no gas stations or services before Gold River, and cell signal fades. Best July to September."
+    },
+    {
+     "name": "Ripple Rock Trail",
+     "img": "/prototype/media/campbell-river/image12.jpg",
+     "alt": "View over the fast water of Seymour Narrows through forest",
+     "text": "The most famous hike in Campbell River is an 8-kilometre return trail through mossy forest to a high cliff above Seymour Narrows, where whirlpools and rapids race below. The lookout overlooks the site of the 1958 blast that destroyed Ripple Rock, the world's largest non-nuclear explosion.",
+     "note": "Moderate, about 2.5 to 3 hours. The cliffs have no fences. Time your visit for a running tide to see whirlpools."
+    },
+    {
+     "name": "Rotary Seawalk",
+     "img": null,
+     "alt": null,
+     "text": "A beautiful, paved pathway stretches 13 kilometres along the ocean edge, connecting the south of the city to downtown. It is the favourite place for locals to walk dogs, run or sit and watch the waves. Look for humpbacks and orcas just offshore, First Nations carvings, a famous beach boulder called the Big Rock, and sea glass at low tide.",
+     "note": "Free, open 24 hours and fully paved and flat. It faces east, so it is the best place in town to watch the sunrise."
+    },
+    {
+     "name": "Tyee Spit (Dick Murphy Park)",
+     "img": "/prototype/media/campbell-river/image19.jpg",
+     "alt": "A paved path and a lone tree on the grassy spit",
+     "text": "A finger of land at the mouth of the Campbell River with a front-row seat on the region's maritime culture. From July 15 to September 15, watch anglers in wooden rowboats fish for 30+ lb Chinook the traditional Tyee way. Spot humpbacks, orcas and seals, watch floatplanes land, and catch the sunset over Quadra Island.",
+     "note": "3200 Spit Road. Open daily 6:00 AM to 10:00 PM with free parking. Bring a windbreaker."
+    },
+    {
+     "name": "Quadra Island",
+     "img": "/prototype/media/campbell-river/image4.jpg",
+     "alt": "A lighthouse with red-roofed buildings on a gravel shoreline",
+     "text": "Just a 10-minute ferry ride from downtown, Quadra is the largest and most populated of the Discovery Islands, known for artists, hidden beaches and deep Indigenous history. See Rebecca Spit, the 1898 Cape Mudge Lighthouse and the Nuyumbalees Cultural Centre, hike Chinese Mountains, or paddle from Heriot Bay.",
+     "note": "The ferry runs roughly hourly and gets busy in summer; arrive 30 minutes early with a vehicle. You need a car or bike to reach Rebecca Spit."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "How long does it take to get to Strathcona Provincial Park?",
+     "a": "It is roughly a 45 to 60 minute drive (about 48 km) west on Highway 28 to the Buttle Lake area. Fill your tank first, as there are no services until Gold River, and download maps because cell signal fades."
+    },
+    {
+     "q": "Is Elk Falls Provincial Park free?",
+     "a": "Yes. It is free to enter and use the parking lot, and open year-round during daylight hours. It is about a ten-minute drive from downtown, then a 15 to 20 minute walk from the car to the suspension bridge."
+    },
+    {
+     "q": "How long is the Ripple Rock Trail?",
+     "a": "About 8 kilometres return, at moderate difficulty, taking roughly 2.5 to 3 hours. The trailhead is about 15 minutes north of Campbell River on Highway 19, and it is free to hike and park."
+    },
+    {
+     "q": "How do I get to Quadra Island?",
+     "a": "Take the ferry from the terminal in downtown Campbell River. The crossing takes 10 minutes and runs roughly hourly, and you can drive on or walk on. In summer, arrive at least 30 minutes early."
+    }
+   ]
+  },
+  {
+   "id": "museums-family",
+   "label": "Museums and family",
+   "intro": "Local history, Indigenous art and a catch-and-release aquarium make good rainy-day and family stops.",
+   "places": [
+    {
+     "name": "Museum at Campbell River",
+     "img": null,
+     "alt": null,
+     "text": "Widely considered one of the best local museums in Canada, it brings the coast's history to life. See the Mask Gallery of Kwakwaka'wakw ceremonial masks, a short film on the 1958 Ripple Rock explosion, a 1920s float house and a steam donkey, then walk the gardens and totem poles above the passage.",
+     "note": "470 Island Highway. Plan 1.5 to 2 hours. Open daily 10:00 AM to 5:00 PM in summer, with shorter winter hours."
+    },
+    {
+     "name": "Maritime Heritage Centre",
+     "img": "/prototype/media/campbell-river/image26.jpg",
+     "alt": "The Maritime Heritage Centre building with its lighthouse-style tower",
+     "text": "Housed in a former fish processing plant next to the government wharf, the centre preserves the salty history of the Salmon Capital of the World. Walk the deck of the BCP 45, a restored 1927 seine boat featured on the Canadian five-dollar bill from 1972 to 1986, and see shipwreck, diving and model ship exhibits.",
+     "note": "621 Island Highway. Typically open Monday to Friday, 10:00 AM to 4:00 PM, with summer weekends often added."
+    },
+    {
+     "name": "Discovery Passage Aquarium",
+     "img": "/prototype/media/campbell-river/image2.jpg",
+     "alt": "A blue aquarium building with a painted starfish beside the pier",
+     "text": "A catch-and-release aquarium right on the pier. Animals are collected from local waters each spring and returned to the same spot every fall. Touch sea stars, urchins and sea cucumbers, see octopuses and anemones, and in late September help carry buckets of fish and crabs back to the ocean for the big release.",
+     "note": "Usually open May to September. Small entry fee, about $8 to $12 for adults. Most visits take 45 to 60 minutes."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "Is the Discovery Passage Aquarium open in winter?",
+     "a": "No. It is seasonal, usually open from May to September, and closed in winter while the animals are back in the wild. It sits at the entrance to the Discovery Fishing Pier, so you can visit both in one afternoon."
+    },
+    {
+     "q": "What is the BCP 45?",
+     "a": "A restored 1927 wooden seine fishing boat at the Maritime Heritage Centre. It was featured on the Canadian five-dollar bill from 1972 to 1986, and you can walk onto the deck and explore the cabin."
+    },
+    {
+     "q": "How long should I spend at the Museum at Campbell River?",
+     "a": "Plan for at least 1.5 to 2 hours. It sits on a hill just south of downtown at 470 Island Highway with a large free parking lot, and the Ripple Rock film is a highlight."
+    }
+   ]
+  }
+ ],
+ "planning": [
+  {
+   "q": "When is the best time to visit Campbell River?",
+   "a": "For wildlife and fishing, May to October. Peak salmon fishing is July and August, and bears and spawning salmon are best seen in September and October. Winter suits diving and snowshoeing."
+  },
+  {
+   "q": "Where do whale tours leave from?",
+   "a": "Most tours depart from the marinas in downtown Campbell River or near the famous Painter's Lodge. Most last 4 to 7 hours, so plan a half-day or full-day adventure."
+  }
+ ],
+ "nearby": [
+  "parksville",
+  "nanaimo"
+ ],
+ "sources": [
+  "Campbell River.docx"
+ ]
 }
