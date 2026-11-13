@@ -1,0 +1,487 @@
+{
+ "slug": "victoria",
+ "name": "Victoria",
+ "region": "island",
+ "title": "Victoria, Arc Trips",
+ "description": "Victoria, BC: the Inner Harbour, Parliament Buildings, whale watching, kayaking, waterfront walks and birdwatching on southern Vancouver Island.",
+ "hero": {
+  "img": "/prototype/media/victoria/image47.jpg",
+  "alt": "The Inner Harbour in Victoria with flower baskets, floating docks and the British Columbia Parliament Buildings",
+  "standfirst": "The capital of British Columbia blends old-world charm with modern beauty, with a scenic harbour, colonial-era buildings, lush gardens and a mild climate."
+ },
+ "why": {
+  "h2": "Harbour, history and the outdoors",
+  "paras": [
+   "Victoria, the capital of British Columbia, blends old-world charm with modern beauty. Colonial-era buildings and lush gardens surround a scenic harbour, and the Inner Harbour is framed by the Neo-baroque Parliament Buildings and the Fairmont Empress Hotel. It is also the main departure point for whale-watching tours and a classic place to start a kayak paddle.",
+   "Victoria sits at the southern tip of Vancouver Island, so the outdoors is never far away. Waterfront paths, beaches, forest parks and hilltop viewpoints are close at hand, and the mild coastal climate makes walking and hiking possible through much of the year."
+  ],
+  "facts": [
+   {
+    "k": "Where it is",
+    "v": "Southern tip of Vancouver Island, on the Salish Sea, with direct access to the water from the Inner Harbour."
+   },
+   {
+    "k": "Getting there",
+    "v": "From Vancouver: the BC Ferries Connector bus, the Hullo Fast Ferry from downtown, or a Harbour Air floatplane into the Inner Harbour."
+   },
+   {
+    "k": "Known for",
+    "v": "The Inner Harbour, Parliament Buildings, Empress afternoon tea, Royal BC Museum, whale watching and kayaking."
+   },
+   {
+    "k": "When to come",
+    "v": "Late April to June for blooms, June to August for the most energy, May to October for whales."
+   }
+  ]
+ },
+ "when": {
+  "h2": "Busy summers, quiet shoulder seasons",
+  "intro": "Summer is the busiest season, when whale tours, kayaking and the Fisherman's Wharf kiosks run at full energy, while spring and early fall are quieter. Every season has a reason to come, from spring blooms and fall salmon runs to winter storm-watching walks.",
+  "rows": [
+   {
+    "name": "Whale watching",
+    "best": [
+     6,
+     7,
+     8,
+     9,
+     10
+    ],
+    "shoulder": [
+     3,
+     4,
+     5
+    ],
+    "note": "Prime June to August; humpbacks most active in September and October."
+   },
+   {
+    "name": "Kayaking",
+    "best": [
+     5,
+     6,
+     7,
+     8,
+     9
+    ],
+    "shoulder": [
+     4,
+     10
+    ],
+    "note": "Be on the water by 9:00 AM; afternoon winds pick up."
+   },
+   {
+    "name": "Walking and hiking",
+    "best": [
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "shoulder": [
+     9,
+     10
+    ],
+    "note": "Spring wildflowers; Goldstream salmon run in October and November."
+   }
+  ],
+  "crowds": [
+   1,
+   1,
+   2,
+   2,
+   3,
+   3,
+   4,
+   4,
+   3,
+   2,
+   1,
+   1
+  ],
+  "crowdsNote": "Summer demand: whale tours, Craigdarroch Castle tickets and Royal BC Museum lines peak from June to August.",
+  "seasons": [
+   {
+    "h": "Summer, June to August",
+    "p": "The busiest season. Book whale tours and kayak rentals ahead and buy Craigdarroch Castle and Royal BC Museum tickets online. Fisherman's Wharf is at its most energetic, with food kiosks open late."
+   },
+   {
+    "h": "Fall, September to November",
+    "p": "Fewer crowds, and whale tours call September and October \"Humpback Heaven\". Big-leaf maples turn gold in late October, and the Goldstream salmon run brings crowds, so go on a weekday morning."
+   },
+   {
+    "h": "Winter, December to February",
+    "p": "Quieter, with storm-watching walks on the Ogden Point breakwater, waterfowl and sea ducks at their best along the coast, and Victorian Christmas decor at Craigdarroch Castle in December."
+   },
+   {
+    "h": "Spring, March to May",
+    "p": "Gray whales migrate past and humpbacks return. Wildflowers carpet the forest floors, Goldstream's waterfalls run strong, and blooms peak from late April to June. May is a quiet month for the wharf."
+   }
+  ]
+ },
+ "tabs": [
+  {
+   "id": "things-to-do",
+   "label": "Things to do",
+   "intro": "Victoria's classic sights cluster around the Inner Harbour, within an easy walk of one another.",
+   "places": [
+    {
+     "name": "Inner Harbour",
+     "img": "/prototype/media/victoria/image61.jpg",
+     "alt": "A floatplane taking off from Victoria's harbour",
+     "text": "Inner Harbour is the heart of Victoria, framed by the Neo-baroque Parliament Buildings and the majestic Fairmont Empress Hotel. Walk the flat causeway to browse artisan stalls and watch street performers, or hop on a Victoria Harbour Ferry water taxi for a view of the skyline from the water. After sunset the Parliament Buildings are outlined in lights.",
+     "note": "Downtown parking is pricey and tight. City parkades such as the one on Broughton St give the first hour free."
+    },
+    {
+     "name": "British Columbia Parliament Buildings",
+     "img": "/prototype/media/victoria/image20.jpg",
+     "alt": "The British Columbia Parliament Buildings behind tulips",
+     "text": "The Parliament Buildings anchor the Inner Harbour with a grand Neo-baroque presence and a copper dome weathered to a regal green. Free public guided tours lead through the legislative chamber, the rotunda and the hall of maps, and the Legislative Library is often cited as one of the most beautiful rooms in Canada.",
+     "note": "Expect an airport-style security screening at the entrance, so travel light."
+    },
+    {
+     "name": "Fairmont Empress",
+     "img": null,
+     "alt": null,
+     "text": "The Fairmont Empress is Victoria's luxury landmark, a Chateau-style hotel that has anchored the Inner Harbour since 1908. Afternoon tea in the Lobby Lounge is the signature experience, with exclusive tea blends and hand-crafted pastries. For something more casual, the outdoor Veranda has a front-row seat to the activity of the harbour.",
+     "note": "Afternoon tea reservations are essential months in advance."
+    },
+    {
+     "name": "Royal BC Museum",
+     "img": "/prototype/media/victoria/image21.jpg",
+     "alt": "The entrance to the Royal BC Museum",
+     "text": "The Royal BC Museum sits directly across from the Parliament Buildings and brings the natural and human history of British Columbia to life. Stand beneath a life-sized Woolly Mammoth, wander the 1890s Old Town in the Becoming BC Gallery, and explore the First Peoples Gallery with its totem poles and masks.",
+     "note": "Buy tickets in advance for the busy summer months. Weekday mornings at opening (10:00 AM) are quietest."
+    },
+    {
+     "name": "Craigdarroch Castle",
+     "img": null,
+     "alt": null,
+     "text": "Craigdarroch Castle is a four-story Gilded Age mansion built by coal baron Robert Dunsmuir between 1887 and 1890. It has 39 rooms of intricate woodwork, one of North America's finest collections of residential stained glass, and a tower with 360-degree views of the city and the Olympic Mountains.",
+     "note": "Entry is timed, so buy tickets online in advance, especially in summer. The tower climb is 87 steps with no elevator."
+    },
+    {
+     "name": "Fisherman's Wharf",
+     "img": "/prototype/media/victoria/image25.jpg",
+     "alt": "Colourful floating buildings and kayaks at Fisherman's Wharf",
+     "text": "Fisherman's Wharf is a living marine community of colourful houseboats, seafood kiosks and working fishing vessels. Walk the docks to see the floating homes, watch for harbour seals, and try fish and chips, local oysters or ice cream from the kiosks. It is a 10 to 15 minute scenic walk along the David Foster Way from the Parliament Buildings.",
+     "note": "The float homes are private residences. Stay on the public docks."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "Do the Parliament Buildings charge for tours?",
+     "a": "No. Public guided tours are free. Guides lead you through the legislative chamber, the rotunda and the hall of maps. You will pass through a security screening similar to an airport to enter."
+    },
+    {
+     "q": "Do I need to book afternoon tea at the Fairmont Empress?",
+     "a": "Yes. Reservations are essential months in advance. Tea is served in the Lobby Lounge, and the outdoor Veranda is a more casual option for a seasonal cocktail or lunch."
+    },
+    {
+     "q": "How do I get from the Inner Harbour to Fisherman's Wharf?",
+     "a": "Walk about 15 minutes along the David Foster Way waterfront path, a 1.5 km route, or take a Victoria Harbour Ferry water taxi for a pickle boat ride directly to the wharf."
+    },
+    {
+     "q": "Is Craigdarroch Castle accessible?",
+     "a": "The ground floor is accessible, but there is no elevator. Reaching the tower takes 87 steps. Entry is on a timed system, so buy tickets online in advance, especially in summer."
+    },
+    {
+     "q": "When is the Royal BC Museum quietest?",
+     "a": "Weekday mornings right at opening (10:00 AM), before the school groups and tour buses arrive. Buying tickets in advance helps you skip the lines in the busy summer months."
+    }
+   ]
+  },
+  {
+   "id": "walking",
+   "label": "Walks and hikes",
+   "intro": "From flat waterfront paths to forested viewpoints, most of Victoria's best walks are a short trip from downtown.",
+   "places": [
+    {
+     "name": "Dallas Road Waterfront Trail",
+     "img": "/prototype/media/victoria/image23.jpg",
+     "alt": "Driftwood and pebbles on the Dallas Road shoreline",
+     "text": "The Dallas Road Waterfront Trail is an easy 7.1-kilometre route along the city's southern coastline from Ogden Point to Clover Point. The paved path runs above the bluffs with wide, uninterrupted views of the Juan de Fuca Strait, and there are points to head down to Dallas Road Beach. It is especially beautiful at sunset or in storm-watching season.",
+     "note": null
+    },
+    {
+     "name": "Beacon Hill Park",
+     "img": "/prototype/media/victoria/image36.jpg",
+     "alt": "A cherry tree in blossom beside a duck pond in Beacon Hill Park",
+     "text": "Beacon Hill Park offers over 200 acres of walking trails, from manicured flower beds to natural meadows, close to downtown. A walk here passes the world's tallest free-standing totem pole, peaceful duck ponds and the Mile 0 marker of the Trans-Canada Highway. The paved and gravel paths are exceptionally accessible.",
+     "note": null
+    },
+    {
+     "name": "Mount Tolmie Park",
+     "img": "/prototype/media/victoria/image19.jpg",
+     "alt": "A view over Victoria's neighbourhoods toward a rocky hill under cloud",
+     "text": "Mount Tolmie is a drive-up viewpoint with 360-degree views of the Saanich Peninsula, the downtown skyline and the Haro Strait. Short rocky trails circle the summit, and in spring the Garry Oak meadows are carpeted with Camas and Shooting Stars. On a clear day the snow-capped peak of Mount Baker is visible to the east.",
+     "note": "The parking lots are free but can fill in the 30 minutes around sunset."
+    },
+    {
+     "name": "Goldstream Provincial Park",
+     "img": "/prototype/media/victoria/image41.jpg",
+     "alt": "A gravel path winding through tall evergreen forest",
+     "text": "About 20 minutes from downtown, Goldstream Provincial Park is one of the best places for forest scenery, waterfalls and a bigger hike. Options range from flat riverside walks to the climb toward the Goldstream Trestle, and Niagara Falls drops 47 metres near the trailhead. In late fall the lower trails offer a front-row seat to the salmon run.",
+     "note": "The salmon run (October to November) is very busy. Aim for a weekday morning to find parking."
+    },
+    {
+     "name": "Galloping Goose Regional Trail",
+     "img": null,
+     "alt": null,
+     "text": "This 55-kilometre multi-use trail runs from downtown Victoria to the ghost town of Leechtown, following a former railway line. Near the city it is paved and crosses the Selkirk Trestle over the Upper Harbour, while the western stretches become smooth gravel through quiet forests and rocky canyons. It suits a flat, long-distance walk away from motorized traffic.",
+     "note": "Kilometre 0 is at the Johnson Street Bridge in downtown Victoria."
+    },
+    {
+     "name": "Thetis Lake Regional Park",
+     "img": null,
+     "alt": null,
+     "text": "Thetis Lake Regional Park is one of Greater Victoria's most popular choices for a natural trail setting, known for wooded trails, lakeside scenery and easy access to outdoor recreation. The Main Lake Loop is a flat 5-kilometre trail that circles the water and works well for families, dog walkers and anyone after a quick nature escape.",
+     "note": "Thetis Lake fills up fast on sunny weekends. Arrive before 9:00 AM or go on a weekday."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "What is the best easy walk near the Inner Harbour?",
+     "a": "The Inner Harbour Trail is a flat, paved route of about 5 kilometres past the Parliament Buildings and the Empress Hotel. Extend it to Fisherman's Wharf to see the colourful floating homes and enjoy a snack by the water."
+    },
+    {
+     "q": "How long is the Dallas Road waterfront walk?",
+     "a": "The Dallas Road Waterfront Trail is an easy 7.1-kilometre paved route from Ogden Point to Clover Point, with points where you can head down to Dallas Road Beach."
+    },
+    {
+     "q": "How hard is the hike to the Goldstream Trestle?",
+     "a": "It is moderate to strenuous because of a steep, sustained incline. Expect 1 to 1.5 hours round trip. The trail can be slippery when wet, and the trestle has no handrails."
+    },
+    {
+     "q": "When is the best time of year to walk in Victoria?",
+     "a": "Summer (July and August) is the most reliable for dry trails and clear views. Spring brings wildflowers and active waterfalls, fall brings fewer crowds and gold maples, and winter stays drier than Vancouver."
+    },
+    {
+     "q": "Which popular trails fill up on sunny weekends?",
+     "a": "Thetis Lake and Mount Douglas fill up incredibly fast on sunny weekends. Arrive before 9:00 AM or visit on a weekday for a quieter trail."
+    }
+   ]
+  },
+  {
+   "id": "birding",
+   "label": "Birdwatching",
+   "intro": "Victoria sits on the Pacific Flyway, so lagoons, wetlands and rocky points give easy birding close to downtown.",
+   "places": [
+    {
+     "name": "Swan Lake Christmas Hill Nature Sanctuary",
+     "img": null,
+     "alt": null,
+     "text": "Swan Lake Christmas Hill Nature Sanctuary has two main habitats: the wetland around Swan Lake and the rocky oak meadow on Christmas Hill. The lake area is good for ducks, great blue herons, marsh birds, songbirds, woodpeckers and hummingbirds, with easy trails, boardwalks and viewing areas that suit beginners.",
+     "note": "Bring binoculars and move slowly. Many birds hide in reeds, shrubs and tree branches."
+    },
+    {
+     "name": "Esquimalt Lagoon",
+     "img": null,
+     "alt": null,
+     "text": "Esquimalt Lagoon is a federal Migratory Bird Sanctuary in Colwood, just west of Victoria, with shallow tidal water, a long beach spit and rich feeding grounds. It is especially important from fall through spring, when swans, ducks, geese, gulls, great blue herons and shorebirds use the lagoon. Easy birdwatching is possible from the roadside.",
+     "note": "Do not feed birds. Feeding wildlife can cause health problems and change natural behaviour."
+    },
+    {
+     "name": "Clover Point",
+     "img": "/prototype/media/victoria/image26.jpg",
+     "alt": "A grassy headland with a walking path at Clover Point",
+     "text": "Clover Point sticks out into the water, which makes it useful for scanning the ocean. You may see gulls, cormorants, shorebirds, ducks, loons and grebes, and sometimes larger seabird movement offshore. It is a strong stop for winter birding and stormy-day birdwatching.",
+     "note": "A good place to bird from the car or near the parking area when it is windy or rainy."
+    },
+    {
+     "name": "Ogden Point Breakwater",
+     "img": "/prototype/media/victoria/image22.jpg",
+     "alt": "The Ogden Point Breakwater stretching out over calm water at sunrise",
+     "text": "Ogden Point Breakwater gives birdwatchers a better view into deeper water near Victoria Harbour. It is a good place to scan for cormorants, gulls, ducks, loons, grebes and other seabirds, and it also gives great views back toward the city and across the water.",
+     "note": "It can be windy and exposed. Dress warmly and stay aware of waves and weather."
+    },
+    {
+     "name": "Witty's Lagoon",
+     "img": null,
+     "alt": null,
+     "text": "Witty's Lagoon in Metchosin, west of Victoria, combines lagoon, beach, forest, shoreline and trails. At low tide birds feed along the mudflats and shoreline, and you may see herons, ducks, gulls, shorebirds, eagles, kingfishers and forest birds.",
+     "note": "Check tide times before visiting if shorebirds are your main goal."
+    },
+    {
+     "name": "Cattle Point",
+     "img": "/prototype/media/victoria/image44.jpg",
+     "alt": "A rocky shoreline with driftwood at dusk at Cattle Point",
+     "text": "Cattle Point is a small rocky coastal area in Oak Bay and a good quick birding stop, especially for shorebirds and seabirds. Look for black turnstones, gulls, cormorants, sea ducks and birds feeding around the rocky edges.",
+     "note": "Move slowly around rocky areas and give shorebirds space."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "Where should a beginner start birdwatching in Victoria?",
+     "a": "Start with easy places like Swan Lake, Beacon Hill Park, Dallas Road or Esquimalt Lagoon. Many spots are easy to reach, and some birds can be seen from short trails, beaches or even from the car on a rainy day."
+    },
+    {
+     "q": "What is the best season for waterfowl?",
+     "a": "Fall through spring is often best for ducks, geese and swans. Winter is one of the best seasons for waterfowl and coastal birding, when many ducks, loons, grebes and seabirds are easier to see."
+    },
+    {
+     "q": "When should I go for shorebirds?",
+     "a": "Visit at low tide, especially in spring and fall. Esquimalt Lagoon, Witty's Lagoon, Cattle Point and Clover Point are the best places to look, so check a tide chart before you go."
+    },
+    {
+     "q": "Can I watch birds from the car in bad weather?",
+     "a": "Yes. Clover Point is a good place to bird from the car or near the parking area when the weather is windy or rainy."
+    },
+    {
+     "q": "Is Esquimalt Lagoon protected?",
+     "a": "Yes. It is a federal Migratory Bird Sanctuary in Colwood, just west of Victoria. Do not feed the birds, and give them space, especially during migration and nesting season."
+    }
+   ]
+  },
+  {
+   "id": "whales",
+   "label": "Whale watching",
+   "intro": "Tours leave from the Inner Harbour and nearby waterfront, and most trips last 3 to 3.5 hours.",
+   "places": [
+    {
+     "name": "Eagle Wing Tours",
+     "img": null,
+     "alt": null,
+     "text": "Eagle Wing Tours is a carbon-neutral industry leader known for high-performance catamarans and a strong educational focus. Tours typically last 3 to 3.5 hours, with extended Wildlife Safaris in peak season. Choose open-air catamarans for a more immersive trip or semi-covered boats for added protection, with onboard naturalists and high-end binoculars.",
+     "note": "Professional photographers on board share a free photo gallery of your trip."
+    },
+    {
+     "name": "Prince of Whales",
+     "img": "/prototype/media/victoria/image15.jpg",
+     "alt": "A Prince of Whales catamaran on calm water at sunset",
+     "text": "Prince of Whales is a long-established operator that received a Viator Experience Award in 2023. Its Salish Sea Eclipse is a custom-built, environmentally friendly catamaran with three viewing levels. Options include the standard 3.5-hour trip, full-day Ultimate Day Tours connecting Victoria and Vancouver, and a choice of high-speed Zodiacs or stable catamarans.",
+     "note": "A complimentary professional photo package is often included."
+    },
+    {
+     "name": "Orca Spirit Adventures",
+     "img": null,
+     "alt": null,
+     "text": "Orca Spirit Adventures offers both high-speed Zodiac adventures and comfortable covered boat tours. The company is carbon-neutral and puts a hydrophone on its Zodiac tours so passengers can listen to whale calls in real time. Tours last around 3 hours, with morning and afternoon departures and seasonal summer sunset tours.",
+     "note": "Large heated cruisers with indoor seating and washrooms make covered boats a comfortable choice in winter."
+    },
+    {
+     "name": "SpringTide Whale Watching & Eco Tours",
+     "img": "/prototype/media/victoria/image8.jpg",
+     "alt": "A SpringTide cruiser carrying passengers past a rocky, forested shoreline",
+     "text": "SpringTide is a boutique-style operator with 3-hour tours focused on speed, comfort and maximizing viewing time. High-speed cruisers reach sightings quickly while keeping the ride smooth, and dedicated eco-tours highlight seals, sea lions and local birdlife. Smaller groups allow more interaction with the captain and onboard naturalists.",
+     "note": null
+    }
+   ],
+   "faqs": [
+    {
+     "q": "When is the best time to go whale watching in Victoria?",
+     "a": "April to October is the best window. Summer (June to August) is prime, fall (September and October) is often called \"Humpback Heaven\", and spring (March to May) is the time for gray whale migrations."
+    },
+    {
+     "q": "What whales can I see from Victoria?",
+     "a": "The big three are orcas, humpbacks and gray whales. You may also see minke whales, harbour seals, sea lions, porpoises and seabirds. No tour can promise a specific species, because this is wildlife, not an aquarium."
+    },
+    {
+     "q": "What if I do not see a whale?",
+     "a": "Most top-tier companies report a sighting success rate of 95 percent or higher. If you do not see a whale, these operators typically provide a complimentary voucher for a future tour."
+    },
+    {
+     "q": "Should I choose a covered boat or a Zodiac?",
+     "a": "Covered boats offer more comfort, shelter and a steadier ride, and suit families and older travellers. Open Zodiacs are faster and closer to the water but less ideal if you are sensitive to cold or motion."
+    },
+    {
+     "q": "Do I need to book ahead?",
+     "a": "Yes in peak season, especially from late spring through summer, when the most popular months can fill up quickly. Dress in layers, because it almost always feels cooler offshore than in the city."
+    }
+   ]
+  },
+  {
+   "id": "kayaking",
+   "label": "Kayaking",
+   "intro": "A sheltered Inner Harbour, calm inlets and open coast make Victoria one of the easiest places in BC to try kayaking.",
+   "places": [
+    {
+     "name": "The Inner Harbour",
+     "img": null,
+     "alt": null,
+     "text": "The classic starting point and the easiest answer to where to kayak in Victoria. Launching here gives immediate views of the Legislature, the Empress, marinas and floating homes, all from water level. It is perfect for anyone who wants to see the city from a different angle.",
+     "note": "The Inner Harbour is an active waterway shared with floatplanes. Stay in the designated paddling lanes near the shore."
+    },
+    {
+     "name": "Gorge Waterway",
+     "img": "/prototype/media/victoria/image52.jpg",
+     "alt": "A calm tidal waterway beside a paved path and autumn trees",
+     "text": "The Gorge Waterway is a sheltered tidal inlet with calm, lake-like conditions and one of the best choices for beginners or anyone who wants a relaxed pace. It is excellent for birdwatching, with frequent sightings of herons and other waterfowl, and you can paddle several kilometres inland toward Portage Inlet, passing under historic bridges.",
+     "note": "Tidal currents can be stronger than expected here. Check a tide table before you go."
+    },
+    {
+     "name": "Brentwood Bay and Tod Inlet",
+     "img": null,
+     "alt": null,
+     "text": "About 30 minutes north of downtown, this is a favourite for nature lovers. The waters are exceptionally calm, and a paddle into Tod Inlet offers a serene escape with lush forest shorelines and the chance to spot jellyfish, seals and eagles.",
+     "note": "Large clusters of Moon Jellies often appear in Tod Inlet in late summer."
+    },
+    {
+     "name": "Oak Bay and Cadboro Bay",
+     "img": null,
+     "alt": null,
+     "text": "For a more coastal feel, these areas offer sandy beaches and views of the Trial Islands. They are great for exploring rocky islets and kelp beds, though they are more exposed to wind than the harbour.",
+     "note": "Harbour porpoises are sometimes seen in the more open waters off Oak Bay."
+    },
+    {
+     "name": "Fisherman's Wharf and the Outer Harbour",
+     "img": null,
+     "alt": null,
+     "text": "An iconic launching point in the heart of the city with immediate access to the Inner Harbour. It is ideal for paddling past the historic houseboats and watching the seaplanes take off and land, with more character and wildlife than a major open-water route.",
+     "note": "You share the water with significant marine traffic and seaplane taxi lanes, so stay alert."
+    },
+    {
+     "name": "Thetis Lake and Elk Lake",
+     "img": null,
+     "alt": null,
+     "text": "If you prefer freshwater, these local lakes are ideal for a relaxing afternoon. They are free of large boat traffic and ocean currents, making them the safest possible environment for your first time in a boat.",
+     "note": null
+    }
+   ],
+   "faqs": [
+    {
+     "q": "Is kayaking in Victoria good for beginners?",
+     "a": "Yes, in many cases. No experience is necessary, and operators offer everything from three-hour introductory tours to multi-day trips. The Inner Harbour and the Gorge Waterway are generally the better choices for beginners."
+    },
+    {
+     "q": "When is the best time to kayak in Victoria?",
+     "a": "Late spring through early fall. Peak season is May to September, and April and October are quieter but the water is very cold. Winter paddling is possible with guided operators and a drysuit or heavy-duty wetsuit."
+    },
+    {
+     "q": "What time of day should I paddle?",
+     "a": "Try to be on the water by 9:00 AM. Winds often pick up in the early afternoon, which can make paddling back more tiring for beginners."
+    },
+    {
+     "q": "Can I rent a kayak downtown?",
+     "a": "Yes. Ocean River's downtown location offers hourly rentals and harbour tours, and Victoria Kayak also offers rentals from the Inner Harbour. Ocean River, Victoria Kayak and Kelp Reef Adventures all run guided tours."
+    },
+    {
+     "q": "How close can I get to seals and sea lions?",
+     "a": "Keep at least 100 metres away from seals and sea lions. Drift quietly to see otters and herons, and never feed wildlife."
+    }
+   ]
+  }
+ ],
+ "planning": [
+  {
+   "q": "How do I get to Victoria from Vancouver?",
+   "a": "Skip the long ferry lines at Tsawwassen and take the BC Ferries Connector bus or the Hullo Fast Ferry from downtown Vancouver. A Harbour Air floatplane lands directly in the centre of the Inner Harbour."
+  },
+  {
+   "q": "Is parking easy downtown?",
+   "a": "Downtown parking can be pricey and tight. City-run parkades, such as the one on Broughton St, offer the first hour free, which is a better deal than private lots or street meters."
+  }
+ ],
+ "nearby": [
+  "sidney",
+  "sooke"
+ ],
+ "sources": [
+  "Victoria - Agent Trek.docx",
+  "Scenic Spots in Victoria.docx",
+  "Hiking_Walking in Victoria.docx",
+  "Birdwatching in Victoria.docx",
+  "Victoria - Kayaking.docx",
+  "Whale Watching Victoria.docx"
+ ]
+}

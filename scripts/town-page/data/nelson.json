@@ -1,0 +1,262 @@
+{
+ "slug": "nelson",
+ "name": "Nelson",
+ "region": "mainland",
+ "title": "Nelson, Arc Trips",
+ "description": "Nelson, BC: steep old-school mountain biking above Kootenay Lake and year-round fishing for Gerrard rainbow trout.",
+ "hero": {
+  "img": "/prototype/media/nelson/image7.jpg",
+  "alt": "Riders resting on a lookout above Nelson and the West Arm of Kootenay Lake",
+  "standfirst": "Nelson is perched above Kootenay Lake and backed by the Selkirk Mountains, with steep old-school singletrack, big trout and a serious local trail culture."
+ },
+ "why": {
+  "h2": "A mountain town above Kootenay Lake",
+  "paras": [
+   "Nelson is a mecca for mountain biking, known for its hero dirt and a mix of old-school technical gnarl and modern flow. Perched above Kootenay Lake and backed by the Selkirk Mountains, it has the kind of setting that makes even a quick ride feel memorable, with handcrafted trails and a serious riding community.",
+   "Nelson is also one of the Kootenays' best-known freshwater fishing destinations, with a serious reputation for big fish. Kootenay Lake is the region's signature fishery, and smaller lakes and streams nearby add variety for anglers who want to explore beyond the main lake."
+  ],
+  "facts": [
+   {
+    "k": "Where it is",
+    "v": "Perched above Kootenay Lake in the Kootenays, backed by the Selkirk Mountains. The West Arm of the lake flows right past downtown."
+   },
+   {
+    "k": "Getting there",
+    "v": "The Balfour Ferry Terminal, gateway to the main lake, is about 30 minutes east of Nelson. Castlegar lies south on the Columbia River."
+   },
+   {
+    "k": "Known for",
+    "v": "Steep old-school singletrack, Gerrard rainbow trout, and a strong local trail culture."
+   },
+   {
+    "k": "When to come",
+    "v": "Late spring to fall for riding, with July and August the driest months. Kootenay Lake can be fished year-round."
+   }
+  ]
+ },
+ "when": {
+  "h2": "When to go to Nelson",
+  "intro": "Riding peaks in July and August, the driest months, and the multi-day Fat Tire Festival takes over town in late September. Fishing runs year-round because Kootenay Lake stays ice-free, and winters are much colder, so dress for them.",
+  "rows": [
+   {
+    "name": "Mountain biking",
+    "best": [
+     7,
+     8
+    ],
+    "shoulder": [
+     5,
+     6,
+     9,
+     10
+    ],
+    "note": "Late spring through fall; July and August are the driest."
+   },
+   {
+    "name": "Fishing on Kootenay Lake",
+    "best": [
+     12,
+     1,
+     2
+    ],
+    "shoulder": [
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11
+    ],
+    "note": "Active in every season; winter is often best for larger trout."
+   },
+   {
+    "name": "Kokanee salmon run",
+    "best": [
+     8
+    ],
+    "shoulder": [],
+    "note": "Spawning run at Kokanee Creek in August."
+   }
+  ],
+  "crowds": [
+   1,
+   1,
+   1,
+   1,
+   2,
+   2,
+   3,
+   3,
+   4,
+   2,
+   1,
+   1
+  ],
+  "crowdsNote": "Riding season peaks in July and August; the Fat Tire Festival in late September is the busiest event.",
+  "seasons": [
+   {
+    "h": "Summer, June to August",
+    "p": "Warm, dry days, with July and August the most reliable months for riding. Long, scenic days on the water, and the Kokanee Creek spawning run in August."
+   },
+   {
+    "h": "Fall, September to November",
+    "p": "Riding stays excellent in more variable conditions. The Fat Tire Festival usually takes place in late September, and fall fishing is strong with derby activity and changing fish patterns."
+   },
+   {
+    "h": "Winter, December to February",
+    "p": "Much colder than the coast, and snow and wet conditions can limit riding access. Kootenay Lake stays ice-free, and winter is often considered one of the best times for larger trout."
+   },
+   {
+    "h": "Spring, March to May",
+    "p": "Late spring opens the riding season, with community events from May. Spring fishing is active, with seasonal derbies and good transition conditions on the lake."
+   }
+  ]
+ },
+ "tabs": [
+  {
+   "id": "biking",
+   "label": "Mountain biking",
+   "intro": "Steep old-school singletrack and handcrafted trail zones above Kootenay Lake, with eight major riding areas around town.",
+   "places": [
+    {
+     "name": "Mountain Station",
+     "img": null,
+     "alt": null,
+     "text": "Nelson's most iconic and accessible trail network, directly above the city at the top of Cherry Street. It is famously tight and bright, with intersecting trails from historic old-school gnarl to classic technical singletrack. Many riders pedal straight from downtown to the trailhead and lap the popular descent lines.",
+     "note": "Some sections cross private property, so stay on marked trails. A large trail map is posted at the Mountain Station parking area."
+    },
+    {
+     "name": "Giveout & Morning Mountain",
+     "img": "/prototype/media/nelson/image8.jpg",
+     "alt": "Two young riders on a forest trail beside a mossy log",
+     "text": "West of Nelson in the Blewett area, reached via Blewett Ski Hill Road, this is the city's primary hub for progressive riding. The Bottoms Up climbing trail gives pedal access to machine-built flow like Turnstyles and Nelson's first adaptive mountain bike trails. It is the best starting point for visitors, with green and blue options alongside classic Kootenay black diamond terrain.",
+     "note": "Riders can also shuttle the Giveout Creek FSR to the 9km marker for longer descents."
+    },
+    {
+     "name": "49'er",
+     "img": null,
+     "alt": null,
+     "text": "A legendary big mountain descent south of Nelson on the north flank of Toad Mountain, usually reached by shuttling the Giveout Creek FSR. It epitomizes old-school Nelson riding: a long, relentless downhill of tight roots, technical rock slabs and high-speed forest segments. It is significantly steeper and more demanding than the trails at Morning Mountain.",
+     "note": "A sustained descent with significant vertical drop, so check your equipment beforehand."
+    },
+    {
+     "name": "Svoboda",
+     "img": null,
+     "alt": null,
+     "text": "Within West Arm Provincial Park, reached by Svoboda Road near the Fairview neighbourhood, this area is famous for boney, mossy and exceptionally steep terrain. Massive rock slabs and high-consequence technical lines define world-renowned trails like Paper Bag. The access is a steady gravel road grind, and the reward is advanced riding with steep rock rolls.",
+     "note": "It is a Provincial Park, so stay strictly on designated paths to protect the sensitive ecosystem."
+    },
+    {
+     "name": "Gold Creek",
+     "img": null,
+     "alt": null,
+     "text": "The Gold Creek area is synonymous with big downhill riding and is the steeper, more aggressive extension of the Giveout network. Expect long sustained vertical drops, tight forest corridors, roots, stunts and rock-covered singletrack. Trails such as Goldmember are often rated double-black diamond and need advanced skills.",
+     "note": "Almost exclusively a shuttle-access zone, using the Giveout Creek FSR to reach the ridge-top trailheads."
+    },
+    {
+     "name": "Baldface & Shannon Pass",
+     "img": null,
+     "alt": null,
+     "text": "The high-alpine, epic side of Nelson's riding, deep in the backcountry north of town. Access means a significant climb or a high-clearance shuttle via the Shannon Creek FSR to Shannon Pass, the gateway to massive high-elevation descents. Trails like the famous Powerslave offer long stretches of technical singletrack through sub-alpine forest and rocky ridges.",
+     "note": "Remote and high: best for prepared, advanced riders planning a full day."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "When is the mountain biking season in Nelson?",
+     "a": "The main season is usually late spring through fall. July and August are among the driest months and generally the most reliable for riding. Spring and fall can also be excellent if you do not mind more variable conditions."
+    },
+    {
+     "q": "Where should beginners ride in Nelson?",
+     "a": "Giveout & Morning Mountain is the best starting point for visitors, with a mix of green and blue trails and modern machine-built flow. The 49'er and Svoboda are steeper and more demanding, so build confidence first."
+    },
+    {
+     "q": "How hard are Nelson's trails?",
+     "a": "Harder than their ratings suggest. Under the local Nelson Scale, a blue trail can feel closer to a black diamond elsewhere, so starting one grade lower than usual is often the smartest approach."
+    },
+    {
+     "q": "What is the Fat Tire Festival?",
+     "a": "The crown jewel of Nelson's biking calendar, a multi-day event that typically takes place in late September. It runs from downhill races on trails like Powerslave to the Chainless Race and Jellybean Alley for young riders."
+    }
+   ]
+  },
+  {
+   "id": "fishing",
+   "label": "Fishing",
+   "intro": "Kootenay Lake can be fished year-round, with smaller lakes and rivers nearby for variety.",
+   "places": [
+    {
+     "name": "Kootenay Lake",
+     "img": null,
+     "alt": null,
+     "text": "The region's primary draw, famous for the Gerrard rainbow trout, a predator that can exceed 30 pounds. The Main Lake near Balfour and Kaslo, about 30 minutes east of Nelson, is where the water is deepest and trophy Gerrard and bull trout are most active. The West Arm flows right past downtown Nelson and is productive for smaller rainbows, bull trout and kokanee in their seasonal runs.",
+     "note": "Lakeside Park and the Prestige Marina offer easy shore casting. The rocky shorelines around Kokanee Creek Provincial Park are better."
+    },
+    {
+     "name": "The Columbia River",
+     "img": null,
+     "alt": null,
+     "text": "South of Nelson near Castlegar, the Columbia River is often called a hidden gem by local guides and is considered one of the premier fly-fishing rivers in North America. The tailrace where the Kootenay River joins the Columbia is a hotspot for large rainbow trout and walleye, and the river is known for powerful, acrobatic trout.",
+     "note": "Shore access exists at community parks in Castlegar and Trail, but the most productive spots are reached by jet boat."
+    },
+    {
+     "name": "Mountain and alpine lakes",
+     "img": null,
+     "alt": null,
+     "text": "For a hike-in experience or a quieter setting, the backcountry around Nelson is dotted with stocked and wild lakes. Kokanee Glacier Provincial Park has high-altitude lakes such as Kaslo Lake, with aggressive cutthroat and brook trout. Summit Lake and Box Lake, north of Nelson toward Nakusp, are easy roadside lakes for belly-boating or shore casting for rainbows.",
+     "note": "Cottonwood Lake, a few minutes south of Nelson on Highway 6, is a popular family spot for smaller trout."
+    },
+    {
+     "name": "Kokanee Creek and the Slocan River",
+     "img": null,
+     "alt": null,
+     "text": "Kokanee Creek is famous for the kokanee salmon spawning run in August. The creek itself may have closures to protect spawners, but where it meets the lake is a prime spot for predatory trout waiting for fry. The Slocan River, slower-moving and north of Nelson, is excellent for drift-fishing or wading for rainbow and Westslope cutthroat trout.",
+     "note": "Check the current Region 4 regulations before you go."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "What is Nelson known for fishing?",
+     "a": "Set beside Kootenay Lake and surrounded by mountain scenery, it is especially famous for Gerrard rainbow trout, along with bull trout and kokanee salmon."
+    },
+    {
+     "q": "Can you fish in Nelson in winter?",
+     "a": "Yes. Kootenay Lake stays ice-free, and winter is often considered one of the best times for larger trout, as fish move up from deeper water."
+    },
+    {
+     "q": "What licence do I need to fish near Nelson?",
+     "a": "A valid BC freshwater fishing licence. As of 2026 licences are bought through the WILD system with a Fish and Wildlife ID, for one day, eight days or a year. Nelson is in Region 4: Kootenay, where a single barbless hook is mandatory on all streams and rivers."
+    },
+    {
+     "q": "Should I book a fishing charter?",
+     "a": "It is one of the easiest ways to fish Nelson well. Local companies such as Reel Adventures run year-round trips on Kootenay Lake and seasonal trips from April to October on the Columbia River, and most charters provide all gear, including downriggers, rods and lures."
+    }
+   ]
+  }
+ ],
+ "planning": [
+  {
+   "q": "Are Nelson's trails free to ride?",
+   "a": "All trails are free to access, but they are built and maintained by the Nelson Mountain Bike Club (NMTBC). It is worth supporting the network with a membership or a donation at one of the local shops."
+  },
+  {
+   "q": "Where can I get trail maps and local advice?",
+   "a": "The Nelson Cycling Club trail map is sold in town, and a large trail map is posted at the Mountain Station parking area. Gerick Cycle & Ski and The Sacred Ride in downtown Nelson can advise on current conditions and which areas match your ability."
+  },
+  {
+   "q": "Do I need to worry about bears?",
+   "a": "Yes. The riding areas are active black bear and grizzly bear habitat, so carry bear spray in an accessible place and, whenever possible, ride with a partner."
+  }
+ ],
+ "nearby": [
+  "squamish",
+  "whistler"
+ ],
+ "sources": [
+  "Nelson.docx",
+  "Nelson - fishing.docx"
+ ]
+}

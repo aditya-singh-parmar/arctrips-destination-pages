@@ -363,6 +363,18 @@ body>.placebar,.placebar{position:sticky;top:71px;z-index:18;background:var(--pa
 .placebar__links a:hover{color:var(--navy)}
 .placebar__links a[aria-current]{color:var(--navy);font-weight:700;border-bottom-color:var(--azure)}
 
+/* --- the two-line header (reviewer, 2026-11-13) ----------------------------
+   Row 2 is the breadcrumb, row 3 the sections of this page. One sticky block,
+   the same arrangement on every destination page. Written by nav-rebuild.mjs. */
+.placebar--two .wrap{display:flex;flex-direction:column}
+.placebar--two .placebar__crumb{padding-block:12px 0;font-size:.85rem;flex-wrap:nowrap;overflow-x:auto;
+  scrollbar-width:none;white-space:nowrap}
+.placebar--two .placebar__crumb::-webkit-scrollbar{display:none}
+.placebar--two .placebar__crumb a{display:inline-flex;align-items:center;min-height:32px}
+.placebar--two .placebar-in{min-height:46px}
+.placebar--two .placebar__links a{min-height:46px}
+@media(max-width:700px){.placebar--two .placebar__crumb .lvl-deep{display:none}}
+
 /* ── the subject rail ───────────────────────────────────────────────────────
    The tab bar carries the town's sections and nothing else. A subject page used
    to wedge its own name into that bar as a pseudo-tab, which told you where you

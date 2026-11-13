@@ -1,0 +1,183 @@
+{
+ "town": "nelson",
+ "title": "Nelson, Arc Trips",
+ "desc": "Nelson, British Columbia. 12 places featured.",
+ "hero_img": [
+  "/prototype/media/nelson/image8.jpg"
+ ],
+ "hero_lede": [
+  "This is the region's primary draw, famous for the Gerrard Rainbow Trout, a predator that can exceed 30 pounds."
+ ],
+ "tabs": [
+  {
+   "g": "fishing",
+   "label": "Fishing",
+   "subs": [
+    {
+     "h": "",
+     "items": [
+      {
+       "name": "Kootenay Lake (The Main Body & West Arm)",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "The Main Lake (Balfour & Kaslo): Located about 30 minutes east of Nelson, the area near the Balfour Ferry Terminal is the gateway to the main body of the lake. This is where the water is deepest and where trophy Gerrard and Bull Trout are most active.",
+        "The West Arm: This narrower section of the lake flows right past downtown Nelson. It is a productive area for smaller Rainbows and Bull Trout, as well as Kokanee Salmon during their seasonal runs."
+       ],
+       "note": null
+      },
+      {
+       "name": "The Columbia River",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "Often referred to by local guides as a hidden gem, the Columbia River south of Nelson (near Castlegar) is considered one of the premier fly-fishing rivers in North America.",
+        "The Tailrace (Castlegar): The area where the Kootenay River joins the Columbia is a hotspot for large Rainbow Trout and Walleye.",
+        "Eddies and Runs: The river is known for powerful, acrobatic trout. While shore access is available at various community parks in Castlegar and Trail, the most productive spots are reached via jet boat, allowing you to hit the deep eddies where the largest fish hold."
+       ],
+       "note": null
+      },
+      {
+       "name": "Local Mountain & Alpine Lakes",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "For those who prefer a hike-in experience or a quieter setting, the backcountry surrounding Nelson is dotted with stocked and wild lakes.",
+        "Kokanee Glacier Provincial Park: Features several high-altitude lakes, such as Kaslo Lake, which are home to smaller but very aggressive Cutthroat and Brook trout.",
+        "Summit Lake & Box Lake: Located north of Nelson toward Nakusp, these are easily accessible roadside lakes perfect for a peaceful afternoon of belly-boating or casting from the shore for Rainbows."
+       ],
+       "note": null
+      },
+      {
+       "name": "Notable Creeks and Tributaries",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "Kokanee Creek: Famous for the Kokanee salmon spawning run in August. While the creek itself may have specific closures to protect spawners, the area where it meets the lake is a prime location for targeting predatory trout waiting for fry.",
+        "Slocan River: A beautiful, slower-moving river north of Nelson that is excellent for drift-fishing or wading for Rainbow and Westslope Cutthroat trout."
+       ],
+       "note": null
+      }
+     ]
+    }
+   ],
+   "faqs": [
+    {
+     "q": "What is Nelson known for fishing?",
+     "a": [
+      "Set beside Kootenay Lake and surrounded by mountain scenery, it is especially famous for Gerrard rainbow trout, along with bull trout and kokanee salmon."
+     ]
+    },
+    {
+     "q": "Can you fish in Nelson in winter?",
+     "a": [
+      "Winter is often considered one of the best times for larger trout, as fish move up from deeper water."
+     ]
+    }
+   ]
+  },
+  {
+   "g": "biking",
+   "label": "Mountain biking",
+   "subs": [
+    {
+     "h": "Best for Beginners",
+     "items": [
+      {
+       "name": "Giveout & Morning Mountain",
+       "img": "/prototype/media/nelson/image8.jpg",
+       "alt": "Two riders on a forest trail",
+       "paras": [
+        "Located west of Nelson in the Blewett area and accessed via Blewett Ski Hill Road, this zone serves as the city’s primary hub for progressive riding. It features the Bottoms Up climbing trail, which provides pedal-access to modern machine-built flow like Turnstyles and Nelson’s first adaptive mountain bike (aMTB) trails. Riders can also shuttle via the Giveout Creek FSR to the 9km marker for longer descents. This area is the best starting point for visitors, offering a rare mix of green and blue options alongside classic Kootenay black diamond terrain."
+       ],
+       "note": null
+      },
+      {
+       "name": "49’er",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "The 49’er is a legendary big mountain descent located south of Nelson on the north flank of Toad Mountain, typically accessed by shuttling the Giveout Creek FSR. This trail epitomizes old-school Nelson riding, featuring a long, relentless downhill filled with tight roots, technical rock slabs, and high-speed forest segments. Because it is a sustained descent with significant vertical drop, it is essential to check your equipment beforehand. It offers a raw, unrefined experience that is significantly steeper and more demanding than the trails found at Morning Mountain."
+       ],
+       "note": null
+      },
+      {
+       "name": "Svoboda",
+       "img": "/prototype/media/nelson/image13.jpg",
+       "alt": "A rider on a wooden trail feature in the forest",
+       "paras": [
+        "Situated within West Arm Provincial Park and accessed via Svoboda Road near the Fairview neighborhood, this area is famous for its boney, mossy, and exceptionally steep terrain. The network is defined by massive rock slabs and high-consequence technical lines on world-renowned trails like Paper Bag. While the access is a steady gravel road grind, the reward is advanced-level riding that requires comfort with steep rock rolls and technical staircase features. As it is located in a Provincial Park, riders must stay strictly on designated paths to protect the sensitive ecosystem.",
+        "If you are after the more demanding side of Nelson mountain biking, the standout areas are Mountain Station, Gold Creek, Smallwood, and Baldface & Shannon Pass. These zones are better suited to experienced riders who are comfortable with steep descents, technical terrain, and the more rugged, old-school style of riding that Nelson is known for."
+       ],
+       "note": null
+      }
+     ]
+    },
+    {
+     "h": "Best for Technical Riders",
+     "items": [
+      {
+       "name": "Mountain Station",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "Mountain Station is Nelson’s most iconic and accessible trail network, situated directly above the city at the top of Cherry Street. This area is famously tight and bright, featuring a high concentration of intersecting trails that range from historic old-school gnarl to classic technical singletrack. Because it is perched right on the edge of town, many riders pedal directly from downtown to the trailhead, utilizing the primary access road to lap popular descent lines. Some sections of this network cross private property, so staying strictly on marked trails is essential to maintaining community access."
+       ],
+       "note": null
+      },
+      {
+       "name": "Gold Creek",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "The Gold Creek area is synonymous with big downhill riding and is essentially the steeper, more aggressive extension of the Giveout network. The riding here is defined by long, sustained vertical drops, tight forest corridors, and a high frequency of technical features like roots, stunts, and rock-covered singletrack. Trails in this zone, such as Goldmember, are often rated double-black diamond and require advanced skills to navigate safely. Due to the significant elevation gain and the distance from town, Gold Creek is almost exclusively a shuttle-access zone, utilizing the Giveout Creek FSR to reach the higher ridge-top trailheads."
+       ],
+       "note": null
+      },
+      {
+       "name": "Smallwood",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "Located west of Nelson near the community of Beasley, Smallwood is a favorite for riders seeking a slightly more XC (cross-country) feel compared to Nelson’s steeper zones. The network is characterized by a mix of historic pack trails and modern singletrack that winds through diverse forest and open rocky bluffs. It features a great intermediate climbing route that leads to panoramic views of the Kootenay River and the surrounding valley. While it still contains technical rock sections and boney terrain, the descents are generally less punishing, making it an excellent area for long, scenic loops or a high-tempo pedal session."
+       ],
+       "note": null
+      },
+      {
+       "name": "Baldface & Shannon Pass",
+       "img": "/prototype/media/nelson/image7.jpg",
+       "alt": "Riders resting above Kootenay Lake",
+       "paras": [
+        "This area represents the high-alpine, epic side of Nelson’s riding, taking users deep into the backcountry terrain north of town. Access involves a significant climb or a high-clearance shuttle via the Shannon Creek FSR to reach the Shannon Pass area, which acts as the gateway to massive, high-elevation descents. The trails here, such as the famous Powerslave, offer a rugged and remote experience with long stretches of technical singletrack through sub-alpine forests and rocky ridges. Because of the elevation and remoteness, this zone is best suited for prepared, advanced riders looking for a full-day adventure with significant vertical drop.",
+        "If views and overall riding atmosphere matter just as much as the trail itself, North Shore, 49’er, and Baldface & Shannon Pass are some of the most scenic areas to mention. These zones stand out for their broader landscape appeal, backcountry feel, and the kind of mountain setting that makes riding near Nelson so memorable."
+       ],
+       "note": null
+      }
+     ]
+    },
+    {
+     "h": "Best for Scenic Rides",
+     "items": [
+      {
+       "name": "North Shore",
+       "img": "/prototype/media/nelson/image3.jpg",
+       "alt": "A rider among large cedars",
+       "paras": [
+        "Located across the Big Orange Bridge on the north side of Kootenay Lake, the North Shore (primarily the area around Kokanee Creek and Balfour) offers a more secluded, rugged riding experience. The terrain here is characterized by steep, loamy forest floors and natural technical features that take advantage of the dramatic coastal-style landscape. While it lacks the high-density machine-flow of Morning Mountain, it provides some of the most scenic views of the lake and the Selkirk Mountains. Most trails are accessed via steep logging roads, making it a favorite for local riders looking to escape the busier networks closer to the city center."
+       ],
+       "note": null
+      }
+     ]
+    }
+   ],
+   "faqs": [
+    {
+     "q": "When is the mountain biking season in Nelson?",
+     "a": [
+      "The main mountain biking season is usually late spring through fall."
+     ]
+    }
+   ]
+  }
+ ]
+}

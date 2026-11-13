@@ -23,8 +23,8 @@ cite{font-style:normal}
 .skip{position:absolute;left:var(--gut);top:-60px;z-index:99;background:var(--navy);color:var(--paper);
   padding:13px 18px;border-radius:0 0 var(--r-sm) var(--r-sm);font-weight:600;font-size:.9rem}
 .skip:focus{top:0}
-main [id]{scroll-margin-top:150px}
-@media(max-width:760px){main [id]{scroll-margin-top:140px}}
+main [id]{scroll-margin-top:176px}
+@media(max-width:760px){main [id]{scroll-margin-top:176px}}
 
 /* hero */
 .chero{position:relative;min-height:min(58vh,500px);display:flex;align-items:flex-end;overflow:hidden;background:var(--navy)}
@@ -135,30 +135,17 @@ main [id]{scroll-margin-top:150px}
     <kbd>/</kbd>
   </form>
 </div></nav>
-<nav class="placebar" aria-label="Ucluelet"><div class="wrap placebar-in">
-  <a class="placebar__back" href="/destinations/canada/bc/ucluelet"><span class="n">&larr; Ucluelet</span></a>
-  <ul class="placebar__links">
-    <li><a href="/destinations/canada/bc/ucluelet">Overview</a></li>
-    <li><a href="/destinations/canada/bc/ucluelet#do" aria-current="page">Things to do</a></li>
-  </ul>
-</div></nav>
-<nav class="subjectbar" aria-label="Things to do in Ucluelet"><div class="wrap subjectbar-in">
-  <span class="subjectbar__l">Things to do</span>
-  <ul class="subjectbar__links">
+<div class="placebar placebar--two" aria-label="Ucluelet"><div class="wrap">
+  <nav class="crumb placebar__crumb" aria-label="Breadcrumb"><a class="lvl-deep" href="/">British Columbia</a><span class="sep lvl-deep" aria-hidden="true">/</span><a class="lvl-deep" href="/destinations/canada/bc/vancouver-island">Vancouver Island</a><span class="sep lvl-deep" aria-hidden="true">/</span><a class="lvl-deep" href="/destinations/canada/bc/ucluelet">Ucluelet</a><span class="sep lvl-deep" aria-hidden="true">/</span><a href="/destinations/canada/bc/ucluelet#do">Things to do</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Restaurants</span></nav>
+  <nav class="placebar-in" aria-label="Ucluelet sections"><ul class="placebar__links">
     <li><a href="/destinations/canada/bc/ucluelet/things-to-do/hiking">Hiking &amp; trails</a></li>
     <li><a href="/kayaking/canada/bc/ucluelet">Kayaking</a></li>
     <li><a href="/whale-watching/canada/bc/ucluelet">Whale watching</a></li>
     <li><a href="#top" aria-current="page">Restaurants</a></li>
-  </ul>
-</div></nav>
+  </ul></nav>
+</div></div><!-- /placebar -->
 <main id="main">
-<div class="wrap"><nav class="crumb" aria-label="Breadcrumb">
-  <a class="lvl-deep" href="/">British Columbia</a><span class="sep lvl-deep">/</span>
-  <a href="/destinations/canada/bc/vancouver-island">Vancouver Island</a><span class="sep">/</span>
-  <a href="/destinations/canada/bc/ucluelet">Ucluelet</a><span class="sep">/</span>
-  <a href="/destinations/canada/bc/ucluelet#do">Things to do</a><span class="sep">/</span>
-  <span aria-current="page">Restaurants</span>
-</nav></div>
+
 <header class="chero">
   <img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_2000,h_1000/guides/ucluelet/whale-watching/ucluelet-harbour-1" alt="The small craft harbour in Ucluelet on a clear morning, with the floathouse restaurant out on the water">
   <div class="chero__v"></div>

@@ -1,0 +1,270 @@
+{
+  "slug": "chemainus",
+  "name": "Chemainus",
+  "region": "island",
+  "title": "Chemainus, Arc Trips",
+  "description": "Chemainus, Vancouver Island: a walkable seaside town of outdoor murals, theatre, boutiques, waterfront views and ferries to Thetis Island.",
+  "hero": {
+    "img": "/prototype/media/chemainus/image9.jpg",
+    "alt": "A Chemainus street with a mural on a corner building",
+    "standfirst": "A small seaside town on the east coast of Vancouver Island, known for its colourful murals, historic character and relaxed, walkable pace."
+  },
+  "why": {
+    "h2": "A mural town on the water",
+    "paras": [
+      "Nestled on the east coast of Vancouver Island, Chemainus is one of the island's most charming small towns, known for colourful murals, a seaside setting and a welcoming community feel. Once a busy logging town, it has become one of the most distinctive places to visit, where art, history and coastal beauty come together.",
+      "Chemainus is a place to slow down. It is compact and very walkable, with ocean views, quaint streets, local shops and a small-town atmosphere. It works well for a short stop, but it can just as easily fill a full day."
+    ],
+    "facts": [
+      {
+        "k": "Where it is",
+        "v": "East coast of Vancouver Island, on the Stuart Channel in the Cowichan Valley."
+      },
+      {
+        "k": "Getting there",
+        "v": "Duncan is 17 km away. Most nearby parks are a 5 to 10 minute drive, and a 25-minute ferry reaches Thetis and Penelakut Islands."
+      },
+      {
+        "k": "Known for",
+        "v": "Over 40 murals, the Chemainus Theatre Festival, independent galleries and shops, and a harbour waterfront."
+      },
+      {
+        "k": "When to come",
+        "v": "The murals are open year-round. The Wednesday Market runs mid-May to mid-September, and the Giant Street Market is in mid-July."
+      }
+    ]
+  },
+  "when": {
+    "h2": "Murals all year, markets in summer",
+    "intro": "The murals and theatre run year-round, so Chemainus never closes. Summer is busiest, with the Wednesday Market, Music in the Park and the mid-July Giant Street Market. In the shoulder seasons, some shops keep Wednesday to Sunday hours.",
+    "rows": [
+      {
+        "name": "Mural walk",
+        "best": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "shoulder": [],
+        "note": "A permanent, free attraction in every season."
+      },
+      {
+        "name": "Wednesday Market",
+        "best": [
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "shoulder": [],
+        "note": "Weekly, mid-May to mid-September, 10:00 AM to 3:00 PM."
+      },
+      {
+        "name": "Giant Street Market",
+        "best": [
+          7
+        ],
+        "shoulder": [],
+        "note": "An annual mid-July event with over 100 vendors."
+      }
+    ],
+    "crowds": [
+      1,
+      1,
+      2,
+      2,
+      3,
+      3,
+      4,
+      4,
+      3,
+      2,
+      2,
+      2
+    ],
+    "crowdsNote": "Summer markets and the mid-July street market bring the biggest crowds; murals stay open all year.",
+    "seasons": [
+      {
+        "h": "Summer, June to August",
+        "p": "The Wednesday Market, Music in the Park at the Waterwheel Park bandshell, and the Giant Street Market in mid-July with over 100 vendors. The market area can get quite crowded."
+      },
+      {
+        "h": "Fall, September to November",
+        "p": "A good time for the mural circuit, theatre matinees and the BC Forest Discovery Centre in Duncan, known for its Halloween Train."
+      },
+      {
+        "h": "Winter, December to February",
+        "p": "The theatre keeps a year-round calendar with holiday-themed specials, and Waterwheel Park is lit with string lights in the holiday season. The Forest Discovery Centre runs a Christmas Express."
+      },
+      {
+        "h": "Spring, March to May",
+        "p": "Murals and shops are open, and the Wednesday Market starts in mid-May. Stocking Creek Falls is at its most powerful after rain, but trails can be icy in late winter."
+      }
+    ]
+  },
+  "tabs": [
+    {
+      "id": "murals-arts",
+      "label": "Murals and arts",
+      "intro": "The mural walk anchors a compact arts district of theatre, galleries and a small museum.",
+      "places": [
+        {
+          "name": "Walk the Chemainus Murals",
+          "img": "/prototype/media/chemainus/image2.jpg",
+          "alt": "A large mural of a sailing ship and townspeople on a building wall",
+          "text": "Once a struggling lumber town, Chemainus became a world-famous outdoor gallery. Follow the yellow footprints painted on the sidewalks past over 40 professional murals and several sculptures, including The Hermit and the Historical Series. Heritage Square, with its tiered gardens, is a natural starting point.",
+          "note": "Free and open 24 hours, on mostly level sidewalks. Plan two to three hours; a Visitor Centre map gives each artist's story."
+        },
+        {
+          "name": "Chemainus Theatre Festival",
+          "img": "/prototype/media/chemainus/image10.jpg",
+          "alt": "The domed Chemainus Theatre Festival building",
+          "text": "A premier cultural destination in a neo-classical building, with professional casts recruited from across Canada. Mainstage productions run year-round, from Broadway musicals to holiday specials, and the Playbill Dining Room serves a themed buffet that changes with each show. Backstage tours run on select dates.",
+          "note": "9737 Chemainus Rd. Book the combined dinner and show package; several matinees run each week."
+        },
+        {
+          "name": "Boutiques, galleries and artisan shops",
+          "img": "/prototype/media/chemainus/image5.jpg",
+          "alt": "Shopfronts and a clock tower on a Chemainus street",
+          "text": "With no big-box retailers, independent boutiques, galleries and nostalgic shops thrive, mostly along Willow Street. Look for Rainforest Arts for local island artists, the Willow Antique Mall and Vintiquity for vintage finds, and Hansel & Gretel's Candy Co. for traditional sweets and fudge.",
+          "note": "Many shops keep Wednesday to Sunday hours in the shoulder season."
+        },
+        {
+          "name": "Chemainus Valley Museum",
+          "img": null,
+          "alt": null,
+          "text": "Run by volunteers from the Chemainus Valley Historical Society in the heart of Waterwheel Park, the museum gives the context behind the murals. See logging and mill exhibits, original mural sketches and photographs, and displays on Stz'uminus heritage. The shop sells the official mural guide booklet.",
+          "note": "9799 Waterwheel Crescent. Usually 10:00 AM to 3:00 PM, Thursday to Sunday; entry by donation."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "How many murals are there and how long does the walk take?",
+          "a": "The Mural Walk connects over 40 professional murals and several sculptures along yellow footprints on the sidewalks. Plan at least two to three hours, and pick up a map or the mural guide booklet for the artist stories."
+        },
+        {
+          "q": "Is it free to see the Chemainus murals?",
+          "a": "Yes. Viewing is free and open 24 hours a day, year-round. Most of the route follows level sidewalks, and dogs on a leash are welcome."
+        },
+        {
+          "q": "Can I see a show at the Chemainus Theatre Festival in the afternoon?",
+          "a": "Yes. The theatre offers several afternoon matinees each week, so you can walk the murals in the morning and catch a show after lunch. The combined dinner and show package keeps your table timed to the performance."
+        }
+      ]
+    },
+    {
+      "id": "waterfront-outdoors",
+      "label": "Waterfront and outdoors",
+      "intro": "Harbour views, a leafy park, nearby trails and a short ferry hop to the Gulf Islands.",
+      "places": [
+        {
+          "name": "Waterfront and harbour views",
+          "img": "/prototype/media/chemainus/image3.jpg",
+          "alt": "A bench on a lawn looking over the water, with sailboats in the distance",
+          "text": "The waterfront gives expansive views of the Stuart Channel and the Gulf Islands. Walk Kinsmen Beach Park, where low tide reveals tidal pools and sandbars, the Municipal Wharf for the fishing fleet, eagles and seals, and the Waterwheel Park viewpoint. Calm water suits kayakers and paddleboarders.",
+          "note": "Check a tide table for Kinsmen Beach. The wharf is one of the best evening photography spots."
+        },
+        {
+          "name": "Waterwheel Park",
+          "img": "/prototype/media/chemainus/image14.jpg",
+          "alt": "The wooden waterwheel replica among spring flowers in Waterwheel Park",
+          "text": "The civic and garden heart of Chemainus is named for the large replica of the 1862 waterwheel by its entrance. Enjoy landscaped gardens, a cedar bandshell that hosts the Music in the Park series in summer, heritage statues, a labyrinth and a playground.",
+          "note": "3828 Croft St. Free to enter at all times, with a large free lot beside the Visitor Centre."
+        },
+        {
+          "name": "Trails and parks nearby",
+          "img": "/prototype/media/chemainus/image7.jpg",
+          "alt": "A trail marker post in the forest",
+          "text": "Fuller Lake Park has a sandy beach and a trout-stocked fishing pier, Askew Park offers forest trails along Askew Creek, and Stocking Creek Park leads to Stocking Creek Falls. The Cowichan Valley Trail suits cycling or a level stroll toward Saltair or Ladysmith.",
+          "note": "Most parks are a 5 to 10 minute drive from downtown. Trails can be icy in late winter."
+        },
+        {
+          "name": "Thetis and Penelakut Islands",
+          "img": "/prototype/media/chemainus/image8.jpg",
+          "alt": "A wooded island shoreline with sailboats at anchor",
+          "text": "Two Southern Gulf Islands reached by a short ferry from Chemainus. Thetis has quiet rural charm, galleries, Thetis Island Vineyard and Telegraph Harbour for paddling. Penelakut is the home of the Penelakut Tribe and is a private community, best appreciated from the ferry or the water.",
+          "note": "A 25-minute BC Ferries crossing for vehicles and foot passengers. Fuel up and buy groceries in Chemainus first."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "How do I get to Thetis Island from Chemainus?",
+          "a": "Take the Thetis-Penelakut ferry from the Chemainus Ferry Terminal, a 25-minute BC Ferries crossing that carries vehicles and foot passengers. It runs a triangle route, so some sailings stop at Thetis first and others at Penelakut."
+        },
+        {
+          "q": "Where can I explore the beach and tide pools?",
+          "a": "Kinsmen Beach Park is the town's main oceanfront park. At low tide the water recedes to reveal tidal pools and sandbars, and you can walk out toward Bird Rock. Check a tide table before you go."
+        },
+        {
+          "q": "Where can I find a waterfall near Chemainus?",
+          "a": "Stocking Creek Park, a short drive north, has trails to Stocking Creek Falls, which are particularly striking after rain. Trails can be icy in late winter, so wear sturdy, grippy footwear."
+        }
+      ]
+    },
+    {
+      "id": "markets-family",
+      "label": "Markets and family days",
+      "intro": "Indoor and outdoor markets, plus a forestry museum with a steam train nearby.",
+      "places": [
+        {
+          "name": "Chemainus Public Market",
+          "img": "/prototype/media/chemainus/image16.jpg",
+          "alt": "The Chemainus Public Market building and car park",
+          "text": "An indoor community hub in the centre of town, ideal on a rainy day. Archie's Ice Cream Parlour & Diner serves milkshakes and meals in a 1950s style, Wizard's Arcade has classic games and pinball, and shops include a LEGO specialty store, local lavender products and artisan studios.",
+          "note": "9790 Willow St. The main market and diner are open daily; some stalls and the arcade run Wednesday to Sunday."
+        },
+        {
+          "name": "Chemainus Wednesday Market",
+          "img": null,
+          "alt": null,
+          "text": "A seasonal outdoor Make It, Bake It, Grow It market across from Waterwheel Park, with farm-fresh produce, handmade jewelry and pottery, baked goods and the Chemainus & District Chamber of Commerce tent. In mid-July, look for the Giant Street Market, with over 100 vendors along Willow Street.",
+          "note": "Wednesdays, 10:00 AM to 3:00 PM, from mid-May to mid-September. Arrive early for the best produce."
+        },
+        {
+          "name": "BC Forest Discovery Centre",
+          "img": "/prototype/media/chemainus/image13.jpg",
+          "alt": "A rail line crossing a timber trestle in the forest",
+          "text": "A 100-acre open-air museum in Duncan, 17 kilometres from Chemainus. Ride the historic Samson narrow-gauge steam train across a trestle over Somenos Lake, and explore steam donkeys, a restored sawmill, a logging camp and a one-room schoolhouse along the forest trails.",
+          "note": "2892 Drinkwater Rd. The train runs on a seasonal schedule; the Halloween Train and Christmas Express are popular events."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "When is the Chemainus Wednesday Market on?",
+          "a": "Weekly on Wednesdays from mid-May through mid-September, 10:00 AM to 3:00 PM, in the lot across from Waterwheel Park. Arrive near opening for the best produce and baked goods."
+        },
+        {
+          "q": "What is there to do in Chemainus on a rainy day?",
+          "a": "The Chemainus Public Market is indoors, with a 1950s-style diner, an arcade and shops, and you can spend several hours there. The Chemainus Valley Museum and a theatre matinee also work in wet weather."
+        },
+        {
+          "q": "How far is the BC Forest Discovery Centre?",
+          "a": "It is in Duncan, 17 kilometres from Chemainus, at 2892 Drinkwater Rd. The steam train operates on a seasonal schedule, so arrive at the station early for the next departure."
+        }
+      ]
+    }
+  ],
+  "planning": [
+    {
+      "q": "How long do I need in Chemainus?",
+      "a": "It works for a short stop but can fill a full day. The mural circuit alone takes two to three hours, with more time for shops, the museum and the waterfront."
+    }
+  ],
+  "nearby": [
+    "nanaimo",
+    "shawnigan-lake"
+  ],
+  "sources": [
+    "Chemainus.docx"
+  ]
+}

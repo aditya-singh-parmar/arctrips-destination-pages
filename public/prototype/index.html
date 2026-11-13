@@ -46,8 +46,8 @@ nav.top .btn{flex:none}
 .skip:focus{top:0}
 /* body contrast floor: n500 is 3.7:1 on paper, so anything carrying meaning moves to n600 */
 .label--n,.dest__meta,.kmeta,.fnote,.vcap,.fbase,.who span{color:var(--n600)}
-[id]{scroll-margin-top:140px}
-@media(max-width:760px){[id]{scroll-margin-top:80px}}
+[id]{scroll-margin-top:176px}
+@media(max-width:760px){[id]{scroll-margin-top:104px}}
 
 /* ═══ (a) type floor. 14px is the smallest thing on the page. ═══ */
 .label{font-size:.88rem;letter-spacing:.12em}
@@ -72,16 +72,16 @@ nav.top .btn{flex:none}
   background:rgba(255,255,255,.06);color:rgba(255,255,255,.62)}
 .mon i[data-on]{background:rgba(255,255,255,.14);color:#fff;font-weight:700}
 /* peak months, brightest cells; the edges of a season, dimmer. */
-.mon i[data-heat="1"]{background:var(--a800)}
-.mon i[data-heat="2"]{background:var(--a700)}
+.mon i[data-heat="1"]{background:transparent;box-shadow:inset 0 0 0 1.5px var(--a400)}
+.mon i[data-heat="2"]{background:var(--a800);color:var(--a200)}
 .mon i[data-heat="3"]{background:var(--azure)}
-.mon i[data-heat="4"]{background:var(--a400);color:var(--navy)}
+.mon i[data-heat="4"]{background:var(--a300);color:var(--navy)}
 .heatkey{display:inline-flex;align-items:center;gap:5px;margin-left:12px;vertical-align:middle}
 .heatkey i{width:15px;height:15px;border-radius:4px;display:block}
 .heatkey i[data-heat="1"]{background:var(--a800)}
-.heatkey i[data-heat="2"]{background:var(--a700)}
+.heatkey i[data-heat="2"]{background:var(--a800);box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
 .heatkey i[data-heat="3"]{background:var(--azure)}
-.heatkey i[data-heat="4"]{background:var(--a400)}
+.heatkey i[data-heat="4"]{background:var(--a300)}
 .heatkey__l{font-size:.78rem;font-weight:600;color:rgba(255,255,255,.7)}
 .mon i[data-now]{outline:1.5px solid #fff;outline-offset:1.5px}
 /* the rest of the green in the system, off everywhere except the booking pill */
@@ -297,8 +297,8 @@ nav.top .btn{flex:none}
 .msw__b{flex:1;min-width:52px;display:flex;flex-direction:column;align-items:center;gap:8px;
   padding:10px 0 11px;border-radius:var(--r-sm);transition:background .2s var(--ease),transform .24s var(--ease)}
 .msw__b:hover{background:rgba(255,255,255,.08)}
-.msw__mm{font-size:.88rem;font-weight:700;color:rgba(255,255,255,.68);font-variant-numeric:tabular-nums}
-.msw__col{width:100%;height:clamp(84px,13vw,168px);display:flex;align-items:flex-end;justify-content:center}
+.msw__mm{display:none}
+.msw__col{display:none}
 .msw__bar{width:66%;background:rgba(255,255,255,.17);border-radius:4px 4px 0 0;height:var(--h);
   transition:background .24s var(--ease),transform .3s var(--ease);transform-origin:bottom}
 .msw__l{font-size:.88rem;font-weight:700;color:rgba(255,255,255,.68)}
@@ -412,6 +412,12 @@ footer.f{margin-top:0}
 .band h2{font-size:clamp(2.1rem,3.8vw,3.2rem)}
 .band .btn--ghost{border-color:rgba(255,255,255,.62);color:var(--paper)}
 .band .btn--ghost:hover{border-color:var(--paper);background:rgba(255,255,255,.14)}
+/* weather, last and small (review 2026-11-13: lead with seasons and crowds) */
+.wx{margin-top:clamp(26px,3vw,36px);padding-top:clamp(18px,2.2vw,26px);border-top:1px solid rgba(255,255,255,.2)}
+.wx__h{font-size:1.05rem;color:var(--paper)}
+.wx__p{font-size:.95rem;color:rgba(255,255,255,.8);margin-top:6px;max-width:62ch}
+.wx .bignums{margin-top:14px}
+.wx .bignums dd{font-size:clamp(1.3rem,2vw,1.7rem)}
 </style>
 </head>
 <body>
@@ -462,16 +468,16 @@ footer.f{margin-top:0}
 
 <!-- PLACE BAR. Same bar as every other level of the tree. British Columbia is
      the root, so the slot that carries the parent elsewhere names this place. -->
-<nav class="placebar" aria-label="British Columbia"><div class="wrap placebar-in">
-  <span class="placebar__here">British Columbia</span>
-  <ul class="placebar__links">
+<div class="placebar placebar--two" aria-label="British Columbia"><div class="wrap">
+  <nav class="crumb placebar__crumb" aria-label="Breadcrumb"><span aria-current="page">British Columbia</span></nav>
+  <nav class="placebar-in" aria-label="British Columbia sections"><ul class="placebar__links">
     <li><a href="#island" aria-current="true">Vancouver Island</a></li>
     <li><a href="#destinations">Towns</a></li>
     <li><a href="#mainland">Mainland</a></li>
     <li><a href="#guides">Island guides</a></li>
     <li><a href="#almanac">When to go</a></li>
-  </ul>
-</div></nav>
+  </ul></nav>
+</div></div><!-- /placebar -->
 
 <main id="main">
 
@@ -517,10 +523,6 @@ footer.f{margin-top:0}
   </div>
 </div></header>
 
-<!-- says what it is, gives the readings, then says why it matters -->
-<section class="statband"><div class="wrap">
-  <dl class="statgrid" id="statgrid"></dl>
-</div></section>
 
 <!-- THE HERO OF THE PAGE: the region to start with. -->
 <section class="isle" id="island">
@@ -582,22 +584,18 @@ footer.f{margin-top:0}
     <div class="head">
       <div>
         <h2>When should you go?</h2>
-        <p>Pick a month and you get the honest answer for the two finished towns: the weather they really have, what is in season, and what you can book.</p>
+        <p>Pick a month to see what is in season on the west coast, how busy it gets and what you can book. Every month has a reason to come; the weather only decides what you pack.</p>
       </div>
       <a class="btn btn--ghost btn--sm" href="/travel-guides/canada/bc/tofino">Plan a Tofino trip</a>
     </div>
 
     <div class="mswwrap">
-      <p class="msw__lead"><span id="mswDek">Each column is that month's average rainfall in Tofino. Taller means wetter.</span> Choose a month.</p>
+      <p class="msw__lead"><span id="mswDek">Choose a town and a month.</span></p>
       <div class="almpick" role="group" aria-label="Choose a town">
         <button type="button" class="almpick__b" data-t="tofino" aria-pressed="true">Tofino</button>
         <button type="button" class="almpick__b" data-t="ucluelet" aria-pressed="false">Ucluelet</button>
       </div>
       <div class="msw" role="group" aria-label="Choose a month" id="msw"></div>
-      <p class="mswaxis">
-        <span>Wettest <b id="mswWet">November, 500 mm</b></span>
-        <span>Driest <b id="mswDry">July, 66 mm</b></span>
-      </p>
     </div>
 
     <div class="claim">
@@ -606,13 +604,12 @@ footer.f{margin-top:0}
         <p class="claim__n" id="seasonName"></p>
         <p class="claim__c" id="seasonClaim"></p>
       </div>
-      <dl class="bignums" id="bignums"></dl>
       <p class="claim__r" id="seasonReason"></p>
     </div>
 
     <h3 class="alm__h" id="ledHead"></h3>
-    <p class="alm__p">Each row is one thing to do, and the twelve squares are the months. A filled square means that month is in season for it. The brightest squares are its peak months, the dimmer ones at either end are the edges of the season.
-      <span class="heatkey"><i data-heat="2"></i><span class="heatkey__l">Edge of season</span><i data-heat="4"></i><span class="heatkey__l">Peak</span></span></p>
+    <p class="alm__p">Each row is one thing to do, and the twelve squares are the months. A filled square means that month is in season for it. Bright squares are its peak months, when it is busiest; dim squares are the quieter edges of the season. The outlined square is the month you picked.
+      <span class="heatkey"><i data-heat="4"></i><span class="heatkey__l">Peak, busiest</span><i data-heat="2"></i><span class="heatkey__l">Shoulder, quieter</span></span></p>
 
     <table class="led">
       <thead><tr><th>What to do</th><th class="led__mon">Months in season</th><th>Booking</th></tr></thead>
@@ -624,6 +621,15 @@ footer.f{margin-top:0}
       <a href="/search">Search every place<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
     </div>
 
+    <div class="wx">
+      <h3 class="wx__h">The weather, if you want it</h3>
+      <p class="wx__p">Rain is part of the coast in every month. Bring layers and a waterproof shell and the plan above still holds.</p>
+      <dl class="bignums" id="bignums"></dl>
+      <p class="mswaxis">
+        <span>Wettest <b id="mswWet">November, 500 mm</b></span>
+        <span>Driest <b id="mswDry">July, 66 mm</b></span>
+      </p>
+    </div>
     <p class="almanac__legend">Climate figures are Environment and Climate Change Canada normals for Tofino and Ucluelet, seeded for design.</p>
     <p class="vh" role="status" aria-live="polite" id="live"></p>
   </div>
@@ -988,16 +994,9 @@ function moveFinder(d){
 function paintStatic(){
 
   $("#heroNote").innerHTML =
-    `<b>${T.towns}</b> towns across British Columbia, from the surf coast to the Rockies road. ` +
-    `<b>${C.stays}</b> places to stay are bookable tonight, from $${C.from} a night.`;
+    `Towns across British Columbia, from the surf coast to the Sea to Sky. ` +
+    `Places to stay in Tofino and Ucluelet are bookable tonight, from <b>$${C.from}</b> a night.`;
 
-  const stats = [
-    [T.towns, "Towns", `Across ${word(T.regions)} regions, from Sooke to the Sea to Sky.`],
-    [num(T.places), "Places featured", "Beaches, trails, launches and tables, each with a note on what it is like."],
-    [T.guides, "Travel guides", "Subject by subject, plus the ones that run the length of the island."]
-  ];
-  $("#statgrid").innerHTML = stats.map(([n,label,gloss]) =>
-    `<div class="stat"><dt>${label}</dt><dd class="tnum">${n}</dd><p>${gloss}</p></div>`).join("");
 
 
   $("#readDek").textContent = "The guides people open first.";
@@ -1008,7 +1007,7 @@ function paintStatic(){
         <span class="tnum">${a.places ? esc(a.places + " " + a.unit) : esc(a.where)}</span></div>
       <h4>${esc(a.title)}</h4></div></a>`).join("");
 
-  $("#qaDek").textContent = `${C.questions} questions are answered inside the guides. Here are six.`;
+  $("#qaDek").textContent = "What people ask before they go.";
   /* One column, rolled up. Two columns of open answers made the reader scan a
      wall of prose to find the one question they had. <details> is native, so
      it works with keyboard and screen readers without any script. */
@@ -1053,8 +1052,8 @@ function paintLedger(){
      opens on and the things you would actually go for. */
   $("#rosterH").textContent = `${cap(word(REST_ISLAND.length))} more towns up the island`;
   $("#rosterP").textContent =
-    `The same coast, north and south of the two above. Full guides are still being ` +
-    `walked, so these open on the photographs and the places worth the drive.`;
+    `The same island, north and south of the two above: harbours, gardens, ` +
+    `murals, waterfalls and the salmon water of Discovery Passage.`;
   $("#tledger").innerHTML = REST_ISLAND.map((t) => `<li class="tl"><a href="${t.h}">
       <span class="tl__m"><img src="${t.img}" alt="${esc(t.n)}, Vancouver Island" loading="lazy"></span>
       <span class="tl__b"><span class="tl__n">${esc(t.n)}</span><span class="tl__d">${esc(t.d)}</span></span>
@@ -1066,7 +1065,7 @@ function paintMainland(){
   $("#restTitle").textContent = `${cap(word(BC.mainland.length))} more regions on the mainland`;
   $("#restLead").textContent =
     `${cap(word(T.mainlandTowns))} towns off the island: the Sea to Sky road, the city at the end of it, ` +
-    `and the Kootenays. Stays are searchable in all of them, and the subject guides are still being walked.`;
+    `and the Kootenays. Each has its own page: why go, when to go and what to do.`;
   $("#regs").innerHTML = BC.mainland.map((r) => {
     const p = sum(r.towns, "p"), g = sum(r.towns, "g");
     return `<li class="rw">
@@ -1091,7 +1090,7 @@ function paintGuides(){
       <span class="gc__m"><img src="${g.img.startsWith("/prototype/media/") ? g.img : cld(g.img,520,390)}" alt="${esc(g.t)}" loading="lazy"></span>
       <span class="gc__b">
         <h3>${esc(g.t.replace(/ on Vancouver Island$/,"").replace(/^Vancouver Island: /,""))}</h3>
-        <span class="gc__p">${g.items.slice(0,3).map(esc).join(", ")}, and ${g.items.length - 3} more</span>
+        <span class="gc__p">${esc(list(g.items))}</span>
       </span>
       ${ARROW_TL}
     </a>`).join("");
@@ -1135,7 +1134,7 @@ function paintAlmanac(){
 
   $("#seasonLabel").textContent = name + " in " + TOWN_LABEL[almTown];
   { const dk = document.getElementById("mswDek");
-    if (dk) dk.textContent = "Each column is that month's average rainfall in " + TOWN_LABEL[almTown] + ". Taller means wetter."; }
+    if (dk) dk.textContent = "Choose a town and a month."; }
   $("#seasonName").textContent = season.name;
   $("#seasonClaim").textContent = season.claim;
   $("#seasonReason").innerHTML =
@@ -1228,9 +1227,9 @@ function paintAlmanac(){
   const tgl = $("#ledgerToggle");
   if (tgl) tgl.addEventListener("click", () => { ledgerOpen = !ledgerOpen; paintAlmanac(); setMonth(month, false); });
 
-  const onNow = Object.values(DATA.bestMonths).filter((ms) => ms.includes(month)).length;
-  $("#innowH").innerHTML =
-    `<b>${onNow}</b> of the ${C.taxonomy} things we cover are in season in ${name}, across the places we feature.`;
+  /* Name what is in season rather than count it (review 2026-11-13). */
+  const onNow = DATA.subjects.filter((x) => x.months.includes(month)).map((x) => x.name.toLowerCase());
+  $("#innowH").innerHTML = `In season in ${name}: <b>${esc(list(onNow))}</b>.`;
 
   $("#live").textContent = `${name}. ${season.name}. ${c.mm} millimetres of rain.`;
 }

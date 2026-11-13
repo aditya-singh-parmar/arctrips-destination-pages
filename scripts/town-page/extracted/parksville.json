@@ -1,0 +1,370 @@
+{
+ "town": "parksville",
+ "title": "Parksville, Arc Trips",
+ "desc": "Parksville, Vancouver Island. 28 places featured.",
+ "hero_img": [
+  "/prototype/media/parksville/image19.jpg"
+ ],
+ "hero_lede": [
+  "Rathtrevor Beach Provincial Park is one of the most iconic destinations on Vancouver Island. Characterized by its massive tidal range and ancient Douglas fir forests, it offers a distinct coastal experience that transitions from a woodland sanctuary to a vast sandy playground."
+ ],
+ "tabs": [
+  {
+   "g": "world-class-sandy-beaches",
+   "label": "World-Class Sandy Beaches",
+   "subs": [
+    {
+     "h": "",
+     "items": [
+      {
+       "name": "Rathtrevor Beach Provincial Park (Parksville)",
+       "img": "/prototype/media/parksville/image19.jpg",
+       "alt": "Rathtrevor Beach Provincial Park (Parksville), Parksville",
+       "paras": [
+        "The Tidal Flats: This is the park's most famous feature. At low tide, the ocean recedes nearly a kilometer, exposing vast sandbars and shallow pools. It is perfect for long walks, sandcastle building, and discovering marine life like sand dollars and small crabs.",
+        "Warm Water Swimming: As the tide returns over the sun-baked sand, the water warms significantly. This makes Rathtrevor home to some of the warmest ocean swimming in British Columbia during the summer months."
+       ],
+       "note": null
+      },
+      {
+       "name": "Parksville Beach",
+       "img": "/prototype/media/parksville/image11.jpg",
+       "alt": "Parksville Beach, Parksville",
+       "paras": [
+        "Parksville Community Park, often simply called Parksville Beach, is the vibrant heart of the city’s waterfront. While Rathtrevor offers a more rustic, forested escape, the Community Park is a high-energy hub designed for families, events, and active recreation.",
+        "The Parksville Beach Festival (Beachfest): This premier summer event features the world-class Quality Foods Sand Sculpting Exhibition, where professional artists from across the globe compete to create massive, intricate masterpieces that remain on display for five weeks following a mid-July competition, accompanied by live music, an artisan market, and special evening light up viewings.",
+        "Lions Ventureland Playground: This is one of the largest and most comprehensive outdoor playgrounds on Vancouver Island. It features a splash park, zip lines, and inclusive equipment, making it the ultimate stop for families."
+       ],
+       "note": null
+      },
+      {
+       "name": "Parksville",
+       "img": "/prototype/media/parksville/image13.jpg",
+       "alt": "Parksville, Parksville",
+       "paras": [
+        "The beach at Parksville offers a more tranquil, natural alternative to the bustling park in Parksville, characterized by its long, curved shoreline and panoramic views of the distant Coast Mountains.",
+        "The Coastal Promenade: A 2-kilometer paved walkway runs parallel to the shoreline, offering a completely flat and accessible path for walking, cycling, or storm watching during the winter months.",
+        "Low Tide Exploration: While the upper beach is composed of smooth, colorful sea stones, the water recedes significantly at low tide to reveal wide, sandy flats. It is a premier spot for finding sand dollars and watching blue herons hunt in the shallow pools."
+       ],
+       "note": null
+      }
+     ]
+    }
+   ],
+   "faqs": []
+  },
+  {
+   "g": "wildlife-marine-experiences",
+   "label": "Wildlife & Marine Experiences",
+   "subs": [
+    {
+     "h": "",
+     "items": [
+      {
+       "name": "Whale and Wildlife Adventure",
+       "img": "/prototype/media/parksville/image5.jpg",
+       "alt": "Whale and Wildlife Adventure, Parksville",
+       "paras": [
+        "The Parksville and Parksville region serves as a premier gateway to the Salish Sea, offering a front-row seat to some of the most diverse marine and terrestrial wildlife in North America. While the beaches are the main draw, the deeper waters and surrounding estuaries provide a sanctuary for majestic predators and migratory species alike.",
+        "Whale Watching Tours: Several professional operators depart from nearby French Creek Marina and Deep Bay. These high-speed zodiac or covered vessel tours track Southern Resident and Transient (Biggs) Orcas, as well as massive Humpback whales, which are frequently seen breaching and tail-slapping in the Strait of Georgia.",
+        "The Brant Geese Migration: Every March and April, the region hosts the Brant Wildlife Festival. Thousands of these sea geese stop on the shores of Parksville and Parksville to feast on herring spawn during their long journey from Mexico to the Arctic."
+       ],
+       "note": null
+      },
+      {
+       "name": "French Creek Harbour: Fishing Charters and Wildlife Tours",
+       "img": "/prototype/media/parksville/image26.jpg",
+       "alt": "French Creek Harbour: Fishing Charters and Wildlife Tours, Parksville",
+       "paras": [
+        "French Creek Harbour serves as the premier marine gateway for the Oceanside region. Positioned perfectly between Parksville and Parksville, this active working port is the primary departure point for those looking to explore the rich waters of the Salish Sea, whether for world-class angling or spectacular wildlife encounters.",
+        "The harbour hosts a professional fleet of seasoned captains and guides who specialize in navigating the local currents and secret fishing spots.",
+        "World-Class Salmon and Halibut Fishing: Charters from French Creek offer access to some of the best fishing grounds on Vancouver Island. Depending on the season, anglers can target Chinook (King) and Coho salmon, or head further out for deep-water Pacific Halibut."
+       ],
+       "note": null
+      }
+     ]
+    }
+   ],
+   "faqs": []
+  },
+  {
+   "g": "caves-waterfalls-natural-landmarks",
+   "label": "Caves, Waterfalls & Natural Landmarks",
+   "subs": [
+    {
+     "h": "",
+     "items": [
+      {
+       "name": "Horne Lake Caves Provincial Park (Parksville)",
+       "img": "/prototype/media/parksville/image23.jpg",
+       "alt": "Horne Lake Caves Provincial Park (Parksville), Parksville",
+       "paras": [
+        "Horne Lake Caves Provincial Park is one of British Columbia’s most unique protected areas, designed specifically to preserve a fragile underground ecosystem while offering some of the best cave exploration in Canada. Located at the end of a gravel road about 30 minutes west of Parksville, the park transitions from a lush lakeside forest to a hidden world of crystal formations and subterranean waterfalls.",
+        "Self-Guided Exploration: Visitors can explore Main Cave and Lower Main Cave at their own pace. These provide a great introduction to wild caving, though they still require sturdy footwear and a reliable light source.",
+        "Guided Adventure Tours: For those looking to go deeper, the park offers a variety of guided tours categorized by their physical demands and technical challenges, ranging from family-friendly walks to extreme"
+       ],
+       "note": null
+      },
+      {
+       "name": "Cathedral Grove (MacMillan Provincial Park)",
+       "img": "/prototype/media/parksville/image14.jpg",
+       "alt": "Cathedral Grove (MacMillan Provincial Park), Parksville",
+       "paras": [
+        "Cathedral Grove, located within MacMillan Provincial Park, is one of the most accessible stands of giant Douglas fir trees in British Columbia. Situated on Highway 4 between Parksville and Port Alberni, it offers a rare opportunity to walk among living monuments that have stood for over 800 years.",
+        "Ancient Douglas Firs: The park is famous for its massive trees, some measuring more than 9 meters in circumference. The big tree on the southern network of trails is a primary highlight for visitors.",
+        "Western Red Cedars: While the Douglas firs dominate the skyline, the northern side of the highway features a lush grove of ancient Western Red Cedars growing along the shores of Cameron Lake."
+       ],
+       "note": null
+      },
+      {
+       "name": "Englishman River Falls Provincial Park",
+       "img": "/prototype/media/parksville/image44.jpg",
+       "alt": "Englishman River Falls Provincial Park, Parksville",
+       "paras": [
+        "Englishman River Falls Provincial Park is a spectacular nature reserve located near Errington, just a short drive from Parksville. It is best known for its two distinct waterfalls set within a deep, rocky canyon and surrounded by a lush forest of Douglas fir, cedar, and hemlock.",
+        "The park’s primary draw is the dramatic contrast between its upper and lower falls, connected by a well-maintained trail system.",
+        "The Upper Falls: A thunderous curtain of water that drops into a narrow, vertical-walled canyon. A sturdy footbridge directly over the falls provides a pulse-racing vantage point for photography and viewing the sheer power of the river."
+       ],
+       "note": null
+      },
+      {
+       "name": "Little Qualicum Falls Provincial Park",
+       "img": "/prototype/media/parksville/image35.jpg",
+       "alt": "Little Qualicum Falls Provincial Park, Parksville",
+       "paras": [
+        "Little Qualicum Falls Provincial Park is a stunning natural area centered around the Little Qualicum River, where the water travels through a series of dramatic rock chasms. It is often visited alongside Cameron Lake and Cathedral Grove due to its proximity along the same highway corridor, offering a cooler, shaded environment dominated by old-growth Douglas fir and Western hemlock.",
+        "Upper and Lower Falls: A loop trail connects two distinct sets of waterfalls. The Upper Falls are characterized by a powerful drop into a deep, shaded basin, while the Lower Falls offer a wider, tiered cascade over ancient rock formations.",
+        "Canyon Trail: This 6-kilometer network of well-maintained paths follows the edge of the steep-walled gorge. Multiple wooden bridges and fenced lookout points provide safe, bird's-eye views of the rushing water and deep turquoise pools below."
+       ],
+       "note": null
+      }
+     ]
+    }
+   ],
+   "faqs": []
+  },
+  {
+   "g": "forests-gardens-nature-parks",
+   "label": "Forests, Gardens & Nature Parks",
+   "subs": [
+    {
+     "h": "",
+     "items": [
+      {
+       "name": "Milner Gardens & Woodland (Parksville)",
+       "img": "/prototype/media/parksville/image40.jpg",
+       "alt": "Milner Gardens &amp; Woodland (Parksville), Parksville",
+       "paras": [
+        "Milner Gardens & Woodland is a 70-acre wild garden and forest estate that offers a rare combination of horticultural sophistication and raw coastal beauty. Once a private retreat for the Milner family, it is now a public treasure managed by Vancouver Island University, serving as a center for both conservation and education.",
+        "The Heritage House: A centerpiece of the estate, this historic home once hosted members of the British Royal Family. It now serves as a quaint tea room where visitors can enjoy traditional afternoon tea with a view of the Salish Sea.",
+        "Ancient Douglas Fir Forest: The entrance to the gardens requires a walk through a majestic stand of old-growth forest, providing a dramatic transition from the outside world into the manicured garden spaces."
+       ],
+       "note": null
+      },
+      {
+       "name": "The Parksville Heritage Forest",
+       "img": "/prototype/media/parksville/image34.jpg",
+       "alt": "The Parksville Heritage Forest, Parksville",
+       "paras": [
+        "The Parksville Heritage Forest is a 50-acre ecological jewel located just minutes from the town center. This rare remnant of the Coastal Douglas-fir ecosystem was saved by the community to preserve a living museum of the island’s ancient landscape, offering a cool, silent escape beneath a canopy of 400-year-old giants.",
+        "Ancient Tree Canopy: The forest is dominated by massive Douglas firs, Western Red Cedars, and Sitka spruces. Walking through the grove provides a sense of the scale of Vancouver Island’s original old-growth forests.",
+        "Extensive Trail Network: Over 2 kilometers of well-maintained, wide gravel paths crisscross the property. The trails are mostly level, making them ideal for a contemplative nature walk or a gentle jog."
+       ],
+       "note": null
+      },
+      {
+       "name": "Top Bridge Park (Parksville)",
+       "img": "/prototype/media/parksville/image6.jpg",
+       "alt": "Top Bridge Park (Parksville), Parksville",
+       "paras": [
+        "Top Bridge Community Park is a dynamic junction of nature and recreation where the Englishman River carves through a canyon of sculpted sandstone. It serves as a vital trail link between the urban seaside and the cool, shaded woodlands of the river valley, offering a raw and rugged alternative to the manicured beaches nearby.",
+        "The Suspension Bridge: The iconic 81-meter pedestrian and cyclist bridge offers panoramic views of the river gorge, clear green water, and forested slopes.",
+        "Swimming and Cliff Jumping: Below the bridge, deep natural pools and smooth sandstone rock shelves create a premier secret swimming hole for locals during the summer."
+       ],
+       "note": null
+      },
+      {
+       "name": "Town of Parksville - Waterfront Viewing Platform & Walkway",
+       "img": "/prototype/media/parksville/image27.jpg",
+       "alt": "Town of Parksville - Waterfront Viewing Platform &amp; Walkway, Parksville",
+       "paras": [
+        "The Parksville Waterfront Viewing Platform & Walkway is a central feature of the town’s shoreline, offering an elevated and accessible way to experience the Strait of Georgia. Unlike the rugged trails of nearby provincial parks, this infrastructure is designed for a polished, resort-style experience that emphasizes comfort and panoramic vistas.",
+        "The Elevated Viewing Platform: Located near the center of the promenade, this wooden structure provides a 180-degree view of the northern Gulf Islands and the snow-capped Coast Mountains on the mainland. It is a favorite spot for whale spotting and storm watching.",
+        "The 2km Paved Walkway: This wide, flat promenade runs the length of the beach. It is separated from the road by a landscaped buffer, making it a safe and scenic corridor for walking, jogging, or pushing a stroller."
+       ],
+       "note": null
+      },
+      {
+       "name": "Beachcomber Regional Park",
+       "img": "/prototype/media/parksville/image30.jpg",
+       "alt": "Beachcomber Regional Park, Parksville",
+       "paras": [
+        "Beachcomber Regional Park is a hidden gem tucked away at the tip of the Beachcomber peninsula in Nanoose Bay. This compact, one-hectare park is cherished for its rugged shoreline and its position as a premier vantage point for observing the marine traffic and natural beauty of the Salish Sea. Visitors frequently highlight the park's tranquil environment and its spectacular views of the neighboring islands.",
+        "Coastal Vistas: The park offers clear, unobstructed views across the water to the Ballenas Islands and the distant Coast Mountains on the mainland.",
+        "Unique Shoreline: Unlike the long sandy stretches of Parksville, this beach is characterized by its sculpted sandstone formations, colorful sea stones, and plentiful driftwood."
+       ],
+       "note": null
+      },
+      {
+       "name": "Hamilton Marsh",
+       "img": "/prototype/media/parksville/image39.jpg",
+       "alt": "Hamilton Marsh, Parksville",
+       "paras": [
+        "Hamilton Marsh is a massive 360-hectare wetland ecosystem located south of Parksville. Recently protected in its entirety through a significant community effort, it stands as the largest body of water in the French Creek watershed and is a vital sanctuary for both migratory and resident wildlife.",
+        "Birdwatching: Recognized as the most prolific waterfowl brood marsh on this part of the island, the area has recorded over 130 species of birds. It is a critical stopover for early migrant swallows and a diverse array of shorebirds.",
+        "Dragonfly Observation: The marsh is a known exceptional habitat for Odonata, with 30 species of dragonflies recorded to date. Mid-April is a peak time to witness dragonfly larvae emerging and unfurling their wings."
+       ],
+       "note": null
+      }
+     ]
+    }
+   ],
+   "faqs": [
+    {
+     "q": "Moorecroft Regional Park",
+     "a": [
+      "Moorecroft Regional Park is a serene 79-acre conservation area located in Nanoose Bay, just a short drive south of Parksville. Once a private summer camp, the park now offers a peaceful blend of secondary old-growth forest, sensitive wetlands, and a stunning cobble beach overlooking the Salish Sea.",
+      "Visitors often appreciate this park for its quiet, contemplative atmosphere and the way it preserves the nostalgic feel of its history while protecting rare plant species.",
+      "Scenic Shoreline: The park features several hundred meters of waterfront with views across the Strait of Georgia toward Lasqueti and Texada Islands."
+     ]
+    },
+    {
+     "q": "Seaside Nature Park",
+     "a": [
+      "Seaside Nature Park is a tranquil hidden gem located at the far western end of Parksville’s waterfront. Dedicated to the memory of Faye Smith, a celebrated local environmentalist and salmon advocate, this park serves as a quiet sanctuary for nature lovers looking to escape the busier sections of the main promenade.",
+      "Faye Smith Memorial Pavilion: The centerpiece of the park is a charming covered gazebo that provides a sheltered spot for rest and contemplation. It is surrounded by beautifully landscaped gardens maintained by local volunteers.",
+      "Elevated Bird-Watching Platform: A dedicated wooden platform offers an elevated 180-degree vantage point of the Salish Sea. This is a premier spot for photographers and birdwatchers, especially during the spring herring spawn when marine bird activity is at its peak."
+     ]
+    },
+    {
+     "q": "Grandon Creek",
+     "a": [
+      "Grandon Creek offers a peaceful, wooded escape that connects the upper residential areas of Parksville to the shoreline. This shaded ravine is a favorite for locals seeking a quiet nature walk, characterized by its lush ferns, ancient trees, and the gentle sound of the creek that provides a vital habitat for returning salmon.",
+      "Salmon Spawning Viewing: In the late autumn, usually October and November, the lower sections of the creek become a site of intense activity as Coho and Chum salmon return to spawn. Local streamkeepers have worked extensively to install spawning pools and woody debris to help these fish navigate the current.",
+      "The Multi-Use Trail: A well-maintained trail, often referred to as the Grandon Creek / Laburnum Access, runs for approximately 1.2 kilometers through the ravine. It transitions from a wider, flatter path near the town side to a more rugged, forested singletrack as it climbs toward Laburnum Road."
+     ]
+    },
+    {
+     "q": "Saahtlam Park",
+     "a": [
+      "Saahtlam Park is a quiet, forested green space located on the western edge of Parksville. It serves as a vital ecological corridor, protecting a stand of second-growth Douglas fir and providing a peaceful, less-traveled alternative to the town’s more prominent parks.",
+      "Forested Walking Trails: The park features a simple network of soft-surface trails that wind through a dense canopy of fir, cedar, and maple trees. It is an ideal spot for a short, meditative nature walk away from the sound of highway traffic.",
+      "Native Plant Identification: The understory is rich with native BC flora, including large sword ferns, salal, and Oregon grape. In the spring, you can often spot delicate wildflowers like trilliums emerging from the forest floor."
+     ]
+    }
+   ]
+  },
+  {
+   "g": "iconic-roadside-quirks",
+   "label": "Iconic Roadside Quirks",
+   "subs": [
+    {
+     "h": "",
+     "items": [
+      {
+       "name": "Coombs / The Old Country Market (Goats on the Roof)",
+       "img": "/prototype/media/parksville/image22.jpg",
+       "alt": "Coombs / The Old Country Market (Goats on the Roof), Parksville",
+       "paras": [
+        "The Old Country Market, world-famous for its goats on the roof, is a landmark destination in the small community of Coombs. What began as a humble roadside fruit stand in the 1970s has evolved into a sprawling complex of eclectic shops and international eateries, all anchored by the sight of grazing goats atop the sod-roofed main building.",
+        "The Famous Sod Roof: The main market building features a living grass roof where a resident family of goats spends the spring and summer months. This quirky architectural feature is a primary draw for photographers and families.",
+        "International Market: Inside the main building, you'll find a massive selection of gourmet imported foods, local cheeses, freshly baked breads, and unique kitchenware."
+       ],
+       "note": null
+      },
+      {
+       "name": "The Sandcastle Competition",
+       "img": "/prototype/media/parksville/image21.jpg",
+       "alt": "The Sandcastle Competition, Parksville",
+       "paras": [
+        "The Parksville Beach Festival is a multi-week summer celebration that centers around the world-renowned Quality Foods Sand Sculpting Competition. This event transforms the waterfront of Parksville Community Park into a massive outdoor gallery, where master sculptors from around the globe compete to create intricate, gravity-defying works of art from just sand and water.",
+        "The Sculpting Competition: The festival traditionally begins with a pound up and several days of intense carving. Watching the artists use specialized tools to etch fine details and textures into massive sand blocks is a highlight for early-season visitors.",
+        "The Exhibition Gallery: Following the competition, the finished sculptures remain on display for several weeks. A gated boardwalk allows for close-up viewing, providing a clear perspective on the scale and technical difficulty of each piece."
+       ],
+       "note": null
+      },
+      {
+       "name": "Paradise Fun Park",
+       "img": "/prototype/media/parksville/image37.jpg",
+       "alt": "Paradise Fun Park, Parksville",
+       "paras": [
+        "Paradise Fun Park is a long-standing family entertainment center in Parksville, known for its colorful, whimsical atmosphere and its prominent location near the waterfront. It serves as a classic stop for those looking for lighthearted competition and traditional seaside amusements.",
+        "The park is designed around two primary 18-year-old mini-golf courses that offer distinct visual themes.",
+        "Two Miniature Golf Courses: Visitors can choose between the Turf 'n Surf course, which features water hazards and a nautical theme, or the Treasure Island course, which is filled with pirate-themed obstacles, caves, and a large Victorian-style castle."
+       ],
+       "note": null
+      }
+     ]
+    }
+   ],
+   "faqs": []
+  },
+  {
+   "g": "local-artisans-food",
+   "label": "Local Artisans & Food",
+   "subs": [
+    {
+     "h": "",
+     "items": [
+      {
+       "name": "Parksville Downtown",
+       "img": "/prototype/media/parksville/image45.jpg",
+       "alt": "Parksville Downtown, Parksville",
+       "paras": [
+        "The Parksville Downtown area, often referred to by locals as “The Village”, is characterized by its walkable, pedestrian-friendly streets and a distinct lack of franchise stores. The town has maintained a village atmosphere through careful planning, resulting in a charming commercial core filled with unique boutiques, galleries, and garden-lined sidewalks.",
+        "The downtown core is designed for slow-paced exploration, with a high concentration of independent businesses.",
+        "Unplugged Shopping Experience: The village is famous for its independent retailers. You won't find major big-box stores here; instead, the streets are lined with curated bookstores, high-end toy shops, and clothing boutiques."
+       ],
+       "note": null
+      },
+      {
+       "name": "Parksville Downtown",
+       "img": "/prototype/media/parksville/image24.jpg",
+       "alt": "Parksville Downtown, Parksville",
+       "paras": [
+        "The Parksville Downtown core serves as the commercial heart of the Oceanside region, blending a traditional main street feel with modern amenities. Unlike the strictly boutique nature of neighboring Parksville, Parksville’s downtown offers a mix of essential services, large retailers, and a growing collection of independent creative spaces.",
+        "The downtown area is characterized by its accessibility to the shoreline and its diverse range of local businesses.",
+        "The Creative District: Recent years have seen a surge in artisan studios and galleries along the side streets, where visitors can find everything from custom jewelry and West Coast photography to locally made textiles."
+       ],
+       "note": null
+      }
+     ]
+    }
+   ],
+   "faqs": [
+    {
+     "q": "Parksville Farmers’ Market",
+     "a": [
+      "The Parksville Farmers' Market is a year-round community staple that transitions from a bustling outdoor street market in the summer to a cozy indoor gathering in the winter. It is widely regarded as one of the premier make, bake, or grow markets on Vancouver Island, ensuring that everything sold is produced locally by the vendors themselves.",
+      "The market serves as the primary Saturday morning social hub for the region, offering a high density of local flavor and artisan craftsmanship.",
+      "Farm-Fresh Produce: Depending on the season, you’ll find everything from Nanoose Bay greens and berries to stump-grown mushrooms and organic root vegetables."
+     ]
+    },
+    {
+     "q": "Summer by the Sea Market (Parksville)",
+     "a": [
+      "The Summer by the Sea Street Market is a vibrant Tuesday evening tradition that transforms the heart of downtown Parksville into a bustling open-air festival. Spanning four city blocks along Craig Street, it is one of the largest and most popular markets on Vancouver Island, attracting thousands of visitors each week with its eclectic mix of shopping, dining, and live entertainment.",
+      "Extensive Vendor Lineup: Over 150 vendors from across the island showcase a diverse range of products, including handcrafted jewelry, local fashion, artisanal soaps, organic produce, and unique home and garden decor.",
+      "Gourmet Street Food: A wide selection of food trucks and merchants offer everything from savory international cuisine to indulgent treats like locally made donuts and fresh-baked pastries."
+     ]
+    },
+    {
+     "q": "Morningstar Farm: Home to Little Qualicum Cheeseworks",
+     "a": [
+      "Morningstar Farm, the scenic home of Little Qualicum Cheeseworks, is a functional dairy farm and culinary destination located in Parksville. It offers a transparent look at local agriculture, where visitors can see the connection between the pasture and the finished artisanal products available in the farm gate shop.",
+      "Self-Guided Farm Tours: The farm is open for public exploration, allowing visitors to walk through the barns to see the dairy cows, calves, and often other farm animals like pigs and sheep.",
+      "Canada's First Milk ATM: A unique feature of the farm is the grass-fed milk dispenser, where visitors can purchase reusable glass bottles and fill them with fresh, cold milk directly from the source."
+     ]
+    },
+    {
+     "q": "Mount Arrowsmith Brewing Company",
+     "a": [
+      "Mount Arrowsmith Brewing Company is a multi-award-winning craft brewery located in the industrial area of Parksville. Named after the region’s most iconic mountain peak, it has quickly become a cornerstone of the local social scene, known for its commitment to high-quality ingredients and its welcoming, communal atmosphere. Visitors often highlight the brewery for its consistent quality and the lively, family-friendly vibe of its tasting room.",
+      "Award-Winning Brews: The brewery is home to the \"Best Beer in the World\" (World Beer Awards 2017) for its Blonde Ale, alongside a diverse rotation of IPAs, stouts, and seasonal harvests.",
+      "The Arrowsmith Pizzeria: Unlike many traditional tasting rooms, this location features a full-service stone pizza oven, serving thin-crust, artisan pies that are specifically designed to pair with their beer flight."
+     ]
+    }
+   ]
+  }
+ ]
+}

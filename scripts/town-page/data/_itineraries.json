@@ -1,0 +1,1459 @@
+{
+ "groups": [
+  {
+   "id": "west-coast",
+   "name": "Tofino and Ucluelet",
+   "kind": "group",
+   "towns": [
+    "tofino",
+    "ucluelet"
+   ],
+   "intro": "Tofino and Ucluelet share one stretch of coast: Tofino for long beaches and surf, Ucluelet for a quieter harbour town and rugged shoreline.",
+   "trips": [
+    {
+     "id": "west-coast-2-days",
+     "days": 2,
+     "title": "Two days on the west coast",
+     "summary": "Beach, rainforest and a sunset cove in Tofino, then the Wild Pacific Trail, lighthouse and harbour in Ucluelet.",
+     "season": "Every season works. Summer is busiest, spring and fall are quieter, winter is for storm watching.",
+     "plan": [
+      {
+       "day": 1,
+       "title": "Day 1: Tofino beaches and rainforest",
+       "stops": [
+        {
+         "name": "Chesterman Beach",
+         "town": "tofino",
+         "what": "A 2.7-kilometre stretch of white sand shaped like a W. Walk it, or take a beginner surf lesson on the sandy bottom."
+        },
+        {
+         "name": "Rainforest Trail",
+         "town": "tofino",
+         "what": "Two boardwalk loops through the old-growth forest of Pacific Rim National Park Reserve, right off the Pacific Rim Highway."
+        },
+        {
+         "name": "Tonquin Beach",
+         "town": "tofino",
+         "what": "A sunset-facing cove reached by an 800-metre gravel path with viewing platforms. Calmer water than the surf beaches."
+        }
+       ]
+      },
+      {
+       "day": 2,
+       "title": "Day 2: Ucluelet coast",
+       "stops": [
+        {
+         "name": "Wild Pacific Trail, Lighthouse Loop",
+         "town": "ucluelet",
+         "what": "The 2.6-kilometre Lighthouse Loop takes about 45 minutes along black volcanic rock and leads to Amphitrite Point Lighthouse."
+        },
+        {
+         "name": "Ancient Cedars Loop",
+         "town": "ucluelet",
+         "what": "Passes two red cedars estimated to be over 800 years old. The nearby Rocky Bluffs are a whale watching vantage point in migration season."
+        },
+        {
+         "name": "Ucluelet Aquarium",
+         "town": "ucluelet",
+         "what": "A catch-and-release aquarium at the foot of Main Street with touch tanks. Fully indoor and seasonal, typically March through early December."
+        },
+        {
+         "name": "Ucluelet Harbour Walk",
+         "town": "ucluelet",
+         "what": "Boardwalks through the inner boat basin, with fishing vessels, herons, bald eagles and the occasional sea otter."
+        }
+       ]
+      }
+     ],
+     "source": "Tofino; Tofino - Surfing; Ucluelet; Best Time to Stay in Ucluelet or Tofino_ Weather, Prices, and What to See"
+    },
+    {
+     "id": "west-coast-4-days",
+     "days": 4,
+     "title": "Four days on the west coast",
+     "summary": "Tofino's beaches, a day on Clayoquot Sound, then Ucluelet's coast, bog boardwalk, harbour and a paddle.",
+     "season": "Every season works. Summer is busiest, spring and fall are quieter, winter is for storm watching.",
+     "plan": [
+      {
+       "day": 1,
+       "title": "Day 1: Tofino beaches",
+       "stops": [
+        {
+         "name": "Long Beach",
+         "town": "tofino",
+         "what": "Part of the Long Beach Unit of Pacific Rim National Park Reserve, between Tofino and Ucluelet. A Parks Canada pass is required."
+        },
+        {
+         "name": "Chesterman Beach",
+         "town": "tofino",
+         "what": "A 2.7-kilometre stretch of white sand shaped like a W. Walk it, or take a beginner surf lesson on the sandy bottom."
+        },
+        {
+         "name": "Tonquin Beach",
+         "town": "tofino",
+         "what": "A sunset-facing cove reached by an 800-metre gravel path with viewing platforms. Calmer water than the surf beaches."
+        }
+       ]
+      },
+      {
+       "day": 2,
+       "title": "Day 2: Clayoquot Sound by boat",
+       "stops": [
+        {
+         "name": "Hot Springs Cove",
+         "town": "tofino",
+         "what": "Reached only by water or air from Tofino: a 2-kilometre cedar boardwalk to five natural pools. A typical excursion lasts 6 to 7 hours."
+        },
+        {
+         "name": "Whale and wildlife tour (shorter option)",
+         "town": "tofino",
+         "what": "Many tours last about two to three hours. Main whale watching season is March through November, with gray whales in spring."
+        }
+       ]
+      },
+      {
+       "day": 3,
+       "title": "Day 3: Ucluelet shoreline",
+       "stops": [
+        {
+         "name": "Wild Pacific Trail, Lighthouse Loop",
+         "town": "ucluelet",
+         "what": "The 2.6-kilometre Lighthouse Loop takes about 45 minutes along black volcanic rock and leads to Amphitrite Point Lighthouse."
+        },
+        {
+         "name": "Amphitrite Point Lighthouse",
+         "town": "ucluelet",
+         "what": "An active beacon on the southern tip of the peninsula, good for spotting migrating whales in spring and sea lions on the offshore rocks."
+        },
+        {
+         "name": "Ucluelet Aquarium",
+         "town": "ucluelet",
+         "what": "A catch-and-release aquarium at the foot of Main Street with touch tanks. Fully indoor and seasonal, typically March through early December."
+        }
+       ]
+      },
+      {
+       "day": 4,
+       "title": "Day 4: Bog, harbour and paddle",
+       "stops": [
+        {
+         "name": "Ucluelet Inlet paddle",
+         "town": "ucluelet",
+         "what": "The sheltered harbour suits beginners and a calm morning paddle past fishing docks, with bald eagles and kingfishers along the shore."
+        },
+        {
+         "name": "Shorepine Bog Trail",
+         "town": "tofino",
+         "what": "An 800-metre boardwalk loop through a stunted forest in the national park. Stay on the boardwalk to protect the slow-growing plants."
+        },
+        {
+         "name": "Whiskey Dock and Ucluelet Harbour Walk",
+         "town": "ucluelet",
+         "what": "A historic pier with one of the best views of the harbour, next to boardwalks through the working boat basin."
+        }
+       ]
+      }
+     ],
+     "source": "Tofino; Tofino - Surfing; Ucluelet; Best Time to Stay in Ucluelet or Tofino_ Weather, Prices, and What to See"
+    },
+    {
+     "id": "west-coast-2-days-whale-festival",
+     "days": 2,
+     "title": "Two days at the Pacific Rim Whale Festival",
+     "summary": "The festival guide's own one-day plan followed by its weekend list: whale spotting, a tour, food, a talk and a coastal hike.",
+     "season": "March. 2026 festival dates are March 14 to 21, and 2027 dates are March 13 to 20.",
+     "plan": [
+      {
+       "day": 1,
+       "title": "Day 1: Festival day plan",
+       "stops": [
+        {
+         "name": "Morning whale spotting or beach walk",
+         "town": "tofino",
+         "what": "Learn to look for blows, dark backs and flukes. Bring binoculars, warm layers and patience, as sightings are never guaranteed."
+        },
+        {
+         "name": "Midday festival event or market",
+         "town": "tofino",
+         "what": "Look for the Parade of Whales and Wonders, which opens the week, or the Chowder Chowdown, where local restaurants and chefs showcase coastal chowder."
+        },
+        {
+         "name": "Afternoon Wild Pacific Trail or Long Beach",
+         "town": "ucluelet",
+         "what": "Coastal walks in Ucluelet or the national park. Dress for cool, wet, windy March conditions."
+        },
+        {
+         "name": "Dinner in Ucluelet or Tofino",
+         "town": "ucluelet",
+         "what": "Support local restaurants. Choose a mix of outdoor and indoor events in case the weather changes."
+        }
+       ]
+      },
+      {
+       "day": 2,
+       "title": "Day 2: Festival weekend list",
+       "stops": [
+        {
+         "name": "Whale watching tour",
+         "town": "tofino",
+         "what": "Spring tours focus on the gray whale migration, from Barkley Sound or Clayoquot Sound. Reserve ahead, as tours and lodging are in demand."
+        },
+        {
+         "name": "Food or art event",
+         "town": "tofino",
+         "what": "The festival mixes free and ticketed events, including food, art, markets and family activities. Check ticket details first."
+        },
+        {
+         "name": "Speaker or education event",
+         "town": "ucluelet",
+         "what": "Talks, workshops and education sessions on whales, marine mammals and coastal ecosystems. Some are free, others need registration."
+        },
+        {
+         "name": "Coastal hike",
+         "town": "ucluelet",
+         "what": "Walk the Wild Pacific Trail or take a rainforest walk, and leave time to drive between the towns and the national park."
+        }
+       ]
+      }
+     ],
+     "source": "Pacific Rim Whale Festival Guide"
+    }
+   ]
+  },
+  {
+   "id": "whistler",
+   "name": "Whistler",
+   "kind": "town",
+   "towns": [
+    "whistler"
+   ],
+   "intro": "Whistler is a mountain resort that works in every season, with a walkable village at the base.",
+   "trips": [
+    {
+     "id": "whistler-2-days",
+     "days": 2,
+     "title": "Two days in Whistler",
+     "summary": "A classic first day in the village and on the gondola, then an outdoor adventure day chosen by season.",
+     "season": "Winter (December to February) for snow; summer (June to August) for biking and lakes; fall is quieter.",
+     "plan": [
+      {
+       "day": 1,
+       "title": "Day 1: Classic Whistler",
+       "stops": [
+        {
+         "name": "Whistler Village",
+         "town": "whistler",
+         "what": "The heart of the resort: walkable, with shops, restaurants, cafes, bars and lift bases, and easy to enjoy without a car."
+        },
+        {
+         "name": "Peak 2 Peak Gondola",
+         "town": "whistler",
+         "what": "Connects Whistler and Blackcomb mountains with big alpine views. Mountain temperatures are often 5 to 10°C cooler than the village, so dress in layers."
+        },
+        {
+         "name": "Squamish Lil'wat Cultural Centre",
+         "town": "whistler",
+         "what": "Shares the living cultures, stories, art and traditions of the Squamish Nation and Lil'wat Nation. A good rainy-day stop and a strong choice for families."
+        },
+        {
+         "name": "Dinner in the village",
+         "town": "whistler",
+         "what": "Patios and mountain views in summer, a cozy and festive village in winter."
+        }
+       ]
+      },
+      {
+       "day": 2,
+       "title": "Day 2: Outdoor Adventure",
+       "stops": [
+        {
+         "name": "Winter: ski, snowboard, snowshoe or cross-country ski",
+         "town": "whistler",
+         "what": "Whistler Blackcomb has two mountains, ski schools and rentals. Lost Lake is a convenient area for Nordic skiing and snowshoeing."
+        },
+        {
+         "name": "Summer: bike, hike, paddle, zipline or lake day",
+         "town": "whistler",
+         "what": "Whistler Mountain Bike Park offers lift-access downhill riding. Alpine trails, lakes and ziplines round out the summer choices."
+        },
+        {
+         "name": "Scandinave Spa or a good meal",
+         "town": "whistler",
+         "what": "Outdoor hot baths, cold plunges, steam rooms and saunas in a forest setting. Quiet and phone-free."
+        }
+       ]
+      }
+     ],
+     "source": "Top Things to See and Do in Whistler"
+    },
+    {
+     "id": "whistler-3-days",
+     "days": 3,
+     "title": "Three days in Whistler",
+     "summary": "Village and mountain views, one big activity day of your choice, then a slow day of lake, culture and spa.",
+     "season": "Winter (December to February) for snow; summer (June to August) for biking and lakes; fall is quieter.",
+     "plan": [
+      {
+       "day": 1,
+       "title": "Day 1: Village and Mountain Views",
+       "stops": [
+        {
+         "name": "Arrive in Whistler",
+         "town": "whistler",
+         "what": "Staying near the village gives the easiest access to restaurants, shops, lifts and tours."
+        },
+        {
+         "name": "Explore the village",
+         "town": "whistler",
+         "what": "The heart of the resort: walkable, with shops, restaurants, cafes, bars and lift bases, and easy to enjoy without a car."
+        },
+        {
+         "name": "Peak 2 Peak Gondola",
+         "town": "whistler",
+         "what": "Connects Whistler and Blackcomb mountains with big alpine views. Mountain temperatures are often 5 to 10°C cooler than the village, so dress in layers."
+        },
+        {
+         "name": "A relaxed dinner",
+         "town": "whistler",
+         "what": "Choose a patio or a village restaurant and keep the evening easy."
+        }
+       ]
+      },
+      {
+       "day": 2,
+       "title": "Day 2: Big Activity Day (choose one)",
+       "stops": [
+        {
+         "name": "Ski or snowboard",
+         "town": "whistler",
+         "what": "Whistler Blackcomb is known as North America's largest ski resort, with runs from beginner slopes to advanced bowls. Winter is busy, so book early."
+        },
+        {
+         "name": "Mountain bike",
+         "town": "whistler",
+         "what": "Whistler Mountain Bike Park is famous for lift-access downhill, flow trails and jump lines. Start with lessons if you are new."
+        },
+        {
+         "name": "Alpine hike",
+         "town": "whistler",
+         "what": "Alpine trails reached by gondola, with wildflowers, viewpoints and lakes in summer and early fall. Bring layers and proper footwear."
+        },
+        {
+         "name": "Zipline",
+         "town": "whistler",
+         "what": "Adventure tours are easy to book, especially in summer. Check age, height, weight and weather rules before booking."
+        },
+        {
+         "name": "Rafting or adventure tour",
+         "town": "whistler",
+         "what": "Rafting, ATV, off-road and other tours suit groups, families with older kids and first-time visitors who do not have their own gear."
+        }
+       ]
+      },
+      {
+       "day": 3,
+       "title": "Day 3: Slow Whistler Day",
+       "stops": [
+        {
+         "name": "Lost Lake",
+         "town": "whistler",
+         "what": "Close to the village but peaceful and forested. Swim, picnic, walk, bike or paddle in summer; snowshoe or cross-country ski in winter."
+        },
+        {
+         "name": "Valley Trail",
+         "town": "whistler",
+         "what": "A paved path system connecting neighbourhoods, lakes, parks, viewpoints and the village. Walk, bike or run without driving."
+        },
+        {
+         "name": "Audain Art Museum or Squamish Lil'wat Cultural Centre",
+         "town": "whistler",
+         "what": "Art from British Columbia, including important Indigenous art and works by major regional artists. Good for rainy days and slower afternoons."
+        },
+        {
+         "name": "Scandinave Spa",
+         "town": "whistler",
+         "what": "Outdoor hot baths, cold plunges, steam rooms and saunas in a forest setting. Quiet and phone-free."
+        },
+        {
+         "name": "A final village meal",
+         "town": "whistler",
+         "what": "End the trip with dinner in the village."
+        }
+       ]
+      }
+     ],
+     "source": "Top Things to See and Do in Whistler"
+    }
+   ]
+  },
+  {
+   "id": "squamish",
+   "name": "Squamish",
+   "kind": "town",
+   "towns": [
+    "squamish"
+   ],
+   "intro": "Squamish sits where the mountains meet Howe Sound, with big views, waterfalls and rugged outdoor adventure close to town.",
+   "trips": [
+    {
+     "id": "squamish-2-days",
+     "days": 2,
+     "title": "Two days in Squamish",
+     "summary": "Views and waterfalls on day one, then one or two outdoor adventures of your choice on day two.",
+     "season": "Year-round. Add Brackendale eagle watching in winter, best from late fall into winter.",
+     "plan": [
+      {
+       "day": 1,
+       "title": "Day 1: Classic Squamish Views",
+       "stops": [
+        {
+         "name": "Shannon Falls",
+         "town": "squamish",
+         "what": "A tall waterfall dropping down granite cliffs after a short, easy walk from the parking area, beside Stawamus Chief Provincial Park."
+        },
+        {
+         "name": "Sea to Sky Gondola",
+         "town": "squamish",
+         "what": "Rides up for views over Howe Sound, Shannon Falls and the Stawamus Chief, with easy trails, lookout platforms and a summit lodge at the top."
+        },
+        {
+         "name": "Sky Pilot Suspension Bridge",
+         "town": "squamish",
+         "what": "At the top of the Sea to Sky Gondola, with mountain and Howe Sound views. A gondola ticket is needed; go early for fewer people."
+        },
+        {
+         "name": "Howe Sound viewpoints",
+         "town": "squamish",
+         "what": "Squamish sits where mountains meet the ocean. Enjoy the sound from the gondola, the Chief, highway viewpoints and waterfront areas."
+        },
+        {
+         "name": "Downtown cafes or breweries",
+         "town": "squamish",
+         "what": "A growing food, coffee and craft beer scene. Stop for coffee, visit a brewery or browse the shops."
+        }
+       ]
+      },
+      {
+       "day": 2,
+       "title": "Day 2: Outdoor Adventure (choose one or two)",
+       "stops": [
+        {
+         "name": "Hike the Stawamus Chief",
+         "town": "squamish",
+         "what": "Squamish's most famous landmark. The hike is steep and challenging, with stairs, rocks, roots and three peaks; the First Peak is the shortest summit."
+        },
+        {
+         "name": "Go mountain biking",
+         "town": "squamish",
+         "what": "One of Canada's best mountain biking destinations, with forest trails, technical terrain and flow trails. Book a lesson or guided ride if new."
+        },
+        {
+         "name": "Alice Lake Provincial Park",
+         "town": "squamish",
+         "what": "Lakes, forest, walking trails, picnic areas and swimming in season. Nature without a hard climb; arrive early on warm summer days."
+        },
+        {
+         "name": "Smoke Bluffs Park",
+         "town": "squamish",
+         "what": "Best known for rock climbing, with short walks, forest trails and small viewpoints close to town."
+        },
+        {
+         "name": "Squamish Estuary",
+         "town": "squamish",
+         "what": "Where river, marsh, mountain and ocean meet. Good for easy walks, birdwatching and quiet views."
+        },
+        {
+         "name": "Railway Museum of British Columbia",
+         "town": "squamish",
+         "what": "British Columbia's railway history and heritage, with train equipment and exhibits in a mountainside setting."
+        },
+        {
+         "name": "Winter option: Brackendale eagle watching",
+         "town": "squamish",
+         "what": "Bald eagles gather around the Squamish River during the salmon run. Bring binoculars and keep a respectful distance."
+        }
+       ]
+      }
+     ],
+     "source": "Top 15 Things to See and Do in Squamish"
+    }
+   ]
+  },
+  {
+   "id": "squamish-whistler",
+   "name": "Squamish and Whistler",
+   "kind": "group",
+   "towns": [
+    "squamish",
+    "whistler"
+   ],
+   "intro": "Squamish and Whistler sit on the same Sea to Sky Highway, so a rugged-to-resort trip pairs naturally.",
+   "trips": [
+    {
+     "id": "squamish-whistler-2-days",
+     "days": 2,
+     "title": "Two days from Squamish to Whistler",
+     "summary": "Waterfall, gondola and downtown Squamish on day one, then village, gondola, lake and culture in Whistler.",
+     "season": "Both are great in summer. Whistler is best in winter for snow; Squamish is a quieter winter stop.",
+     "plan": [
+      {
+       "day": 1,
+       "title": "Day 1: Squamish",
+       "stops": [
+        {
+         "name": "Shannon Falls",
+         "town": "squamish",
+         "what": "A tall waterfall dropping down granite cliffs after a short, easy walk from the parking area, beside Stawamus Chief Provincial Park."
+        },
+        {
+         "name": "Sea to Sky Gondola",
+         "town": "squamish",
+         "what": "Rides up for views over Howe Sound, Shannon Falls and the Stawamus Chief, with easy trails, lookout platforms and a summit lodge at the top."
+        },
+        {
+         "name": "Downtown Squamish",
+         "town": "squamish",
+         "what": "Cafes, breweries and shops, with a relaxed local feel. Stay in Squamish or continue to Whistler."
+        },
+        {
+         "name": "Optional Chief hike or easy trail",
+         "town": "squamish",
+         "what": "Squamish's most famous landmark. The hike is steep and challenging, with stairs, rocks, roots and three peaks; the First Peak is the shortest summit."
+        }
+       ]
+      },
+      {
+       "day": 2,
+       "title": "Day 2: Whistler",
+       "stops": [
+        {
+         "name": "Whistler Village",
+         "town": "whistler",
+         "what": "The heart of the resort: walkable, with shops, restaurants, cafes, bars and lift bases, and easy to enjoy without a car."
+        },
+        {
+         "name": "Peak 2 Peak Gondola",
+         "town": "whistler",
+         "what": "Connects Whistler and Blackcomb mountains with big alpine views. Mountain temperatures are often 5 to 10°C cooler than the village, so dress in layers."
+        },
+        {
+         "name": "Lost Lake",
+         "town": "whistler",
+         "what": "Close to the village but peaceful and forested. Swim, picnic, walk, bike or paddle in summer; snowshoe or cross-country ski in winter."
+        },
+        {
+         "name": "Squamish Lil'wat Cultural Centre",
+         "town": "whistler",
+         "what": "Shares the living cultures, stories, art and traditions of the Squamish Nation and Lil'wat Nation. A good rainy-day stop and a strong choice for families."
+        },
+        {
+         "name": "Dinner in the village",
+         "town": "whistler",
+         "what": "A village meal to finish the trip."
+        }
+       ]
+      }
+     ],
+     "source": "Squamish vs Whistler"
+    },
+    {
+     "id": "squamish-whistler-3-days",
+     "days": 3,
+     "title": "Three days from Squamish to Whistler",
+     "summary": "Squamish views, a Squamish adventure day, then a Whistler resort day with gondola, lake, shopping and spa.",
+     "season": "Both are great in summer. Whistler is best in winter for snow; Squamish is a quieter winter stop.",
+     "plan": [
+      {
+       "day": 1,
+       "title": "Day 1: Squamish Nature and Views",
+       "stops": [
+        {
+         "name": "Shannon Falls",
+         "town": "squamish",
+         "what": "A tall waterfall dropping down granite cliffs after a short, easy walk from the parking area, beside Stawamus Chief Provincial Park."
+        },
+        {
+         "name": "Sea to Sky Gondola",
+         "town": "squamish",
+         "what": "Rides up for views over Howe Sound, Shannon Falls and the Stawamus Chief, with easy trails, lookout platforms and a summit lodge at the top."
+        },
+        {
+         "name": "Easy hike or viewing platforms",
+         "town": "squamish",
+         "what": "Walk easy trails at the top of the gondola and enjoy the lookout platforms over Howe Sound."
+        },
+        {
+         "name": "Dinner in Squamish",
+         "town": "squamish",
+         "what": "A growing local food and craft beer scene."
+        }
+       ]
+      },
+      {
+       "day": 2,
+       "title": "Day 2: Squamish Adventure",
+       "stops": [
+        {
+         "name": "Hike the Chief, climb, mountain bike or try a guided activity",
+         "town": "squamish",
+         "what": "Squamish's most famous landmark. The hike is steep and challenging, with stairs, rocks, roots and three peaks; the First Peak is the shortest summit."
+        },
+        {
+         "name": "Brewery or cafe",
+         "town": "squamish",
+         "what": "Slow down between bigger outdoor activities with coffee or a local brewery."
+        },
+        {
+         "name": "Drive to Whistler in the evening",
+         "town": "whistler",
+         "what": "Whistler is farther north along the Sea to Sky Highway than Squamish."
+        }
+       ]
+      },
+      {
+       "day": 3,
+       "title": "Day 3: Whistler Resort Day",
+       "stops": [
+        {
+         "name": "Peak 2 Peak Gondola",
+         "town": "whistler",
+         "what": "Connects Whistler and Blackcomb mountains with big alpine views. Mountain temperatures are often 5 to 10°C cooler than the village, so dress in layers."
+        },
+        {
+         "name": "Alpine walk or Lost Lake",
+         "town": "whistler",
+         "what": "Close to the village but peaceful and forested. Swim, picnic, walk, bike or paddle in summer; snowshoe or cross-country ski in winter."
+        },
+        {
+         "name": "Village shopping",
+         "town": "whistler",
+         "what": "Wander between shops, galleries, gear stores and cafes in the walkable village."
+        },
+        {
+         "name": "Spa, dinner or nightlife",
+         "town": "whistler",
+         "what": "Outdoor hot baths, cold plunges, steam rooms and saunas in a forest setting. Quiet and phone-free."
+        }
+       ]
+      }
+     ],
+     "source": "Squamish vs Whistler"
+    }
+   ]
+  },
+  {
+   "id": "south-island",
+   "name": "Vancouver Island south",
+   "kind": "group",
+   "towns": [
+    "victoria",
+    "sooke",
+    "sidney"
+   ],
+   "intro": "Victoria, Sooke and Sidney sit at the southern tip of Vancouver Island: harbour landmarks, wild coast and a booktown on the Saanich Peninsula.",
+   "trips": [
+    {
+     "id": "south-island-3-days",
+     "days": 3,
+     "title": "Three days on southern Vancouver Island",
+     "summary": "Victoria's harbour and museum, Sooke's river pools and beaches, then Butchart Gardens and the Sidney waterfront.",
+     "season": null,
+     "plan": [
+      {
+       "day": 1,
+       "title": "Day 1: Victoria harbour",
+       "stops": [
+        {
+         "name": "Inner Harbour",
+         "town": "victoria",
+         "what": "The heart of Victoria, framed by the Neo-baroque Parliament Buildings and the Fairmont Empress Hotel."
+        },
+        {
+         "name": "BC Parliament Buildings",
+         "town": "victoria",
+         "what": "Victoria's premier architectural landmark: a grand Neo-baroque complex with a copper dome, on the Inner Harbour."
+        },
+        {
+         "name": "Royal BC Museum",
+         "town": "victoria",
+         "what": "Walk through a replica 19th-century town, stand beneath a towering woolly mammoth and explore Indigenous cultures. Across from the Parliament Buildings."
+        },
+        {
+         "name": "Fisherman's Wharf",
+         "town": "victoria",
+         "what": "Colourful houseboats, fresh seafood kiosks and working fishing vessels in a living neighbourhood on the water."
+        }
+       ]
+      },
+      {
+       "day": 2,
+       "title": "Day 2: Sooke coast",
+       "stops": [
+        {
+         "name": "Sooke Potholes Provincial Park",
+         "town": "sooke",
+         "what": "Deep, smooth rock pools on the Sooke River, carved from volcanic rock by boulders in swirling currents."
+        },
+        {
+         "name": "Whiffin Spit",
+         "town": "sooke",
+         "what": "A 1.5-kilometre gravel bar into Sooke Harbour: a quick coastal walk with mountain and water views."
+        },
+        {
+         "name": "French Beach Provincial Park",
+         "town": "sooke",
+         "what": "A long pebble-and-sand beach on the Juan de Fuca Strait, about 20 kilometres west of Sooke, popular with families."
+        }
+       ]
+      },
+      {
+       "day": 3,
+       "title": "Day 3: Sidney and the Saanich Peninsula",
+       "stops": [
+        {
+         "name": "The Butchart Gardens",
+         "town": "sidney",
+         "what": "A 55-acre garden grown from a former limestone quarry, a National Historic Site of Canada transformed by Jennie Butchart from 1904."
+        },
+        {
+         "name": "Sidney Waterfront",
+         "town": "sidney",
+         "what": "A flat, barrier-free 2.5-kilometre paved walkway with public art and views of the Gulf Islands and Mount Baker."
+        },
+        {
+         "name": "Beacon Avenue",
+         "town": "sidney",
+         "what": "Canada's only Booktown, with independent shops and cafes along a tree-lined avenue sloping down to the Salish Sea."
+        }
+       ]
+      }
+     ],
+     "source": "Victoria - Agent Trek; Sooke; Sidney"
+    },
+    {
+     "id": "south-island-5-days",
+     "days": 5,
+     "title": "Five days on southern Vancouver Island",
+     "summary": "Two days in Victoria, two in Sooke with beaches and coastal trails, and a Saanich Peninsula day with gardens and the waterfront.",
+     "season": null,
+     "plan": [
+      {
+       "day": 1,
+       "title": "Day 1: Victoria landmarks",
+       "stops": [
+        {
+         "name": "Inner Harbour",
+         "town": "victoria",
+         "what": "The heart of Victoria, framed by the Neo-baroque Parliament Buildings and the Fairmont Empress Hotel."
+        },
+        {
+         "name": "BC Parliament Buildings",
+         "town": "victoria",
+         "what": "Victoria's premier architectural landmark: a grand Neo-baroque complex with a copper dome, on the Inner Harbour."
+        },
+        {
+         "name": "Royal BC Museum",
+         "town": "victoria",
+         "what": "Walk through a replica 19th-century town, stand beneath a towering woolly mammoth and explore Indigenous cultures. Across from the Parliament Buildings."
+        }
+       ]
+      },
+      {
+       "day": 2,
+       "title": "Day 2: Victoria parks, history and coast",
+       "stops": [
+        {
+         "name": "Beacon Hill Park",
+         "town": "victoria",
+         "what": "A 200-acre urban park of Garry Oak meadows, floral gardens and rugged coastline."
+        },
+        {
+         "name": "Dallas Road Beach",
+         "town": "victoria",
+         "what": "Pebbly inlets and rocky outcrops linked by the 4-kilometre Dallas Road waterfront path, with a direct connection to the Salish Sea."
+        },
+        {
+         "name": "Craigdarroch Castle",
+         "town": "victoria",
+         "what": "A bonanza castle built by coal baron Robert Dunsmuir between 1887 and 1890, with 39 rooms, intricate woodwork and fine stained glass."
+        },
+        {
+         "name": "Chinatown",
+         "town": "victoria",
+         "what": "Canada's oldest Chinatown: a preserved enclave of narrow alleys and heritage buildings."
+        },
+        {
+         "name": "Fisherman's Wharf",
+         "town": "victoria",
+         "what": "Colourful houseboats, fresh seafood kiosks and working fishing vessels in a living neighbourhood on the water."
+        }
+       ]
+      },
+      {
+       "day": 3,
+       "title": "Day 3: Sooke harbour and river",
+       "stops": [
+        {
+         "name": "Sooke Harbour and waterfront",
+         "town": "sooke",
+         "what": "The heart of the community, with T'Sou-ke Nation maritime history and a sheltered basin for paddling."
+        },
+        {
+         "name": "Whiffin Spit",
+         "town": "sooke",
+         "what": "A 1.5-kilometre gravel bar into Sooke Harbour: a quick coastal walk with mountain and water views."
+        },
+        {
+         "name": "Sooke Potholes Provincial Park",
+         "town": "sooke",
+         "what": "Deep, smooth rock pools on the Sooke River, carved from volcanic rock by boulders in swirling currents."
+        }
+       ]
+      },
+      {
+       "day": 4,
+       "title": "Day 4: Sooke wild coast",
+       "stops": [
+        {
+         "name": "East Sooke Regional Park",
+         "town": "sooke",
+         "what": "Often called a miniature West Coast Trail, with over 50 kilometres of trails through 1,400 hectares of rugged coastal wilderness."
+        },
+        {
+         "name": "French Beach Provincial Park",
+         "town": "sooke",
+         "what": "A long pebble-and-sand beach on the Juan de Fuca Strait, about 20 kilometres west of Sooke, popular with families."
+        },
+        {
+         "name": "China Beach",
+         "town": "sooke",
+         "what": "A fine-sand beach in Juan de Fuca Provincial Park, roughly 35 kilometres west of Sooke and a trailhead for the Juan de Fuca Marine Trail."
+        }
+       ]
+      },
+      {
+       "day": 5,
+       "title": "Day 5: Sidney and the Saanich Peninsula",
+       "stops": [
+        {
+         "name": "The Butchart Gardens",
+         "town": "sidney",
+         "what": "A 55-acre garden grown from a former limestone quarry, a National Historic Site of Canada transformed by Jennie Butchart from 1904."
+        },
+        {
+         "name": "Sidney Waterfront",
+         "town": "sidney",
+         "what": "A flat, barrier-free 2.5-kilometre paved walkway with public art and views of the Gulf Islands and Mount Baker."
+        },
+        {
+         "name": "Beacon Avenue",
+         "town": "sidney",
+         "what": "Canada's only Booktown, with independent shops and cafes along a tree-lined avenue sloping down to the Salish Sea."
+        },
+        {
+         "name": "Lochside Regional Trail",
+         "town": "sidney",
+         "what": "A 29-kilometre multi-use path on a former railway line, from Swartz Bay Ferry Terminal to downtown Victoria."
+        }
+       ]
+      }
+     ],
+     "source": "Victoria - Agent Trek; Sooke; Sidney"
+    }
+   ]
+  },
+  {
+   "id": "island-end-to-end",
+   "name": "Vancouver Island end to end",
+   "kind": "group",
+   "towns": [
+    "victoria",
+    "chemainus",
+    "nanaimo",
+    "parksville",
+    "campbell-river",
+    "tofino",
+    "ucluelet"
+   ],
+   "intro": "Start in Victoria, work north through the east coast towns to Campbell River, then cross to the west coast for Tofino and Ucluelet.",
+   "trips": [
+    {
+     "id": "island-end-to-end-7-days",
+     "days": 7,
+     "title": "Seven days from Victoria to Ucluelet",
+     "summary": "Victoria, Chemainus and Nanaimo, the Parksville and Qualicum beaches, Campbell River, then Cathedral Grove, Tofino and Ucluelet.",
+     "season": null,
+     "plan": [
+      {
+       "day": 1,
+       "title": "Day 1: Victoria",
+       "stops": [
+        {
+         "name": "Inner Harbour",
+         "town": "victoria",
+         "what": "The heart of Victoria, framed by the Neo-baroque Parliament Buildings and the Fairmont Empress Hotel."
+        },
+        {
+         "name": "BC Parliament Buildings",
+         "town": "victoria",
+         "what": "Victoria's premier architectural landmark: a grand Neo-baroque complex with a copper dome, on the Inner Harbour."
+        },
+        {
+         "name": "Royal BC Museum",
+         "town": "victoria",
+         "what": "Walk through a replica 19th-century town, stand beneath a towering woolly mammoth and explore Indigenous cultures. Across from the Parliament Buildings."
+        }
+       ]
+      },
+      {
+       "day": 2,
+       "title": "Day 2: Chemainus and Nanaimo",
+       "stops": [
+        {
+         "name": "Chemainus Murals",
+         "town": "chemainus",
+         "what": "Once a struggling lumber town, now a walkable outdoor gallery of murals telling the region's Indigenous, forestry and community history."
+        },
+        {
+         "name": "Nanaimo Harbourfront Walkway",
+         "town": "nanaimo",
+         "what": "A scenic multi-use shoreline path connecting downtown with the harbour and Saysutshun (Newcastle Island)."
+        },
+        {
+         "name": "Old City Quarter",
+         "town": "nanaimo",
+         "what": "A revitalized historic district a few blocks uphill from the waterfront, with colourful storefronts, boutiques and locally owned eateries."
+        }
+       ]
+      },
+      {
+       "day": 3,
+       "title": "Day 3: the Parksville and Qualicum area",
+       "stops": [
+        {
+         "name": "Rathtrevor Beach Provincial Park",
+         "town": "parksville",
+         "what": "Massive tidal range and ancient Douglas fir forests, with a woodland sanctuary that opens onto a vast sandy beach."
+        },
+        {
+         "name": "Qualicum",
+         "town": "parksville",
+         "what": "A long, curved shoreline with panoramic views of the Coast Mountains, calmer than the bustling park in Parksville."
+        },
+        {
+         "name": "Old Country Market, Coombs",
+         "town": "parksville",
+         "what": "The Old Country Market, famous for its goats on the roof, is a complex of eclectic shops and international eateries."
+        }
+       ]
+      },
+      {
+       "day": 4,
+       "title": "Day 4: Campbell River",
+       "stops": [
+        {
+         "name": "Elk Falls Provincial Park",
+         "town": "campbell-river",
+         "what": "Ten minutes from downtown: massive trees, a rushing river and a suspension bridge over a thundering waterfall."
+        },
+        {
+         "name": "Discovery Fishing Pier",
+         "town": "campbell-river",
+         "what": "Canada's first saltwater fishing pier, stretching 180 metres into Discovery Passage."
+        },
+        {
+         "name": "Rotary Seawalk",
+         "town": "campbell-river",
+         "what": "A paved 13-kilometre pathway along the ocean, connecting the south of the city to downtown."
+        }
+       ]
+      },
+      {
+       "day": 5,
+       "title": "Day 5: Cathedral Grove to Tofino",
+       "stops": [
+        {
+         "name": "Cathedral Grove",
+         "town": "parksville",
+         "what": "Giant Douglas firs over 800 years old, on Highway 4 between Qualicum and Port Alberni."
+        },
+        {
+         "name": "Chesterman Beach",
+         "town": "tofino",
+         "what": "A 2.7-kilometre stretch of white sand shaped like a W. Walk it, or take a beginner surf lesson on the sandy bottom."
+        },
+        {
+         "name": "Tonquin Beach",
+         "town": "tofino",
+         "what": "A sunset-facing cove reached by an 800-metre gravel path with viewing platforms. Calmer water than the surf beaches."
+        }
+       ]
+      },
+      {
+       "day": 6,
+       "title": "Day 6: Tofino and the national park",
+       "stops": [
+        {
+         "name": "Long Beach",
+         "town": "tofino",
+         "what": "Part of the Long Beach Unit of Pacific Rim National Park Reserve, between Tofino and Ucluelet. A Parks Canada pass is required."
+        },
+        {
+         "name": "Rainforest Trail",
+         "town": "tofino",
+         "what": "Two boardwalk loops through the old-growth forest of Pacific Rim National Park Reserve, right off the Pacific Rim Highway."
+        },
+        {
+         "name": "Cox Bay Beach",
+         "town": "tofino",
+         "what": "A 1.5-kilometre crescent bay between rocky headlands, widely considered Canada's premier surfing destination."
+        }
+       ]
+      },
+      {
+       "day": 7,
+       "title": "Day 7: Ucluelet",
+       "stops": [
+        {
+         "name": "Wild Pacific Trail, Lighthouse Loop",
+         "town": "ucluelet",
+         "what": "The 2.6-kilometre Lighthouse Loop takes about 45 minutes along black volcanic rock and leads to Amphitrite Point Lighthouse."
+        },
+        {
+         "name": "Ucluelet Aquarium",
+         "town": "ucluelet",
+         "what": "A catch-and-release aquarium at the foot of Main Street with touch tanks. Fully indoor and seasonal, typically March through early December."
+        },
+        {
+         "name": "Ucluelet Harbour Walk",
+         "town": "ucluelet",
+         "what": "Boardwalks through the inner boat basin, with fishing vessels, herons, bald eagles and the occasional sea otter."
+        }
+       ]
+      }
+     ],
+     "source": "Victoria - Agent Trek; Chemainus; Nanaimo; The Parksville and Qualicum; Campbell River; Tofino; Ucluelet"
+    },
+    {
+     "id": "island-end-to-end-10-days",
+     "days": 10,
+     "title": "Ten days from Victoria to Ucluelet",
+     "summary": "Two days in Victoria, then Chemainus, Nanaimo, Parksville, two days in Campbell River, and three days on the west coast.",
+     "season": null,
+     "plan": [
+      {
+       "day": 1,
+       "title": "Day 1: Victoria landmarks",
+       "stops": [
+        {
+         "name": "Inner Harbour",
+         "town": "victoria",
+         "what": "The heart of Victoria, framed by the Neo-baroque Parliament Buildings and the Fairmont Empress Hotel."
+        },
+        {
+         "name": "BC Parliament Buildings",
+         "town": "victoria",
+         "what": "Victoria's premier architectural landmark: a grand Neo-baroque complex with a copper dome, on the Inner Harbour."
+        },
+        {
+         "name": "Royal BC Museum",
+         "town": "victoria",
+         "what": "Walk through a replica 19th-century town, stand beneath a towering woolly mammoth and explore Indigenous cultures. Across from the Parliament Buildings."
+        }
+       ]
+      },
+      {
+       "day": 2,
+       "title": "Day 2: Victoria parks and history",
+       "stops": [
+        {
+         "name": "Beacon Hill Park",
+         "town": "victoria",
+         "what": "A 200-acre urban park of Garry Oak meadows, floral gardens and rugged coastline."
+        },
+        {
+         "name": "Craigdarroch Castle",
+         "town": "victoria",
+         "what": "A bonanza castle built by coal baron Robert Dunsmuir between 1887 and 1890, with 39 rooms, intricate woodwork and fine stained glass."
+        },
+        {
+         "name": "Fisherman's Wharf",
+         "town": "victoria",
+         "what": "Colourful houseboats, fresh seafood kiosks and working fishing vessels in a living neighbourhood on the water."
+        }
+       ]
+      },
+      {
+       "day": 3,
+       "title": "Day 3: Chemainus",
+       "stops": [
+        {
+         "name": "Chemainus Murals",
+         "town": "chemainus",
+         "what": "Once a struggling lumber town, now a walkable outdoor gallery of murals telling the region's Indigenous, forestry and community history."
+        },
+        {
+         "name": "Chemainus Theatre Festival",
+         "town": "chemainus",
+         "what": "A neo-classical building housing professional dinner-and-a-show theatre, anchoring the town's arts district."
+        },
+        {
+         "name": "Waterwheel Park",
+         "town": "chemainus",
+         "what": "The civic and horticultural heart of the town, named for a replica of the 19th-century waterwheel that once powered the local economy."
+        }
+       ]
+      },
+      {
+       "day": 4,
+       "title": "Day 4: Nanaimo",
+       "stops": [
+        {
+         "name": "Saysutshun (Newcastle Island Marine Provincial Park)",
+         "town": "nanaimo",
+         "what": "An island park reached only by water, a few hundred metres off Nanaimo harbour, with sandstone cliffs, forest trails and Snuneymuxw First Nation history."
+        },
+        {
+         "name": "Harbourfront Walkway",
+         "town": "nanaimo",
+         "what": "A scenic multi-use shoreline path connecting downtown with the harbour and Saysutshun (Newcastle Island)."
+        },
+        {
+         "name": "Old City Quarter",
+         "town": "nanaimo",
+         "what": "A revitalized historic district a few blocks uphill from the waterfront, with colourful storefronts, boutiques and locally owned eateries."
+        },
+        {
+         "name": "Nanaimo Bar Trail",
+         "town": "nanaimo",
+         "what": "A self-guided tour of more than 30 stops, each with its own take on the no-bake dessert."
+        }
+       ]
+      },
+      {
+       "day": 5,
+       "title": "Day 5: the Parksville and Qualicum area",
+       "stops": [
+        {
+         "name": "Rathtrevor Beach Provincial Park",
+         "town": "parksville",
+         "what": "Massive tidal range and ancient Douglas fir forests, with a woodland sanctuary that opens onto a vast sandy beach."
+        },
+        {
+         "name": "Qualicum",
+         "town": "parksville",
+         "what": "A long, curved shoreline with panoramic views of the Coast Mountains, calmer than the bustling park in Parksville."
+        },
+        {
+         "name": "Old Country Market, Coombs",
+         "town": "parksville",
+         "what": "The Old Country Market, famous for its goats on the roof, is a complex of eclectic shops and international eateries."
+        }
+       ]
+      },
+      {
+       "day": 6,
+       "title": "Day 6: Campbell River waterfront and falls",
+       "stops": [
+        {
+         "name": "Elk Falls Provincial Park",
+         "town": "campbell-river",
+         "what": "Ten minutes from downtown: massive trees, a rushing river and a suspension bridge over a thundering waterfall."
+        },
+        {
+         "name": "Discovery Fishing Pier",
+         "town": "campbell-river",
+         "what": "Canada's first saltwater fishing pier, stretching 180 metres into Discovery Passage."
+        },
+        {
+         "name": "Rotary Seawalk",
+         "town": "campbell-river",
+         "what": "A paved 13-kilometre pathway along the ocean, connecting the south of the city to downtown."
+        }
+       ]
+      },
+      {
+       "day": 7,
+       "title": "Day 7: Quadra Island and Ripple Rock",
+       "stops": [
+        {
+         "name": "Quadra Island",
+         "town": "campbell-river",
+         "what": "A 10-minute ferry ride from downtown: the largest Discovery Island, known for artists, hidden beaches and deep Indigenous history. Worth a full day."
+        },
+        {
+         "name": "Ripple Rock Trail",
+         "town": "campbell-river",
+         "what": "An 8-kilometre return trail to a high cliff over Seymour Narrows, where the water moves as fast as a river."
+        }
+       ]
+      },
+      {
+       "day": 8,
+       "title": "Day 8: Cathedral Grove to Tofino",
+       "stops": [
+        {
+         "name": "Cathedral Grove",
+         "town": "parksville",
+         "what": "Giant Douglas firs over 800 years old, on Highway 4 between Qualicum and Port Alberni."
+        },
+        {
+         "name": "Chesterman Beach",
+         "town": "tofino",
+         "what": "A 2.7-kilometre stretch of white sand shaped like a W. Walk it, or take a beginner surf lesson on the sandy bottom."
+        },
+        {
+         "name": "Tonquin Beach",
+         "town": "tofino",
+         "what": "A sunset-facing cove reached by an 800-metre gravel path with viewing platforms. Calmer water than the surf beaches."
+        }
+       ]
+      },
+      {
+       "day": 9,
+       "title": "Day 9: Hot Springs Cove",
+       "stops": [
+        {
+         "name": "Hot Springs Cove",
+         "town": "tofino",
+         "what": "Reached only by water or air from Tofino: a 2-kilometre cedar boardwalk to five natural pools. A typical excursion lasts 6 to 7 hours."
+        }
+       ]
+      },
+      {
+       "day": 10,
+       "title": "Day 10: Ucluelet",
+       "stops": [
+        {
+         "name": "Wild Pacific Trail, Lighthouse Loop",
+         "town": "ucluelet",
+         "what": "The 2.6-kilometre Lighthouse Loop takes about 45 minutes along black volcanic rock and leads to Amphitrite Point Lighthouse."
+        },
+        {
+         "name": "Amphitrite Point Lighthouse",
+         "town": "ucluelet",
+         "what": "An active beacon on the southern tip of the peninsula, good for spotting migrating whales in spring and sea lions on the offshore rocks."
+        },
+        {
+         "name": "Ucluelet Aquarium",
+         "town": "ucluelet",
+         "what": "A catch-and-release aquarium at the foot of Main Street with touch tanks. Fully indoor and seasonal, typically March through early December."
+        }
+       ]
+      }
+     ],
+     "source": "Victoria - Agent Trek; Chemainus; Nanaimo; The Parksville and Qualicum; Campbell River; Tofino; Ucluelet"
+    }
+   ]
+  },
+  {
+   "id": "island-mountain-biking",
+   "name": "Vancouver Island mountain biking",
+   "kind": "group",
+   "towns": [
+    "victoria",
+    "nanaimo",
+    "parksville",
+    "campbell-river"
+   ],
+   "intro": "Vancouver Island is a biking road trip: pedal-access trail riding in a string of trail towns, each with its own style.",
+   "trips": [
+    {
+     "id": "island-mtb-3-days",
+     "days": 3,
+     "title": "Three days of Vancouver Island mountain biking",
+     "summary": "One day each in Nanaimo, Cumberland and Cowichan: technical trails, classic Island singletrack, and flow or downhill-style riding.",
+     "season": "Spring through fall. Fall is one of the best seasons, and spring dirt can be very good but wet.",
+     "plan": [
+      {
+       "day": 1,
+       "title": "Day 1: Nanaimo",
+       "stops": [
+        {
+         "name": "Nanaimo",
+         "town": "nanaimo",
+         "what": "Technical riding with rocky sections, roots, climbs and ridgelines across several zones, including Doumont, Westwood, South Benson and Extension Ridge."
+        }
+       ]
+      },
+      {
+       "day": 2,
+       "title": "Day 2: Cumberland",
+       "stops": [
+        {
+         "name": "Cumberland and Comox Valley",
+         "town": null,
+         "what": "Often considered the heart of Vancouver Island mountain biking: forest singletrack, loam, flow trails and technical descents beside a bike-town village."
+        }
+       ]
+      },
+      {
+       "day": 3,
+       "title": "Day 3: Cowichan Valley",
+       "stops": [
+        {
+         "name": "Cowichan Valley",
+         "town": null,
+         "what": "A region of several riding zones: Cobble Hill for easier riding, Mount Tzouhalem for variety, Maple Mountain for technical forest and Mount Prevost for advanced downhill."
+        }
+       ]
+      }
+     ],
+     "source": "Vancouver Island_ Best Mountain Biking Spots"
+    },
+    {
+     "id": "island-mtb-5-days",
+     "days": 5,
+     "title": "Five days of Vancouver Island mountain biking",
+     "summary": "Start in Victoria, ride Cowichan and Nanaimo, spend time in Parksville or Hammerfest, then finish in Cumberland.",
+     "season": "Spring through fall. Fall is one of the best seasons, and spring dirt can be very good but wet.",
+     "plan": [
+      {
+       "day": 1,
+       "title": "Day 1: Victoria",
+       "stops": [
+        {
+         "name": "Victoria and Hartland",
+         "town": "victoria",
+         "what": "City-access riding at Hartland Mountain Bike Park, rocky, rooty and technical. Not a soft beginner path."
+        }
+       ]
+      },
+      {
+       "day": 2,
+       "title": "Day 2: Cowichan Valley",
+       "stops": [
+        {
+         "name": "Cowichan Valley",
+         "town": null,
+         "what": "A region of several riding zones: Cobble Hill for easier riding, Mount Tzouhalem for variety, Maple Mountain for technical forest and Mount Prevost for advanced downhill."
+        }
+       ]
+      },
+      {
+       "day": 3,
+       "title": "Day 3: Nanaimo",
+       "stops": [
+        {
+         "name": "Nanaimo",
+         "town": "nanaimo",
+         "what": "Technical riding with rocky sections, roots, climbs and ridgelines across several zones, including Doumont, Westwood, South Benson and Extension Ridge."
+        }
+       ]
+      },
+      {
+       "day": 4,
+       "title": "Day 4: Parksville and Hammerfest",
+       "stops": [
+        {
+         "name": "Parksville Qualicum and Hammerfest",
+         "town": "parksville",
+         "what": "Hammerfest trail network near Englishman River Falls Provincial Park: old-school singletrack, technical ridges, flow, bridges and boardwalks."
+        }
+       ]
+      },
+      {
+       "day": 5,
+       "title": "Day 5: Cumberland",
+       "stops": [
+        {
+         "name": "Cumberland and Comox Valley",
+         "town": null,
+         "what": "Often considered the heart of Vancouver Island mountain biking: forest singletrack, loam, flow trails and technical descents beside a bike-town village."
+        }
+       ]
+      }
+     ],
+     "source": "Vancouver Island_ Best Mountain Biking Spots"
+    },
+    {
+     "id": "island-mtb-7-days",
+     "days": 7,
+     "title": "Seven days of Vancouver Island mountain biking",
+     "summary": "Ride Victoria, Cowichan, Nanaimo, Parksville, Cumberland, Campbell River and Mount Washington for the full biking road trip.",
+     "season": "Spring through fall. Fall is one of the best seasons, and spring dirt can be very good but wet.",
+     "plan": [
+      {
+       "day": 1,
+       "title": "Day 1: Victoria",
+       "stops": [
+        {
+         "name": "Victoria and Hartland",
+         "town": "victoria",
+         "what": "City-access riding at Hartland Mountain Bike Park, rocky, rooty and technical. Not a soft beginner path."
+        }
+       ]
+      },
+      {
+       "day": 2,
+       "title": "Day 2: Cowichan Valley",
+       "stops": [
+        {
+         "name": "Cowichan Valley",
+         "town": null,
+         "what": "A region of several riding zones: Cobble Hill for easier riding, Mount Tzouhalem for variety, Maple Mountain for technical forest and Mount Prevost for advanced downhill."
+        }
+       ]
+      },
+      {
+       "day": 3,
+       "title": "Day 3: Nanaimo",
+       "stops": [
+        {
+         "name": "Nanaimo",
+         "town": "nanaimo",
+         "what": "Technical riding with rocky sections, roots, climbs and ridgelines across several zones, including Doumont, Westwood, South Benson and Extension Ridge."
+        }
+       ]
+      },
+      {
+       "day": 4,
+       "title": "Day 4: Parksville and Hammerfest",
+       "stops": [
+        {
+         "name": "Parksville Qualicum and Hammerfest",
+         "town": "parksville",
+         "what": "Hammerfest trail network near Englishman River Falls Provincial Park: old-school singletrack, technical ridges, flow, bridges and boardwalks."
+        }
+       ]
+      },
+      {
+       "day": 5,
+       "title": "Day 5: Cumberland",
+       "stops": [
+        {
+         "name": "Cumberland and Comox Valley",
+         "town": null,
+         "what": "Often considered the heart of Vancouver Island mountain biking: forest singletrack, loam, flow trails and technical descents beside a bike-town village."
+        }
+       ]
+      },
+      {
+       "day": 6,
+       "title": "Day 6: Campbell River",
+       "stops": [
+        {
+         "name": "Campbell River and Snowden Forest",
+         "town": "campbell-river",
+         "what": "Snowden Demonstration Forest has a large singletrack network. A slower, more spacious trip with fewer crowds, and other outdoor options nearby."
+        }
+       ]
+      },
+      {
+       "day": 7,
+       "title": "Day 7: Mount Washington",
+       "stops": [
+        {
+         "name": "Mount Washington",
+         "town": null,
+         "what": "Resort-style summer riding in an alpine setting with cooler air and views. Check current summer operations before going."
+        }
+       ]
+      }
+     ],
+     "source": "Vancouver Island_ Best Mountain Biking Spots"
+    }
+   ]
+  }
+ ]
+}

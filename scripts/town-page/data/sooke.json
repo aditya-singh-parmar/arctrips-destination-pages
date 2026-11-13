@@ -1,0 +1,316 @@
+{
+ "slug": "sooke",
+ "name": "Sooke",
+ "region": "island",
+ "title": "Sooke, Arc Trips",
+ "description": "Sooke, Vancouver Island: the Sooke Potholes, coastal parks, whale watching and wild trails on the southwest coast, an easy trip from Victoria.",
+ "hero": {
+  "img": "/prototype/media/sooke/image28.jpg",
+  "alt": "Sooke Harbour marina below forested hills, with the Olympic Mountains in the distance",
+  "standfirst": "A peaceful small town on Vancouver Island's southwest coast, with a rugged shoreline, forested hills and a relaxed west coast character, close enough to Victoria for an easy getaway."
+ },
+ "why": {
+  "h2": "A rugged coast close to Victoria",
+  "paras": [
+   "Set along the southwest coast of Vancouver Island, Sooke is one of British Columbia's most scenic small-town escapes. It is known for its rugged shoreline, forested hills and relaxed west coast character, a refreshing change of pace from the busier streets of nearby Victoria. It feels peaceful and rural, yet close enough to the city to make an easy and rewarding getaway.",
+   "The community is shaped by the ocean, the rainforest and a long Indigenous history. The area has long been home to the T'Sou-ke Nation, whose connection to these coastal landscapes stretches back countless generations. Salmon-bearing waters, rich forests and abundant shoreline resources have supported life here for centuries."
+  ],
+  "facts": [
+   {
+    "k": "Where it is",
+    "v": "Southwest coast of Vancouver Island, directly on the Strait of Juan de Fuca, west of Victoria."
+   },
+   {
+    "k": "Getting there",
+    "v": "Close enough to Victoria for an easy trip. Highway 14 (West Coast Road) continues 70 km west to Port Renfrew."
+   },
+   {
+    "k": "Known for",
+    "v": "The Sooke Potholes, East Sooke Regional Park, Whiffin Spit, the Juan de Fuca Marine Trail, whale watching and charter fishing."
+   },
+   {
+    "k": "When to come",
+    "v": "May to September is the most popular. Spring and fall are quieter, and winter suits stormy seas and cozy stays."
+   }
+  ]
+ },
+ "when": {
+  "h2": "Summer crowds, quiet spring and fall",
+  "intro": "Summer is the sunniest and busiest season, so parking lots, whale tours and charters fill early. Spring and fall are quieter and winter brings storm watching, so every season has a reason to come; dress for wind and cooler air on the coast.",
+  "rows": [
+   {
+    "name": "Whale watching",
+    "best": [
+     5,
+     6,
+     7,
+     8,
+     9,
+     10
+    ],
+    "shoulder": [
+     3,
+     4
+    ],
+    "note": "Orcas and humpbacks May to October; gray whales in March and April."
+   },
+   {
+    "name": "Hiking and beach walks",
+    "best": [
+     5,
+     6,
+     7,
+     8,
+     9
+    ],
+    "shoulder": [
+     4,
+     10
+    ],
+    "note": "Late spring through early fall suits trails and beaches."
+   },
+   {
+    "name": "Salmon fishing",
+    "best": [
+     7,
+     8,
+     9
+    ],
+    "shoulder": [
+     3,
+     4
+    ],
+    "note": "Peak salmon July to September; halibut season starts in early spring."
+   }
+  ],
+  "crowds": [
+   1,
+   1,
+   2,
+   2,
+   3,
+   3,
+   4,
+   4,
+   3,
+   2,
+   1,
+   1
+  ],
+  "crowdsNote": "Summer weekends fill the Potholes, French Beach and Whiffin Spit lots, and whale tours book days ahead.",
+  "seasons": [
+   {
+    "h": "Summer, June to August",
+    "p": "The sunniest and busiest season. Arrive before 10:00 AM at the Sooke Potholes and Matheson Lake on hot weekends. Whale tours fill days ahead and top charters book weeks ahead."
+   },
+   {
+    "h": "Fall, September to November",
+    "p": "Coho and Chinook salmon spawn in the Sooke River, and the Charters River Interpretive Centre has a viewing platform in autumn. Thousands of turkey vultures and raptors gather at Beechey Head for the autumn hawk migration."
+   },
+   {
+    "h": "Winter, December to February",
+    "p": "Quiet, with storm watching and cold-water surfing at China Beach and Jordan River. The Kludahk trails are one of the few places near Victoria to reliably find snow for backcountry skiing and snowshoeing."
+   },
+   {
+    "h": "Spring, March to May",
+    "p": "Gray whales are most common during their migration in March and April, and crowds are lighter than in summer. Halibut season starts in early spring, and the Sooke Country Market opens in mid-April."
+   }
+  ]
+ },
+ "tabs": [
+  {
+   "id": "parks",
+   "label": "Parks and beaches",
+   "intro": "Juan de Fuca beaches, river pools and a walkable gravel spit, all within reach of Sooke.",
+   "places": [
+    {
+     "name": "Sooke Potholes Provincial Park",
+     "img": "/prototype/media/sooke/image32.jpg",
+     "alt": "The Sooke River rushing through a mossy rock canyon",
+     "text": "Sooke Potholes Provincial Park is a 7.3-hectare area on the banks of the Sooke River, famous for deep, smooth rock pools carved out of volcanic rock by swirling river currents. The emerald pools range from shallow gravel beds for wading to deep basins for confident swimmers, and a riverside trail offers viewpoints of rock formations and waterfalls.",
+     "note": "The polished rock is slippery when wet and the water stays cold all year. Arrive before 10:00 AM on hot summer weekends."
+    },
+    {
+     "name": "Whiffin Spit",
+     "img": "/prototype/media/sooke/image20.jpg",
+     "alt": "An aerial view of Whiffin Spit curving into Sooke Harbour",
+     "text": "Whiffin Spit is a naturally formed gravel bar that stretches about 1.5 kilometres into Sooke Harbour, a scenic breakwater between the calm inner basin and the Strait of Juan de Fuca. The flat, 2.7-kilometre out-and-back gravel path is a quick coastal walk with the Olympic Mountains ahead, and over 220 bird species have been recorded here.",
+     "note": "Free parking at the end of Whiffin Spit Road. The spit can be windy and cool, so bring a windbreaker."
+    },
+    {
+     "name": "Sheringham Point Lighthouse",
+     "img": "/prototype/media/sooke/image40.jpg",
+     "alt": "Sheringham Point Lighthouse on a rocky headland above deep blue water",
+     "text": "Sheringham Point Lighthouse is a designated National Heritage site on the rocky coast of Shirley, about 20 minutes west of Sooke. Built in 1912 after the wreck of the SS Valencia, the white hexagonal tower is one of the few lighthouses on Vancouver Island accessible by land. A short, relatively easy trail leads to viewing platforms over the strait.",
+     "note": "Open daily from 9:00 AM to dusk, with free admission. Hydrophones let you listen for passing orcas and humpbacks."
+    },
+    {
+     "name": "French Beach Provincial Park",
+     "img": null,
+     "alt": null,
+     "text": "French Beach Provincial Park is a 59-hectare coastal park about 20 kilometres west of Sooke, widely recognized for its long pebble-and-sand beach. The 1,600-metre beach suits beachcombing and walking with views to the Olympic Mountains, and short trails wind through Douglas fir and Western Red cedar. Gray whales often migrate past in spring.",
+     "note": "Day-use parking can fill quickly in summer and on holiday weekends. Arrive early."
+    },
+    {
+     "name": "China Beach",
+     "img": null,
+     "alt": null,
+     "text": "China Beach is a coastal destination in Juan de Fuca Provincial Park, roughly 35 kilometres west of Sooke, and the eastern terminus of the 47-kilometre Juan de Fuca Marine Trail. A 15 to 20 minute walk through mature forest leads to a wide beach, where a small waterfall spills down the sandstone cliffs.",
+     "note": "Sections near the cliffs can be cut off at extremely high tides, so check a tide table. There are no food services."
+    },
+    {
+     "name": "Race Rocks Ecological Reserve",
+     "img": "/prototype/media/sooke/image12.jpg",
+     "alt": "Harbour seals resting on a rock",
+     "text": "Race Rocks is a marine sanctuary at the eastern entrance of the Juan de Fuca Strait and a premier spot to see California and Steller sea lions hauled out on the rocks, along with harbour seals and northern elephant seals. The black-and-white striped Race Rocks Lighthouse, built in 1860, still stands.",
+     "note": "Reached only by water on wildlife tours from Sooke or Victoria. Landing is prohibited without a permit."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "Can you swim at the Sooke Potholes?",
+     "a": "Yes. The pools range from shallow gravel beds for wading to deep basins popular with confident swimmers. The water stays cold year-round, even in peak summer, and the polished volcanic rock is very slippery when wet."
+    },
+    {
+     "q": "Where do I park at the Sooke Potholes?",
+     "a": "Pay parking is in effect from May 1 to September 30 in the Regional Park lots, at about $2.25 per day. On hot summer weekends the lots fill very quickly, so arrive before 10:00 AM."
+    },
+    {
+     "q": "How long is the walk to China Beach?",
+     "a": "A 15 to 20 minute walk through mature forest, with a steady incline on the return trip. Check a tide table, because sections near the cliffs can be cut off at extremely high tides."
+    },
+    {
+     "q": "Is Whiffin Spit easy to walk?",
+     "a": "Yes. The main trail is a flat, packed gravel, 2.7-kilometre out-and-back path that suits strollers and most all-terrain wheelchairs. It is open year-round, with no lighting after dark."
+    },
+    {
+     "q": "Where can I watch whales from shore near Sooke?",
+     "a": "Sheringham Point Lighthouse is a premier shore-based whale-watching spot, and French Beach and China Beach are good for gray whales migrating past in spring. Bring binoculars."
+    }
+   ]
+  },
+  {
+   "id": "hiking",
+   "label": "Hiking and trails",
+   "intro": "From a challenging coastal route to a flat railway trail, Sooke's trails suit every fitness level.",
+   "places": [
+    {
+     "name": "East Sooke Regional Park",
+     "img": "/prototype/media/sooke/image43.jpg",
+     "alt": "A rocky cove with forest and calm water in East Sooke Regional Park",
+     "text": "East Sooke Regional Park is often described as a miniature West Coast Trail, with over 50 kilometres of trails through 1,400 hectares of rugged coastal wilderness. The 10-kilometre Coast Trail is the signature hike, with some scrambling over rocky bluffs. Aylard Farm is the most accessible area, with an open meadow and a sandy pocket beach.",
+     "note": "The Coast Trail is harder than it looks: allow 6 to 8 hours one way. There is no potable water, and cell reception is unreliable."
+    },
+    {
+     "name": "Juan de Fuca Marine Trail",
+     "img": "/prototype/media/sooke/image45.jpg",
+     "alt": "A waterfall dropping from a sandstone cliff onto a beach at Mystic Beach",
+     "text": "The Juan de Fuca Marine Trail is a rugged 47-kilometre route along the southwest coast, often compared to the West Coast Trail but without a formal reservation system. It links Mystic Beach, with its rope swing and cliffside waterfall, Sombrio Beach and Botanical Beach, and crosses suspension bridges over deep gorges.",
+     "note": "Most of the trail is strenuous. Overnight stays need a backcountry permit ($10 per adult per night)."
+    },
+    {
+     "name": "Galloping Goose Regional Trail",
+     "img": "/prototype/media/sooke/image22.jpg",
+     "alt": "A paved trail through autumn trees on the Galloping Goose",
+     "text": "The Galloping Goose is a 55-kilometre multi-use path that follows a decommissioned railway from downtown Victoria to the ghost town of Leechtown. It is paved from Victoria through Langford and becomes packed gravel toward Sooke, passing the Sooke Basin shoreline and the Sooke Potholes Regional Park. It is exceptionally flat.",
+     "note": "Water fountains become scarce west of Langford. Yield to horses, which are common in Metchosin and Sooke."
+    },
+    {
+     "name": "Matheson Lake Regional Park",
+     "img": "/prototype/media/sooke/image23.jpg",
+     "alt": "A still freshwater lake reflecting trees and sky in Matheson Lake Regional Park",
+     "text": "Matheson Lake Regional Park is a 156-hectare park in Metchosin with a tranquil freshwater lake in a steep-sided forest. A 3.8-kilometre trail circles the lake: the east side is flat and wide, while the west side is more rugged with some scrambling. The calm lake is ideal for summer swimming and for launching kayaks, canoes or paddleboards.",
+     "note": "On hot summer weekends the beach and parking lot can fill early. Arrive before 10:00 AM."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "How hard is the East Sooke Coast Trail?",
+     "a": "It is challenging: a 10-kilometre route with some scrambling over rocky bluffs, and more difficult than it appears on a map. Allow at least 6 to 8 hours for the full one-way trip, wear sturdy boots and bring plenty of water."
+    },
+    {
+     "q": "Can I hike part of the Juan de Fuca Marine Trail in a day?",
+     "a": "Yes. Most of the trail is strenuous, but the 2-kilometre walk to Mystic Beach and the Botanical Loop are manageable for day trips. The full 47 kilometres is best done over 4 to 5 days."
+    },
+    {
+     "q": "Is the Galloping Goose good for cycling?",
+     "a": "Yes. The trail is exceptionally flat, with a maximum grade of only 2 percent. Narrow road tires are fine on the paved urban section, but wider tires are better for the gravel western half."
+    },
+    {
+     "q": "Can I swim at Matheson Lake?",
+     "a": "Yes. The lake's calm freshwater surface is ideal for swimming in summer. The 3.8-kilometre loop around it is flatter on the east side and more rugged on the west."
+    }
+   ]
+  },
+  {
+   "id": "water",
+   "label": "Wildlife and water",
+   "intro": "Whale watching, charter fishing and paddling run from Sooke Harbour and the Sooke Basin.",
+   "places": [
+    {
+     "name": "Whale watching and wildlife tours",
+     "img": "/prototype/media/sooke/image2.jpg",
+     "alt": "An orca breaching in open water",
+     "text": "Whale watching in Sooke is an intimate alternative to the larger hubs in Victoria. Because Sooke sits directly on the Strait of Juan de Fuca, boats reach the feeding grounds and migration corridors faster. Sooke Whale Watching runs 3-hour open-air tours, and Neptune Wildlife Tours is a member of the Pacific Whale Watching Association.",
+     "note": "Many operators offer a sighting guarantee. It is 10 to 15 degrees cooler on the water than at the docks, so bring a windbreaker."
+    },
+    {
+     "name": "Charter fishing",
+     "img": "/prototype/media/sooke/image27.jpg",
+     "alt": "Fishing boats on calm water beside a kelp bed",
+     "text": "Sooke is a major hub for saltwater angling, with direct access to the productive waters of the Juan de Fuca Strait. Charters such as Goin Coastal, First Light, Bluefin, 2 Reel and Hooked On Fishing target Chinook and Coho salmon, halibut, rockfish and lingcod, with half-day and full-day trips. Guides provide gear and often help clean and bag your catch.",
+     "note": "Peak salmon season is July to September and top charters book several weeks ahead. Early morning departures are generally the most productive."
+    },
+    {
+     "name": "Kayaking and paddling",
+     "img": "/prototype/media/sooke/image25.jpg",
+     "alt": "A red kayak on calm water in front of a forested shoreline",
+     "text": "Sooke offers diverse paddling, from the calm, sheltered Sooke Basin, ideal for beginners and families, to the rugged East Sooke coast for intermediate and advanced paddlers. A classic route from Sooke Harbour is out to Whiffin Spit for a beach picnic. Rush Adventures in Cooper's Cove runs 3-hour intro tours plus sunset and bioluminescence paddles.",
+     "note": "Check tide tables for the Sooke Hole, the harbour entrance. Afternoon inflow winds are common, so paddle in the morning."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "When is the best time to whale watch from Sooke?",
+     "a": "The peak season for orcas and humpbacks runs from May through October. Transient (Bigg's) killer whales hunt seals year-round, and gray whales are most common in March and April."
+    },
+    {
+     "q": "Do I need to book whale watching or a fishing charter ahead?",
+     "a": "Yes in summer. Sooke whale tours carry smaller passenger counts and often fill several days ahead, and top charters book several weeks ahead during peak salmon season (July to September)."
+    },
+    {
+     "q": "Where should beginners paddle in Sooke?",
+     "a": "The Sooke Basin is the most sheltered area, with calm water and minimal current. It suits beginners, families and sunset or full-moon paddles. Sooke Harbour has more movement and stronger tidal currents at its narrow mouth."
+    },
+    {
+     "q": "How close can I get to wildlife when paddling?",
+     "a": "Keep at least 100 metres away from seals and sea lions and 400 metres away from orcas. If whales approach you, stop paddling and let them pass."
+    },
+    {
+     "q": "When does salmon and halibut fishing peak?",
+     "a": "Peak salmon season runs from July through September, and the halibut season starts in early spring. Chinook and Coho salmon are the main targets, along with halibut and rockfish."
+    }
+   ]
+  }
+ ],
+ "planning": [
+  {
+   "q": "Where is the last stop for groceries and fuel on Highway 14?",
+   "a": "Sooke is the last major hub for groceries and fuel. Port Renfrew has a small general store, but prices are higher and the selection is limited."
+  },
+  {
+   "q": "Is there cell service west of Sooke?",
+   "a": "Cell service is almost non-existent once you pass Jordan River. Download offline maps and tell someone your destination before leaving Sooke."
+  },
+  {
+   "q": "What is the drive to Port Renfrew like?",
+   "a": "Highway 14 is a 70-kilometre winding coastal highway. It is paved but has many sharp curves and narrow bridges, and in winter or heavy rain you should watch for debris or washouts."
+  }
+ ],
+ "nearby": [
+  "victoria"
+ ],
+ "sources": [
+  "Sooke.docx"
+ ]
+}

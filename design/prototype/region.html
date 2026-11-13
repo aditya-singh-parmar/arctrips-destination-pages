@@ -51,8 +51,8 @@ nav.top .btn{flex:none}
 body>a.skip{position:absolute;left:var(--gut);top:-70px;z-index:99;background:var(--navy);color:var(--paper);
   padding:13px 18px;border-radius:0 0 var(--r-sm) var(--r-sm);font-weight:600;font-size:.9rem;transition:top .18s var(--ease)}
 body>a.skip:focus{top:0}
-[id]{scroll-margin-top:144px}
-@media(max-width:760px){[id]{scroll-margin-top:80px}}
+[id]{scroll-margin-top:176px}
+@media(max-width:760px){[id]{scroll-margin-top:104px}}
 
 @media(max-width:760px){
   nav.top{position:static}
@@ -211,24 +211,19 @@ body>a.skip:focus{top:0}
 
 <!-- The place bar. Same shape as the town pages: the parent anchor, this
      place's sections, and the booking path. The one primary on the screen. -->
-<nav class="placebar" aria-label="Vancouver Island"><div class="wrap placebar-in">
-  <a class="placebar__back" href="/"><span class="n">&larr; British Columbia</span></a>
-  <ul class="placebar__links">
+<div class="placebar placebar--two" aria-label="Vancouver Island"><div class="wrap">
+  <nav class="crumb placebar__crumb" aria-label="Breadcrumb"><a href="/">British Columbia</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Vancouver Island</span></nav>
+  <nav class="placebar-in" aria-label="Vancouver Island sections"><ul class="placebar__links">
     <li><a href="#top" aria-current="page">Overview</a></li>
     <li><a href="#towns">Towns</a></li>
     <li><a href="#guides">Island guides</a></li>
     <li><a href="#next">Plan</a></li>
-  </ul>
-</div></nav>
+  </ul></nav>
+</div></div><!-- /placebar -->
 
 <main id="main">
 
-<div class="wrap">
-  <nav class="crumb" aria-label="Breadcrumb">
-    <a href="/">British Columbia</a><span class="sep" aria-hidden="true">&rsaquo;</span>
-    <span aria-current="page">Vancouver Island</span>
-  </nav>
-</div>
+
 
 <header class="hero"><div class="wrap hero-grid">
   <div>
@@ -253,7 +248,7 @@ body>a.skip:focus{top:0}
     <div>
       <span class="label">Where we publish first</span>
       <h2 style="margin-top:11px">Ucluelet and Tofino first, then the island end to end</h2>
-      <p>Ucluelet and Tofino lead, because they are the two towns taking bookings now and the two we have walked properly. Behind them the island runs south to north, from the ferry terminals and the airport at the south end to the salmon water above Campbell River. Those nine open on their photographs and the places worth the drive, with their full guides still being walked.</p>
+      <p>Ucluelet and Tofino lead, because they are the two towns taking bookings now. Behind them the island runs south to north, from the ferry terminals and the airport at the south end to the salmon water above Campbell River.</p>
     </div>
     <a class="btn btn--ghost" href="/#mainland">Rest of British Columbia</a>
   </div>

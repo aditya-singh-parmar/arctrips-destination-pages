@@ -56,8 +56,8 @@ body>.jumpbar{position:fixed;z-index:70}
 body>a.skip{position:absolute;left:var(--gut);top:-70px;z-index:99;background:var(--navy);color:var(--paper);
   padding:13px 18px;border-radius:0 0 var(--r-sm) var(--r-sm);font-weight:600;font-size:.9rem;transition:top .18s var(--ease)}
 body>a.skip:focus{top:0}
-[id]{scroll-margin-top:144px}
-@media(max-width:760px){[id]{scroll-margin-top:80px}}
+[id]{scroll-margin-top:176px}
+@media(max-width:760px){[id]{scroll-margin-top:104px}}
 
 /* (c) v2 navigation, page-side corrections only. The place bar is the sticky
    spine; on mobile the global nav scrolls away so the two never stack. */
@@ -328,25 +328,21 @@ body>a.skip:focus{top:0}
 
 <!-- The place bar. Identical on every page below Tofino: the town anchor, the
      town's five sections, and the booking path. -->
-<nav class="placebar" aria-label="Tofino"><div class="wrap placebar-in">
-  <a class="placebar__back" href="/destinations/canada/bc/vancouver-island"><span class="n">&larr; Vancouver Island</span></a>
-  <ul class="placebar__links">
+<div class="placebar placebar--two" aria-label="Tofino"><div class="wrap">
+  <nav class="crumb placebar__crumb" aria-label="Breadcrumb"><a class="lvl-deep" href="/">British Columbia</a><span class="sep lvl-deep" aria-hidden="true">/</span><a href="/destinations/canada/bc/vancouver-island">Vancouver Island</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Tofino</span></nav>
+  <nav class="placebar-in" aria-label="Tofino sections"><ul class="placebar__links">
     <li><a href="#top" aria-current="page">Overview</a></li>
     <li><a href="/destinations/canada/bc/tofino/things-to-do">Things to do</a></li>
     <li><a href="/travel-guides/canada/bc/tofino">Plan</a></li>
+    <li><a href="/travel-guides/canada/bc/tofino/best-time-to-visit">Best time to visit</a></li>
+    <li><a href="/travel-guides/canada/bc/itineraries#west-coast">Itineraries</a></li>
     <li><a href="/blog/whale-watching/canada/bc/tofino/wildlife-tours-in-tofino">Guides</a></li>
-  </ul>
-</div></nav>
+  </ul></nav>
+</div></div><!-- /placebar -->
 
 <main id="main">
 
-<div class="wrap">
-  <nav class="crumb" aria-label="Breadcrumb">
-    <a class="lvl-deep" href="/">British Columbia</a><span class="sep lvl-deep" aria-hidden="true">&rsaquo;</span>
-    <a href="/destinations/canada/bc/vancouver-island">Vancouver Island</a><span class="sep" aria-hidden="true">&rsaquo;</span>
-    <span aria-current="page">Tofino</span>
-  </nav>
-</div>
+
 
 <header class="hero"><div class="wrap hero-grid">
   <div>

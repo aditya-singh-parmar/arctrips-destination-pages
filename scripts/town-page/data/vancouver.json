@@ -1,0 +1,259 @@
+{
+  "slug": "vancouver",
+  "name": "Vancouver",
+  "region": "mainland",
+  "title": "Vancouver, Arc Trips",
+  "description": "Vancouver, BC: Stanley Park, Granville Island, North Shore mountains, museums, beaches and farmers markets in a coastal city.",
+  "hero": {
+    "img": "/prototype/media/vancouver/image8.jpg",
+    "alt": "The False Creek inlet with the downtown Vancouver skyline and mountains behind",
+    "standfirst": "Vancouver is a coastal city in western Canada where mountains, ocean and a multicultural mix of traditions, arts and cuisines meet."
+  },
+  "why": {
+    "h2": "A city between mountains and sea",
+    "paras": [
+      "Vancouver is a vibrant coastal city in western Canada known for its stunning natural beauty and diverse culture. It offers a unique blend of urban sophistication and outdoor adventure, making it a top destination for travelers. It stands out as a multicultural hub where visitors can experience a mix of traditions, arts and cuisines from around the world.",
+      "Stanley Park stretches over 400 hectares of West Coast rainforest on the edge of downtown, and the Seawall winds along the waterfront for over 28 kilometres. Grouse Mountain is just 15 minutes from downtown, so a single day can move from city streets to alpine views."
+    ],
+    "facts": [
+      {"k": "Where it is", "v": "A coastal city in western Canada, between Burrard Inlet and False Creek, with the North Shore mountains across the water."},
+      {"k": "Getting there", "v": "Waterfront Station is the central hub for the SkyTrain, SeaBus and West Coast Express, steps from the Vancouver Lookout."},
+      {"k": "Known for", "v": "Stanley Park, Granville Island, the Seawall, Gastown, and a mix of cuisines, arts and traditions from around the world."},
+      {"k": "When to come", "v": "Spring to early fall for markets, beaches and the Seawall. The colder months bring lights festivals and snow on the North Shore mountains."}
+    ]
+  },
+  "when": {
+    "h2": "When to go to Vancouver",
+    "intro": "Summer is the busiest season: the Seawall, English Bay and the waterfront fill on sunny weekends, and cruise ships peak from May to September. Spring, fall and winter bring blossoms, markets and lights festivals, so dress for the wind off the water.",
+    "rows": [
+      {"name": "Farmers markets", "best": [6, 7, 8, 9], "shoulder": [5, 10], "note": "Summer has the widest produce; Riley Park runs year-round."},
+      {"name": "Beaches and the Seawall", "best": [6, 7, 8], "shoulder": [5, 9], "note": "Lifeguards are on duty from late May to early September."},
+      {"name": "Winter lights", "best": [12, 1], "shoulder": [11], "note": "Canyon Lights at Capilano runs late November to mid-January."}
+    ],
+    "crowds": [2, 2, 2, 2, 3, 3, 4, 4, 3, 2, 2, 3],
+    "crowdsNote": "Cruise season, summer fireworks and sunny weekends drive the busiest months; holiday lights fill December.",
+    "seasons": [
+      {"h": "Summer, June to August", "p": "The Seawall, English Bay and Kitsilano Beach are crowded on sunny weekends. Farmers markets are in full swing, cruise ships dock at Canada Place, and the Celebration of Light fireworks draw hundreds of thousands."},
+      {"h": "Fall, September to November", "p": "Markets run into October and beyond, and the Mid-Autumn Moon Festival at the Dr. Sun Yat-Sen garden often features lantern displays. Capilano hosts Canyon Frights at Halloween, and Canyon Lights begins in late November."},
+      {"h": "Winter, December to February", "p": "Festival of Lights at VanDusen and Canyon Lights at Capilano light up the season. Grouse Mountain has night skiing and a skating pond, and thousands join the Polar Bear Swim at English Bay on New Year's Day."},
+      {"h": "Spring, March to May", "p": "Cherry blossoms form a pink canopy at Queen Elizabeth Park and VanDusen. The Laburnum Walk blooms in late May or early June, and Trout Lake and Kitsilano markets open in early May."}
+    ]
+  },
+  "tabs": [
+    {
+      "id": "landmarks",
+      "label": "Landmarks",
+      "intro": "The waterfront, the mountains and the city's best-known sights, all within reach of downtown.",
+      "places": [
+        {
+          "name": "Stanley Park",
+          "img": "/prototype/media/vancouver/image25.jpg",
+          "alt": "The Stanley Park Seawall at sunset with a rock outcrop beside the water",
+          "text": "Stanley Park is Vancouver's iconic urban park, over 400 hectares of West Coast rainforest on the edge of downtown. The 8.8-kilometre Seawall circles the peninsula for walking, cycling or rollerblading, with views of the ocean, the North Shore mountains and the Lions Gate Bridge. Brockton Point's totem poles and the Prospect Point lookout are on the route.",
+          "note": "To avoid the largest crowds, visit on a weekday or early in the morning. The Seawall bike lane is one-way, counter-clockwise."
+        },
+        {
+          "name": "Granville Island",
+          "img": "/prototype/media/vancouver/image15.jpg",
+          "alt": "Aerial view of Granville Island with its market buildings, marina and a water taxi",
+          "text": "Granville Island is one of Vancouver's most dynamic cultural districts, just across False Creek from downtown. Its indoor Public Market has over 50 vendors selling Pacific seafood, local cheeses, handmade chocolates and artisanal breads. Galleries, studios, theatres and the Granville Island Brewing Co. fill the rest of the island.",
+          "note": "Parking is limited and expensive, so take the Aquabus or False Creek Ferries. On weekdays, arrive before 10:30 AM to miss the heaviest market crowds."
+        },
+        {
+          "name": "Capilano Suspension Bridge",
+          "img": "/prototype/media/vancouver/image3.jpg",
+          "alt": "Visitors on the curved Cliffwalk at Capilano Suspension Bridge Park among tall evergreens",
+          "text": "Capilano Suspension Bridge Park, first built in 1889, hangs above the Capilano River and the rainforest floor. The bridge spans 137 metres (450 feet) and sways gently 70 metres (230 feet) above the river. The Cliffwalk clings to the granite cliff face with glass-bottomed sections, and Treetops Adventure links seven smaller bridges.",
+          "note": "A complimentary shuttle runs year-round from downtown Vancouver, with pickups at Canada Place and major hotels."
+        },
+        {
+          "name": "Grouse Mountain",
+          "img": "/prototype/media/vancouver/image22.jpg",
+          "alt": "A red Skyride gondola above snowy evergreens at sunset on Grouse Mountain",
+          "text": "Grouse Mountain, the Peak of Vancouver, is a year-round alpine playground just 15 minutes from downtown. The Skyride, North America's largest aerial tramway, carries you to the top. The 2.9-kilometre Grouse Grind climbs 800 metres, two orphaned grizzly bears live in a refuge on the mountaintop, and winter brings night skiing, snowshoe trails and a skating pond.",
+          "note": "In peak summer a free shuttle often runs from Canada Place."
+        },
+        {
+          "name": "Gastown Steam Clock",
+          "img": "/prototype/media/vancouver/image33.jpg",
+          "alt": "Visitors photographing the Gastown Steam Clock as steam rises beside it",
+          "text": "The Gastown Steam Clock, built in 1977 and designed by Raymond Saunders, is the largest steam clock in the world. Every 15 minutes it whistles the Westminster Quarters on five brass whistles, and on the hour a larger burst of steam and a louder chime mark the time. It stands on the corner of Cambie and Water Street.",
+          "note": "Arrive just before the top of the hour for the biggest show. Come early in the morning for a photo without large crowds."
+        },
+        {
+          "name": "Canada Place",
+          "img": "/prototype/media/vancouver/image26.jpg",
+          "alt": "The white sail-shaped roof of Canada Place on the Vancouver waterfront",
+          "text": "Canada Place on the downtown waterfront is recognized by its white sail-like roof, built for Expo 86. It holds a convention centre, the cruise terminal and a hotel. Walk the Canadian Trail along the west promenade, try the FlyOver Canada flight ride, or follow the pier to North Point for 270-degree views of Burrard Inlet and the North Shore mountains.",
+          "note": "Cruise ships dock and depart here, especially in peak season from May to September."
+        }
+      ],
+      "faqs": [
+        {"q": "How do I get to Capilano Suspension Bridge without a car?", "a": "A complimentary shuttle runs year-round from downtown Vancouver, with pickups at Canada Place and major hotels."},
+        {"q": "How do I get up Grouse Mountain?", "a": "Ride the Skyride, North America's largest aerial tramway, or hike the 2.9-kilometre Grouse Grind, which climbs 800 metres. The open-air Peak Chairlift is an extra ride to the true summit, with a 360-degree view that includes Mount Baker on clear days."},
+        {"q": "When does the Gastown Steam Clock put on its biggest show?", "a": "On the hour, when a larger burst of steam and a louder chime mark the time. The quarter-hour whistles are charming, but arriving just before the top of the hour gives the most impressive display."},
+        {"q": "What is the best way to reach Granville Island?", "a": "The Aquabus or False Creek Ferries from downtown or Kitsilano. You can drive, but parking is very limited and expensive. On weekdays, aim to arrive before 10:30 AM to avoid the heaviest crowds at the Public Market."},
+        {"q": "Which way do cyclists ride the Stanley Park Seawall?", "a": "The bike lane is strictly one-way, counter-clockwise, and once you start you must finish the loop or exit via the interior forest trails. Most visitors rent bikes from the shops on Denman Street, just outside the park entrance."}
+      ]
+    },
+    {
+      "id": "culture",
+      "label": "Museums and culture",
+      "intro": "Indigenous art, local history and a classical Chinese garden, from the UBC campus to Chinatown.",
+      "places": [
+        {
+          "name": "Museum of Anthropology",
+          "img": "/prototype/media/vancouver/image27.jpg",
+          "alt": "The glass and concrete post-and-beam front of the Museum of Anthropology",
+          "text": "The Museum of Anthropology on the UBC campus is dedicated to Indigenous art and history, with one of Canada's most extensive collections of First Nations artifacts. Arthur Erickson designed the glass and concrete building after the post-and-beam longhouses of the Northwest Coast. The Great Hall holds enormous totem poles and house posts, and Bill Reid's The Raven and the First Men is on display.",
+          "note": "Walk the exterior to see contemporary totem poles and two reconstructed Haida houses. Check the museum website for current exhibitions and gallery access."
+        },
+        {
+          "name": "Vancouver Art Gallery",
+          "img": "/prototype/media/vancouver/image11.jpg",
+          "alt": "The classical stone facade of the Vancouver Art Gallery with its steps and plaza",
+          "text": "The Vancouver Art Gallery is one of Canada's largest art museums, in the heart of downtown. Its collection of over 10,000 pieces includes celebrated works by Emily Carr, one of Canada's largest assortments of First Nations art, and contemporary art from around the world. International touring exhibitions rotate through the building, which sits above Robson Square.",
+          "note": "Admission is typically free on the first Friday evening of each month, 4:00 PM to 8:00 PM, with significant crowds."
+        },
+        {
+          "name": "Museum of Vancouver",
+          "img": "/prototype/media/vancouver/image23.jpg",
+          "alt": "The round dome of the Museum of Vancouver with a crab-shaped fountain in front",
+          "text": "The Museum of Vancouver is Canada's largest civic museum and the oldest in the city, in Vanier Park beside a crab-shaped fountain. Walk-through galleries recreate eras from the early 1900s to the neon-lit 1950s and the 1960s, and its Indigenous collection includes First Nations artifacts and contemporary art. The site has views of English Bay and the North Shore mountains.",
+          "note": "A Vanier Park pass often covers both this museum and the Vancouver Maritime Museum. Hours typically run until 8:00 PM on Thursdays, Fridays and Saturdays."
+        },
+        {
+          "name": "Dr. Sun Yat-Sen Classical Chinese Garden",
+          "img": "/prototype/media/vancouver/image4.jpg",
+          "alt": "A round moon gate frames a pavilion and pond in the Chinese garden",
+          "text": "The Dr. Sun Yat-Sen Classical Chinese Garden in Chinatown was built in 1986 using 14th-century methods, without power tools, screws or nails, and is the first of its kind outside China. The jade-green pond, limestone scholar's rocks from Lake Tai and lattice windows balance rock, water, plants and architecture. Guided tours explain the hidden meanings of the design.",
+          "note": "The free Dr. Sun Yat-Sen Park sits beside the paid-admission garden. Weekday mornings are the most tranquil."
+        },
+        {
+          "name": "Vancouver Maritime Museum",
+          "img": "/prototype/media/vancouver/image28.jpg",
+          "alt": "The A-frame building of the Vancouver Maritime Museum with an anchor in the foreground",
+          "text": "The Vancouver Maritime Museum on False Creek covers naval history, Arctic exploration and local maritime culture. Its centrepiece is the St. Roch, a Royal Canadian Mounted Police schooner that was the first vessel to sail the Northwest Passage from west to east, and visitors can step aboard. A Children's Maritime Discovery Centre and the Heritage Harbour dock sit alongside.",
+          "note": "Quieter and more relaxed than the larger downtown attractions. The False Creek Ferries and Aquabus stop at the Heritage Harbour dock."
+        },
+        {
+          "name": "Brockton Point Totem Poles",
+          "img": "/prototype/media/vancouver/image35.jpg",
+          "alt": "Painted totem poles with outstretched wings in front of green trees",
+          "text": "The Brockton Point Totem Poles, in a meadow at the eastern tip of Stanley Park, are described as British Columbia's most-visited tourist attraction. The display has nine totem poles representing nations including the Squamish, Haida and Kwakwaka'wakw, and three Coast Salish gateways. Plaques at the base of each pole explain what the carvings represent.",
+          "note": "It can get very crowded between 10:00 AM and 3:00 PM. Arrive before 9:30 AM or at sunset."
+        }
+      ],
+      "faqs": [
+        {"q": "Is there free admission at the Vancouver Art Gallery?", "a": "The gallery typically offers free admission on the first Friday evening of every month, from 4:00 PM to 8:00 PM. Expect significant crowds."},
+        {"q": "Is there a pass for the Museum of Vancouver and the Maritime Museum?", "a": "A Vanier Park pass is often available that includes admission to both the Museum of Vancouver and the Vancouver Maritime Museum, which is a short walk away."},
+        {"q": "What is the difference between the Dr. Sun Yat-Sen Park and the garden?", "a": "The Dr. Sun Yat-Sen Park is a public, free-to-enter area with similar scenery. The Classical Chinese Garden is the formal, paid-admission museum with a much deeper, more detailed experience."},
+        {"q": "When are the Brockton Point Totem Poles busiest?", "a": "Between 10:00 AM and 3:00 PM, because it is a primary stop for tour buses. Arriving before 9:30 AM or visiting at sunset is more contemplative and has better light for photos."}
+      ]
+    },
+    {
+      "id": "outdoors",
+      "label": "Parks and beaches",
+      "intro": "Sunset beaches, a hilltop garden and a free rainforest canyon, all close to the city.",
+      "places": [
+        {
+          "name": "English Bay Beach",
+          "img": "/prototype/media/vancouver/image2.jpg",
+          "alt": "Waves on the sand at English Bay with West End towers and mountains beyond",
+          "text": "English Bay Beach, also known as First Beach, is arguably Vancouver's most iconic urban beach. A-maze-ing Laughter, 14 oversized bronze figures, and a stone Inukshuk stand along the bay. It is the main viewing area for the Celebration of Light fireworks each summer, and thousands of locals plunge in for the Polar Bear Swim every New Year's Day.",
+          "note": "The beach faces west, so arrive at least an hour early for a sunset seat on a log. Lifeguards are on duty from late May to early September."
+        },
+        {
+          "name": "Kitsilano Beach",
+          "img": "/prototype/media/vancouver/image36.jpg",
+          "alt": "Sand and driftwood logs at Kitsilano Beach with the North Shore mountains across the water",
+          "text": "Kitsilano Beach, known as Kits Beach, is one of Vancouver's most vibrant outdoor destinations, with a social, energetic atmosphere in summer. The heated outdoor saltwater pool is almost three times the size of an Olympic pool, and the beach has volleyball courts, tennis courts and a playground. The Kitsilano Showboat offers free live entertainment in summer.",
+          "note": "Parking fills fast on sunny weekends, so arrive before 10:00 AM. Reserve a pool swim time online."
+        },
+        {
+          "name": "Queen Elizabeth Park",
+          "img": "/prototype/media/vancouver/image42.jpg",
+          "alt": "Quarry garden paths, flower beds and trees in Queen Elizabeth Park",
+          "text": "Queen Elizabeth Park is a 130-acre park at Vancouver's highest point, 125 metres above sea level, with panoramic views of the skyline and the North Shore mountains. A former rock quarry, it now holds the North and South Quarry Gardens and the domed Bloedel Conservatory, home to hundreds of exotic birds and plants. It also has tennis courts, a pitch-and-putt course and lawn bowling.",
+          "note": "Cherry blossoms form a pink canopy in spring and the rose garden peaks in summer. It is a 10 to 15 minute walk from King Edward SkyTrain station."
+        },
+        {
+          "name": "Lynn Canyon Park",
+          "img": null,
+          "alt": null,
+          "text": "Lynn Canyon Park is a 617-acre temperate rainforest in North Vancouver and a free alternative to nearby paid attractions. The Lynn Canyon Suspension Bridge hangs 50 metres above the canyon floor, the 30 Foot Pool is a natural swimming hole with emerald-green water, and Twin Falls can be viewed from a wooden bridge on an easy loop trail.",
+          "note": "Entry and the bridge are free, but parking is metered and the lots often reach capacity by mid-morning on weekends."
+        }
+      ],
+      "faqs": [
+        {"q": "When are lifeguards on duty at English Bay Beach?", "a": "The beach is patrolled by lifeguards during the summer season, typically late May to early September. A designated swimming area is marked with buoys to keep swimmers safe from passing watercraft."},
+        {"q": "Do I need to reserve a swim at the Kitsilano Pool?", "a": "Online reservations are often required or highly recommended, because the pool is one of the city's most popular summer attractions. At 137 metres long, it has sections for casual splashing and dedicated lanes for lap swimmers."},
+        {"q": "Is Lynn Canyon Park free?", "a": "Entrance to the park and the suspension bridge is free. Parking in the main lots is metered and can be expensive, and the lots often reach capacity by mid-morning on weekends, so take transit or arrive very early."},
+        {"q": "When is Queen Elizabeth Park at its best?", "a": "It is stunning year-round. The rose garden is a highlight in summer, and the cherry blossoms create a pink canopy in spring. The Bloedel Conservatory offers a warm, colourful escape whatever the weather."}
+      ]
+    },
+    {
+      "id": "markets",
+      "label": "Farmers markets",
+      "intro": "Six of the best-known markets, from Trout Lake to a working farm at UBC. Most run from spring or early summer to fall.",
+      "places": [
+        {
+          "name": "Trout Lake Farmers' Market",
+          "img": null,
+          "alt": null,
+          "text": "The birthplace of the modern farmers market movement in Vancouver and its most iconic location, in the north parking lot of John Hendry Park (Trout Lake Park) in East Vancouver. As one of the largest markets in the city, it has mushroom foragers, organic orchardists, local potters and woodworkers, and almost always a live band. Saturdays, 9:00 AM to 2:00 PM, early May to late October.",
+          "note": "Arguably the busiest market in the city, so arrive at 9:00 AM. The small lot fills instantly; take transit or cycle."
+        },
+        {
+          "name": "UBC Farm Saturday Farmers' Market",
+          "img": null,
+          "alt": null,
+          "text": "Widely considered the crown jewel of Vancouver's market scene, this is the only multi-vendor market in the city on an actual working farm, a 24-hectare research farm on the UBC South Campus. It sells UBC Farm's own certified organic produce alongside more than 30 local partners, and offers by-donation farm tours. Saturdays, 10:00 AM to 2:00 PM, early June to late October, rain or shine.",
+          "note": "Take the #68 bus or bike through Pacific Spirit Park to avoid parking congestion."
+        },
+        {
+          "name": "Kitsilano Farmers' Market",
+          "img": null,
+          "alt": null,
+          "text": "One of Vancouver's largest and most popular markets, in the parking lot of the Kitsilano Community Centre (2690 Larch Street), with a festive block-party feel and live acoustic music. Expect large organic farms, locally raised meats, sustainable seafood and food trucks serving everything from tamales to wood-fired pizza. Sundays, 10:00 AM to 2:00 PM, early May to late October.",
+          "note": "Exceptionally busy: popular fruit vendors and bakeries have lineups in the first 30 minutes, and star items can sell out by noon."
+        },
+        {
+          "name": "Riley Park Farmers' Market",
+          "img": null,
+          "alt": null,
+          "text": "One of the few Vancouver markets that operates year-round, at Riley Park Plaza (50 East 30th Avenue) near the edge of Queen Elizabeth Park. Shoppers find orchard fruits, coastal vegetables, pasture-raised meats, sustainable seafood and specialty dairy. It moves its configuration between the summer harvest and the winter bounty. Saturdays, 10:00 AM to 2:00 PM.",
+          "note": "Arriving at the 10:00 AM opening gets you limited-run items like artisanal sourdough or seasonal flowers."
+        },
+        {
+          "name": "Vancouver Downtown Farmers Market",
+          "img": null,
+          "alt": null,
+          "text": "On the north plaza of the Vancouver Art Gallery in downtown Vancouver, this market sits among skyscrapers and historic architecture. Expect BC-grown fruit and vegetables, local honey, preserves, handmade soaps, bakers and food trucks for a quick lunch. Wednesdays, 2:00 PM to 6:00 PM, early June to late September.",
+          "note": "Vendors do not provide plastic bags, so bring a tote. Arrive at 2:00 PM for sought-after items like fresh eggs."
+        },
+        {
+          "name": "False Creek Farmers Market",
+          "img": null,
+          "alt": null,
+          "text": "A scenic waterfront market along the seawall at Concord Community Park (88 Pacific Boulevard) in Vancouver's False Creek, between Science World and the Cambie Street Bridge. It has a high concentration of organic growers and small family farms, plus local breweries, cideries and distilleries offering tastings. Thursdays, 3:00 PM to 7:00 PM, early June to early October.",
+          "note": "Peaks between 5:00 PM and 6:00 PM. Arrive at opening or in the final hour for a quieter visit."
+        }
+      ],
+      "faqs": [
+        {"q": "When are Vancouver's farmers markets open?", "a": "The best time is usually spring through early fall, and summer is the most popular with the widest range of produce. Trout Lake runs Saturdays and Kitsilano Sundays, both from early May to late October. Riley Park runs Saturdays year-round."},
+        {"q": "Which Vancouver farmers market is the busiest?", "a": "Trout Lake is arguably the busiest in the city, so arrive at 9:00 AM for the best selection. Kitsilano is also exceptionally busy, with lineups at popular fruit vendors and bakeries in the first 30 minutes."},
+        {"q": "Is there a farmers market in Vancouver in winter?", "a": "Yes. Riley Park operates year-round on Saturdays, 10:00 AM to 2:00 PM. Some markets continue through winter in a smaller seasonal format, and the Kitsilano Winter Farmers Market moves to the nearby high school parking lot."},
+        {"q": "How do I pay at a Vancouver farmers market?", "a": "Most vendors accept card payments by mobile tap, and the info booth at many markets runs a Market Money program that trades card payments for market tokens. Carrying some cash is helpful for smaller transactions."},
+        {"q": "Are there farmers markets outside Vancouver?", "a": "Yes. Smaller community markets run in nearby places such as Abbotsford, Chilliwack and Langley, where the Fraser Valley has fertile farmland and a stronger connection to the agricultural side of the region."}
+      ]
+    }
+  ],
+  "planning": [
+    {"q": "How do I get around Vancouver without a car?", "a": "Waterfront Station is the central hub for the SkyTrain, SeaBus and West Coast Express, and Science World is steps from Main Street-Science World station. False Creek Ferries and the Aquabus link downtown, Granville Island and Kitsilano; a day pass is often cheaper than three single trips."},
+    {"q": "When are Vancouver's attractions least crowded?", "a": "Weekday mornings are best. Stanley Park is quietest on a weekday or early in the morning, the Granville Island market is calmer before 10:30 AM on weekdays, and the Gastown Steam Clock is easiest to photograph early in the morning."},
+    {"q": "Should I book tickets in advance?", "a": "For busy attractions, yes. The Vancouver Aquarium uses a timed-entry system, and Science World recommends buying tickets online in advance, especially during school holidays and weekends."}
+  ],
+  "nearby": ["whistler", "squamish"],
+  "sources": ["Vancouver - Agent Trek.docx", "Farmers Markets in Vancouver_.docx"]
+}

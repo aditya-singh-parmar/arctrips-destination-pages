@@ -40,8 +40,8 @@ nav.top .btn{flex:none}
 body>.skip{position:absolute;left:var(--gut);top:-60px;z-index:99;background:var(--navy);color:var(--paper);
   padding:13px 18px;border-radius:0 0 var(--r-sm) var(--r-sm);font-weight:600;font-size:.95rem;transition:top .18s var(--ease)}
 body>.skip:focus{top:0}
-[id]{scroll-margin-top:136px}
-@media(max-width:760px){[id]{scroll-margin-top:64px}}
+[id]{scroll-margin-top:176px}
+@media(max-width:760px){[id]{scroll-margin-top:104px}}
 .sec--tight{padding-block:clamp(34px,4.4vw,60px)}
 
 /* Hero: one column, one job. The search field is the only primary on the page. */
@@ -175,22 +175,20 @@ footer.f{margin-top:0}
 
 <!-- Place bar. A 404 has no town of its own, so it carries the town the asked
      address named. paintPlacebar() fills it from the same slug paintNearest uses. -->
-<nav class="placebar" id="placebar" aria-label="Tofino"><div class="wrap placebar-in">
-  <a class="placebar__back" id="pbBack" href="/destinations/canada/bc/tofino"><span class="n">&larr; Tofino</span></a>
-  <ul class="placebar__links" id="pbLinks">
+<div class="placebar placebar--two" id="placebar" aria-label="Tofino"><div class="wrap">
+  <nav class="crumb placebar__crumb" id="crumb" aria-label="Breadcrumb"></nav>
+  <nav class="placebar-in" aria-label="Tofino sections"><ul class="placebar__links" id="pbLinks">
     <li><a href="/destinations/canada/bc/tofino">Overview</a></li>
     <li><a href="/destinations/canada/bc/tofino/things-to-do">Things to do</a></li>
     <li><a href="/destinations/canada/bc/tofino/long-beach">Long Beach</a></li>
     <li><a href="/travel-guides/canada/bc/tofino">Plan</a></li>
   </ul>
-  <a class="btn btn--ghost btn--sm nf-pbcta" id="pbCta" href="/search?in=tofino">Search Tofino</a>
-</div></nav>
+  <a class="btn btn--ghost btn--sm nf-pbcta" id="pbCta" href="/search?in=tofino">Search Tofino</a></nav>
+</div></div><!-- /placebar -->
 
 <main id="main">
 
-<div class="wrap">
-  <nav class="crumb" id="crumb" aria-label="Breadcrumb"></nav>
-</div>
+
 
 <header class="hero"><div class="wrap">
   <span class="label">Page not found</span>
@@ -404,8 +402,8 @@ function paintTrail() {
 
 function paintPlacebar(t){
   $("#placebar").setAttribute("aria-label", t.n);
-  $("#pbBack").href = t.href;
-  $("#pbBack").innerHTML = `<span class="n">&larr; ${esc(t.n)}</span>`;
+  ($("#pbBack")||{}).href = t.href;
+  ($("#pbBack")||{}).innerHTML = `<span class="n">&larr; ${esc(t.n)}</span>`;
   const rows = t.s === "ucluelet"
     ? [[t.href, "Overview"], ["/destinations/canada/bc/ucluelet#do", "Things to do"],
        ["/destinations/canada/bc/ucluelet/things-to-do/hiking", "Hiking"], ["/whale-watching/canada/bc/ucluelet", "Whale watching"]]
