@@ -238,7 +238,7 @@ def render(d, itins):
     <p class="mkey"><span class="mkey__h">Activities</span><i data-on="2"></i>Best months<i data-on="1"></i>Shoulder<i></i>Not the time</p></div>
   </div>
   <div class="hnotes">{seasons}</div>
-  <p class="hdress">No month is a bad month here if you dress for it: layers and a waterproof shell cover most of the year.</p>
+  <p class="hdress">Every season here has a reason to come. Choose by what you want to do and who you want to share it with, then pack for the season you pick.</p>
 </div></section>
 
 <section class="hdo" id="do"><div class="wrap">

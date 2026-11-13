@@ -895,6 +895,7 @@ function paintMonths() {
     `<button type="button" data-m="${i+1}" aria-pressed="${i+1 === month}" aria-label="${m}">${SHORT[i]}</button>`).join("");
 }
 
+const CROWDS = ["Lowest", "Lowest", "Building", "Low", "Building", "Busy", "Busiest", "Busiest", "Busy", "Building", "Low", "Low"];
 function paintYear() {
   const c = DATA.climate[month-1];
   const season = seasonFor(month);
@@ -905,12 +906,11 @@ function paintYear() {
   $("#seasonReason").textContent = DATA.reason[season.name];
 
   /* the three numbers are named before they are shown */
-  $("#weatherLead").textContent = `What the weather is usually like in ${name}, averaged over the years at the Tofino station.`;
+  $("#weatherLead").textContent = `How busy ${name} is, and what to pack for. Rain is part of every month here.`;
 
   $("#bignums").innerHTML =
-    `<div><dt>Day high</dt><dd>${c.hi}&deg;</dd></div>` +
-    `<div><dt>Rain</dt><dd>${c.mm}<small>mm</small></dd></div>` +
-    `<div><dt>Rain days</dt><dd>${c.days}<small>of ${DIM[month-1]}</small></dd></div>`;
+    `<div><dt>Crowds</dt><dd>${CROWDS[month-1]}</dd></div>` +
+    `<div><dt>Day high</dt><dd>${c.hi}&deg;</dd></div>`;
 
   const on = DATA.subjects.filter((s) => s.months.includes(month));
   const lead = on.length

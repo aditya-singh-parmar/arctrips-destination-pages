@@ -293,6 +293,8 @@ body>.jumpbar{position:fixed;left:0;top:0}
 .slot:hover .slot__go{color:var(--azure)}
 footer.f{margin-top:clamp(48px,5.6vw,80px)}
 
+/* months are a picker, not a rainfall chart (review 2026-11-13) */
+.yr__col{display:none!important}
 </style>
 </head>
 <body>
@@ -425,7 +427,7 @@ footer.f{margin-top:clamp(48px,5.6vw,80px)}
         <h3>When should you go?</h3>
         <p class="sub">Tours run March to October. Go in April or May for gray whales, August or September for humpbacks. November to February the boats stop and the storms take over.</p>
 
-        <p class="yr__how">Each bar below is that month's average rainfall. The square under it is filled when tours are running. Choose a month to see it.</p>
+        <p class="yr__how">A filled square is a month when tours are running. Choose a month to see it.</p>
         <div class="yr" role="group" aria-label="Choose a month" id="yr"></div>
 
         <div class="trade">
@@ -902,6 +904,7 @@ function paintYear() {
   }).join("");
 }
 
+const CROWDS = ["Lowest", "Lowest", "Building", "Low", "Building", "Busy", "Busiest", "Busiest", "Busy", "Building", "Low", "Low"];
 function paintWhen() {
   const c = DATA.climate[month - 1], name = MON[month - 1];
   const on = ON.has(month);
@@ -910,8 +913,8 @@ function paintWhen() {
   $("#tradeA").textContent = DATA.onNow[month];
 
   $("#bignums").innerHTML =
-    `<div><dt>Average high</dt><dd>${c.hi}&deg;</dd></div>` +
-    `<div><dt>Rain days</dt><dd>${c.days}<small>of ${DIM[month - 1]}</small></dd></div>`;
+    `<div><dt>Crowds</dt><dd>${CROWDS[month - 1]}</dd></div>` +
+    `<div><dt>Average high</dt><dd>${c.hi}&deg;</dd></div>`;
 
   $("#exits").innerHTML = on
     ? `<a class="btn btn--ghost btn--sm" href="/whale-watching/canada/bc/tofino">Whale watching in Tofino</a>
