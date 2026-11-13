@@ -1,0 +1,324 @@
+{
+  "slug": "sidney",
+  "name": "Sidney",
+  "region": "island",
+  "title": "Sidney, Arc Trips",
+  "description": "Sidney-by-the-Sea: The Butchart Gardens, whale watching, Sidney Spit and a walkable Booktown waterfront on the Saanich Peninsula, near Victoria.",
+  "hero": {
+    "img": "/prototype/media/sidney/image22.jpg",
+    "alt": "An aerial view of Sidney's waterfront, pier and marina at sunset",
+    "standfirst": "A walkable, relaxed seaside town on the northern tip of the Saanich Peninsula, known as Canada's only Booktown, with views across the Salish Sea to the Gulf Islands."
+  },
+  "why": {
+    "h2": "Seaside charm on the Saanich Peninsula",
+    "paras": [
+      "Set on the northern tip of the Saanich Peninsula, Sidney is one of Vancouver Island's most charming seaside towns. Often called Sidney-by-the-Sea, it is best known for its walkable waterfront, relaxed coastal atmosphere and views across the Salish Sea toward the Gulf Islands. Smaller and quieter than nearby Victoria, it has an easygoing feel with plenty to see and do.",
+      "The town is famously Canada's only Booktown, and its harbourfront is a natural gateway to the Saanich Peninsula and the Gulf Islands. The Butchart Gardens is a must for flower lovers. Sidney has a drier climate than surrounding areas and a similar landscape to Victoria, but is not as busy."
+    ],
+    "facts": [
+      {
+        "k": "Where it is",
+        "v": "Northern tip of the Saanich Peninsula on Vancouver Island, facing the Gulf Islands across the Salish Sea."
+      },
+      {
+        "k": "Getting there",
+        "v": "Close to the Swartz Bay Ferry Terminal. Traffic to and from Victoria is heavy and slow from 4 pm to 7 pm."
+      },
+      {
+        "k": "Known for",
+        "v": "Canada's only Booktown, The Butchart Gardens, a flat waterfront walk, whale watching and the Sidney Spit ferry."
+      },
+      {
+        "k": "When to come",
+        "v": "Spring through early fall. Summer is the sunniest and most popular; spring and autumn are quieter."
+      }
+    ]
+  },
+  "when": {
+    "h2": "Sunny summers, quieter spring and fall",
+    "intro": "Summer is the sunniest and most popular season, while spring and autumn are quieter with the same relaxed seaside charm. Every season has a reason to come, from April tulips to the Magic of Christmas at Butchart.",
+    "rows": [
+      {
+        "name": "Butchart Gardens blooms",
+        "best": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          10
+        ],
+        "shoulder": [
+          9,
+          12
+        ],
+        "note": "Tulips in April, roses June to August, maples in October."
+      },
+      {
+        "name": "Whale watching",
+        "best": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "shoulder": [],
+        "note": "Spotted year-round; May to October is peak season."
+      },
+      {
+        "name": "Sidney Spit",
+        "best": [
+          6,
+          7,
+          8
+        ],
+        "shoulder": [
+          5,
+          9
+        ],
+        "note": "The ferry runs mid-May to Labour Day; book summer weekends."
+      }
+    ],
+    "crowds": [
+      1,
+      1,
+      2,
+      2,
+      2,
+      3,
+      4,
+      4,
+      2,
+      2,
+      1,
+      1
+    ],
+    "crowdsNote": "Summer sun, Butchart's evening illuminations and the Thursday night market draw the biggest crowds.",
+    "seasons": [
+      {
+        "h": "Summer, June to August",
+        "p": "The sunniest and most popular season. Butchart stays open late for Night Illumination Wednesday to Sunday, and Thursday evenings bring a night market. Visit Butchart at opening or late afternoon to avoid the tour bus peak."
+      },
+      {
+        "h": "Fall, September to November",
+        "p": "Quieter, with striking red and gold Japanese maples at Butchart in October. The Roberts Bay and Shoal Harbour Migratory Bird Sanctuary is active during the spring and fall migrations."
+      },
+      {
+        "h": "Winter, December to February",
+        "p": "Butchart's Magic of Christmas display features the Twelve Days of Christmas light installations. The gardens close for a staff holiday in late January. Salmon fishing runs year-round, and the Butterfly Gardens suit rainy days."
+      },
+      {
+        "h": "Spring, March to May",
+        "p": "April is peak tulip time at Butchart, and Himalayan Blue Poppies bloom from mid-May to mid-June. Wildflowers cover John Dean Provincial Park, and Brant geese and purple martins pass through Sidney Spit."
+      }
+    ]
+  },
+  "tabs": [
+    {
+      "id": "gardens",
+      "label": "Gardens and sights",
+      "intro": "The Butchart Gardens anchors the area, with a tropical butterfly house and an aviation museum for rainy days.",
+      "places": [
+        {
+          "name": "The Butchart Gardens",
+          "img": "/prototype/media/sidney/image6.jpg",
+          "alt": "The Sunken Garden at The Butchart Gardens with winding paths and flower beds",
+          "text": "The Butchart Gardens is a National Historic Site of Canada, a 22-hectare (55-acre) estate that began as a limestone quarry and was transformed by Jennie Butchart starting in 1904. The Sunken Garden is the most iconic part, with the Mound offering a view over the quarry floor. Other highlights are the Ross Fountain, the Rose Garden, the Japanese Garden and the Italian Garden.",
+          "note": "Visit right at opening or late in the afternoon to avoid the mid-day tour bus peak. Reserve the traditional Afternoon Tea."
+        },
+        {
+          "name": "Victoria Butterfly Gardens",
+          "img": "/prototype/media/sidney/image23.jpg",
+          "alt": "A black and white butterfly resting on bright flowers",
+          "text": "Victoria Butterfly Gardens is a 12,000-square-foot indoor tropical jungle in Brentwood Bay, just minutes from The Butchart Gardens. Thousands of tropical butterflies fly freely among visitors, with up to 70 species to see across their full life cycle, plus flamingos, koi, tropical birds and reptiles.",
+          "note": "Plan 60 to 90 minutes. It is an excellent all-weather activity, open daily from 10:00 AM to 4:00 PM."
+        },
+        {
+          "name": "BC Aviation Museum",
+          "img": null,
+          "alt": null,
+          "text": "The BC Aviation Museum sits on the edge of the Victoria International Airport in North Saanich. Its three large hangars hold over 30 aircraft and thousands of artifacts, including the ongoing restoration of the Avro Lancaster FM213 and the Vickers Viscount, a 1950s airliner you can step inside.",
+          "note": "Open daily from 10:00 AM to 4:00 PM at 1910 Norseman Road, with free parking in front."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "When is the best time to visit The Butchart Gardens?",
+          "a": "April is peak tulip time, Himalayan Blue Poppies bloom mid-May to mid-June, and roses bloom June through August. October brings red and gold Japanese maples, and winter has the Magic of Christmas display."
+        },
+        {
+          "q": "How do I avoid the crowds at The Butchart Gardens?",
+          "a": "Visit right at opening or later in the afternoon to avoid the mid-day tour bus peak."
+        },
+        {
+          "q": "Are there evening events at The Butchart Gardens?",
+          "a": "In summer (Wednesday to Sunday) the gardens stay open late for Night Illumination. Closing times shift from 3:30 PM in winter to as late as 10:00 PM on summer evening entertainment nights."
+        },
+        {
+          "q": "Is the Victoria Butterfly Gardens good in the rain?",
+          "a": "Yes. It is an excellent all-weather activity, and most visitors take 60 to 90 minutes. It is kept warm and humid for the tropical species."
+        }
+      ]
+    },
+    {
+      "id": "water",
+      "label": "On the water",
+      "intro": "Calm Salish Sea waters make Sidney a gateway for whale watching, salmon fishing and a boat trip to Sidney Spit.",
+      "places": [
+        {
+          "name": "Whale Watching and Marine Tours",
+          "img": "/prototype/media/sidney/image5.jpg",
+          "alt": "A boat carrying passengers beside a surfacing orca",
+          "text": "Sidney is a premier gateway to the Salish Sea and the feeding grounds of orcas, humpbacks and other marine wildlife. Tours depart further north than those in downtown Victoria, so they often reach the Gulf Islands sooner. Sidney Whale Watching is a First Nations-owned and operated company with standard three-hour trips, and Port Sidney Marina offers tall ship sailing and other marine tours.",
+          "note": "May to October is peak season. Tours can fill quickly in summer because of the nearby Swartz Bay Ferry Terminal, so book ahead."
+        },
+        {
+          "name": "Sidney Spit",
+          "img": "/prototype/media/sidney/image20.jpg",
+          "alt": "A sandy spit and tidal flats seen through trees, with islands beyond",
+          "text": "Sidney Spit is part of the Gulf Islands National Park Reserve, at the northern end of Sidney Island and reached by boat or a seasonal passenger ferry. At low tide a narrow finger of white sand stretches nearly two kilometres into the Salish Sea. Easy trails cross meadows and Douglas fir forest, and the salt marshes are a stopover for migratory shorebirds.",
+          "note": "The ferry leaves from Sidney Pier, typically mid-May to Labour Day. There are no shops or food on the island, so bring supplies."
+        },
+        {
+          "name": "Fishing Trip",
+          "img": null,
+          "alt": null,
+          "text": "Sidney is widely considered a premier destination for saltwater angling, with some of the calmest and most productive waters on the West Coast and year-round salmon fishing. Sidney Channel and Coal Island are hotspots for Winter Chinook, and the rocky reefs hold Lingcod and rockfish. Charters leave from Port Sidney Marina and downtown Sidney.",
+          "note": "Anglers need a valid BC Tidal Waters Sport Fishing Licence, plus a salmon conservation stamp when targeting salmon."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "When is the best time to go whale watching from Sidney?",
+          "a": "Whales can be spotted year-round, but May through October is considered the peak season, with a sighting success rate often exceeding 95 percent."
+        },
+        {
+          "q": "Are whale sightings guaranteed?",
+          "a": "Sidney Whale Watching offers standard three-hour trips with guaranteed sightings. Prince of Whales, whose tours cover the same northern straits, gives a complimentary return trip if no whales are spotted."
+        },
+        {
+          "q": "How do I get to Sidney Spit?",
+          "a": "The Sidney Spit Ferry leaves from the Sidney Pier at the foot of Beacon Avenue, typically from mid-May through Labour Day. Book ahead on summer weekends, when tickets often sell out. Private boats can use 15 mooring buoys and a public dock."
+        },
+        {
+          "q": "Do I need a licence to fish in Sidney?",
+          "a": "Yes. All anglers need a valid BC Tidal Waters Sport Fishing Licence, and a salmon conservation stamp if targeting salmon. Both can be bought online through the Department of Fisheries and Oceans."
+        }
+      ]
+    },
+    {
+      "id": "waterfront",
+      "label": "Waterfront and town",
+      "intro": "Sidney's flat waterfront and downtown are made for wandering on foot.",
+      "places": [
+        {
+          "name": "Sidney Waterfront",
+          "img": "/prototype/media/sidney/image8.jpg",
+          "alt": "A paved waterfront walkway with benches and a pier at sunrise",
+          "text": "The Sidney Waterfront is a scenic stretch along the Salish Sea that blends public art, marine education and nautical history. The centrepiece is a 2.5-kilometre paved walkway, completely flat and barrier-free, with views of the Gulf Islands and Mount Baker. Stops include the Shaw Centre for the Salish Sea aquarium, the Sidney Sculpture Walk and the Sidney Pier.",
+          "note": "On Thursday evenings in summer the area becomes a night market with over 100 vendors and live music."
+        },
+        {
+          "name": "Beacon Avenue and Downtown Sidney",
+          "img": "/prototype/media/sidney/image17.jpg",
+          "alt": "A tree-lined downtown street with shops",
+          "text": "Beacon Avenue is the main street of downtown Sidney, sloping gently from the highway to the Salish Sea, and the centre of Canada's only Booktown. Several independent bookstores sit within a few blocks, from the multi-roomed Tanner's Books to specialty shops for rare and antiquarian titles. The street favours local galleries, boutiques and cafes over major chains.",
+          "note": "In summer the avenue closes to vehicles for the Thursday evening street market."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Is the Sidney waterfront walk accessible?",
+          "a": "Yes. The entire 2.5-kilometre walkway is paved, wide and flat, ideal for wheelchairs and strollers, with benches every few hundred metres."
+        },
+        {
+          "q": "When is the Sidney night market?",
+          "a": "On Thursday evenings in the summer months, when the area becomes a market with over 100 local vendors and live music. Beacon Avenue closes to vehicles for the event."
+        },
+        {
+          "q": "Why is Sidney called a Booktown?",
+          "a": "Sidney is famously known as Canada's only Booktown, with a dense concentration of independent bookstores within a few blocks of Beacon Avenue, including the multi-roomed Tanner's Books."
+        },
+        {
+          "q": "Where do I park on Beacon Avenue?",
+          "a": "There is 1-hour and 2-hour street parking on Beacon Avenue. Longer-term parking is often available in the municipal lots one block north or south."
+        }
+      ]
+    },
+    {
+      "id": "parks",
+      "label": "Parks and trails",
+      "intro": "Mount Newton views, a long sandy beach, a bird sanctuary and a flat cycling trail all sit close to town.",
+      "places": [
+        {
+          "name": "ȽÁU,WELṈEW̱ / John Dean Provincial Park",
+          "img": "/prototype/media/sidney/image2.jpg",
+          "alt": "Sunrise light over the Saanich Peninsula and distant islands",
+          "text": "ȽÁU,WELṈEW̱/John Dean Provincial Park sits atop Mount Newton and holds a sacred place in the history of the W̱SÁNEĆ people, whose name for the mountain means place of refuge. About 9 kilometres of trails lead to panoramic viewpoints over the Saanich Peninsula, the Gulf Islands and Saanich Inlet, and through old-growth Douglas fir, some over 400 years old.",
+          "note": "The main parking lot can fill early on peak summer weekends. A weekday morning is much quieter."
+        },
+        {
+          "name": "Island View Beach Regional Park",
+          "img": null,
+          "alt": null,
+          "text": "Island View Beach Regional Park is an expansive coastal park on the eastern shore of the Saanich Peninsula, known for its long sandy shoreline, dune ecosystem and unobstructed views of Haro Strait and the San Juan Islands. A flat, easy trail follows the coast for several kilometres, and salt marshes and dunes make it a hotspot for birders.",
+          "note": "Check the tide tables before you go. The beach can be windy and exposed, so bring a windbreaker."
+        },
+        {
+          "name": "Lochside Regional Trail",
+          "img": "/prototype/media/sidney/image9.jpg",
+          "alt": "Cyclists on a wooden trestle bridge on the Lochside Regional Trail",
+          "text": "The Lochside Regional Trail is a 29-kilometre multi-use pathway built on a former railway line, from the Swartz Bay Ferry Terminal in North Saanich to downtown Victoria. It runs along the Sidney waterfront at Tulista Park, passes farm stands and cideries, and crosses the Blenkinsop Lake trestle, with an easy flat grade.",
+          "note": "The northern sections in Sidney and North Saanich are mostly paved. Keep to the 20 km/h speed limit."
+        },
+        {
+          "name": "Roberts Bay and the Shoal Harbour Migratory Bird Sanctuary",
+          "img": "/prototype/media/sidney/image11.jpg",
+          "alt": "A great blue heron wading in shallow water",
+          "text": "The Roberts Bay and Shoal Harbour Migratory Bird Sanctuary lies just north of downtown Sidney, a sheltered bay that is a crucial wintering ground for thousands of waterfowl and shorebirds. Look for Buffleheads, Harlequin Ducks and Great Blue Herons, and walk the level shoreline path at Resthaven Linear Park.",
+          "note": "Early morning or late afternoon gives the best light and bird activity. Dogs must be leashed."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "How far is Island View Beach from Sidney?",
+          "a": "It is at the end of Island View Road, about a 10-minute drive south of Sidney and 15 minutes north of Victoria."
+        },
+        {
+          "q": "Can dogs go off-leash at Island View Beach?",
+          "a": "There are off-leash areas, but pay attention to seasonal restrictions, typically between June and September, that protect nesting birds in the dunes."
+        },
+        {
+          "q": "Where does the Lochside Regional Trail run?",
+          "a": "It runs 29 kilometres from the Swartz Bay Ferry Terminal to downtown Victoria, and links with the Galloping Goose at the Switchbridge. It is flat, good for e-bikes, and mostly paved in Sidney and North Saanich."
+        },
+        {
+          "q": "When is the best time to see wildflowers at John Dean Provincial Park?",
+          "a": "In spring, when Camas lilies, chocolate lilies and shooting stars carpet the mossy bluffs and open meadows."
+        },
+        {
+          "q": "When are birds most active at Roberts Bay?",
+          "a": "The sanctuary is a wintering ground, and the mudflats are particularly active during spring and fall migrations. High tide is best for swimming waterfowl, and low tide for the mudflats."
+        }
+      ]
+    }
+  ],
+  "planning": [
+    {
+      "q": "Can I stay in Sidney and visit Victoria?",
+      "a": "Yes. People can easily stay in Sidney and do day trips into Victoria. Traffic is heavy and much slower from 4 pm to 7 pm in both directions, as there are quite a few stop lights."
+    },
+    {
+      "q": "Is Salt Spring Island an easy day trip from Sidney?",
+      "a": "Yes. Salt Spring Island is an easy day trip from Sidney."
+    }
+  ],
+  "nearby": [
+    "victoria"
+  ],
+  "sources": [
+    "Sidney.docx"
+  ]
+}

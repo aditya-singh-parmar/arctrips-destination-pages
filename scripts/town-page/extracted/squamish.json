@@ -1,0 +1,907 @@
+{
+ "town": "squamish",
+ "title": "Squamish, Arc Trips",
+ "desc": "Squamish, British Columbia. 73 places featured.",
+ "hero_img": [
+  "/prototype/media/squamish/image1.jpg"
+ ],
+ "hero_lede": [
+  "The Stawamus Chief is the most famous hike in Squamish. It is the huge granite cliff you see rising above town near the Sea to Sky Highway."
+ ],
+ "tabs": [
+  {
+   "g": "hiking",
+   "label": "Hiking",
+   "subs": [
+    {
+     "h": "Best Easy Hikes",
+     "items": [
+      {
+       "name": "Shannon Falls Viewpoint",
+       "img": "/prototype/media/squamish/image13.jpg",
+       "alt": "Shannon Falls dropping through autumn forest",
+       "paras": [
+        "Shannon Falls is one of the easiest and most rewarding short walks in Squamish. The trail from the parking area to the viewpoint is short, simple, and family-friendly.",
+        "The waterfall is tall, powerful, and beautiful, especially after rain or during spring runoff. It is a perfect stop if you are driving from Vancouver to Squamish or Whistler.",
+        "Distance: Short walk from parking area"
+       ],
+       "note": "Shannon Falls is very close to the Sea to Sky Gondola and Stawamus Chief, so it is easy to combine with other Squamish activities."
+      },
+      {
+       "name": "Sea to Sky Gondola Summit Trails",
+       "img": "/prototype/media/squamish/image20.jpg",
+       "alt": "A red gondola cabin above snowy forest",
+       "paras": [
+        "If you want mountain views without a hard hike, the Sea to Sky Gondola summit trails are a great choice. After riding the gondola up, you can explore short walking trails, viewpoints, forest paths, and the Sky Pilot Suspension Bridge.",
+        "This is one of the best hiking options for families, casual walkers, and visitors who want big views with less physical effort.",
+        "Elevation Gain: Minimal to moderate once at the summit"
+       ],
+       "note": "You need a gondola ticket. Weather can be cooler at the summit than in town, so bring a layer."
+      },
+      {
+       "name": "Squamish Estuary Trails",
+       "img": "/prototype/media/squamish/image6.jpg",
+       "alt": "The Squamish Estuary below the Chief",
+       "paras": [
+        "The Squamish Estuary is one of the best easy walking areas in town. It is flat, peaceful, and scenic, with views of marsh, river channels, mountains, and Howe Sound.",
+        "This area is especially good for birdwatching and quiet walks. It is very different from the steep hikes around the Chief, which makes it a nice change of pace.",
+        "Time: 30 minutes, 1.5 hours"
+       ],
+       "note": "Stay on marked trails and respect sensitive habitat. Bring binoculars if you like birds."
+      },
+      {
+       "name": "Mamquam River Trails",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "The Mamquam River area has easy local trails that are good for walking, running, and relaxed outdoor time. These trails are less dramatic than the Chief or Sea to Summit, but they are useful if you want a simple river walk close to town.",
+        "You may see locals walking dogs, biking, or jogging here.",
+        "Trail Type: Local river trails"
+       ],
+       "note": "Trail conditions can change after rain. Wear shoes that can handle mud."
+      }
+     ]
+    },
+    {
+     "h": "Best Moderate Hikes",
+     "items": [
+      {
+       "name": "Alice Lake Four Lakes Trail",
+       "img": "/prototype/media/squamish/image5.jpg",
+       "alt": "Still water reflecting a forested shoreline",
+       "paras": [
+        "Alice Lake Provincial Park is one of the best easier hiking areas in Squamish. The Four Lakes Trail connects Alice Lake, Stump Lake, Fawn Lake, and Edith Lake through forest and lake scenery.",
+        "This is a great hike if you want something calmer than the Chief. It works well for families, casual hikers, and people who want a peaceful forest-and-lake walk.",
+        "Elevation Gain: About 145 m"
+       ],
+       "note": "Alice Lake can be busy on warm summer days. Arrive early if you want easier parking."
+      },
+      {
+       "name": "Brohm Lake Loop",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "Brohm Lake is north of Squamish and is a favorite for forest walks, lake views, swimming, and short hikes. The main loop around the lake is manageable for many visitors, with some stairs, roots, and uneven ground.",
+        "It is a good choice if you want a hike that feels natural but not too difficult.",
+        "Elevation Gain: About 30 m"
+       ],
+       "note": "The lake area can get busy in summer. Some trails around Brohm Lake are more confusing than they first appear, so use a map or trail app."
+      },
+      {
+       "name": "Tantalus View Trail",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "The Tantalus View Trail is often added to a Brohm Lake hike. It climbs to a viewpoint with views toward the Tantalus Range and surrounding mountains.",
+        "It is short but steeper than the lake loop, so it adds a little challenge and a bigger reward.",
+        "Distance: Adds about 1.5 km round trip to a Brohm Lake hike"
+       ],
+       "note": "This is a good add-on if you want more than a simple lake walk."
+      },
+      {
+       "name": "Smoke Bluffs Park",
+       "img": "/prototype/media/squamish/image12.jpg",
+       "alt": "A photographer on a viewpoint above Squamish",
+       "paras": [
+        "Smoke Bluffs Park is best known for rock climbing, but it is also a good place for short hikes and forest walks. The trails wind through trees, rock walls, and small viewpoints close to downtown Squamish.",
+        "This is a good option if you want a local-feeling hike without committing to a big mountain climb.",
+        "Elevation Gain: Light to moderate"
+       ],
+       "note": "Climbers use this area often. Stay aware, do not stand below climbing routes, and keep dogs under control."
+      },
+      {
+       "name": "Murrin Park and Jurassic Ridge",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "Murrin Provincial Park is south of Squamish along the Sea to Sky Highway. It is a great stop if you want a short hike with Howe Sound views.",
+        "The Jurassic Ridge area is a popular route with rocky viewpoints, forest, and views over the water. It is shorter than the Chief but still feels like a real hike.",
+        "Distance: About 2, 3 km, depending on route"
+       ],
+       "note": "There are steep and rocky sections. This is not as easy as the distance may suggest."
+      }
+     ]
+    },
+    {
+     "h": "Best Hard Hikes",
+     "items": [
+      {
+       "name": "Stawamus Chief",
+       "img": "/prototype/media/squamish/image2.jpg",
+       "alt": "The Stawamus Chief above the town and the Squamish River",
+       "paras": [
+        "The Chief has three main peaks. The First Peak is the shortest and most popular, but it is still steep and challenging. The Second and Third Peaks add more distance, more effort, and more views.",
+        "This hike is a classic because the reward is huge. From the top, you can see Howe Sound, Squamish, the Sea to Sky Highway, the surrounding mountains, and the valley below."
+       ],
+       "note": "This is not an easy walk. Expect stairs, rocks, roots, steep sections, ladders, chains, and exposed areas near the top. Wear proper shoes, bring water, and be careful near cliff edges."
+      },
+      {
+       "name": "Sea to Summit Trail",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "The Sea to Summit Trail is one of the best challenge hikes in Squamish. It starts near the base of the Sea to Sky Gondola and climbs through forest, rocky sections, viewpoints, and steep terrain before reaching the gondola summit.",
+        "The trail is often compared to Vancouver’s Grouse Grind, but with more variety and better views along the way. Once you reach the top, you can enjoy the summit lodge, viewing platforms, suspension bridge, and gondola area.",
+        "Many hikers take the gondola back down after finishing the hike."
+       ],
+       "note": "This is a hard one-way hike. Check gondola operating hours and download ticket rules before starting. Do not begin too late in the day."
+      },
+      {
+       "name": "Elfin Lakes",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "Elfin Lakes is one of the best bigger hikes near Squamish. It is in Garibaldi Provincial Park and is known for alpine views, open terrain, mountain scenery, and backpacking.",
+        "Many people do it as a long day hike, but it is also popular as an overnight trip.",
+        "Distance: About 22 km return"
+       ],
+       "note": "This is a long hike and needs preparation. Check park conditions, trail reports, weather, and camping rules before going."
+      },
+      {
+       "name": "Garibaldi Lake",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "Garibaldi Lake is one of the most famous hikes in the Sea to Sky area. It is closer to Whistler than central Squamish, but many Squamish visitors include it as a big hiking day.",
+        "The trail is long and steady, but the reward is a bright blue glacial lake surrounded by mountains.",
+        "Distance: About 18 km return"
+       ],
+       "note": "This is a long day hike. Start early, bring layers, and check current parking and pass rules before going."
+      }
+     ]
+    }
+   ],
+   "faqs": [
+    {
+     "q": "What is the best hike in Squamish?",
+     "a": [
+      "The Stawamus Chief is the most famous hike in Squamish and one of the best for big views. If you want an easier experience with similar scenery, ride the Sea to Sky Gondola and walk the summit trails."
+     ]
+    },
+    {
+     "q": "What is the easiest hike in Squamish?",
+     "a": [
+      "Shannon Falls Viewpoint is one of the easiest and most rewarding short walks in Squamish. The Squamish Estuary and Sea to Sky Gondola summit trails are also good easy options."
+     ]
+    },
+    {
+     "q": "Is the Stawamus Chief hike hard?",
+     "a": [
+      "Yes. The Chief is a hard hike with steep stairs, rocks, roots, chains, ladders, and exposed areas. It is short but intense."
+     ]
+    },
+    {
+     "q": "How long does it take to hike the Chief?",
+     "a": [
+      "The First Peak usually takes about 2 to 3 hours return for many hikers. Hiking all three peaks can take 4 to 6 hours depending on fitness, pace, and conditions."
+     ]
+    },
+    {
+     "q": "Can beginners hike in Squamish?",
+     "a": [
+      "Yes. Beginners should start with Shannon Falls, Alice Lake, the Squamish Estuary, Mamquam River trails, or Sea to Sky Gondola summit trails before trying harder hikes like the Chief or Sea to Summit."
+     ]
+    },
+    {
+     "q": "What hike has the best view in Squamish?",
+     "a": [
+      "The Stawamus Chief has one of the best views over Howe Sound and Squamish. The Sea to Sky Gondola and Sea to Summit Trail also offer excellent views."
+     ]
+    },
+    {
+     "q": "Are Squamish hikes good for families?",
+     "a": [
+      "Yes, but choose carefully. Shannon Falls, Alice Lake, the Squamish Estuary, and gondola summit trails are family-friendly. The Chief is better for older kids and experienced hiking families."
+     ]
+    },
+    {
+     "q": "Do you need a pass to hike in Squamish?",
+     "a": [
+      "Some parks, trailheads, or nearby provincial park hikes may have parking or day-use requirements that change by season. Check current park rules before going."
+     ]
+    },
+    {
+     "q": "Can you hike in Squamish in winter?",
+     "a": [
+      "Yes, some lower-elevation trails can be hiked in winter, but conditions may be wet, icy, snowy, or slippery. Check conditions before you go and avoid exposed or steep trails in bad weather."
+     ]
+    },
+    {
+     "q": "What should I hike if I only have one day in Squamish?",
+     "a": [
+      "For an easy day, visit Shannon Falls and ride the Sea to Sky Gondola. For a harder day, hike the Stawamus Chief. For a quieter day, choose Alice Lake, Brohm Lake, or the Squamish Estuary.",
+      "Squamish is one of the best hiking destinations in British Columbia because it offers so many landscapes in one place. You can walk to a waterfall, climb a granite peak, wander through forest, circle a lake, watch birds in the estuary, or reach alpine views on a full-day adventure.",
+      "For first-time visitors, the Stawamus Chief, Shannon Falls, and Sea to Sky Gondola are the classic choices. For easier nature time, choose Alice Lake, Brohm Lake, Smoke Bluffs, or the Squamish Estuary. For a bigger adventure, plan for Sea to Summit, Elfin Lakes, or Garibaldi Lake."
+     ]
+    },
+    {
+     "q": "Are Squamish trails free to ride?",
+     "a": [
+      "Many trails are free to access, but riders should support local trail organizations, respect closures, and follow trail rules. Trail maintenance depends on community work.",
+      "Mountain biking is one of the best ways to experience Squamish. The town has the right mix of terrain, trail culture, forest, rock, and mountain energy to make it one of British Columbia’s top riding destinations.",
+      "If you want natural singletrack, technical descents, slabs, roots, and pedal-powered riding, choose Squamish. If you want lift-access downhill laps, jump trails, and a full bike park experience, choose Whistler."
+     ]
+    },
+    {
+     "q": "What can you do in Squamish without hiking?",
+     "a": [
+      "You can ride the Sea to Sky Gondola, visit Shannon Falls, walk the Sky Pilot Suspension Bridge, explore Britannia Mine Museum, visit the Railway Museum of BC, enjoy cafés and breweries, drive the Sea-to-Sky Highway, or visit easy viewpoints."
+     ]
+    },
+    {
+     "q": "Which is better for hiking, Squamish or Whistler?",
+     "a": [
+      "Squamish is better for rugged hikes like the Stawamus Chief and Sea to Summit Trail. Whistler is better for alpine hiking, lake walks, and resort-accessed mountain trails."
+     ]
+    },
+    {
+     "q": "Best for Hiking",
+     "a": [
+      "Choose Squamish for steeper, more rugged hikes like the Chief and Sea to Summit Trail.",
+      "Choose Whistler for alpine hikes, lake walks, and more resort-accessed mountain trails.",
+      "Best answer: Squamish for challenge, Whistler for variety and alpine access."
+     ]
+    }
+   ]
+  },
+  {
+   "g": "biking",
+   "label": "Mountain biking",
+   "subs": [
+    {
+     "h": "Best Mountain Biking Areas",
+     "items": [
+      {
+       "name": "Diamond Head",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "Diamond Head is one of the best-known mountain biking areas in Squamish. It sits above Garibaldi Highlands and is home to some of the town’s most famous trails.",
+        "This area is popular because it offers a huge variety of riding. You can find flow trails, climbing routes, technical descents, and advanced terrain. It is also home to well-known trails like Half Nelson and Pseudo-Tsuga, which helped put Squamish riding on the map.",
+        "Diamond Head is a good place for riders who want the classic Squamish trail experience. It has enough variety for different skill levels, but riders should still choose carefully because difficulty can increase quickly."
+       ],
+       "note": "This is one of the busiest and most popular riding zones. Check trail conditions, respect climbing routes, and ride within your level."
+      },
+      {
+       "name": "Alice Lake and Garibaldi Highlands",
+       "img": "/prototype/media/squamish/image5.jpg",
+       "alt": "Still water reflecting a forested shoreline",
+       "paras": [
+        "The Alice Lake and Garibaldi Highlands area is another major riding zone in Squamish. It is known for forest singletrack, technical trails, rock features, and classic local routes.",
+        "This area is especially good for riders who want a natural Squamish feel. Expect roots, rocks, slabs, bridges, punchy climbs, and technical descents. Some trails here are suitable for intermediate riders, while others are better for advanced riders with strong control.",
+        "Best for: Technical riding, forest trails, slabs, intermediate to advanced progression."
+       ],
+       "note": "Trails in this area can be slippery after rain. Good tires, strong braking control, and careful line choice matter."
+      },
+      {
+       "name": "Valleycliffe",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "Valleycliffe is known for steeper and more technical riding. It has an old-school Squamish feel, with trails that can be challenging, physical, and less forgiving than easier riding zones.",
+        "This is not usually the best place for first-time mountain bikers. It is better for riders who already feel confident on roots, rocks, steeps, and technical descents.",
+        "Best for: Advanced riders, steep trails, technical descents, old-school Squamish riding."
+       ],
+       "note": "Do not choose Valleycliffe just because it is close to town. Check the trail rating and be honest about your ability."
+      },
+      {
+       "name": "Brackendale",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "Brackendale offers a quieter side of Squamish mountain biking. The area has forested trails and a more local feel, with options that may suit a range of riders depending on the route.",
+        "It can be a good choice if you want something less busy than the most famous zones, but you should still use a trail map and check current conditions.",
+        "Best for: Local-feeling rides, forest trails, quieter outings, mixed skill levels."
+       ],
+       "note": "Brackendale is also known for winter bald eagle viewing, so respect wildlife areas and seasonal sensitivities."
+      },
+      {
+       "name": "Squamish Estuary",
+       "img": "/prototype/media/squamish/image6.jpg",
+       "alt": "The Squamish Estuary below the Chief",
+       "paras": [
+        "The Squamish Estuary is one of the easiest places to ride in town. It is not a technical mountain biking zone, but it is useful for beginners, families, casual riders, and anyone who wants a gentle ride with mountain and water views.",
+        "This is a good choice if you are new to biking, warming up, riding with kids, or looking for a scenic low-effort route.",
+        "Best for: Beginners, families, scenic rides, easy pedaling, birdwatching."
+       ],
+       "note": "Stay on marked trails and respect sensitive estuary habitat."
+      },
+      {
+       "name": "Smoke Bluffs Area",
+       "img": "/prototype/media/squamish/image12.jpg",
+       "alt": "A photographer on a viewpoint above Squamish",
+       "paras": [
+        "Smoke Bluffs is best known for climbing, but the area also works for short rides and town-access trails. It gives visitors a quick outdoor option close to downtown Squamish.",
+        "This is not the main mountain biking zone compared with Diamond Head or Alice Lake, but it can be useful for a short spin or mixed outdoor day.",
+        "Best for: Short rides, town access, forest feel, mixed activity days."
+       ],
+       "note": "Wet conditions can change everything. Rock slabs and roots can become very slick after rain."
+      }
+     ]
+    },
+    {
+     "h": "Key Mountain Biking Events",
+     "items": [
+      {
+       "name": "Squamish Enduro",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "The Squamish Enduro is the biggest mountain biking event to know about in Squamish. It is usually held in spring.",
+        "This race showcases Squamish’s technical trail network and is described as Canada’s largest enduro mountain bike race. Enduro racing is different from downhill bike park racing because riders usually pedal between timed downhill stages. It rewards technical skill, fitness, endurance, and strong descending.",
+        "For 2026, the Squamish Enduro includes different course levels, including an expert full course, an advanced short course, and an intermediate classics course. This makes it relevant not only for elite riders, but also for strong local and visiting riders who want a race that matches their level."
+       ],
+       "note": "Trails, parking, and local riding areas may be busier during race weekend. If you are visiting to ride, check the race schedule and trail impacts before planning your routes."
+      },
+      {
+       "name": "SORCA Races, Social Rides, and Trail Days",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "SORCA, the Squamish Off-Road Cycling Association, is central to the local mountain biking scene. It maintains and supports the trail network, advocates for responsible trail use, and organizes local races, social rides, programs, and volunteer trail days throughout the year.",
+        "These events are a good way to understand why Squamish has such a strong riding culture. They are often more local and community-focused than major spectator events, but they matter because they support the trails visitors come to ride.",
+        "Best for: Local riders, visiting riders who want to connect with the community, trail volunteers, social rides, grassroots racing."
+       ],
+       "note": "Check the current SORCA calendar before visiting. Some events may require membership, registration, or volunteer sign-up."
+      },
+      {
+       "name": "MegaVolt eMTB Festival",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "The MegaVolt eMTB Festival is also relevant for riders interested in electric mountain bikes. For 2026, the Squamish event is scheduled for October 2 to 4, making it a fall biking event.",
+        "The festival focuses on eMTB riding and fits Squamish well because of the area’s slabs, forest trails, loam, and longer ride options. It is more niche than the Squamish Enduro, but it is worth mentioning as e-biking grows in popularity.",
+        "Best for: eMTB riders, experienced mountain bikers, fall riding, riders curious about electric mountain bikes."
+       ],
+       "note": "E-bike access can depend on local trail rules, so riders should always check where eMTBs are allowed before riding."
+      }
+     ]
+    }
+   ],
+   "faqs": [
+    {
+     "q": "Is Squamish known for mountain biking?",
+     "a": [
+      "Yes. Squamish is one of British Columbia’s best-known mountain biking towns, with more than 300 km of trails and a strong local riding culture."
+     ]
+    },
+    {
+     "q": "Is mountain biking the top outdoor sport in Squamish?",
+     "a": [
+      "Mountain biking is one of Squamish’s top outdoor sports, along with climbing, hiking, kiteboarding, and windsurfing. It stands out because of the large trail network and the variety of riding styles."
+     ]
+    },
+    {
+     "q": "Is Squamish better than Whistler for mountain biking?",
+     "a": [
+      "It depends on what you want. Squamish is better for natural pedal-access trail riding, technical singletrack, slabs, and enduro-style rides. Whistler is better for lift-access downhill biking, bike park progression, jumps, and major bike events."
+     ]
+    },
+    {
+     "q": "What is the best mountain biking area in Squamish?",
+     "a": [
+      "Diamond Head is one of the best-known areas, especially for riders who want a large trail network and classic Squamish riding. Alice Lake and Garibaldi Highlands are also popular for technical forest riding."
+     ]
+    },
+    {
+     "q": "Do you need a downhill bike in Squamish?",
+     "a": [
+      "Usually no. A trail bike or enduro bike is better for most Squamish rides because you often need to pedal and climb. Downhill bikes are more suited to lift-access parks like Whistler."
+     ]
+    },
+    {
+     "q": "When is the best time to mountain bike in Squamish?",
+     "a": [
+      "Spring through fall is usually best, especially April to October depending on trail conditions. Fall can be especially good because temperatures are cooler and trails may ride well."
+     ]
+    },
+    {
+     "q": "Best for Mountain Biking",
+     "a": [
+      "Choose Whistler if you want lift-access bike park riding.",
+      "Choose Squamish if you want local forest trails and a more natural trail network.",
+      "Best answer: Whistler for bike park, Squamish for trail riding."
+     ]
+    }
+   ]
+  },
+  {
+   "g": "do",
+   "label": "Things to do",
+   "subs": [
+    {
+     "h": "Best Things to Do",
+     "items": [
+      {
+       "name": "Ride the Sea to Sky Gondola",
+       "img": "/prototype/media/squamish/image3.jpg",
+       "alt": "A gondola cabin above Howe Sound",
+       "paras": [
+        "The Sea to Sky Gondola is one of the easiest ways to get the full Squamish experience in one stop. The ride takes you up into the mountains, with views over Howe Sound, Shannon Falls, the Stawamus Chief, and the surrounding forest.",
+        "At the top, you can walk easy trails, cross the Sky Pilot Suspension Bridge, enjoy lookout platforms, and stop at the summit lodge. It is a good choice for families, couples, first-time visitors, and anyone who wants big views without a hard hike.",
+        "Best for:Views, families, easy walking, photography, first-time visitors"
+       ],
+       "note": "This is one of the best Squamish activities if you only have a few hours. Book ahead in busy seasons and check operating hours before visiting."
+      },
+      {
+       "name": "Hike the Stawamus Chief",
+       "img": "/prototype/media/squamish/image2.jpg",
+       "alt": "The Stawamus Chief above the town and the Squamish River",
+       "paras": [
+        "The Stawamus Chief, often called “The Chief,” is Squamish’s most famous landmark. Its huge granite face rises above town and can be seen from many places along the highway.",
+        "The hike to the Chief is one of the most iconic hikes in British Columbia. It is steep and challenging, but the views from the top are unforgettable. You can see Howe Sound, Squamish, surrounding mountains, and the Sea-to-Sky landscape below.",
+        "There are three main peaks, and each gives a different view. Many visitors hike to the First Peak if they want the shortest summit option."
+       ],
+       "note": "This is not an easy walk. Expect stairs, rocks, roots, steep sections, and busy trails in summer. Wear proper shoes and bring water."
+      },
+      {
+       "name": "Visit Shannon Falls",
+       "img": "/prototype/media/squamish/image13.jpg",
+       "alt": "Shannon Falls dropping through autumn forest",
+       "paras": [
+        "Shannon Falls is one of the easiest must-see stops in Squamish. It is close to Highway 99 and sits beside Stawamus Chief Provincial Park.",
+        "The walk to the viewpoint is short, easy, and family-friendly. You do not need much time, but the reward is big: a tall waterfall dropping down the granite cliffs in a beautiful forest setting.",
+        "This is a perfect stop if you are driving from Vancouver to Squamish or Whistler."
+       ],
+       "note": "Shannon Falls pairs well with the Sea to Sky Gondola because they are very close to each other."
+      },
+      {
+       "name": "Walk Across the Sky Pilot Suspension Bridge",
+       "img": "/prototype/media/squamish/image8.jpg",
+       "alt": "The Sky Pilot suspension bridge seen from above",
+       "paras": [
+        "The Sky Pilot Suspension Bridge is at the top of the Sea to Sky Gondola. It is one of the most photogenic attractions in Squamish.",
+        "The bridge gives you views of the mountains, Howe Sound, and surrounding forest. It adds a little thrill without being too difficult, making it a fun stop for visitors who want a memorable photo.",
+        "Best for:Photos, views, families, light adventure"
+       ],
+       "note": "You need a Sea to Sky Gondola ticket to access the bridge. Go earlier in the day if you want fewer people in your photos."
+      },
+      {
+       "name": "Explore Howe Sound Viewpoints",
+       "img": "/prototype/media/squamish/image1.jpg",
+       "alt": "Howe Sound seen from a rocky viewpoint",
+       "paras": [
+        "Howe Sound is one of the reasons Squamish feels so dramatic. The town sits where the mountains meet the ocean, creating a rare mix of coastal and alpine scenery.",
+        "You can enjoy Howe Sound from the Sea to Sky Gondola, the Stawamus Chief, highway viewpoints, waterfront areas, and nearby parks. Even if you do not book a major activity, taking time to stop and enjoy the views is one of the best things to do in Squamish.",
+        "Best for:Photography, scenic drives, easy sightseeing, peaceful stops"
+       ],
+       "note": "Views can change quickly with weather. Cloudy or misty days can still be beautiful."
+      },
+      {
+       "name": "Go Mountain Biking",
+       "img": "/prototype/media/squamish/image15.jpg",
+       "alt": "Three riders on a forest trail",
+       "paras": [
+        "Squamish is one of Canada’s best mountain biking destinations. Riders come for forest trails, technical terrain, flow trails, and a strong local biking culture.",
+        "There are trails for different skill levels, from beginner-friendly routes to advanced technical rides. If you are new to mountain biking, start with easier trails or book a lesson or guided ride.",
+        "Best for:Mountain bikers, outdoor adventure, forest trails, active travelers"
+       ],
+       "note": "Trail conditions change with weather. Check local trail updates and ride within your ability."
+      },
+      {
+       "name": "See the Winter Bald Eagles in Brackendale",
+       "img": "/prototype/media/squamish/image11.jpg",
+       "alt": "Two bald eagles on a log in a river",
+       "paras": [
+        "If you visit Squamish in winter, eagle watching in Brackendale is one of the most special seasonal experiences.",
+        "Every year, bald eagles gather around the Squamish River area to feed during the salmon run. Seeing these large birds perched in trees or flying above the river is a memorable wildlife experience.",
+        "Best for:Wildlife watching, winter visits, bird lovers, photography"
+       ],
+       "note": "The best viewing season is usually late fall into winter. Bring binoculars, dress warmly, and keep a respectful distance from the birds."
+      },
+      {
+       "name": "Visit Britannia Mine Museum",
+       "img": "/prototype/media/squamish/image7.jpg",
+       "alt": "The Britannia Mine Museum building",
+       "paras": [
+        "Britannia Mine Museum is just south of Squamish in Britannia Beach. It is one of the best things to do near Squamish if you want history, hands-on exhibits, or a rainy-day activity.",
+        "The museum tells the story of mining in British Columbia and includes exhibits, the historic Mill No. 3 building, gold panning, and underground mine experiences.",
+        "Best for:Families, history, rainy days, indoor-outdoor learning"
+       ],
+       "note": "This is a great stop on the drive between Vancouver and Squamish. Check tour times before going."
+      },
+      {
+       "name": "Explore the Railway Museum of British Columbia",
+       "img": "/prototype/media/squamish/image10.jpg",
+       "alt": "Railway tracks running toward the mountains",
+       "paras": [
+        "The Railway Museum of British Columbia is a great stop for train lovers, families, and anyone who wants something different from the usual hiking and viewpoint list.",
+        "The museum focuses on British Columbia’s railway history and heritage. It sits in a beautiful mountainside setting in Squamish and includes train equipment and exhibits.",
+        "Best for:Families, train lovers, history, slower travel days"
+       ],
+       "note": "This is a good option if the weather is not ideal for hiking or if you want a quieter activity in town."
+      },
+      {
+       "name": "Spend Time at Alice Lake Provincial Park",
+       "img": "/prototype/media/squamish/image5.jpg",
+       "alt": "Still water reflecting a forested shoreline",
+       "paras": [
+        "Alice Lake Provincial Park is one of the best places in Squamish for an easier nature outing. It has lakes, forest, walking trails, picnic areas, swimming areas, and a relaxed family-friendly feel.",
+        "It is a good choice if you want nature without a hard climb. You can walk, paddle, picnic, swim in season, or simply relax by the water.",
+        "Best for:Families, picnics, lake time, easy walks, summer visits"
+       ],
+       "note": "Alice Lake can get busy on warm summer days. Arrive early if you want parking and a good picnic spot."
+      },
+      {
+       "name": "Explore Smoke Bluffs Park",
+       "img": "/prototype/media/squamish/image12.jpg",
+       "alt": "A photographer on a viewpoint above Squamish",
+       "paras": [
+        "Smoke Bluffs Park is best known for rock climbing, but it is also worth visiting for short walks, forest trails, and views close to town.",
+        "This park gives visitors another side of Squamish. Instead of huge summit views, you get a local-feeling outdoor area with cliffs, trees, and small viewpoints.",
+        "Best for:Climbing, short walks, forest trails, local outdoor feel"
+       ],
+       "note": "Climbers use this area often. Stay aware of your surroundings and do not stand under climbing routes."
+      },
+      {
+       "name": "Visit the Squamish Estuary",
+       "img": "/prototype/media/squamish/image6.jpg",
+       "alt": "The Squamish Estuary below the Chief",
+       "paras": [
+        "The Squamish Estuary is one of the best quieter scenic spots in town. It is where river, marsh, mountain, and ocean landscapes meet.",
+        "This area is good for walking, birdwatching, photography, and enjoying a slower side of Squamish. It is less dramatic than the gondola or the Chief, but it gives you a peaceful look at the natural landscape around town.",
+        "Best for:Birdwatching, easy walks, quiet views, photography"
+       ],
+       "note": "Bring binoculars if you like birds. Stay on marked paths and respect sensitive habitat."
+      },
+      {
+       "name": "Drive the Sea-to-Sky Highway Through Squamish",
+       "img": "/prototype/media/squamish/image9.jpg",
+       "alt": "The highway curving above Howe Sound",
+       "paras": [
+        "Part of the Squamish experience is the drive itself. The Sea-to-Sky Highway is one of British Columbia’s most scenic routes, with views of ocean, mountains, cliffs, waterfalls, and forest.",
+        "Squamish sits in one of the most beautiful sections of the route, making it a perfect stop between Vancouver and Whistler.",
+        "Best for:Road trips, scenic drives, first-time visitors, photography"
+       ],
+       "note": "Do not rush the drive. Leave time for stops like Shannon Falls, Britannia Mine Museum, viewpoints, and nearby parks."
+      },
+      {
+       "name": "Go to Porteau Cove or Murrin Park Nearby",
+       "img": "/prototype/media/squamish/image14.jpg",
+       "alt": "A pier on Howe Sound with mountains behind",
+       "paras": [
+        "Porteau Cove and Murrin Provincial Park are both excellent side trips near Squamish.",
+        "Porteau Cove is known for ocean views, camping, diving, and peaceful shoreline scenery along Howe Sound. Murrin Park is a good quick stop for lake views, picnics, climbing, and short hikes.",
+        "These parks are great if you want to expand beyond central Squamish without going too far."
+       ],
+       "note": "Both parks work well as stops along the Sea-to-Sky Highway. They are especially useful if you are driving between Vancouver and Squamish."
+      },
+      {
+       "name": "Browse Local Cafés, Breweries, and the Farmers’ Market",
+       "img": "/prototype/media/squamish/image4.jpg",
+       "alt": "The main street of Squamish with a peak behind",
+       "paras": [
+        "Squamish is not only about big adventure. The town also has a growing food, coffee, and craft beer scene.",
+        "After hiking, biking, sightseeing, or driving the Sea-to-Sky Highway, spend time in town. Stop for coffee, visit a local brewery, browse shops, or time your visit with the farmers’ market.",
+        "This gives you a more local feel for Squamish and helps round out the trip."
+       ],
+       "note": "This is a great way to slow down between bigger outdoor activities."
+      }
+     ]
+    },
+    {
+     "h": "Why Squamish Is Known for Outdoor Sports",
+     "items": [
+      {
+       "name": "Kiteboarding and Windsurfing",
+       "img": "/prototype/media/squamish/image17.jpg",
+       "alt": "Kiteboarders and windsurfers on Howe Sound",
+       "paras": [
+        "One of the biggest reasons Squamish stands out is its wind sports scene. The town is widely known for kiteboarding and windsurfing, especially in summer when thermal winds funnel through Howe Sound and create the kind of conditions riders come back for year after year. The Squamish Spit is the center of it all and is widely treated as the signature launch area for local wind sports. It is one of those places that gives Squamish a personality all its own, because not many mountain towns are also known for world-class conditions on the water. For visitors, that means Squamish can offer a very different kind of coastal adventure from the more usual beach-town experience.",
+        "Squamish literally translates to \"Mother of the Wind.\" You can expect reliable thermal winds that typically kick in around 10:00 AM or 11:00 AM and blow until sunset. These winds are generally between 15, 25 knots, providing ideal conditions for 7m, 12m kites.",
+        "The launch and landing area is very small and requires advanced kite control. The wind blows offshore from the Spit, meaning you must be able to ride upwind and perform a self-rescue. If you get into trouble, a jet-ski retrieval service is usually available to bring you back for a fee."
+       ],
+       "note": null
+      },
+      {
+       "name": "Downhill Mountain Biking",
+       "img": "/prototype/media/squamish/image21.jpg",
+       "alt": "A rider on a mossy forest trail",
+       "paras": [
+        "If wind is what first put Squamish on the map for some travelers, mountain biking is what keeps many of them coming back. The town has 300+ kilometres of trails, with options ranging from cross-country and family-friendly riding to downhill and freeride terrain. Squamish’s trail systems take full advantage of the area’s natural gravity, which is exactly why downhill riders rate it so highly.",
+        "Squamish is defined by its massive, grippy rock faces. Trails often feature slabs, steep, sustained rock rolls that require commitment and steady braking.",
+        "Expect old-school roots and new-school machine-built jumps. The dirt here is legendary for its grip when tacky but can become challenging and slick when the summer dust or coastal rain sets in."
+       ],
+       "note": null
+      },
+      {
+       "name": "Hiking",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "Hiking is another major reason people come to Squamish, and it often appeals even to travelers who are not here primarily for biking or wind sports. Part of the appeal is the variety. Squamish gives you access to coastal viewpoints, forest trails, alpine-style terrain, and waterfalls, all within a relatively compact area.",
+        "Most hikers focus on three distinct areas, the Stawamus Chief (sheer granite peaks), the Sea to Sky Gondola (alpine access without the grind), and Garibaldi Provincial Park (long-distance glacial vistas).",
+        "Expect technical trails. Even moderate hikes often involve navigating large granite slabs, exposed roots, and occasionally ladders or chains."
+       ],
+       "note": null
+      },
+      {
+       "name": "Rock Climbing",
+       "img": "/prototype/media/squamish/image19.jpg",
+       "alt": "A climber on a granite face",
+       "paras": [
+        "Squamish is the undisputed rock climbing capital of Canada, centered around the Stawamus Chief, a massive 700-meter granite monolith. The area is world-renowned for its high-friction granite, flawless cracks, and a climbing culture that spans everything from roadside bouldering to multi-pitch alpine adventures.",
+        "Squamish granite is famous for its crystal texture, providing exceptional grip even on steep slabs. Expect a mix of pure crack climbing, delicate friction slabs, and powerful face climbing.",
+        "Bouldering: Thousands of problems are nestled in the Grand Wall Forest at the base of the Chief, ranging from beginner V0s to world-class V-double-digits."
+       ],
+       "note": null
+      },
+      {
+       "name": "Skiing and Winter trips",
+       "img": "/prototype/media/squamish/image20.jpg",
+       "alt": "A red gondola cabin above snowy forest",
+       "paras": [
+        "While Squamish is a summer powerhouse, its location on the Sea to Sky Highway makes it a strategic winter basecamp. It offers a more relaxed, budget-friendly alternative to staying directly in Whistler while providing immediate access to some of the finest coastal mountain terrain in British Columbia.",
+        "Squamish sits exactly 45 minutes south of Whistler Blackcomb, the largest ski resort in North America. Staying here allows you to avoid resort pricing while being close enough for easy day-trips to the slopes.",
+        "For experienced ski tourers, Squamish is the jumping-off point for the Garibaldi Highlands and the Diamond Head area. The terrain is vast, offering everything from mellow meadow glades to high-consequence alpine bowls."
+       ],
+       "note": null
+      },
+      {
+       "name": "Kayaking",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "Kayaking in Squamish offers a unique perspective on where the mountains meet the sea. From the calm, emerald waters of the Squamish River estuary to the expansive, fjord-like beauty of Howe Sound, paddlers can experience everything from serene wildlife viewing to challenging coastal expeditions.",
+        "Paddling in Howe Sound places you at the base of the Stawamus Chief and provides views of the Shannon Falls that are impossible to see from the road.",
+        "It is common to spot harbor seals, bald eagles, and occasionally dolphins or whales. The estuary is a vital habitat, so expect a quiet, nature-focused experience in the sheltered channels."
+       ],
+       "note": null
+      },
+      {
+       "name": "River Water Rafting",
+       "img": "/prototype/media/squamish/image31.jpg",
+       "alt": "A river running through a rocky canyon",
+       "paras": [
+        "River rafting in Squamish offers a high-energy journey through the pristine valleys of the Coast Mountains. Fed by glacial melt from the Pemberton Icefield, the Squamish, Cheakamus, and Elaho rivers provide a spectrum of experiences ranging from adrenaline-pumping Class IV rapids to gentle, family-friendly scenic floats.",
+        "The water is remarkably clear and incredibly cold. Even in the height of summer, you will be navigating freshly melted snow, which keeps the environment crisp and invigorating.",
+        "The Elaho & Squamish: This is the big water experience. You’ll navigate through remote wilderness, passing towering old-growth forests and waterfalls while tackling exciting Class III and IV rapids like the Devil’s Elbow."
+       ],
+       "note": null
+      }
+     ]
+    }
+   ],
+   "faqs": [
+    {
+     "q": "What is the best thing to do in Squamish for first-time visitors?",
+     "a": [
+      "The Sea to Sky Gondola is one of the best first-time visitor activities because it gives you big mountain and Howe Sound views without a difficult hike. Shannon Falls is another easy must-see stop."
+     ]
+    },
+    {
+     "q": "Can you visit Squamish as a day trip from Vancouver?",
+     "a": [
+      "Yes. Squamish is a great day trip from Vancouver. You can visit Shannon Falls, ride the Sea to Sky Gondola, explore town, and stop at scenic viewpoints in one day."
+     ]
+    },
+    {
+     "q": "What is there to do in Squamish in winter?",
+     "a": [
+      "In winter, you can watch bald eagles in Brackendale, visit museums, enjoy cafés and breweries, take scenic drives, see waterfalls, and do low-elevation walks when conditions are safe."
+     ]
+    },
+    {
+     "q": "Best for a Day Trip from Vancouver",
+     "a": [
+      "Squamish is closer to Vancouver and works well as a day trip. You can ride the Sea to Sky Gondola, visit Shannon Falls, walk downtown, and still return to Vancouver the same day.",
+      "Whistler can also be done as a day trip, but it is a longer day with more driving."
+     ]
+    },
+    {
+     "q": "Best Things to Do in Squamish and Whistler Together",
+     "a": [
+      "If you want to visit both towns, build a Sea to Sky itinerary.",
+      "Start early from Vancouver.",
+      "Stop at Shannon Falls in Squamish."
+     ]
+    }
+   ]
+  },
+  {
+   "g": "itineraries",
+   "label": "Itineraries",
+   "subs": [
+    {
+     "h": "Two-Day Squamish Itinerary",
+     "items": [
+      {
+       "name": "Day 1: Classic Squamish Views",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "Sky Pilot Suspension Bridge",
+        "Downtown cafés or breweries"
+       ],
+       "note": null
+      },
+      {
+       "name": "Day 2: Outdoor Adventure",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "Visit the Railway Museum of BC",
+        "If you are visiting in winter, add Brackendale eagle watching."
+       ],
+       "note": null
+      }
+     ]
+    },
+    {
+     "h": "Two-Day Squamish and Whistler Itinerary",
+     "items": [
+      {
+       "name": "Day 1: Squamish",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "Optional Chief hike or easy trail",
+        "Stay in Squamish or continue to Whistler"
+       ],
+       "note": null
+      },
+      {
+       "name": "Day 2: Whistler",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "Squamish Lil’wat Cultural Centre"
+       ],
+       "note": null
+      }
+     ]
+    },
+    {
+     "h": "Three-Day Squamish and Whistler Itinerary",
+     "items": [
+      {
+       "name": "Day 1: Squamish Nature and Views",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "Easy hike or viewing platforms"
+       ],
+       "note": null
+      },
+      {
+       "name": "Day 2: Squamish Adventure",
+       "img": null,
+       "alt": null,
+       "paras": [
+        "Hike the Chief, go climbing, mountain bike, or try a guided activity",
+        "Drive to Whistler in the evening"
+       ],
+       "note": null
+      }
+     ]
+    }
+   ],
+   "faqs": []
+  },
+  {
+   "g": "plan",
+   "label": "Planning your visit",
+   "subs": [],
+   "faqs": [
+    {
+     "q": "Is Squamish good for families?",
+     "a": [
+      "Squamish can be good for families if you choose the right riding area. The estuary and easier trails are better for casual family rides. More technical zones are better for older kids or teens with mountain biking experience.",
+      "Families new to mountain biking should consider lessons, guided rides, or easy scenic routes before trying forest singletrack."
+     ]
+    },
+    {
+     "q": "Is Squamish good for beginners?",
+     "a": [
+      "Yes, but beginners need to choose carefully. Squamish is not only expert terrain, but it is known for technical riding. True beginners should start with easy routes, skills clinics, or guided rides.",
+      "If your idea of biking is a flat paved path, start with the estuary or gentle town routes. If you already have some trail experience, beginner-friendly mountain bike trails can help you progress."
+     ]
+    },
+    {
+     "q": "Is Garibaldi Lake closer to Whistler or Squamish?",
+     "a": [
+      "Garibaldi Lake is between Squamish and Whistler, but it is often included in Whistler hiking trips because it is a major Sea to Sky trail near the resort area."
+     ]
+    },
+    {
+     "q": "Is Squamish better than Whistler?",
+     "a": [
+      "Squamish is better if you want rugged outdoor adventure, lower-key travel, hiking, climbing, biking, and easier access from Vancouver. Whistler is better if you want skiing, a resort village, hotels, restaurants, spas, and lots of organized activities."
+     ]
+    },
+    {
+     "q": "Can you visit Squamish and Whistler in one day?",
+     "a": [
+      "Yes, but it is a long day. If you only have one day, stop at Shannon Falls and the Sea to Sky Gondola in Squamish, then continue to Whistler Village. Start early and do not plan too many big activities."
+     ]
+    },
+    {
+     "q": "Which is closer to Vancouver, Squamish or Whistler?",
+     "a": [
+      "Squamish is closer to Vancouver. Whistler is farther north along the Sea to Sky Highway."
+     ]
+    },
+    {
+     "q": "Which is cheaper, Squamish or Whistler?",
+     "a": [
+      "Squamish is usually cheaper. Whistler tends to cost more because it is a major resort destination with higher hotel, activity, dining, and lift ticket costs."
+     ]
+    },
+    {
+     "q": "Best for a Weekend Trip",
+     "a": [
+      "Choose Whistler if you want a full resort weekend with hotels, restaurants, activities, and nightlife.",
+      "Choose Squamish if you want a cheaper, more relaxed, adventure-focused weekend."
+     ]
+    },
+    {
+     "q": "Best for Skiing and Snowboarding",
+     "a": [
+      "Whistler Blackcomb is the clear winner for skiing and snowboarding. Squamish is not a major ski resort town."
+     ]
+    },
+    {
+     "q": "Best for Families",
+     "a": [
+      "Choose Whistler for easier planning, lots of activities, and a walkable village.",
+      "Choose Squamish for a simpler family day with Shannon Falls, the Sea to Sky Gondola, easy walks, and less resort energy.",
+      "Best answer: Whistler for multi-day family trips, Squamish for easy nature stops."
+     ]
+    },
+    {
+     "q": "Best for Couples",
+     "a": [
+      "Choose Whistler for hotels, spas, restaurants, and a romantic mountain resort feel.",
+      "Choose Squamish for hiking, views, casual food, breweries, and a more relaxed trip."
+     ]
+    },
+    {
+     "q": "Best for Budget Travelers",
+     "a": [
+      "Whistler can be expensive, especially for hotels, lift tickets, restaurants, parking, and activities. Squamish is usually easier for travelers who want outdoor fun without the full resort price."
+     ]
+    },
+    {
+     "q": "Best for Food and Nightlife",
+     "a": [
+      "Whistler has more restaurants, bars, lounges, cafes, and nightlife. Squamish has good food and breweries, but it is smaller and quieter."
+     ]
+    },
+    {
+     "q": "Best for Nature Without Crowds",
+     "a": [
+      "Squamish can still be busy, especially at popular hikes and the gondola, but it usually feels less resort-heavy than Whistler."
+     ]
+    },
+    {
+     "q": "Best for First-Time Visitors to British Columbia",
+     "a": [
+      "Choose Whistler if you want the famous bucket-list resort experience.",
+      "Choose Squamish if you want a more local, scenic, outdoor-focused stop.",
+      "Best answer: Do both if you can. Stop in Squamish on the way to Whistler."
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,603 @@
+{
+  "tofino": {
+    "h1": "Best time to visit Tofino: crowds, whales, waves and storms",
+    "lede": "Tofino works all year, but the crowds do not. Summer is the busiest and most expensive season, spring and fall are quieter, and winter is the quietest, with storm watching as the reason to come.",
+    "months": [
+      {
+        "m": 1,
+        "season": "Storm",
+        "sea": "Massive storm swells",
+        "wildlife": [
+          "Bald eagles",
+          "Sea lions",
+          "Harbour seals",
+          "Sea ducks and loons"
+        ],
+        "activities": [
+          "Storm watching",
+          "Winter surfing (experts)",
+          "Birdwatching"
+        ],
+        "crowds": "Lowest",
+        "like": "Quiet and good value. The Pacific is at its most dramatic, and the Hot Cocoa Trail runs through early January."
+      },
+      {
+        "m": 2,
+        "season": "Storm",
+        "sea": "Big swells, storm season",
+        "wildlife": [
+          "Bald eagles",
+          "Sea lions",
+          "Early gray whales"
+        ],
+        "activities": [
+          "Storm watching",
+          "Birdwatching",
+          "Rainforest walks"
+        ],
+        "crowds": "Lowest",
+        "like": "Still the quiet season. Early gray whales may begin to appear, though whale tours are limited and storms remain the main draw."
+      },
+      {
+        "m": 3,
+        "season": "Shoulder",
+        "sea": "Residual winter swells",
+        "wildlife": [
+          "Gray whales",
+          "Herring spawn and eagles",
+          "Sea lions"
+        ],
+        "activities": [
+          "Pacific Rim Whale Festival",
+          "Whale watching",
+          "Storm watching",
+          "Surfing (intermediate)"
+        ],
+        "crowds": "Building",
+        "like": "Whale season opens with the Pacific Rim Whale Festival. Tours and rooms are in demand that week, so book early; storms can still roll in."
+      },
+      {
+        "m": 4,
+        "season": "Shoulder",
+        "sea": "Waves settle into clean peaks",
+        "wildlife": [
+          "Gray whales",
+          "Black bears",
+          "Migrating shorebirds"
+        ],
+        "activities": [
+          "Whale watching",
+          "Bear watching by boat",
+          "Shorebird festival",
+          "Surfing"
+        ],
+        "crowds": "Low",
+        "like": "A shoulder season with fewer crowds. Bears start working the shoreline at low tide and shorebirds arrive for the Tofino Shorebird Festival in late April."
+      },
+      {
+        "m": 5,
+        "season": "Shoulder",
+        "sea": "Clean, fun-sized waves",
+        "wildlife": [
+          "Gray whales",
+          "Black bears",
+          "Shorebirds",
+          "Tufted puffins (late May)"
+        ],
+        "activities": [
+          "Whale watching",
+          "Bear watching by boat",
+          "Surf lessons",
+          "Rip Curl Nationals"
+        ],
+        "crowds": "Building",
+        "like": "The calm before the July rush. Shorebirds peak until mid-May, and the Rip Curl Nationals surf contest is usually held at Cox Bay."
+      },
+      {
+        "m": 6,
+        "season": "Peak",
+        "sea": "Smaller, gentler waves",
+        "wildlife": [
+          "Gray whales (some)",
+          "Black bears",
+          "Tufted puffins"
+        ],
+        "activities": [
+          "Surf lessons",
+          "Beach days",
+          "Whale watching",
+          "Salmon fishing"
+        ],
+        "crowds": "Busy",
+        "like": "Peak season begins. Surf lessons and rentals need booking well ahead, and the free Tofino shuttle helps with beach parking from late June."
+      },
+      {
+        "m": 7,
+        "season": "Peak",
+        "sea": "Small, manageable waves",
+        "wildlife": [
+          "Humpback whales",
+          "Black bears",
+          "Tufted puffins",
+          "Sea otters"
+        ],
+        "activities": [
+          "Whale watching",
+          "Bear watching by boat",
+          "Salmon and halibut fishing",
+          "Surf lessons"
+        ],
+        "crowds": "Busiest",
+        "like": "The busiest and most expensive month. Popular resorts can need booking 6 to 12 months ahead, and tours fill fast."
+      },
+      {
+        "m": 8,
+        "season": "Peak",
+        "sea": "Small, manageable waves",
+        "wildlife": [
+          "Humpback whales",
+          "Black bears",
+          "Sea otters",
+          "Tufted puffins"
+        ],
+        "activities": [
+          "Whale and bear watching",
+          "Fishing",
+          "Kayaking",
+          "Night paddles to see bioluminescence"
+        ],
+        "crowds": "Busiest",
+        "like": "Still peak. Tours, charters and rooms fill early, surf lineups are crowded, and the beach parking lots fill very early."
+      },
+      {
+        "m": 9,
+        "season": "Shoulder",
+        "sea": "Warmest water, swells building",
+        "wildlife": [
+          "Humpback whales",
+          "Black bears",
+          "Migrating birds",
+          "Orcas (less predictable)"
+        ],
+        "activities": [
+          "Whale watching",
+          "Surfing",
+          "Hiking",
+          "Dining without the wait"
+        ],
+        "crowds": "Busy",
+        "like": "Early September is still summer-busy, then crowds thin out. Tables and trailheads get easier, though popular weekends can still fill up."
+      },
+      {
+        "m": 10,
+        "season": "Shoulder",
+        "sea": "First 10-foot swells arrive",
+        "wildlife": [
+          "Humpback whales",
+          "Black bears (final month)",
+          "Returning salmon"
+        ],
+        "activities": [
+          "Surf Month",
+          "Queen of the Peak",
+          "Edge to Edge Marathon",
+          "Early storm watching"
+        ],
+        "crowds": "Building",
+        "like": "Moderate crowds and shorter restaurant waits than July. October is Surf Month, and bears make their last boat-tour appearances before hibernation."
+      },
+      {
+        "m": 11,
+        "season": "Storm",
+        "sea": "Storm swells and strong gales",
+        "wildlife": [
+          "Bald eagles",
+          "Sea lions",
+          "Harbour seals"
+        ],
+        "activities": [
+          "Storm watching",
+          "Hot Cocoa Trail",
+          "Winter wildlife tours"
+        ],
+        "crowds": "Low",
+        "like": "Storm season is under way and the coast empties out. Good value for oceanfront stays, with the Hot Cocoa Trail starting in late November."
+      },
+      {
+        "m": 12,
+        "season": "Storm",
+        "sea": "Peak gale frequency",
+        "wildlife": [
+          "Bald eagles",
+          "Sea lions",
+          "Harbour seals",
+          "Sea ducks and loons"
+        ],
+        "activities": [
+          "Storm watching",
+          "Hot Cocoa Trail",
+          "Beachcombing"
+        ],
+        "crowds": "Low",
+        "like": "Quiet and moody, though holidays and some weekends can still be busy. Major gales are most frequent in November and December."
+      }
+    ],
+    "events": [
+      {
+        "when": "March",
+        "name": "Pacific Rim Whale Festival",
+        "what": "Whale spotting, a parade, food and talks in Tofino, Ucluelet and the park. 2026: March 14 to 21. 2027: March 13 to 20."
+      },
+      {
+        "when": "March",
+        "name": "Herring spawn",
+        "what": "Herring turn the coastal water a milky turquoise and draw eagles, sea lions and even wolves along the shoreline."
+      },
+      {
+        "when": "Late April and early May",
+        "name": "Tofino Shorebird Festival",
+        "what": "Thousands of shorebirds stop at the Tofino mudflats on their northern migration, with guided birding by kayak."
+      },
+      {
+        "when": "May",
+        "name": "Rip Curl Nationals",
+        "what": "Canada's top shortboard surfers compete at Cox Bay for national titles and Team Canada qualification spots."
+      },
+      {
+        "when": "Saturdays, May to October",
+        "name": "Tofino Market",
+        "what": "Local makers and food vendors at the Village Green. Arrive before noon, as popular items sell out."
+      },
+      {
+        "when": "Late September or October",
+        "name": "Queen of the Peak",
+        "what": "An all-women's surf championship celebrating women's and girls' shortboarding and longboarding."
+      },
+      {
+        "when": "October",
+        "name": "Surf Month",
+        "what": "October is officially Surf Month in Tofino, with major local surf events and reliable early winter swells."
+      },
+      {
+        "when": "Mid-October",
+        "name": "Edge to Edge Marathon",
+        "what": "A scenic race along the Wild Pacific Trail and rugged coastline between Tofino and Ucluelet."
+      },
+      {
+        "when": "Late November to early January",
+        "name": "Tofino Hot Cocoa Trail",
+        "what": "A self-guided tour of local cafes and restaurants serving creative takes on hot chocolate."
+      },
+      {
+        "when": "Winter, weather permitting",
+        "name": "Vancouver Island Winter Surf Games",
+        "what": "A rugged winter surf contest that depends on the weather and shows off cold-water dedication."
+      }
+    ],
+    "dress": [
+      "There is no bad weather here, only poor clothing. Pack a proper waterproof jacket in any month.",
+      "Dress in layers: a fleece under the shell. It feels colder on the water, so add more for boat tours.",
+      "Wear waterproof shoes or boots on beaches and trails, and water shoes at Hot Springs Cove, where rocks are slippery.",
+      "In cooler months add a toque and gloves. Surfers need a 4/3mm or 5/4mm wetsuit, plus booties in winter."
+    ],
+    "faqs": [
+      {
+        "q": "When is Tofino busiest?",
+        "a": "Summer, roughly June through early September, is the busiest and most expensive time. July and August are the peak, and popular resorts can need booking 6 to 12 months ahead."
+      },
+      {
+        "q": "When is Tofino quietest?",
+        "a": "Winter, from November to February, is the quietest season and the best value, though holidays and some weekends can still fill. Spring and fall sit in between, with fewer crowds than summer."
+      },
+      {
+        "q": "When is the best time to see whales near Tofino?",
+        "a": "Gray whales pass from March to May, and humpbacks are common from summer into fall. The main whale watching season runs March through November, and most tours do not run in winter."
+      },
+      {
+        "q": "When is storm watching season in Tofino?",
+        "a": "The main season runs from November to March, with the most dramatic and frequent storms from November to February. Stay at least two nights for a better chance of seeing a big one."
+      },
+      {
+        "q": "When is the best time to surf in Tofino?",
+        "a": "Surfing is year-round. Summer suits beginners, with smaller waves but crowded lineups. Spring suits intermediates, and fall and winter bring bigger swells for experienced surfers. October is Surf Month."
+      },
+      {
+        "q": "What is the weather like?",
+        "a": "Cool and ocean-influenced, with mild temperatures all year and wetter months in fall and winter. Dress for it and every season has something to offer."
+      }
+    ]
+  },
+  "ucluelet": {
+    "h1": "Best time to visit Ucluelet: crowds, whales, fishing and storms",
+    "lede": "Ucluelet is quieter than Tofino all year, but it still has a rhythm. Summer is busiest, the March whale festival brings a spring surge, fishing peaks from June to August, and winter belongs to storm watchers.",
+    "months": [
+      {
+        "m": 1,
+        "season": "Storm",
+        "sea": "Big storm swells at the headlands",
+        "wildlife": [
+          "Bald eagles",
+          "Sea lions",
+          "Harbour seals",
+          "Sea ducks, loons and grebes"
+        ],
+        "activities": [
+          "Storm watching",
+          "Wild Pacific Trail walks",
+          "Birdwatching"
+        ],
+        "crowds": "Lowest",
+        "like": "Quiet for tourism. Winter days are short, so plan storm viewing for roughly 10 am to 3 pm at the lighthouse or trail."
+      },
+      {
+        "m": 2,
+        "season": "Storm",
+        "sea": "Storm swells continue",
+        "wildlife": [
+          "Early gray whales",
+          "Bald eagles",
+          "Sea lions"
+        ],
+        "activities": [
+          "Storm watching",
+          "Whale spotting from the trail",
+          "Birdwatching"
+        ],
+        "crowds": "Lowest",
+        "like": "Whale tours are limited, but gray whales can be spotted from the Wild Pacific Trail from February. Storms remain the main draw."
+      },
+      {
+        "m": 3,
+        "season": "Shoulder",
+        "sea": "Late-season storms and swells",
+        "wildlife": [
+          "Gray whales",
+          "Herring spawn and eagles",
+          "Sea lions"
+        ],
+        "activities": [
+          "Pacific Rim Whale Festival",
+          "Whale watching tours",
+          "Shore whale spotting",
+          "Aquarium season opens"
+        ],
+        "crowds": "Building",
+        "like": "Festival week brings demand for tours and rooms, so reserve ahead. Shore spotting at Amphitrite Point is part of the programming."
+      },
+      {
+        "m": 4,
+        "season": "Shoulder",
+        "sea": "Waves ease through spring",
+        "wildlife": [
+          "Gray whales",
+          "Black bears",
+          "Shorebirds"
+        ],
+        "activities": [
+          "Whale watching",
+          "Seaweed Festival",
+          "Wild Pacific Trail"
+        ],
+        "crowds": "Low",
+        "like": "One of the best gray whale months, and a quieter one. The Ucluelet Aquarium hosts the Seaweed Festival, with a market and a field day."
+      },
+      {
+        "m": 5,
+        "season": "Shoulder",
+        "sea": "Gentler spring conditions",
+        "wildlife": [
+          "Gray whales (mothers and calves)",
+          "Humpback whales",
+          "Black bears",
+          "Shorebirds"
+        ],
+        "activities": [
+          "Whale watching",
+          "Salmon fishing",
+          "Broken Group Islands season opens"
+        ],
+        "crowds": "Building",
+        "like": "Gray whales may still be passing, with mothers and calves often later in the migration. Crowds stay light before summer."
+      },
+      {
+        "m": 6,
+        "season": "Peak",
+        "sea": "Calmer, with a long rolling swell",
+        "wildlife": [
+          "Gray whales (some)",
+          "Humpback whales",
+          "Sea lions",
+          "Bald eagles"
+        ],
+        "activities": [
+          "Chinook salmon fishing",
+          "Wild Pacific Trail",
+          "Kayaking",
+          "Wildlife tours"
+        ],
+        "crowds": "Busy",
+        "like": "Peak season starts and fishing guides begin to fill. Free parking at Amphitrite Point can fill quickly in the peak summer months."
+      },
+      {
+        "m": 7,
+        "season": "Peak",
+        "sea": "Calmer, with a long rolling swell",
+        "wildlife": [
+          "Humpback whales",
+          "Sea otters",
+          "Sea lions",
+          "Black bears"
+        ],
+        "activities": [
+          "Salmon and halibut fishing",
+          "Whale and bear tours",
+          "Ukee Days",
+          "Kayaking"
+        ],
+        "crowds": "Busiest",
+        "like": "The busiest month for wildlife tours and fishing charters. Guides book up months ahead, so start looking in early spring."
+      },
+      {
+        "m": 8,
+        "season": "Peak",
+        "sea": "Calmer, with a long rolling swell",
+        "wildlife": [
+          "Humpback whales",
+          "Sea otters",
+          "Sea lions",
+          "Black bears"
+        ],
+        "activities": [
+          "Salmon and halibut fishing",
+          "Humpback watching",
+          "Kayaking",
+          "Wild Pacific Trail"
+        ],
+        "crowds": "Busiest",
+        "like": "A strong month for humpbacks and still peak for visitors. Charters book months ahead and popular parking areas fill early."
+      },
+      {
+        "m": 9,
+        "season": "Shoulder",
+        "sea": "Swells begin to build",
+        "wildlife": [
+          "Humpback whales",
+          "Sea lions",
+          "Harbour seals",
+          "Bald eagles"
+        ],
+        "activities": [
+          "Whale watching",
+          "Late Chinook fishing",
+          "Hiking",
+          "Bird migration"
+        ],
+        "crowds": "Busy",
+        "like": "Early September is still summer-busy, then it thins out. Fall can be excellent for wildlife, with fewer crowds and quieter tours."
+      },
+      {
+        "m": 10,
+        "season": "Shoulder",
+        "sea": "First big swells and early storms",
+        "wildlife": [
+          "Humpback whales",
+          "Returning salmon",
+          "Black bears",
+          "Wolves at the river"
+        ],
+        "activities": [
+          "Thornton Creek salmon run",
+          "Early storm watching",
+          "Edge to Edge Marathon"
+        ],
+        "crowds": "Building",
+        "like": "Moderate crowds and moodier conditions. Whale tour schedules become more variable, and salmon return to Thornton Creek Hatchery."
+      },
+      {
+        "m": 11,
+        "season": "Storm",
+        "sea": "Storm season begins",
+        "wildlife": [
+          "Bald eagles",
+          "Sea lions",
+          "Harbour seals",
+          "Sea ducks, loons and grebes"
+        ],
+        "activities": [
+          "Storm watching",
+          "Wild Pacific Trail",
+          "Birdwatching"
+        ],
+        "crowds": "Low",
+        "like": "Storm season is under way. Not a whale month, but the coast is dramatic and quiet, and oceanfront stays are good value."
+      },
+      {
+        "m": 12,
+        "season": "Storm",
+        "sea": "Most consistent storms",
+        "wildlife": [
+          "Bald eagles",
+          "Sea lions",
+          "Harbour seals",
+          "Sea ducks, loons and grebes"
+        ],
+        "activities": [
+          "Storm watching",
+          "Aquarium Release Day",
+          "Beachcombing"
+        ],
+        "crowds": "Low",
+        "like": "A quiet season. The aquarium's Release Day in early December returns the season's residents to the harbour."
+      }
+    ],
+    "events": [
+      {
+        "when": "March",
+        "name": "Pacific Rim Whale Festival",
+        "what": "Whale spotting, food events, talks and a hatchery barbecue. 2026: March 14 to 21. 2027: March 13 to 20."
+      },
+      {
+        "when": "March",
+        "name": "Herring spawn",
+        "what": "Herring turn the coastal water a milky turquoise and draw eagles, sea lions and even wolves along the shoreline."
+      },
+      {
+        "when": "April",
+        "name": "Seaweed Festival",
+        "what": "Hosted by the Ucluelet Aquarium, with a seaweed market and a field day at Big Beach on coastal foraging."
+      },
+      {
+        "when": "July",
+        "name": "Ukee Days",
+        "what": "A festival at the Village Green with loggers' sports, a parade and a salmon barbecue."
+      },
+      {
+        "when": "October",
+        "name": "Thornton Creek salmon run",
+        "what": "Thousands of salmon return to spawn at the hatchery near Ucluelet, drawing black bears and wolves to the banks."
+      },
+      {
+        "when": "Mid-October",
+        "name": "Edge to Edge Marathon",
+        "what": "A scenic race along the Wild Pacific Trail and rugged coastline between Tofino and Ucluelet."
+      },
+      {
+        "when": "Early December",
+        "name": "Ucluelet Aquarium Release Day",
+        "what": "The community gathers as the aquarium's residents are returned to the harbour at the end of the season."
+      }
+    ],
+    "dress": [
+      "There is no bad weather here, only poor clothing. Pack a proper waterproof jacket in any month.",
+      "Dress in layers, and add more for boat tours or fishing charters, where it is cooler on the water.",
+      "Wear waterproof boots on the Wild Pacific Trail and beaches, and closed-toe shoes on boats. Bring binoculars.",
+      "In cooler months add a hat or toque and gloves, and remember that storm viewing is best done in daylight."
+    ],
+    "faqs": [
+      {
+        "q": "When is Ucluelet busiest?",
+        "a": "Summer is the busiest season, with July and August the peak for wildlife tours and fishing charters. Popular parking areas can fill quickly, and the March whale festival also brings demand for tours and rooms."
+      },
+      {
+        "q": "When is Ucluelet quietest?",
+        "a": "Winter is quieter for tourism, from November to February. Spring and fall are in between, and fall in particular can offer fewer crowds with strong wildlife watching."
+      },
+      {
+        "q": "When is the best time to see whales in Ucluelet?",
+        "a": "Gray whales are strongest from March to May, with the peak in March and April. Humpbacks are most common from May through September, and orcas appear sporadically through the year."
+      },
+      {
+        "q": "When is the best time to fish from Ucluelet?",
+        "a": "Chinook salmon peak from June through August, and can also be caught from March to May and in September. October to February is generally quiet. Halibut fishing is consistent."
+      },
+      {
+        "q": "When is storm watching season in Ucluelet?",
+        "a": "The most consistent and powerful storms come from November through February, and October and March can also be impressive. Amphitrite Point and the Wild Pacific Trail are the classic viewing spots."
+      },
+      {
+        "q": "What is the weather like?",
+        "a": "A mild oceanic climate with cool summers, relatively gentle winters and plenty of rain. Dress for it and every season has something to offer."
+      }
+    ]
+  }
+}

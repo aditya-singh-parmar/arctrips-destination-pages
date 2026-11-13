@@ -275,41 +275,22 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
 
 <!-- The place bar. One tap back to the town, the town's five sections, and the
      booking path. Identical on every page below Tofino. -->
-<nav class="placebar" aria-label="Tofino"><div class="wrap placebar-in">
-  <a class="placebar__back" href="/destinations/canada/bc/tofino"><span class="n">&larr; Tofino</span></a>
-  <ul class="placebar__links">
+<div class="placebar placebar--two" aria-label="Tofino"><div class="wrap">
+  <nav class="crumb placebar__crumb" aria-label="Breadcrumb"><a class="lvl-deep" href="/">British Columbia</a><span class="sep lvl-deep" aria-hidden="true">/</span><a class="lvl-deep" href="/destinations/canada/bc/vancouver-island">Vancouver Island</a><span class="sep lvl-deep" aria-hidden="true">/</span><a href="/destinations/canada/bc/tofino">Tofino</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Things to do</span></nav>
+  <nav class="placebar-in" aria-label="Tofino sections"><ul class="placebar__links">
     <li><a href="/destinations/canada/bc/tofino">Overview</a></li>
     <li><a href="#top" aria-current="page">Things to do</a></li>
     <li><a href="/travel-guides/canada/bc/tofino">Plan</a></li>
+    <li><a href="/travel-guides/canada/bc/tofino/best-time-to-visit">Best time to visit</a></li>
+    <li><a href="/travel-guides/canada/bc/itineraries#west-coast">Itineraries</a></li>
     <li><a href="/blog/whale-watching/canada/bc/tofino/wildlife-tours-in-tofino">Guides</a></li>
-  </ul>
-</div></nav>
-<nav class="subjectbar" aria-label="Things to do in Tofino"><div class="wrap subjectbar-in">
-  <span class="subjectbar__l">Things to do</span>
-  <ul class="subjectbar__links">
-    <li><a href="/destinations/canada/bc/tofino/things-to-do/beaches">Beaches</a></li>
-    <li><a href="/destinations/canada/bc/tofino/things-to-do/hiking">Hiking &amp; trails</a></li>
-    <li><a href="/kayaking/canada/bc/tofino">Kayaking</a></li>
-    <li><a href="/whale-watching/canada/bc/tofino">Whale watching</a></li>
-    <li><a href="/destinations/canada/bc/tofino/things-to-do/storm-watching">Storm watching</a></li>
-    <li><a href="/destinations/canada/bc/tofino/things-to-do/restaurants">Restaurants</a></li>
-    <li><a href="/destinations/canada/bc/tofino/things-to-do/surfing">Surfing</a></li>
-    <li><a href="/destinations/canada/bc/tofino/things-to-do/birding">Birding</a></li>
-    <li><a href="/fishing/canada/bc/tofino">Fishing</a></li>
-  </ul>
-</div></nav>
+  </ul></nav>
+</div></div><!-- /placebar -->
 
 <main id="main">
 <div class="jumpbar" id="jumpbar" aria-hidden="true"></div>
 
-<div class="wrap">
-  <nav class="crumb" aria-label="Breadcrumb">
-    <a class="lvl-deep" href="/">British Columbia</a><span class="sep lvl-deep" aria-hidden="true">/</span>
-    <a href="/destinations/canada/bc/vancouver-island">Vancouver Island</a><span class="sep" aria-hidden="true">/</span>
-    <a href="/destinations/canada/bc/tofino">Tofino</a><span class="sep" aria-hidden="true">/</span>
-    <span aria-current="page">Things to do</span>
-  </nav>
-</div>
+
 
 <header class="phead"><div class="wrap phead-grid">
   <div>
@@ -657,17 +638,16 @@ function photo(s, first){
     </figure>`;
 }
 
-/* The places, named. Three of them, in the guide's own order, skipping the
-   section headings the corpus files alongside real places and the few names
-   too long to read in a sentence. The guide holds the rest. */
+/* The places, every one of them named in the guide's own order (review
+   2026-11-13: "and N more" told the reader there was more without letting
+   them reach it). Section headings the corpus files alongside real places are
+   skipped when the guide has enough real ones. */
 function namesLine(s){
   const real = s.places.filter((p) => p.note);
-  const pool = real.length >= 3 ? real : s.places;
-  const short = pool.filter((p) => p.n.length <= 26);
-  const pick = (short.length >= 3 ? short : pool).slice(0,3).map((p) => p.n);
-  const rest = s.places.length - pick.length;
-  const list = pick.length > 1 ? pick.slice(0,-1).join(", ") + " and " + pick[pick.length-1] : pick[0];
-  return rest > 0 ? `${list}, and ${rest} more.` : `${list}.`;
+  const pick = (real.length >= 3 ? real : s.places).map((p) => p.n);
+  const seen = new Set(); const names = pick.filter((n) => !seen.has(n) && seen.add(n));
+  const list = names.length > 1 ? names.slice(0,-1).join(", ") + " and " + names[names.length-1] : names[0];
+  return `${list}.`;
 }
 
 function placeBlock(s){

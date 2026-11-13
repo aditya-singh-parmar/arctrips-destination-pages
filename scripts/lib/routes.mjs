@@ -37,6 +37,10 @@ export const ROUTES = {
   /* Travel guide and blog patterns from the PRD. */
   'plan.html': '/travel-guides/canada/bc/tofino',
   'guide.html': '/blog/whale-watching/canada/bc/tofino/wildlife-tours-in-tofino',
+  /* Review 2026-11-13: best time to visit, modelled on a conditions-by-month
+     table, at the slug the reviewer asked for. A page slug under the town's
+     travel guide, per the PRD's one rule. */
+  'best-time-tofino.html': '/travel-guides/canada/bc/tofino/best-time-to-visit',
 
   /* Ucluelet */
   'ucluelet.html': `${BC}/ucluelet`,
@@ -44,6 +48,12 @@ export const ROUTES = {
   'restaurants-ucluelet.html': `${BC}/ucluelet/things-to-do/restaurants`,
   'whale-watching-ucluelet.html': '/whale-watching/canada/bc/ucluelet',
   'kayaking-ucluelet.html': '/kayaking/canada/bc/ucluelet',
+  'best-time-ucluelet.html': '/travel-guides/canada/bc/ucluelet/best-time-to-visit',
+
+  /* Suggested itineraries, 2 to 10 days, by town and by group of towns. They
+     span several towns, so the page sits at province level in the travel-guides
+     section (assumption, D-20). */
+  'itineraries.html': '/travel-guides/canada/bc/itineraries',
 
   /* The other thirteen BC towns */
   'victoria.html': `${BC}/victoria`,

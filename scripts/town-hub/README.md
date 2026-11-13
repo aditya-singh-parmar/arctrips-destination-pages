@@ -1,3 +1,5 @@
+> Superseded on 2026-11-13 by `scripts/town-page/` (D-20). Kept for history; do not run it, it would overwrite the generated pages.
+
 # town-hub
 
 Builds the seven BC town pages (whistler, squamish, vancouver, nelson, victoria, sooke, sidney) as hubs: Why go, When to go, then one activity tab at a time with each activity's questions.

@@ -95,8 +95,8 @@ body>.jumpbar{position:fixed;z-index:59}
   .rlist--wide .ritem{border-top:1px solid var(--n150);padding:18px 0}
   .rlist--wide .ritem:first-child{border-top:0;padding-top:0}}
 /* both sticky rows are above an anchor target, so anchors land clear of them */
-main [id]{scroll-margin-top:142px}
-@media(max-width:760px){main [id]{scroll-margin-top:136px}}
+main [id]{scroll-margin-top:176px}
+@media(max-width:760px){main [id]{scroll-margin-top:176px}}
 
 
 /* (c) hero. Display type at four times body, weight 800 against the 400 deck. */
@@ -376,18 +376,9 @@ main [id]{scroll-margin-top:142px}
 
 <!-- The place bar. Identical on every Tofino page: the town anchor, the town's
      five sections, the booking path. The only sticky row below the global nav. -->
-<nav class="placebar" aria-label="Tofino"><div class="wrap placebar-in">
-  <a class="placebar__back" href="/destinations/canada/bc/tofino/things-to-do"><span class="n">&larr; Things to do in Tofino</span></a>
-  <ul class="placebar__links">
-    <li><a href="/destinations/canada/bc/tofino">Overview</a></li>
-    <li><a href="/destinations/canada/bc/tofino/things-to-do" aria-current="page">Things to do</a></li>
-    <li><a href="/travel-guides/canada/bc/tofino">Plan</a></li>
-    <li><a href="/blog/whale-watching/canada/bc/tofino/wildlife-tours-in-tofino">Guides</a></li>
-  </ul>
-</div></nav>
-<nav class="subjectbar" aria-label="Things to do in Tofino"><div class="wrap subjectbar-in">
-  <span class="subjectbar__l">Things to do</span>
-  <ul class="subjectbar__links">
+<div class="placebar placebar--two" aria-label="Tofino"><div class="wrap">
+  <nav class="crumb placebar__crumb" aria-label="Breadcrumb"><a class="lvl-deep" href="/">British Columbia</a><span class="sep lvl-deep" aria-hidden="true">/</span><a class="lvl-deep" href="/destinations/canada/bc/vancouver-island">Vancouver Island</a><span class="sep lvl-deep" aria-hidden="true">/</span><a class="lvl-deep" href="/destinations/canada/bc/tofino">Tofino</a><span class="sep lvl-deep" aria-hidden="true">/</span><a href="/destinations/canada/bc/tofino/things-to-do">Things to do</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Whale watching</span></nav>
+  <nav class="placebar-in" aria-label="Tofino sections"><ul class="placebar__links">
     <li><a href="/destinations/canada/bc/tofino/things-to-do/beaches">Beaches</a></li>
     <li><a href="/destinations/canada/bc/tofino/things-to-do/hiking">Hiking &amp; trails</a></li>
     <li><a href="/kayaking/canada/bc/tofino">Kayaking</a></li>
@@ -397,29 +388,12 @@ main [id]{scroll-margin-top:142px}
     <li><a href="/destinations/canada/bc/tofino/things-to-do/surfing">Surfing</a></li>
     <li><a href="/destinations/canada/bc/tofino/things-to-do/birding">Birding</a></li>
     <li><a href="/fishing/canada/bc/tofino">Fishing</a></li>
-  </ul>
-</div></nav>
+  </ul></nav>
+</div></div><!-- /placebar -->
 
 <main id="main">
 
-<div class="wrap">
-  <nav aria-label="Breadcrumb">
-    <ol class="crumb">
-      <li class="lvl-deep"><a href="/">British Columbia</a></li>
-      <li class="sep lvl-deep" aria-hidden="true">/</li>
-      <!-- N4. The trail is the real ancestry. Guides belongs in the top nav,
-           not here; the region is never collapsed on small screens, so
-           Vancouver Island stays one tap away from this page too. -->
-      <li><a href="/destinations/canada/bc/vancouver-island">Vancouver Island</a></li>
-      <li class="sep" aria-hidden="true">/</li>
-      <li><a href="/destinations/canada/bc/tofino">Tofino</a></li>
-      <li class="sep" aria-hidden="true">/</li>
-      <li><a href="/destinations/canada/bc/tofino/things-to-do">Things to do</a></li>
-      <li class="sep" aria-hidden="true">/</li>
-      <li aria-current="page">Whale watching</li>
-    </ol>
-  </nav>
-</div>
+
 
 <header class="hero"><div class="wrap hero-grid">
   <div>

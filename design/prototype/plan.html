@@ -99,7 +99,7 @@ body>.skip:focus{top:0}
 /* ═══ the twelve month board. Five columns, not six: rain and rain days were
        two columns saying one thing, and they now share a cell. ═══ */
 .sec--m{padding-block:clamp(44px,5vw,76px) clamp(40px,4.4vw,64px)}
-.mhead{display:grid;grid-template-columns:minmax(150px,1.15fr) 132px minmax(160px,1fr) 132px 116px;
+.mhead{display:grid;grid-template-columns:minmax(150px,1fr) 150px minmax(240px,2.2fr) 116px;
   gap:0 24px;padding-bottom:11px;border-bottom:1px solid var(--n200);
   font-size:.88rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--n600)}
 @media(max-width:1000px){.mhead{display:none}}
@@ -111,7 +111,7 @@ body>.skip:focus{top:0}
 .mrow[data-sel]{background:var(--a100)}
 .mrow[data-sel] .mrow__n{color:var(--azure)}
 @media(min-width:1001px){
-  .mrow{grid-template-columns:minmax(150px,1.15fr) 132px minmax(160px,1fr) 132px 116px;gap:0 24px}
+  .mrow{grid-template-columns:minmax(150px,1fr) 150px minmax(240px,2.2fr) 116px;gap:0 24px}
 }
 .mrow__m{display:flex;flex-direction:column;gap:3px;grid-column:1/-1}
 @media(min-width:1001px){.mrow__m{grid-column:auto}}
@@ -327,7 +327,19 @@ body>.skip:focus{top:0}
 footer.f{margin-top:0}
 
 /* two sticky rows ride above the page, so anchored sections stop clear of them */
-main [id]{scroll-margin-top:146px}
+main [id]{scroll-margin-top:176px}
+.mcrowd{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--navy);font-size:1rem}
+.mcrowd i{display:inline-flex;gap:2px}
+.mcrowd i b{width:7px;height:16px;border-radius:2px;background:var(--n150)}
+.mcrowd i b[data-on]{background:var(--navy)}
+.mnames{font-size:.98rem;color:var(--n700);line-height:1.5}
+/* the weather, small and last */
+.sec--wx{padding-block:0 clamp(40px,4.4vw,64px)}
+.wxt{border-collapse:collapse;margin-top:14px;font-size:.88rem;color:var(--n700);width:100%;max-width:880px}
+.wxt th,.wxt td{padding:8px 6px;border-bottom:1px solid var(--n150);text-align:right;font-variant-numeric:tabular-nums}
+.wxt th:first-child,.wxt td:first-child{text-align:left}
+.wxt th{font-size:.74rem;color:var(--n600);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.wxwrap{overflow-x:auto}
 </style>
 </head>
 <body>
@@ -377,35 +389,30 @@ main [id]{scroll-margin-top:146px}
 
 <!-- The place bar. Identical on every Tofino page: back to the town, the same
      five sections in the same order, and the booking path. -->
-<nav class="placebar" aria-label="Tofino"><div class="wrap placebar-in">
-  <a class="placebar__back" href="/destinations/canada/bc/tofino"><span class="n">&larr; Tofino</span></a>
-  <ul class="placebar__links">
+<div class="placebar placebar--two" aria-label="Tofino"><div class="wrap">
+  <nav class="crumb placebar__crumb" aria-label="Breadcrumb"><a class="lvl-deep" href="/">British Columbia</a><span class="sep lvl-deep" aria-hidden="true">/</span><a class="lvl-deep" href="/destinations/canada/bc/vancouver-island">Vancouver Island</a><span class="sep lvl-deep" aria-hidden="true">/</span><a href="/destinations/canada/bc/tofino">Tofino</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Plan</span></nav>
+  <nav class="placebar-in" aria-label="Tofino sections"><ul class="placebar__links">
     <li><a href="/destinations/canada/bc/tofino">Overview</a></li>
     <li><a href="/destinations/canada/bc/tofino/things-to-do">Things to do</a></li>
     <li><a href="#top" aria-current="page">Plan</a></li>
+    <li><a href="/travel-guides/canada/bc/tofino/best-time-to-visit">Best time to visit</a></li>
+    <li><a href="/travel-guides/canada/bc/itineraries#west-coast">Itineraries</a></li>
     <li><a href="/blog/whale-watching/canada/bc/tofino/wildlife-tours-in-tofino">Guides</a></li>
-  </ul>
-</div></nav>
+  </ul></nav>
+</div></div><!-- /placebar -->
 
 <main id="main">
 
-<nav class="wrap crumb" aria-label="Breadcrumb">
-  <a class="lvl-deep" href="/">British Columbia</a>
-  <span class="sep lvl-deep" aria-hidden="true">/</span>
-  <a href="/destinations/canada/bc/vancouver-island">Vancouver Island</a>
-  <span class="sep" aria-hidden="true">/</span>
-  <a href="/destinations/canada/bc/tofino">Tofino</a>
-  <span class="sep" aria-hidden="true">/</span>
-  <span aria-current="page">Plan</span>
-</nav>
+
 
 <header class="hero"><div class="wrap hero-grid">
   <div>
     <h1>When should you go to Tofino?</h1>
-    <p class="lede">Any month works. July is the driest and warmest, February brings the biggest storms, and the rooms are open in all twelve. Below is every month with the real numbers.</p>
+    <p class="lede">Any month works, for a different reason. July and August are the busiest, spring and fall are quieter, and winter is storm season with the fewest people. Pick by what you want to do, then dress for it.</p>
     <div class="hero-cta">
       <a class="btn btn--primary btn--lg hero-mob" href="/search?in=tofino">Search 134 stays</a>
       <a class="btn btn--ghost btn--lg" href="#months">See every month</a>
+      <a class="btn btn--ghost btn--lg" href="/travel-guides/canada/bc/tofino/best-time-to-visit">Best time to visit</a>
     </div>
     <p class="hero-note" id="heroNote"></p>
   </div>
@@ -422,11 +429,11 @@ main [id]{scroll-margin-top:146px}
 
     <figure class="plate p1">
       <img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_760,h_1000/guides/tofino/storm-watching/_category-1" alt="Heavy surf breaking against the Tofino shore under winter cloud">
-      <figcaption>February, 368 mm of rain</figcaption>
+      <figcaption>February, storm season and the quietest month</figcaption>
     </figure>
     <figure class="plate p2">
       <img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_780,h_560/guides/tofino/beaches/long-beach-1" alt="The long open sand of Long Beach in Pacific Rim National Park Reserve">
-      <figcaption>July, 66 mm of rain</figcaption>
+      <figcaption>July, the beaches at their busiest</figcaption>
     </figure>
     <figure class="plate p3">
       <img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_680,h_520/guides/tofino/hiking/tonquin-trail-1" alt="Boardwalk steps through rainforest on the Tonquin Trail in Tofino">
@@ -457,17 +464,15 @@ main [id]{scroll-margin-top:146px}
   <div class="head">
     <div>
       <h2>Every month, at a glance</h2>
-      <p>How warm it gets, how much rain falls and on how many days, and how much of Tofino is in season. Pick a month to set it against another.</p>
+      <p>How busy Tofino gets and what is at its best in each month. Pick a month to set it against another. The weather is at the bottom of the page.</p>
     </div>
   </div>
 
   <div class="mhead" aria-hidden="true">
-    <span>Month</span><span>Average high and low</span><span>Rain</span><span>At their best</span><span>Compare</span>
+    <span>Month</span><span>Crowds</span><span>At their best</span><span>Compare</span>
   </div>
   <div class="mboard" id="mboard"></div>
-  <p class="mkey"><span class="mramp" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
-    Palest blue is three of Tofino's nine subjects in season. Deepest is eight, in September.</p>
-  <p class="msrc">Climate normals for the Tofino station. Rain bars run against November, the wettest month.</p>
+  <p class="msrc">Crowd levels follow what the Tofino guides say about busy and quiet seasons. More bars, more people.</p>
 </div></section>
 
 <section class="sec sec--c" id="compare"><div class="wrap">
@@ -595,6 +600,13 @@ main [id]{scroll-margin-top:146px}
   </div>
 </div></section>
 
+<section class="sec sec--wx" id="weather"><div class="wrap">
+  <h2 style="font-size:1.3rem">The weather, if you want it</h2>
+  <p class="msrc" style="margin-top:6px">There is no bad weather here, only the wrong jacket. Rain falls in every month, so pack layers and a waterproof shell.</p>
+  <div class="wxwrap"><table class="wxt"><thead><tr><th>Month</th><th>High</th><th>Low</th><th>Rain, mm</th><th>Rain days</th></tr></thead><tbody id="wxt"></tbody></table></div>
+  <p class="msrc">Climate normals for the Tofino station, seeded for design.</p>
+</div></section>
+
 <section class="sec sec--q" id="questions"><div class="wrap">
   <div class="head">
     <div>
@@ -647,9 +659,8 @@ const arrow = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
 const listOf = (a) => a.length < 2 ? (a[0] || "")
   : a.some((x) => / and /.test(x)) ? a.join(", ")
   : a.slice(0,-1).join(", ") + " and " + a[a.length-1];
-/* names are capped at three: a longer run is a directory dump, not a sentence */
-const listCap = (a,n) => a.length <= n ? listOf(a)
-  : listOf(a.slice(0,n)) + `, and ${a.length - n} more`;
+/* every name is listed (review 2026-11-13: no "and N more") */
+const listCap = (a) => listOf(a);
 const num = (n) => n.toLocaleString("en-CA");
 
 const CATN = {
@@ -823,7 +834,7 @@ let month = 2, other = 7;
 function paintStatic() {
 
   $("#heroNote").innerHTML =
-    `Rain on <b>${CLI[0].days} days</b> in January and <b>${CLI[6].days}</b> in July. ` +
+    `Busiest in <b>July and August</b>, quietest in <b>January and February</b>. ` +
     `Rooms from <b>$${cheapest}</b> a night in all twelve months. Ucluelet is forty minutes down the same road.`;
 
   $("#apick").innerHTML = MON.map((m,i) => `<option value="${i+1}">${m}</option>`).join("");
@@ -834,24 +845,29 @@ function paintStatic() {
       calendar order, and nothing is dimmed or withheld. The only colour that
       carries meaning on this page lives in the last cell: six steps up the
       azure ramp, from three subjects in season to eight. ─────────────────── */
+/* Crowd levels by month, from scripts/town-page/data/_best-time.json (review
+   2026-11-13: lead with visitors and seasonal activities, not the weather). */
+const CROWDS = ["Lowest", "Lowest", "Building", "Low", "Building", "Busy", "Busiest", "Busiest", "Busy", "Building", "Low", "Low"];
+const CROWD_LVL = {Lowest:1, Low:1, Building:2, Busy:3, Busiest:4};
 const ONMIN = Math.min(...MON.map((_,i) => inSeasonTofino(i+1).length));
 const ONMAX = Math.max(...MON.map((_,i) => inSeasonTofino(i+1).length));
 const intensity = (n) => 1 + Math.round((n - ONMIN) / Math.max(1, ONMAX - ONMIN) * 5);
 
+function paintWeather() {
+  $("#wxt").innerHTML = CLI.map((c,i) => `<tr><td>${MON[i]}</td><td>${c.hi}&deg;</td><td>${c.lo}&deg;</td><td>${c.mm}</td><td>${c.days}</td></tr>`).join("");
+}
+
 function paintBoard() {
   $("#mboard").innerHTML = CLI.map((c,i) => {
-    const m = i + 1, s = seasonFor(m), on = inSeasonTofino(m);
+    const m = i + 1, s = seasonFor(m), on = tofinoOn(m);
     const sel = m === month;
     return `<button class="mrow" type="button" data-m="${m}" aria-pressed="${sel}" ${sel ? 'data-sel="true"' : ""}
-      aria-label="${MON[i]}, ${c.hi} degrees, ${c.mm} millimetres of rain over ${c.days} days, ${on.length} of ${TOFINO_N} things at their best. Put it in the comparison.">
+      aria-label="${MON[i]}, ${esc(s.name)}, crowds ${CROWDS[i].toLowerCase()}, at their best: ${esc(listOf(on.map((x) => x.name.toLowerCase())))}. Put it in the comparison.">
       <span class="mrow__m"><span class="mrow__n">${MON[i]}</span><span class="mrow__s">${esc(s.name)}</span></span>
-      <span class="mfig"><span class="mfig__k">Average high and low</span>
-        <span class="mfig__v tnum">${c.hi}&deg; <span class="u">/ ${c.lo}&deg;</span></span></span>
-      <span class="mfig"><span class="mfig__k">Rain</span>
-        <span class="mfig__v tnum">${c.mm} <span class="u">mm over ${c.days} days</span></span>
-        <span class="mrain"><i style="--w:${(c.mm/MAXMM*100).toFixed(1)}%"></i></span></span>
+      <span class="mfig"><span class="mfig__k">Crowds</span>
+        <span class="mcrowd"><i aria-hidden="true">${[0,1,2,3].map((k) => `<b${k < CROWD_LVL[CROWDS[i]] ? " data-on" : ""}></b>`).join("")}</i>${esc(CROWDS[i])}</span></span>
       <span class="mbest"><span class="mfig__k">At their best</span>
-        <span class="mint tnum" data-lvl="${intensity(on.length)}">${on.length} of ${TOFINO_N}</span></span>
+        <span class="mnames">${esc(listOf(on.map((x) => x.name)))}</span></span>
       <span class="mgo">${sel ? "Comparing" : "Compare"}${arrow}</span>
     </button>`;
   }).join("");
@@ -880,12 +896,10 @@ function paintCard(side, m, otherM){
     ? `Also ${s.name.toLowerCase() .replace("the ","")}, and <b>${dT} degrees ${c.hi >= oc.hi ? "warmer" : "cooler"}, ${dMm} mm ${c.mm <= oc.mm ? "drier" : "wetter"}</b> than ${MON[otherM-1]}.`
     : esc(s.claim);
   $(`#${side}Nums`).innerHTML =
-    `<div><dt>Average high</dt><dd>${c.hi}&deg;</dd></div>` +
-    `<div><dt>Average low</dt><dd>${c.lo}&deg;</dd></div>` +
-    `<div><dt>Rain</dt><dd>${c.mm}<small>mm</small></dd></div>` +
-    `<div><dt>Rain days</dt><dd>${c.days}<small>of ${DIM[m-1]}</small></dd></div>`;
+    `<div><dt>Crowds</dt><dd>${esc(CROWDS[m-1])}</dd></div>` +
+    `<div><dt>Average high</dt><dd>${c.hi}&deg;</dd></div>`;
   $(`#${side}OnCount`).innerHTML =
-    `<b>${on.length}</b> of the ${SUBJECTS.length} things Tofino publishes are at their best in ${MON[m-1]}.`;
+    `At their best in ${MON[m-1]}: <b>${esc(listOf(on.map((x) => x.name.toLowerCase())))}</b>.`;
   $(`#${side}Only`).innerHTML = only.length
     ? `On here and not in ${MON[otherM-1]}: <b>${esc(listCap(only.map((x) => x.name.toLowerCase() ), 3))}</b>.`
     : `Everything ${MON[otherM-1]} has, ${MON[m-1]} has too.`;
@@ -897,7 +911,7 @@ function paintCompare() {
   const a = placesInSeason(month), b = placesInSeason(other);
   $("#cTitle").textContent = `${MON[month-1]} against ${MON[other-1]}`;
   $("#sum").innerHTML =
-    `<b>${a}</b> places are at their best in ${MON[month-1]}, <b>${b}</b> in ${MON[other-1]}. ` +
+    `${MON[month-1]} is ${CROWDS[month-1].toLowerCase()} for visitors, ${MON[other-1]} is ${CROWDS[other-1].toLowerCase()}. ` +
     `Both months are bookable, and the road in is the same one.`;
   $("#live").textContent = `Comparing ${MON[month-1]} with ${MON[other-1]}.`;
 }
@@ -1009,7 +1023,7 @@ function setMonth(m){
   paintBoard() ; paintCompare() ; paintBest() ;
 }
 
-paintStatic(); paintTopics() ; paintBoard() ; paintQuestions() ; paintStays() ;
+paintStatic(); paintWeather(); paintTopics() ; paintBoard() ; paintQuestions() ; paintStays() ;
 $("#apick").value = String(month);
 $("#bpick").value = String(other);
 paintCompare() ; paintBest() ;

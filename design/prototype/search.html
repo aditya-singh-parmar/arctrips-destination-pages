@@ -363,22 +363,20 @@ footer.f{margin-top:clamp(48px,6vw,80px)}
 <!-- The place bar. One way back to the town this search is scoped to, then that
      town's own sections. Rebuilt by paintPlacebar() whenever the scope changes,
      and hidden outright when the search is not scoped to a town. -->
-<nav class="placebar" id="placebar" aria-label="Town"><div class="wrap placebar-in">
-  <a class="placebar__back" id="pbBack" href="/destinations/canada/bc/tofino"><span class="n">&larr; Tofino</span></a>
-  <ul class="placebar__links" id="pbLinks">
+<div class="placebar placebar--two" id="placebar" aria-label="Town"><div class="wrap">
+  <nav class="crumb placebar__crumb" id="crumb" aria-label="Breadcrumb"></nav>
+  <nav class="placebar-in" aria-label="Town sections"><ul class="placebar__links" id="pbLinks">
     <li><a href="/destinations/canada/bc/tofino">Overview</a></li>
     <li><a href="/destinations/canada/bc/tofino/things-to-do">Things to do</a></li>
     <li><a href="/travel-guides/canada/bc/tofino">Plan</a></li>
     <li><a href="/blog/whale-watching/canada/bc/tofino/wildlife-tours-in-tofino">Guides</a></li>
-  </ul>
-</div></nav>
+  </ul></nav>
+</div></div><!-- /placebar -->
 
 <main id="main">
 <div class="jumpbar" id="jumpbar" aria-hidden="true"></div>
 
-<div class="wrap">
-  <nav class="crumb" id="crumb" aria-label="Breadcrumb"></nav>
-</div>
+
 
 <header class="shead"><div class="wrap shead-g">
   <h1 id="h1">Search</h1>
@@ -912,8 +910,8 @@ function paintPlacebar() {
   if (!t){ bar.hidden = true; return; }
   bar.hidden = false;
   bar.setAttribute("aria-label", townName(t));
-  $("#pbBack").href = townHref(t);
-  $("#pbBack").innerHTML = '<span class="n">&larr; ' + esc(townName(t)) + "</span>";
+  ($("#pbBack")||{}).href = townHref(t);
+  ($("#pbBack")||{}).innerHTML = '<span class="n">&larr; ' + esc(townName(t)) + "</span>";
   /* The same four sections the tree carries everywhere. Subjects and areas are
      not peers of them: they live in the subject rail and inside the overview. */
   const rows = [[townHref(t), "Overview"]];

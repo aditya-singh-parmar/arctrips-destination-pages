@@ -71,7 +71,7 @@ nav.top .btn{flex:none}
 /* (b) the two v2 rows, re-anchored above the system's body>* rule */
 
 body>.jumpbar{position:fixed;z-index:70}
-[id]{scroll-margin-top:132px}
+[id]{scroll-margin-top:176px}
 /* the trail keeps its compact look and still clears 44px, by padding the hit
    area and pulling the same amount back off the layout */
 .crumb{padding-block:20px 0}
@@ -388,28 +388,23 @@ footer.f{margin-top:clamp(50px,5.4vw,80px)}
 </div></nav>
 
 <!-- The only sticky row below the global nav. Identical on every Tofino page. -->
-<nav class="placebar" aria-label="Tofino"><div class="wrap placebar-in">
-  <a class="placebar__back" href="/destinations/canada/bc/tofino"><span class="n">&larr; Tofino</span></a>
-  <ul class="placebar__links">
+<div class="placebar placebar--two" aria-label="Tofino"><div class="wrap">
+  <nav class="crumb placebar__crumb" aria-label="Breadcrumb"><a class="lvl-deep" href="/">British Columbia</a><span class="sep lvl-deep" aria-hidden="true">/</span><a class="lvl-deep" href="/destinations/canada/bc/vancouver-island">Vancouver Island</a><span class="sep lvl-deep" aria-hidden="true">/</span><a href="/destinations/canada/bc/tofino">Tofino</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Long Beach</span></nav>
+  <nav class="placebar-in" aria-label="Tofino sections"><ul class="placebar__links">
     <li><a href="/destinations/canada/bc/tofino">Overview</a></li>
     <li><a href="/destinations/canada/bc/tofino/things-to-do">Things to do</a></li>
     <li><a href="/travel-guides/canada/bc/tofino">Plan</a></li>
+    <li><a href="/travel-guides/canada/bc/tofino/best-time-to-visit">Best time to visit</a></li>
+    <li><a href="/travel-guides/canada/bc/itineraries#west-coast">Itineraries</a></li>
     <li><a href="/blog/whale-watching/canada/bc/tofino/wildlife-tours-in-tofino">Guides</a></li>
-  </ul>
-</div></nav>
+  </ul></nav>
+</div></div><!-- /placebar -->
 
 <div class="jumpbar" id="jumpbar" aria-hidden="true"></div>
 
 <main id="main">
 
-<div class="wrap">
-  <nav class="crumb" aria-label="Breadcrumb">
-    <a class="lvl-deep" href="/">British Columbia</a><span class="sep lvl-deep">/</span>
-    <a class="lvl-deep keep-sm" href="/destinations/canada/bc/vancouver-island">Vancouver Island</a><span class="sep lvl-deep keep-sm">/</span>
-    <a href="/destinations/canada/bc/tofino">Tofino</a><span class="sep">/</span>
-    <span aria-current="page">Long Beach</span>
-  </nav>
-</div>
+
 
 <header class="hero"><div class="wrap hero-grid">
   <div>

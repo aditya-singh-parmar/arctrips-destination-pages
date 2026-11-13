@@ -1,0 +1,335 @@
+{
+  "slug": "nanaimo",
+  "name": "Nanaimo",
+  "region": "island",
+  "title": "Nanaimo, Arc Trips",
+  "description": "Nanaimo, Vancouver Island: harbour walks, island ferries, whale watching, seaside parks, hikes and the Nanaimo Bar Trail in the Harbour City.",
+  "hero": {
+    "img": "/prototype/media/nanaimo/image27.jpg",
+    "alt": "Nanaimo harbour with its marina and waterfront towers",
+    "standfirst": "Known as the Harbour City, Nanaimo combines small-city energy with coastal scenery: harbour walks, nearby islands and quick access to the outdoors."
+  },
+  "why": {
+    "h2": "A harbour city with island views",
+    "paras": [
+      "Sitting on the east coast of Vancouver Island, Nanaimo combines the energy of a small city with the scenery of a coastal getaway. Known as the Harbour City, it offers ocean views, waterfront walks, nearby islands and easy access to outdoor adventures, while still feeling convenient, lively and easy to explore.",
+      "The city stands on the traditional territory of the Snuneymuxw First Nation, and its history, working harbour and island setting shape its identity today. It is practical enough to use as a base, yet scenic enough to be a destination in its own right."
+    ],
+    "facts": [
+      {
+        "k": "Where it is",
+        "v": "East coast of Vancouver Island, on the traditional territory of the Snuneymuxw First Nation."
+      },
+      {
+        "k": "Getting there",
+        "v": "Seaplanes fly from the waterfront, a 20-minute ferry reaches Gabriola Island, and the Duke Point Ferry Terminal is in South Nanaimo."
+      },
+      {
+        "k": "Known for",
+        "v": "The harbour, Saysutshun and the island ferries, whale watching, Mount Benson and the Nanaimo Bar Trail."
+      },
+      {
+        "k": "When to come",
+        "v": "Summer is peak season for whales and visitors. Spring and early fall are quieter, and diving is clearest from September to March."
+      }
+    ]
+  },
+  "when": {
+    "h2": "Busy summers, quiet shoulder seasons",
+    "intro": "Summer is peak season for whale watching and for visitors, so book tours at least a week ahead. Spring and early fall bring pleasant temperatures and fewer crowds, and winter is good for diving and waterfall hikes. Dress for the wind on the water.",
+    "rows": [
+      {
+        "name": "Whale watching",
+        "best": [
+          6,
+          7,
+          8
+        ],
+        "shoulder": [],
+        "note": "Summer is peak season for both whales and visitors."
+      },
+      {
+        "name": "Saltwater salmon fishing",
+        "best": [
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "shoulder": [],
+        "note": "Year-round, peaking May to September."
+      },
+      {
+        "name": "Ammonite Falls",
+        "best": [
+          11,
+          12,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "shoulder": [],
+        "note": "Most dramatic November to May; a trickle in late summer."
+      },
+      {
+        "name": "Scuba diving",
+        "best": [
+          9,
+          10,
+          11,
+          12,
+          1,
+          2,
+          3
+        ],
+        "shoulder": [],
+        "note": "Clearest water September to March."
+      }
+    ],
+    "crowds": [
+      1,
+      1,
+      2,
+      2,
+      2,
+      3,
+      4,
+      4,
+      3,
+      2,
+      1,
+      1
+    ],
+    "crowdsNote": "Summer whale tours, festivals and sunny weekends fill the waterfront and parks; spring and early fall are quieter.",
+    "seasons": [
+      {
+        "h": "Summer, June to August",
+        "p": "Peak whale season, with tours best booked a week ahead. Maffeo Sutton Park hosts events such as the Silly Boat Regatta, Dragon Boat Festival and Canada Day, and the Saysutshun ferry runs about every 30 minutes."
+      },
+      {
+        "h": "Fall, September to November",
+        "p": "Pink and Chum salmon return to the Nanaimo River, and salmon can be seen in the Millstone River at Bowen Park in October and November. Autumn colour brightens Colliery Dam Park."
+      },
+      {
+        "h": "Winter, December to February",
+        "p": "Cooler and wetter, but gentler than much of Canada. Diving visibility is at its best, Ammonite Falls is most dramatic, and winter springs (resident Chinook) keep anglers busy."
+      },
+      {
+        "h": "Spring, March to May",
+        "p": "Pleasant temperatures and fewer crowds. Trout fishing is best from April to June, rhododendrons peak at Bowen Park in late spring, and the waterfalls still run strong."
+      }
+    ]
+  },
+  "tabs": [
+    {
+      "id": "harbour-islands",
+      "label": "Harbour and islands",
+      "intro": "The harbour is the centre of Nanaimo, with walks, whale tours and two island getaways a short ferry ride away.",
+      "places": [
+        {
+          "name": "Saysutshun (Newcastle Island Marine Provincial Park)",
+          "img": "/prototype/media/nanaimo/image11.jpg",
+          "alt": "The welcome arch over the boardwalk entrance to Saysutshun park",
+          "text": "A marine park just a few hundred metres off Nanaimo harbour, reached only by water. A 22-kilometre trail system includes a popular 6-kilometre perimeter trail with views of the Salish Sea, plus sandstone bays for beachcombing, Snuneymuxw cultural signage and remnants of former coal mines and sandstone quarries.",
+          "note": "A small orange foot ferry leaves Maffeo Sutton Park, roughly every 30 minutes in summer. The park is free; the ferry has a round-trip fee."
+        },
+        {
+          "name": "Harbourfront Walkway",
+          "img": "/prototype/media/nanaimo/image26.jpg",
+          "alt": "The Harbourfront Walkway beside the marina and seaplane docks",
+          "text": "A flat, paved pathway along the shoreline connecting downtown to the working harbour, with constant views of Saysutshun, seaplanes and ferries. It links to Maffeo Sutton Park, and passes public art, interpretive signs on coal mining and maritime heritage, waterfront eateries and boutique shops.",
+          "note": "Open 24 hours and fully accessible. Sit near the seaplane terminals to watch take-offs and landings."
+        },
+        {
+          "name": "Whale watching and marine tours",
+          "img": "/prototype/media/nanaimo/image14.jpg",
+          "alt": "A whale tail rising from grey water",
+          "text": "Nanaimo is a premier departure point for the Salish Sea, where humpback whales, Bigg's orcas and sea lions are highly frequent. Tours leave from the downtown boat basin with certified naturalists, and many operators offer a sightings guarantee with a complimentary return trip. Choose open-air Zodiacs or semi-covered boats.",
+          "note": "Tours last 3 to 5 hours. Summer is peak; book at least a week ahead."
+        },
+        {
+          "name": "Kayaking, boating and harbour activities",
+          "img": "/prototype/media/nanaimo/image16.jpg",
+          "alt": "A kayaker paddling in Nanaimo harbour",
+          "text": "The sheltered passage between downtown and Saysutshun is a popular paddling route, and kayakers can also reach Protection Island. Rent kayaks and paddleboards near the waterfront, take a Harbour Air scenic flight, or visit the Dinghy Dock Pub, Canada's only registered floating pub.",
+          "note": "Stay in the non-motorized lanes and clear of seaplane flight paths."
+        },
+        {
+          "name": "Protection Island",
+          "img": "/prototype/media/nanaimo/image33.jpg",
+          "alt": "A wooded island shoreline with homes and a sailboat",
+          "text": "A small, mostly residential island a few hundred metres from downtown, known for its quirky character, golf carts and the Dinghy Dock Pub, which even has a fishing hole in the floor. With no public cars, explore on foot or by bike, and watch ferries from Gallows Point Light Park.",
+          "note": "A private foot ferry leaves the boat basin (150 Front Street) and takes about 10 minutes."
+        },
+        {
+          "name": "Gabriola Island",
+          "img": "/prototype/media/nanaimo/image13.jpg",
+          "alt": "A sandstone overhang at the Malaspina Galleries framing a sunset",
+          "text": "Known as the Isle of the Arts, Gabriola is a 20-minute ferry ride away. See the Malaspina Galleries, a sandstone overhang carved by the ocean, follow the Yellow Flag tour of over 70 artist studios, and visit Twin Beaches at Gabriola Sands Provincial Park.",
+          "note": "The ferry leaves from Front Street and can be busy on weekends; arrive early with a vehicle."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "How do I get to Saysutshun (Newcastle Island)?",
+          "a": "Take the small orange foot ferry from Maffeo Sutton Park, which runs roughly every 30 minutes in summer. Park entry is free, but the round-trip ferry has a fee, so check the seasonal schedule."
+        },
+        {
+          "q": "When is the best time for whale watching in Nanaimo?",
+          "a": "Summer is peak season for whales and visitors, so book at least a week in advance. Tours focus on humpbacks and Bigg's orcas, last 3 to 5 hours, and many offer a sightings guarantee."
+        },
+        {
+          "q": "Can I fish in Nanaimo without a boat?",
+          "a": "Yes. The Maffeo Sutton Park pier is popular for crabbing, and Westwood Lake and Colliery Dam Park are stocked with trout and have shore access and fishing piers. You need a freshwater or tidal licence."
+        },
+        {
+          "q": "How long are the ferries to Gabriola and Protection Island?",
+          "a": "Gabriola Island is a 20-minute ferry ride from downtown Nanaimo. Protection Island is about a 10-minute crossing on a private foot ferry from the boat basin."
+        }
+      ]
+    },
+    {
+      "id": "parks-hikes",
+      "label": "Parks and hikes",
+      "intro": "Coastal parks, lake loops and a mountain backdrop give every fitness level a way outdoors.",
+      "places": [
+        {
+          "name": "Neck Point Park",
+          "img": "/prototype/media/nanaimo/image23.jpg",
+          "alt": "A wooden boardwalk leading to the ocean at Neck Point Park",
+          "text": "A 36-acre waterfront park in North Nanaimo with rugged cliffs, pebble beaches and winding paths, widely considered one of the city's best spots for photography and marine wildlife. Boardwalks lead to lookouts such as Sunset Bluff, orcas, humpbacks and sea lions can be seen, and local artists have hidden small fairy doors along the trails.",
+          "note": "1050 Morningside Drive. Open daily 6:00 AM to 11:00 PM. Some sections have steep wooden stairs."
+        },
+        {
+          "name": "Pipers Lagoon Park",
+          "img": "/prototype/media/nanaimo/image28.jpg",
+          "alt": "A tidal lagoon and gravel spit at Pipers Lagoon",
+          "text": "A tidal lagoon, rugged rock formations and views of the Georgia Strait, loved for beachcombing, photography and sunrises. Trails climb to rocky headlands with views of Shack Island's colourful fishing shacks and the Coast Mountains, and at low tide you can walk the sandbar beside the lagoon.",
+          "note": "3600 Place Road. Check tide tables; bluff trails are rocky and uneven."
+        },
+        {
+          "name": "Westwood Lake Park",
+          "img": "/prototype/media/nanaimo/image18.jpg",
+          "alt": "Westwood Lake reflecting forested hills",
+          "text": "One of Nanaimo's most popular year-round recreation spots, at the base of Mount Benson. A roughly 6-kilometre perimeter trail circles the lake, with sandy beaches for swimming, trout fishing, and kayaking and paddleboarding on a non-motorized lake.",
+          "note": "2110 Westwood Road. The lot can fill on sunny weekends; arrive before 10:00 AM. Lifeguards are on duty late June to August."
+        },
+        {
+          "name": "Ammonite Falls",
+          "img": "/prototype/media/nanaimo/image3.jpg",
+          "alt": "Ammonite Falls dropping into a rocky creek",
+          "text": "A signature waterfall in Benson Creek Falls Regional Park, with a 10-metre cascade over layered sandstone ledges into a deep ravine. A staircase and viewing platform make the forest trail safer than the old rope scramble, and the rocks hold marine fossils. Expect a 5 to 6 kilometre round trip.",
+          "note": "Moderate, 1.5 to 2 hours. Best November to May; late summer it may slow to a trickle."
+        },
+        {
+          "name": "Mount Benson",
+          "img": "/prototype/media/nanaimo/image10.jpg",
+          "alt": "Mount Benson rising behind the city",
+          "text": "The most prominent landmark in Nanaimo, rising over 1,000 metres. The popular route starts at Witchcraft Lake, crossing a floating boardwalk before a steady, steep climb to 360-degree views of the Salish Sea, the Sunshine Coast and, on clear days, Mt. Baker.",
+          "note": "Difficult: about 730 metres of gain over roughly 8 km return. Carry at least 2 litres of water."
+        },
+        {
+          "name": "Sugarloaf Mountain Park",
+          "img": "/prototype/media/nanaimo/image2.jpg",
+          "alt": "A rocky summit overlooking an inlet and the city",
+          "text": "A short, steep climb up a wooden staircase through Garry oak and arbutus to a rocky summit with sweeping views of Departure Bay, the downtown skyline and the mainland mountains. The round trip typically takes less than 30 minutes.",
+          "note": "Trailhead on Sugarloaf Place; street parking is very limited and there are no washrooms."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Which Nanaimo parks are best for sunset?",
+          "a": "Neck Point Park's westward-facing bluffs catch the full spectrum of evening light, and Jack Point and Biggs Park offers unobstructed views west over the water and the Coast Mountains."
+        },
+        {
+          "q": "When are the waterfalls at their best?",
+          "a": "Ammonite Falls is most dramatic between November and May, and powerful in spring or after heavy rain, but may slow to a trickle in late summer. Colliery Dam Park's falls are impressive at spring runoff and in autumn."
+        },
+        {
+          "q": "How hard is the Mount Benson hike?",
+          "a": "It is difficult: about 8 km return with roughly 730 metres of elevation gain. The trailhead is at 2761 Benson View Road. A halfway viewpoint makes a shorter outing, and trekking poles help on the descent."
+        },
+        {
+          "q": "Is there a quick hike with a big view?",
+          "a": "Sugarloaf Mountain Park takes under 30 minutes round trip. A wooden staircase leads to a rocky summit with views over Departure Bay and the downtown skyline."
+        }
+      ]
+    },
+    {
+      "id": "arts-food",
+      "label": "Arts, food and culture",
+      "intro": "Downtown has a museum, a gallery, a theatre and a dessert trail.",
+      "places": [
+        {
+          "name": "Nanaimo Bar Trail",
+          "img": "/prototype/media/nanaimo/image34.jpg",
+          "alt": "A stack of Nanaimo Bars",
+          "text": "A self-guided tour of over 30 stops, each with its own take on the city's legendary no-bake dessert, from classic squares to cocktails. Start at the Nanaimo Museum, home of the official recipe, then try Red's Bakery for the classic, Bocca Café for gluten-free flavours and Mon Petit Choux for a French-inspired version.",
+          "note": "Pick up a brochure at the Tourism Nanaimo Visitor Centre. The trail is free to follow; each stop sets its own prices."
+        },
+        {
+          "name": "Old City Quarter",
+          "img": "/prototype/media/nanaimo/image21.jpg",
+          "alt": "The Old City Quarter sign beside a shopfront",
+          "text": "A revitalized historic district a few blocks uphill from the waterfront, with late 19th and early 20th century architecture, independent boutiques, bookstores and locally owned eateries. Near the water, the Bastion, a Hudson's Bay Company fort built in 1853, is the oldest structure in the city.",
+          "note": "Centred on Fitzwilliam, Wesley and Selby Streets. Weekday mornings are calmer."
+        },
+        {
+          "name": "Nanaimo Museum",
+          "img": null,
+          "alt": null,
+          "text": "The city's premier cultural anchor, downtown inside the Vancouver Island Conference Centre. Walk through a replica of a 1920s coal mine, see the Nanaimo Bar display with the original recipe, and visit the Indigenous gallery developed with the Snuneymuxw First Nation. Sit on the oversized Nanaimo Bar-shaped benches outside.",
+          "note": "100 Museum Way. Typically open Tuesday to Saturday, 10:00 AM to 4:00 PM."
+        },
+        {
+          "name": "Port Theatre",
+          "img": "/prototype/media/nanaimo/image8.jpg",
+          "alt": "The round glass-fronted Port Theatre building",
+          "text": "Nanaimo's premier performing arts centre since 1998, an 800-seat venue with excellent acoustics. It hosts the Vancouver Island Symphony, touring acts, community theatre and dance, and its lobby doubles as a gallery. The lobby bar serves local BC wines and craft beers at intermission.",
+          "note": "125 Front Street, between the museum and the walkway. Performances often sell out; book ahead."
+        },
+        {
+          "name": "Nanaimo Art Gallery",
+          "img": null,
+          "alt": null,
+          "text": "A contemporary public art museum downtown with rotating exhibitions by local, national and international artists, many developed with Indigenous artists. The Art Store sells handcrafted ceramics, jewellery and prints, and Saturdays at the Gallery offers hands-on family projects.",
+          "note": "150 Commercial Street. Suggested donation entry; usually closed Mondays."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Where does the Nanaimo Bar Trail start?",
+          "a": "The Nanaimo Museum is the official starting point for many visitors, with the official recipe by Joyce Hardcastle and a permanent exhibit. The trail is self-guided and free to follow; pick up a brochure at the Tourism Nanaimo Visitor Centre."
+        },
+        {
+          "q": "Are there gluten-free or vegan Nanaimo Bars?",
+          "a": "Yes. Many stops, such as Bocca Café and White Rabbit Coffee Co., offer vegan, gluten-free or nut-free options."
+        },
+        {
+          "q": "What is the Old City Quarter known for?",
+          "a": "Heritage buildings, independent shops and eateries, and it is a major stop on the Nanaimo Bar Trail. It is best explored on foot, and weekday mornings are the most relaxed."
+        },
+        {
+          "q": "How far ahead should I book Port Theatre shows?",
+          "a": "Performances frequently sell out, especially for well-known touring artists, so check the seasonal calendar and book well in advance through the website or the on-site box office."
+        }
+      ]
+    }
+  ],
+  "planning": [
+    {
+      "q": "Can I take a day trip from Nanaimo to Ladysmith?",
+      "a": "Yes. Transfer Beach Park in Ladysmith is about 23 kilometres south of Nanaimo, roughly a 20-minute drive on the Trans-Canada Highway, and is known for some of the warmest ocean swimming north of San Francisco."
+    }
+  ],
+  "nearby": [
+    "nanoose",
+    "chemainus"
+  ],
+  "sources": [
+    "Nanaimo.docx"
+  ]
+}

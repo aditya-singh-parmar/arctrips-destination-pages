@@ -1,0 +1,320 @@
+{
+  "slug": "nanoose",
+  "name": "Nanoose",
+  "region": "island",
+  "title": "Nanoose Bay, Arc Trips",
+  "description": "Nanoose Bay, Vancouver Island: quiet coastal parks, tide pools, marinas, kayaking and a scenic peninsula between Nanaimo and Parksville.",
+  "hero": {
+    "img": "/prototype/media/nanoose/image9.jpg",
+    "alt": "A wooden bench on a grassy bluff above the water",
+    "standfirst": "A quiet seaside community between Nanaimo and Parksville, with a sheltered bay, forested hills and a scenic shoreline, far from busy city life."
+  },
+  "why": {
+    "h2": "A slower seaside escape",
+    "paras": [
+      "Tucked between Nanaimo and Parksville, and just north of Lantzville, Nanoose Bay is a quiet seaside community offering a slower, more peaceful getaway. With its sheltered bay, forested hills and scenic shoreline, it feels far removed from busy city life, even though it is a short drive from some of the island's larger centres.",
+      "It is shaped by the ocean, the land and the long history of Coast Salish peoples who have lived along these shores. The area is known for the Fairwinds golf course, two marinas, parks, coastal trails and a quiet residential character. It is less about big attractions and more about scenic parks and ocean views."
+    ],
+    "facts": [
+      {
+        "k": "Where it is",
+        "v": "East coast of Vancouver Island, between Nanaimo and Parksville and just north of Lantzville."
+      },
+      {
+        "k": "Getting there",
+        "v": "Most spots are 15 to 25 minutes north of Nanaimo and 10 to 20 minutes south of Parksville, off the Island Highway (Highway 19)."
+      },
+      {
+        "k": "Known for",
+        "v": "Coastal parks, tide pools, Fairwinds Marina and Golf Club, estuary birdlife and paddling the Winchelsea Islands."
+      },
+      {
+        "k": "When to come",
+        "v": "Summer is warm and dry. Spring and early fall have comfortable temperatures and fewer crowds, and the creek falls peak November to April."
+      }
+    ]
+  },
+  "when": {
+    "h2": "Quiet most of the year",
+    "intro": "Nanoose Bay is quieter than better-known island destinations, and summer is the main season for golf, boating and kayaking. Spring and early fall bring fewer crowds, plus Brant geese and sea lions in March and April. Small parks fill on sunny weekends.",
+    "rows": [
+      {
+        "name": "Salmon fishing",
+        "best": [
+          4,
+          5,
+          6
+        ],
+        "shoulder": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "note": "Chinook mid-April to June; Coho later in summer and autumn."
+      },
+      {
+        "name": "Brant geese and sea lions",
+        "best": [
+          3,
+          4
+        ],
+        "shoulder": [],
+        "note": "Brant migration and sea lion viewing in March and April."
+      },
+      {
+        "name": "Scuba diving",
+        "best": [
+          10,
+          11,
+          12,
+          1,
+          2,
+          3
+        ],
+        "shoulder": [],
+        "note": "Visibility can exceed 60 feet in the colder months."
+      },
+      {
+        "name": "Nanoose Creek Falls",
+        "best": [
+          11,
+          12,
+          1,
+          2,
+          3,
+          4
+        ],
+        "shoulder": [],
+        "note": "Strongest November to April; a trickle by late August."
+      }
+    ],
+    "crowds": [
+      1,
+      1,
+      1,
+      2,
+      2,
+      3,
+      3,
+      3,
+      2,
+      2,
+      1,
+      1
+    ],
+    "crowdsNote": "Summer golf, boating and sunny weekends fill the small parks; the rest of the year is quiet.",
+    "seasons": [
+      {
+        "h": "Summer, June to August",
+        "p": "Warm and dry, ideal for golf, boating, kayaking and coastal trails. Skydiving runs March to October, and summer mornings offer the calmest water for paddling the outer islands."
+      },
+      {
+        "h": "Fall, September to November",
+        "p": "Coho runs follow into autumn, diving visibility improves from October, and the Nanoose Creek falls gain volume in late autumn. A studio tour is often held in late autumn."
+      },
+      {
+        "h": "Winter, December to February",
+        "p": "Cooler and wetter, with Trumpeter Swans in the Qualicum National Wildlife Area, the clearest diving, and the strongest water at Nanoose Creek Falls. Golf stays open year-round."
+      },
+      {
+        "h": "Spring, March to May",
+        "p": "Brant geese feed in the estuary in March and April, the herring spawn draws huge flocks in late April, and wildflowers bloom at Notch Hill from April to June."
+      }
+    ]
+  },
+  "tabs": [
+    {
+      "id": "parks-trails",
+      "label": "Parks and trails",
+      "intro": "Conservation parks, a summit loop and forest paths to waterfalls and a lake.",
+      "places": [
+        {
+          "name": "Moorecroft Regional Park",
+          "img": "/prototype/media/nanoose/image4.jpg",
+          "alt": "An aerial view of a sheltered cove ringed by forest",
+          "text": "A 34-hectare natural area, formerly a summer camp, balancing conservation with coastal recreation. Walk the shoreline at Cook Bay and Vesper Point for views toward Lasqueti and Texada Islands, follow easy loop trails through second-growth forest, and watch for waterfowl and eagles at Mrs. Moore's Pond.",
+          "note": "End of Stewart Road. Free and easy, open sunrise to sunset. The small lot fills on sunny weekends; arrive before 10:00 AM."
+        },
+        {
+          "name": "Notch Hill Park",
+          "img": "/prototype/media/nanoose/image6.jpg",
+          "alt": "Arbutus trees on a rocky summit above the water",
+          "text": "A 2.9-kilometre loop above the Nanoose Peninsula with a double summit: the south side overlooks Fairwinds Marina and Nanoose Bay, and the north looks across the Strait of Georgia to the Coast Mountains. Arbutus and Garry oak groves line the way, with wildflowers from April to June.",
+          "note": "Moderate, with about 160 metres of gain. No washrooms or water on-site."
+        },
+        {
+          "name": "Beachcomber Regional Park",
+          "img": "/prototype/media/nanoose/image10.jpg",
+          "alt": "A rocky shoreline looking out over the water at dusk",
+          "text": "A compact one-hectare park at the tip of the Nanoose Peninsula, known for panoramic views of the Salish Sea and the Ballenas Islands. Explore tide pools at low tide, launch a kayak from the small cobble beach, watch for seals and sea lions, and catch the sunset.",
+          "note": "End of Marina Way. Very limited parking in a residential area, and no washrooms. Check the tide table."
+        },
+        {
+          "name": "Nanoose Creek Falls Trail",
+          "img": null,
+          "alt": null,
+          "text": "A short, immersive forest trek of about 1.5 kilometres return to a series of three waterfalls on Nanoose Creek. The path runs beneath Douglas fir and western red cedar with ferns and moss, and the lower falls are easy to reach while the upper tiers take more effort.",
+          "note": "Via Matthew Road; the trailhead is easy to miss near a gravel pull-out. Best November to April."
+        },
+        {
+          "name": "Enos Lake Trail",
+          "img": null,
+          "alt": null,
+          "text": "A peaceful loop of about 3 kilometres around a freshwater lake in the Fairwinds community, passing woodland, open rocky bluffs and wetland boardwalks. Look for kingfishers, herons and black-tailed deer, and note that the lake is home to the rare Enos Lake Stickleback.",
+          "note": "Trailheads on Powder Point Road or Fairwinds Drive. Keep dogs out of the water. Easy to moderate."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Which Nanoose Bay trail has the best view?",
+          "a": "The Notch Hill Loop (2.9 km) has two viewpoints: the south overlooks Fairwinds Marina and Nanoose Bay, and the north looks over the Strait of Georgia to the Coast Mountains. It is moderate, with about 160 metres of elevation gain."
+        },
+        {
+          "q": "When are the waterfalls worth visiting?",
+          "a": "Nanoose Creek Falls are strongest between November and April. By late August the creek can shrink so much that the falls become a trickle."
+        },
+        {
+          "q": "Is Moorecroft Regional Park free?",
+          "a": "Yes. Entry is free and the park is open daily from sunrise to sunset, with easy trails. It sits at the end of Stewart Road, about 20 minutes north of Nanaimo and 15 minutes south of Parksville."
+        }
+      ]
+    },
+    {
+      "id": "water-wildlife",
+      "label": "Water and wildlife",
+      "intro": "Tide pools, birds, kayaks and fishing boats all use the same sheltered shoreline.",
+      "places": [
+        {
+          "name": "Fairwinds Marina and Schooner Cove",
+          "img": null,
+          "alt": null,
+          "text": "Fairwinds Marina is the nautical heart of the peninsula, a gateway to the Gulf Islands and the Sunshine Coast with over 350 berths. Dine at Nanoose Bay Cafe at Fairwinds Landing, browse the marketplace of local artisan goods, watch harbour seals, otters and eagles, and use the dedicated kayak launch.",
+          "note": "3521 Dolphin Drive. Open year-round; book transient moorage in advance."
+        },
+        {
+          "name": "Shorelines and tide pools",
+          "img": "/prototype/media/nanoose/image8.jpg",
+          "alt": "Green sandstone shelves holding tide pools at low tide",
+          "text": "Rugged sandstone formations, sheltered coves and pocket beaches. At low tide, sandstone basins at Beachcomber Regional Park and Wall Beach hold purple sea stars, green anemones and shore crabs, while Blueback Beach is reached by a steep wooden staircase and framed by cliffs and arbutus trees.",
+          "note": "Aim for a falling tide of 1.5 metres or lower. May to August has the lowest daytime tides. Wear non-slip shoes."
+        },
+        {
+          "name": "Bird-watching in the Nanoose estuary",
+          "img": null,
+          "alt": null,
+          "text": "The estuary is part of the Little Qualicum Estuary to Nanoose Bay Important Bird Area. The Qualicum National Wildlife Area protects over 80 hectares of salt marsh and mudflats, with Trumpeter Swans in winter, thousands of Brant geese in March and April, and Bald Eagles, oystercatchers and murrelets along the shore.",
+          "note": "Best on a rising or falling tide. Dogs are often restricted during the Brant migration, March 1 to April 30."
+        },
+        {
+          "name": "Kayaking around the Winchelsea Islands",
+          "img": null,
+          "alt": null,
+          "text": "Part of a 19-island archipelago with some of the most scenic, wildlife-rich paddling on Central Vancouver Island. South Winchelsea has a public dock and a single trail through Garry oak habitat, sea lions haul out in spring and fall, and Gerald Island Provincial Park suits a midday stop.",
+          "note": "Schooner Cove to South Winchelsea is 1.5 to 2 km each way. Moderate; check the marine forecast."
+        },
+        {
+          "name": "Fishing expeditions",
+          "img": null,
+          "alt": null,
+          "text": "Chinook stage in front of Fairwinds Marina from mid-April through June, following the herring, with Coho later in summer and autumn. Charters leave from Schooner Cove, the Qualicum National Wildlife Area has a recreational shellfish reserve, and reefs around the Winchelsea Islands hold lingcod and rockfish.",
+          "note": "A BC Tidal Waters Sport Fishing Licence is mandatory. Check DFO closures before harvesting shellfish."
+        },
+        {
+          "name": "Scuba diving at Madrona and Tyee Cove",
+          "img": null,
+          "alt": null,
+          "text": "Madrona Point has a wall dive with wolf eels and cloud sponges, while Tyee Cove is a shallow, sheltered bay suited to macro photography and all levels. Both are shore entries, and winter visibility can exceed 60 feet.",
+          "note": "Dive between October and March for the clearest water. Madrona suits intermediate to advanced divers."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "When can I see Brant geese in Nanoose Bay?",
+          "a": "Between March and April, thousands of Brant geese feed in the estuary and along nearby shorelines, and the annual Brant Wildlife Festival celebrates the migration. Late April brings the herring spawn."
+        },
+        {
+          "q": "Where can I launch a kayak?",
+          "a": "The most convenient launch is Fairwinds Marina at Schooner Cove. Other options are the public beach access at Dolphin Cove (end of Blueback Road) and the cobble beach at Beachcomber Regional Park."
+        },
+        {
+          "q": "When is the best time to fish for salmon?",
+          "a": "Chinook stage in front of Fairwinds Marina from mid-April through June, so April and May are especially productive. Coho runs follow later in the summer and autumn."
+        },
+        {
+          "q": "What is the best time for tide pooling?",
+          "a": "Plan for a falling tide of 1.5 metres (5 feet) or lower. May through August typically offers the lowest daytime tides. Beachcomber Regional Park and Wall Beach are premier spots."
+        }
+      ]
+    },
+    {
+      "id": "golf-riding-local",
+      "label": "Golf, riding and local stops",
+      "intro": "Outdoor recreation and local artisan stops round out a slower visit.",
+      "places": [
+        {
+          "name": "Fairwinds Golf Club",
+          "img": null,
+          "alt": null,
+          "text": "A year-round, 18-hole championship course on the Nanoose Peninsula, designed by Les Furber, par 71 and about 6,151 yards from the back tees. Fairways wind through coastal rainforest and Douglas firs, the range has covered, heated stalls, and the Greenview Taphouse serves handcrafted pizzas and over 20 BC craft beers.",
+          "note": "3730 Fairwinds Drive. Book tee times online; they fill quickly."
+        },
+        {
+          "name": "Horseback riding at Paradise Acres Ranch",
+          "img": "/prototype/media/nanoose/image5.jpg",
+          "alt": "A rider on horseback beside a white fence",
+          "text": "A 125-acre working equestrian estate with views of Mount Arrowsmith and Mount Moriarty. Guided trail rides run from one-hour loops to four-hour outings, lessons are offered year-round, and the ranch also runs a bed and breakfast with treed campsites.",
+          "note": "Trail rides start at about $125 for one hour. Reserve in advance; rides are typically at 10:00 AM and 2:00 PM."
+        },
+        {
+          "name": "Skydive Vancouver Island",
+          "img": null,
+          "alt": null,
+          "text": "A tandem skydive from a Nanoose Bay drop zone, with a 40-second freefall from 10,000 feet, a 20-minute flight that doubles as an aerial tour of the peninsula and the Winchelsea Islands, and a peaceful 5 to 7 minute canopy flight back to earth.",
+          "note": "Generally March to October, weather permitting. Jumpers must be 18 or older."
+        },
+        {
+          "name": "Cycling and walking scenic routes",
+          "img": null,
+          "alt": null,
+          "text": "The peninsula is a favourite for cyclists and walkers who enjoy quiet roads and sudden ocean views. The Dolphin Drive Loop follows the northern edge, the E&N Trail's Nanoose section is a flat gravel path along the old railway, and the inland side offers flatter farm country.",
+          "note": "Roads are narrow with minimal shoulders and many hills. A full peninsula loop is 15 to 18 km."
+        },
+        {
+          "name": "Artisan stops and scenic drives",
+          "img": null,
+          "alt": null,
+          "text": "Browse the marketplace at Nanoose Bay Cafe, shop Springford Farm's market with products from over 60 Vancouver Island farms, and visit BumbleBees Farm & Garden for seasonal artisan markets. The roughly 15-kilometre peninsula loop along Dolphin Drive becomes the Art Loop when local studios open.",
+          "note": "The Nanoose Bay Studio Tour runs three to four times a year, often in April, July or late autumn."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Is Fairwinds Golf Club open in winter?",
+          "a": "Yes. It is open year-round, with an 18-hole championship course, covered and heated driving range stalls, and online booking. Tee times fill quickly, so book ahead."
+        },
+        {
+          "q": "How much is horseback riding at Paradise Acres Ranch?",
+          "a": "Trail rides start at approximately $125 for one hour, with longer and private options on request. Rides need advance reservations, and children aged 6 to 9 can ride on a lead-line."
+        },
+        {
+          "q": "When is skydiving available?",
+          "a": "Skydive Vancouver Island generally operates from March through October, strictly weather permitting. Jumpers must be at least 18, and booking ahead is recommended, especially for weekends."
+        }
+      ]
+    }
+  ],
+  "planning": [
+    {
+      "q": "How far is Nanoose Bay from Nanaimo and Parksville?",
+      "a": "Roughly 15 to 25 minutes north of Nanaimo and 10 to 20 minutes south of Parksville, depending on the park or attraction."
+    }
+  ],
+  "nearby": [
+    "nanaimo",
+    "parksville"
+  ],
+  "sources": [
+    "Nanoose.docx"
+  ]
+}

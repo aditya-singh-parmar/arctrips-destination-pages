@@ -1,0 +1,331 @@
+{
+ "slug": "parksville",
+ "name": "Parksville",
+ "region": "island",
+ "title": "Parksville, Arc Trips",
+ "description": "the Parksville and Qualicum area, Vancouver Island: sandy tidal beaches, Rathtrevor, Cathedral Grove, waterfalls, caves, markets and Coombs.",
+ "hero": {
+  "img": "/prototype/media/parksville/image11.jpg",
+  "alt": "Wide sandy tidal flats at low tide stretching toward the mainland mountains",
+  "standfirst": "Parksville and neighbouring Qualicum sit on Vancouver Island's central east coast, known for long sandy beaches, warm shallow water and an easygoing small-town feel."
+ },
+ "why": {
+  "h2": "Sandy beaches and easy days",
+  "paras": [
+   "Tucked along the central east coast of Vancouver Island, the Parksville and Qualicum area are two of the island's most beloved seaside escapes. The area is known for long sandy beaches, shallow warm water and a laid-back atmosphere that makes it easy to slow down. In summer they are among the warmest and sunniest spots on the island.",
+   "When the tide goes out, the beaches seem to stretch forever. Nearby, Arrowsmith Coombs Country brings a rural feel, Lighthouse Country to the north is quieter, and Nanoose Bay to the south adds shoreline parks and marinas. It suits travellers who want to do very little and those who want to fill their days exploring."
+  ],
+  "facts": [
+   {
+    "k": "Where it is",
+    "v": "Central east coast of Vancouver Island, with Qualicum to the north and Nanoose Bay to the south."
+   },
+   {
+    "k": "Getting there",
+    "v": "Highway 19A runs along the waterfront. Highway 4 heads west past Cathedral Grove and Little Qualicum Falls toward Port Alberni."
+   },
+   {
+    "k": "Known for",
+    "v": "Sandy tidal beaches, Rathtrevor, Cathedral Grove, waterfalls, the goats on the roof at Coombs, and sand sculpting."
+   },
+   {
+    "k": "When to come",
+    "v": "July and August are busiest. Brant geese visit in March and April, and rhododendrons peak at Milner Gardens in May and June."
+   }
+  ]
+ },
+ "when": {
+  "h2": "Summer crowds, quiet shoulder months",
+  "intro": "July and August are the busiest, with warm beaches, festivals and markets drawing families. Spring brings Brant geese and the herring spawn, and the waterfalls run strongest in late autumn and spring. Winter is quiet and good for storm watching.",
+  "rows": [
+   {
+    "name": "Beach days and swimming",
+    "best": [
+     6,
+     7,
+     8
+    ],
+    "shoulder": [],
+    "note": "Summer is warmest and sunniest; tide timing matters."
+   },
+   {
+    "name": "Brant geese and herring spawn",
+    "best": [
+     3,
+     4
+    ],
+    "shoulder": [
+     2
+    ],
+    "note": "Brant Wildlife Festival in March and April."
+   },
+   {
+    "name": "Sand Sculpting Exhibition",
+    "best": [
+     7,
+     8
+    ],
+    "shoulder": [],
+    "note": "Mid-July to mid-August, with Light Up nights near the end."
+   },
+   {
+    "name": "Waterfalls",
+    "best": [
+     4,
+     5,
+     11
+    ],
+    "shoulder": [],
+    "note": "Thundering in late autumn and spring; lower in summer."
+   }
+  ],
+  "crowds": [
+   1,
+   1,
+   2,
+   2,
+   2,
+   3,
+   4,
+   4,
+   3,
+   2,
+   1,
+   1
+  ],
+  "crowdsNote": "Warm beaches, the Sand Sculpting Exhibition and Tuesday markets drive July and August.",
+  "seasons": [
+   {
+    "h": "Summer, June to August",
+    "p": "Beach lots fill by mid-morning, the Sand Sculpting Exhibition runs mid-July to mid-August, and the Summer by the Sea market fills Craig Street on Tuesday evenings from mid-June."
+   },
+   {
+    "h": "Fall, September to November",
+    "p": "Coho and Chum salmon return to Grandon Creek in October and November, and the Englishman River falls build volume in late autumn. Humpback whales are most common through October."
+   },
+   {
+    "h": "Winter, December to February",
+    "p": "Quiet beaches and storm watching from the Qualicum viewing platform from November to February. The farmers' market moves indoors, and Milner Gardens hosts Christmas Magic in December."
+   },
+   {
+    "h": "Spring, March to May",
+    "p": "Brant geese and the herring spawn draw birds, eagles and sea lions in March and April, and the Englishman River falls run strong with snowmelt. Milner's rhododendrons peak in May."
+   }
+  ]
+ },
+ "tabs": [
+  {
+   "id": "beaches",
+   "label": "Beaches",
+   "intro": "Wide tidal flats, warm shallow water and a lively community park.",
+   "places": [
+    {
+     "name": "Rathtrevor Beach Provincial Park",
+     "img": "/prototype/media/parksville/image19.jpg",
+     "alt": "Rippled sand and shallow water on a wide tidal flat at golden hour",
+     "text": "One of the most iconic destinations on Vancouver Island. At low tide the ocean recedes nearly a kilometre, exposing vast sandbars for walking, sandcastles and sand dollars, then warms over the sun-baked sand for some of the warmest ocean swimming in BC. Over 5 kilometres of easy forest trails and a Nature House complete the park.",
+     "note": "3 km south of Parksville off Highway 19A. In July and August lots fill by mid-morning; arrive before 10:00 AM."
+    },
+    {
+     "name": "Parksville Beach and the Sand Sculpting Exhibition",
+     "img": "/prototype/media/parksville/image21.jpg",
+     "alt": "Sand sculptures on display on the beach",
+     "text": "Parksville Community Park is the heart of the waterfront, with a 1-kilometre boardwalk, Lions Ventureland Playground with a splash park and zip lines, and sports courts. The Parksville Beach Festival's Quality Foods Sand Sculpting Exhibition brings artists from around the world, and the sculptures stay on display from mid-July through mid-August.",
+     "note": "193 Island Highway East. Suggested donation of $5 for the sculpting area; weekdays are quieter."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "When is the best time to visit Rathtrevor Beach?",
+     "a": "It depends on the tide: aim for low tide for beachcombing and high tide for swimming. The park is open year-round, and the golden hour before sunset gives postcard views across the strait."
+    },
+    {
+     "q": "Where can I swim in warm ocean water?",
+     "a": "Rathtrevor is home to some of the warmest ocean swimming in BC in summer, as the returning tide warms over sun-baked sand. Qualicum's shallow bays also warm up on summer afternoons."
+    },
+    {
+     "q": "When is the sand sculpting festival?",
+     "a": "The Parksville Beach Festival usually runs mid-July through mid-August, with Light Up nights near the end. The park can see upwards of 100,000 visitors during the exhibition, so a weekday morning is calmer."
+    }
+   ]
+  },
+  {
+   "id": "wildlife-water",
+   "label": "Wildlife and water",
+   "intro": "Tours leave from French Creek, and the shoreline is a migration stop for geese.",
+   "places": [
+    {
+     "name": "Whale and wildlife adventure",
+     "img": "/prototype/media/parksville/image5.jpg",
+     "alt": "A whale tail rising from the water at sunset",
+     "text": "Tours from French Creek Marina and Deep Bay track Bigg's and Southern Resident orcas and humpback whales, with sea lions and bald eagles along the way. Sea lions haul out on the Winchelsea Islands, and the North Island Wildlife Recovery Centre in Errington rehabilitates bears, eagles and owls.",
+     "note": "Humpbacks are most common May to October; orcas can be seen year-round. Mornings are calmest; tours last 3 to 4 hours."
+    },
+    {
+     "name": "French Creek Harbour",
+     "img": "/prototype/media/parksville/image26.jpg",
+     "alt": "Fishing boats at French Creek Harbour beneath a Catch of the Day sign",
+     "text": "The marine gateway for the Oceanside region, a working port between the Parksville and Qualicum area. Charters target Chinook and Coho salmon or Pacific halibut, and tours meet Bigg's orcas, humpbacks, Pacific white-sided dolphins and the spring gatherings of Steller and California sea lions.",
+     "note": "1055 Access Rd. High demand June to September; book charters weeks ahead. A BC tidal licence is required."
+    },
+    {
+     "name": "Brant geese migration",
+     "img": "/prototype/media/parksville/image31.jpg",
+     "alt": "Brant geese standing at the water's edge",
+     "text": "Every March and April the region hosts the Brant Wildlife Festival. Thousands of Brant geese stop on the shores of the Parksville and Qualicum area to feast on herring spawn on their long journey from Mexico to the Arctic, and Rathtrevor is a hotspot for the seabirds and eagles that follow.",
+     "note": "The peak for migratory birds is late February to April."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "When is whale watching season?",
+     "a": "Humpback whales are most common from May through October, and orcas can be spotted year-round. The Strait of Georgia is typically calmest in the early morning, so book a morning tour."
+    },
+    {
+     "q": "Where do whale and fishing tours leave from?",
+     "a": "Most marine adventures depart from French Creek Marina, between the Parksville and Qualicum area, or the Deep Bay Marine Field Station. Whale watching excursions last 3 to 4 hours."
+    },
+    {
+     "q": "What can I catch on a French Creek charter?",
+     "a": "Anglers can target Chinook and Coho salmon, or go further out for Pacific halibut. You need a valid BC Tidal Waters Sport Fishing Licence, and most charters provide tackle and bait."
+    }
+   ]
+  },
+  {
+   "id": "caves-falls-forests",
+   "label": "Caves, waterfalls and forests",
+   "intro": "Old-growth giants, canyons and caves lie a short drive inland.",
+   "places": [
+    {
+     "name": "Cathedral Grove",
+     "img": "/prototype/media/parksville/image14.jpg",
+     "alt": "A boardwalk winding between giant old-growth trees",
+     "text": "One of the most accessible stands of giant Douglas fir in BC, within MacMillan Provincial Park on Highway 4. Short, flat boardwalks and gravel paths loop among trees more than 9 metres around, with a grove of ancient western red cedars beside Cameron Lake. Interpretive signs explain the forest's life cycle.",
+     "note": "About 25 km west of Qualicum. Arrive before 10:00 AM or after 4:00 PM for quiet, and cross the highway with great care."
+    },
+    {
+     "name": "Englishman River Falls Provincial Park",
+     "img": "/prototype/media/parksville/image44.jpg",
+     "alt": "A waterfall pouring over rock into a mossy canyon",
+     "text": "A nature reserve near Errington with two waterfalls in a deep rocky canyon. A footbridge sits directly over the upper falls, the lower falls drop into a clear basin popular for summer swimming, and a 1.5-kilometre loop connects both through West Coast rainforest.",
+     "note": "End of Englishman River Road, about 13 km southwest of Parksville. Strongest in late autumn and spring."
+    },
+    {
+     "name": "Little Qualicum Falls Provincial Park",
+     "img": "/prototype/media/parksville/image35.jpg",
+     "alt": "A waterfall dropping through a rock gorge",
+     "text": "The Little Qualicum River runs through dramatic rock chasms. A loop trail links the Upper and Lower Falls, a 6-kilometre canyon trail follows the gorge with wooden bridges and lookouts, and the Cameron Lake day-use area suits swimming and windsurfing.",
+     "note": "19 km west of Qualicum on Highway 4. Swimming in the river is prohibited."
+    },
+    {
+     "name": "Horne Lake Caves Provincial Park",
+     "img": "/prototype/media/parksville/image23.jpg",
+     "alt": "A caver at a mossy cave entrance in the forest",
+     "text": "Designed to preserve a fragile underground ecosystem while offering some of the best cave exploration in Canada. Explore Main Cave and Lower Main Cave on your own, or join guided tours from the 2-hour family Riverbend Cave Explorer to the extreme Max Depth Adventure.",
+     "note": "The caves stay at 5°C year-round. Access is via 12 km of gravel logging road; guided tours often sell out weeks ahead."
+    },
+    {
+     "name": "Top Bridge Park",
+     "img": "/prototype/media/parksville/image6.jpg",
+     "alt": "A suspension bridge spanning the Englishman River canyon",
+     "text": "Where the Englishman River carves through a sandstone canyon, spanned by an 81-metre suspension bridge. Summer swimming holes below, an extensive mountain biking trail network, three ancient First Nations petroglyphs and fall salmon runs add to the draw.",
+     "note": "The Allsbrook Road side gives a short walk to the bridge; the Chattell Road side suits mountain bikers."
+    },
+    {
+     "name": "Milner Gardens and Woodland",
+     "img": "/prototype/media/parksville/image2.jpg",
+     "alt": "A landscaped lawn and garden beds with tall trees beside the sea",
+     "text": "A 70-acre wild garden and forest estate managed by Vancouver Island University. Walk through ancient Douglas fir, visit the Heritage House tea room, play in the Shoots Garden and enjoy the Grand Lawn, with over 400 rhododendrons that peak in May and June.",
+     "note": "2179 Island Hwy W, Qualicum. Open spring to early autumn, plus December openings. Admission applies; no pets."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "How do I get to Cathedral Grove?",
+     "a": "It is on Highway 4, about 25 km west of Qualicum, between Qualicum and Port Alberni. Parking is on gravel shoulders and fills on summer weekends, and you must cross the highway between the two trail sections."
+    },
+    {
+     "q": "Can I swim at Englishman River Falls?",
+     "a": "The pool below the lower falls is popular for swimming in summer, but the water is cold year-round and the rocks are slippery. At Little Qualicum Falls, swimming in the river is prohibited; use Cameron Lake instead."
+    },
+    {
+     "q": "What are the Horne Lake Caves guided tours?",
+     "a": "Options range from the Riverbend Cave Explorer (easy, about 2 hours) to the Multi-Cave Experience (3 hours), Achilles Challenge (3 to 4 hours) and Max Depth Adventure (4 to 5 hours). Helmets and headlamps are mandatory, with rentals available."
+    },
+    {
+     "q": "When are the waterfalls at their best?",
+     "a": "For the most thunderous water at Englishman River Falls, visit in late autumn or spring during snowmelt. In the height of summer the flow decreases."
+    }
+   ]
+  },
+  {
+   "id": "markets-food-fun",
+   "label": "Markets, food and family fun",
+   "intro": "Goats on a roof, mini golf, street markets, local farms and a craft brewery.",
+   "places": [
+    {
+     "name": "The Old Country Market, Coombs",
+     "img": "/prototype/media/parksville/image22.jpg",
+     "alt": "Goats grazing on the sod roof of the Old Country Market",
+     "text": "World-famous for its goats on the roof, this landmark began as a roadside fruit stand in the 1970s. The living grass roof is home to a family of goats in spring and summer, and inside are gourmet imported foods, local cheeses and fresh bread, plus the Coombs Emporium, a donut shop and an ice cream parlour.",
+     "note": "2326 Alberni Hwy, about 10 minutes west of Qualicum. Goats are on the roof late spring to early autumn; weekends are busiest 11:00 AM to 3:00 PM."
+    },
+    {
+     "name": "Paradise Fun Park",
+     "img": "/prototype/media/parksville/image37.jpg",
+     "alt": "A pirate ship and Tudor-style building at a mini golf course",
+     "text": "A long-standing family entertainment centre near the Parksville waterfront with two miniature golf courses, the nautical Turf 'n Surf and the pirate-themed Treasure Island, plus bumper boats with water cannons, an arcade and ice cream.",
+     "note": "375 Island Hwy W. Open spring through early autumn; combo passes save money."
+    },
+    {
+     "name": "Summer by the Sea Market",
+     "img": null,
+     "alt": null,
+     "text": "A Tuesday evening tradition that fills four blocks of Craig Street in downtown Parksville with over 150 vendors, food trucks, multiple stages and buskers. Food ranges from savoury international dishes to locally made donuts and fresh-baked pastries, and nearby Memorial Plaza is a good spot to picnic.",
+     "note": "Tuesdays, 6:00 PM to 9:00 PM, mid-June through August. Rain or shine; arrive early to beat food truck lines."
+    },
+    {
+     "name": "Morningstar Farm and Little Qualicum Cheeseworks",
+     "img": null,
+     "alt": null,
+     "text": "A working dairy farm in Parksville. Take a free self-guided tour of the barns, fill a glass bottle at Canada's first grass-fed milk ATM, taste Island Bries and squeaky cheese curds, and sample fruit wines from MooBerry Winery.",
+     "note": "403 Lowry's Rd. Free entry; the farm shop is open daily year-round, with reduced winter hours."
+    },
+    {
+     "name": "Mount Arrowsmith Brewing Company",
+     "img": null,
+     "alt": null,
+     "text": "A multi-award-winning craft brewery whose Blonde Ale won Best Beer in the World at the 2017 World Beer Awards. Order a flight, share a thin-crust pizza from the stone oven and settle onto the large patio. Minors are welcome, which suits families.",
+     "note": "425 Stanford Ave E #109. Busy on Friday and Saturday evenings; arrive in the late afternoon."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "When are the goats on the roof at Coombs?",
+     "a": "Typically from late spring through early autumn, depending on the weather. In winter they move to a nearby barn. Arrive at opening to avoid the weekend rush between 11:00 AM and 3:00 PM."
+    },
+    {
+     "q": "When is the Summer by the Sea market?",
+     "a": "Every Tuesday evening from mid-June through the end of August, 6:00 PM to 9:00 PM on Craig Street. It runs rain or shine, with over 150 vendors."
+    },
+    {
+     "q": "Is the Qualicum Farmers' Market open in winter?",
+     "a": "Yes. It runs every Saturday year-round, 8:30 AM to noon. In summer it is on Veterans Way, and in winter it moves to an indoor location within the town centre."
+    }
+   ]
+  }
+ ],
+ "planning": [
+  {
+   "q": "Where can I cool off on a hot day?",
+   "a": "The forest parks stay much cooler than the beaches. The deep shade of the Qualicum heritage forest and the canyon at Little Qualicum Falls keep temperatures well below the shoreline."
+  }
+ ],
+ "nearby": [
+  "nanoose",
+  "nanaimo"
+ ],
+ "sources": [
+  "The Parksville and Qualicum.docx"
+ ]
+}

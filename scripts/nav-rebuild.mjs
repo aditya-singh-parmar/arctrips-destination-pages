@@ -14,9 +14,12 @@
 
    The bar now means exactly one thing everywhere: the town's sections.
 
+   2026-11-13 (D-21): every page now gets the two-line header written at the
+   bottom of this file. Pages not in PAGES keep their own section links.
+
    Run: node scripts/nav-rebuild.mjs [--check]
 */
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync, readdirSync } from 'fs';
 import { ROUTES } from './lib/routes.mjs';
 
 /* The tables below name pages by file, because that is what is on disk. Every
@@ -55,6 +58,8 @@ const SECTIONS = {
     { key: 'overview',  label: 'Overview',     href: 'tofino.html' },
     { key: 'things',    label: 'Things to do', href: 'things-to-do.html' },
     { key: 'plan',      label: 'Plan',         href: 'plan.html' },
+    { key: 'best',      label: 'Best time to visit', href: 'best-time-tofino.html' },
+    { key: 'trips',     label: 'Itineraries',  href: 'itineraries.html#west-coast' },
     { key: 'guides',    label: 'Guides',       href: 'guide.html' },
   ],
   /* Ucluelet has no plan or guide page of its own, and its subject index is a
@@ -62,7 +67,10 @@ const SECTIONS = {
      defect this whole pass exists to remove, so the bar shows only what is real. */
   ucluelet: [
     { key: 'overview',  label: 'Overview',     href: 'ucluelet.html' },
+    { key: 'why',       label: 'Why go',       href: 'ucluelet.html#overview' },
     { key: 'things',    label: 'Things to do', href: 'ucluelet.html#do' },
+    { key: 'best',      label: 'Best time to visit', href: 'best-time-ucluelet.html' },
+    { key: 'trips',     label: 'Itineraries',  href: 'itineraries.html#west-coast' },
   ],
 };
 
@@ -92,64 +100,115 @@ const PAGES = {
 };
 
 const TOWN_NAME = { tofino: 'Tofino', ucluelet: 'Ucluelet' };
-const esc = (s) => s.replace(/&/g, '&amp;');
+const esc = (s) => s.replace(/&(?!amp;|lt;|gt;|quot;|#)/g, '&amp;');
 
-function bar(file, cfg) {
-  const town = TOWN_NAME[cfg.town];
-  const [backHref, backLabel] = cfg.back;
-  const tabs = SECTIONS[cfg.town].map((s) => {
-    const current = cfg.section === s.key;
-    /* the tab for the page you are on is an in-page anchor, never a self-reload */
-    const href = current && s.href === cfg.self ? '#top' : R(s.href);
-    return `    <li><a href="${href}"${current ? ' aria-current="page"' : ''}>${s.label}</a></li>`;
-  }).join('\n');
+/* ── The header, two lines on every page (reviewer, 2026-11-13) ──────────────
+   Line 1 is the global nav. Under it, one sticky bar with two rows:
+     row 2: the breadcrumb, British Columbia / Vancouver Island / Sidney
+     row 3: the sections of the page you are on (a town's Overview, Why go,
+            When to go, Things to do; on a subject page, its sibling subjects)
+   The old back link, the separate in-body breadcrumb and the third subject
+   rail are gone. The breadcrumb is read from the page itself (old in-body form
+   or the bar this script already wrote), so every ancestor stays a real link. */
+const SEP = '<span class="sep" aria-hidden="true">/</span>';
+const BAR_RE = /<div class="placebar placebar--two"[\s\S]*?<!-- \/placebar -->/;
+const OLD_BAR_RE = new RegExp(
+  '<nav class="placebar"[\\s\\S]*?<\\/div>\\s*<\\/nav>' +
+  '|<div class="placebar">\\s*<div class="wrap placebar-in">[\\s\\S]*?<\\/div>\\s*<\\/div>');
+const RAIL_RE = /\s*<nav class="subjectbar"[\s\S]*?<\/nav>/;
+const CRUMB_RE = /(<!--[^>]*-->\s*)?<nav[^>]*aria-label="Breadcrumb"[^>]*>[\s\S]*?<\/nav>/;
 
-  let out = `<nav class="placebar" aria-label="${town}"><div class="wrap placebar-in">
-  <a class="placebar__back" href="${R(backHref)}"><span class="n">&larr; ${esc(backLabel)}</span></a>
-  <ul class="placebar__links">
-${tabs}
-  </ul>
-</div></nav>`;
-
-  /* The subject rail: on every subject page, and on the two indexes that list
-     subjects, so the lateral move is available from the index too. */
-  if (cfg.subject || cfg.rail) {
-    const chips = SUBJECTS[cfg.town].map((s) => {
-      const current = cfg.subject === s.slug;
-      const href = current ? '#top'
-        : s.page ? R(s.page)
-        : cfg.town === 'tofino' ? `${R('things-to-do.html')}#${s.slug}` : `${R('ucluelet.html')}#do`;
-      return `    <li><a href="${href}"${current ? ' aria-current="page"' : ''}${s.page ? '' : ' data-soon'}>${esc(s.label)}</a></li>`;
-    }).join('\n');
-    out += `\n<nav class="subjectbar" aria-label="Things to do in ${town}"><div class="wrap subjectbar-in">
-  <span class="subjectbar__l">Things to do</span>
-  <ul class="subjectbar__links">
-${chips}
-  </ul>
-</div></nav>`;
+function readCrumbs(html) {
+  const out = [];
+  const re = /<a[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>|<(?:span|li)[^>]*aria-current="page"[^>]*>([\s\S]*?)<\/(?:span|li)>/g;
+  let m;
+  while ((m = re.exec(html))) {
+    if (m[1]) out.push({ href: m[1], label: m[2].replace(/<[^>]+>/g, '').trim() });
+    else out.push({ href: null, label: m[3].replace(/<[^>]+>/g, '').trim() });
   }
   return out;
 }
 
-let changed = 0, missing = [];
-for (const [file, cfg] of Object.entries(PAGES)) {
-  let original;
-  try { original = readFileSync(`${DIR}/${file}`, 'utf8'); } catch { missing.push(file); continue; }
+function renderCrumbs(crumbs, id) {
+  return crumbs.map((c, i) => {
+    const deep = i < crumbs.length - 2 ? ' class="lvl-deep"' : '';
+    const sep = i < crumbs.length - 1 ? (i < crumbs.length - 2 ? SEP.replace('class="sep"', 'class="sep lvl-deep"') : SEP) : '';
+    return c.href ? `<a${deep} href="${c.href}">${esc(c.label)}</a>${sep}` : `<span aria-current="page">${esc(c.label)}</span>`;
+  }).join('');
+}
+
+function render({ label, crumbs, links, ids = {} }) {
+  const cid = ids.crumb ? ` id="${ids.crumb}"` : '';
+  const lid = ids.links ? ` id="${ids.links}"` : '';
+  const bid = ids.bar ? ` id="${ids.bar}"` : '';
+  const extra = ids.extra || '';
+  return `<div class="placebar placebar--two"${bid} aria-label="${esc(label)}"><div class="wrap">
+  <nav class="crumb placebar__crumb"${cid} aria-label="Breadcrumb">${renderCrumbs(crumbs)}</nav>
+  <nav class="placebar-in" aria-label="${esc(label)} sections"><ul class="placebar__links"${lid}>
+${links}
+  </ul>${extra}</nav>
+</div></div><!-- /placebar -->`;
+}
+
+function linksFor(file, cfg) {
+  if (cfg.subject) {
+    return SUBJECTS[cfg.town].map((s) => {
+      const current = cfg.subject === s.slug;
+      const href = current ? '#top' : R(s.page);
+      return `    <li><a href="${href}"${current ? ' aria-current="page"' : ''}>${esc(s.label)}</a></li>`;
+    }).join('\n');
+  }
+  return SECTIONS[cfg.town].map((s) => {
+    const current = cfg.section === s.key;
+    const href = current && s.href === cfg.self ? '#top' : R(s.href);
+    return `    <li><a href="${href}"${current ? ' aria-current="page"' : ''}>${s.label}</a></li>`;
+  }).join('\n');
+}
+
+let changed = 0; const missing = [];
+const files = readdirSync(DIR).filter((f) => f.endsWith('.html') && !f.startsWith('_'));
+for (const file of files) {
+  const original = readFileSync(`${DIR}/${file}`, 'utf8');
   let src = original;
-  /* Replace the existing bar, plus any rail a previous run emitted. Some pages
-     wrapped it in <div>, some in <nav>, and the <div> ones nested the wrap on
-     its own line; all of them come out as one <nav> landmark. */
-  const re = new RegExp(
-    '<nav class="placebar"[\\s\\S]*?<\\/nav>' +
-    '|<div class="placebar">\\s*<div class="wrap placebar-in">[\\s\\S]*?<\\/div>\\s*<\\/div>' +
-    '|<div class="placebar"><div class="wrap placebar-in">[\\s\\S]*?<\\/div><\\/div>'
-  );
-  const railRe = /\s*<nav class="subjectbar"[\s\S]*?<\/nav>/;
-  if (!re.test(src)) { missing.push(`${file} (no placebar found)`); continue; }
-  src = src.replace(railRe, '');
-  const next = src.replace(re, bar(file, cfg));
-  /* compare against the file on disk, not the copy the rail-strip already
-     mutated, or --check reports every page as changed on a clean tree */
+  let crumbs, links, label, ids = {};
+  const cur = src.match(BAR_RE);
+  if (cur) {
+    crumbs = readCrumbs(cur[0].match(/<nav class="crumb placebar__crumb"[\s\S]*?<\/nav>/)[0]);
+    links = cur[0].match(/<ul class="placebar__links"[^>]*>\n?([\s\S]*?)\n?\s*<\/ul>/)[1];
+    label = cur[0].match(/aria-label="([^"]*)"/)[1];
+    if (/placebar__crumb" id="crumb"/.test(cur[0])) ids.crumb = 'crumb';
+    if (/id="pbLinks"/.test(cur[0])) ids.links = 'pbLinks';
+    if (/placebar--two" id="placebar"/.test(cur[0])) ids.bar = 'placebar';
+    const cta = cur[0].match(/\s*<a class="btn[^"]*nf-pbcta"[\s\S]*?<\/a>/);
+    if (cta) ids.extra = cta[0];
+  } else {
+    const old = src.match(OLD_BAR_RE);
+    if (!old) { if (file !== 'index.html') missing.push(`${file} (no placebar)`); else missing.push('index.html (no placebar)'); continue; }
+    label = (old[0].match(/aria-label="([^"]*)"/) || [, file])[1];
+    const rail = src.match(RAIL_RE);
+    links = rail ? rail[0].match(/<ul class="subjectbar__links">\n?([\s\S]*?)\n?\s*<\/ul>/)[1].replace(/ data-soon/g, '')
+                 : old[0].match(/<ul class="placebar__links"[^>]*>\n?([\s\S]*?)\n?\s*<\/ul>/)[1];
+    const here = old[0].match(/<span class="placebar__here">([^<]*)<\/span>/);
+    const body = src.slice(src.indexOf(old[0]) + old[0].length);
+    const cm = body.match(CRUMB_RE);
+    crumbs = cm ? readCrumbs(cm[0]) : [{ href: null, label: here ? here[1] : label }];
+    if (cm && cm[0].includes('id="crumb"')) ids.crumb = 'crumb';
+    if (/id="pbLinks"/.test(old[0])) ids.links = 'pbLinks';
+    if (/id="placebar"/.test(old[0])) ids.bar = 'placebar';
+    const cta = old[0].match(/\s*<a class="btn[^"]*nf-pbcta"[\s\S]*?<\/a>/);
+    if (cta) ids.extra = cta[0];
+    if (cm) {
+      /* drop the in-body breadcrumb, and its wrapper when that is all it held */
+      const wrapped = new RegExp('<div class="wrap">\\s*' + cm[0].replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*</div>');
+      src = wrapped.test(src) ? src.replace(wrapped, '') : src.replace(cm[0], '');
+    }
+    if (rail) src = src.replace(rail[0], '');
+    src = src.replace(old[0], '@@BAR@@');
+  }
+  if (PAGES[file]) links = linksFor(file, PAGES[file]);
+  if (crumbs.length && crumbs[0].label !== 'British Columbia') crumbs.unshift({ href: '/', label: 'British Columbia' });
+  const bar = render({ label, crumbs, links, ids });
+  const next = cur ? src.replace(cur[0], bar) : src.replace('@@BAR@@', bar);
   if (next !== original) { changed++; if (!CHECK) writeFileSync(`${DIR}/${file}`, next); console.log(`  ${file}`); }
 }
 if (missing.length) console.log('  MISSING: ' + missing.join(', '));
