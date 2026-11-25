@@ -123,6 +123,12 @@ main [id]{scroll-margin-top:176px}
 .wnote{border-top:2px solid var(--a300);padding-top:14px}
 .wnote h3{font-size:1.06rem}
 .wnote p{color:var(--n600);font-size:.95rem;line-height:1.6;margin-top:8px}
+
+/* hero buttons on the photo, and room above the place list (review 2026-11-25) */
+.chero .btn--ghost{border-color:var(--paper);color:var(--paper)}
+.chero .btn--ghost:hover{background:var(--paper);color:var(--navy)}
+.chero .btn--ghost:focus-visible{outline:2px solid var(--a300);outline-offset:3px}
+.chero__cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;margin-bottom:6px}
 </style>
 </head>
 <body>
@@ -206,7 +212,7 @@ main [id]{scroll-margin-top:176px}
     <div class="wnote"><h3>October to February</h3><p>Generally quite slow for salmon. This is storm season on the coast.</p></div>
   </div>
 </div></section>
-<section class="sec" style="padding-top:0" id="places"><div class="wrap">
+<section class="sec" style="padding-top:clamp(40px,4.6vw,64px)" id="places"><div class="wrap">
   <div class="grp">
     <h2>What you fish for</h2>
     <p class="grp__s">The fish the charters target, and what happens to your catch when you are back at the dock.</p>
