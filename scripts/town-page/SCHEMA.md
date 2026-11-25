@@ -6,18 +6,19 @@ One file per town. `build.py` renders every town page from these files with one 
 Rules for every value:
 - Copy comes from `New Articles - 2026/<doc>.docx` (dump with `python3 -I scripts/town-page/docx_text.py "<doc>"`) or from the town's extracted current page (`scripts/town-page/extracted/<slug>.json`). Light edits for length and plain English are fine. Never invent facts, numbers, prices, distances or events.
 - No em dashes (use comma, colon, parentheses or "to"). No italics. No emoji. No counts used as decoration ("217 places", "63 questions").
-- Canadian spelling as in the source.
+- US English (owner, 2026-11-25), proper names as spelled (Inner Harbour, Harbour Air, Cultural Centre). The builder also converts lowercase Canadian forms at render time.
 
 ```json
 {
   "slug": "whistler",
   "name": "Whistler",
   "region": "mainland",                      // "island" (Vancouver Island) or "mainland"
-  "title": "Whistler, Arc Trips",
+  "title": "Whistler travel guide | ArcTrips",   // "<Town> travel guide | ArcTrips", unique per town. Brand is spelled ArcTrips.
   "description": "One sentence, under 160 characters, for the meta description.",
   "hero": {
     "img": "/prototype/media/whistler/imageN.jpg",   // a photo OF THE TOWN or its signature view, checked by eye
     "alt": "What the photo shows",
+    "caption": "Short place name for the large plate, max 5 words",   // the two small hero plates are picked by the builder from the places in the tabs
     "standfirst": "One or two sentences about the town itself (not about one attraction). Max 30 words."
   },
   "why": {
@@ -45,7 +46,7 @@ Rules for every value:
       {"h": "Spring, March to May", "p": "..."}
     ]
   },
-  "tabs": [                                  // 2 to 5 activities, most popular first
+  "tabs": [                                  // 2 to 5 activities, most popular first; never a generic "Things to do" tab, each tab is one activity or a named group (Sights and landmarks)
     {
       "id": "hiking", "label": "Hiking",
       "intro": "One sentence, max 25 words.",
@@ -57,7 +58,7 @@ Rules for every value:
     }
   ],
   "planning": [ {"q": "...", "a": "..."} ],  // 0 to 5 general trip questions (getting there, how many days)
-  "nearby": ["squamish"],                    // 1 to 3 town slugs from the 15 BC towns
+  "nearby": ["squamish"],                    // 2 to 3 genuinely nearby town slugs from the 15 BC towns; [] hides the section (Nelson has none)
   "sources": ["Top Things to See and Do in Whistler.docx"]
 }
 ```

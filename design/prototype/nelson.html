@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en-CA">
+<html lang="en-US">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nelson, Arc Trips</title>
+<title>Nelson travel guide | ArcTrips</title>
 <meta name="description" content="Nelson, BC: steep old-school mountain biking above Kootenay Lake and year-round fishing for Gerrard rainbow trout.">
 <link rel="canonical" href="https://arctrips-destination-pages.vercel.app/destinations/canada/bc/nelson">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,27 +42,53 @@ body>a.skip:focus{top:0}
   .search{order:2;flex:1;min-width:0}
   .nav-links{order:4;flex-basis:100%;justify-content:flex-start;gap:22px}
 }
-.crumb{padding-block:clamp(20px,2.6vw,30px) 10px}
+.crumb{padding-block:clamp(2px,.6vw,8px) 0}
 .crumb a{position:relative}
 .crumb a::after{content:"";position:absolute;inset:-10px 0}
 
-/* hero: one photo, not a collage, since this town has one strong image */
-.hero{padding-block:clamp(18px,2vw,30px) clamp(40px,5vw,72px)}
-.hero-grid{align-items:center}
-.hero h1{font-size:clamp(2.4rem,5.2vw,3.9rem);max-width:15ch;letter-spacing:-.04em;line-height:1.04}
-.hero .lede{max-width:44ch;margin-top:20px}
-.hero-note{margin-top:18px;font-size:.98rem;color:var(--n600);max-width:50ch;line-height:1.6}
-.hero-note b{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
-.uphoto{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3.3;background:var(--n100);box-shadow:0 20px 44px -24px rgba(11,51,86,.34)}
-.uphoto img{width:100%;height:100%;object-fit:cover}
-@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.uphoto{max-width:520px}}
+/* hero: the town photo as the large plate with two photos of its places, after the Tofino things-to-do header */
+.thero{padding-block:clamp(20px,1.8vw,26px) clamp(26px,3.2vw,44px)}
+.thero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:clamp(26px,4vw,64px);align-items:center}
+.thero h1{font-size:clamp(2.6rem,6vw,4.6rem);font-weight:800;line-height:.98;letter-spacing:-.045em;max-width:12ch}
+.thero .lede{margin-top:18px;font-size:clamp(1.06rem,1.4vw,1.24rem);font-weight:400;max-width:44ch}
+/* the collage runs off the right edge of the screen on wide viewports */
+@media(min-width:1080px){
+  .thero>.wrap{max-width:none;margin-inline:0;padding-right:0;
+    padding-left:max(var(--gut),calc((100vw - var(--wrap))/2 + var(--gut)))}
+  .thero-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}
+}
+@media(max-width:1079px){.thero-grid{align-items:start}}
+@media(max-width:940px){.thero-grid{grid-template-columns:minmax(0,1fr);gap:26px}}
+.tcol{position:relative;aspect-ratio:1/.68;min-height:0}
+.tplate{position:absolute;margin:0;border-radius:var(--r);overflow:hidden;background:var(--n100);
+  box-shadow:0 18px 42px -18px rgba(11,51,86,.34),0 2px 8px rgba(11,51,86,.06)}
+.tplate img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.tplate:hover img{transform:scale(1.045)}
+.tplate figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;color:var(--paper);font-size:.88rem;font-weight:600;
+  letter-spacing:.01em;line-height:1.3;background:linear-gradient(180deg,rgba(11,51,86,0),rgba(11,51,86,.82))}
+.tp1{left:0;top:9%;width:53%;height:80%;z-index:2}
+.tp2{right:0;top:0;width:43%;height:47%;z-index:1}
+.tp3{right:0;bottom:0;width:43%;height:47%;z-index:1}
+.tcol--2 .tp1{top:0;width:58%;height:100%}
+.tcol--2 .tp2{top:12%;width:38%;height:76%}
+.tcol--1{aspect-ratio:4/3}
+.tcol--1 .tp1{inset:0;width:auto;height:auto}
+@media(max-width:940px){.tcol{max-width:620px;aspect-ratio:1/.76}}
+@media(max-width:560px){
+  .tcol,.tcol--2{aspect-ratio:auto;display:grid;grid-template-columns:1.2fr 1fr;gap:12px}
+  .tcol--1{grid-template-columns:1fr}
+  .tcol .tp3{display:none}
+  .tcol .tplate{position:relative;inset:auto;width:auto;height:auto;aspect-ratio:3/4}
+  .tcol--2 .tp2{align-self:end}
+}
 
 /* why go, and the orientation list beside it */
-.sec--why{padding-block:clamp(46px,5.4vw,84px) clamp(34px,4vw,56px)}
+.sec--why{padding-block:clamp(26px,3.4vw,48px) clamp(34px,4vw,56px)}
 .why{display:grid;grid-template-columns:1.02fr 1.14fr;gap:clamp(28px,4.6vw,72px);align-items:start}
 @media(max-width:900px){.why{grid-template-columns:1fr;gap:34px}}
 .why p{color:var(--n700);font-size:clamp(1.02rem,1.3vw,1.16rem);line-height:1.62;max-width:50ch}
 .why p+p{margin-top:18px}
+.why h2+.why__p{margin-top:22px}
 .spec{border-top:1px solid var(--n150)}
 .spec>div{display:grid;grid-template-columns:minmax(122px,.42fr) 1fr;gap:6px 20px;
   padding-block:15px;border-bottom:1px solid var(--n150);align-items:baseline}
@@ -133,15 +159,6 @@ body>a.skip:focus{top:0}
 .hpanel{padding-top:clamp(24px,3vw,36px)}
 .hpanel[hidden]{display:none}
 .hpanel__h{font-size:clamp(1.5rem,2.6vw,2rem);letter-spacing:-.03em}
-.hgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:clamp(22px,2.6vw,34px) clamp(18px,2.2vw,28px);margin-top:20px}
-.hc{display:flex;flex-direction:column;min-width:0}
-.hc[hidden]{display:none}
-.hc__m{margin:0 0 14px;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:var(--n100)}
-.hc__m img{width:100%;height:100%;object-fit:cover}
-.hc--t{border-top:2px solid var(--a300);padding-top:14px}
-.hc h3{font-size:1.14rem;letter-spacing:-.02em;margin-bottom:8px}
-.hc .pl__b p{font-size:.96rem;line-height:1.62;margin-bottom:10px;max-width:none}
-.hc .pl__n{margin-top:10px;padding:10px 14px;font-size:.9rem}
 .hqs{margin-top:clamp(28px,3.4vw,44px)}
 .hqs>h4{font-size:1.02rem;color:var(--navy);padding-bottom:10px;border-bottom:1px solid var(--n150)}
 .hq{border-bottom:1px solid var(--n150)}
@@ -154,8 +171,7 @@ body>a.skip:focus{top:0}
 .hq .hq__a p:first-child{margin-top:0}
 
 /* town page additions (2026-11-13) */
-.hero{padding-block:clamp(26px,3vw,40px) clamp(40px,5vw,72px)}
-.hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
 .why__p p+p{margin-top:18px}
 .hwhen .head p,.hdo .head p{color:var(--n600);max-width:62ch;margin-top:10px;line-height:1.6}
 .mrow--crowd{padding-bottom:18px;margin-bottom:4px;border-bottom:1px solid var(--n200)}
@@ -169,8 +185,18 @@ body>a.skip:focus{top:0}
 .mkey__h{min-width:84px;color:var(--navy);font-weight:700}
 .hdress{margin-top:clamp(22px,2.6vw,30px);font-size:.98rem;color:var(--n700);max-width:68ch}
 .hpanel__p{color:var(--n600);margin-top:8px;max-width:64ch;line-height:1.6}
-.hgrid{margin-top:22px}
-.hc .pl__b p{margin-bottom:0}
+.tpls{display:grid;gap:clamp(28px,3.4vw,48px);margin-top:clamp(22px,2.6vw,30px)}
+.tpl{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:clamp(18px,3vw,44px);align-items:start}
+.tpl--t{grid-template-columns:minmax(0,1fr);border-top:2px solid var(--a300);padding-top:16px}
+@media(max-width:820px){.tpl{grid-template-columns:minmax(0,1fr);gap:16px}}
+.tpl__m{margin:0;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:var(--n100)}
+.tpl__m img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.tpl:hover .tpl__m img{transform:scale(1.04)}
+.tpl__k{display:block;color:var(--azure);font-size:.88rem;font-weight:700;letter-spacing:.09em;margin-bottom:8px}
+.tpl h3{font-size:clamp(1.28rem,2vw,1.62rem);font-weight:800;letter-spacing:-.026em}
+.tpl__b p{color:var(--n700);line-height:1.66;margin-top:11px;max-width:62ch}
+.tpl__b .tpl__note{margin-top:15px;font-size:.94rem;color:var(--n600);line-height:1.6;border-left:2px solid var(--a300);padding-left:14px}
+.tpl__note b{color:var(--navy);font-weight:700}
 .hqs--plan{margin-top:clamp(36px,4vw,56px)}
 .htrips{padding-block:clamp(40px,5vw,72px) 0}
 .htrips .head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
@@ -181,12 +207,16 @@ body>a.skip:focus{top:0}
 .trip__u{grid-column:1;grid-row:3;font-size:.8rem;font-weight:600;color:var(--n600)}
 .trip__t{grid-column:2;grid-row:1;font-weight:700;color:var(--navy);font-size:1.04rem}
 .trip__s{grid-column:2;grid-row:2/4;color:var(--n600);font-size:.93rem;line-height:1.55;margin-top:4px}
-.hstay{padding-block:clamp(40px,5vw,72px) clamp(28px,3vw,44px)}
+.hstay{padding-block:clamp(34px,4.4vw,60px) clamp(24px,2.6vw,36px)}
 .stayband h2{font-size:clamp(1.5rem,2.6vw,2rem)}
 .stay__go{display:flex;align-items:center;justify-content:flex-end}
 @media(max-width:860px){.stay__go{justify-content:flex-start}}
-.hnear{padding-block:0 clamp(48px,5vw,80px)}
+.hnear{padding-block:0 clamp(14px,1.6vw,24px)}
 .roster h2{font-size:1.2rem}
+
+/* the footer on a town page is one line, so it sits close under Nearby */
+footer.f{margin-top:clamp(16px,2vw,28px);padding-block:20px}
+footer.f .fbase{margin-top:0;padding-top:0;border-top:0}
 
 </style>
 </head>
@@ -213,17 +243,16 @@ body>a.skip:focus{top:0}
 </div></div><!-- /placebar -->
 <main id="main">
 
-<header class="hero thero2"><div class="wrap hero-grid">
+<header class="thero"><div class="wrap thero-grid">
   <div>
-    <span class="label">British Columbia</span>
-    <h1 style="margin-top:16px">Nelson</h1>
+    <h1>Nelson</h1>
     <p class="lede">Nelson is perched above Kootenay Lake and backed by the Selkirk Mountains, with steep old-school singletrack, big trout and a serious local trail culture.</p>
     <div class="hero-cta">
-      <a class="btn btn--ghost" href="#do">What to do here</a>
       <a class="btn btn--ghost" href="#when">When to go</a>
+      <a class="btn btn--ghost" href="#do">Things to do</a>
     </div>
   </div>
-  <figure class="uphoto"><img src="/prototype/media/nelson/image7.jpg" alt="Riders resting on a lookout above Nelson and the West Arm of Kootenay Lake"></figure>
+  <div class="tcol tcol--2"><figure class="tplate tp1"><img src="/prototype/media/nelson/image7.jpg" alt="Riders resting on a lookout above Nelson and the West Arm of Kootenay Lake"><figcaption>Nelson and Kootenay Lake</figcaption></figure><figure class="tplate tp2"><img src="/prototype/media/nelson/image8.jpg" alt="Two young riders on a forest trail beside a mossy log" loading="lazy"><figcaption>Giveout &amp; Morning Mountain</figcaption></figure></div>
 </div></header>
 
 <section class="sec--why" id="why"><div class="wrap why">
@@ -250,24 +279,21 @@ body>a.skip:focus{top:0}
 <section class="hdo" id="do"><div class="wrap">
   <div class="head"><div><span class="label label--n">Things to do</span>
     <h2 style="margin-top:11px">What to do in Nelson</h2>
-    <p>The places people come for, one activity at a time. Each tab ends with the questions people ask about it.</p></div></div>
+    <p>The places people come for, one activity at a time.</p></div></div>
   <div class="acts" role="tablist" aria-label="Activities in Nelson"><button type="button" role="tab" id="tab-biking" aria-controls="panel-biking" aria-selected="true" tabindex="0" data-g="biking">Mountain biking</button><button type="button" role="tab" id="tab-fishing" aria-controls="panel-fishing" aria-selected="false" tabindex="-1" data-g="fishing">Fishing</button></div>
-  <div class="hpanel" role="tabpanel" id="panel-biking" aria-labelledby="tab-biking" data-g="biking"><h3 class="hpanel__h">Mountain biking in Nelson</h3><p class="hpanel__p">Steep old-school singletrack and handcrafted trail zones above Kootenay Lake, with eight major riding areas around town.</p><div class="hgrid"><article class="hc hc--t"><div class="pl__b"><h3>Mountain Station</h3><p>Nelson&#x27;s most iconic and accessible trail network, directly above the city at the top of Cherry Street. It is famously tight and bright, with intersecting trails from historic old-school gnarl to classic technical singletrack. Many riders pedal straight from downtown to the trailhead and lap the popular descent lines.</p><p class="pl__n"><b>Good to know.</b> Some sections cross private property, so stay on marked trails. A large trail map is posted at the Mountain Station parking area.</p></div></article><article class="hc"><figure class="hc__m"><img loading="lazy" src="/prototype/media/nelson/image8.jpg" alt="Two young riders on a forest trail beside a mossy log"></figure><div class="pl__b"><h3>Giveout &amp; Morning Mountain</h3><p>West of Nelson in the Blewett area, reached via Blewett Ski Hill Road, this is the city&#x27;s primary hub for progressive riding. The Bottoms Up climbing trail gives pedal access to machine-built flow like Turnstyles and Nelson&#x27;s first adaptive mountain bike trails. It is the best starting point for visitors, with green and blue options alongside classic Kootenay black diamond terrain.</p><p class="pl__n"><b>Good to know.</b> Riders can also shuttle the Giveout Creek FSR to the 9km marker for longer descents.</p></div></article><article class="hc hc--t"><div class="pl__b"><h3>49&#x27;er</h3><p>A legendary big mountain descent south of Nelson on the north flank of Toad Mountain, usually reached by shuttling the Giveout Creek FSR. It epitomizes old-school Nelson riding: a long, relentless downhill of tight roots, technical rock slabs and high-speed forest segments. It is significantly steeper and more demanding than the trails at Morning Mountain.</p><p class="pl__n"><b>Good to know.</b> A sustained descent with significant vertical drop, so check your equipment beforehand.</p></div></article><article class="hc hc--t"><div class="pl__b"><h3>Svoboda</h3><p>Within West Arm Provincial Park, reached by Svoboda Road near the Fairview neighbourhood, this area is famous for boney, mossy and exceptionally steep terrain. Massive rock slabs and high-consequence technical lines define world-renowned trails like Paper Bag. The access is a steady gravel road grind, and the reward is advanced riding with steep rock rolls.</p><p class="pl__n"><b>Good to know.</b> It is a Provincial Park, so stay strictly on designated paths to protect the sensitive ecosystem.</p></div></article><article class="hc hc--t"><div class="pl__b"><h3>Gold Creek</h3><p>The Gold Creek area is synonymous with big downhill riding and is the steeper, more aggressive extension of the Giveout network. Expect long sustained vertical drops, tight forest corridors, roots, stunts and rock-covered singletrack. Trails such as Goldmember are often rated double-black diamond and need advanced skills.</p><p class="pl__n"><b>Good to know.</b> Almost exclusively a shuttle-access zone, using the Giveout Creek FSR to reach the ridge-top trailheads.</p></div></article><article class="hc hc--t"><div class="pl__b"><h3>Baldface &amp; Shannon Pass</h3><p>The high-alpine, epic side of Nelson&#x27;s riding, deep in the backcountry north of town. Access means a significant climb or a high-clearance shuttle via the Shannon Creek FSR to Shannon Pass, the gateway to massive high-elevation descents. Trails like the famous Powerslave offer long stretches of technical singletrack through sub-alpine forest and rocky ridges.</p><p class="pl__n"><b>Good to know.</b> Remote and high: best for prepared, advanced riders planning a full day.</p></div></article></div><div class="hqs"><h4>Questions about mountain biking in Nelson</h4><details class="hq"><summary>When is the mountain biking season in Nelson?</summary><div class="hq__a"><p>The main season is usually late spring through fall. July and August are among the driest months and generally the most reliable for riding. Spring and fall can also be excellent if you do not mind more variable conditions.</p></div></details><details class="hq"><summary>Where should beginners ride in Nelson?</summary><div class="hq__a"><p>Giveout &amp; Morning Mountain is the best starting point for visitors, with a mix of green and blue trails and modern machine-built flow. The 49&#x27;er and Svoboda are steeper and more demanding, so build confidence first.</p></div></details><details class="hq"><summary>How hard are Nelson&#x27;s trails?</summary><div class="hq__a"><p>Harder than their ratings suggest. Under the local Nelson Scale, a blue trail can feel closer to a black diamond elsewhere, so starting one grade lower than usual is often the smartest approach.</p></div></details><details class="hq"><summary>What is the Fat Tire Festival?</summary><div class="hq__a"><p>The crown jewel of Nelson&#x27;s biking calendar, a multi-day event that typically takes place in late September. It runs from downhill races on trails like Powerslave to the Chainless Race and Jellybean Alley for young riders.</p></div></details></div></div><div class="hpanel" role="tabpanel" id="panel-fishing" aria-labelledby="tab-fishing" data-g="fishing" hidden><h3 class="hpanel__h">Fishing in Nelson</h3><p class="hpanel__p">Kootenay Lake can be fished year-round, with smaller lakes and rivers nearby for variety.</p><div class="hgrid"><article class="hc hc--t"><div class="pl__b"><h3>Kootenay Lake</h3><p>The region&#x27;s primary draw, famous for the Gerrard rainbow trout, a predator that can exceed 30 pounds. The Main Lake near Balfour and Kaslo, about 30 minutes east of Nelson, is where the water is deepest and trophy Gerrard and bull trout are most active. The West Arm flows right past downtown Nelson and is productive for smaller rainbows, bull trout and kokanee in their seasonal runs.</p><p class="pl__n"><b>Good to know.</b> Lakeside Park and the Prestige Marina offer easy shore casting. The rocky shorelines around Kokanee Creek Provincial Park are better.</p></div></article><article class="hc hc--t"><div class="pl__b"><h3>The Columbia River</h3><p>South of Nelson near Castlegar, the Columbia River is often called a hidden gem by local guides and is considered one of the premier fly-fishing rivers in North America. The tailrace where the Kootenay River joins the Columbia is a hotspot for large rainbow trout and walleye, and the river is known for powerful, acrobatic trout.</p><p class="pl__n"><b>Good to know.</b> Shore access exists at community parks in Castlegar and Trail, but the most productive spots are reached by jet boat.</p></div></article><article class="hc hc--t"><div class="pl__b"><h3>Mountain and alpine lakes</h3><p>For a hike-in experience or a quieter setting, the backcountry around Nelson is dotted with stocked and wild lakes. Kokanee Glacier Provincial Park has high-altitude lakes such as Kaslo Lake, with aggressive cutthroat and brook trout. Summit Lake and Box Lake, north of Nelson toward Nakusp, are easy roadside lakes for belly-boating or shore casting for rainbows.</p><p class="pl__n"><b>Good to know.</b> Cottonwood Lake, a few minutes south of Nelson on Highway 6, is a popular family spot for smaller trout.</p></div></article><article class="hc hc--t"><div class="pl__b"><h3>Kokanee Creek and the Slocan River</h3><p>Kokanee Creek is famous for the kokanee salmon spawning run in August. The creek itself may have closures to protect spawners, but where it meets the lake is a prime spot for predatory trout waiting for fry. The Slocan River, slower-moving and north of Nelson, is excellent for drift-fishing or wading for rainbow and Westslope cutthroat trout.</p><p class="pl__n"><b>Good to know.</b> Check the current Region 4 regulations before you go.</p></div></article></div><div class="hqs"><h4>Questions about fishing in Nelson</h4><details class="hq"><summary>What is Nelson known for fishing?</summary><div class="hq__a"><p>Set beside Kootenay Lake and surrounded by mountain scenery, it is especially famous for Gerrard rainbow trout, along with bull trout and kokanee salmon.</p></div></details><details class="hq"><summary>Can you fish in Nelson in winter?</summary><div class="hq__a"><p>Yes. Kootenay Lake stays ice-free, and winter is often considered one of the best times for larger trout, as fish move up from deeper water.</p></div></details><details class="hq"><summary>What licence do I need to fish near Nelson?</summary><div class="hq__a"><p>A valid BC freshwater fishing licence. As of 2026 licences are bought through the WILD system with a Fish and Wildlife ID, for one day, eight days or a year. Nelson is in Region 4: Kootenay, where a single barbless hook is mandatory on all streams and rivers.</p></div></details><details class="hq"><summary>Should I book a fishing charter?</summary><div class="hq__a"><p>It is one of the easiest ways to fish Nelson well. Local companies such as Reel Adventures run year-round trips on Kootenay Lake and seasonal trips from April to October on the Columbia River, and most charters provide all gear, including downriggers, rods and lures.</p></div></details></div></div>
-  <div class="hqs hqs--plan"><h4>Before you go</h4><details class="hq"><summary>Are Nelson&#x27;s trails free to ride?</summary><div class="hq__a"><p>All trails are free to access, but they are built and maintained by the Nelson Mountain Bike Club (NMTBC). It is worth supporting the network with a membership or a donation at one of the local shops.</p></div></details><details class="hq"><summary>Where can I get trail maps and local advice?</summary><div class="hq__a"><p>The Nelson Cycling Club trail map is sold in town, and a large trail map is posted at the Mountain Station parking area. Gerick Cycle &amp; Ski and The Sacred Ride in downtown Nelson can advise on current conditions and which areas match your ability.</p></div></details><details class="hq"><summary>Do I need to worry about bears?</summary><div class="hq__a"><p>Yes. The riding areas are active black bear and grizzly bear habitat, so carry bear spray in an accessible place and, whenever possible, ride with a partner.</p></div></details></div>
+  <div class="hpanel" role="tabpanel" id="panel-biking" aria-labelledby="tab-biking" data-g="biking"><h3 class="hpanel__h">Mountain biking in Nelson</h3><p class="hpanel__p">Steep old-school singletrack and handcrafted trail zones above Kootenay Lake, with eight major riding areas around town.</p><div class="tpls"><article class="tpl tpl--t"><div class="tpl__b"><span class="tpl__k tnum">01</span><h3>Mountain Station</h3><p>Nelson&#x27;s most iconic and accessible trail network, directly above the city at the top of Cherry Street. It is famously tight and bright, with intersecting trails from historic old-school gnarl to classic technical singletrack. Many riders pedal straight from downtown to the trailhead and lap the popular descent lines.</p><p class="tpl__note"><b>Good to know.</b> Some sections cross private property, so stay on marked trails. A large trail map is posted at the Mountain Station parking area.</p></div></article><article class="tpl"><figure class="tpl__m"><img loading="lazy" src="/prototype/media/nelson/image8.jpg" alt="Two young riders on a forest trail beside a mossy log"></figure><div class="tpl__b"><span class="tpl__k tnum">02</span><h3>Giveout &amp; Morning Mountain</h3><p>West of Nelson in the Blewett area, reached via Blewett Ski Hill Road, this is the city&#x27;s primary hub for progressive riding. The Bottoms Up climbing trail gives pedal access to machine-built flow like Turnstyles and Nelson&#x27;s first adaptive mountain bike trails. It is the best starting point for visitors, with green and blue options alongside classic Kootenay black diamond terrain.</p><p class="tpl__note"><b>Good to know.</b> Riders can also shuttle the Giveout Creek FSR to the 9km marker for longer descents.</p></div></article><article class="tpl tpl--t"><div class="tpl__b"><span class="tpl__k tnum">03</span><h3>49&#x27;er</h3><p>A legendary big mountain descent south of Nelson on the north flank of Toad Mountain, usually reached by shuttling the Giveout Creek FSR. It epitomizes old-school Nelson riding: a long, relentless downhill of tight roots, technical rock slabs and high-speed forest segments. It is significantly steeper and more demanding than the trails at Morning Mountain.</p><p class="tpl__note"><b>Good to know.</b> A sustained descent with significant vertical drop, so check your equipment beforehand.</p></div></article><article class="tpl tpl--t"><div class="tpl__b"><span class="tpl__k tnum">04</span><h3>Svoboda</h3><p>Within West Arm Provincial Park, reached by Svoboda Road near the Fairview neighborhood, this area is famous for boney, mossy and exceptionally steep terrain. Massive rock slabs and high-consequence technical lines define world-renowned trails like Paper Bag. The access is a steady gravel road grind, and the reward is advanced riding with steep rock rolls.</p><p class="tpl__note"><b>Good to know.</b> It is a Provincial Park, so stay strictly on designated paths to protect the sensitive ecosystem.</p></div></article><article class="tpl tpl--t"><div class="tpl__b"><span class="tpl__k tnum">05</span><h3>Gold Creek</h3><p>The Gold Creek area is synonymous with big downhill riding and is the steeper, more aggressive extension of the Giveout network. Expect long sustained vertical drops, tight forest corridors, roots, stunts and rock-covered singletrack. Trails such as Goldmember are often rated double-black diamond and need advanced skills.</p><p class="tpl__note"><b>Good to know.</b> Almost exclusively a shuttle-access zone, using the Giveout Creek FSR to reach the ridge-top trailheads.</p></div></article><article class="tpl tpl--t"><div class="tpl__b"><span class="tpl__k tnum">06</span><h3>Baldface &amp; Shannon Pass</h3><p>The high-alpine, epic side of Nelson&#x27;s riding, deep in the backcountry north of town. Access means a significant climb or a high-clearance shuttle via the Shannon Creek FSR to Shannon Pass, the gateway to massive high-elevation descents. Trails like the famous Powerslave offer long stretches of technical singletrack through sub-alpine forest and rocky ridges.</p><p class="tpl__note"><b>Good to know.</b> Remote and high: best for prepared, advanced riders planning a full day.</p></div></article></div><div class="hqs"><h4>Frequently asked questions</h4><details class="hq"><summary>When is the mountain biking season in Nelson?</summary><div class="hq__a"><p>The main season is usually late spring through fall. July and August are among the driest months and generally the most reliable for riding. Spring and fall can also be excellent if you do not mind more variable conditions.</p></div></details><details class="hq"><summary>Where should beginners ride in Nelson?</summary><div class="hq__a"><p>Giveout &amp; Morning Mountain is the best starting point for visitors, with a mix of green and blue trails and modern machine-built flow. The 49&#x27;er and Svoboda are steeper and more demanding, so build confidence first.</p></div></details><details class="hq"><summary>How hard are Nelson&#x27;s trails?</summary><div class="hq__a"><p>Harder than their ratings suggest. Under the local Nelson Scale, a blue trail can feel closer to a black diamond elsewhere, so starting one grade lower than usual is often the smartest approach.</p></div></details><details class="hq"><summary>What is the Fat Tire Festival?</summary><div class="hq__a"><p>The crown jewel of Nelson&#x27;s biking calendar, a multi-day event that typically takes place in late September. It runs from downhill races on trails like Powerslave to the Chainless Race and Jellybean Alley for young riders.</p></div></details></div></div><div class="hpanel" role="tabpanel" id="panel-fishing" aria-labelledby="tab-fishing" data-g="fishing" hidden><h3 class="hpanel__h">Fishing in Nelson</h3><p class="hpanel__p">Kootenay Lake can be fished year-round, with smaller lakes and rivers nearby for variety.</p><div class="tpls"><article class="tpl tpl--t"><div class="tpl__b"><span class="tpl__k tnum">01</span><h3>Kootenay Lake</h3><p>The region&#x27;s primary draw, famous for the Gerrard rainbow trout, a predator that can exceed 30 pounds. The Main Lake near Balfour and Kaslo, about 30 minutes east of Nelson, is where the water is deepest and trophy Gerrard and bull trout are most active. The West Arm flows right past downtown Nelson and is productive for smaller rainbows, bull trout and kokanee in their seasonal runs.</p><p class="tpl__note"><b>Good to know.</b> Lakeside Park and the Prestige Marina offer easy shore casting. The rocky shorelines around Kokanee Creek Provincial Park are better.</p></div></article><article class="tpl tpl--t"><div class="tpl__b"><span class="tpl__k tnum">02</span><h3>The Columbia River</h3><p>South of Nelson near Castlegar, the Columbia River is often called a hidden gem by local guides and is considered one of the premier fly-fishing rivers in North America. The tailrace where the Kootenay River joins the Columbia is a hotspot for large rainbow trout and walleye, and the river is known for powerful, acrobatic trout.</p><p class="tpl__note"><b>Good to know.</b> Shore access exists at community parks in Castlegar and Trail, but the most productive spots are reached by jet boat.</p></div></article><article class="tpl tpl--t"><div class="tpl__b"><span class="tpl__k tnum">03</span><h3>Mountain and alpine lakes</h3><p>For a hike-in experience or a quieter setting, the backcountry around Nelson is dotted with stocked and wild lakes. Kokanee Glacier Provincial Park has high-altitude lakes such as Kaslo Lake, with aggressive cutthroat and brook trout. Summit Lake and Box Lake, north of Nelson toward Nakusp, are easy roadside lakes for belly-boating or shore casting for rainbows.</p><p class="tpl__note"><b>Good to know.</b> Cottonwood Lake, a few minutes south of Nelson on Highway 6, is a popular family spot for smaller trout.</p></div></article><article class="tpl tpl--t"><div class="tpl__b"><span class="tpl__k tnum">04</span><h3>Kokanee Creek and the Slocan River</h3><p>Kokanee Creek is famous for the kokanee salmon spawning run in August. The creek itself may have closures to protect spawners, but where it meets the lake is a prime spot for predatory trout waiting for fry. The Slocan River, slower-moving and north of Nelson, is excellent for drift-fishing or wading for rainbow and Westslope cutthroat trout.</p><p class="tpl__note"><b>Good to know.</b> Check the current Region 4 regulations before you go.</p></div></article></div><div class="hqs"><h4>Frequently asked questions</h4><details class="hq"><summary>What is Nelson known for fishing?</summary><div class="hq__a"><p>Set beside Kootenay Lake and surrounded by mountain scenery, it is especially famous for Gerrard rainbow trout, along with bull trout and kokanee salmon.</p></div></details><details class="hq"><summary>Can you fish in Nelson in winter?</summary><div class="hq__a"><p>Yes. Kootenay Lake stays ice-free, and winter is often considered one of the best times for larger trout, as fish move up from deeper water.</p></div></details><details class="hq"><summary>What license do I need to fish near Nelson?</summary><div class="hq__a"><p>A valid BC freshwater fishing license. As of 2026 licenses are bought through the WILD system with a Fish and Wildlife ID, for one day, eight days or a year. Nelson is in Region 4: Kootenay, where a single barbless hook is mandatory on all streams and rivers.</p></div></details><details class="hq"><summary>Should I book a fishing charter?</summary><div class="hq__a"><p>It is one of the easiest ways to fish Nelson well. Local companies such as Reel Adventures run year-round trips on Kootenay Lake and seasonal trips from April to October on the Columbia River, and most charters provide all gear, including downriggers, rods and lures.</p></div></details></div></div>
+  <div class="hqs hqs--plan"><h4>Frequently asked questions</h4><details class="hq"><summary>Are Nelson&#x27;s trails free to ride?</summary><div class="hq__a"><p>All trails are free to access, but they are built and maintained by the Nelson Mountain Bike Club (NMTBC). It is worth supporting the network with a membership or a donation at one of the local shops.</p></div></details><details class="hq"><summary>Where can I get trail maps and local advice?</summary><div class="hq__a"><p>The Nelson Cycling Club trail map is sold in town, and a large trail map is posted at the Mountain Station parking area. Gerick Cycle &amp; Ski and The Sacred Ride in downtown Nelson can advise on current conditions and which areas match your ability.</p></div></details><details class="hq"><summary>Do I need to worry about bears?</summary><div class="hq__a"><p>Yes. The riding areas are active black bear and grizzly bear habitat, so carry bear spray in an accessible place and, whenever possible, ride with a partner.</p></div></details></div>
 </div></section>
 
 <section class="hstay"><div class="wrap stayband">
   <div><h2>Where to stay in Nelson</h2>
     <p>Search what is open in Nelson for your dates.</p></div>
-  <div class="stay__go"><a class="btn btn--primary" href="/search?in=nelson">Find a stay in Nelson</a></div>
+  <div class="stay__go"><a class="btn btn--primary" href="https://arctrips.com/stays/canada/bc/nelson">Find a stay in Nelson</a></div>
 </div></section>
 
-<section class="hnear"><div class="wrap roster">
-  <h2>Nearby</h2>
-  <ul><li><a href="/destinations/canada/bc/squamish">Squamish</a></li><li><a href="/destinations/canada/bc/whistler">Whistler</a></li><li><a href="/">All of British Columbia</a></li></ul>
-</div></section>
+
 </main>
-<footer class="f"><div class="wrap fbase">&copy; 2026 Arc Trips. Prices in CAD, before taxes and fees.</div></footer>
+<footer class="f"><div class="wrap fbase">&copy; 2026 ArcTrips</div></footer>
 <script>
 
 (function(){

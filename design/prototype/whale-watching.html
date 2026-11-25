@@ -377,14 +377,13 @@ main [id]{scroll-margin-top:176px}
 <!-- The place bar. Identical on every Tofino page: the town anchor, the town's
      five sections, the booking path. The only sticky row below the global nav. -->
 <div class="placebar placebar--two" aria-label="Tofino"><div class="wrap">
-  <nav class="crumb placebar__crumb" aria-label="Breadcrumb"><a class="lvl-deep" href="/">British Columbia</a><span class="sep lvl-deep" aria-hidden="true">/</span><a class="lvl-deep" href="/destinations/canada/bc/vancouver-island">Vancouver Island</a><span class="sep lvl-deep" aria-hidden="true">/</span><a class="lvl-deep" href="/destinations/canada/bc/tofino">Tofino</a><span class="sep lvl-deep" aria-hidden="true">/</span><a href="/destinations/canada/bc/tofino/things-to-do">Things to do</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Whale watching</span></nav>
+  <nav class="crumb placebar__crumb" aria-label="Breadcrumb"><a class="lvl-deep" href="/">British Columbia</a><span class="sep lvl-deep" aria-hidden="true">/</span><a class="lvl-deep" href="/destinations/canada/bc/vancouver-island">Vancouver Island</a><span class="sep lvl-deep" aria-hidden="true">/</span><a href="/destinations/canada/bc/tofino">Tofino</a><span class="sep" aria-hidden="true">/</span><a href="/destinations/canada/bc/tofino/things-to-do">Things to do</a></nav>
   <nav class="placebar-in" aria-label="Tofino sections"><ul class="placebar__links">
     <li><a href="/destinations/canada/bc/tofino/things-to-do/beaches">Beaches</a></li>
     <li><a href="/destinations/canada/bc/tofino/things-to-do/hiking">Hiking &amp; trails</a></li>
     <li><a href="/kayaking/canada/bc/tofino">Kayaking</a></li>
     <li><a href="#top" aria-current="page">Whale watching</a></li>
     <li><a href="/destinations/canada/bc/tofino/things-to-do/storm-watching">Storm watching</a></li>
-    <li><a href="/destinations/canada/bc/tofino/things-to-do/restaurants">Restaurants</a></li>
     <li><a href="/destinations/canada/bc/tofino/things-to-do/surfing">Surfing</a></li>
     <li><a href="/destinations/canada/bc/tofino/things-to-do/birding">Birding</a></li>
     <li><a href="/fishing/canada/bc/tofino">Fishing</a></li>
@@ -601,15 +600,6 @@ main [id]{scroll-margin-top:176px}
     </div>
   </div>
 
-  <div class="head" style="margin-top:clamp(40px,5vw,64px)">
-    <div>
-      <span class="label label--n">Bookable now</span>
-      <h2 style="margin-top:11px">Where to stay for the boat</h2>
-      <p>134 places in Tofino and 158 in Ucluelet, bookable tonight. Two on each side, because the places to watch from are mostly on Ucluelet's.</p>
-    </div>
-    <a class="btn btn--ghost btn--sm" href="/search?in=tofino">All 292 stays</a>
-  </div>
-  <div class="dgrid dgrid--stay" id="stays"></div>
 </div></section>
 
 <!-- The reading used to sit as a rail beside the overview prose, where it read
@@ -867,7 +857,7 @@ function paintStatic() {
      DATA for the surfaces that still use it. */
 
   /* the stays that are live now */
-  $("#stays").innerHTML = DATA.stays.map((s) =>
+  if (document.getElementById("stays")) $("#stays").innerHTML = DATA.stays.map((s) =>
     `<a class="dest" href="/search?in=tofino">
       <div class="dest__m"><img src="${cld(s.hero,760,570)}" alt="${esc(s.alt)}" loading="lazy"></div>
       <h3 style="font-size:1.04rem">${s.t}</h3>

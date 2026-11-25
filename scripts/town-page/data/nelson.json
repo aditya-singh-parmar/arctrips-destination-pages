@@ -2,11 +2,12 @@
  "slug": "nelson",
  "name": "Nelson",
  "region": "mainland",
- "title": "Nelson, Arc Trips",
+ "title": "Nelson travel guide | ArcTrips",
  "description": "Nelson, BC: steep old-school mountain biking above Kootenay Lake and year-round fishing for Gerrard rainbow trout.",
  "hero": {
   "img": "/prototype/media/nelson/image7.jpg",
   "alt": "Riders resting on a lookout above Nelson and the West Arm of Kootenay Lake",
+    "caption": "Nelson and Kootenay Lake",
   "standfirst": "Nelson is perched above Kootenay Lake and backed by the Selkirk Mountains, with steep old-school singletrack, big trout and a serious local trail culture."
  },
  "why": {
@@ -146,7 +147,7 @@
      "name": "Svoboda",
      "img": null,
      "alt": null,
-     "text": "Within West Arm Provincial Park, reached by Svoboda Road near the Fairview neighbourhood, this area is famous for boney, mossy and exceptionally steep terrain. Massive rock slabs and high-consequence technical lines define world-renowned trails like Paper Bag. The access is a steady gravel road grind, and the reward is advanced riding with steep rock rolls.",
+     "text": "Within West Arm Provincial Park, reached by Svoboda Road near the Fairview neighborhood, this area is famous for boney, mossy and exceptionally steep terrain. Massive rock slabs and high-consequence technical lines define world-renowned trails like Paper Bag. The access is a steady gravel road grind, and the reward is advanced riding with steep rock rolls.",
      "note": "It is a Provincial Park, so stay strictly on designated paths to protect the sensitive ecosystem."
     },
     {
@@ -227,8 +228,8 @@
      "a": "Yes. Kootenay Lake stays ice-free, and winter is often considered one of the best times for larger trout, as fish move up from deeper water."
     },
     {
-     "q": "What licence do I need to fish near Nelson?",
-     "a": "A valid BC freshwater fishing licence. As of 2026 licences are bought through the WILD system with a Fish and Wildlife ID, for one day, eight days or a year. Nelson is in Region 4: Kootenay, where a single barbless hook is mandatory on all streams and rivers."
+     "q": "What license do I need to fish near Nelson?",
+     "a": "A valid BC freshwater fishing license. As of 2026 licenses are bought through the WILD system with a Fish and Wildlife ID, for one day, eight days or a year. Nelson is in Region 4: Kootenay, where a single barbless hook is mandatory on all streams and rivers."
     },
     {
      "q": "Should I book a fishing charter?",
@@ -251,10 +252,7 @@
    "a": "Yes. The riding areas are active black bear and grizzly bear habitat, so carry bear spray in an accessible place and, whenever possible, ride with a partner."
   }
  ],
- "nearby": [
-  "squamish",
-  "whistler"
- ],
+ "nearby": [],
  "sources": [
   "Nelson.docx",
   "Nelson - fishing.docx"

@@ -2,17 +2,18 @@
  "slug": "victoria",
  "name": "Victoria",
  "region": "island",
- "title": "Victoria, Arc Trips",
+ "title": "Victoria travel guide | ArcTrips",
  "description": "Victoria, BC: the Inner Harbour, Parliament Buildings, whale watching, kayaking, waterfront walks and birdwatching on southern Vancouver Island.",
  "hero": {
   "img": "/prototype/media/victoria/image47.jpg",
   "alt": "The Inner Harbour in Victoria with flower baskets, floating docks and the British Columbia Parliament Buildings",
-  "standfirst": "The capital of British Columbia blends old-world charm with modern beauty, with a scenic harbour, colonial-era buildings, lush gardens and a mild climate."
+    "caption": "Inner Harbour",
+  "standfirst": "The capital of British Columbia blends old-world charm with modern beauty, with a scenic harbor, colonial-era buildings, lush gardens and a mild climate."
  },
  "why": {
-  "h2": "Harbour, history and the outdoors",
+  "h2": "Harbor, history and the outdoors",
   "paras": [
-   "Victoria, the capital of British Columbia, blends old-world charm with modern beauty. Colonial-era buildings and lush gardens surround a scenic harbour, and the Inner Harbour is framed by the Neo-baroque Parliament Buildings and the Fairmont Empress Hotel. It is also the main departure point for whale-watching tours and a classic place to start a kayak paddle.",
+   "Victoria, the capital of British Columbia, blends old-world charm with modern beauty. Colonial-era buildings and lush gardens surround a scenic harbor, and the Inner Harbour is framed by the Neo-baroque Parliament Buildings and the Fairmont Empress Hotel. It is also the main departure point for whale-watching tours and a classic place to start a kayak paddle.",
    "Victoria sits at the southern tip of Vancouver Island, so the outdoors is never far away. Waterfront paths, beaches, forest parks and hilltop viewpoints are close at hand, and the mild coastal climate makes walking and hiking possible through much of the year."
   ],
   "facts": [
@@ -121,14 +122,14 @@
  },
  "tabs": [
   {
-   "id": "things-to-do",
-   "label": "Things to do",
+   "id": "sights",
+   "label": "Sights and landmarks",
    "intro": "Victoria's classic sights cluster around the Inner Harbour, within an easy walk of one another.",
    "places": [
     {
      "name": "Inner Harbour",
      "img": "/prototype/media/victoria/image61.jpg",
-     "alt": "A floatplane taking off from Victoria's harbour",
+     "alt": "A floatplane taking off from Victoria's harbor",
      "text": "Inner Harbour is the heart of Victoria, framed by the Neo-baroque Parliament Buildings and the majestic Fairmont Empress Hotel. Walk the flat causeway to browse artisan stalls and watch street performers, or hop on a Victoria Harbour Ferry water taxi for a view of the skyline from the water. After sunset the Parliament Buildings are outlined in lights.",
      "note": "Downtown parking is pricey and tight. City parkades such as the one on Broughton St give the first hour free."
     },
@@ -143,7 +144,7 @@
      "name": "Fairmont Empress",
      "img": null,
      "alt": null,
-     "text": "The Fairmont Empress is Victoria's luxury landmark, a Chateau-style hotel that has anchored the Inner Harbour since 1908. Afternoon tea in the Lobby Lounge is the signature experience, with exclusive tea blends and hand-crafted pastries. For something more casual, the outdoor Veranda has a front-row seat to the activity of the harbour.",
+     "text": "The Fairmont Empress is Victoria's luxury landmark, a Chateau-style hotel that has anchored the Inner Harbour since 1908. Afternoon tea in the Lobby Lounge is the signature experience, with exclusive tea blends and hand-crafted pastries. For something more casual, the outdoor Veranda has a front-row seat to the activity of the harbor.",
      "note": "Afternoon tea reservations are essential months in advance."
     },
     {
@@ -163,8 +164,8 @@
     {
      "name": "Fisherman's Wharf",
      "img": "/prototype/media/victoria/image25.jpg",
-     "alt": "Colourful floating buildings and kayaks at Fisherman's Wharf",
-     "text": "Fisherman's Wharf is a living marine community of colourful houseboats, seafood kiosks and working fishing vessels. Walk the docks to see the floating homes, watch for harbour seals, and try fish and chips, local oysters or ice cream from the kiosks. It is a 10 to 15 minute scenic walk along the David Foster Way from the Parliament Buildings.",
+     "alt": "Colorful floating buildings and kayaks at Fisherman's Wharf",
+     "text": "Fisherman's Wharf is a living marine community of colorful houseboats, seafood kiosks and working fishing vessels. Walk the docks to see the floating homes, watch for harbor seals, and try fish and chips, local oysters or ice cream from the kiosks. It is a 10 to 15 minute scenic walk along the David Foster Way from the Parliament Buildings.",
      "note": "The float homes are private residences. Stay on the public docks."
     }
    ],
@@ -200,7 +201,7 @@
      "name": "Dallas Road Waterfront Trail",
      "img": "/prototype/media/victoria/image23.jpg",
      "alt": "Driftwood and pebbles on the Dallas Road shoreline",
-     "text": "The Dallas Road Waterfront Trail is an easy 7.1-kilometre route along the city's southern coastline from Ogden Point to Clover Point. The paved path runs above the bluffs with wide, uninterrupted views of the Juan de Fuca Strait, and there are points to head down to Dallas Road Beach. It is especially beautiful at sunset or in storm-watching season.",
+     "text": "The Dallas Road Waterfront Trail is an easy 7.1-kilometer route along the city's southern coastline from Ogden Point to Clover Point. The paved path runs above the bluffs with wide, uninterrupted views of the Juan de Fuca Strait, and there are points to head down to Dallas Road Beach. It is especially beautiful at sunset or in storm-watching season.",
      "note": null
     },
     {
@@ -213,7 +214,7 @@
     {
      "name": "Mount Tolmie Park",
      "img": "/prototype/media/victoria/image19.jpg",
-     "alt": "A view over Victoria's neighbourhoods toward a rocky hill under cloud",
+     "alt": "A view over Victoria's neighborhoods toward a rocky hill under cloud",
      "text": "Mount Tolmie is a drive-up viewpoint with 360-degree views of the Saanich Peninsula, the downtown skyline and the Haro Strait. Short rocky trails circle the summit, and in spring the Garry Oak meadows are carpeted with Camas and Shooting Stars. On a clear day the snow-capped peak of Mount Baker is visible to the east.",
      "note": "The parking lots are free but can fill in the 30 minutes around sunset."
     },
@@ -221,32 +222,32 @@
      "name": "Goldstream Provincial Park",
      "img": "/prototype/media/victoria/image41.jpg",
      "alt": "A gravel path winding through tall evergreen forest",
-     "text": "About 20 minutes from downtown, Goldstream Provincial Park is one of the best places for forest scenery, waterfalls and a bigger hike. Options range from flat riverside walks to the climb toward the Goldstream Trestle, and Niagara Falls drops 47 metres near the trailhead. In late fall the lower trails offer a front-row seat to the salmon run.",
+     "text": "About 20 minutes from downtown, Goldstream Provincial Park is one of the best places for forest scenery, waterfalls and a bigger hike. Options range from flat riverside walks to the climb toward the Goldstream Trestle, and Niagara Falls drops 47 meters near the trailhead. In late fall the lower trails offer a front-row seat to the salmon run.",
      "note": "The salmon run (October to November) is very busy. Aim for a weekday morning to find parking."
     },
     {
      "name": "Galloping Goose Regional Trail",
      "img": null,
      "alt": null,
-     "text": "This 55-kilometre multi-use trail runs from downtown Victoria to the ghost town of Leechtown, following a former railway line. Near the city it is paved and crosses the Selkirk Trestle over the Upper Harbour, while the western stretches become smooth gravel through quiet forests and rocky canyons. It suits a flat, long-distance walk away from motorized traffic.",
-     "note": "Kilometre 0 is at the Johnson Street Bridge in downtown Victoria."
+     "text": "This 55-kilometer multi-use trail runs from downtown Victoria to the ghost town of Leechtown, following a former railway line. Near the city it is paved and crosses the Selkirk Trestle over the Upper Harbour, while the western stretches become smooth gravel through quiet forests and rocky canyons. It suits a flat, long-distance walk away from motorized traffic.",
+     "note": "Kilometer 0 is at the Johnson Street Bridge in downtown Victoria."
     },
     {
      "name": "Thetis Lake Regional Park",
      "img": null,
      "alt": null,
-     "text": "Thetis Lake Regional Park is one of Greater Victoria's most popular choices for a natural trail setting, known for wooded trails, lakeside scenery and easy access to outdoor recreation. The Main Lake Loop is a flat 5-kilometre trail that circles the water and works well for families, dog walkers and anyone after a quick nature escape.",
+     "text": "Thetis Lake Regional Park is one of Greater Victoria's most popular choices for a natural trail setting, known for wooded trails, lakeside scenery and easy access to outdoor recreation. The Main Lake Loop is a flat 5-kilometer trail that circles the water and works well for families, dog walkers and anyone after a quick nature escape.",
      "note": "Thetis Lake fills up fast on sunny weekends. Arrive before 9:00 AM or go on a weekday."
     }
    ],
    "faqs": [
     {
      "q": "What is the best easy walk near the Inner Harbour?",
-     "a": "The Inner Harbour Trail is a flat, paved route of about 5 kilometres past the Parliament Buildings and the Empress Hotel. Extend it to Fisherman's Wharf to see the colourful floating homes and enjoy a snack by the water."
+     "a": "The Inner Harbour Trail is a flat, paved route of about 5 kilometers past the Parliament Buildings and the Empress Hotel. Extend it to Fisherman's Wharf to see the colorful floating homes and enjoy a snack by the water."
     },
     {
      "q": "How long is the Dallas Road waterfront walk?",
-     "a": "The Dallas Road Waterfront Trail is an easy 7.1-kilometre paved route from Ogden Point to Clover Point, with points where you can head down to Dallas Road Beach."
+     "a": "The Dallas Road Waterfront Trail is an easy 7.1-kilometer paved route from Ogden Point to Clover Point, with points where you can head down to Dallas Road Beach."
     },
     {
      "q": "How hard is the hike to the Goldstream Trestle?",
@@ -279,7 +280,7 @@
      "img": null,
      "alt": null,
      "text": "Esquimalt Lagoon is a federal Migratory Bird Sanctuary in Colwood, just west of Victoria, with shallow tidal water, a long beach spit and rich feeding grounds. It is especially important from fall through spring, when swans, ducks, geese, gulls, great blue herons and shorebirds use the lagoon. Easy birdwatching is possible from the roadside.",
-     "note": "Do not feed birds. Feeding wildlife can cause health problems and change natural behaviour."
+     "note": "Do not feed birds. Feeding wildlife can cause health problems and change natural behavior."
     },
     {
      "name": "Clover Point",
@@ -374,7 +375,7 @@
     },
     {
      "q": "What whales can I see from Victoria?",
-     "a": "The big three are orcas, humpbacks and gray whales. You may also see minke whales, harbour seals, sea lions, porpoises and seabirds. No tour can promise a specific species, because this is wildlife, not an aquarium."
+     "a": "The big three are orcas, humpbacks and gray whales. You may also see minke whales, harbor seals, sea lions, porpoises and seabirds. No tour can promise a specific species, because this is wildlife, not an aquarium."
     },
     {
      "q": "What if I do not see a whale?",
@@ -382,7 +383,7 @@
     },
     {
      "q": "Should I choose a covered boat or a Zodiac?",
-     "a": "Covered boats offer more comfort, shelter and a steadier ride, and suit families and older travellers. Open Zodiacs are faster and closer to the water but less ideal if you are sensitive to cold or motion."
+     "a": "Covered boats offer more comfort, shelter and a steadier ride, and suit families and older travelers. Open Zodiacs are faster and closer to the water but less ideal if you are sensitive to cold or motion."
     },
     {
      "q": "Do I need to book ahead?",
@@ -406,22 +407,22 @@
      "name": "Gorge Waterway",
      "img": "/prototype/media/victoria/image52.jpg",
      "alt": "A calm tidal waterway beside a paved path and autumn trees",
-     "text": "The Gorge Waterway is a sheltered tidal inlet with calm, lake-like conditions and one of the best choices for beginners or anyone who wants a relaxed pace. It is excellent for birdwatching, with frequent sightings of herons and other waterfowl, and you can paddle several kilometres inland toward Portage Inlet, passing under historic bridges.",
+     "text": "The Gorge Waterway is a sheltered tidal inlet with calm, lake-like conditions and one of the best choices for beginners or anyone who wants a relaxed pace. It is excellent for birdwatching, with frequent sightings of herons and other waterfowl, and you can paddle several kilometers inland toward Portage Inlet, passing under historic bridges.",
      "note": "Tidal currents can be stronger than expected here. Check a tide table before you go."
     },
     {
      "name": "Brentwood Bay and Tod Inlet",
      "img": null,
      "alt": null,
-     "text": "About 30 minutes north of downtown, this is a favourite for nature lovers. The waters are exceptionally calm, and a paddle into Tod Inlet offers a serene escape with lush forest shorelines and the chance to spot jellyfish, seals and eagles.",
+     "text": "About 30 minutes north of downtown, this is a favorite for nature lovers. The waters are exceptionally calm, and a paddle into Tod Inlet offers a serene escape with lush forest shorelines and the chance to spot jellyfish, seals and eagles.",
      "note": "Large clusters of Moon Jellies often appear in Tod Inlet in late summer."
     },
     {
      "name": "Oak Bay and Cadboro Bay",
      "img": null,
      "alt": null,
-     "text": "For a more coastal feel, these areas offer sandy beaches and views of the Trial Islands. They are great for exploring rocky islets and kelp beds, though they are more exposed to wind than the harbour.",
-     "note": "Harbour porpoises are sometimes seen in the more open waters off Oak Bay."
+     "text": "For a more coastal feel, these areas offer sandy beaches and views of the Trial Islands. They are great for exploring rocky islets and kelp beds, though they are more exposed to wind than the harbor.",
+     "note": "Harbor porpoises are sometimes seen in the more open waters off Oak Bay."
     },
     {
      "name": "Fisherman's Wharf and the Outer Harbour",
@@ -453,11 +454,11 @@
     },
     {
      "q": "Can I rent a kayak downtown?",
-     "a": "Yes. Ocean River's downtown location offers hourly rentals and harbour tours, and Victoria Kayak also offers rentals from the Inner Harbour. Ocean River, Victoria Kayak and Kelp Reef Adventures all run guided tours."
+     "a": "Yes. Ocean River's downtown location offers hourly rentals and harbor tours, and Victoria Kayak also offers rentals from the Inner Harbour. Ocean River, Victoria Kayak and Kelp Reef Adventures all run guided tours."
     },
     {
      "q": "How close can I get to seals and sea lions?",
-     "a": "Keep at least 100 metres away from seals and sea lions. Drift quietly to see otters and herons, and never feed wildlife."
+     "a": "Keep at least 100 meters away from seals and sea lions. Drift quietly to see otters and herons, and never feed wildlife."
     }
    ]
   }
@@ -465,17 +466,14 @@
  "planning": [
   {
    "q": "How do I get to Victoria from Vancouver?",
-   "a": "Skip the long ferry lines at Tsawwassen and take the BC Ferries Connector bus or the Hullo Fast Ferry from downtown Vancouver. A Harbour Air floatplane lands directly in the centre of the Inner Harbour."
+   "a": "Skip the long ferry lines at Tsawwassen and take the BC Ferries Connector bus or the Hullo Fast Ferry from downtown Vancouver. A Harbour Air floatplane lands directly in the center of the Inner Harbour."
   },
   {
    "q": "Is parking easy downtown?",
    "a": "Downtown parking can be pricey and tight. City-run parkades, such as the one on Broughton St, offer the first hour free, which is a better deal than private lots or street meters."
   }
  ],
- "nearby": [
-  "sidney",
-  "sooke"
- ],
+ "nearby": ["sidney", "sooke", "shawnigan-lake"],
  "sources": [
   "Victoria - Agent Trek.docx",
   "Scenic Spots in Victoria.docx",

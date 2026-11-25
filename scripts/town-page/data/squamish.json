@@ -2,11 +2,12 @@
  "slug": "squamish",
  "name": "Squamish",
  "region": "mainland",
- "title": "Squamish, Arc Trips",
+ "title": "Squamish travel guide | ArcTrips",
  "description": "Squamish, BC: the Stawamus Chief, Sea to Sky Gondola, Shannon Falls, mountain biking, climbing and wind sports between Vancouver and Whistler.",
  "hero": {
   "img": "/prototype/media/squamish/image2.jpg",
   "alt": "The Stawamus Chief above the town and the Squamish River",
+    "caption": "The Stawamus Chief",
   "standfirst": "Squamish sits at the north end of Howe Sound, between Vancouver and Whistler, below the granite face of the Stawamus Chief."
  },
  "why": {
@@ -70,7 +71,7 @@
      3,
      11
     ],
-    "note": "One of the longest riding seasons in Canada; fall is a favourite for riders."
+    "note": "One of the longest riding seasons in Canada; fall is a favorite for riders."
    },
    {
     "name": "Rock climbing and water sports",
@@ -119,7 +120,7 @@
    },
    {
     "h": "Fall, September to November",
-    "p": "Fall is cooler and quieter, and a favourite season for riders. Lower trails stay open into November, and late fall brings bald eagles to the Squamish River area."
+    "p": "Fall is cooler and quieter, and a favorite season for riders. Lower trails stay open into November, and late fall brings bald eagles to the Squamish River area."
    },
    {
     "h": "Winter, December to February",
@@ -133,8 +134,8 @@
  },
  "tabs": [
   {
-   "id": "things-to-do",
-   "label": "Things to do",
+   "id": "sights",
+   "label": "Sights and attractions",
    "intro": "Big views with little effort first: the gondola, the suspension bridge, Howe Sound and the winter eagles.",
    "places": [
     {
@@ -354,7 +355,7 @@
      "name": "Rock Climbing",
      "img": "/prototype/media/squamish/image19.jpg",
      "alt": "A climber on a granite face",
-     "text": "Squamish is known as the rock climbing capital of Canada, centred on the Stawamus Chief, a massive 700-metre granite monolith. The area is world-renowned for high-friction granite and flawless cracks, with everything from roadside bouldering to multi-pitch routes. Smoke Bluffs Park is often called the world's best classroom, with hundreds of short, accessible cracks.",
+     "text": "Squamish is known as the rock climbing capital of Canada, centered on the Stawamus Chief, a massive 700-meter granite monolith. The area is world-renowned for high-friction granite and flawless cracks, with everything from roadside bouldering to multi-pitch routes. Smoke Bluffs Park is often called the world's best classroom, with hundreds of short, accessible cracks.",
      "note": "Smoke Bluffs is incredibly popular for guiding and instruction. Arrive before 9:00 AM to secure a classic route."
     },
     {
@@ -409,10 +410,7 @@
    "a": "Yes. Squamish is 45 minutes south of Whistler Blackcomb and is a more relaxed, budget-friendly base. From October 1 to March 31, winter tires are legally required on the Sea-to-Sky Highway."
   }
  ],
- "nearby": [
-  "whistler",
-  "vancouver"
- ],
+ "nearby": ["whistler", "vancouver"],
  "sources": [
   "Top 15 Things to See and Do in Squamish.docx",
   "Best Hikes in Squamish.docx",

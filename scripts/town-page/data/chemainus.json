@@ -2,17 +2,18 @@
   "slug": "chemainus",
   "name": "Chemainus",
   "region": "island",
-  "title": "Chemainus, Arc Trips",
-  "description": "Chemainus, Vancouver Island: a walkable seaside town of outdoor murals, theatre, boutiques, waterfront views and ferries to Thetis Island.",
+  "title": "Chemainus travel guide | ArcTrips",
+  "description": "Chemainus, Vancouver Island: a walkable seaside town of outdoor murals, theater, boutiques, waterfront views and ferries to Thetis Island.",
   "hero": {
     "img": "/prototype/media/chemainus/image9.jpg",
     "alt": "A Chemainus street with a mural on a corner building",
-    "standfirst": "A small seaside town on the east coast of Vancouver Island, known for its colourful murals, historic character and relaxed, walkable pace."
+    "caption": "Downtown Chemainus",
+    "standfirst": "A small seaside town on the east coast of Vancouver Island, known for its colorful murals, historic character and relaxed, walkable pace."
   },
   "why": {
     "h2": "A mural town on the water",
     "paras": [
-      "Nestled on the east coast of Vancouver Island, Chemainus is one of the island's most charming small towns, known for colourful murals, a seaside setting and a welcoming community feel. Once a busy logging town, it has become one of the most distinctive places to visit, where art, history and coastal beauty come together.",
+      "Nestled on the east coast of Vancouver Island, Chemainus is one of the island's most charming small towns, known for colorful murals, a seaside setting and a welcoming community feel. Once a busy logging town, it has become one of the most distinctive places to visit, where art, history and coastal beauty come together.",
       "Chemainus is a place to slow down. It is compact and very walkable, with ocean views, quaint streets, local shops and a small-town atmosphere. It works well for a short stop, but it can just as easily fill a full day."
     ],
     "facts": [
@@ -26,7 +27,7 @@
       },
       {
         "k": "Known for",
-        "v": "Over 40 murals, the Chemainus Theatre Festival, independent galleries and shops, and a harbour waterfront."
+        "v": "Over 40 murals, the Chemainus Theatre Festival, independent galleries and shops, and a harbor waterfront."
       },
       {
         "k": "When to come",
@@ -36,7 +37,7 @@
   },
   "when": {
     "h2": "Murals all year, markets in summer",
-    "intro": "The murals and theatre run year-round, so Chemainus never closes. Summer is busiest, with the Wednesday Market, Music in the Park and the mid-July Giant Street Market. In the shoulder seasons, some shops keep Wednesday to Sunday hours.",
+    "intro": "The murals and theater run year-round, so Chemainus never closes. Summer is busiest, with the Wednesday Market, Music in the Park and the mid-July Giant Street Market. In the shoulder seasons, some shops keep Wednesday to Sunday hours.",
     "rows": [
       {
         "name": "Mural walk",
@@ -100,11 +101,11 @@
       },
       {
         "h": "Fall, September to November",
-        "p": "A good time for the mural circuit, theatre matinees and the BC Forest Discovery Centre in Duncan, known for its Halloween Train."
+        "p": "A good time for the mural circuit, theater matinees and the BC Forest Discovery Centre in Duncan, known for its Halloween Train."
       },
       {
         "h": "Winter, December to February",
-        "p": "The theatre keeps a year-round calendar with holiday-themed specials, and Waterwheel Park is lit with string lights in the holiday season. The Forest Discovery Centre runs a Christmas Express."
+        "p": "The theater keeps a year-round calendar with holiday-themed specials, and Waterwheel Park is lit with string lights in the holiday season. The Forest Discovery Centre runs a Christmas Express."
       },
       {
         "h": "Spring, March to May",
@@ -116,7 +117,7 @@
     {
       "id": "murals-arts",
       "label": "Murals and arts",
-      "intro": "The mural walk anchors a compact arts district of theatre, galleries and a small museum.",
+      "intro": "The mural walk anchors a compact arts district of theater, galleries and a small museum.",
       "places": [
         {
           "name": "Walk the Chemainus Murals",
@@ -158,17 +159,17 @@
         },
         {
           "q": "Can I see a show at the Chemainus Theatre Festival in the afternoon?",
-          "a": "Yes. The theatre offers several afternoon matinees each week, so you can walk the murals in the morning and catch a show after lunch. The combined dinner and show package keeps your table timed to the performance."
+          "a": "Yes. The theater offers several afternoon matinees each week, so you can walk the murals in the morning and catch a show after lunch. The combined dinner and show package keeps your table timed to the performance."
         }
       ]
     },
     {
       "id": "waterfront-outdoors",
       "label": "Waterfront and outdoors",
-      "intro": "Harbour views, a leafy park, nearby trails and a short ferry hop to the Gulf Islands.",
+      "intro": "Harbor views, a leafy park, nearby trails and a short ferry hop to the Gulf Islands.",
       "places": [
         {
-          "name": "Waterfront and harbour views",
+          "name": "Waterfront and harbor views",
           "img": "/prototype/media/chemainus/image3.jpg",
           "alt": "A bench on a lawn looking over the water, with sailboats in the distance",
           "text": "The waterfront gives expansive views of the Stuart Channel and the Gulf Islands. Walk Kinsmen Beach Park, where low tide reveals tidal pools and sandbars, the Municipal Wharf for the fishing fleet, eagles and seals, and the Waterwheel Park viewpoint. Calm water suits kayakers and paddleboarders.",
@@ -220,7 +221,7 @@
           "name": "Chemainus Public Market",
           "img": "/prototype/media/chemainus/image16.jpg",
           "alt": "The Chemainus Public Market building and car park",
-          "text": "An indoor community hub in the centre of town, ideal on a rainy day. Archie's Ice Cream Parlour & Diner serves milkshakes and meals in a 1950s style, Wizard's Arcade has classic games and pinball, and shops include a LEGO specialty store, local lavender products and artisan studios.",
+          "text": "An indoor community hub in the center of town, ideal on a rainy day. Archie's Ice Cream Parlour & Diner serves milkshakes and meals in a 1950s style, Wizard's Arcade has classic games and pinball, and shops include a LEGO specialty store, local lavender products and artisan studios.",
           "note": "9790 Willow St. The main market and diner are open daily; some stalls and the arcade run Wednesday to Sunday."
         },
         {
@@ -234,7 +235,7 @@
           "name": "BC Forest Discovery Centre",
           "img": "/prototype/media/chemainus/image13.jpg",
           "alt": "A rail line crossing a timber trestle in the forest",
-          "text": "A 100-acre open-air museum in Duncan, 17 kilometres from Chemainus. Ride the historic Samson narrow-gauge steam train across a trestle over Somenos Lake, and explore steam donkeys, a restored sawmill, a logging camp and a one-room schoolhouse along the forest trails.",
+          "text": "A 100-acre open-air museum in Duncan, 17 kilometers from Chemainus. Ride the historic Samson narrow-gauge steam train across a trestle over Somenos Lake, and explore steam donkeys, a restored sawmill, a logging camp and a one-room schoolhouse along the forest trails.",
           "note": "2892 Drinkwater Rd. The train runs on a seasonal schedule; the Halloween Train and Christmas Express are popular events."
         }
       ],
@@ -245,11 +246,11 @@
         },
         {
           "q": "What is there to do in Chemainus on a rainy day?",
-          "a": "The Chemainus Public Market is indoors, with a 1950s-style diner, an arcade and shops, and you can spend several hours there. The Chemainus Valley Museum and a theatre matinee also work in wet weather."
+          "a": "The Chemainus Public Market is indoors, with a 1950s-style diner, an arcade and shops, and you can spend several hours there. The Chemainus Valley Museum and a theater matinee also work in wet weather."
         },
         {
           "q": "How far is the BC Forest Discovery Centre?",
-          "a": "It is in Duncan, 17 kilometres from Chemainus, at 2892 Drinkwater Rd. The steam train operates on a seasonal schedule, so arrive at the station early for the next departure."
+          "a": "It is in Duncan, 17 kilometers from Chemainus, at 2892 Drinkwater Rd. The steam train operates on a seasonal schedule, so arrive at the station early for the next departure."
         }
       ]
     }
@@ -260,10 +261,7 @@
       "a": "It works for a short stop but can fill a full day. The mural circuit alone takes two to three hours, with more time for shops, the museum and the waterfront."
     }
   ],
-  "nearby": [
-    "nanaimo",
-    "shawnigan-lake"
-  ],
+  "nearby": ["nanaimo", "shawnigan-lake"],
   "sources": [
     "Chemainus.docx"
   ]

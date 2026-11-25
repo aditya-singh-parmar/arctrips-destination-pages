@@ -2,18 +2,19 @@
   "slug": "sidney",
   "name": "Sidney",
   "region": "island",
-  "title": "Sidney, Arc Trips",
+  "title": "Sidney travel guide | ArcTrips",
   "description": "Sidney-by-the-Sea: The Butchart Gardens, whale watching, Sidney Spit and a walkable Booktown waterfront on the Saanich Peninsula, near Victoria.",
   "hero": {
     "img": "/prototype/media/sidney/image22.jpg",
     "alt": "An aerial view of Sidney's waterfront, pier and marina at sunset",
+    "caption": "Sidney waterfront",
     "standfirst": "A walkable, relaxed seaside town on the northern tip of the Saanich Peninsula, known as Canada's only Booktown, with views across the Salish Sea to the Gulf Islands."
   },
   "why": {
     "h2": "Seaside charm on the Saanich Peninsula",
     "paras": [
       "Set on the northern tip of the Saanich Peninsula, Sidney is one of Vancouver Island's most charming seaside towns. Often called Sidney-by-the-Sea, it is best known for its walkable waterfront, relaxed coastal atmosphere and views across the Salish Sea toward the Gulf Islands. Smaller and quieter than nearby Victoria, it has an easygoing feel with plenty to see and do.",
-      "The town is famously Canada's only Booktown, and its harbourfront is a natural gateway to the Saanich Peninsula and the Gulf Islands. The Butchart Gardens is a must for flower lovers. Sidney has a drier climate than surrounding areas and a similar landscape to Victoria, but is not as busy."
+      "The town is famously Canada's only Booktown, and its harborfront is a natural gateway to the Saanich Peninsula and the Gulf Islands. The Butchart Gardens is a must for flower lovers. Sidney has a drier climate than surrounding areas and a similar landscape to Victoria, but is not as busy."
     ],
     "facts": [
       {
@@ -78,7 +79,7 @@
           5,
           9
         ],
-        "note": "The ferry runs mid-May to Labour Day; book summer weekends."
+        "note": "The ferry runs mid-May to Labor Day; book summer weekends."
       }
     ],
     "crowds": [
@@ -178,8 +179,8 @@
           "name": "Sidney Spit",
           "img": "/prototype/media/sidney/image20.jpg",
           "alt": "A sandy spit and tidal flats seen through trees, with islands beyond",
-          "text": "Sidney Spit is part of the Gulf Islands National Park Reserve, at the northern end of Sidney Island and reached by boat or a seasonal passenger ferry. At low tide a narrow finger of white sand stretches nearly two kilometres into the Salish Sea. Easy trails cross meadows and Douglas fir forest, and the salt marshes are a stopover for migratory shorebirds.",
-          "note": "The ferry leaves from Sidney Pier, typically mid-May to Labour Day. There are no shops or food on the island, so bring supplies."
+          "text": "Sidney Spit is part of the Gulf Islands National Park Reserve, at the northern end of Sidney Island and reached by boat or a seasonal passenger ferry. At low tide a narrow finger of white sand stretches nearly two kilometers into the Salish Sea. Easy trails cross meadows and Douglas fir forest, and the salt marshes are a stopover for migratory shorebirds.",
+          "note": "The ferry leaves from Sidney Pier, typically mid-May to Labor Day. There are no shops or food on the island, so bring supplies."
         },
         {
           "name": "Fishing Trip",
@@ -200,10 +201,10 @@
         },
         {
           "q": "How do I get to Sidney Spit?",
-          "a": "The Sidney Spit Ferry leaves from the Sidney Pier at the foot of Beacon Avenue, typically from mid-May through Labour Day. Book ahead on summer weekends, when tickets often sell out. Private boats can use 15 mooring buoys and a public dock."
+          "a": "The Sidney Spit Ferry leaves from the Sidney Pier at the foot of Beacon Avenue, typically from mid-May through Labor Day. Book ahead on summer weekends, when tickets often sell out. Private boats can use 15 mooring buoys and a public dock."
         },
         {
-          "q": "Do I need a licence to fish in Sidney?",
+          "q": "Do I need a license to fish in Sidney?",
           "a": "Yes. All anglers need a valid BC Tidal Waters Sport Fishing Licence, and a salmon conservation stamp if targeting salmon. Both can be bought online through the Department of Fisheries and Oceans."
         }
       ]
@@ -217,21 +218,21 @@
           "name": "Sidney Waterfront",
           "img": "/prototype/media/sidney/image8.jpg",
           "alt": "A paved waterfront walkway with benches and a pier at sunrise",
-          "text": "The Sidney Waterfront is a scenic stretch along the Salish Sea that blends public art, marine education and nautical history. The centrepiece is a 2.5-kilometre paved walkway, completely flat and barrier-free, with views of the Gulf Islands and Mount Baker. Stops include the Shaw Centre for the Salish Sea aquarium, the Sidney Sculpture Walk and the Sidney Pier.",
+          "text": "The Sidney Waterfront is a scenic stretch along the Salish Sea that blends public art, marine education and nautical history. The centerpiece is a 2.5-kilometer paved walkway, completely flat and barrier-free, with views of the Gulf Islands and Mount Baker. Stops include the Shaw Centre for the Salish Sea aquarium, the Sidney Sculpture Walk and the Sidney Pier.",
           "note": "On Thursday evenings in summer the area becomes a night market with over 100 vendors and live music."
         },
         {
           "name": "Beacon Avenue and Downtown Sidney",
           "img": "/prototype/media/sidney/image17.jpg",
           "alt": "A tree-lined downtown street with shops",
-          "text": "Beacon Avenue is the main street of downtown Sidney, sloping gently from the highway to the Salish Sea, and the centre of Canada's only Booktown. Several independent bookstores sit within a few blocks, from the multi-roomed Tanner's Books to specialty shops for rare and antiquarian titles. The street favours local galleries, boutiques and cafes over major chains.",
+          "text": "Beacon Avenue is the main street of downtown Sidney, sloping gently from the highway to the Salish Sea, and the center of Canada's only Booktown. Several independent bookstores sit within a few blocks, from the multi-roomed Tanner's Books to specialty shops for rare and antiquarian titles. The street favors local galleries, boutiques and cafes over major chains.",
           "note": "In summer the avenue closes to vehicles for the Thursday evening street market."
         }
       ],
       "faqs": [
         {
           "q": "Is the Sidney waterfront walk accessible?",
-          "a": "Yes. The entire 2.5-kilometre walkway is paved, wide and flat, ideal for wheelchairs and strollers, with benches every few hundred metres."
+          "a": "Yes. The entire 2.5-kilometer walkway is paved, wide and flat, ideal for wheelchairs and strollers, with benches every few hundred meters."
         },
         {
           "q": "When is the Sidney night market?",
@@ -256,21 +257,21 @@
           "name": "ȽÁU,WELṈEW̱ / John Dean Provincial Park",
           "img": "/prototype/media/sidney/image2.jpg",
           "alt": "Sunrise light over the Saanich Peninsula and distant islands",
-          "text": "ȽÁU,WELṈEW̱/John Dean Provincial Park sits atop Mount Newton and holds a sacred place in the history of the W̱SÁNEĆ people, whose name for the mountain means place of refuge. About 9 kilometres of trails lead to panoramic viewpoints over the Saanich Peninsula, the Gulf Islands and Saanich Inlet, and through old-growth Douglas fir, some over 400 years old.",
+          "text": "ȽÁU,WELṈEW̱/John Dean Provincial Park sits atop Mount Newton and holds a sacred place in the history of the W̱SÁNEĆ people, whose name for the mountain means place of refuge. About 9 kilometers of trails lead to panoramic viewpoints over the Saanich Peninsula, the Gulf Islands and Saanich Inlet, and through old-growth Douglas fir, some over 400 years old.",
           "note": "The main parking lot can fill early on peak summer weekends. A weekday morning is much quieter."
         },
         {
           "name": "Island View Beach Regional Park",
           "img": null,
           "alt": null,
-          "text": "Island View Beach Regional Park is an expansive coastal park on the eastern shore of the Saanich Peninsula, known for its long sandy shoreline, dune ecosystem and unobstructed views of Haro Strait and the San Juan Islands. A flat, easy trail follows the coast for several kilometres, and salt marshes and dunes make it a hotspot for birders.",
+          "text": "Island View Beach Regional Park is an expansive coastal park on the eastern shore of the Saanich Peninsula, known for its long sandy shoreline, dune ecosystem and unobstructed views of Haro Strait and the San Juan Islands. A flat, easy trail follows the coast for several kilometers, and salt marshes and dunes make it a hotspot for birders.",
           "note": "Check the tide tables before you go. The beach can be windy and exposed, so bring a windbreaker."
         },
         {
           "name": "Lochside Regional Trail",
           "img": "/prototype/media/sidney/image9.jpg",
           "alt": "Cyclists on a wooden trestle bridge on the Lochside Regional Trail",
-          "text": "The Lochside Regional Trail is a 29-kilometre multi-use pathway built on a former railway line, from the Swartz Bay Ferry Terminal in North Saanich to downtown Victoria. It runs along the Sidney waterfront at Tulista Park, passes farm stands and cideries, and crosses the Blenkinsop Lake trestle, with an easy flat grade.",
+          "text": "The Lochside Regional Trail is a 29-kilometer multi-use pathway built on a former railway line, from the Swartz Bay Ferry Terminal in North Saanich to downtown Victoria. It runs along the Sidney waterfront at Tulista Park, passes farm stands and cideries, and crosses the Blenkinsop Lake trestle, with an easy flat grade.",
           "note": "The northern sections in Sidney and North Saanich are mostly paved. Keep to the 20 km/h speed limit."
         },
         {
@@ -292,7 +293,7 @@
         },
         {
           "q": "Where does the Lochside Regional Trail run?",
-          "a": "It runs 29 kilometres from the Swartz Bay Ferry Terminal to downtown Victoria, and links with the Galloping Goose at the Switchbridge. It is flat, good for e-bikes, and mostly paved in Sidney and North Saanich."
+          "a": "It runs 29 kilometers from the Swartz Bay Ferry Terminal to downtown Victoria, and links with the Galloping Goose at the Switchbridge. It is flat, good for e-bikes, and mostly paved in Sidney and North Saanich."
         },
         {
           "q": "When is the best time to see wildflowers at John Dean Provincial Park?",
@@ -315,9 +316,7 @@
       "a": "Yes. Salt Spring Island is an easy day trip from Sidney."
     }
   ],
-  "nearby": [
-    "victoria"
-  ],
+  "nearby": ["victoria", "sooke"],
   "sources": [
     "Sidney.docx"
   ]

@@ -2,18 +2,19 @@
   "slug": "vancouver",
   "name": "Vancouver",
   "region": "mainland",
-  "title": "Vancouver, Arc Trips",
+  "title": "Vancouver travel guide | ArcTrips",
   "description": "Vancouver, BC: Stanley Park, Granville Island, North Shore mountains, museums, beaches and farmers markets in a coastal city.",
   "hero": {
     "img": "/prototype/media/vancouver/image8.jpg",
     "alt": "The False Creek inlet with the downtown Vancouver skyline and mountains behind",
+    "caption": "False Creek and downtown",
     "standfirst": "Vancouver is a coastal city in western Canada where mountains, ocean and a multicultural mix of traditions, arts and cuisines meet."
   },
   "why": {
     "h2": "A city between mountains and sea",
     "paras": [
       "Vancouver is a vibrant coastal city in western Canada known for its stunning natural beauty and diverse culture. It offers a unique blend of urban sophistication and outdoor adventure, making it a top destination for travelers. It stands out as a multicultural hub where visitors can experience a mix of traditions, arts and cuisines from around the world.",
-      "Stanley Park stretches over 400 hectares of West Coast rainforest on the edge of downtown, and the Seawall winds along the waterfront for over 28 kilometres. Grouse Mountain is just 15 minutes from downtown, so a single day can move from city streets to alpine views."
+      "Stanley Park stretches over 400 hectares of West Coast rainforest on the edge of downtown, and the Seawall winds along the waterfront for over 28 kilometers. Grouse Mountain is just 15 minutes from downtown, so a single day can move from city streets to alpine views."
     ],
     "facts": [
       {"k": "Where it is", "v": "A coastal city in western Canada, between Burrard Inlet and False Creek, with the North Shore mountains across the water."},
@@ -49,28 +50,28 @@
           "name": "Stanley Park",
           "img": "/prototype/media/vancouver/image25.jpg",
           "alt": "The Stanley Park Seawall at sunset with a rock outcrop beside the water",
-          "text": "Stanley Park is Vancouver's iconic urban park, over 400 hectares of West Coast rainforest on the edge of downtown. The 8.8-kilometre Seawall circles the peninsula for walking, cycling or rollerblading, with views of the ocean, the North Shore mountains and the Lions Gate Bridge. Brockton Point's totem poles and the Prospect Point lookout are on the route.",
+          "text": "Stanley Park is Vancouver's iconic urban park, over 400 hectares of West Coast rainforest on the edge of downtown. The 8.8-kilometer Seawall circles the peninsula for walking, cycling or rollerblading, with views of the ocean, the North Shore mountains and the Lions Gate Bridge. Brockton Point's totem poles and the Prospect Point lookout are on the route.",
           "note": "To avoid the largest crowds, visit on a weekday or early in the morning. The Seawall bike lane is one-way, counter-clockwise."
         },
         {
           "name": "Granville Island",
           "img": "/prototype/media/vancouver/image15.jpg",
           "alt": "Aerial view of Granville Island with its market buildings, marina and a water taxi",
-          "text": "Granville Island is one of Vancouver's most dynamic cultural districts, just across False Creek from downtown. Its indoor Public Market has over 50 vendors selling Pacific seafood, local cheeses, handmade chocolates and artisanal breads. Galleries, studios, theatres and the Granville Island Brewing Co. fill the rest of the island.",
+          "text": "Granville Island is one of Vancouver's most dynamic cultural districts, just across False Creek from downtown. Its indoor Public Market has over 50 vendors selling Pacific seafood, local cheeses, handmade chocolates and artisanal breads. Galleries, studios, theaters and the Granville Island Brewing Co. fill the rest of the island.",
           "note": "Parking is limited and expensive, so take the Aquabus or False Creek Ferries. On weekdays, arrive before 10:30 AM to miss the heaviest market crowds."
         },
         {
           "name": "Capilano Suspension Bridge",
           "img": "/prototype/media/vancouver/image3.jpg",
           "alt": "Visitors on the curved Cliffwalk at Capilano Suspension Bridge Park among tall evergreens",
-          "text": "Capilano Suspension Bridge Park, first built in 1889, hangs above the Capilano River and the rainforest floor. The bridge spans 137 metres (450 feet) and sways gently 70 metres (230 feet) above the river. The Cliffwalk clings to the granite cliff face with glass-bottomed sections, and Treetops Adventure links seven smaller bridges.",
+          "text": "Capilano Suspension Bridge Park, first built in 1889, hangs above the Capilano River and the rainforest floor. The bridge spans 137 meters (450 feet) and sways gently 70 meters (230 feet) above the river. The Cliffwalk clings to the granite cliff face with glass-bottomed sections, and Treetops Adventure links seven smaller bridges.",
           "note": "A complimentary shuttle runs year-round from downtown Vancouver, with pickups at Canada Place and major hotels."
         },
         {
           "name": "Grouse Mountain",
           "img": "/prototype/media/vancouver/image22.jpg",
           "alt": "A red Skyride gondola above snowy evergreens at sunset on Grouse Mountain",
-          "text": "Grouse Mountain, the Peak of Vancouver, is a year-round alpine playground just 15 minutes from downtown. The Skyride, North America's largest aerial tramway, carries you to the top. The 2.9-kilometre Grouse Grind climbs 800 metres, two orphaned grizzly bears live in a refuge on the mountaintop, and winter brings night skiing, snowshoe trails and a skating pond.",
+          "text": "Grouse Mountain, the Peak of Vancouver, is a year-round alpine playground just 15 minutes from downtown. The Skyride, North America's largest aerial tramway, carries you to the top. The 2.9-kilometer Grouse Grind climbs 800 meters, two orphaned grizzly bears live in a refuge on the mountaintop, and winter brings night skiing, snowshoe trails and a skating pond.",
           "note": "In peak summer a free shuttle often runs from Canada Place."
         },
         {
@@ -84,13 +85,13 @@
           "name": "Canada Place",
           "img": "/prototype/media/vancouver/image26.jpg",
           "alt": "The white sail-shaped roof of Canada Place on the Vancouver waterfront",
-          "text": "Canada Place on the downtown waterfront is recognized by its white sail-like roof, built for Expo 86. It holds a convention centre, the cruise terminal and a hotel. Walk the Canadian Trail along the west promenade, try the FlyOver Canada flight ride, or follow the pier to North Point for 270-degree views of Burrard Inlet and the North Shore mountains.",
+          "text": "Canada Place on the downtown waterfront is recognized by its white sail-like roof, built for Expo 86. It holds a convention center, the cruise terminal and a hotel. Walk the Canadian Trail along the west promenade, try the FlyOver Canada flight ride, or follow the pier to North Point for 270-degree views of Burrard Inlet and the North Shore mountains.",
           "note": "Cruise ships dock and depart here, especially in peak season from May to September."
         }
       ],
       "faqs": [
         {"q": "How do I get to Capilano Suspension Bridge without a car?", "a": "A complimentary shuttle runs year-round from downtown Vancouver, with pickups at Canada Place and major hotels."},
-        {"q": "How do I get up Grouse Mountain?", "a": "Ride the Skyride, North America's largest aerial tramway, or hike the 2.9-kilometre Grouse Grind, which climbs 800 metres. The open-air Peak Chairlift is an extra ride to the true summit, with a 360-degree view that includes Mount Baker on clear days."},
+        {"q": "How do I get up Grouse Mountain?", "a": "Ride the Skyride, North America's largest aerial tramway, or hike the 2.9-kilometer Grouse Grind, which climbs 800 meters. The open-air Peak Chairlift is an extra ride to the true summit, with a 360-degree view that includes Mount Baker on clear days."},
         {"q": "When does the Gastown Steam Clock put on its biggest show?", "a": "On the hour, when a larger burst of steam and a louder chime mark the time. The quarter-hour whistles are charming, but arriving just before the top of the hour gives the most impressive display."},
         {"q": "What is the best way to reach Granville Island?", "a": "The Aquabus or False Creek Ferries from downtown or Kitsilano. You can drive, but parking is very limited and expensive. On weekdays, aim to arrive before 10:30 AM to avoid the heaviest crowds at the Public Market."},
         {"q": "Which way do cyclists ride the Stanley Park Seawall?", "a": "The bike lane is strictly one-way, counter-clockwise, and once you start you must finish the loop or exit via the interior forest trails. Most visitors rent bikes from the shops on Denman Street, just outside the park entrance."}
@@ -133,7 +134,7 @@
           "name": "Vancouver Maritime Museum",
           "img": "/prototype/media/vancouver/image28.jpg",
           "alt": "The A-frame building of the Vancouver Maritime Museum with an anchor in the foreground",
-          "text": "The Vancouver Maritime Museum on False Creek covers naval history, Arctic exploration and local maritime culture. Its centrepiece is the St. Roch, a Royal Canadian Mounted Police schooner that was the first vessel to sail the Northwest Passage from west to east, and visitors can step aboard. A Children's Maritime Discovery Centre and the Heritage Harbour dock sit alongside.",
+          "text": "The Vancouver Maritime Museum on False Creek covers naval history, Arctic exploration and local maritime culture. Its centerpiece is the St. Roch, a Royal Canadian Mounted Police schooner that was the first vessel to sail the Northwest Passage from west to east, and visitors can step aboard. A Children's Maritime Discovery Centre and the Heritage Harbour dock sit alongside.",
           "note": "Quieter and more relaxed than the larger downtown attractions. The False Creek Ferries and Aquabus stop at the Heritage Harbour dock."
         },
         {
@@ -174,22 +175,22 @@
           "name": "Queen Elizabeth Park",
           "img": "/prototype/media/vancouver/image42.jpg",
           "alt": "Quarry garden paths, flower beds and trees in Queen Elizabeth Park",
-          "text": "Queen Elizabeth Park is a 130-acre park at Vancouver's highest point, 125 metres above sea level, with panoramic views of the skyline and the North Shore mountains. A former rock quarry, it now holds the North and South Quarry Gardens and the domed Bloedel Conservatory, home to hundreds of exotic birds and plants. It also has tennis courts, a pitch-and-putt course and lawn bowling.",
+          "text": "Queen Elizabeth Park is a 130-acre park at Vancouver's highest point, 125 meters above sea level, with panoramic views of the skyline and the North Shore mountains. A former rock quarry, it now holds the North and South Quarry Gardens and the domed Bloedel Conservatory, home to hundreds of exotic birds and plants. It also has tennis courts, a pitch-and-putt course and lawn bowling.",
           "note": "Cherry blossoms form a pink canopy in spring and the rose garden peaks in summer. It is a 10 to 15 minute walk from King Edward SkyTrain station."
         },
         {
           "name": "Lynn Canyon Park",
           "img": null,
           "alt": null,
-          "text": "Lynn Canyon Park is a 617-acre temperate rainforest in North Vancouver and a free alternative to nearby paid attractions. The Lynn Canyon Suspension Bridge hangs 50 metres above the canyon floor, the 30 Foot Pool is a natural swimming hole with emerald-green water, and Twin Falls can be viewed from a wooden bridge on an easy loop trail.",
+          "text": "Lynn Canyon Park is a 617-acre temperate rainforest in North Vancouver and a free alternative to nearby paid attractions. The Lynn Canyon Suspension Bridge hangs 50 meters above the canyon floor, the 30 Foot Pool is a natural swimming hole with emerald-green water, and Twin Falls can be viewed from a wooden bridge on an easy loop trail.",
           "note": "Entry and the bridge are free, but parking is metered and the lots often reach capacity by mid-morning on weekends."
         }
       ],
       "faqs": [
         {"q": "When are lifeguards on duty at English Bay Beach?", "a": "The beach is patrolled by lifeguards during the summer season, typically late May to early September. A designated swimming area is marked with buoys to keep swimmers safe from passing watercraft."},
-        {"q": "Do I need to reserve a swim at the Kitsilano Pool?", "a": "Online reservations are often required or highly recommended, because the pool is one of the city's most popular summer attractions. At 137 metres long, it has sections for casual splashing and dedicated lanes for lap swimmers."},
+        {"q": "Do I need to reserve a swim at the Kitsilano Pool?", "a": "Online reservations are often required or highly recommended, because the pool is one of the city's most popular summer attractions. At 137 meters long, it has sections for casual splashing and dedicated lanes for lap swimmers."},
         {"q": "Is Lynn Canyon Park free?", "a": "Entrance to the park and the suspension bridge is free. Parking in the main lots is metered and can be expensive, and the lots often reach capacity by mid-morning on weekends, so take transit or arrive very early."},
-        {"q": "When is Queen Elizabeth Park at its best?", "a": "It is stunning year-round. The rose garden is a highlight in summer, and the cherry blossoms create a pink canopy in spring. The Bloedel Conservatory offers a warm, colourful escape whatever the weather."}
+        {"q": "When is Queen Elizabeth Park at its best?", "a": "It is stunning year-round. The rose garden is a highlight in summer, and the cherry blossoms create a pink canopy in spring. The Bloedel Conservatory offers a warm, colorful escape whatever the weather."}
       ]
     },
     {
@@ -254,6 +255,6 @@
     {"q": "When are Vancouver's attractions least crowded?", "a": "Weekday mornings are best. Stanley Park is quietest on a weekday or early in the morning, the Granville Island market is calmer before 10:30 AM on weekdays, and the Gastown Steam Clock is easiest to photograph early in the morning."},
     {"q": "Should I book tickets in advance?", "a": "For busy attractions, yes. The Vancouver Aquarium uses a timed-entry system, and Science World recommends buying tickets online in advance, especially during school holidays and weekends."}
   ],
-  "nearby": ["whistler", "squamish"],
+  "nearby": ["squamish", "whistler"],
   "sources": ["Vancouver - Agent Trek.docx", "Farmers Markets in Vancouver_.docx"]
 }

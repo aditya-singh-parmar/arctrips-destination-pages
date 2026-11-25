@@ -11,12 +11,77 @@
 const BC = '/destinations/canada/bc';
 const PROV = (prov, town) => `/destinations/canada/${prov}/${town}`;
 
+/* Itinerary slugs, one page each. Keep in step with scripts/itineraries/build.py. */
+const ITINERARIES = [
+  '10-day-british-columbia-road-trip',
+  '14-day-vancouver-island-and-mainland-bc-adventure',
+  '3-day-okanagan-wine-country-getaway',
+  '3-day-ucluelet-fishing-getaway',
+  '3-day-whistler-mountain-biking-trip',
+  '5-day-romantic-vancouver-island-getaway',
+  '5-day-vancouver-island-fishing-road-trip',
+  '5-day-vancouver-island-food-and-seafood-tour',
+  '5-day-vancouver-island-wildlife-adventure',
+  '5-day-whistler-ski-holiday',
+  '7-day-family-road-trip-around-vancouver-island',
+  '7-day-vancouver-island-hiking-trip',
+  '9-day-british-columbia-outdoor-adventure',
+  'five-days-in-the-okanagan',
+  'five-days-of-vancouver-island-mountain-biking',
+  'five-days-on-southern-vancouver-island',
+  'five-days-on-vancouver-island',
+  'four-days-on-the-west-coast',
+  'nine-days-exploring-vancouver-island',
+  'nine-days-in-vancouver-whistler-and-the-okanagan',
+  'one-day-in-kelowna',
+  'one-day-in-tofino',
+  'one-day-in-ucluelet',
+  'one-day-in-vancouver',
+  'one-day-in-victoria',
+  'one-day-in-whistler',
+  'seven-days-from-victoria-to-ucluelet',
+  'seven-days-in-the-okanagan',
+  'seven-days-of-vancouver-island-mountain-biking',
+  'seven-days-on-vancouver-island',
+  'ten-days-from-victoria-to-ucluelet',
+  'three-days-from-squamish-to-whistler',
+  'three-days-in-the-okanagan',
+  'three-days-in-tofino-and-ucluelet',
+  'three-days-in-victoria-and-the-cowichan-valley',
+  'three-days-in-whistler',
+  'three-days-of-vancouver-island-mountain-biking',
+  'three-days-on-southern-vancouver-island',
+  'three-days-on-vancouver-island',
+  'tofino-and-ucluelet-weekend-getaway',
+  'two-days-at-the-pacific-rim-whale-festival',
+  'two-days-from-squamish-to-whistler',
+  'two-days-in-squamish',
+  'two-days-in-the-okanagan',
+  'two-days-in-vancouver',
+  'two-days-in-victoria',
+  'two-days-in-whistler',
+  'two-days-on-the-west-coast',
+  'two-weeks-in-british-columbia-coast-mountains-and-wine-country',
+  'vancouver-and-whistler-in-five-days',
+  'vancouver-to-tofino-and-ucluelet-7-day-road-trip',
+  'vancouver-tofino-and-ucluelet-in-five-days',
+  'vancouver-whistler-and-the-sea-to-sky-highway',
+  'victoria-cowichan-valley-and-nanaimo',
+  'victoria-to-ucluelet-7-day-island-adventure',
+];
+
 export const ROUTES = {
   /* British Columbia is the root of the content tree. PRD: URL Structure and Site
      Taxonomy (Confluence ADS 117735426), "the one rule":
      /{section}/{country}/{province}/{town}/{page-slug}. */
   'index.html': BC,
   'region.html': `${BC}/vancouver-island`,
+  /* Review 2026-11-25: the Mainland region page, a sibling of Vancouver Island. */
+  'mainland.html': `${BC}/mainland`,
+  /* PRD section landing pages (section 7, "Must do"): every town by region, and
+     the travel guides hub that replaces the search page behind the Guides tab. */
+  'destinations.html': '/destinations',
+  'guides.html': '/travel-guides',
   'search.html': '/search',
   'not-found.html': '/not-found',
 
@@ -47,6 +112,9 @@ export const ROUTES = {
   'hiking-ucluelet.html': `${BC}/ucluelet/things-to-do/hiking`,
   'restaurants-ucluelet.html': `${BC}/ucluelet/things-to-do/restaurants`,
   'whale-watching-ucluelet.html': '/whale-watching/canada/bc/ucluelet',
+  /* Review 2026-11-25: fishing and storm watching are Ucluelet activities. */
+  'fishing-ucluelet.html': '/fishing/canada/bc/ucluelet',
+  'storm-watching-ucluelet.html': `${BC}/ucluelet/things-to-do/storm-watching`,
   'kayaking-ucluelet.html': '/kayaking/canada/bc/ucluelet',
   'best-time-ucluelet.html': '/travel-guides/canada/bc/ucluelet/best-time-to-visit',
 
@@ -54,6 +122,9 @@ export const ROUTES = {
      span several towns, so the page sits at province level in the travel-guides
      section (assumption, D-20). */
   'itineraries.html': '/travel-guides/canada/bc/itineraries',
+  /* Review 2026-11-25: one page per itinerary (scripts/itineraries/build.py),
+     under the province-level itineraries page (D-20, D-22). */
+  ...Object.fromEntries(ITINERARIES.map((slug) => [`itinerary-${slug}.html`, `/travel-guides/canada/bc/itineraries/${slug}`])),
 
   /* The other thirteen BC towns */
   'victoria.html': `${BC}/victoria`,
@@ -78,7 +149,6 @@ export const ROUTES = {
    page. */
 export const ALIASES = {
   '/': 'index.html',
-  '/destinations': 'index.html',
 };
 
 /* route -> file, for the QA gates that have to resolve a link back to disk */

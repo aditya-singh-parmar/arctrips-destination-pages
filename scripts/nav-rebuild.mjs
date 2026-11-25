@@ -39,28 +39,29 @@ const SUBJECTS = {
     { slug: 'kayaking',       label: 'Kayaking',           page: 'kayaking-tofino.html' },
     { slug: 'whale-watching', label: 'Whale watching',     page: 'whale-watching.html' },
     { slug: 'storm-watching', label: 'Storm watching',     page: 'storm-watching-tofino.html' },
-    { slug: 'restaurants',    label: 'Restaurants',        page: 'restaurants-tofino.html' },
     { slug: 'surfing',        label: 'Surfing',            page: 'surfing-tofino.html' },
     { slug: 'birding',        label: 'Birding',            page: 'birding-tofino.html' },
     { slug: 'fishing',        label: 'Fishing',            page: 'fishing-tofino.html' },
   ],
+  /* Review 2026-11-25: the reviewer's five Ucluelet activities, in their order.
+     Restaurants are a guide, not an activity, and live under Plan your trip. */
   ucluelet: [
     { slug: 'hiking',         label: 'Hiking & trails',    page: 'hiking-ucluelet.html' },
-    { slug: 'kayaking',       label: 'Kayaking',           page: 'kayaking-ucluelet.html' },
-    { slug: 'whale-watching', label: 'Whale watching',     page: 'whale-watching-ucluelet.html' },
-    { slug: 'restaurants',    label: 'Restaurants',        page: 'restaurants-ucluelet.html' },
+    { slug: 'whale-watching', label: 'Wildlife & whale watching', page: 'whale-watching-ucluelet.html' },
+    { slug: 'fishing',        label: 'Fishing',            page: 'fishing-ucluelet.html' },
+    { slug: 'kayaking',       label: 'Kayaking & paddling', page: 'kayaking-ucluelet.html' },
+    { slug: 'storm-watching', label: 'Storm watching',     page: 'storm-watching-ucluelet.html' },
   ],
 };
 
 /* The town's sections. Areas is deliberately absent. */
 const SECTIONS = {
+  /* Review 2026-11-25: three sections. Plan your trip is the hub for best time
+     to visit, itineraries and guides; the main nav already has Guides. */
   tofino: [
-    { key: 'overview',  label: 'Overview',     href: 'tofino.html' },
-    { key: 'things',    label: 'Things to do', href: 'things-to-do.html' },
-    { key: 'plan',      label: 'Plan',         href: 'plan.html' },
-    { key: 'best',      label: 'Best time to visit', href: 'best-time-tofino.html' },
-    { key: 'trips',     label: 'Itineraries',  href: 'itineraries.html#west-coast' },
-    { key: 'guides',    label: 'Guides',       href: 'guide.html' },
+    { key: 'overview',  label: 'Overview',       href: 'tofino.html' },
+    { key: 'things',    label: 'Things to do',   href: 'things-to-do.html' },
+    { key: 'plan',      label: 'Plan your trip', href: 'plan.html' },
   ],
   /* Ucluelet has no plan or guide page of its own, and its subject index is a
      section of its town page. Offering tabs that lead to Tofino's pages is the
@@ -79,7 +80,9 @@ const PAGES = {
   'tofino.html':                { town: 'tofino',   section: 'overview', self: 'tofino.html',   back: ['region.html', 'Vancouver Island'] },
   'things-to-do.html':          { town: 'tofino',   section: 'things',   self: 'things-to-do.html', back: ['tofino.html', 'Tofino'], rail: true },
   'plan.html':                  { town: 'tofino',   section: 'plan',     self: 'plan.html',     back: ['tofino.html', 'Tofino'] },
-  'guide.html':                 { town: 'tofino',   section: 'guides',   self: 'guide.html',    back: ['tofino.html', 'Tofino'] },
+  'guide.html':                 { town: 'tofino',   section: 'plan',     self: 'guide.html',    back: ['tofino.html', 'Tofino'] },
+  'best-time-tofino.html':      { town: 'tofino',   section: 'plan',     self: 'best-time-tofino.html', back: ['plan.html', 'Plan your trip'] },
+  'restaurants-tofino.html':    { town: 'tofino',   section: 'plan',     self: 'restaurants-tofino.html', back: ['plan.html', 'Plan your trip'] },
   'long-beach.html':            { town: 'tofino',   section: null,       self: 'long-beach.html', back: ['tofino.html', 'Tofino'], area: 'Long Beach' },
 
   'beaches-tofino.html':        { town: 'tofino',   section: 'things', subject: 'beaches',        back: ['things-to-do.html', 'Things to do in Tofino'] },
@@ -87,7 +90,6 @@ const PAGES = {
   'kayaking-tofino.html':       { town: 'tofino',   section: 'things', subject: 'kayaking',       back: ['things-to-do.html', 'Things to do in Tofino'] },
   'whale-watching.html':        { town: 'tofino',   section: 'things', subject: 'whale-watching', back: ['things-to-do.html', 'Things to do in Tofino'] },
   'storm-watching-tofino.html': { town: 'tofino',   section: 'things', subject: 'storm-watching', back: ['things-to-do.html', 'Things to do in Tofino'] },
-  'restaurants-tofino.html':    { town: 'tofino',   section: 'things', subject: 'restaurants',    back: ['things-to-do.html', 'Things to do in Tofino'] },
   'surfing-tofino.html':        { town: 'tofino',   section: 'things', subject: 'surfing',        back: ['things-to-do.html', 'Things to do in Tofino'] },
   'birding-tofino.html':        { town: 'tofino',   section: 'things', subject: 'birding',        back: ['things-to-do.html', 'Things to do in Tofino'] },
   'fishing-tofino.html':        { town: 'tofino',   section: 'things', subject: 'fishing',        back: ['things-to-do.html', 'Things to do in Tofino'] },
@@ -96,7 +98,10 @@ const PAGES = {
   'hiking-ucluelet.html':       { town: 'ucluelet', section: 'things', subject: 'hiking',         back: ['ucluelet.html', 'Ucluelet'] },
   'kayaking-ucluelet.html':     { town: 'ucluelet', section: 'things', subject: 'kayaking',       back: ['ucluelet.html', 'Ucluelet'] },
   'whale-watching-ucluelet.html': { town: 'ucluelet', section: 'things', subject: 'whale-watching', back: ['ucluelet.html', 'Ucluelet'] },
-  'restaurants-ucluelet.html':  { town: 'ucluelet', section: 'things', subject: 'restaurants',    back: ['ucluelet.html', 'Ucluelet'] },
+  'fishing-ucluelet.html':      { town: 'ucluelet', section: 'things', subject: 'fishing',        back: ['ucluelet.html', 'Ucluelet'] },
+  'storm-watching-ucluelet.html': { town: 'ucluelet', section: 'things', subject: 'storm-watching', back: ['ucluelet.html', 'Ucluelet'] },
+  'restaurants-ucluelet.html':  { town: 'ucluelet', section: 'best',   self: 'restaurants-ucluelet.html', back: ['ucluelet.html', 'Ucluelet'] },
+  'best-time-ucluelet.html':    { town: 'ucluelet', section: 'best',   self: 'best-time-ucluelet.html', back: ['ucluelet.html', 'Ucluelet'] },
 };
 
 const TOWN_NAME = { tofino: 'Tofino', ucluelet: 'Ucluelet' };
@@ -206,6 +211,12 @@ for (const file of files) {
     src = src.replace(old[0], '@@BAR@@');
   }
   if (PAGES[file]) links = linksFor(file, PAGES[file]);
+  /* Review 2026-11-25: on a subject page the subject is already on the second
+     line, so the breadcrumb ends at Things to do instead of repeating it. */
+  if (PAGES[file] && PAGES[file].subject && crumbs.length > 1 && !crumbs[crumbs.length - 1].href
+      && /things to do/i.test(crumbs[crumbs.length - 2].label)) {
+    crumbs.pop();
+  }
   if (crumbs.length && crumbs[0].label !== 'British Columbia') crumbs.unshift({ href: '/', label: 'British Columbia' });
   const bar = render({ label, crumbs, links, ids });
   const next = cur ? src.replace(cur[0], bar) : src.replace('@@BAR@@', bar);
