@@ -252,7 +252,7 @@ def render(d, itins):
 <a class="skip" href="#main">Skip to content</a>
 <nav class="top"><div class="wrap nav-in">
   <a class="brand" href="/"><img class="brand__mark" src="/prototype/brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
-  <ul class="nav-links"><li><a href="/" aria-current="true">Destinations</a></li><li><a href="/search?in={slug}">Guides</a></li></ul>
+  <ul class="nav-links"><li><a href="/destinations" aria-current="page">Destinations</a></li><li><a href="/travel-guides">Guides</a></li></ul>
   <form class="search" role="search" action="/search" method="get">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
     <label class="vh" for="q">Search {e(name)}</label>

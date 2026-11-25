@@ -21,6 +21,8 @@ describe("URL contract", () => {
     const SECTIONS = ["destinations", "travel-guides", "whale-watching", "kayaking", "fishing", "blog"];
     for (const [file, route] of entries) {
       if (["/search", "/not-found"].includes(route)) continue; // not location pages
+      // PRD section 7: real landing pages for the sections themselves (review 2026-11-25)
+      if (["/destinations", "/travel-guides"].includes(route)) continue;
       const seg = route.split("/").filter(Boolean);
       const section = seg[0] === "blog" ? seg[1] : seg[0]; // blog/{section}/...
       expect(SECTIONS, `${file} -> ${route}`).toContain(seg[0]);

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Wildlife Tours in Tofino, Arc Trips</title>
+<title>Wildlife Tours in Tofino, ArcTrips</title>
 <meta name="description" content="Whales, bears and seabirds out of Tofino Harbour. What you actually see from the boat, when the boats run, zodiac or covered, where to watch from land, and what to take.">
 <link rel="canonical" href="https://arctrips-destination-pages.vercel.app/blog/whale-watching/canada/bc/tofino/wildlife-tours-in-tofino">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,7 @@
 <link rel="icon" href="/prototype/brand/arctrips-icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/prototype/_system.css">
 <style>
-/* ── Page-scoped only. Tokens from _system.css, no new colour values. ────────
+/* ── Page-scoped only. Tokens from _system.css, no new color values. ────────
       This is the article detail page, rebuilt on the v2 navigation block:
       .crumb in the body, one .placebar as the only sticky row, .jumprow plus
       .jumpbar in the body, two .siblings rails. No hue in the season strip,
@@ -128,7 +128,7 @@ body>.jumpbar{position:fixed;left:0;top:0}
 .prose{--bleed:0px}
 .fig--wide{margin-inline:calc(-1 * var(--bleed));width:calc(100% + 2 * var(--bleed))}
 @media(min-width:1100px){.prose{--bleed:96px}}
-/* the measure sits left of centre, so the page reads asymmetric rather than
+/* the measure sits left of center, so the page reads asymmetric rather than
    like a centred column, and the figures lean out into the space it leaves */
 @media(min-width:1180px){.prose{margin-inline:var(--bleed) auto}}
 .figpair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:clamp(28px,3.4vw,40px)}
@@ -166,7 +166,7 @@ body>.jumpbar{position:fixed;left:0;top:0}
 .yr__col{width:100%;height:clamp(56px,8vw,96px);display:flex;align-items:flex-end;justify-content:center}
 .yr__bar{width:60%;background:rgba(255,255,255,.28);border-radius:3px 3px 0 0;height:var(--h)}
 .yr__b[aria-pressed="true"] .yr__bar{background:var(--a300)}
-/* dark panel: filled is the boats running, empty is not. No colour either way. */
+/* dark panel: filled is the boats running, empty is not. No color either way. */
 .yr__c{width:100%;max-width:32px;height:28px;border-radius:4px;display:grid;place-items:center;font-size:.88rem;font-weight:600;
   background:rgba(255,255,255,.06);color:rgba(255,255,255,.62)}
 .yr__c[data-on]{background:rgba(255,255,255,.14);color:#fff;font-weight:700}
@@ -196,7 +196,7 @@ body>.jumpbar{position:fixed;left:0;top:0}
   font-size:1rem;color:rgba(255,255,255,.82);max-width:60ch}
 /* inline, but padded to a 44px hit area without breaking the sentence */
 .alsoline a{color:var(--paper);font-weight:600;text-decoration:underline;text-underline-offset:3px;padding-block:12px}
-/* the page's prose rules were winning on specificity and turning these two grey on navy */
+/* the page's prose rules were winning on specificity and turning these two gray on navy */
 .almanac .yr__how,.almanac .alsoline{color:rgba(255,255,255,.86)}
 .almanac .alsoline a{color:var(--paper)}
 .exits{display:flex;gap:10px;flex-wrap:wrap;margin-top:clamp(20px,2.6vw,26px)}
@@ -329,8 +329,8 @@ footer.f{margin-top:clamp(48px,5.6vw,80px)}
 <nav class="top"><div class="wrap nav-in">
   <a class="brand" href="/"><img class="brand__mark" src="/prototype/brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
   <ul class="nav-links">
-    <li><a href="/">Destinations</a></li>
-    <li><a href="/search?q=&amp;in=tofino">Guides</a></li>
+    <li><a href="/destinations">Destinations</a></li>
+    <li><a href="/travel-guides" aria-current="page">Guides</a></li>
   </ul>
   <form class="search" role="search" action="/search" method="get">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
@@ -347,10 +347,7 @@ footer.f{margin-top:clamp(48px,5.6vw,80px)}
   <nav class="placebar-in" aria-label="Tofino sections"><ul class="placebar__links">
     <li><a href="/destinations/canada/bc/tofino">Overview</a></li>
     <li><a href="/destinations/canada/bc/tofino/things-to-do">Things to do</a></li>
-    <li><a href="/travel-guides/canada/bc/tofino">Plan</a></li>
-    <li><a href="/travel-guides/canada/bc/tofino/best-time-to-visit">Best time to visit</a></li>
-    <li><a href="/travel-guides/canada/bc/itineraries#west-coast">Itineraries</a></li>
-    <li><a href="#top" aria-current="page">Guides</a></li>
+    <li><a href="/travel-guides/canada/bc/tofino" aria-current="page">Plan your trip</a></li>
   </ul></nav>
 </div></div><!-- /placebar -->
 
@@ -366,7 +363,6 @@ footer.f{margin-top:clamp(48px,5.6vw,80px)}
   <p class="lede">Whales, bears and seabirds. Which tours are worth booking, what you actually see from the boat, and what the shore gives you for free.</p>
 
   <div class="byline">
-    <span class="who2"><b>Marit Sandoval</b></span>
     <span>Four trips out of Tofino Harbour, March to September</span>
     <span>Updated 21 July 2026</span>
     <span id="rtime"></span>
@@ -401,8 +397,8 @@ footer.f{margin-top:clamp(48px,5.6vw,80px)}
 
   <section id="what">
     <h2>What you are actually looking for</h2>
-    <p class="first">Tofino is one of the best places on Vancouver Island to see wild animals. It sits beside Clayoquot Sound, a rich coastal area with ocean, islands, beaches, rainforest and rocky shorelines. Almost everything on a tour boat here comes down to that geography: deep water close in, shallow feeding ground behind the islands, and a harbour you can leave from in almost any weather.</p>
-    <p>Three whales carry most trips. Gray whales come past on migration in spring, humpbacks work the feeding water through summer and into September, and orcas turn up often enough to be worth hoping for and not often enough to be worth planning around. Alongside them you get sea otters, sea lions hauled out on the rocks, harbour seals, river otters, bald eagles, great blue herons and more seabirds than most people expect.</p>
+    <p class="first">Tofino is one of the best places on Vancouver Island to see wild animals. It sits beside Clayoquot Sound, a rich coastal area with ocean, islands, beaches, rainforest and rocky shorelines. Almost everything on a tour boat here comes down to that geography: deep water close in, shallow feeding ground behind the islands, and a harbor you can leave from in almost any weather.</p>
+    <p>Three whales carry most trips. Gray whales come past on migration in spring, humpbacks work the feeding water through summer and into September, and orcas turn up often enough to be worth hoping for and not often enough to be worth planning around. Alongside them you get sea otters, sea lions hauled out on the rocks, harbor seals, river otters, bald eagles, great blue herons and more seabirds than most people expect.</p>
     <p>Bears are a separate trip. Operators run them into the calm inlet water behind town, around Grice Bay, and they are timed to a low tide rather than to a time of day, because that is when black bears come down to turn rocks over on the flats. If you want both, book them on different days. They are not the same boat and they are not the same water.</p>
     <div class="note">
       <b>Good to know</b>
@@ -413,9 +409,9 @@ footer.f{margin-top:clamp(48px,5.6vw,80px)}
   <figure class="fig fig--wide">
     <div class="fig__m">
       <img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_1600,h_1000/guides/tofino/whale-watching/_category-5"
-           alt="Four orcas travelling in a line, dorsal fins above flat green water with dark forest behind them">
+           alt="Four orcas traveling in a line, dorsal fins above flat green water with dark forest behind them">
     </div>
-    <figcaption>Orcas travelling in a line inside the islands. They turn up often enough to hope for, and not often enough to plan a trip around.</figcaption>
+    <figcaption>Orcas traveling in a line inside the islands. They turn up often enough to hope for, and not often enough to plan a trip around.</figcaption>
   </figure>
 
   <section id="season">
@@ -451,11 +447,11 @@ footer.f{margin-top:clamp(48px,5.6vw,80px)}
     <p>This is the only real decision you have to make, and it changes the day more than the operator does.</p>
     <ul>
       <li><b>A covered boat</b> is better for comfort, families and cooler days. There is a heated cabin to retreat into, a washroom, and somewhere to put a camera down. You sit higher, which helps you spot a blow at distance.</li>
-      <li><b>A zodiac</b> is better for travellers who want a faster, more open-air adventure. You are lower, closer to the water and colder, and the boat can turn and hold in places a bigger hull will not. Nobody on a zodiac stays dry in a swell.</li>
+      <li><b>A zodiac</b> is better for travelers who want a faster, more open-air adventure. You are lower, closer to the water and colder, and the boat can turn and hold in places a bigger hull will not. Nobody on a zodiac stays dry in a swell.</li>
       <li><b>A smaller tour or private charter</b> is the photographers' answer, and the answer for a group that wants the skipper's attention rather than a commentary.</li>
     </ul>
     <p>Many tours are about two and a half to three hours, but timing can vary, and the exact length is the operator's to set. There is no perfect time of day either. Morning trips may have calmer water, but wildlife can be active at different times, and a good skipper will chase the report rather than the clock.</p>
-    <p>If you are travelling with someone who gets seasick, take the covered boat and take the tablets before boarding rather than after. The swell out past the islands is longer and slower than it looks from the dock.</p>
+    <p>If you are traveling with someone who gets seasick, take the covered boat and take the tablets before boarding rather than after. The swell out past the islands is longer and slower than it looks from the dock.</p>
   </section>
 
   <div class="figpair">
@@ -478,7 +474,7 @@ footer.f{margin-top:clamp(48px,5.6vw,80px)}
   <section id="shore">
     <h2>Watching from the shore</h2>
     <p>Yes, sometimes whales can be seen from shore. But a guided boat tour gives you a much better chance of seeing whales and learning about them, and it is worth being straight about that before you spend a morning on a headland with binoculars.</p>
-    <p>If you want to try anyway, these are the places on this coast where people actually stand and scan. Six are Tofino beaches, where you get the horizon. Six are down the road on the Ucluelet side, where the rock gets you height over the water. What you are looking for at that range is not a whale. It is a blow, hanging for a second or two against the grey.</p>
+    <p>If you want to try anyway, these are the places on this coast where people actually stand and scan. Six are Tofino beaches, where you get the horizon. Six are down the road on the Ucluelet side, where the rock gets you height over the water. What you are looking for at that range is not a whale. It is a blow, hanging for a second or two against the gray.</p>
 
     <div class="shore" id="shoreList"></div>
 
@@ -506,15 +502,14 @@ footer.f{margin-top:clamp(48px,5.6vw,80px)}
 
     <div class="pull">
       <p>A fluke is not a goodbye. It usually means a deeper dive, and the whale may surface again nearby after several minutes, or come up a long way off.</p>
-      <cite>Marit Sandoval, on the water off Clayoquot Sound</cite>
     </div>
 
-    <p>So when the boat cuts its engine and everyone goes quiet, that is the skipper counting. Gray whales feeding in the shallows will often stay in one patch of water for an hour. Humpbacks travelling will not. The difference between the two is the difference between a five minute stop and the rest of your trip.</p>
+    <p>So when the boat cuts its engine and everyone goes quiet, that is the skipper counting. Gray whales feeding in the shallows will often stay in one patch of water for an hour. Humpbacks traveling will not. The difference between the two is the difference between a five minute stop and the rest of your trip.</p>
 
     <figure class="fig">
       <div class="fig__m">
         <img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_1200,h_750/guides/tofino/whale-watching/_category-7"
-             alt="The mottled grey back of a gray whale surfacing in shallow water a short way off a gravel beach, with a blow above it">
+             alt="The mottled gray back of a gray whale surfacing in shallow water a short way off a gravel beach, with a blow above it">
       </div>
       <figcaption>A gray whale surfacing close in to the beach. Grays feed in shallow water, which is why they are the ones people occasionally get from land.</figcaption>
     </figure>
@@ -538,10 +533,10 @@ footer.f{margin-top:clamp(48px,5.6vw,80px)}
       <li><b>Binoculars.</b> The single biggest upgrade to the day, on the boat and off it.</li>
       <li><b>Motion sickness tablets, taken before boarding.</b> Not after.</li>
       <li><b>A camera you can hold with one hand.</b> The other hand is for the rail.</li>
-      <li><b>Sunglasses, even in the rain.</b> Glare off grey water is what tires your eyes out by hour two.</li>
+      <li><b>Sunglasses, even in the rain.</b> Glare off gray water is what tires your eyes out by hour two.</li>
       <li><b>A national park pass</b> if the same day takes you down to Long Beach, Wickaninnish or Florencia Bay.</li>
     </ul>
-    <p>Whale watching tours are not bookable through Arc Trips yet. Below is where that stands, and where the stays are in the meantime.</p>
+    <p>Whale watching tours are not bookable through ArcTrips yet. Below is where that stands, and where the stays are in the meantime.</p>
   </section>
 
 </div>
@@ -586,7 +581,7 @@ footer.f{margin-top:clamp(48px,5.6vw,80px)}
     <div class="siblings" id="railB"></div>
   </section>
 
-  <!-- topic matched commerce. Whale watching is not live on Arc Trips, so it
+  <!-- topic matched commerce. Whale watching is not live on ArcTrips, so it
        captures an email and falls through to stays. No dead end. -->
   <div class="buy">
     <span class="label">Whale watching, booking status</span>
@@ -635,7 +630,7 @@ footer.f{margin-top:clamp(48px,5.6vw,80px)}
       <a class="slot" href="/search?q=Whale%20Tails%2C%20Blows%2C%20and%20Backs&amp;in=tofino">
         <span class="slot__k">Next in this guide</span>
         <h3>Whale Tails, Blows, and Backs</h3>
-        <p>The follow-on piece: what each surface behaviour means, and why a fluke is not the end of the sighting.</p>
+        <p>The follow-on piece: what each surface behavior means, and why a fluke is not the end of the sighting.</p>
         <span class="slot__go">Read it next
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
       </a>
@@ -649,7 +644,7 @@ footer.f{margin-top:clamp(48px,5.6vw,80px)}
       <a class="slot" href="/search?in=tofino">
         <span class="slot__k">The booking path</span>
         <h3>134 stays in Tofino</h3>
-        <p>Cabins, cottages and chalets within reach of the harbour, from $320 a night before taxes and fees.</p>
+        <p>Cabins, cottages and chalets within reach of the harbor, from $320 a night before taxes and fees.</p>
         <span class="slot__go">Check dates
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
       </a>
@@ -675,11 +670,11 @@ footer.f{margin-top:clamp(48px,5.6vw,80px)}
     <div><h5>Plan</h5><ul>
       <li><a href="/travel-guides/canada/bc/tofino">When to go</a></li><li><a href="/travel-guides/canada/bc/tofino">Getting there</a></li>
       <li><a href="/travel-guides/canada/bc/tofino">What to pack</a></li></ul></div>
-    <div><h5>Arc Trips</h5><ul>
+    <div><h5>ArcTrips</h5><ul>
       <li><a href="/not-found">About us</a></li><li><a href="/not-found">List your place</a></li>
       <li><a href="/fishing/canada/bc/tofino">Fishing charters</a></li><li><a href="/not-found">Contact</a></li></ul></div>
   </div>
-  <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees</span></div>
+  <div class="fbase"><span>&copy; 2026 ArcTrips</span></div>
 </div></footer>
 
 
@@ -751,7 +746,7 @@ const DATA = {
      b:"Wickaninnish Beach is in Pacific Rim National Park Reserve, closer to the Ucluelet side of the Long Beach area. It is one of the best places near Tofino for big ocean views and storm watching.",
      g:["Storm watching","Big ocean views","Photography","Sunset watching","Learning about the coast","Kwisitis Visitor Centre"],
      note:"This beach can feel very open and exposed. Stay far back from the water during storms and high tide.",
-     alt:"The exposed open shoreline at Wickaninnish Beach under grey cloud"},
+     alt:"The exposed open shoreline at Wickaninnish Beach under gray cloud"},
     {town:"Tofino",n:"Tonquin Beach",href:"/destinations/canada/bc/tofino/things-to-do/beaches",hero:"guides/tofino/beaches/tonquin-beach-1",
      b:"Tonquin Beach is a smaller beach close to the village of Tofino. You reach it by walking a short forest trail. It feels quieter and more hidden than the big surf beaches.",
      g:["Short walks","Quiet beach time","Picnics","Sunset views","Forest and beach scenery"],
@@ -775,7 +770,7 @@ const DATA = {
     {town:"Ucluelet",n:"Ucluelet Harbour",href:"/whale-watching/canada/bc/ucluelet",hero:"guides/ucluelet/whale-watching/ucluelet-harbour-1",
      b:"Ucluelet Harbour is a good place to look for wildlife close to town. You may see seals, eagles, gulls, cormorants, river otters and shorebirds.",
      g:["Easy wildlife watching","Boat tour departures","Seals","Eagles","River otters","Harbour birds"],
-     note:"Watch for boat traffic and keep a safe distance from docks and working harbour areas.",
+     note:"Watch for boat traffic and keep a safe distance from docks and working harbor areas.",
      alt:"Fishing boats tied up in Ucluelet Harbour"},
     {town:"Ucluelet",n:"Barkley Sound",href:"/whale-watching/canada/bc/ucluelet",hero:"guides/ucluelet/whale-watching/barkley-sound-1",
      b:"Barkley Sound is one of the top wildlife watching areas near Ucluelet, reached by guided boat or by kayak.",
@@ -836,7 +831,7 @@ const DATA = {
      alt:"A small boat crossing open water past a forested islet, with a mountain standing in the fog behind"},
     {n:"Whale Watching in Ucluelet",m:"Ucluelet",k:"Guide",
      hero:"guides/ucluelet/whale-watching/_category-3",
-     alt:"Two orcas travelling together along a low shoreline near Ucluelet"},
+     alt:"Two orcas traveling together along a low shoreline near Ucluelet"},
     {n:"Whale watching FAQs, Ucluelet",m:"Ucluelet",k:"Questions",
      hero:"guides/ucluelet/whale-watching/_category-4",
      alt:"An orca surfacing beside a red inflatable boat carrying passengers"},
@@ -897,7 +892,7 @@ function paintYear() {
   $("#yr").innerHTML = DATA.climate.map((c,i) => {
     const m = i + 1, on = ON.has(m);
     return `<button class="yr__b" type="button" data-m="${m}" aria-pressed="${m === month}"
-      aria-label="${MON[i]}. Tours ${on ? "run" : "do not run"} this month. ${c.mm} millimetres of rain.">
+      aria-label="${MON[i]}. Tours ${on ? "run" : "do not run"} this month. ${c.mm} millimeters of rain.">
       <span class="yr__col"><span class="yr__bar" style="--h:${(c.mm / max * 100).toFixed(1)}%"></span></span>
       <span class="yr__c" ${on ? "data-on" : ""}>${MON[i][0]}</span>
     </button>`;
@@ -924,11 +919,11 @@ function paintWhen() {
 
   document.querySelectorAll(".yr__b").forEach((b) =>
     b.setAttribute("aria-pressed", String(Number(b.dataset.m) === month)));
-  centre($("#yr"), $(`.yr__b[data-m="${month}"]`));
+  center($("#yr"), $(`.yr__b[data-m="${month}"]`));
 }
 
 /* the year strip scrolls on a phone, so the chosen month is pulled into view */
-function centre(bar, cur){
+function center(bar, cur){
   if (!bar || !cur || bar.scrollWidth <= bar.clientWidth) return;
   const c = cur.getBoundingClientRect() , b = bar.getBoundingClientRect() ;
   const delta = (c.left - b.left) - (b.width - c.width) / 2;

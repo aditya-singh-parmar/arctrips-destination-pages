@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Whale watching in Ucluelet, Arc Trips</title>
+<title>Whale and wildlife watching in Ucluelet | ArcTrips</title>
 <meta name="description" content="Gray whales north from March, humpbacks through the summer, orcas whenever the water allows. Four places to watch from shore in Ucluelet, two that need a boat, and when each whale is here.">
 <link rel="canonical" href="https://arctrips-destination-pages.vercel.app/whale-watching/canada/bc/ucluelet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="/prototype/_system.css">
 <style>
 /* Page-scoped only. Every value comes from _system.css tokens: no new hue, no
-   hardcoded colour, no emerald (emerald is the season signal elsewhere). */
+   hardcoded color, no emerald (emerald is the season signal elsewhere). */
 :focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:var(--r-sm)}
 .btn,.nav-links a{min-height:44px;display:inline-flex;align-items:center}
 .crumb a{min-height:44px;display:inline-flex;align-items:center}
@@ -122,6 +122,26 @@ main [id]{scroll-margin-top:176px}
 .plain{margin-top:clamp(24px,3vw,34px);border-left:2px solid var(--a300);padding-left:14px;
   color:var(--n600);font-size:.96rem;line-height:1.6;max-width:74ch}
 .plain b{color:var(--navy);font-weight:700}
+
+/* review 2026-11-25: wildlife by place and season, from the Ucluelet wildlife guide */
+.wl{margin-top:clamp(34px,4vw,52px);border-top:2px solid var(--navy);padding-top:clamp(20px,2.4vw,28px)}
+.wl h2{font-size:clamp(1.5rem,2.6vw,2rem);letter-spacing:-.03em}
+.wl__dek{color:var(--n600);margin-top:10px;max-width:62ch;line-height:1.55}
+.wl__scroll{overflow-x:auto;margin-top:18px}
+.wl__t{width:100%;border-collapse:collapse;min-width:560px;font-size:.95rem}
+.wl__t th,.wl__t td{text-align:left;padding:12px 14px 12px 0;border-bottom:1px solid var(--n150);vertical-align:top;line-height:1.5}
+.wl__t thead th{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--n600)}
+.wl__t tbody th{font-weight:700;color:var(--navy);white-space:nowrap}
+.wl__t td{color:var(--n700)}
+.wl__t tbody tr:hover{background:var(--n50)}
+.wl__h3{font-size:1.05rem;margin-top:clamp(24px,3vw,34px)}
+.wl__s{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--n150);border:1px solid var(--n150);border-radius:var(--r);overflow:hidden;margin-top:12px}
+.wl__s div{background:var(--paper);padding:16px 18px}
+.wl__s dt{font-weight:700;color:var(--navy)}
+.wl__s dt span{display:block;font-size:.82rem;font-weight:600;color:var(--n600);margin-top:2px}
+.wl__s dd{color:var(--n700);font-size:.93rem;line-height:1.5;margin-top:8px}
+@media(max-width:900px){.wl__s{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.wl__s{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -130,8 +150,8 @@ main [id]{scroll-margin-top:176px}
 <nav class="top"><div class="wrap nav-in">
   <a class="brand" href="/"><img class="brand__mark" src="/prototype/brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
   <ul class="nav-links">
-    <li><a href="/">Destinations</a></li>
-    <li><a href="/destinations/canada/bc/vancouver-island">Vancouver Island</a></li>
+    <li><a href="/destinations" aria-current="page">Destinations</a></li>
+    <li><a href="/travel-guides">Guides</a></li>
   </ul>
   <form class="search" role="search" action="/search" method="get">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
@@ -142,12 +162,13 @@ main [id]{scroll-margin-top:176px}
   </form>
 </div></nav>
 <div class="placebar placebar--two" aria-label="Ucluelet"><div class="wrap">
-  <nav class="crumb placebar__crumb" aria-label="Breadcrumb"><a class="lvl-deep" href="/">British Columbia</a><span class="sep lvl-deep" aria-hidden="true">/</span><a class="lvl-deep" href="/destinations/canada/bc/vancouver-island">Vancouver Island</a><span class="sep lvl-deep" aria-hidden="true">/</span><a class="lvl-deep" href="/destinations/canada/bc/ucluelet">Ucluelet</a><span class="sep lvl-deep" aria-hidden="true">/</span><a href="/destinations/canada/bc/ucluelet#do">Things to do</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Whale watching</span></nav>
+  <nav class="crumb placebar__crumb" aria-label="Breadcrumb"><a class="lvl-deep" href="/">British Columbia</a><span class="sep lvl-deep" aria-hidden="true">/</span><a class="lvl-deep" href="/destinations/canada/bc/vancouver-island">Vancouver Island</a><span class="sep lvl-deep" aria-hidden="true">/</span><a href="/destinations/canada/bc/ucluelet">Ucluelet</a><span class="sep" aria-hidden="true">/</span><a href="/destinations/canada/bc/ucluelet#do">Things to do</a></nav>
   <nav class="placebar-in" aria-label="Ucluelet sections"><ul class="placebar__links">
     <li><a href="/destinations/canada/bc/ucluelet/things-to-do/hiking">Hiking &amp; trails</a></li>
-    <li><a href="/kayaking/canada/bc/ucluelet">Kayaking</a></li>
-    <li><a href="#top" aria-current="page">Whale watching</a></li>
-    <li><a href="/destinations/canada/bc/ucluelet/things-to-do/restaurants">Restaurants</a></li>
+    <li><a href="#top" aria-current="page">Wildlife &amp; whale watching</a></li>
+    <li><a href="/fishing/canada/bc/ucluelet">Fishing</a></li>
+    <li><a href="/kayaking/canada/bc/ucluelet">Kayaking &amp; paddling</a></li>
+    <li><a href="/destinations/canada/bc/ucluelet/things-to-do/storm-watching">Storm watching</a></li>
   </ul></nav>
 </div></div><!-- /placebar -->
 <main id="main">
@@ -157,8 +178,8 @@ main [id]{scroll-margin-top:176px}
   <div class="chero__v"></div>
   <div class="chero__in"><div class="wrap">
     <span class="label" style="color:var(--a200)">Ucluelet, Vancouver Island</span>
-    <h1>Whale watching in Ucluelet</h1>
-    <p>Gray whales heading north from March, humpbacks through the summer, orcas whenever the water allows. Four of the six places to watch from are free and on foot.</p>
+    <h1>Whale and wildlife watching in Ucluelet</h1>
+    <p>Gray whales heading north from March, humpbacks through the summer, and black bears, sea lions, sea otters and bald eagles all through the year. Most of the places to watch from are free and on foot.</p>
     <dl class="cfacts">
       <div><dt>Season</dt><dd class="tnum">Mar to Oct</dd></div>
       <div><dt>From shore</dt><dd class="tnum">4</dd></div>
@@ -167,10 +188,10 @@ main [id]{scroll-margin-top:176px}
     </dl>
   </div></div>
 </header>
-<section class="sec" style="padding-bottom:clamp(30px,3vw,44px)"><div class="wrap">
+<section class="sec" style="padding-top:clamp(26px,3vw,40px);padding-bottom:clamp(30px,3vw,44px)"><div class="wrap">
   <div class="standfirst">
     <p><b>Ucluelet sits on the short run to Barkley Sound</b>, the Broken Group Islands and the open Pacific, which is why a town of this size has a whale watching fleet at all. Gray whales pass on their way north from the calving lagoons in Baja California toward Alaska. Humpbacks stay to feed. Orcas turn up when they turn up, and nobody sells you a guarantee on the third.</p>
-    <p>The same water holds sea lions, harbour seals, sea otters and bald eagles all year, which is why a day from shore is rarely wasted even out of season.</p>
+    <p>The same water holds sea lions, harbor seals, sea otters and bald eagles all year, which is why a day from shore is rarely wasted even out of season.</p>
   </div>
   <div class="mband">
     <div class="mrow">
@@ -195,7 +216,17 @@ main [id]{scroll-margin-top:176px}
     </div>
     <p class="mkey"><i data-i="2"></i>Most likely<i data-i="1"></i>Possible<i></i>Not here</p>
   </div>
-  <p class="plain"><b>Whale watching is not bookable on Arc Trips yet.</b> We are signing operators in Ucluelet and Tofino and will not list one until we have been out on the boat. The stays are live now.</p>
+    <p class="plain"><b>Whale watching tours will be bookable on ArcTrips soon.</b></p>
+  <div class="wl" id="wildlife">
+    <h2>What you can see, where, and when</h2>
+    <p class="wl__dek">The wildlife around Ucluelet, where to look and the best time or tip for each, from our Ucluelet wildlife guide.</p>
+    <div class="wl__scroll"><table class="wl__t">
+      <thead><tr><th scope="col">Wildlife</th><th scope="col">Where to look</th><th scope="col">Best time or tip</th></tr></thead>
+      <tbody><tr><th scope="row">Gray whales</th><td>Offshore, Wild Pacific Trail, boat tours</td><td>Spring migration is a good time</td></tr><tr><th scope="row">Humpback whales</th><td>Barkley Sound, boat tours</td><td>Often seen in warmer months and into fall</td></tr><tr><th scope="row">Orcas</th><td>Offshore waters, boat tours</td><td>Possible but less predictable</td></tr><tr><th scope="row">Black bears</th><td>Quiet shorelines, boat bear tours</td><td>Mid to low tide is often best</td></tr><tr><th scope="row">Sea lions</th><td>Rocky haul-outs, boat tours, coast views</td><td>Often seen most of the year</td></tr><tr><th scope="row">Harbor seals</th><td>Harbor, rocks, kelp areas</td><td>Common and easy to spot</td></tr><tr><th scope="row">Sea otters</th><td>Barkley Sound, island waters</td><td>Better from boat or kayak tours</td></tr><tr><th scope="row">River otters</th><td>Harbor, docks, rocky shorelines</td><td>Watch quietly near shore</td></tr><tr><th scope="row">Bald eagles</th><td>Tall trees, harbor, coast trails</td><td>Common year-round</td></tr><tr><th scope="row">Great blue herons</th><td>Shorelines, harbor, calm bays</td><td>Look in shallow water</td></tr><tr><th scope="row">Shorebirds</th><td>Beaches, mudflats, tide line</td><td>Best at low tide, spring and fall migration</td></tr><tr><th scope="row">Seabirds</th><td>Offshore rocks, islands, boat tours</td><td>Bring binoculars or take a tour</td></tr></tbody>
+    </table></div>
+    <h3 class="wl__h3">By season</h3>
+    <dl class="wl__s"><div><dt>Spring</dt><dd>Gray whales, shorebirds, bald eagles, black bears, seals, sea lions</dd></div><div><dt>Summer</dt><dd>Humpback whales, gray whales, sea lions, seals, sea otters, eagles, black bears</dd></div><div><dt>Fall</dt><dd>Humpback whales, sea lions, seals, eagles, migrating birds, quieter tours</dd></div><div><dt>Winter</dt><dd>Bald eagles, sea lions, seals, sea ducks, loons, grebes, storm watching with wildlife views</dd></div></dl>
+  </div>
 </div></section>
 <section class="sec" style="padding-top:0"><div class="wrap">
   <div class="grp" id="shore">
@@ -234,7 +265,7 @@ main [id]{scroll-margin-top:176px}
       <p>Ucluelet Harbour is a good place to look for wildlife close to town. You may see seals, eagles, gulls, cormorants, river otters, and shorebirds.</p>
       <p>This is also where many wildlife and whale watching tours depart.</p>
       <p class="gfline"><span>Good for</span>Easy wildlife watching · Boat tour departures · Seals · Eagles · River otters · Harbour birds</p>
-      <p class="note"><b>Good to know.</b> Watch for boat traffic and keep a safe distance from docks and working harbour areas.</p>
+      <p class="note"><b>Good to know.</b> Watch for boat traffic and keep a safe distance from docks and working harbor areas.</p>
     </div>
   </li>
   <li class="pl">
@@ -252,7 +283,7 @@ main [id]{scroll-margin-top:176px}
   </ol>
   <div class="grp" id="boat">
     <h2>By boat</h2>
-    <p class="grp__s">Two areas you cannot reach on foot, and where most of the whales are. Tours run March to October out of the harbour, about two and a half to three hours.</p>
+    <p class="grp__s">Two areas you cannot reach on foot, and where most of the whales are. Tours run March to October out of the harbor, about two and a half to three hours.</p>
   </div>
   <ol class="places">
   <li class="pl">
@@ -306,25 +337,25 @@ main [id]{scroll-margin-top:176px}
     <details class="faq"><summary>Where is the best place to see whales from shore in Ucluelet?</summary><p>The Wild Pacific Trail and Amphitrite Point Lighthouse area are among the best shore-based places to scan for whales. Bring binoculars.</p><cite>Whale watching FAQs, Ucluelet</cite></details>
   </div>
 </div></section>
-<section class="sec" style="padding-top:0"><div class="wrap">
+<section class="sec" style="padding-top:0;padding-bottom:clamp(36px,4vw,56px)"><div class="wrap">
   <span class="label label--n">Keep going</span>
   <div class="kg">
-    <a href="/search?q=Whale%20Watching%20Tours%20in%20Ucluelet&in=ucluelet">
+    <a href="/travel-guides/canada/bc/ucluelet/best-time-to-visit">
       <figure><img loading="lazy" src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_640,h_400/guides/ucluelet/whale-watching/_category-2" alt="A small tour boat heading out past a misted island off Ucluelet"></figure>
-      <div><h3>Whale Watching Tours in Ucluelet</h3><p>Covered boat or zodiac, how long you are out, and what to ask an operator before you book.</p><span class="go">Find it in Ucluelet guides</span></div>
+      <div><h3>Best time to visit Ucluelet</h3><p>Month by month: when the gray whales pass, when the humpbacks feed, and when the festival is on.</p><span class="go">Open the month guide</span></div>
     </a>
     <a href="/kayaking/canada/bc/ucluelet">
       <figure><img loading="lazy" src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_640,h_400/guides/ucluelet/kayaking/_category-1" alt="Two kayaks on flat water below a forested hillside near Ucluelet"></figure>
       <div><h3>Kayaking in Ucluelet</h3><p>The same water at eye level: Barkley Sound and the Broken Group Islands by paddle.</p><span class="go">Open the kayaking page</span></div>
     </a>
-    <a href="/not-found?in=ucluelet">
-      <figure><img loading="lazy" src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_640,h_400/arc-trips/founding-key" alt="A room key with a leather fob on the bed of an Arc Trips stay"></figure>
-      <div><h3>Stays in Ucluelet</h3><p>Rooms and cabins a few minutes from the harbour the boats leave from.</p><span class="go">See stays in Ucluelet</span></div>
+    <a href="https://arctrips.com/stays/canada/bc/ucluelet">
+      <figure><img loading="lazy" src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_640,h_400/arc-trips/founding-key" alt="A room key with a leather fob on the bed of an ArcTrips stay"></figure>
+      <div><h3>Stays in Ucluelet</h3><p>Rooms and cabins a few minutes from the harbor the boats leave from.</p><span class="go">See stays in Ucluelet</span></div>
     </a>
   </div>
 </div></section>
 </main>
-<footer class="f"><div class="wrap fbase">&copy; 2026 Arc Trips. Prices in CAD, before taxes and fees.</div></footer>
+<footer class="f"><div class="wrap fbase">&copy; 2026 ArcTrips</div></footer>
 <script src="/prototype/_nav.js"></script>
 </body>
 </html>

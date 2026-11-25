@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="/prototype/_system.css">
 <style>
 /* Page-scoped only. Every value comes from _system.css tokens: no new hue, no
-   hardcoded colour, no emerald (emerald is the season signal elsewhere). */
+   hardcoded color, no emerald (emerald is the season signal elsewhere). */
 :focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:var(--r-sm)}
 .btn,.nav-links a{min-height:44px;display:inline-flex;align-items:center}
 .crumb a{min-height:44px;display:inline-flex;align-items:center}
@@ -131,8 +131,8 @@ main [id]{scroll-margin-top:176px}
 <nav class="top"><div class="wrap nav-in">
   <a class="brand" href="/"><img class="brand__mark" src="/prototype/brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
   <ul class="nav-links">
-    <li><a href="/">Destinations</a></li>
-    <li><a href="/destinations/canada/bc/vancouver-island">Vancouver Island</a></li>
+    <li><a href="/destinations" aria-current="page">Destinations</a></li>
+    <li><a href="/travel-guides">Guides</a></li>
   </ul>
   <form class="search" role="search" action="/search" method="get">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.7"/></svg>
@@ -284,7 +284,7 @@ main [id]{scroll-margin-top:176px}
   </div>
 </div></section>
 </main>
-<footer class="f"><div class="wrap fbase">&copy; 2026 Arc Trips. Prices in CAD, before taxes and fees.</div></footer>
+<footer class="f"><div class="wrap fbase">&copy; 2026 ArcTrips</div></footer>
 <script src="/prototype/_nav.js"></script>
 </body>
 </html>

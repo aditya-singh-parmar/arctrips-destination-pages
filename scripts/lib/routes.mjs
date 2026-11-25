@@ -144,9 +144,8 @@ export const ROUTES = {
 
 /* Extra URLs that serve a page without being its canonical address. Rewrites,
    not redirects (the PRD forbids redirects), and the page's canonical tag names
-   the real route. The prototype's own root and the PRD's /destinations section
-   both show the British Columbia index until the real build gives each its own
-   page. */
+   the real route. The prototype's own root shows the British Columbia index.
+   /destinations is its own page since review 2026-11-25. */
 export const ALIASES = {
   '/': 'index.html',
 };
