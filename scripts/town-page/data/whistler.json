@@ -2,11 +2,12 @@
  "slug": "whistler",
  "name": "Whistler",
  "region": "mainland",
- "title": "Whistler, Arc Trips",
+ "title": "Whistler travel guide | ArcTrips",
  "description": "Whistler, BC: skiing and snowboarding, the Peak 2 Peak Gondola, hiking, mountain biking, lakes and a walkable village in the Coast Mountains.",
  "hero": {
   "img": "/prototype/media/whistler/image12.jpg",
   "alt": "Ski runs above Whistler Village lit up at dusk",
+    "caption": "Whistler Village",
   "standfirst": "Whistler is a mountain resort town in British Columbia's Coast Mountains, known for Whistler Blackcomb, a walkable village, and hiking, biking and lake days in summer."
  },
  "why": {
@@ -114,8 +115,8 @@
  },
  "tabs": [
   {
-   "id": "things-to-do",
-   "label": "Things to do",
+   "id": "sights",
+   "label": "Sights and attractions",
    "intro": "The first-time list: gondola views, the village, culture and a spa day, in any season.",
    "places": [
     {
@@ -476,9 +477,7 @@
    "a": "It can be, especially for hotels, lift tickets, restaurants and tours, and prices are highest during holidays, weekends and peak ski dates. Visit midweek, avoid Christmas and New Year, and book early to save."
   }
  ],
- "nearby": [
-  "vancouver"
- ],
+ "nearby": ["squamish", "vancouver"],
  "sources": [
   "Top Things to See and Do in Whistler.docx",
   "Best Hikes in Whistler.docx",

@@ -2,18 +2,19 @@
  "slug": "campbell-river",
  "name": "Campbell River",
  "region": "island",
- "title": "Campbell River, Arc Trips",
+ "title": "Campbell River travel guide | ArcTrips",
  "description": "Campbell River on Vancouver Island: whale watching, salmon fishing, Elk Falls, Strathcona Provincial Park and Quadra Island around Discovery Passage.",
  "hero": {
   "img": "/prototype/media/campbell-river/image11.jpg",
   "alt": "Campbell River waterfront and marina seen from the water",
+    "caption": "Campbell River waterfront",
   "standfirst": "A coastal outdoor hub on the east coast of Vancouver Island, where forest meets the sea, known for whales, salmon fishing and easy trips to waterfalls and mountains."
  },
  "why": {
   "h2": "Where forest meets the sea",
   "paras": [
    "Set on the east coast of Vancouver Island, where dense coastal forest meets the sea, Campbell River is built for adventure. The water is never far away, and something wild is always just beyond town: whales offshore, waterfalls inland, and mountain and ocean views in between. Wildlife tours, fishing, hiking and water-based adventure all play a big part.",
-   "It is promoted as the Salmon Capital of the World because its waters support all five Pacific salmon species, and the town built an international reputation for sport fishing, especially for giant Chinook known as Tyee. The Tyee Club was founded in 1924. It suits families after easy outdoor fun as well as travellers chasing bigger adventures."
+   "It is promoted as the Salmon Capital of the World because its waters support all five Pacific salmon species, and the town built an international reputation for sport fishing, especially for giant Chinook known as Tyee. The Tyee Club was founded in 1924. It suits families after easy outdoor fun as well as travelers chasing bigger adventures."
   ],
   "facts": [
    {
@@ -146,20 +147,20 @@
      "name": "Discovery Fishing Pier",
      "img": "/prototype/media/campbell-river/image5.jpg",
      "alt": "Fishing rods lined along the Discovery Fishing Pier",
-     "text": "Canada's first saltwater fishing pier stretches 180 metres into Discovery Passage. You do not need a boat: people catch Chinook and Coho from the pier, and rods and tackle can be rented at the pier office. Look down for starfish and anemones, and stop at the concession stand for its famous soft-serve ice cream.",
+     "text": "Canada's first saltwater fishing pier stretches 180 meters into Discovery Passage. You do not need a boat: people catch Chinook and Coho from the pier, and rods and tackle can be rented at the pier office. Look down for starfish and anemones, and stop at the concession stand for its famous soft-serve ice cream.",
      "note": "Free to walk on and open 24 hours. Rod rentals and the ice cream shop usually run May to September."
     },
     {
      "name": "Quinsam River Salmon Hatchery",
      "img": "/prototype/media/campbell-river/image13.jpg",
      "alt": "Salmon swimming upstream in a river",
-     "text": "Five kilometres west of downtown, this large hatchery shows the salmon life cycle up close, with an interpretive centre, indoor and outdoor tanks and river trails. In fall the river turns silver and pink as thousands of salmon swim home, and black bears are common along the water.",
+     "text": "Five kilometers west of downtown, this large hatchery shows the salmon life cycle up close, with an interpretive center, indoor and outdoor tanks and river trails. In fall the river turns silver and pink as thousands of salmon swim home, and black bears are common along the water.",
      "note": "Free. Gates open at 8:00 AM and lock at 3:30 PM. September and October are the best months."
     },
     {
      "name": "Cold Water Diving",
      "img": "/prototype/media/campbell-river/image23.jpg",
-     "alt": "A red sea anemone on a colourful reef",
+     "alt": "A red sea anemone on a colorful reef",
      "text": "Known as one of the top cold-water diving destinations in the world, Campbell River sits on the edge of Discovery Passage, where tidal currents feed a vibrant emerald sea. Divers meet Giant Pacific octopus and wolf eels, explore the sunk HMCS Columbia, and in August and September can snorkel with salmon in the river.",
      "note": "Most sites are dived at slack tide only. A drysuit or 7mm+ wetsuit is mandatory."
     }
@@ -167,11 +168,11 @@
    "faqs": [
     {
      "q": "When is the best time for whale watching in Campbell River?",
-     "a": "Whale watching season is typically centred from April to October, and tours see whales best from May to October. Grizzly bear expeditions usually run from late August to October."
+     "a": "Whale watching season is typically centered from April to October, and tours see whales best from May to October. Grizzly bear expeditions usually run from late August to October."
     },
     {
      "q": "Can I catch salmon without a boat?",
-     "a": "Yes. People catch Chinook and Coho from the Discovery Fishing Pier. Rent a rod and buy tackle at the pier office, and carry a tidal water fishing licence. Fishing from the pier costs about $2 to $3 for the day."
+     "a": "Yes. People catch Chinook and Coho from the Discovery Fishing Pier. Rent a rod and buy tackle at the pier office, and carry a tidal water fishing license. Fishing from the pier costs about $2 to $3 for the day."
     },
     {
      "q": "Which months are best for salmon fishing?",
@@ -192,7 +193,7 @@
      "name": "Elk Falls Provincial Park",
      "img": "/prototype/media/campbell-river/image18.jpg",
      "alt": "A suspension bridge among the trees in Elk Falls Provincial Park",
-     "text": "Just a ten-minute drive from downtown, this is the most popular nature spot in Campbell River. Walk a 60-metre suspension bridge high above the canyon, watch the 25-metre waterfall drop into a rocky gorge, and hike among giant Douglas firs. The falls are loudest and most powerful in spring.",
+     "text": "Just a ten-minute drive from downtown, this is the most popular nature spot in Campbell River. Walk a 60-meter suspension bridge high above the canyon, watch the 25-meter waterfall drop into a rocky gorge, and hike among giant Douglas firs. The falls are loudest and most powerful in spring.",
      "note": "Free, open year-round in daylight. It is 15 to 20 minutes from the car to the bridge, and the metal stairs can be slippery when wet."
     },
     {
@@ -206,14 +207,14 @@
      "name": "Ripple Rock Trail",
      "img": "/prototype/media/campbell-river/image12.jpg",
      "alt": "View over the fast water of Seymour Narrows through forest",
-     "text": "The most famous hike in Campbell River is an 8-kilometre return trail through mossy forest to a high cliff above Seymour Narrows, where whirlpools and rapids race below. The lookout overlooks the site of the 1958 blast that destroyed Ripple Rock, the world's largest non-nuclear explosion.",
+     "text": "The most famous hike in Campbell River is an 8-kilometer return trail through mossy forest to a high cliff above Seymour Narrows, where whirlpools and rapids race below. The lookout overlooks the site of the 1958 blast that destroyed Ripple Rock, the world's largest non-nuclear explosion.",
      "note": "Moderate, about 2.5 to 3 hours. The cliffs have no fences. Time your visit for a running tide to see whirlpools."
     },
     {
      "name": "Rotary Seawalk",
      "img": null,
      "alt": null,
-     "text": "A beautiful, paved pathway stretches 13 kilometres along the ocean edge, connecting the south of the city to downtown. It is the favourite place for locals to walk dogs, run or sit and watch the waves. Look for humpbacks and orcas just offshore, First Nations carvings, a famous beach boulder called the Big Rock, and sea glass at low tide.",
+     "text": "A beautiful, paved pathway stretches 13 kilometers along the ocean edge, connecting the south of the city to downtown. It is the favorite place for locals to walk dogs, run or sit and watch the waves. Look for humpbacks and orcas just offshore, First Nations carvings, a famous beach boulder called the Big Rock, and sea glass at low tide.",
      "note": "Free, open 24 hours and fully paved and flat. It faces east, so it is the best place in town to watch the sunrise."
     },
     {
@@ -242,7 +243,7 @@
     },
     {
      "q": "How long is the Ripple Rock Trail?",
-     "a": "About 8 kilometres return, at moderate difficulty, taking roughly 2.5 to 3 hours. The trailhead is about 15 minutes north of Campbell River on Highway 19, and it is free to hike and park."
+     "a": "About 8 kilometers return, at moderate difficulty, taking roughly 2.5 to 3 hours. The trailhead is about 15 minutes north of Campbell River on Highway 19, and it is free to hike and park."
     },
     {
      "q": "How do I get to Quadra Island?",
@@ -266,7 +267,7 @@
      "name": "Maritime Heritage Centre",
      "img": "/prototype/media/campbell-river/image26.jpg",
      "alt": "The Maritime Heritage Centre building with its lighthouse-style tower",
-     "text": "Housed in a former fish processing plant next to the government wharf, the centre preserves the salty history of the Salmon Capital of the World. Walk the deck of the BCP 45, a restored 1927 seine boat featured on the Canadian five-dollar bill from 1972 to 1986, and see shipwreck, diving and model ship exhibits.",
+     "text": "Housed in a former fish processing plant next to the government wharf, the center preserves the salty history of the Salmon Capital of the World. Walk the deck of the BCP 45, a restored 1927 seine boat featured on the Canadian five-dollar bill from 1972 to 1986, and see shipwreck, diving and model ship exhibits.",
      "note": "621 Island Highway. Typically open Monday to Friday, 10:00 AM to 4:00 PM, with summer weekends often added."
     },
     {
@@ -303,10 +304,7 @@
    "a": "Most tours depart from the marinas in downtown Campbell River or near the famous Painter's Lodge. Most last 4 to 7 hours, so plan a half-day or full-day adventure."
   }
  ],
- "nearby": [
-  "parksville",
-  "nanaimo"
- ],
+ "nearby": ["parksville", "nanoose"],
  "sources": [
   "Campbell River.docx"
  ]

@@ -2,17 +2,18 @@
  "slug": "nanoose",
  "name": "Nanoose",
  "region": "island",
- "title": "Nanoose Bay, Arc Trips",
+ "title": "Nanoose travel guide | ArcTrips",
  "description": "Nanoose Bay, Vancouver Island: quiet coastal parks, tide pools, marinas, kayaking and a scenic peninsula between Nanaimo and Parksville.",
  "hero": {
   "img": "/prototype/media/nanoose/image9.jpg",
   "alt": "A wooden bench on a grassy bluff above the water",
+    "caption": "Above the water, Nanoose Bay",
   "standfirst": "A quiet seaside community between Nanaimo and Parksville, with a sheltered bay, forested hills and a scenic shoreline, far from busy city life."
  },
  "why": {
   "h2": "A slower seaside escape",
   "paras": [
-   "Tucked between Nanaimo and Parksville, and just north of Lantzville, Nanoose Bay is a quiet seaside community offering a slower, more peaceful getaway. With its sheltered bay, forested hills and scenic shoreline, it feels far removed from busy city life, even though it is a short drive from some of the island's larger centres.",
+   "Tucked between Nanaimo and Parksville, and just north of Lantzville, Nanoose Bay is a quiet seaside community offering a slower, more peaceful getaway. With its sheltered bay, forested hills and scenic shoreline, it feels far removed from busy city life, even though it is a short drive from some of the island's larger centers.",
    "It is shaped by the ocean, the land and the long history of Coast Salish peoples who have lived along these shores. The area is known for the Fairwinds golf course, two marinas, parks, coastal trails and a quiet residential character. It is less about big attractions and more about scenic parks and ocean views."
   ],
   "facts": [
@@ -140,8 +141,8 @@
      "name": "Notch Hill Park",
      "img": "/prototype/media/nanoose/image6.jpg",
      "alt": "Arbutus trees on a rocky summit above the water",
-     "text": "A 2.9-kilometre loop above the Nanoose Peninsula with a double summit: the south side overlooks Fairwinds Marina and Nanoose Bay, and the north looks across the Strait of Georgia to the Coast Mountains. Arbutus and Garry oak groves line the way, with wildflowers from April to June.",
-     "note": "Moderate, with about 160 metres of gain. No washrooms or water on-site."
+     "text": "A 2.9-kilometer loop above the Nanoose Peninsula with a double summit: the south side overlooks Fairwinds Marina and Nanoose Bay, and the north looks across the Strait of Georgia to the Coast Mountains. Arbutus and Garry oak groves line the way, with wildflowers from April to June.",
+     "note": "Moderate, with about 160 meters of gain. No washrooms or water on-site."
     },
     {
      "name": "Beachcomber Regional Park",
@@ -154,21 +155,21 @@
      "name": "Nanoose Creek Falls Trail",
      "img": null,
      "alt": null,
-     "text": "A short, immersive forest trek of about 1.5 kilometres return to a series of three waterfalls on Nanoose Creek. The path runs beneath Douglas fir and western red cedar with ferns and moss, and the lower falls are easy to reach while the upper tiers take more effort.",
+     "text": "A short, immersive forest trek of about 1.5 kilometers return to a series of three waterfalls on Nanoose Creek. The path runs beneath Douglas fir and western red cedar with ferns and moss, and the lower falls are easy to reach while the upper tiers take more effort.",
      "note": "Via Matthew Road; the trailhead is easy to miss near a gravel pull-out. Best November to April."
     },
     {
      "name": "Enos Lake Trail",
      "img": null,
      "alt": null,
-     "text": "A peaceful loop of about 3 kilometres around a freshwater lake in the Fairwinds community, passing woodland, open rocky bluffs and wetland boardwalks. Look for kingfishers, herons and black-tailed deer, and note that the lake is home to the rare Enos Lake Stickleback.",
+     "text": "A peaceful loop of about 3 kilometers around a freshwater lake in the Fairwinds community, passing woodland, open rocky bluffs and wetland boardwalks. Look for kingfishers, herons and black-tailed deer, and note that the lake is home to the rare Enos Lake Stickleback.",
      "note": "Trailheads on Powder Point Road or Fairwinds Drive. Keep dogs out of the water. Easy to moderate."
     }
    ],
    "faqs": [
     {
      "q": "Which Nanoose Bay trail has the best view?",
-     "a": "The Notch Hill Loop (2.9 km) has two viewpoints: the south overlooks Fairwinds Marina and Nanoose Bay, and the north looks over the Strait of Georgia to the Coast Mountains. It is moderate, with about 160 metres of elevation gain."
+     "a": "The Notch Hill Loop (2.9 km) has two viewpoints: the south overlooks Fairwinds Marina and Nanoose Bay, and the north looks over the Strait of Georgia to the Coast Mountains. It is moderate, with about 160 meters of elevation gain."
     },
     {
      "q": "When are the waterfalls worth visiting?",
@@ -189,7 +190,7 @@
      "name": "Fairwinds Marina and Schooner Cove",
      "img": null,
      "alt": null,
-     "text": "Fairwinds Marina is the nautical heart of the peninsula, a gateway to the Gulf Islands and the Sunshine Coast with over 350 berths. Dine at Nanoose Bay Cafe at Fairwinds Landing, browse the marketplace of local artisan goods, watch harbour seals, otters and eagles, and use the dedicated kayak launch.",
+     "text": "Fairwinds Marina is the nautical heart of the peninsula, a gateway to the Gulf Islands and the Sunshine Coast with over 350 berths. Dine at Nanoose Bay Cafe at Fairwinds Landing, browse the marketplace of local artisan goods, watch harbor seals, otters and eagles, and use the dedicated kayak launch.",
      "note": "3521 Dolphin Drive. Open year-round; book transient moorage in advance."
     },
     {
@@ -197,7 +198,7 @@
      "img": "/prototype/media/nanoose/image8.jpg",
      "alt": "Green sandstone shelves holding tide pools at low tide",
      "text": "Rugged sandstone formations, sheltered coves and pocket beaches. At low tide, sandstone basins at Beachcomber Regional Park and Wall Beach hold purple sea stars, green anemones and shore crabs, while Blueback Beach is reached by a steep wooden staircase and framed by cliffs and arbutus trees.",
-     "note": "Aim for a falling tide of 1.5 metres or lower. May to August has the lowest daytime tides. Wear non-slip shoes."
+     "note": "Aim for a falling tide of 1.5 meters or lower. May to August has the lowest daytime tides. Wear non-slip shoes."
     },
     {
      "name": "Bird-watching in the Nanoose estuary",
@@ -243,7 +244,7 @@
     },
     {
      "q": "What is the best time for tide pooling?",
-     "a": "Plan for a falling tide of 1.5 metres (5 feet) or lower. May through August typically offers the lowest daytime tides. Beachcomber Regional Park and Wall Beach are premier spots."
+     "a": "Plan for a falling tide of 1.5 meters (5 feet) or lower. May through August typically offers the lowest daytime tides. Beachcomber Regional Park and Wall Beach are premier spots."
     }
    ]
   },
@@ -277,14 +278,14 @@
      "name": "Cycling and walking scenic routes",
      "img": null,
      "alt": null,
-     "text": "The peninsula is a favourite for cyclists and walkers who enjoy quiet roads and sudden ocean views. The Dolphin Drive Loop follows the northern edge, the E&N Trail's Nanoose section is a flat gravel path along the old railway, and the inland side offers flatter farm country.",
+     "text": "The peninsula is a favorite for cyclists and walkers who enjoy quiet roads and sudden ocean views. The Dolphin Drive Loop follows the northern edge, the E&N Trail's Nanoose section is a flat gravel path along the old railway, and the inland side offers flatter farm country.",
      "note": "Roads are narrow with minimal shoulders and many hills. A full peninsula loop is 15 to 18 km."
     },
     {
      "name": "Artisan stops and scenic drives",
      "img": null,
      "alt": null,
-     "text": "Browse the marketplace at Nanoose Bay Cafe, shop Springford Farm's market with products from over 60 Vancouver Island farms, and visit BumbleBees Farm & Garden for seasonal artisan markets. The roughly 15-kilometre peninsula loop along Dolphin Drive becomes the Art Loop when local studios open.",
+     "text": "Browse the marketplace at Nanoose Bay Cafe, shop Springford Farm's market with products from over 60 Vancouver Island farms, and visit BumbleBees Farm & Garden for seasonal artisan markets. The roughly 15-kilometer peninsula loop along Dolphin Drive becomes the Art Loop when local studios open.",
      "note": "The Nanoose Bay Studio Tour runs three to four times a year, often in April, July or late autumn."
     }
    ],
@@ -310,10 +311,7 @@
    "a": "Roughly 15 to 25 minutes north of Nanaimo and 10 to 20 minutes south of Parksville, depending on the park or attraction."
   }
  ],
- "nearby": [
-  "nanaimo",
-  "parksville"
- ],
+ "nearby": ["parksville", "nanaimo"],
  "sources": [
   "Nanoose.docx"
  ]

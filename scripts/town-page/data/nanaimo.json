@@ -2,18 +2,19 @@
   "slug": "nanaimo",
   "name": "Nanaimo",
   "region": "island",
-  "title": "Nanaimo, Arc Trips",
-  "description": "Nanaimo, Vancouver Island: harbour walks, island ferries, whale watching, seaside parks, hikes and the Nanaimo Bar Trail in the Harbour City.",
+  "title": "Nanaimo travel guide | ArcTrips",
+  "description": "Nanaimo, Vancouver Island: harbor walks, island ferries, whale watching, seaside parks, hikes and the Nanaimo Bar Trail in the Harbour City.",
   "hero": {
     "img": "/prototype/media/nanaimo/image27.jpg",
-    "alt": "Nanaimo harbour with its marina and waterfront towers",
-    "standfirst": "Known as the Harbour City, Nanaimo combines small-city energy with coastal scenery: harbour walks, nearby islands and quick access to the outdoors."
+    "alt": "Nanaimo harbor with its marina and waterfront towers",
+    "caption": "Nanaimo harbor",
+    "standfirst": "Known as the Harbour City, Nanaimo combines small-city energy with coastal scenery: harbor walks, nearby islands and quick access to the outdoors."
   },
   "why": {
-    "h2": "A harbour city with island views",
+    "h2": "A harbor city with island views",
     "paras": [
       "Sitting on the east coast of Vancouver Island, Nanaimo combines the energy of a small city with the scenery of a coastal getaway. Known as the Harbour City, it offers ocean views, waterfront walks, nearby islands and easy access to outdoor adventures, while still feeling convenient, lively and easy to explore.",
-      "The city stands on the traditional territory of the Snuneymuxw First Nation, and its history, working harbour and island setting shape its identity today. It is practical enough to use as a base, yet scenic enough to be a destination in its own right."
+      "The city stands on the traditional territory of the Snuneymuxw First Nation, and its history, working harbor and island setting shape its identity today. It is practical enough to use as a base, yet scenic enough to be a destination in its own right."
     ],
     "facts": [
       {
@@ -26,7 +27,7 @@
       },
       {
         "k": "Known for",
-        "v": "The harbour, Saysutshun and the island ferries, whale watching, Mount Benson and the Nanaimo Bar Trail."
+        "v": "The harbor, Saysutshun and the island ferries, whale watching, Mount Benson and the Nanaimo Bar Trail."
       },
       {
         "k": "When to come",
@@ -111,7 +112,7 @@
       },
       {
         "h": "Fall, September to November",
-        "p": "Pink and Chum salmon return to the Nanaimo River, and salmon can be seen in the Millstone River at Bowen Park in October and November. Autumn colour brightens Colliery Dam Park."
+        "p": "Pink and Chum salmon return to the Nanaimo River, and salmon can be seen in the Millstone River at Bowen Park in October and November. Autumn color brightens Colliery Dam Park."
       },
       {
         "h": "Winter, December to February",
@@ -126,34 +127,34 @@
   "tabs": [
     {
       "id": "harbour-islands",
-      "label": "Harbour and islands",
-      "intro": "The harbour is the centre of Nanaimo, with walks, whale tours and two island getaways a short ferry ride away.",
+      "label": "Harbor and islands",
+      "intro": "The harbor is the center of Nanaimo, with walks, whale tours and two island getaways a short ferry ride away.",
       "places": [
         {
           "name": "Saysutshun (Newcastle Island Marine Provincial Park)",
           "img": "/prototype/media/nanaimo/image11.jpg",
           "alt": "The welcome arch over the boardwalk entrance to Saysutshun park",
-          "text": "A marine park just a few hundred metres off Nanaimo harbour, reached only by water. A 22-kilometre trail system includes a popular 6-kilometre perimeter trail with views of the Salish Sea, plus sandstone bays for beachcombing, Snuneymuxw cultural signage and remnants of former coal mines and sandstone quarries.",
+          "text": "A marine park just a few hundred meters off Nanaimo harbor, reached only by water. A 22-kilometer trail system includes a popular 6-kilometer perimeter trail with views of the Salish Sea, plus sandstone bays for beachcombing, Snuneymuxw cultural signage and remnants of former coal mines and sandstone quarries.",
           "note": "A small orange foot ferry leaves Maffeo Sutton Park, roughly every 30 minutes in summer. The park is free; the ferry has a round-trip fee."
         },
         {
           "name": "Harbourfront Walkway",
           "img": "/prototype/media/nanaimo/image26.jpg",
           "alt": "The Harbourfront Walkway beside the marina and seaplane docks",
-          "text": "A flat, paved pathway along the shoreline connecting downtown to the working harbour, with constant views of Saysutshun, seaplanes and ferries. It links to Maffeo Sutton Park, and passes public art, interpretive signs on coal mining and maritime heritage, waterfront eateries and boutique shops.",
+          "text": "A flat, paved pathway along the shoreline connecting downtown to the working harbor, with constant views of Saysutshun, seaplanes and ferries. It links to Maffeo Sutton Park, and passes public art, interpretive signs on coal mining and maritime heritage, waterfront eateries and boutique shops.",
           "note": "Open 24 hours and fully accessible. Sit near the seaplane terminals to watch take-offs and landings."
         },
         {
           "name": "Whale watching and marine tours",
           "img": "/prototype/media/nanaimo/image14.jpg",
-          "alt": "A whale tail rising from grey water",
+          "alt": "A whale tail rising from gray water",
           "text": "Nanaimo is a premier departure point for the Salish Sea, where humpback whales, Bigg's orcas and sea lions are highly frequent. Tours leave from the downtown boat basin with certified naturalists, and many operators offer a sightings guarantee with a complimentary return trip. Choose open-air Zodiacs or semi-covered boats.",
           "note": "Tours last 3 to 5 hours. Summer is peak; book at least a week ahead."
         },
         {
-          "name": "Kayaking, boating and harbour activities",
+          "name": "Kayaking, boating and harbor activities",
           "img": "/prototype/media/nanaimo/image16.jpg",
-          "alt": "A kayaker paddling in Nanaimo harbour",
+          "alt": "A kayaker paddling in Nanaimo harbor",
           "text": "The sheltered passage between downtown and Saysutshun is a popular paddling route, and kayakers can also reach Protection Island. Rent kayaks and paddleboards near the waterfront, take a Harbour Air scenic flight, or visit the Dinghy Dock Pub, Canada's only registered floating pub.",
           "note": "Stay in the non-motorized lanes and clear of seaplane flight paths."
         },
@@ -161,7 +162,7 @@
           "name": "Protection Island",
           "img": "/prototype/media/nanaimo/image33.jpg",
           "alt": "A wooded island shoreline with homes and a sailboat",
-          "text": "A small, mostly residential island a few hundred metres from downtown, known for its quirky character, golf carts and the Dinghy Dock Pub, which even has a fishing hole in the floor. With no public cars, explore on foot or by bike, and watch ferries from Gallows Point Light Park.",
+          "text": "A small, mostly residential island a few hundred meters from downtown, known for its quirky character, golf carts and the Dinghy Dock Pub, which even has a fishing hole in the floor. With no public cars, explore on foot or by bike, and watch ferries from Gallows Point Light Park.",
           "note": "A private foot ferry leaves the boat basin (150 Front Street) and takes about 10 minutes."
         },
         {
@@ -183,7 +184,7 @@
         },
         {
           "q": "Can I fish in Nanaimo without a boat?",
-          "a": "Yes. The Maffeo Sutton Park pier is popular for crabbing, and Westwood Lake and Colliery Dam Park are stocked with trout and have shore access and fishing piers. You need a freshwater or tidal licence."
+          "a": "Yes. The Maffeo Sutton Park pier is popular for crabbing, and Westwood Lake and Colliery Dam Park are stocked with trout and have shore access and fishing piers. You need a freshwater or tidal license."
         },
         {
           "q": "How long are the ferries to Gabriola and Protection Island?",
@@ -207,29 +208,29 @@
           "name": "Pipers Lagoon Park",
           "img": "/prototype/media/nanaimo/image28.jpg",
           "alt": "A tidal lagoon and gravel spit at Pipers Lagoon",
-          "text": "A tidal lagoon, rugged rock formations and views of the Georgia Strait, loved for beachcombing, photography and sunrises. Trails climb to rocky headlands with views of Shack Island's colourful fishing shacks and the Coast Mountains, and at low tide you can walk the sandbar beside the lagoon.",
+          "text": "A tidal lagoon, rugged rock formations and views of the Georgia Strait, loved for beachcombing, photography and sunrises. Trails climb to rocky headlands with views of Shack Island's colorful fishing shacks and the Coast Mountains, and at low tide you can walk the sandbar beside the lagoon.",
           "note": "3600 Place Road. Check tide tables; bluff trails are rocky and uneven."
         },
         {
           "name": "Westwood Lake Park",
           "img": "/prototype/media/nanaimo/image18.jpg",
           "alt": "Westwood Lake reflecting forested hills",
-          "text": "One of Nanaimo's most popular year-round recreation spots, at the base of Mount Benson. A roughly 6-kilometre perimeter trail circles the lake, with sandy beaches for swimming, trout fishing, and kayaking and paddleboarding on a non-motorized lake.",
+          "text": "One of Nanaimo's most popular year-round recreation spots, at the base of Mount Benson. A roughly 6-kilometer perimeter trail circles the lake, with sandy beaches for swimming, trout fishing, and kayaking and paddleboarding on a non-motorized lake.",
           "note": "2110 Westwood Road. The lot can fill on sunny weekends; arrive before 10:00 AM. Lifeguards are on duty late June to August."
         },
         {
           "name": "Ammonite Falls",
           "img": "/prototype/media/nanaimo/image3.jpg",
           "alt": "Ammonite Falls dropping into a rocky creek",
-          "text": "A signature waterfall in Benson Creek Falls Regional Park, with a 10-metre cascade over layered sandstone ledges into a deep ravine. A staircase and viewing platform make the forest trail safer than the old rope scramble, and the rocks hold marine fossils. Expect a 5 to 6 kilometre round trip.",
+          "text": "A signature waterfall in Benson Creek Falls Regional Park, with a 10-meter cascade over layered sandstone ledges into a deep ravine. A staircase and viewing platform make the forest trail safer than the old rope scramble, and the rocks hold marine fossils. Expect a 5 to 6 kilometer round trip.",
           "note": "Moderate, 1.5 to 2 hours. Best November to May; late summer it may slow to a trickle."
         },
         {
           "name": "Mount Benson",
           "img": "/prototype/media/nanaimo/image10.jpg",
           "alt": "Mount Benson rising behind the city",
-          "text": "The most prominent landmark in Nanaimo, rising over 1,000 metres. The popular route starts at Witchcraft Lake, crossing a floating boardwalk before a steady, steep climb to 360-degree views of the Salish Sea, the Sunshine Coast and, on clear days, Mt. Baker.",
-          "note": "Difficult: about 730 metres of gain over roughly 8 km return. Carry at least 2 litres of water."
+          "text": "The most prominent landmark in Nanaimo, rising over 1,000 meters. The popular route starts at Witchcraft Lake, crossing a floating boardwalk before a steady, steep climb to 360-degree views of the Salish Sea, the Sunshine Coast and, on clear days, Mt. Baker.",
+          "note": "Difficult: about 730 meters of gain over roughly 8 km return. Carry at least 2 liters of water."
         },
         {
           "name": "Sugarloaf Mountain Park",
@@ -250,7 +251,7 @@
         },
         {
           "q": "How hard is the Mount Benson hike?",
-          "a": "It is difficult: about 8 km return with roughly 730 metres of elevation gain. The trailhead is at 2761 Benson View Road. A halfway viewpoint makes a shorter outing, and trekking poles help on the descent."
+          "a": "It is difficult: about 8 km return with roughly 730 meters of elevation gain. The trailhead is at 2761 Benson View Road. A halfway viewpoint makes a shorter outing, and trekking poles help on the descent."
         },
         {
           "q": "Is there a quick hike with a big view?",
@@ -261,13 +262,13 @@
     {
       "id": "arts-food",
       "label": "Arts, food and culture",
-      "intro": "Downtown has a museum, a gallery, a theatre and a dessert trail.",
+      "intro": "Downtown has a museum, a gallery, a theater and a dessert trail.",
       "places": [
         {
           "name": "Nanaimo Bar Trail",
           "img": "/prototype/media/nanaimo/image34.jpg",
           "alt": "A stack of Nanaimo Bars",
-          "text": "A self-guided tour of over 30 stops, each with its own take on the city's legendary no-bake dessert, from classic squares to cocktails. Start at the Nanaimo Museum, home of the official recipe, then try Red's Bakery for the classic, Bocca Café for gluten-free flavours and Mon Petit Choux for a French-inspired version.",
+          "text": "A self-guided tour of over 30 stops, each with its own take on the city's legendary no-bake dessert, from classic squares to cocktails. Start at the Nanaimo Museum, home of the official recipe, then try Red's Bakery for the classic, Bocca Café for gluten-free flavors and Mon Petit Choux for a French-inspired version.",
           "note": "Pick up a brochure at the Tourism Nanaimo Visitor Centre. The trail is free to follow; each stop sets its own prices."
         },
         {
@@ -275,7 +276,7 @@
           "img": "/prototype/media/nanaimo/image21.jpg",
           "alt": "The Old City Quarter sign beside a shopfront",
           "text": "A revitalized historic district a few blocks uphill from the waterfront, with late 19th and early 20th century architecture, independent boutiques, bookstores and locally owned eateries. Near the water, the Bastion, a Hudson's Bay Company fort built in 1853, is the oldest structure in the city.",
-          "note": "Centred on Fitzwilliam, Wesley and Selby Streets. Weekday mornings are calmer."
+          "note": "Centered on Fitzwilliam, Wesley and Selby Streets. Weekday mornings are calmer."
         },
         {
           "name": "Nanaimo Museum",
@@ -288,14 +289,14 @@
           "name": "Port Theatre",
           "img": "/prototype/media/nanaimo/image8.jpg",
           "alt": "The round glass-fronted Port Theatre building",
-          "text": "Nanaimo's premier performing arts centre since 1998, an 800-seat venue with excellent acoustics. It hosts the Vancouver Island Symphony, touring acts, community theatre and dance, and its lobby doubles as a gallery. The lobby bar serves local BC wines and craft beers at intermission.",
+          "text": "Nanaimo's premier performing arts center since 1998, an 800-seat venue with excellent acoustics. It hosts the Vancouver Island Symphony, touring acts, community theater and dance, and its lobby doubles as a gallery. The lobby bar serves local BC wines and craft beers at intermission.",
           "note": "125 Front Street, between the museum and the walkway. Performances often sell out; book ahead."
         },
         {
           "name": "Nanaimo Art Gallery",
           "img": null,
           "alt": null,
-          "text": "A contemporary public art museum downtown with rotating exhibitions by local, national and international artists, many developed with Indigenous artists. The Art Store sells handcrafted ceramics, jewellery and prints, and Saturdays at the Gallery offers hands-on family projects.",
+          "text": "A contemporary public art museum downtown with rotating exhibitions by local, national and international artists, many developed with Indigenous artists. The Art Store sells handcrafted ceramics, jewelry and prints, and Saturdays at the Gallery offers hands-on family projects.",
           "note": "150 Commercial Street. Suggested donation entry; usually closed Mondays."
         }
       ],
@@ -322,13 +323,10 @@
   "planning": [
     {
       "q": "Can I take a day trip from Nanaimo to Ladysmith?",
-      "a": "Yes. Transfer Beach Park in Ladysmith is about 23 kilometres south of Nanaimo, roughly a 20-minute drive on the Trans-Canada Highway, and is known for some of the warmest ocean swimming north of San Francisco."
+      "a": "Yes. Transfer Beach Park in Ladysmith is about 23 kilometers south of Nanaimo, roughly a 20-minute drive on the Trans-Canada Highway, and is known for some of the warmest ocean swimming north of San Francisco."
     }
   ],
-  "nearby": [
-    "nanoose",
-    "chemainus"
-  ],
+  "nearby": ["chemainus", "nanoose", "parksville"],
   "sources": [
     "Nanaimo.docx"
   ]

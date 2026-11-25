@@ -51,8 +51,12 @@ for (const p of pages) {
   // the shared place-bar behaviour must be present, or the active state goes stale
   if (/placebar__links/.test(s)) say(/_nav\.js/.test(s), `${p}: place bar without the shared _nav.js scrollspy`);
   // every executable script block must parse. A regex edit that eats a paren is silent otherwise.
-  for (const [, code] of s.matchAll(/<script(?![^>]*src)(?![^>]*type="application\/json")[^>]*>([\s\S]*?)<\/script>/g)) {
+  for (const [, code] of s.matchAll(/<script(?![^>]*src)(?![^>]*type="application\/(?:ld\+)?json")[^>]*>([\s\S]*?)<\/script>/g)) {
     try { new Function(code); } catch (e) { say(false, `${p}: script block does not parse (${e.message})`); }
+  }
+  // structured data (BreadcrumbList, the PRD's indexing items) must be valid JSON
+  for (const [, code] of s.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)) {
+    try { JSON.parse(code); } catch (e) { say(false, `${p}: JSON-LD does not parse (${e.message})`); }
   }
   say(!/istockphoto\.com/.test(s), `${p}: leaked image credit URL`);
   say(!/w:pBdr|w:rPr|w:bookmarkStart/.test(s), `${p}: raw Word XML in the markup`);

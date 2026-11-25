@@ -2,23 +2,24 @@
  "slug": "shawnigan-lake",
  "name": "Shawnigan Lake",
  "region": "island",
- "title": "Shawnigan Lake, Arc Trips",
+ "title": "Shawnigan Lake travel guide | ArcTrips",
  "description": "Shawnigan Lake, Vancouver Island: lake swimming and paddling, the Kinsol Trestle, Cowichan Valley Trail, Old Baldy Mountain and village cafes.",
  "hero": {
   "img": "/prototype/media/shawnigan-lake/image10.jpg",
   "alt": "Shawnigan Lake at dusk with forested hills on the far shore",
+    "caption": "Shawnigan Lake at dusk",
   "standfirst": "A peaceful freshwater getaway in the South Cowichan region, known for lake days, forested trails and a relaxed small-community feel, a short drive from Victoria."
  },
  "why": {
   "h2": "A lake town with trails nearby",
   "paras": [
    "Set in the South Cowichan region of Vancouver Island, Shawnigan Lake is a peaceful inland getaway known for its freshwater beauty, forested surroundings and relaxed small-community feel. Just a short drive from Victoria, it offers an easy escape from city life. People come to slow down, spend time outdoors and enjoy the quieter side of the island.",
-   "At the heart of it is the lake itself, about 7 kilometres long and loved for swimming, paddling, boating and fishing. The Kinsol Trestle and the Cowichan Valley Trail add a strong adventure appeal, blending natural scenery with one of the region's most recognizable historic landmarks."
+   "At the heart of it is the lake itself, about 7 kilometers long and loved for swimming, paddling, boating and fishing. The Kinsol Trestle and the Cowichan Valley Trail add a strong adventure appeal, blending natural scenery with one of the region's most recognizable historic landmarks."
   ],
   "facts": [
    {
     "k": "Where it is",
-    "v": "South Cowichan region of Vancouver Island, on a freshwater lake about 7 kilometres long."
+    "v": "South Cowichan region of Vancouver Island, on a freshwater lake about 7 kilometers long."
    },
    {
     "k": "Getting there",
@@ -26,7 +27,7 @@
    },
    {
     "k": "Known for",
-    "v": "Lake swimming and paddling, the 44-metre Kinsol Trestle, the Cowichan Valley Trail and Old Baldy Mountain views."
+    "v": "Lake swimming and paddling, the 44-meter Kinsol Trestle, the Cowichan Valley Trail and Old Baldy Mountain views."
    },
    {
     "k": "When to come",
@@ -56,7 +57,7 @@
      10
     ],
     "shoulder": [],
-    "note": "Spring river at its highest; fall maple colour."
+    "note": "Spring river at its highest; fall maple color."
    },
    {
     "name": "Goldstream salmon run",
@@ -89,7 +90,7 @@
    },
    {
     "h": "Fall, September to November",
-    "p": "Fewer crowds and a quieter atmosphere. The forest trail to the Kinsol Trestle is at its best when the maple leaves change colour, and Goldstream's salmon run follows in late autumn."
+    "p": "Fewer crowds and a quieter atmosphere. The forest trail to the Kinsol Trestle is at its best when the maple leaves change color, and Goldstream's salmon run follows in late autumn."
    },
    {
     "h": "Winter, December to February",
@@ -111,7 +112,7 @@
      "name": "Shawnigan Lake",
      "img": "/prototype/media/shawnigan-lake/image11.jpg",
      "alt": "Aerial view of a wooded Shawnigan Lake shoreline with lakeside homes",
-     "text": "About 7 kilometres long, the lake is the primary recreation hub for residents and visitors, its sheltered position often warming enough for swimming by mid-summer. Swim, paddle, boat and fish, or kayak to tiny Memory Island Provincial Park for birdwatching and a secluded picnic.",
+     "text": "About 7 kilometers long, the lake is the primary recreation hub for residents and visitors, its sheltered position often warming enough for swimming by mid-summer. Swim, paddle, boat and fish, or kayak to tiny Memory Island Provincial Park for birdwatching and a secluded picnic.",
      "note": "Check for local health advisories during prolonged heat in August."
     },
     {
@@ -132,7 +133,7 @@
      "name": "Mason's Beach Park",
      "img": null,
      "alt": null,
-     "text": "A small, family-oriented park at the north end of the lake, favoured for quiet swimming off a sandy-to-pebbly beach with calm water, and as a less congested place to launch a paddleboard or kayak toward the northern shoreline or the centre of the lake.",
+     "text": "A small, family-oriented park at the north end of the lake, favored for quiet swimming off a sandy-to-pebbly beach with calm water, and as a less congested place to launch a paddleboard or kayak toward the northern shoreline or the center of the lake.",
      "note": "Renfrew Road. Very limited parking and no vendors. Open daily 7:00 AM to 8:00 PM."
     },
     {
@@ -146,7 +147,7 @@
    "faqs": [
     {
      "q": "Which Shawnigan Lake beach is best for families?",
-     "a": "Shawnigan Wharf Park has a sandy beach, an enclosed swimming area and a volleyball court, but no lifeguards. Mason's Beach Park is quieter, with calm water favoured by local families with younger children."
+     "a": "Shawnigan Wharf Park has a sandy beach, an enclosed swimming area and a volleyball court, but no lifeguards. Mason's Beach Park is quieter, with calm water favored by local families with younger children."
     },
     {
      "q": "How do I avoid the crowds at the lake?",
@@ -167,39 +168,39 @@
      "name": "Kinsol Trestle",
      "img": "/prototype/media/shawnigan-lake/image16.jpg",
      "alt": "The timber Kinsol Trestle seen from the side",
-     "text": "One of the tallest free-standing timber rail trestles in the world, 44 metres high and 187 metres long across the Koksilah River. Built in 1920 and restored in 2011, its wooden deck is open to walkers and cyclists, reached by a flat 1.2-kilometre forest path from the parking lot.",
+     "text": "One of the tallest free-standing timber rail trestles in the world, 44 meters high and 187 meters long across the Koksilah River. Built in 1920 and restored in 2011, its wooden deck is open to walkers and cyclists, reached by a flat 1.2-kilometer forest path from the parking lot.",
      "note": "Access via Glen Eagles Road. There are no trash bins, so pack out everything. Lovely in fall and spring."
     },
     {
      "name": "Cowichan Valley Trail",
      "img": "/prototype/media/shawnigan-lake/image9.jpg",
      "alt": "A wide gravel rail trail running through forest",
-     "text": "A multi-use rail trail of over 120 kilometres that forms a major portion of the Trans Canada Trail on Vancouver Island. The most popular stretch, between Shawnigan Lake and the Kinsol Trestle, is wide, flat and crushed gravel, and the trail runs on to Duncan, Lake Cowichan and Chemainus.",
+     "text": "A multi-use rail trail of over 120 kilometers that forms a major portion of the Trans Canada Trail on Vancouver Island. The most popular stretch, between Shawnigan Lake and the Kinsol Trestle, is wide, flat and crushed gravel, and the trail runs on to Duncan, Lake Cowichan and Chemainus.",
      "note": "Carry water on stretches between towns. The packed gravel suits hybrid and mountain bikes."
     },
     {
      "name": "Old Baldy Mountain",
      "img": "/prototype/media/shawnigan-lake/image4.jpg",
      "alt": "A wooden swing on a bluff above Shawnigan Lake",
-     "text": "A popular hike on the east side of the lake with sweeping views of the lake, the valley and Saanich Inlet. The steep climb gains about 150 metres, and most hikers reach the rock bluffs in 20 to 30 minutes, among arbutus groves. A summit swing has long been a local photo spot, though its presence varies.",
+     "text": "A popular hike on the east side of the lake with sweeping views of the lake, the valley and Saanich Inlet. The steep climb gains about 150 meters, and most hikers reach the rock bluffs in 20 to 30 minutes, among arbutus groves. A summit swing has long been a local photo spot, though its presence varies.",
      "note": "Trailhead at the end of Strathcona Heights Road; roadside parking is limited. Go at golden hour for sunset."
     },
     {
      "name": "Malahat SkyWalk",
      "img": "/prototype/media/shawnigan-lake/image3.jpg",
      "alt": "The spiral wooden tower of the Malahat SkyWalk",
-     "text": "About 20 kilometres south, a 600-metre elevated boardwalk leads through arbutus and Douglas fir to a ten-story spiral tower. A gentle ramp climbs to a platform 250 metres above sea level with 360-degree views of the Olympic Mountains and Mt. Baker, with an adventure net and a spiral slide at the top.",
+     "text": "About 20 kilometers south, a 600-meter elevated boardwalk leads through arbutus and Douglas fir to a ten-story spiral tower. A gentle ramp climbs to a platform 250 meters above sea level with 360-degree views of the Olympic Mountains and Mt. Baker, with an adventure net and a spiral slide at the top.",
      "note": "901 Trans-Canada Hwy, Malahat. Open daily 9:00 AM to 5:00 PM. Stroller and wheelchair friendly; buy tickets online in summer."
     }
    ],
    "faqs": [
     {
      "q": "How long is the walk to the Kinsol Trestle?",
-     "a": "The approach from the main parking lot is a relatively flat, well-maintained 1.2-kilometre walk through forest. The path is crushed gravel suitable for strollers and most wheelchairs, and the trestle is open year-round."
+     "a": "The approach from the main parking lot is a relatively flat, well-maintained 1.2-kilometer walk through forest. The path is crushed gravel suitable for strollers and most wheelchairs, and the trestle is open year-round."
     },
     {
      "q": "How hard is Old Baldy Mountain?",
-     "a": "It is short but steep: about 150 metres of elevation gain, usually 20 to 30 minutes to the summit. Loose rock and dirt can be slippery, so wear sturdy footwear with good traction."
+     "a": "It is short but steep: about 150 meters of elevation gain, usually 20 to 30 minutes to the summit. Loose rock and dirt can be slippery, so wear sturdy footwear with good traction."
     },
     {
      "q": "Can I cycle from Shawnigan Lake to the Kinsol Trestle?",
@@ -221,7 +222,7 @@
      "img": null,
      "alt": null,
      "text": "The walkable heart of the community, steps from the eastern shore of the lake. Try Shawnigan House Coffee + Chocolate for artisan sweets and THREE B'S CAFE for breakfast and lunch, visit the museum, then follow the Shawnigan Village Rail Trail to the lakefront.",
-     "note": "Centred on Shawnigan Lake Road and Shawnigan-Mill Bay Road. Visit cafes early for the freshest pastries."
+     "note": "Centered on Shawnigan Lake Road and Shawnigan-Mill Bay Road. Visit cafes early for the freshest pastries."
     },
     {
      "name": "Shawnigan Lake Museum",
@@ -234,7 +235,7 @@
      "name": "Cowichan Bay",
      "img": null,
      "alt": null,
-     "text": "A historic waterfront village about 15 minutes north, famous for colourful buildings on stilts and an active fishing harbour. Stroll a 1-kilometre oceanfront strip of artisan shops, seafood restaurants and a maritime museum, and rent kayaks or book whale-watching tours to see orcas, eagles and river otters.",
+     "text": "A historic waterfront village about 15 minutes north, famous for colorful buildings on stilts and an active fishing harbor. Stroll a 1-kilometer oceanfront strip of artisan shops, seafood restaurants and a maritime museum, and rent kayaks or book whale-watching tours to see orcas, eagles and river otters.",
      "note": null
     },
     {
@@ -248,7 +249,7 @@
      "name": "Goldstream Provincial Park",
      "img": null,
      "alt": null,
-     "text": "About 20 minutes south and renowned for 600-year-old Douglas fir and Western Red Cedar trees. A short, flat walk reaches a 47-metre waterfall in a narrow rock canyon, and in late autumn the park is one of the best places on the island to see the annual salmon run.",
+     "text": "About 20 minutes south and renowned for 600-year-old Douglas fir and Western Red Cedar trees. A short, flat walk reaches a 47-meter waterfall in a narrow rock canyon, and in late autumn the park is one of the best places on the island to see the annual salmon run.",
      "note": null
     }
    ],
@@ -274,10 +275,7 @@
    "a": "Summer is the most popular time, when the lake is at its liveliest. Spring and early fall are also beautiful, with fewer crowds and a quieter atmosphere."
   }
  ],
- "nearby": [
-  "chemainus",
-  "victoria"
- ],
+ "nearby": ["victoria", "chemainus", "sooke"],
  "sources": [
   "Shawnigan Lake.docx"
  ]

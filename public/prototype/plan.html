@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>When should you go to Tofino? Arc Trips</title>
+<title>Plan your trip to Tofino | ArcTrips</title>
 <meta name="description" content="Every month of the year in Tofino with the real climate numbers, what is at its best when, nine things to settle before you go, and the rooms that are open in all twelve.">
 <link rel="canonical" href="https://arctrips-destination-pages.vercel.app/travel-guides/canada/bc/tofino">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,7 @@
 <link rel="icon" href="/prototype/brand/arctrips-icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/prototype/_system.css">
 <style>
-/* ── Page-scoped only. Tokens from _system.css, no new colour values. ────────
+/* ── Page-scoped only. Tokens from _system.css, no new color values. ────────
       Colour carries one meaning on this page and only one: intensity on the
       azure ramp says how much of Tofino is in season in a given month, palest
       in January and deepest in May and September. Nothing else on the page is
@@ -128,7 +128,7 @@ body>.skip:focus{top:0}
 .mrow[data-sel] .mrain i{background:var(--azure)}
 .mbest{display:flex;align-items:center;gap:10px;min-width:0;grid-column:1/-1}
 @media(min-width:1001px){.mbest{grid-column:auto}}
-/* ── the one place colour carries meaning: how much of Tofino is in season.
+/* ── the one place color carries meaning: how much of Tofino is in season.
       Six steps up the azure ramp, palest at three subjects, azure at eight.
       Navy holds 4.5:1 on every tint through a400; the top step flips to white. */
 .mint{display:inline-flex;align-items:center;justify-content:center;min-width:78px;min-height:36px;
@@ -340,6 +340,43 @@ main [id]{scroll-margin-top:176px}
 .wxt th:first-child,.wxt td:first-child{text-align:left}
 .wxt th{font-size:.74rem;color:var(--n600);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 .wxwrap{overflow-x:auto}
+
+/* review 2026-11-25: Plan your trip hub. Best time, itineraries, guides, stay. */
+.pl{padding-block:clamp(40px,4.6vw,68px) 0}
+.pl .head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.pl .head p{color:var(--n600);margin-top:10px;max-width:60ch;line-height:1.55}
+.pseason{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--n150);border:1px solid var(--n150);border-radius:var(--r);overflow:hidden;margin-top:22px}
+.pseason div{background:var(--paper);padding:18px 20px}
+.pseason dt{font-weight:700;color:var(--navy)}
+.pseason dd{margin-top:8px;color:var(--n700);font-size:.95rem;line-height:1.55}
+.pseason dd b{color:var(--navy)}
+@media(max-width:900px){.pseason{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.pseason{grid-template-columns:1fr}}
+.plink{display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-top:14px;font-weight:700;color:var(--azure)}
+.plink svg{width:14px;height:14px;flex:none}
+.plink:hover{color:var(--navy)}
+.ptrips{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(14px,1.6vw,20px);margin-top:22px}
+@media(max-width:1100px){.ptrips{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.ptrips{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:460px){.ptrips{grid-template-columns:1fr}}
+.ptrip{display:flex;flex-direction:column;gap:6px;height:100%}
+.ptrip__m{display:block;border-radius:var(--r);overflow:hidden;aspect-ratio:7/5;background:var(--n100);margin-bottom:6px}
+.ptrip__m img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.ptrip:hover .ptrip__m img{transform:scale(1.03)}
+.ptrip__d{font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--emerald)}
+.ptrip__t{font-weight:700;color:var(--navy);line-height:1.3}
+.ptrip:hover .ptrip__t{color:var(--azure)}
+.ptrip__p{font-size:.92rem;color:var(--n600);line-height:1.5}
+.ptrip:focus-visible{outline:2px solid var(--azure);outline-offset:4px;border-radius:var(--r)}
+.pguides{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--n150);margin-top:22px;column-gap:clamp(24px,4vw,56px)}
+@media(max-width:700px){.pguides{grid-template-columns:1fr}}
+.pguides a{display:flex;flex-direction:column;gap:4px;padding:16px 0;border-bottom:1px solid var(--n150);min-height:44px}
+.pg__t{font-weight:700;color:var(--navy)}
+.pguides a:hover .pg__t{color:var(--azure)}
+.pg__p{font-size:.93rem;color:var(--n600);line-height:1.5}
+.pl--stay{padding-bottom:clamp(48px,5vw,76px)}
+.pstay{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;border-top:2px solid var(--navy);padding-top:clamp(20px,2.4vw,28px)}
+.pstay p{color:var(--n600);margin-top:8px;max-width:56ch;line-height:1.55}
 </style>
 </head>
 <body>
@@ -374,8 +411,8 @@ main [id]{scroll-margin-top:176px}
 <nav class="top"><div class="wrap nav-in">
   <a class="brand" href="/"><img class="brand__mark" src="/prototype/brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
   <ul class="nav-links">
-    <li><a href="/">Destinations</a></li>
-    <li><a href="/search?q=&amp;in=tofino">Guides</a></li>
+    <li><a href="/destinations">Destinations</a></li>
+    <li><a href="/travel-guides" aria-current="page">Guides</a></li>
   </ul>
   <div class="finder">
     <form class="search" role="search" action="/search" method="get">
@@ -390,31 +427,25 @@ main [id]{scroll-margin-top:176px}
 <!-- The place bar. Identical on every Tofino page: back to the town, the same
      five sections in the same order, and the booking path. -->
 <div class="placebar placebar--two" aria-label="Tofino"><div class="wrap">
-  <nav class="crumb placebar__crumb" aria-label="Breadcrumb"><a class="lvl-deep" href="/">British Columbia</a><span class="sep lvl-deep" aria-hidden="true">/</span><a class="lvl-deep" href="/destinations/canada/bc/vancouver-island">Vancouver Island</a><span class="sep lvl-deep" aria-hidden="true">/</span><a href="/destinations/canada/bc/tofino">Tofino</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Plan</span></nav>
+  <nav class="crumb placebar__crumb" aria-label="Breadcrumb"><a class="lvl-deep" href="/">British Columbia</a><span class="sep lvl-deep" aria-hidden="true">/</span><a class="lvl-deep" href="/destinations/canada/bc/vancouver-island">Vancouver Island</a><span class="sep lvl-deep" aria-hidden="true">/</span><a href="/destinations/canada/bc/tofino">Tofino</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Plan your trip</span></nav>
   <nav class="placebar-in" aria-label="Tofino sections"><ul class="placebar__links">
     <li><a href="/destinations/canada/bc/tofino">Overview</a></li>
     <li><a href="/destinations/canada/bc/tofino/things-to-do">Things to do</a></li>
-    <li><a href="#top" aria-current="page">Plan</a></li>
-    <li><a href="/travel-guides/canada/bc/tofino/best-time-to-visit">Best time to visit</a></li>
-    <li><a href="/travel-guides/canada/bc/itineraries#west-coast">Itineraries</a></li>
-    <li><a href="/blog/whale-watching/canada/bc/tofino/wildlife-tours-in-tofino">Guides</a></li>
+    <li><a href="#top" aria-current="page">Plan your trip</a></li>
   </ul></nav>
 </div></div><!-- /placebar -->
 
 <main id="main">
 
-
-
 <header class="hero"><div class="wrap hero-grid">
   <div>
-    <h1>When should you go to Tofino?</h1>
-    <p class="lede">Any month works, for a different reason. July and August are the busiest, spring and fall are quieter, and winter is storm season with the fewest people. Pick by what you want to do, then dress for it.</p>
+    <h1>Plan your trip to Tofino</h1>
+    <p class="lede">When to come, how many days to give it, and the guides worth reading first. Any month works for a different reason: July and August are the busiest, spring and fall are quieter, and winter is storm season with the fewest people.</p>
     <div class="hero-cta">
-      <a class="btn btn--primary btn--lg hero-mob" href="/search?in=tofino">Search 134 stays</a>
-      <a class="btn btn--ghost btn--lg" href="#months">See every month</a>
-      <a class="btn btn--ghost btn--lg" href="/travel-guides/canada/bc/tofino/best-time-to-visit">Best time to visit</a>
+      <a class="btn btn--ghost btn--lg" href="#best">Best time to visit</a>
+      <a class="btn btn--ghost btn--lg" href="#itineraries">Itineraries</a>
+      <a class="btn btn--ghost btn--lg" href="#guides">Guides</a>
     </div>
-    <p class="hero-note" id="heroNote"></p>
   </div>
 
   <div class="collage">
@@ -423,13 +454,11 @@ main [id]{scroll-margin-top:176px}
         <path d="M40 120 C110 92 150 150 210 140 C268 130 300 70 360 88 C420 106 452 168 500 150" stroke="currentColor" stroke-width="1.4"/>
         <path d="M20 300 C96 268 140 336 205 322 C270 308 306 244 372 262 C438 280 470 344 512 326" stroke="currentColor" stroke-width="1.4"/>
         <path d="M10 400 C90 372 136 434 204 420 C272 406 312 348 380 366" stroke="currentColor" stroke-width="1.4"/>
-        <circle cx="120" cy="212" r="2.6" fill="currentColor"/><circle cx="392" cy="196" r="2.6" fill="currentColor"/>
       </svg>
     </div>
-
     <figure class="plate p1">
       <img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_760,h_1000/guides/tofino/storm-watching/_category-1" alt="Heavy surf breaking against the Tofino shore under winter cloud">
-      <figcaption>February, storm season and the quietest month</figcaption>
+      <figcaption>Winter, storm season and the quietest months</figcaption>
     </figure>
     <figure class="plate p2">
       <img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_780,h_560/guides/tofino/beaches/long-beach-1" alt="The long open sand of Long Beach in Pacific Rim National Park Reserve">
@@ -439,181 +468,97 @@ main [id]{scroll-margin-top:176px}
       <img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_680,h_520/guides/tofino/hiking/tonquin-trail-1" alt="Boardwalk steps through rainforest on the Tonquin Trail in Tofino">
       <figcaption>Tonquin Trail, open all year</figcaption>
     </figure>
-
-    <svg class="seal" viewBox="0 0 100 100" fill="none" aria-hidden="true">
-      <circle cx="50" cy="50" r="46" stroke="currentColor" stroke-width="1.3"/>
-      <circle cx="50" cy="50" r="38" stroke="currentColor" stroke-width=".8" stroke-dasharray="2 4"/>
-      <path d="M50 20 L56 46 L82 50 L56 54 L50 80 L44 54 L18 50 L44 46 Z" fill="currentColor" opacity=".55"/>
-      <text x="50" y="14" text-anchor="middle" font-size="7" font-weight="700" fill="currentColor" letter-spacing="1.4">N</text>
-    </svg>
   </div>
 </div></header>
 
-<div class="wrap">
-  <nav class="jumprow" id="jumprow" aria-label="On this page">
-    <a href="#months">Every month</a>
-    <a href="#compare">Compare two</a>
-    <a href="#best">At their best</a>
-    <a href="#topics">What to settle</a>
-    <a href="#stays">Stays</a>
-    <a href="#questions">Questions</a>
-  </nav>
-</div>
-
-<section class="sec sec--m" id="months"><div class="wrap">
+<section class="sec pl" id="best"><div class="wrap">
   <div class="head">
     <div>
-      <h2>Every month, at a glance</h2>
-      <p>How busy Tofino gets and what is at its best in each month. Pick a month to set it against another. The weather is at the bottom of the page.</p>
+      <h2>Best time to visit</h2>
+      <p>Choose by what you want to do and how many people you want to share it with, then dress for the season you pick.</p>
     </div>
+    <a class="btn btn--ghost btn--sm" href="/travel-guides/canada/bc/tofino/best-time-to-visit">Conditions by month</a>
   </div>
-
-  <div class="mhead" aria-hidden="true">
-    <span>Month</span><span>Crowds</span><span>At their best</span><span>Compare</span>
-  </div>
-  <div class="mboard" id="mboard"></div>
-  <p class="msrc">Crowd levels follow what the Tofino guides say about busy and quiet seasons. More bars, more people.</p>
+  <dl class="pseason">
+    <div><dt>Summer</dt><dd><b>Busiest.</b> July and August fill the beaches, the tours and the rooms. The long days suit beach time, paddling and wildlife tours.</dd></div>
+    <div><dt>Fall</dt><dd><b>Quieter.</b> Fewer crowds and a more relaxed pace, with whale watching still running into October.</dd></div>
+    <div><dt>Winter</dt><dd><b>Quietest.</b> Storm season, November to February, when the swell is biggest and the coast is at its most dramatic.</dd></div>
+    <div><dt>Spring</dt><dd><b>Building.</b> Gray whales pass on their way north from March, and the Pacific Rim Whale Festival fills the towns.</dd></div>
+  </dl>
+  <a class="plink" href="/travel-guides/canada/bc/tofino/best-time-to-visit">Open the month by month guide: what is on, the wildlife, the crowds and the sea, with the weather at the end<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
 </div></section>
 
-<section class="sec sec--c" id="compare"><div class="wrap">
-  <div class="almanac">
-    <div class="head">
-      <div>
-        <h2 id="cTitle">Two months, side by side</h2>
-        <p>Pick any two. The same four numbers on each side, and a photograph of what that month is for.</p>
-      </div>
-    </div>
-
-    <div class="vs">
-      <article class="mcard mcard--a">
-        <figure class="mshot"><img id="aImg" src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_900,h_506/guides/tofino/storm-watching/_category-1" alt="Grey Pacific surf breaking around a rock stack on the Tofino shore"><figcaption id="aCap">February is for storm watching</figcaption></figure>
-        <div class="mcard__b">
-          <div>
-            <span class="label" id="aSeason"></span>
-            <h3 id="aName"></h3>
-          </div>
-          <p class="sel"><label for="apick">This month</label><select id="apick"></select></p>
-          <p class="mcard__s" id="aClaim"></p>
-          <dl class="bignums" id="aNums"></dl>
-          <p class="mcard__u" id="aOnCount"></p>
-          <p class="mcard__u" id="aOnly"></p>
-        </div>
-      </article>
-
-      <article class="mcard mcard--b">
-        <figure class="mshot"><img id="bImg" src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_900,h_506/guides/tofino/beaches/_category-1" alt="Wet sand and a low sun on a Tofino beach at the end of the day"><figcaption id="bCap">July is for beaches</figcaption></figure>
-        <div class="mcard__b">
-          <div>
-            <span class="label" id="bSeason"></span>
-            <h3 id="bName"></h3>
-          </div>
-          <p class="sel"><label for="bpick">Against</label><select id="bpick"></select></p>
-          <p class="mcard__s" id="bClaim"></p>
-          <dl class="bignums" id="bNums"></dl>
-          <p class="mcard__u" id="bOnCount"></p>
-          <p class="mcard__u" id="bOnly"></p>
-        </div>
-      </article>
-    </div>
-
-    <p class="sum" id="sum"></p>
-    <p class="vh" role="status" aria-live="polite" id="live"></p>
-  </div>
-</div></section>
-
-<section class="proof">
-  <img src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_2400,h_1100/guides/tofino/storm-watching/_category-1" alt="Heavy Pacific swell breaking along the Tofino shoreline in winter">
-  <div class="proof__veil"></div>
-  <div class="wrap proof__in">
-    <p class="proof__n"><b class="tnum">3,327</b> millimetres of rain a year.</p>
-    <p class="proof__d">More than half of it falls in the four months from November to February. That is what makes the rainforest a rainforest, and what puts the winter swell on the beaches. Bring the jacket, book the window.</p>
-    <a class="btn btn--ghost btn--lg proof__cta" href="/destinations/canada/bc/tofino/things-to-do/storm-watching">Where to watch a storm</a>
-  </div>
-</section>
-
-<section class="sec sec--b" id="best"><div class="wrap">
+<section class="sec pl" id="itineraries"><div class="wrap">
   <div class="head">
     <div>
-      <h2 id="bestTitle">At their best in February</h2>
-      <p id="bestSub"></p>
+      <h2>Itineraries</h2>
+      <p>Suggested plans for Tofino and the west coast, from one day to a week.</p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="/destinations/canada/bc/tofino/things-to-do">Everything worth doing</a>
+    <a class="btn btn--ghost btn--sm" href="/travel-guides/canada/bc/itineraries">All itineraries</a>
   </div>
-  <div class="blist" id="blist"></div>
+  <ol class="ptrips">
+    <li><a class="ptrip" href="/travel-guides/canada/bc/itineraries/one-day-in-tofino">
+      <span class="ptrip__m"><img loading="lazy" src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_560,h_400/guides/tofino/beaches/long-beach-1" alt="The long open sand of Long Beach in Pacific Rim National Park Reserve"></span>
+      <span class="ptrip__d">1 day</span>
+      <span class="ptrip__t">One day in Tofino</span>
+      <span class="ptrip__p">Long Beach in the morning, the village after lunch, a sunset beach to finish.</span>
+    </a></li>
+    <li><a class="ptrip" href="/travel-guides/canada/bc/itineraries/tofino-and-ucluelet-weekend-getaway">
+      <span class="ptrip__m"><img loading="lazy" src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_560,h_400/guides/ucluelet/hiking/lighthouse-loop-1" alt="Amphitrite Point Lighthouse above the rocks on the Lighthouse Loop in Ucluelet"></span>
+      <span class="ptrip__d">2 days</span>
+      <span class="ptrip__t">Tofino and Ucluelet weekend getaway</span>
+      <span class="ptrip__p">Two towns on one road: beaches and surf in Tofino, the Wild Pacific Trail in Ucluelet.</span>
+    </a></li>
+    <li><a class="ptrip" href="/travel-guides/canada/bc/itineraries/three-days-in-tofino-and-ucluelet">
+      <span class="ptrip__m"><img loading="lazy" src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_560,h_400/guides/tofino/hiking/tonquin-trail-1" alt="Boardwalk steps through rainforest on the Tonquin Trail in Tofino"></span>
+      <span class="ptrip__d">3 days</span>
+      <span class="ptrip__t">Three days in Tofino and Ucluelet</span>
+      <span class="ptrip__p">A slower west coast trip with a day on the water and time for the rainforest.</span>
+    </a></li>
+    <li><a class="ptrip" href="/travel-guides/canada/bc/itineraries/vancouver-tofino-and-ucluelet-in-five-days">
+      <span class="ptrip__m"><img loading="lazy" src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_560,h_400/guides/tofino/kayaking/lemmens-inlet-1" alt="Flat protected water and forested shoreline at Lemmens Inlet"></span>
+      <span class="ptrip__d">5 days</span>
+      <span class="ptrip__t">Vancouver, Tofino and Ucluelet in five days</span>
+      <span class="ptrip__p">The city first, then the ferry and the drive across the island to the coast.</span>
+    </a></li>
+    <li><a class="ptrip" href="/travel-guides/canada/bc/itineraries/vancouver-to-tofino-and-ucluelet-7-day-road-trip">
+      <span class="ptrip__m"><img loading="lazy" src="https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_560,h_400/guides/tofino/storm-watching/_category-1" alt="Heavy surf breaking against the Tofino shore under winter cloud"></span>
+      <span class="ptrip__d">7 days</span>
+      <span class="ptrip__t">Vancouver to Tofino and Ucluelet: 7-day road trip</span>
+      <span class="ptrip__p">A week on the road, with stops across Vancouver Island on the way west.</span>
+    </a></li>
+  </ol>
 </div></section>
 
-<section class="sec sec--t" id="topics"><div class="wrap">
+<section class="sec pl" id="guides"><div class="wrap">
   <div class="head">
     <div>
-      <h2>Nine things to settle</h2>
-      <p>In the order most people need them, from the road in to what goes in the bag.</p>
+      <h2>Guides</h2>
+      <p>Useful reading on wildlife tours, the seasons and where to eat. Every guide on the site is on the Guides page.</p>
     </div>
-    <a class="btn btn--ghost btn--sm" href="/search?q=&amp;in=tofino">Read the Tofino guides</a>
+    <a class="btn btn--ghost btn--sm" href="/travel-guides#tofino">All Tofino guides</a>
   </div>
-
-  <div class="tgrid" id="tgrid"></div>
+  <ul class="pguides">
+    <li><a href="/blog/whale-watching/canada/bc/tofino/wildlife-tours-in-tofino"><span class="pg__t">Wildlife tours in Tofino</span><span class="pg__p">Whales, bears and seabirds: which tours are worth booking and what the shore gives you for free.</span></a></li>
+    <li><a href="/travel-guides/canada/bc/tofino/best-time-to-visit"><span class="pg__t">Best time to visit Tofino</span><span class="pg__p">Conditions by month: what is on, the wildlife, the crowds and the sea.</span></a></li>
+    <li><a href="/destinations/canada/bc/tofino/long-beach"><span class="pg__t">Long Beach</span><span class="pg__p">The open sand between Tofino and Ucluelet, and how to spend a day on it.</span></a></li>
+    <li><a href="/destinations/canada/bc/tofino/things-to-do/restaurants"><span class="pg__t">Where to eat in Tofino</span><span class="pg__p">Taco trucks, a brewery, coffee and a dining room with the Pacific in the window.</span></a></li>
+  </ul>
 </div></section>
 
-<section class="sec sec--s" id="stays"><div class="wrap">
-  <div class="head">
-    <div>
-      <h2>134 rooms, open in every month</h2>
-      <p id="stayLine"></p>
-    </div>
-    <a class="btn btn--ghost btn--sm" href="/not-found?in=tofino">See every stay</a>
+<section class="sec pl pl--stay" id="stays"><div class="wrap pstay">
+  <div>
+    <h2>Stay in Tofino</h2>
+    <p>Places to stay are open in every month. Ucluelet is forty minutes down the same road if Tofino is full.</p>
   </div>
-  <div class="stay">
-    <a class="stayfeat" href="/search?in=tofino" id="stayFeat"></a>
-    <div>
-      <table class="ledger2" id="stayTable">
-        <thead><tr><th>Stay</th><th>Price</th></tr></thead>
-        <tbody></tbody>
-      </table>
-      <p class="msrc" id="stayNote"></p>
-    </div>
-  </div>
-</div></section>
-
-<section class="sec sec--n"><div class="wrap">
-  <div class="head"><div>
-    <h2>Three ways on from here</h2>
-  </div></div>
-  <div class="next">
-    <div class="nextc">
-      <h3>Best time to stay in Tofino and Ucluelet</h3>
-      <p>Month by month across both towns on the same road, forty minutes apart.</p>
-      <a class="topic__go" href="/search?q=Best%20Time%20to%20Stay%20in%20Ucluelet%20or%20Tofino&amp;in=tofino">Read the guide
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
-    </div>
-    <div class="nextc">
-      <h3>Things to do in Tofino</h3>
-      <p>Beaches, trails, whales, storms and where to eat, gathered in one place.</p>
-      <a class="topic__go" href="/destinations/canada/bc/tofino/things-to-do">Open things to do
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
-    </div>
-    <div class="nextc">
-      <h3>Vancouver Island</h3>
-      <p>Eleven towns on the island, starting with the two on the surf coast.</p>
-      <a class="topic__go" href="/destinations/canada/bc/vancouver-island">Open Vancouver Island
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
-    </div>
-  </div>
-</div></section>
-
-<section class="sec sec--wx" id="weather"><div class="wrap">
-  <h2 style="font-size:1.3rem">The weather, if you want it</h2>
-  <p class="msrc" style="margin-top:6px">There is no bad weather here, only the wrong jacket. Rain falls in every month, so pack layers and a waterproof shell.</p>
-  <div class="wxwrap"><table class="wxt"><thead><tr><th>Month</th><th>High</th><th>Low</th><th>Rain, mm</th><th>Rain days</th></tr></thead><tbody id="wxt"></tbody></table></div>
-  <p class="msrc">Climate normals for the Tofino station, seeded for design.</p>
+  <a class="btn btn--primary btn--lg" href="https://arctrips.com/stays/canada/bc/tofino">Find a stay in Tofino</a>
 </div></section>
 
 <section class="sec sec--q" id="questions"><div class="wrap">
   <div class="head">
     <div>
-      <h2>Questions people ask</h2>
-      <p>Short answers on surf, whales, storms, trails, campgrounds and where to eat.</p>
+      <h2>Frequently asked questions</h2>
     </div>
-    <a class="btn btn--ghost btn--sm" href="/search?in=tofino">Search the guides</a>
   </div>
   <div class="qlist" id="qlist"></div>
 </div></section>
@@ -627,42 +572,26 @@ main [id]{scroll-margin-top:176px}
       <p class="fnote">Stays and guides on the west coast of Vancouver Island, written by people who go there.</p>
     </div>
     <div><h5>Destinations</h5><ul>
-      <li><a href="/destinations/canada/bc/tofino">Tofino</a></li><li><a href="/search?q=&amp;in=tofino">Guides</a></li>
+      <li><a href="/destinations/canada/bc/tofino">Tofino</a></li><li><a href="/travel-guides#tofino">Guides</a></li>
       <li><a href="/">British Columbia</a></li></ul></div>
     <div><h5>Things to do</h5><ul>
-      <li><a href="/destinations/canada/bc/tofino/things-to-do">All nine subjects</a></li><li><a href="/whale-watching/canada/bc/tofino">Whale watching</a></li>
+      <li><a href="/destinations/canada/bc/tofino/things-to-do">Things to do in Tofino</a></li><li><a href="/whale-watching/canada/bc/tofino">Whale watching</a></li>
       <li><a href="/destinations/canada/bc/tofino/long-beach">Long Beach</a></li><li><a href="/search?in=tofino">Search everything</a></li></ul></div>
     <div><h5>Plan</h5><ul>
-      <li><a href="#top">When to go</a></li><li><a href="#topics">Getting there</a></li>
-      <li><a href="#months">What to pack</a></li></ul></div>
-    <div><h5>Arc Trips</h5><ul>
+      <li><a href="#best">Best time to visit</a></li><li><a href="#itineraries">Itineraries</a></li>
+      <li><a href="#guides">Guides</a></li></ul></div>
+    <div><h5>ArcTrips</h5><ul>
       <li><a href="/not-found">About us</a></li><li><a href="/not-found">List your place</a></li>
       <li><a href="/fishing/canada/bc/tofino">Fishing charters</a></li><li><a href="/not-found">Contact</a></li></ul></div>
   </div>
-  <div class="fbase"><span>&copy; 2026 Arc Trips</span><span>Prices in CAD, before taxes and fees</span></div>
+  <div class="fbase"><span>&copy; 2026 ArcTrips</span></div>
 </div></footer>
 
-<script type="application/json" id="plan-data">{"town":{"name":"Tofino","stays":134,"places":73,"guides":9,"articles":18},"ucluelet":{"stays":158,"places":54,"guides":6},"corpus":{"destinations":5,"guides":15,"places":127,"articles":31,"listings":12},"climate":[{"hi":8.6,"lo":2.6,"mm":489,"days":22},{"hi":9.3,"lo":2.3,"mm":368,"days":19},{"hi":10.4,"lo":3.1,"mm":337,"days":21},{"hi":12.3,"lo":4.3,"mm":213,"days":18},{"hi":14.6,"lo":6.7,"mm":132,"days":15},{"hi":16.3,"lo":9.1,"mm":102,"days":13},{"hi":18.1,"lo":10.9,"mm":66,"days":9},{"hi":18.6,"lo":11.1,"mm":82,"days":10},{"hi":17.5,"lo":9.3,"mm":152,"days":12},{"hi":13.9,"lo":6.9,"mm":396,"days":20},{"hi":10.3,"lo":4.4,"mm":500,"days":23},{"hi":8.4,"lo":2.7,"mm":490,"days":23}],"climateU":[{"hi":8.4,"lo":2.8,"mm":452,"days":22},{"hi":9.1,"lo":2.5,"mm":341,"days":19},{"hi":10.2,"lo":3.3,"mm":312,"days":20},{"hi":12,"lo":4.5,"mm":198,"days":17},{"hi":14.2,"lo":6.9,"mm":124,"days":14},{"hi":15.9,"lo":9.3,"mm":96,"days":12},{"hi":17.6,"lo":11.1,"mm":62,"days":9},{"hi":18.1,"lo":11.3,"mm":78,"days":10},{"hi":17,"lo":9.5,"mm":143,"days":12},{"hi":13.6,"lo":7.1,"mm":368,"days":20},{"hi":10.1,"lo":4.6,"mm":463,"days":23},{"hi":8.2,"lo":2.9,"mm":455,"days":22}],"seasons":{"storm":{"months":[11,12,1,2],"name":"Storm season","claim":"The Pacific throws everything it has at the coast, and people book rooms to watch it."},"green":{"months":[3,4,10],"name":"The green months","claim":"The coast between the storms and the crowds, at half the price."},"long":{"months":[5,6,7,8,9],"name":"Long days","claim":"Sixteen hours of light and the water finally warm enough to stay in."}},"tide":{"station":"Tofino Harbour","low1":"06:14","low1m":0.8,"high1":"12:38","high1m":3.1,"low2":"18:52","low2m":1.2,"sunset":"21:07"},"bestMonths":{"beaches":[5,6,7,8,9],"surfing":[1,2,3,4,9,10,11,12],"kayaking":[5,6,7,8,9],"fishing":[5,6,7,8,9],"boating":[5,6,7,8,9],"hot-springs":[1,2,3,4,5,6,7,8,9,10,11,12],"whale-watching":[3,4,5,6,7,8,9,10],"birding":[3,4,5,9,10,11],"storm-watching":[11,12,1,2],"parks":[4,5,6,7,8,9,10],"hiking":[4,5,6,7,8,9,10],"mountain-biking":[5,6,7,8,9],"skiing":[12,1,2,3],"camping":[5,6,7,8,9],"restaurants":[1,2,3,4,5,6,7,8,9,10,11,12],"markets":[5,6,7,8,9],"breweries":[1,2,3,4,5,6,7,8,9,10,11,12],"landmarks":[1,2,3,4,5,6,7,8,9,10,11,12],"arts-history":[1,2,3,4,5,6,7,8,9,10,11,12],"events":[3,4,5,6,7,8],"when-to-go":[1,2,3,4,5,6,7,8,9,10,11,12],"getting-around":[1,2,3,4,5,6,7,8,9,10,11,12]},"places":[{"n":"Mackenzie Beach / tinwis Beach","c":"kayaking","h":"guides/tofino/kayaking/mackenzie-beach-tinwis-beach-1","g":["Beginner kayaking","Families","Short paddles","Calm water practice","Paddleboarding","Watching the coast from the water"],"b":"Mackenzie Beach, also known as tinwis Beach, is one of the calmer paddling areas near Tofino. It is more sheltered than the open surf beaches, so it can be a good place for easy kayaking.","k":"It is still ocean water, so check wind and weather before going out. Stay close to shore if you are new."},{"n":"Wolf in the Fog","c":"restaurants","h":null,"g":["Special dinners","Local seafood","Cocktails","Date night","Sharing plates","A true Tofino food experience"],"b":"Wolf in the Fog is one of the most famous restaurants in Tofino. It is a good choice for a special dinner, a date night, or a meal that feels very connected to the west coast.","k":"Book ahead if you can. This is one of the most popular restaurants in town."},{"n":"Tonquin Trail","c":"hiking","h":"guides/tofino/hiking/tonquin-trail-1","g":["Easy hiking","Families","Forest views","Beach access","Sunset views","Photography","A walk close to town"],"b":"The Tonquin Trail is one of the best easy trails in Tofino. It starts near the village and leads through coastal forest to Tonquin Beach, Third Beach, and Middle Beach.","k":"The trail can be muddy after rain, and there are stairs in some areas. Wear shoes with good grip."},{"n":"Public Viewing Points","c":"storm-watching","h":null,"g":[],"b":"","k":""},{"n":"Chesterman Beach","c":"beaches","h":"guides/tofino/beaches/chesterman-beach-1","g":["Long beach walks","Beginner surf lessons","Sunset photos","Sandcastles","Tide pools at low tide","Watching surfers"],"b":"Chesterman Beach is one of the most loved beaches in Tofino. It is long, sandy, and easy to enjoy. It is close to town and popular with walkers, surfers, families, and photographers.","k":"Always check the tide before walking toward Frank Island. The water can come in and cover the sandspit."},{"n":"Tonquin Beach Trail","c":"hiking","h":"guides/tofino/hiking/tonquin-beach-trail-1","g":["Short walks","Sunset views","Picnics","Quiet beach time","A quick nature stop near town"],"b":"If you do not want to walk the full Tonquin Trail, you can make a shorter visit to Tonquin Beach. This is one of the closest beach walks to Tofino village.","k":"The beach is smaller than Chesterman or Cox Bay, so it may feel more closed in at high tide."},{"n":"Cox Bay","c":"storm-watching","h":null,"g":[],"b":"Cox Bay is one of the most famous storm-watching spots in Tofino. It is wide, open, and exposed to the Pacific Ocean. This makes it a great place to see large waves roll in. On stormy days.","k":"Stay far back from the water. Waves can reach higher up the beach than expected."},{"n":"Cox Bay","c":"beaches","h":"guides/tofino/beaches/cox-bay-1","g":["Surfing","Watching surfers","Sunset views","Beach walks","Photography","Storm watching in winter"],"b":"Cox Bay is one of the best beaches in Tofino for surfing. It is wide, open, and faces the Pacific Ocean. Because of this, it often gets strong and steady waves.","k":"Cox Bay can have powerful waves and currents. Beginners should go with a surf school or choose calmer conditions."},{"n":"Kennedy Lake","c":"kayaking","h":"guides/tofino/kayaking/kennedy-lake-1","g":["Freshwater kayaking","Canoeing","Paddleboarding","Families","Calm lake views","A break from ocean wind and waves"],"b":"Kennedy Lake is not in Tofino town, but it is close enough to include in a Tofino kayaking guide. It is a freshwater lake near Tofino and Ucluelet.","k":"Lakes can still get windy. Check conditions before paddling far from shore."},{"n":"The Pointe Restaurant","c":"restaurants","h":"guides/tofino/restaurants/the-pointe-restaurant-1","g":["Ocean views","Fine dining","Special occasions","West coast seafood","Sunset or storm watching from indoors","A slower, more elegant meal"],"b":"The Pointe Restaurant is one of the best places in Tofino for ocean-view dining. It is located at the Wickaninnish Inn, near Chesterman Beach, and is known for its wide Pacific Ocean views.","k":"This is one of the more upscale dining options in Tofino. Check dress expectations and book ahead."},{"n":"Tofino Harbour and Sheltered Inlet Waters","c":"kayaking","h":"guides/tofino/kayaking/tofino-harbour-and-sheltered-inlet-waters-1","g":["Short guided trips","First-time sea kayaking","Calm paddling","Island views","Learning basic kayak skills"],"b":"The sheltered waters near Tofino Harbour are often used for short guided kayak trips. These areas can offer calm paddling, island views, and an easy way to see Tofino from the water.","k":"Watch for boat traffic and follow your guide’s instructions."},{"n":"Long Beach","c":"beaches","h":"guides/tofino/beaches/long-beach-1","g":["Long walks","Big beach views","Surfing","Storm watching","Photography","Visiting Pacific Rim National Park Reserve"],"b":"Long Beach is one of the most famous beaches on Vancouver Island. It is part of Pacific Rim National Park Reserve, between Tofino and Ucluelet.","k":"You may need a national park pass when stopping in this area. Follow Parks Canada signs, closures, and beach safety rules."},{"n":"Shelter Restaurant","c":"restaurants","h":null,"g":["Waterfront dining","Families","Seafood","Casual dinner","Groups","Rainy day meals"],"b":"Shelter Restaurant is a popular waterfront spot near Tofino Resort + Marina. It is a great choice if you want a relaxed meal with local seafood, burgers, bowls, and a cozy coastal feel.","k":"It can get busy, especially in summer and at dinner time."},{"n":"Chesterman Beach","c":"storm-watching","h":null,"g":[],"b":"Chesterman Beach is a favorite place for beach walks and storm watching. It is close to town and easy to access. The beach is long, sandy, and scenic. On stormy days, you can watch waves.","k":"Watch the tide. Parts of the beach may be harder to walk during high tide."},{"n":"Third Beach and Middle Beach Walk","c":"hiking","h":"guides/tofino/hiking/third-beach-and-middle-beach-walk-1","g":["Quiet beach stops","Forest-to-beach scenery","Photography","Short hikes","Less crowded views"],"b":"Third Beach and Middle Beach are small beaches along the Tonquin Trail. They are less famous than Tonquin Beach, but they are worth visiting if you want a quieter walk.","k":"Beach access can be a little rough in places. Watch your step, especially after rain."},{"n":"Long Beach","c":"storm-watching","h":null,"g":[],"b":"Long Beach is part of Pacific Rim National Park Reserve. It is one of the most famous beaches on Vancouver Island. It is wide, long, and open to the ocean. This makes it a powerful place to.","k":"You may need a park pass. Always follow Parks Canada safety signs and closures."},{"n":"Ombré Restaurant","c":"restaurants","h":null,"g":["Creative dining","Small plates","Date night","Cocktails","Local flavors","A relaxed but elevated meal"],"b":"Ombré is a newer Tofino dining option connected to the team behind Wolf in the Fog. It has a more relaxed feel but still focuses on creative food and local flavor.","k":"Check current hours and reservation options before going."},{"n":"Tinwis Beach, formerly Mackenzie Beach","c":"beaches","h":"guides/tofino/beaches/tinwis-beach-formerly-mackenzie-beach-1","g":["Families","Calmer beach days","Paddleboarding in gentle conditions","Tide pools","Relaxing","Staying near beachfront resorts"],"b":"Tinwis Beach, formerly known as Mackenzie Beach, is a calmer and more sheltered beach near Tofino. It does not face the open ocean as directly as Cox Bay or Long Beach, so the water is.","k":"The beach is now officially called tinwis, pronounced “ti-nu-wis.” Some maps and visitors may still use the older name, Mackenzie Beach."},{"n":"Multi-Use Path in Tofino","c":"hiking","h":"guides/tofino/hiking/multi-use-path-in-tofino-1","g":["Walking","Running","Biking","Families","Getting around town","Easy outdoor time"],"b":"Tofino also has a local multi-use path that is good for walking, running, and biking. This is not a wilderness hike, but it is useful if you want a safe and easy way to move around without.","k":"Share the path with bikes, walkers, and runners. Stay to the right and be aware of faster users."},{"n":"Meares Island and Big Tree Trail","c":"kayaking","h":"guides/tofino/kayaking/meares-island-and-big-tree-trail-1","g":["Guided day tours","Kayaking and hiking","Big Tree Trail","Old-growth forest","Wildlife watching","First-time paddlers with a guide"],"b":"Meares Island is one of the most popular kayaking trips from Tofino. Many tours paddle from Tofino toward Meares Island, then include a walk on the Big Tree Trail.","k":"The paddle may look short, but tides, wind, and boat traffic matter. Go with a guide if you are new."},{"n":"Tonquin Beach","c":"beaches","h":"guides/tofino/beaches/tonquin-beach-1","g":["Short walks","Quiet beach time","Picnics","Sunset views","Forest-and-beach scenery"],"b":"Tonquin Beach is a smaller beach close to the village of Tofino. You reach it by walking a short forest trail. It feels quieter and more hidden than the big surf beaches.","k":"The trail can be wet or muddy after rain. Wear shoes with good grip."},{"n":"Cox Bay Lookout","c":"hiking","h":"guides/tofino/hiking/cox-bay-lookout-1","g":["Ocean views","Photos","Sunset views","A short adventure","Seeing Cox Bay from above"],"b":"Cox Bay Lookout is one of the most popular viewpoint walks near Tofino. The trail is short, but it can be steep, muddy, and slippery.","k":"This is not a polished boardwalk trail. It can be muddy and rough. Wear proper shoes and avoid it if conditions are very slippery."},{"n":"Wickaninnish Beach and Kwisitis Visitor Centre","c":"storm-watching","h":null,"g":[],"b":"The  Kwisitis Visitor Centre area is a good choice if you want a safer, more comfortable storm watching spot. The viewing deck gives you a strong view of the beach and waves.","k":"This is a good option when the beach itself feels too rough."},{"n":"Lemmens Inlet","c":"kayaking","h":"guides/tofino/kayaking/lemmens-inlet-1","g":["Protected water","Wildlife watching","Calm paddling","Forest and mountain views","Longer guided day tours","Beginners who want a quieter route"],"b":"Lemmens Inlet is one of the best protected kayaking areas near Tofino. It is inside Clayoquot Sound and is known for calmer water, forested shorelines, tidal flats, and wildlife.","k":"It is still affected by tide and weather. A guide can choose the best route for the day."},{"n":"ROAR Tofino","c":"restaurants","h":null,"g":["Live-fire cooking","Dinner with friends","Local ingredients","Cocktails","A warm and lively atmosphere","Hotel Zed guests"],"b":"ROAR is located at Hotel Zed Tofino and is known for live-fire cooking. The food is warm, bold, and inspired by local ingredients and west coast stories.","k":"ROAR is a good pick if you want a restaurant that feels modern but still relaxed."},{"n":"Tacofino Original Truck","c":"restaurants","h":"guides/tofino/restaurants/tacofino-original-truck-1","g":["Fish tacos","Burritos","Lunch","Takeout","Surf-day food","Budget-friendly meals"],"b":"Tacofino is one of the most famous food stops in Tofino. The original food truck is known for fish tacos, burritos, and west coast Mexican-style food.","k":"Lines can be long in peak season. Go early or outside busy meal times if you can."},{"n":"Radar Hill Trail","c":"hiking","h":"guides/tofino/hiking/radar-hill-trail-1","g":["Easy walking","Ocean and forest views","A quick stop","Families","Photography","Visitors with limited time"],"b":"Radar Hill is in Pacific Rim National Park Reserve, between Tofino and Ucluelet. It is one of the easiest viewpoints near Tofino and a good stop if you want a short walk with a big reward.","k":"This is more of a short viewpoint walk than a long hike. You may need a national park pass when stopping in this area."},{"n":"Tonquin Beach","c":"storm-watching","h":null,"g":[],"b":"Tonquin Beach is smaller and more sheltered than the larger surf beaches. It is reached by a forest trail from town.","k":"Wear proper shoes because the trail can be muddy."},{"n":"Grice Bay","c":"kayaking","h":"guides/tofino/kayaking/grice-bay-1","g":["Calm inlet paddling","Bird watching","Photography","Wildlife viewing","Quiet nature time","Kayaking away from the busier town beaches"],"b":"Grice Bay is on the sheltered inlet side near Pacific Rim National Park Reserve. It is not an open Pacific beach. It is calmer and better for paddling, bird watching, and quiet nature time.","k":"Check park rules, parking, and launch access before you go."},{"n":"Middle Beach","c":"beaches","h":"guides/tofino/beaches/middle-beach-1","g":["Quiet views","Photography","Short walks","Relaxing near the ocean"],"b":"Middle Beach is a smaller beach area near Chesterman Beach. It has a more tucked-away feel, with rocky edges, forest, and ocean views.","k":"Check tide and wave conditions before walking near rocks."},{"n":"Clayoquot Sound","c":"kayaking","h":"guides/tofino/kayaking/clayoquot-sound-1","g":["Classic Tofino kayaking","Wildlife watching","Island views","Guided day tours","Multi-day trips","Rainforest shorelines"],"b":"Clayoquot Sound is the main sea kayaking area around Tofino. It includes islands, inlets, coves, channels, rocky shores, mudflats, and rainforest.","k":"Clayoquot Sound is large. Some parts are calm and protected. Other parts are exposed and remote."},{"n":"Rosie Bay","c":"beaches","h":"guides/tofino/beaches/rosie-bay-1","g":["Quiet exploring","Low tide walks","Photography","A break from busier beaches"],"b":"At low tide, you may find interesting rocks, sand, and small pools. It is also a scenic area for photos.","k":"Be careful near rocks and changing tides."},{"n":"Pettinger Point","c":"storm-watching","h":"guides/tofino/storm-watching/pettinger-point-1","g":[],"b":"Accessible via a trail from Cox Bay, this headland offers a spectacular vantage point where waves explode into white spray against the cliffs.","k":""},{"n":"Rainforest Trail","c":"hiking","h":"guides/tofino/hiking/rainforest-trail-1","g":["First-time visitors","Families","Rainy days","Big trees","Boardwalk photos","Easy rainforest exploring"],"b":"The Rainforest Trail is in the Pacific Rim National Park Reserve. It is one of the best short walks near Tofino if you want to see the classic west coast rainforest.","k":"The boardwalk can be slippery when wet. You may need a national park pass when stopping in this area."},{"n":"Wildside Grill","c":"restaurants","h":null,"g":["Fish and chips","Seafood","Burgers","Casual lunch","Family meals","Quick bites after the beach"],"b":"Wildside Grill is a local favorite for fish and chips, seafood, burgers, and casual west coast comfort food.","k":"It is located in the Live to Surf plaza area, which is handy if you are staying or exploring outside the village center."},{"n":"Oceanfront Resorts and Cabins","c":"storm-watching","h":"guides/tofino/storm-watching/oceanfront-resorts-and-cabins-1","g":[],"b":"One of the best ways to storm watch in Tofino is from inside. Many oceanfront hotels, cabins, and resorts have large windows facing the water.","k":""},{"n":"Ucluelet Harbour","c":"kayaking","h":"guides/tofino/kayaking/ucluelet-harbour-1","g":["Calm paddling","Guided tours","Day trips from Tofino","Wildlife watching","Harbour views"],"b":"Ucluelet is near Tofino and can be a good kayaking day trip. The harbour and nearby protected waters can offer calm paddling, wildlife watching, and island views.","k":"Conditions still change with wind and tide. Local guidance is helpful."},{"n":"Shed Tofino","c":"restaurants","h":null,"g":["Burgers","Bowls","Casual dinner","Family meals","Downtown dining","Drinks with friends"],"b":"Shed is a casual restaurant in downtown Tofino. It is known for burgers, bowls, drinks, and a relaxed west coast feel.","k":"Shed is a good “safe choice” when people in your group want different things."},{"n":"Wickaninnish Beach","c":"beaches","h":"guides/tofino/beaches/wickaninnish-beach-1","g":["Storm watching","Big ocean views","Photography","Sunset watching","Learning about the coast","Visiting the Kwisitis Visitor Centre"],"b":"Wickaninnish Beach is in Pacific Rim National Park Reserve, closer to the Ucluelet side of the Long Beach area. It is one of the best places near Tofino for big ocean views and storm.","k":"This beach can feel very open and exposed. Stay far back from the water during storms and high tide."},{"n":"Shorepine Bog Trail","c":"hiking","h":"guides/tofino/hiking/shorepine-bog-trail-1","g":["Easy walking","Families","Short stops","Rainy days","Learning about bog ecosystems","Bird watching"],"b":"The Shorepine Bog Trail is a short and easy boardwalk trail in Pacific Rim National Park Reserve. It feels very different from the deep rainforest trails.","k":"Stay on the boardwalk to protect the fragile bog plants."},{"n":"Rhino Coffee House","c":"restaurants","h":null,"g":["Coffee","Breakfast","Donuts","Bagels","Sandwiches","A local morning stop"],"b":"Rhino Coffee House is one of the best-known coffee shops in Tofino. It is popular with locals and visitors for coffee, breakfast, sandwiches, bagels, and donuts.","k":"It can get busy in the morning, but it is worth adding to your Tofino food list."},{"n":"Spruce Fringe Trail","c":"hiking","h":"guides/tofino/hiking/spruce-fringe-trail-1","g":["Short forest walks","Beach access","Nature photos","A quieter stop","Exploring near Combers Beach"],"b":"Spruce Fringe Trail is a short forest trail in Pacific Rim National Park Reserve. It is often linked with Combers Beach because it gives access toward the Combers Beach area.","k":"Trail access and nearby beach rules can change. Check Parks Canada updates before visiting, especially if you plan to bring a dog."},{"n":"Florencia Bay","c":"beaches","h":"guides/tofino/beaches/florencia-bay-1","g":["Quiet beach walks","Sand cliff views","Photography","Low-tide exploring","A less crowded beach visit"],"b":"Florencia Bay is also in Pacific Rim National Park Reserve. It is closer to Ucluelet than Tofino, but it is still a great stop on a Tofino beach trip.","k":"The stairs and trail can feel longer on the way back up. Wear comfortable shoes and check the tide before walking far."},{"n":"Barkley Sound","c":"kayaking","h":"guides/tofino/kayaking/barkley-sound-1","g":["Sea kayaking","Island hopping","Multi-day trips","Wildlife watching","Kayak camping","More experienced paddlers"],"b":"Barkley Sound is near Ucluelet and Bamfield, south of Tofino. It is one of the best kayaking areas on Vancouver Island.","k":"This area needs more planning than a short Tofino paddle. Check weather, route, camping rules, and water access."},{"n":"Combers Beach","c":"beaches","h":"guides/tofino/beaches/combers-beach-1","g":["Long beach walks","Quiet nature time","Photography","Storm watching from a safe distance","A wilder beach feel"],"b":"Combers Beach is part of Pacific Rim National Park Reserve. It is not a town beach, but it is one of the wilder beaches near Tofino.","k":"Dog rules and access rules can change in Pacific Rim National Park Reserve. Check current Parks Canada updates before visiting with a dog."},{"n":"Nuu-chah-nulth Trail","c":"hiking","h":"guides/tofino/hiking/nuu-chah-nulth-trail-1","g":["Rainforest walking","Ocean views","Learning","Photography","A longer nature walk","Visitors who want more than a quick stop"],"b":"The Nuu-chah-nulth Trail is in Pacific Rim National Park Reserve. It connects rainforest, boardwalks, beach views, and cultural learning.","k":"Expect stairs, boardwalks, and uneven sections. Give yourself enough time and wear proper shoes."},{"n":"Broken Group Islands","c":"kayaking","h":"guides/tofino/kayaking/broken-group-islands-1","g":["Multi-day kayaking","Island camping","Wildlife viewing","Sheltered channels","Experienced paddlers","Guided trips"],"b":"The Broken Group Islands are in Barkley Sound and are part of Pacific Rim National Park Reserve. They are one of the best-known sea kayaking destinations in British Columbia.","k":"The Broken Group Islands are accessed by boat, and camping or overnight trips require planning and reservations."},{"n":"Tofitian Cafe","c":"restaurants","h":null,"g":["Coffee","Tea","Morning stops","Local atmosphere","Simple breakfast bites","Pre-surf fuel"],"b":"Tofitian Cafe is a long-time Tofino coffee spot. It has a local feel and is a good place for coffee, tea, and a slower start to the day.","k":"This is a good place if you want a classic Tofino cafe feel."},{"n":"South Beach Trail","c":"hiking","h":"guides/tofino/hiking/south-beach-trail-1","g":["Short hikes","Rocky coast views","Photography","Ocean sounds","A stop near the visitor centre","Pairing with Wickaninnish Beach"],"b":"South Beach Trail is in Pacific Rim National Park Reserve near the Kwisitis Visitor Centre and Wickaninnish Beach. It is a short coastal trail with a strong west coast feel.","k":"South Beach is better for viewing than swimming. Stay back from waves and wet rocks, especially during high tide or stormy weather."},{"n":"Schooner Cove","c":"beaches","h":"guides/tofino/beaches/schooner-cove-1","g":["Forest and beach views","Quiet exploring","Nature photos","Peaceful walks","A less crowded beach stop"],"b":"Schooner Cove is also in Pacific Rim National Park Reserve, closer to the Tofino end of the Long Beach area.","k":"Trail and beach access can change in national park areas. Check current Parks Canada updates before planning your visit."},{"n":"Driftwood Café","c":"restaurants","h":"guides/tofino/restaurants/driftwood-caf-1","g":["Coffee near Chesterman Beach","Brunch","Light meals","Beach-day snacks","A relaxed resort cafe feel"],"b":"Driftwood Café is located at the Wickaninnish Inn near Chesterman Beach. It is a good choice for coffee, breakfast, brunch, or a light meal close to the beach.","k":"It is a nice stop before or after a walk on Chesterman Beach."},{"n":"Vargas Island and Ahous Bay","c":"kayaking","h":"guides/tofino/kayaking/vargas-island-and-ahous-bay-1","g":["Multi-day kayaking","Wilderness camping","Remote beaches","Wildlife watching","Kayak-and-hike trips","Intermediate to advanced paddlers","Guided adventure trips"],"b":"Vargas Island is close to Tofino and is one of the best nearby areas for paddling, wilderness camping, and remote beach exploring. It can be reached by kayak, water taxi, or guided.","k":"Vargas Island is not a casual beginner paddle unless you are on a guided tour. The west side and Ahous Bay can be exposed, so check weather, swell, tides, camping rules, and local advice before going."},{"n":"Tofino Coffee Roasting Co.","c":"restaurants","h":null,"g":["Locally roasted coffee","Pastries","A quiet coffee stop","Coffee lovers","Takeaway drinks"],"b":"Tofino Coffee Roasting Co. is a locally owned cafe and roastery. It is a good choice if you care about good coffee and want something simple, warm, and local.","k":"This is a good stop for people who want coffee that feels more craft-focused."},{"n":"Long Beach Hike","c":"hiking","h":"guides/tofino/hiking/long-beach-hike-1","g":["Long beach walks","Surf watching","Photography","Storm watching from a safe distance","Easy coastal exploring","Big Pacific Ocean views"],"b":"Long Beach is not a formal hike in the same way as a forest trail, but it is one of the best long beach walks near Tofino. It is part of Pacific Rim National Park Reserve and is one of the.","k":"Check tide times before walking far. Stay away from large waves and never turn your back on the ocean."},{"n":"Flores Island / Wild Side Trail Route","c":"kayaking","h":"guides/tofino/kayaking/flores-island-wild-side-trail-route-1","g":["Kayak and hike trips","Remote beaches","Wilderness camping","Wildlife watching","Experienced paddlers","Multi-day adventures"],"b":"Flores Island is north of Tofino in Clayoquot Sound. It is known for the Wild Side Trail, remote beaches, old-growth forest, and wilderness camping.","k":"Flores Island is not a casual day paddle for most visitors. You may need water taxi access, local permissions, stewardship fees, camping plans, and current route information."},{"n":"Grice Bay","c":"beaches","h":"guides/tofino/beaches/grice-bay-1","g":["Kayaking","Paddle trips","Bird watching","Calm water views","A quiet nature stop"],"b":"Grice Bay is different from the other beaches on this list. It is not a big open Pacific Ocean surf beach. It is a sheltered bay on the calmer inlet side near Tofino and Pacific Rim.","k":"Choose Grice Bay for calm inlet scenery, not for surfing or storm watching."},{"n":"Kennedy Lake","c":"beaches","h":"guides/tofino/beaches/kennedy-lake-1","g":["Freshwater lake views","Kayaking or canoeing","Paddleboarding in calm conditions","Quiet nature time","Photography","A break from windy ocean beaches","Quick Beach Guide","Beach · Location · Best For"],"b":"Kennedy Lake is not a beach in Tofino town, and it is not an open Pacific Ocean beach. It is a large freshwater lake near Tofino and Ucluelet, close to Pacific Rim National Park Reserve.","k":"Kennedy Lake is best for calm-water activities, not surfing or storm watching. Conditions can still change, so check the weather and wind before paddling."},{"n":"Rafael Point","c":"kayaking","h":"guides/tofino/kayaking/rafael-point-1","g":["Advanced sea kayaking","Remote outer-coast travel","Wildlife watching from a distance","Expedition planning","Experienced guided trips"],"b":"Rafael Point is in the Flores Island area and is part of the wilder outer coast of Clayoquot Sound. It is relevant for serious sea kayakers because it sits in a more exposed, remote setting.","k":"Treat Rafael Point as an advanced or expert route area, not a casual kayaking stop."},{"n":"Combers Beach Trail","c":"hiking","h":"guides/tofino/hiking/combers-beach-trail-1","g":["Beach walks","Quiet nature time","Photography","Wild coastal scenery","A less crowded stop"],"b":"Combers Beach Trail is a short trail in Pacific Rim National Park Reserve that leads to a wild beach. It is a good choice if you want a quiet beach walk and a more natural feel.","k":"Check current park access and dog rules before visiting. Tide and seasonal rules can affect your visit."},{"n":"Harbourview Coffeehouse","c":"restaurants","h":null,"g":["Waterfront coffee","Kayaking days","Light snacks","A quiet view","Simple local finds"],"b":"Harbourview Coffeehouse is a small waterfront coffee stop connected with Tofino Sea Kayaking. It is a lovely place for coffee before or after a kayaking trip.","k":"This is a nice hidden-gem option if you are already near the harbour."},{"n":"Schooner Cove Trail","c":"hiking","h":"guides/tofino/hiking/schooner-cove-trail-1","g":["Forest walks","Beach access","Quiet exploring","Nature photos","A less busy trail stop"],"b":"Schooner Cove Trail is another trail in Pacific Rim National Park Reserve. It is known for forest-to-beach scenery and a quieter feel.","k":"Check current Parks Canada updates before planning this trail."},{"n":"Hot Springs Cove","c":"kayaking","h":"guides/tofino/kayaking/hot-springs-cove-1","g":["Multi-day kayak trips","Guided expeditions","Remote coastal scenery","Camping adventures","A special west coast experience"],"b":"Hot Springs Cove is north of Tofino and is usually reached by boat or float plane. Some longer kayak adventures include Hot Springs Cove as part of a guided multi-day trip.","k":"This route needs planning, good weather, and local knowledge."},{"n":"Mizu Mizu Café","c":"restaurants","h":null,"g":["Matcha","Coffee","Pastries","Slow mornings","Light meals","A cozy cafe stop"],"b":"Mizu Mizu Café has a calm Japanese-inspired cafe feel. It is good for slow mornings, matcha, pastries, grilled sandwiches, and thoughtful small finds.","k":"Good for travelers who enjoy quiet, simple, and thoughtful spaces."},{"n":"Tofino Brewing Company","c":"restaurants","h":"guides/tofino/restaurants/tofino-brewing-company-1","g":["Craft beer","Flights","Casual drinks","Après-surf","Rainy afternoons","Local beer fans"],"b":"Tofino Brewing Company is a popular stop for craft beer. It is a good place to try a flight, enjoy a pint, or grab beer to go.","k":"Check current hours before visiting, especially outside summer."},{"n":"ʔapsčiik t̓ašii Multi-Use Pathway","c":"hiking","h":"guides/tofino/hiking/apsc-iik-t-as-ii-multi-use-pathway-1","g":["Biking","Walking","Running","Longer active days","Families with bikes","Exploring Pacific Rim National Park"],"b":"ʔapsčiik t̓ašii, pronounced “ups-cheek ta-shee,” is a paved multi-use pathway in Pacific Rim National Park Reserve. It runs through the Long Beach Unit and connects many points of.","k":"The path is paved, but there are some hills and curves. Bring water and plan your return route."},{"n":"Long Beach and the Open Pacific Coast","c":"kayaking","h":"guides/tofino/kayaking/long-beach-and-the-open-pacific-coast-1","g":["Expert sea kayakers only","Surf kayaking in the right conditions","Open-coast skills practice","Experienced paddlers with local knowledge"],"b":"Long Beach is part of Pacific Rim National Park Reserve. It is famous for surfing, beach walks, and big ocean views. But for most visitors, it is not a regular kayaking spot.","k":"Most visitors should enjoy Long Beach from shore, not from a kayak. Choose sheltered areas like Lemmens Inlet, Meares Island, Grice Bay, Mackenzie/tinwis Beach, or Kennedy Lake for easier paddling."},{"n":"Tofino Distillery","c":"restaurants","h":null,"g":["Craft spirits","Tastings","Rainy day stops","Cocktail fans","Local gifts","Small-group visits"],"b":"Tofino Distillery is a good stop for craft spirits and small cocktail tasters. It is known for organic spirits and seasonal tasting room drinks.","k":"Plan a safe ride if you are tasting."},{"n":"Tofino Inlet","c":"kayaking","h":null,"g":["Calm water","Inlet scenery","Wildlife","Guided paddles","Longer day trips"],"b":"Tofino Inlet is part of the wider sheltered water system near Tofino. It can be used for scenic paddling, guided tours, and wildlife viewing.","k":"Go with a guide if you are not familiar with local tides, channels, and weather."},{"n":"Big Tree Trail on Meares Island","c":"hiking","h":"guides/tofino/hiking/big-tree-trail-on-meares-island-1","g":["Big trees","Old-growth forest","Nature lovers","Guided trips","Photography","A special half-day adventure"],"b":"Big Tree Trail is on Meares Island, not in Tofino town. To visit, you usually need a water taxi or guided trip from Tofino.","k":"Plan ahead because you need boat access. Wear good shoes because the trail can be wet and uneven."},{"n":"Lone Cone Trail","c":"hiking","h":"guides/tofino/hiking/lone-cone-trail-1","g":["Experienced hikers","Big views","A hard workout","Adventure travelers","A full or half-day hiking plan"],"b":"Lone Cone is also on Meares Island. It is much harder than most trails near Tofino. It is a steep hike with a viewpoint at the top.","k":"This is a steep and challenging hike. You need boat access, proper shoes, water, and enough time."},{"n":"Fortune Channel","c":"kayaking","h":null,"g":["Longer sea kayaking trips","Forested shorelines","Wildlife","Experienced paddlers","Guided tours"],"b":"Fortune Channel is a paddling area in Clayoquot Sound near Meares Island. It is more remote than the short harbour paddles and can be part of longer guided routes.","k":"This is better for paddlers with some experience or those joining a guided trip."},{"n":"Bedwell Sound and Remote Inlets","c":"kayaking","h":null,"g":["Remote scenery","Multi-day kayaking","Wildlife watching","Wilderness camping","Guided expeditions"],"b":"Bedwell Sound and nearby remote inlets are part of the larger Clayoquot Sound paddling area. These are best for guided trips, multi-day routes, and experienced paddlers.","k":"These are not beginner day trips. Plan carefully and go with local knowledge."},{"n":"Wild Side Trail on Flores Island","c":"hiking","h":"guides/tofino/hiking/wild-side-trail-on-flores-island-1","g":["Remote beach hiking","Wilderness scenery","Backpacking","Kayak-and-hike trips","Wildlife watching","Experienced hikers","A special Tofino-area adventure"],"b":"The Wild Side Trail is one of the most special hikes near Tofino. It is on Flores Island in Clayoquot Sound and starts near the village of Ahousaht.","k":"Plan ahead. You may need water taxi transport, local permissions or stewardship fees, camping plans, and current trail information. This is not a casual town trail like Tonquin Trail."}],"guides":[{"c":"fishing","n":"Fishing","h":"thomas-lipke-M12HGHNVJ2s-unsplash_nttcvc","l":"Salmon and halibut charters run out of Tofino harbour most of the year, with guides who know the banks and the tides.","b":1,"p":0},{"c":"beaches","n":"Beaches","h":"guides/tofino/beaches/_category-1","l":"Tofino is famous for its beaches. They are wide, wild, and full of west coast beauty. You will find soft sand, big waves, driftwood, rainforest, rocky points, and long views of the Pacific.","b":29,"p":8},{"c":"surfing","n":"Surfing","h":"guides/tofino/surfing/_category-1","l":"Tofino is known as the surf capital of Canada. It sits on the west coast of Vancouver Island, facing the open Pacific Ocean. This means the waves can be strong, steady, and fun all year.","b":84,"p":6},{"c":"whale-watching","n":"Whale watching","h":"guides/tofino/whale-watching/_category-1","l":"Tofino is one of the best places on Vancouver Island to see wild animals. It sits beside Clayoquot Sound, a rich coastal area with ocean, islands, beaches, rainforest, and rocky shorelines.","b":153,"p":8},{"c":"birding","n":"Birding & wildlife","h":"guides/tofino/birding/_category-1","l":"Discover common seabirds in Tofino, British Columbia. Learn how to spot gulls, cormorants, murres, auklets, puffins, oystercatchers, ducks, loons, grebes, and other coastal.","b":338,"p":8},{"c":"storm-watching","n":"Storm watching","h":"guides/tofino/storm-watching/_category-1","l":"Tofino is not just a summer beach town. In winter, it becomes one of the best places in Canada to watch storms.","b":23,"p":6},{"c":"hiking","n":"Hiking & trails","h":"guides/tofino/hiking/_category-1","l":"Explore the best trails in Tofino and nearby Pacific Rim National Park. Find easy rainforest walks, beach trails, ocean viewpoints, family-friendly paths, and hiking safety.","b":31,"p":8},{"c":"restaurants","n":"Restaurants","h":"guides/tofino/restaurants/_category-1","l":"Discover the best restaurants in Tofino, from seafood and tacos to fine dining, coffee shops, local bakeries, and slow food experiences. Find where to eat for breakfast.","b":84,"p":6},{"c":"kayaking","n":"Kayaking & paddling","h":"guides/tofino/kayaking/_category-1","l":"Kayaking in Tofino is one of the best ways to explore Clayoquot Sound, calm inlets, islands, rainforest, and wildlife. Learn where to kayak, when to go, what to expect, and.","b":132,"p":8}],"faqs":[{"c":"camping","s":"tofino-ucluelet-campgrounds","q":"What is the best campground in Tofino?","a":"Surf Grove is a top choice for Cox Bay surf access. Bella Pacifica is a classic family-friendly beach campground on tinwis/Mackenzie Beach. Crystal Cove is best for RV campers who want a resort-style stay."},{"c":"camping","s":"tofino-ucluelet-campgrounds","q":"What is the best campground in Ucluelet?","a":"Ucluelet Campground is the most convenient option if you want to stay in town. Wya Point is better if you want a quieter beachfront nature stay outside town."},{"c":"camping","s":"tofino-ucluelet-campgrounds","q":"Can you camp on the beach in Tofino?","a":"You should only camp in official campgrounds or designated backcountry sites. Do not camp on public beaches, parking lots, roadsides, or random pullouts."},{"c":"camping","s":"tofino-ucluelet-campgrounds","q":"Do you need reservations for Tofino campgrounds?","a":"Yes, reservations are strongly recommended. Summer sites can book months ahead."},{"c":"surfing","s":"tofino-surfing-faq","q":"What Is a Rip Current?","a":"A rip current is a strong flow of water that moves away from shore. It can pull swimmers and surfers farther out. If you get caught in one, do not fight it. Stay calm. Float, hold your board, and paddle or swim sideways, parallel to the beach. Once you are out of the current, come back toward shore. If you are not sure about the water, do not go in. Ask a surf school or local surf shop for advice."},{"c":"surfing","s":"tofino-surfing-faq","q":"Can beginners surf in Tofino?","a":"Yes. Tofino is one of the best places in Canada for beginner surf lessons. Start with a surf school so you learn the right beach, gear, and safety steps."},{"c":"surfing","s":"tofino-surfing-faq","q":"Can Kids Learn to Surf in Tofino?","a":"Yes, many kids can learn to surf in Tofino. Surf schools often offer family or kid-friendly lessons. The right age depends on the child, the surf school, and the ocean conditions that day. Kids should be comfortable in water and able to listen to safety instructions. A private or family lesson may be best for younger children."},{"c":"surfing","s":"tofino-surfing-faq","q":"Which beach is best for beginner surfing in Tofino?","a":"Chesterman Beach is a popular choice for beginners and lessons. Cox Bay and Long Beach can also be good when conditions are calm."},{"c":"kayaking","s":"tofino-kayaking-faq","q":"Is Tofino Good for Beginner Kayaking?","a":"Yes, Tofino can be great for beginner kayaking, especially with a guide. Many tours use calm, sheltered waters instead of open surf beaches. This makes the trip easier and safer for first-time paddlers. A guide can help you with paddling, steering, tide timing, wildlife rules, and local conditions. Beginners should choose: A guided tour A calm inlet route A tandem kayak if nervous A half-day trip Good weather and."},{"c":"kayaking","s":"tofino-kayaking-faq","q":"Is Kayaking in Tofino Good for Kids?","a":"Yes, kayaking can be good for kids when conditions are calm and the trip is guided. For families, a tandem kayak is often best. A child can sit with an adult, and the guide can choose a shorter route. Family-friendly kayak trips are usually: Shorter Guided In sheltered water Done in good weather Focused on easy paddling and wildlife Ask the tour company about age rules before booking."},{"c":"kayaking","s":"tofino-kayaking-faq","q":"What Is Better: Kayaking or Paddleboarding in Tofino?","a":"Both are fun, but they are different. Kayaking is better for longer trips, wildlife viewing, and cooler weather. You sit lower in the boat, and it is often easier to travel farther. Paddleboarding is better on very calm water. It can be fun on Kennedy Lake, sheltered bays, or calm inlet areas. It is not a good choice for rough water, strong wind, or open surf beaches unless you are experienced. For most first-time."},{"c":"kayaking","s":"tofino-kayaking-faq","q":"Where is the best place to kayak in Tofino?","a":"Clayoquot Sound is the classic kayaking area. Meares Island is also popular because you can combine kayaking with the Big Tree Trail."},{"c":"birding","s":"tofino-birding-faq","q":"What seabirds can you see in Tofino?","a":"You may see gulls, cormorants, common murres, rhinoceros auklets, pigeon guillemots, tufted puffins, shearwaters, sea ducks, loons, grebes, black oystercatchers, and bald eagles."},{"c":"birding","s":"tofino-birding-faq","q":"Can you see puffins in Tofino?","a":"Yes, tufted puffins may be seen near Tofino, especially on summer boat tours near offshore rocks and islands. They are not usually easy to see from town beaches."},{"c":"birding","s":"tofino-birding-faq","q":"What is the most common bird in Tofino?","a":"Gulls, cormorants, bald eagles, and shorebirds are among the easiest coastal birds for visitors to notice. The exact “most common” bird depends on season and habitat."},{"c":"birding","s":"tofino-birding-faq","q":"What are the black birds on the rocks in Tofino?","a":"They may be cormorants, black oystercatchers, or pigeon guillemots. Cormorants have long necks and often hold their wings open. Black oystercatchers have bright orange-red bills. Pigeon guillemots are smaller and may show white wing patches."},{"c":"storm-watching","s":"tofino-storm-watching-faq","q":"Is storm watching in Tofino dangerous?","a":"It can be dangerous if you get too close to the ocean. Watch from a safe distance, avoid wet rocks, and never turn your back on the waves."},{"c":"storm-watching","s":"tofino-storm-watching-faq","q":"What Are King Tides?","a":"King tides are extra high tides. In Tofino, they can happen around the full moon or new moon. During storm season, king tides can make the ocean rise much higher than normal. This can make beach entrances unsafe. It can also make some beach walks impossible. If you are storm watching during a king tide, choose a safe viewpoint instead of walking close to the water."},{"c":"storm-watching","s":"tofino-storm-watching-faq","q":"What Should You Wear for Storm Watching in Tofino?","a":"To enjoy storm watching, dress for rain, wind, and cold air. You do not need fancy clothes, but you do need warm and waterproof layers. Bring or wear: Waterproof rain jacket Waterproof pants Warm sweater or fleece Hat or toque Gloves Warm socks Waterproof boots Extra dry clothes Small backpack Phone in a waterproof case Umbrellas are not very useful in strong wind. A good rain jacket is better."},{"c":"storm-watching","s":"tofino-storm-watching-faq","q":"Can You Walk on the Beach During a Storm?","a":"Sometimes, but not always. A beach walk can be safe during light rain, low tide, and calmer conditions. But during strong storms, high tide, or large waves, it is better to watch from a safe viewpoint. Before walking on the beach, ask: Is the tide coming in? Are waves reaching high up the beach? Are there logs near the water? Is the wind too strong? Is this beach open? Can I get back safely? If you are not sure, do."},{"c":"restaurants","s":"tofino-restaurants-faq","q":"What is the best restaurant in Tofino?","a":"Many visitors consider Wolf in the Fog one of the best restaurants in Tofino because it focuses on local seafood, foraged ingredients, cocktails, and west coast flavor. The Pointe Restaurant is another top choice for fine dining and ocean views."},{"c":"restaurants","s":"tofino-restaurants-faq","q":"Do you need reservations in Tofino?","a":"Yes, reservations are a good idea for dinner, especially in summer, on weekends, and at popular restaurants."},{"c":"restaurants","s":"tofino-restaurants-faq","q":"Is Tofino expensive for food?","a":"Tofino can be expensive because it is remote and popular. You can save money by mixing food trucks, cafes, takeout, and a few special sit-down meals."},{"c":"restaurants","s":"tofino-restaurants-faq","q":"Are there vegetarian options in Tofino?","a":"Yes. Many restaurants and cafes offer vegetarian options. Look at Shed, Tacofino, ROAR, Ombré, Basic Goodness Pizzeria, and local cafes."},{"c":"beaches","s":"tofino-beaches-faq","q":"What is the nicest beach in Tofino?","a":"Many people think Chesterman Beach is the nicest beach in Tofino because it is long, sandy, scenic, and easy to enjoy. Cox Bay and Long Beach are also favorites."},{"c":"beaches","s":"tofino-beaches-faq","q":"What is the best beach in Tofino for surfing?","a":"Cox Bay is one of the best beaches for surfing. Chesterman Beach and Long Beach are also popular surf spots, depending on conditions."},{"c":"beaches","s":"tofino-beaches-faq","q":"What is the best beach in Tofino for families?","a":"Tinwis Beach and Chesterman Beach are good choices for families. tinwis is more sheltered, while Chesterman has lots of space for walking and playing."},{"c":"beaches","s":"tofino-beaches-faq","q":"Can you swim in Tofino?","a":"Yes, but the water is cold and the ocean can be strong. Most people wear wetsuits. There are no lifeguards, so be careful."},{"c":"whale-watching","s":"tofino-whale-watching-faq","q":"What is the best month for whale watching in Tofino?","a":"March to May is one of the best times for gray whales. Summer and early fall can also be great for humpbacks, gray whales, orcas, sea otters, sea lions, and other wildlife."},{"c":"whale-watching","s":"tofino-whale-watching-faq","q":"Can you see whales in Tofino without a tour?","a":"Yes, sometimes whales can be seen from shore. But a guided boat tour gives you a much better chance of seeing whales and learning about them."},{"c":"whale-watching","s":"tofino-whale-watching-faq","q":"What is the best time of day for whale watching?","a":"There is no perfect time every day. Tour operators choose routes based on weather, swell, and recent sightings. Morning trips may have calmer water, but wildlife can be active at different times."},{"c":"whale-watching","s":"tofino-whale-watching-faq","q":"Is a zodiac or covered boat better for whale watching?","a":"A covered boat is better for comfort, families, and cooler days. A zodiac is better for travelers who want a faster, more open-air adventure."},{"c":"hiking","s":"tofino-hiking-faq","q":"What is the best easy trail in Tofino?","a":"The Tonquin Trail is one of the best easy trails in Tofino because it is close to town and includes forest, beaches, and ocean views."},{"c":"hiking","s":"tofino-hiking-faq","q":"What is the best rainforest trail near Tofino?","a":"The Rainforest Trail in Pacific Rim National Park Reserve is one of the best rainforest trails near Tofino. It has boardwalks, huge trees, ferns, moss, and a classic west coast forest feel."},{"c":"hiking","s":"tofino-hiking-faq","q":"Are Tofino trails good for kids?","a":"Yes, many Tofino trails are good for kids. Tonquin Trail, Shorepine Bog Trail, Rainforest Trail, and South Beach Trail are good choices. Keep kids close near stairs, beaches, cliffs, and slippery boardwalks."},{"c":"hiking","s":"tofino-hiking-faq","q":"Can you walk from Tofino to the beach?","a":"Yes. Tonquin Trail is one of the easiest ways to walk from Tofino village to a beach. Some other beaches are easier to reach by car or bike."},{"c":"whale-watching","s":"whale-tails-blows-and-backs","q":"What does it mean when a whale blows?","a":"A blow means the whale has surfaced to breathe. It is often the first sign people see during whale watching."},{"c":"whale-watching","s":"whale-tails-blows-and-backs","q":"What does a whale tail mean?","a":"If a whale lifts its tail fluke before disappearing, it usually means the whale is making a deeper dive."},{"c":"whale-watching","s":"whale-tails-blows-and-backs","q":"Why do whales show their backs?","a":"Whales show their backs when they surface to breathe, travel, or prepare for another dive. This is one of the most common things to see on a whale watching tour."},{"c":"whale-watching","s":"whale-tails-blows-and-backs","q":"Does seeing a fluke mean the whale is leaving?","a":"Not always. A fluke usually means the whale is diving deeper. It may surface again nearby after several minutes, or it may come up farther away."}],"articles":[{"s":"tofino-wildlife-tours","t":"Wildlife Tours in Tofino","e":"Whales, bears, and seabirds: the tours worth booking.","c":"whale-watching","h":"thomas-lipke-M12HGHNVJ2s-unsplash_nttcvc","f":0},{"s":"tofino-restaurants","t":"Where to Eat in Tofino","e":"From fish tacos to tasting menus, the town's essential tables.","c":"restaurants","h":"arc-trips/pillar-connection","f":0},{"s":"pacific-rim-whale-festival-guide","t":"Pacific Rim Whale Festival Guide","e":"The spring festival that marks the gray whale migration through Clayoquot Sound.","c":"events","h":"guides/tofino/events/_category-1","f":0},{"s":"tofino-ucluelet-campgrounds","t":"Tofino & Ucluelet Campgrounds","e":"Where to pitch a tent between the two towns.","c":"camping","h":"james-wheeler-YZfDg2L0lUs-unsplash_ino74q","f":4},{"s":"best-time-to-stay-tofino-ucluelet","t":"Best Time to Stay in Ucluelet or Tofino","e":"Weather, prices, and what to see across the seasons.","c":"when-to-go","h":"guides/tofino/when-to-go/_category-1","f":0},{"s":"tofino-beaches","t":"The Best Beaches in Tofino","e":"Long Beach, Cox Bay, Chesterman: where to find surf, sand, and sunset walks.","c":"beaches","h":"guides/tofino/beaches/_category-1","f":0},{"s":"tofino-surfing","t":"Surfing in Tofino","e":"Canada's surf capital: breaks, seasons, and where to rent a board.","c":"surfing","h":"guides/tofino/surfing/_category-1","f":0},{"s":"tofino-kayaking","t":"Kayaking in Tofino","e":"Paddle Clayoquot Sound past islands, inlets, and old-growth shoreline.","c":"kayaking","h":"condor-wei-TiLEEXohfsY-unsplash_v7ja5f","f":0},{"s":"tofino-storm-watching","t":"Storm Watching in Tofino","e":"Why winter is the dramatic season on the exposed Pacific coast.","c":"storm-watching","h":"guides/tofino/storm-watching/_category-1","f":0},{"s":"tofino-surfing-faq","t":"Surfing FAQs","e":"What Is a Rip Current?","c":"surfing","h":"guides/tofino/surfing/_category-1","f":4},{"s":"tofino-kayaking-faq","t":"Kayaking FAQs","e":"Is Tofino Good for Beginner Kayaking?","c":"kayaking","h":"guides/tofino/kayaking/_category-1","f":4},{"s":"tofino-birding-faq","t":"Birding FAQs","e":"What seabirds can you see in Tofino?","c":"birding","h":"guides/tofino/birding/_category-1","f":4},{"s":"tofino-storm-watching-faq","t":"Storm watching FAQs","e":"Is storm watching in Tofino dangerous?","c":"storm-watching","h":"guides/tofino/storm-watching/_category-1","f":4},{"s":"tofino-restaurants-faq","t":"Restaurants FAQs","e":"What is the best restaurant in Tofino?","c":"restaurants","h":"guides/tofino/restaurants/_category-1","f":4},{"s":"tofino-beaches-faq","t":"Beaches FAQs","e":"What is the nicest beach in Tofino?","c":"beaches","h":"guides/tofino/beaches/_category-1","f":4},{"s":"tofino-whale-watching-faq","t":"Whale watching FAQs","e":"What is the best month for whale watching in Tofino?","c":"whale-watching","h":"guides/tofino/whale-watching/_category-1","f":4},{"s":"tofino-hiking-faq","t":"Hiking FAQs","e":"What is the best easy trail in Tofino?","c":"hiking","h":"guides/tofino/hiking/_category-1","f":4},{"s":"whale-tails-blows-and-backs","t":"Whale Tails, Blows, and Backs","e":"What you're actually seeing on the water.","c":"whale-watching","h":"guides/tofino/whale-watching/_category-1","f":4}],"listings":[{"t":"Cozy Mountain Chalet with Sauna, Fireplace & Trails Nearby","city":"tofino","h":"arcstudio/zczetpngmabknruslfwn","p":320,"rooms":2,"beds":3,"baths":2,"r":4.9,"loc":"Tofino, British Columbia"},{"t":"Historic Old-Town Loft with Stone Walls & River Views","city":"ucluelet","h":"arcstudio/wnrrcrf4lnalgzbjvsz8","p":320,"rooms":2,"beds":3,"baths":2,"r":4.9,"loc":"Ucluelet, British Columbia"},{"t":"Alpine Timber Chalet with Mountain Hot Tub & Stargazing Deck","city":"ucluelet","h":"arc-trips/pillar-connection","p":385,"rooms":2,"beds":3,"baths":2,"r":4.9,"loc":"Ucluelet, British Columbia"},{"t":"Riverside Cabin Retreat with Hot Tub & Forest Views","city":"tofino","h":"arcstudio/mg8epie7gzlpfb1bn7jo","p":420,"rooms":2,"beds":3,"baths":2,"r":4.9,"loc":"Tofino, British Columbia"},{"t":"Coastal Bed-Cliff Cottage with Private Beach & Firepit","city":"tofino","h":"arc-trips/curated-cabin","p":420,"rooms":2,"beds":3,"baths":2,"r":4.9,"loc":"Canmore, Alberta"},{"t":"Modern Lakeside Villa with Rooftop Lounge & Marina Access","city":"ucluelet","h":"arc-trips/founding-key","p":450,"rooms":2,"beds":3,"baths":2,"r":4.9,"loc":"Ucluelet, British Columbia"},{"t":"Lakefront Cottage with Private Dock & Canoes Included","city":"tofino","h":"arcstudio/galleries/dayhike-trail-1","p":500,"rooms":2,"beds":3,"baths":2,"r":4.9,"loc":"Tofino, British Columbia"}]}</script>
+<script type="application/json" id="plan-data">{"town":{"name":"Tofino","stays":134,"places":73,"guides":9,"articles":18},"ucluelet":{"stays":158,"places":54,"guides":6},"corpus":{"destinations":5,"guides":15,"places":127,"articles":31,"listings":12},"climate":[{"hi":8.6,"lo":2.6,"mm":489,"days":22},{"hi":9.3,"lo":2.3,"mm":368,"days":19},{"hi":10.4,"lo":3.1,"mm":337,"days":21},{"hi":12.3,"lo":4.3,"mm":213,"days":18},{"hi":14.6,"lo":6.7,"mm":132,"days":15},{"hi":16.3,"lo":9.1,"mm":102,"days":13},{"hi":18.1,"lo":10.9,"mm":66,"days":9},{"hi":18.6,"lo":11.1,"mm":82,"days":10},{"hi":17.5,"lo":9.3,"mm":152,"days":12},{"hi":13.9,"lo":6.9,"mm":396,"days":20},{"hi":10.3,"lo":4.4,"mm":500,"days":23},{"hi":8.4,"lo":2.7,"mm":490,"days":23}],"climateU":[{"hi":8.4,"lo":2.8,"mm":452,"days":22},{"hi":9.1,"lo":2.5,"mm":341,"days":19},{"hi":10.2,"lo":3.3,"mm":312,"days":20},{"hi":12,"lo":4.5,"mm":198,"days":17},{"hi":14.2,"lo":6.9,"mm":124,"days":14},{"hi":15.9,"lo":9.3,"mm":96,"days":12},{"hi":17.6,"lo":11.1,"mm":62,"days":9},{"hi":18.1,"lo":11.3,"mm":78,"days":10},{"hi":17,"lo":9.5,"mm":143,"days":12},{"hi":13.6,"lo":7.1,"mm":368,"days":20},{"hi":10.1,"lo":4.6,"mm":463,"days":23},{"hi":8.2,"lo":2.9,"mm":455,"days":22}],"seasons":{"storm":{"months":[11,12,1,2],"name":"Storm season","claim":"The Pacific throws everything it has at the coast, and people book rooms to watch it."},"green":{"months":[3,4,10],"name":"The green months","claim":"The coast between the storms and the crowds, at half the price."},"long":{"months":[5,6,7,8,9],"name":"Long days","claim":"Sixteen hours of light and the water finally warm enough to stay in."}},"tide":{"station":"Tofino Harbour","low1":"06:14","low1m":0.8,"high1":"12:38","high1m":3.1,"low2":"18:52","low2m":1.2,"sunset":"21:07"},"bestMonths":{"beaches":[5,6,7,8,9],"surfing":[1,2,3,4,9,10,11,12],"kayaking":[5,6,7,8,9],"fishing":[5,6,7,8,9],"boating":[5,6,7,8,9],"hot-springs":[1,2,3,4,5,6,7,8,9,10,11,12],"whale-watching":[3,4,5,6,7,8,9,10],"birding":[3,4,5,9,10,11],"storm-watching":[11,12,1,2],"parks":[4,5,6,7,8,9,10],"hiking":[4,5,6,7,8,9,10],"mountain-biking":[5,6,7,8,9],"skiing":[12,1,2,3],"camping":[5,6,7,8,9],"restaurants":[1,2,3,4,5,6,7,8,9,10,11,12],"markets":[5,6,7,8,9],"breweries":[1,2,3,4,5,6,7,8,9,10,11,12],"landmarks":[1,2,3,4,5,6,7,8,9,10,11,12],"arts-history":[1,2,3,4,5,6,7,8,9,10,11,12],"events":[3,4,5,6,7,8],"when-to-go":[1,2,3,4,5,6,7,8,9,10,11,12],"getting-around":[1,2,3,4,5,6,7,8,9,10,11,12]},"places":[{"n":"Mackenzie Beach / tinwis Beach","c":"kayaking","h":"guides/tofino/kayaking/mackenzie-beach-tinwis-beach-1","g":["Beginner kayaking","Families","Short paddles","Calm water practice","Paddleboarding","Watching the coast from the water"],"b":"Mackenzie Beach, also known as tinwis Beach, is one of the calmer paddling areas near Tofino. It is more sheltered than the open surf beaches, so it can be a good place for easy kayaking.","k":"It is still ocean water, so check wind and weather before going out. Stay close to shore if you are new."},{"n":"Wolf in the Fog","c":"restaurants","h":null,"g":["Special dinners","Local seafood","Cocktails","Date night","Sharing plates","A true Tofino food experience"],"b":"Wolf in the Fog is one of the most famous restaurants in Tofino. It is a good choice for a special dinner, a date night, or a meal that feels very connected to the west coast.","k":"Book ahead if you can. This is one of the most popular restaurants in town."},{"n":"Tonquin Trail","c":"hiking","h":"guides/tofino/hiking/tonquin-trail-1","g":["Easy hiking","Families","Forest views","Beach access","Sunset views","Photography","A walk close to town"],"b":"The Tonquin Trail is one of the best easy trails in Tofino. It starts near the village and leads through coastal forest to Tonquin Beach, Third Beach, and Middle Beach.","k":"The trail can be muddy after rain, and there are stairs in some areas. Wear shoes with good grip."},{"n":"Public Viewing Points","c":"storm-watching","h":null,"g":[],"b":"","k":""},{"n":"Chesterman Beach","c":"beaches","h":"guides/tofino/beaches/chesterman-beach-1","g":["Long beach walks","Beginner surf lessons","Sunset photos","Sandcastles","Tide pools at low tide","Watching surfers"],"b":"Chesterman Beach is one of the most loved beaches in Tofino. It is long, sandy, and easy to enjoy. It is close to town and popular with walkers, surfers, families, and photographers.","k":"Always check the tide before walking toward Frank Island. The water can come in and cover the sandspit."},{"n":"Tonquin Beach Trail","c":"hiking","h":"guides/tofino/hiking/tonquin-beach-trail-1","g":["Short walks","Sunset views","Picnics","Quiet beach time","A quick nature stop near town"],"b":"If you do not want to walk the full Tonquin Trail, you can make a shorter visit to Tonquin Beach. This is one of the closest beach walks to Tofino village.","k":"The beach is smaller than Chesterman or Cox Bay, so it may feel more closed in at high tide."},{"n":"Cox Bay","c":"storm-watching","h":null,"g":[],"b":"Cox Bay is one of the most famous storm-watching spots in Tofino. It is wide, open, and exposed to the Pacific Ocean. This makes it a great place to see large waves roll in. On stormy days.","k":"Stay far back from the water. Waves can reach higher up the beach than expected."},{"n":"Cox Bay","c":"beaches","h":"guides/tofino/beaches/cox-bay-1","g":["Surfing","Watching surfers","Sunset views","Beach walks","Photography","Storm watching in winter"],"b":"Cox Bay is one of the best beaches in Tofino for surfing. It is wide, open, and faces the Pacific Ocean. Because of this, it often gets strong and steady waves.","k":"Cox Bay can have powerful waves and currents. Beginners should go with a surf school or choose calmer conditions."},{"n":"Kennedy Lake","c":"kayaking","h":"guides/tofino/kayaking/kennedy-lake-1","g":["Freshwater kayaking","Canoeing","Paddleboarding","Families","Calm lake views","A break from ocean wind and waves"],"b":"Kennedy Lake is not in Tofino town, but it is close enough to include in a Tofino kayaking guide. It is a freshwater lake near Tofino and Ucluelet.","k":"Lakes can still get windy. Check conditions before paddling far from shore."},{"n":"The Pointe Restaurant","c":"restaurants","h":"guides/tofino/restaurants/the-pointe-restaurant-1","g":["Ocean views","Fine dining","Special occasions","West coast seafood","Sunset or storm watching from indoors","A slower, more elegant meal"],"b":"The Pointe Restaurant is one of the best places in Tofino for ocean-view dining. It is located at the Wickaninnish Inn, near Chesterman Beach, and is known for its wide Pacific Ocean views.","k":"This is one of the more upscale dining options in Tofino. Check dress expectations and book ahead."},{"n":"Tofino Harbour and Sheltered Inlet Waters","c":"kayaking","h":"guides/tofino/kayaking/tofino-harbour-and-sheltered-inlet-waters-1","g":["Short guided trips","First-time sea kayaking","Calm paddling","Island views","Learning basic kayak skills"],"b":"The sheltered waters near Tofino Harbour are often used for short guided kayak trips. These areas can offer calm paddling, island views, and an easy way to see Tofino from the water.","k":"Watch for boat traffic and follow your guide’s instructions."},{"n":"Long Beach","c":"beaches","h":"guides/tofino/beaches/long-beach-1","g":["Long walks","Big beach views","Surfing","Storm watching","Photography","Visiting Pacific Rim National Park Reserve"],"b":"Long Beach is one of the most famous beaches on Vancouver Island. It is part of Pacific Rim National Park Reserve, between Tofino and Ucluelet.","k":"You may need a national park pass when stopping in this area. Follow Parks Canada signs, closures, and beach safety rules."},{"n":"Shelter Restaurant","c":"restaurants","h":null,"g":["Waterfront dining","Families","Seafood","Casual dinner","Groups","Rainy day meals"],"b":"Shelter Restaurant is a popular waterfront spot near Tofino Resort + Marina. It is a great choice if you want a relaxed meal with local seafood, burgers, bowls, and a cozy coastal feel.","k":"It can get busy, especially in summer and at dinner time."},{"n":"Chesterman Beach","c":"storm-watching","h":null,"g":[],"b":"Chesterman Beach is a favorite place for beach walks and storm watching. It is close to town and easy to access. The beach is long, sandy, and scenic. On stormy days, you can watch waves.","k":"Watch the tide. Parts of the beach may be harder to walk during high tide."},{"n":"Third Beach and Middle Beach Walk","c":"hiking","h":"guides/tofino/hiking/third-beach-and-middle-beach-walk-1","g":["Quiet beach stops","Forest-to-beach scenery","Photography","Short hikes","Less crowded views"],"b":"Third Beach and Middle Beach are small beaches along the Tonquin Trail. They are less famous than Tonquin Beach, but they are worth visiting if you want a quieter walk.","k":"Beach access can be a little rough in places. Watch your step, especially after rain."},{"n":"Long Beach","c":"storm-watching","h":null,"g":[],"b":"Long Beach is part of Pacific Rim National Park Reserve. It is one of the most famous beaches on Vancouver Island. It is wide, long, and open to the ocean. This makes it a powerful place to.","k":"You may need a park pass. Always follow Parks Canada safety signs and closures."},{"n":"Ombré Restaurant","c":"restaurants","h":null,"g":["Creative dining","Small plates","Date night","Cocktails","Local flavors","A relaxed but elevated meal"],"b":"Ombré is a newer Tofino dining option connected to the team behind Wolf in the Fog. It has a more relaxed feel but still focuses on creative food and local flavor.","k":"Check current hours and reservation options before going."},{"n":"Tinwis Beach, formerly Mackenzie Beach","c":"beaches","h":"guides/tofino/beaches/tinwis-beach-formerly-mackenzie-beach-1","g":["Families","Calmer beach days","Paddleboarding in gentle conditions","Tide pools","Relaxing","Staying near beachfront resorts"],"b":"Tinwis Beach, formerly known as Mackenzie Beach, is a calmer and more sheltered beach near Tofino. It does not face the open ocean as directly as Cox Bay or Long Beach, so the water is.","k":"The beach is now officially called tinwis, pronounced “ti-nu-wis.” Some maps and visitors may still use the older name, Mackenzie Beach."},{"n":"Multi-Use Path in Tofino","c":"hiking","h":"guides/tofino/hiking/multi-use-path-in-tofino-1","g":["Walking","Running","Biking","Families","Getting around town","Easy outdoor time"],"b":"Tofino also has a local multi-use path that is good for walking, running, and biking. This is not a wilderness hike, but it is useful if you want a safe and easy way to move around without.","k":"Share the path with bikes, walkers, and runners. Stay to the right and be aware of faster users."},{"n":"Meares Island and Big Tree Trail","c":"kayaking","h":"guides/tofino/kayaking/meares-island-and-big-tree-trail-1","g":["Guided day tours","Kayaking and hiking","Big Tree Trail","Old-growth forest","Wildlife watching","First-time paddlers with a guide"],"b":"Meares Island is one of the most popular kayaking trips from Tofino. Many tours paddle from Tofino toward Meares Island, then include a walk on the Big Tree Trail.","k":"The paddle may look short, but tides, wind, and boat traffic matter. Go with a guide if you are new."},{"n":"Tonquin Beach","c":"beaches","h":"guides/tofino/beaches/tonquin-beach-1","g":["Short walks","Quiet beach time","Picnics","Sunset views","Forest-and-beach scenery"],"b":"Tonquin Beach is a smaller beach close to the village of Tofino. You reach it by walking a short forest trail. It feels quieter and more hidden than the big surf beaches.","k":"The trail can be wet or muddy after rain. Wear shoes with good grip."},{"n":"Cox Bay Lookout","c":"hiking","h":"guides/tofino/hiking/cox-bay-lookout-1","g":["Ocean views","Photos","Sunset views","A short adventure","Seeing Cox Bay from above"],"b":"Cox Bay Lookout is one of the most popular viewpoint walks near Tofino. The trail is short, but it can be steep, muddy, and slippery.","k":"This is not a polished boardwalk trail. It can be muddy and rough. Wear proper shoes and avoid it if conditions are very slippery."},{"n":"Wickaninnish Beach and Kwisitis Visitor Centre","c":"storm-watching","h":null,"g":[],"b":"The  Kwisitis Visitor Centre area is a good choice if you want a safer, more comfortable storm watching spot. The viewing deck gives you a strong view of the beach and waves.","k":"This is a good option when the beach itself feels too rough."},{"n":"Lemmens Inlet","c":"kayaking","h":"guides/tofino/kayaking/lemmens-inlet-1","g":["Protected water","Wildlife watching","Calm paddling","Forest and mountain views","Longer guided day tours","Beginners who want a quieter route"],"b":"Lemmens Inlet is one of the best protected kayaking areas near Tofino. It is inside Clayoquot Sound and is known for calmer water, forested shorelines, tidal flats, and wildlife.","k":"It is still affected by tide and weather. A guide can choose the best route for the day."},{"n":"ROAR Tofino","c":"restaurants","h":null,"g":["Live-fire cooking","Dinner with friends","Local ingredients","Cocktails","A warm and lively atmosphere","Hotel Zed guests"],"b":"ROAR is located at Hotel Zed Tofino and is known for live-fire cooking. The food is warm, bold, and inspired by local ingredients and west coast stories.","k":"ROAR is a good pick if you want a restaurant that feels modern but still relaxed."},{"n":"Tacofino Original Truck","c":"restaurants","h":"guides/tofino/restaurants/tacofino-original-truck-1","g":["Fish tacos","Burritos","Lunch","Takeout","Surf-day food","Budget-friendly meals"],"b":"Tacofino is one of the most famous food stops in Tofino. The original food truck is known for fish tacos, burritos, and west coast Mexican-style food.","k":"Lines can be long in peak season. Go early or outside busy meal times if you can."},{"n":"Radar Hill Trail","c":"hiking","h":"guides/tofino/hiking/radar-hill-trail-1","g":["Easy walking","Ocean and forest views","A quick stop","Families","Photography","Visitors with limited time"],"b":"Radar Hill is in Pacific Rim National Park Reserve, between Tofino and Ucluelet. It is one of the easiest viewpoints near Tofino and a good stop if you want a short walk with a big reward.","k":"This is more of a short viewpoint walk than a long hike. You may need a national park pass when stopping in this area."},{"n":"Tonquin Beach","c":"storm-watching","h":null,"g":[],"b":"Tonquin Beach is smaller and more sheltered than the larger surf beaches. It is reached by a forest trail from town.","k":"Wear proper shoes because the trail can be muddy."},{"n":"Grice Bay","c":"kayaking","h":"guides/tofino/kayaking/grice-bay-1","g":["Calm inlet paddling","Bird watching","Photography","Wildlife viewing","Quiet nature time","Kayaking away from the busier town beaches"],"b":"Grice Bay is on the sheltered inlet side near Pacific Rim National Park Reserve. It is not an open Pacific beach. It is calmer and better for paddling, bird watching, and quiet nature time.","k":"Check park rules, parking, and launch access before you go."},{"n":"Middle Beach","c":"beaches","h":"guides/tofino/beaches/middle-beach-1","g":["Quiet views","Photography","Short walks","Relaxing near the ocean"],"b":"Middle Beach is a smaller beach area near Chesterman Beach. It has a more tucked-away feel, with rocky edges, forest, and ocean views.","k":"Check tide and wave conditions before walking near rocks."},{"n":"Clayoquot Sound","c":"kayaking","h":"guides/tofino/kayaking/clayoquot-sound-1","g":["Classic Tofino kayaking","Wildlife watching","Island views","Guided day tours","Multi-day trips","Rainforest shorelines"],"b":"Clayoquot Sound is the main sea kayaking area around Tofino. It includes islands, inlets, coves, channels, rocky shores, mudflats, and rainforest.","k":"Clayoquot Sound is large. Some parts are calm and protected. Other parts are exposed and remote."},{"n":"Rosie Bay","c":"beaches","h":"guides/tofino/beaches/rosie-bay-1","g":["Quiet exploring","Low tide walks","Photography","A break from busier beaches"],"b":"At low tide, you may find interesting rocks, sand, and small pools. It is also a scenic area for photos.","k":"Be careful near rocks and changing tides."},{"n":"Pettinger Point","c":"storm-watching","h":"guides/tofino/storm-watching/pettinger-point-1","g":[],"b":"Accessible via a trail from Cox Bay, this headland offers a spectacular vantage point where waves explode into white spray against the cliffs.","k":""},{"n":"Rainforest Trail","c":"hiking","h":"guides/tofino/hiking/rainforest-trail-1","g":["First-time visitors","Families","Rainy days","Big trees","Boardwalk photos","Easy rainforest exploring"],"b":"The Rainforest Trail is in the Pacific Rim National Park Reserve. It is one of the best short walks near Tofino if you want to see the classic west coast rainforest.","k":"The boardwalk can be slippery when wet. You may need a national park pass when stopping in this area."},{"n":"Wildside Grill","c":"restaurants","h":null,"g":["Fish and chips","Seafood","Burgers","Casual lunch","Family meals","Quick bites after the beach"],"b":"Wildside Grill is a local favorite for fish and chips, seafood, burgers, and casual west coast comfort food.","k":"It is located in the Live to Surf plaza area, which is handy if you are staying or exploring outside the village center."},{"n":"Oceanfront Resorts and Cabins","c":"storm-watching","h":"guides/tofino/storm-watching/oceanfront-resorts-and-cabins-1","g":[],"b":"One of the best ways to storm watch in Tofino is from inside. Many oceanfront hotels, cabins, and resorts have large windows facing the water.","k":""},{"n":"Ucluelet Harbour","c":"kayaking","h":"guides/tofino/kayaking/ucluelet-harbour-1","g":["Calm paddling","Guided tours","Day trips from Tofino","Wildlife watching","Harbour views"],"b":"Ucluelet is near Tofino and can be a good kayaking day trip. The harbor and nearby protected waters can offer calm paddling, wildlife watching, and island views.","k":"Conditions still change with wind and tide. Local guidance is helpful."},{"n":"Shed Tofino","c":"restaurants","h":null,"g":["Burgers","Bowls","Casual dinner","Family meals","Downtown dining","Drinks with friends"],"b":"Shed is a casual restaurant in downtown Tofino. It is known for burgers, bowls, drinks, and a relaxed west coast feel.","k":"Shed is a good “safe choice” when people in your group want different things."},{"n":"Wickaninnish Beach","c":"beaches","h":"guides/tofino/beaches/wickaninnish-beach-1","g":["Storm watching","Big ocean views","Photography","Sunset watching","Learning about the coast","Visiting the Kwisitis Visitor Centre"],"b":"Wickaninnish Beach is in Pacific Rim National Park Reserve, closer to the Ucluelet side of the Long Beach area. It is one of the best places near Tofino for big ocean views and storm.","k":"This beach can feel very open and exposed. Stay far back from the water during storms and high tide."},{"n":"Shorepine Bog Trail","c":"hiking","h":"guides/tofino/hiking/shorepine-bog-trail-1","g":["Easy walking","Families","Short stops","Rainy days","Learning about bog ecosystems","Bird watching"],"b":"The Shorepine Bog Trail is a short and easy boardwalk trail in Pacific Rim National Park Reserve. It feels very different from the deep rainforest trails.","k":"Stay on the boardwalk to protect the fragile bog plants."},{"n":"Rhino Coffee House","c":"restaurants","h":null,"g":["Coffee","Breakfast","Donuts","Bagels","Sandwiches","A local morning stop"],"b":"Rhino Coffee House is one of the best-known coffee shops in Tofino. It is popular with locals and visitors for coffee, breakfast, sandwiches, bagels, and donuts.","k":"It can get busy in the morning, but it is worth adding to your Tofino food list."},{"n":"Spruce Fringe Trail","c":"hiking","h":"guides/tofino/hiking/spruce-fringe-trail-1","g":["Short forest walks","Beach access","Nature photos","A quieter stop","Exploring near Combers Beach"],"b":"Spruce Fringe Trail is a short forest trail in Pacific Rim National Park Reserve. It is often linked with Combers Beach because it gives access toward the Combers Beach area.","k":"Trail access and nearby beach rules can change. Check Parks Canada updates before visiting, especially if you plan to bring a dog."},{"n":"Florencia Bay","c":"beaches","h":"guides/tofino/beaches/florencia-bay-1","g":["Quiet beach walks","Sand cliff views","Photography","Low-tide exploring","A less crowded beach visit"],"b":"Florencia Bay is also in Pacific Rim National Park Reserve. It is closer to Ucluelet than Tofino, but it is still a great stop on a Tofino beach trip.","k":"The stairs and trail can feel longer on the way back up. Wear comfortable shoes and check the tide before walking far."},{"n":"Barkley Sound","c":"kayaking","h":"guides/tofino/kayaking/barkley-sound-1","g":["Sea kayaking","Island hopping","Multi-day trips","Wildlife watching","Kayak camping","More experienced paddlers"],"b":"Barkley Sound is near Ucluelet and Bamfield, south of Tofino. It is one of the best kayaking areas on Vancouver Island.","k":"This area needs more planning than a short Tofino paddle. Check weather, route, camping rules, and water access."},{"n":"Combers Beach","c":"beaches","h":"guides/tofino/beaches/combers-beach-1","g":["Long beach walks","Quiet nature time","Photography","Storm watching from a safe distance","A wilder beach feel"],"b":"Combers Beach is part of Pacific Rim National Park Reserve. It is not a town beach, but it is one of the wilder beaches near Tofino.","k":"Dog rules and access rules can change in Pacific Rim National Park Reserve. Check current Parks Canada updates before visiting with a dog."},{"n":"Nuu-chah-nulth Trail","c":"hiking","h":"guides/tofino/hiking/nuu-chah-nulth-trail-1","g":["Rainforest walking","Ocean views","Learning","Photography","A longer nature walk","Visitors who want more than a quick stop"],"b":"The Nuu-chah-nulth Trail is in Pacific Rim National Park Reserve. It connects rainforest, boardwalks, beach views, and cultural learning.","k":"Expect stairs, boardwalks, and uneven sections. Give yourself enough time and wear proper shoes."},{"n":"Broken Group Islands","c":"kayaking","h":"guides/tofino/kayaking/broken-group-islands-1","g":["Multi-day kayaking","Island camping","Wildlife viewing","Sheltered channels","Experienced paddlers","Guided trips"],"b":"The Broken Group Islands are in Barkley Sound and are part of Pacific Rim National Park Reserve. They are one of the best-known sea kayaking destinations in British Columbia.","k":"The Broken Group Islands are accessed by boat, and camping or overnight trips require planning and reservations."},{"n":"Tofitian Cafe","c":"restaurants","h":null,"g":["Coffee","Tea","Morning stops","Local atmosphere","Simple breakfast bites","Pre-surf fuel"],"b":"Tofitian Cafe is a long-time Tofino coffee spot. It has a local feel and is a good place for coffee, tea, and a slower start to the day.","k":"This is a good place if you want a classic Tofino cafe feel."},{"n":"South Beach Trail","c":"hiking","h":"guides/tofino/hiking/south-beach-trail-1","g":["Short hikes","Rocky coast views","Photography","Ocean sounds","A stop near the visitor center","Pairing with Wickaninnish Beach"],"b":"South Beach Trail is in Pacific Rim National Park Reserve near the Kwisitis Visitor Centre and Wickaninnish Beach. It is a short coastal trail with a strong west coast feel.","k":"South Beach is better for viewing than swimming. Stay back from waves and wet rocks, especially during high tide or stormy weather."},{"n":"Schooner Cove","c":"beaches","h":"guides/tofino/beaches/schooner-cove-1","g":["Forest and beach views","Quiet exploring","Nature photos","Peaceful walks","A less crowded beach stop"],"b":"Schooner Cove is also in Pacific Rim National Park Reserve, closer to the Tofino end of the Long Beach area.","k":"Trail and beach access can change in national park areas. Check current Parks Canada updates before planning your visit."},{"n":"Driftwood Café","c":"restaurants","h":"guides/tofino/restaurants/driftwood-caf-1","g":["Coffee near Chesterman Beach","Brunch","Light meals","Beach-day snacks","A relaxed resort cafe feel"],"b":"Driftwood Café is located at the Wickaninnish Inn near Chesterman Beach. It is a good choice for coffee, breakfast, brunch, or a light meal close to the beach.","k":"It is a nice stop before or after a walk on Chesterman Beach."},{"n":"Vargas Island and Ahous Bay","c":"kayaking","h":"guides/tofino/kayaking/vargas-island-and-ahous-bay-1","g":["Multi-day kayaking","Wilderness camping","Remote beaches","Wildlife watching","Kayak-and-hike trips","Intermediate to advanced paddlers","Guided adventure trips"],"b":"Vargas Island is close to Tofino and is one of the best nearby areas for paddling, wilderness camping, and remote beach exploring. It can be reached by kayak, water taxi, or guided.","k":"Vargas Island is not a casual beginner paddle unless you are on a guided tour. The west side and Ahous Bay can be exposed, so check weather, swell, tides, camping rules, and local advice before going."},{"n":"Tofino Coffee Roasting Co.","c":"restaurants","h":null,"g":["Locally roasted coffee","Pastries","A quiet coffee stop","Coffee lovers","Takeaway drinks"],"b":"Tofino Coffee Roasting Co. is a locally owned cafe and roastery. It is a good choice if you care about good coffee and want something simple, warm, and local.","k":"This is a good stop for people who want coffee that feels more craft-focused."},{"n":"Long Beach Hike","c":"hiking","h":"guides/tofino/hiking/long-beach-hike-1","g":["Long beach walks","Surf watching","Photography","Storm watching from a safe distance","Easy coastal exploring","Big Pacific Ocean views"],"b":"Long Beach is not a formal hike in the same way as a forest trail, but it is one of the best long beach walks near Tofino. It is part of Pacific Rim National Park Reserve and is one of the.","k":"Check tide times before walking far. Stay away from large waves and never turn your back on the ocean."},{"n":"Flores Island / Wild Side Trail Route","c":"kayaking","h":"guides/tofino/kayaking/flores-island-wild-side-trail-route-1","g":["Kayak and hike trips","Remote beaches","Wilderness camping","Wildlife watching","Experienced paddlers","Multi-day adventures"],"b":"Flores Island is north of Tofino in Clayoquot Sound. It is known for the Wild Side Trail, remote beaches, old-growth forest, and wilderness camping.","k":"Flores Island is not a casual day paddle for most visitors. You may need water taxi access, local permissions, stewardship fees, camping plans, and current route information."},{"n":"Grice Bay","c":"beaches","h":"guides/tofino/beaches/grice-bay-1","g":["Kayaking","Paddle trips","Bird watching","Calm water views","A quiet nature stop"],"b":"Grice Bay is different from the other beaches on this list. It is not a big open Pacific Ocean surf beach. It is a sheltered bay on the calmer inlet side near Tofino and Pacific Rim.","k":"Choose Grice Bay for calm inlet scenery, not for surfing or storm watching."},{"n":"Kennedy Lake","c":"beaches","h":"guides/tofino/beaches/kennedy-lake-1","g":["Freshwater lake views","Kayaking or canoeing","Paddleboarding in calm conditions","Quiet nature time","Photography","A break from windy ocean beaches","Quick Beach Guide","Beach · Location · Best For"],"b":"Kennedy Lake is not a beach in Tofino town, and it is not an open Pacific Ocean beach. It is a large freshwater lake near Tofino and Ucluelet, close to Pacific Rim National Park Reserve.","k":"Kennedy Lake is best for calm-water activities, not surfing or storm watching. Conditions can still change, so check the weather and wind before paddling."},{"n":"Rafael Point","c":"kayaking","h":"guides/tofino/kayaking/rafael-point-1","g":["Advanced sea kayaking","Remote outer-coast travel","Wildlife watching from a distance","Expedition planning","Experienced guided trips"],"b":"Rafael Point is in the Flores Island area and is part of the wilder outer coast of Clayoquot Sound. It is relevant for serious sea kayakers because it sits in a more exposed, remote setting.","k":"Treat Rafael Point as an advanced or expert route area, not a casual kayaking stop."},{"n":"Combers Beach Trail","c":"hiking","h":"guides/tofino/hiking/combers-beach-trail-1","g":["Beach walks","Quiet nature time","Photography","Wild coastal scenery","A less crowded stop"],"b":"Combers Beach Trail is a short trail in Pacific Rim National Park Reserve that leads to a wild beach. It is a good choice if you want a quiet beach walk and a more natural feel.","k":"Check current park access and dog rules before visiting. Tide and seasonal rules can affect your visit."},{"n":"Harbourview Coffeehouse","c":"restaurants","h":null,"g":["Waterfront coffee","Kayaking days","Light snacks","A quiet view","Simple local finds"],"b":"Harbourview Coffeehouse is a small waterfront coffee stop connected with Tofino Sea Kayaking. It is a lovely place for coffee before or after a kayaking trip.","k":"This is a nice hidden-gem option if you are already near the harbor."},{"n":"Schooner Cove Trail","c":"hiking","h":"guides/tofino/hiking/schooner-cove-trail-1","g":["Forest walks","Beach access","Quiet exploring","Nature photos","A less busy trail stop"],"b":"Schooner Cove Trail is another trail in Pacific Rim National Park Reserve. It is known for forest-to-beach scenery and a quieter feel.","k":"Check current Parks Canada updates before planning this trail."},{"n":"Hot Springs Cove","c":"kayaking","h":"guides/tofino/kayaking/hot-springs-cove-1","g":["Multi-day kayak trips","Guided expeditions","Remote coastal scenery","Camping adventures","A special west coast experience"],"b":"Hot Springs Cove is north of Tofino and is usually reached by boat or float plane. Some longer kayak adventures include Hot Springs Cove as part of a guided multi-day trip.","k":"This route needs planning, good weather, and local knowledge."},{"n":"Mizu Mizu Café","c":"restaurants","h":null,"g":["Matcha","Coffee","Pastries","Slow mornings","Light meals","A cozy cafe stop"],"b":"Mizu Mizu Café has a calm Japanese-inspired cafe feel. It is good for slow mornings, matcha, pastries, grilled sandwiches, and thoughtful small finds.","k":"Good for travelers who enjoy quiet, simple, and thoughtful spaces."},{"n":"Tofino Brewing Company","c":"restaurants","h":"guides/tofino/restaurants/tofino-brewing-company-1","g":["Craft beer","Flights","Casual drinks","Après-surf","Rainy afternoons","Local beer fans"],"b":"Tofino Brewing Company is a popular stop for craft beer. It is a good place to try a flight, enjoy a pint, or grab beer to go.","k":"Check current hours before visiting, especially outside summer."},{"n":"ʔapsčiik t̓ašii Multi-Use Pathway","c":"hiking","h":"guides/tofino/hiking/apsc-iik-t-as-ii-multi-use-pathway-1","g":["Biking","Walking","Running","Longer active days","Families with bikes","Exploring Pacific Rim National Park"],"b":"ʔapsčiik t̓ašii, pronounced “ups-cheek ta-shee,” is a paved multi-use pathway in Pacific Rim National Park Reserve. It runs through the Long Beach Unit and connects many points of.","k":"The path is paved, but there are some hills and curves. Bring water and plan your return route."},{"n":"Long Beach and the Open Pacific Coast","c":"kayaking","h":"guides/tofino/kayaking/long-beach-and-the-open-pacific-coast-1","g":["Expert sea kayakers only","Surf kayaking in the right conditions","Open-coast skills practice","Experienced paddlers with local knowledge"],"b":"Long Beach is part of Pacific Rim National Park Reserve. It is famous for surfing, beach walks, and big ocean views. But for most visitors, it is not a regular kayaking spot.","k":"Most visitors should enjoy Long Beach from shore, not from a kayak. Choose sheltered areas like Lemmens Inlet, Meares Island, Grice Bay, Mackenzie/tinwis Beach, or Kennedy Lake for easier paddling."},{"n":"Tofino Distillery","c":"restaurants","h":null,"g":["Craft spirits","Tastings","Rainy day stops","Cocktail fans","Local gifts","Small-group visits"],"b":"Tofino Distillery is a good stop for craft spirits and small cocktail tasters. It is known for organic spirits and seasonal tasting room drinks.","k":"Plan a safe ride if you are tasting."},{"n":"Tofino Inlet","c":"kayaking","h":null,"g":["Calm water","Inlet scenery","Wildlife","Guided paddles","Longer day trips"],"b":"Tofino Inlet is part of the wider sheltered water system near Tofino. It can be used for scenic paddling, guided tours, and wildlife viewing.","k":"Go with a guide if you are not familiar with local tides, channels, and weather."},{"n":"Big Tree Trail on Meares Island","c":"hiking","h":"guides/tofino/hiking/big-tree-trail-on-meares-island-1","g":["Big trees","Old-growth forest","Nature lovers","Guided trips","Photography","A special half-day adventure"],"b":"Big Tree Trail is on Meares Island, not in Tofino town. To visit, you usually need a water taxi or guided trip from Tofino.","k":"Plan ahead because you need boat access. Wear good shoes because the trail can be wet and uneven."},{"n":"Lone Cone Trail","c":"hiking","h":"guides/tofino/hiking/lone-cone-trail-1","g":["Experienced hikers","Big views","A hard workout","Adventure travelers","A full or half-day hiking plan"],"b":"Lone Cone is also on Meares Island. It is much harder than most trails near Tofino. It is a steep hike with a viewpoint at the top.","k":"This is a steep and challenging hike. You need boat access, proper shoes, water, and enough time."},{"n":"Fortune Channel","c":"kayaking","h":null,"g":["Longer sea kayaking trips","Forested shorelines","Wildlife","Experienced paddlers","Guided tours"],"b":"Fortune Channel is a paddling area in Clayoquot Sound near Meares Island. It is more remote than the short harbor paddles and can be part of longer guided routes.","k":"This is better for paddlers with some experience or those joining a guided trip."},{"n":"Bedwell Sound and Remote Inlets","c":"kayaking","h":null,"g":["Remote scenery","Multi-day kayaking","Wildlife watching","Wilderness camping","Guided expeditions"],"b":"Bedwell Sound and nearby remote inlets are part of the larger Clayoquot Sound paddling area. These are best for guided trips, multi-day routes, and experienced paddlers.","k":"These are not beginner day trips. Plan carefully and go with local knowledge."},{"n":"Wild Side Trail on Flores Island","c":"hiking","h":"guides/tofino/hiking/wild-side-trail-on-flores-island-1","g":["Remote beach hiking","Wilderness scenery","Backpacking","Kayak-and-hike trips","Wildlife watching","Experienced hikers","A special Tofino-area adventure"],"b":"The Wild Side Trail is one of the most special hikes near Tofino. It is on Flores Island in Clayoquot Sound and starts near the village of Ahousaht.","k":"Plan ahead. You may need water taxi transport, local permissions or stewardship fees, camping plans, and current trail information. This is not a casual town trail like Tonquin Trail."}],"guides":[{"c":"fishing","n":"Fishing","h":"thomas-lipke-M12HGHNVJ2s-unsplash_nttcvc","l":"Salmon and halibut charters run out of Tofino harbor most of the year, with guides who know the banks and the tides.","b":1,"p":0},{"c":"beaches","n":"Beaches","h":"guides/tofino/beaches/_category-1","l":"Tofino is famous for its beaches. They are wide, wild, and full of west coast beauty. You will find soft sand, big waves, driftwood, rainforest, rocky points, and long views of the Pacific.","b":29,"p":8},{"c":"surfing","n":"Surfing","h":"guides/tofino/surfing/_category-1","l":"Tofino is known as the surf capital of Canada. It sits on the west coast of Vancouver Island, facing the open Pacific Ocean. This means the waves can be strong, steady, and fun all year.","b":84,"p":6},{"c":"whale-watching","n":"Whale watching","h":"guides/tofino/whale-watching/_category-1","l":"Tofino is one of the best places on Vancouver Island to see wild animals. It sits beside Clayoquot Sound, a rich coastal area with ocean, islands, beaches, rainforest, and rocky shorelines.","b":153,"p":8},{"c":"birding","n":"Birding & wildlife","h":"guides/tofino/birding/_category-1","l":"Discover common seabirds in Tofino, British Columbia. Learn how to spot gulls, cormorants, murres, auklets, puffins, oystercatchers, ducks, loons, grebes, and other coastal.","b":338,"p":8},{"c":"storm-watching","n":"Storm watching","h":"guides/tofino/storm-watching/_category-1","l":"Tofino is not just a summer beach town. In winter, it becomes one of the best places in Canada to watch storms.","b":23,"p":6},{"c":"hiking","n":"Hiking & trails","h":"guides/tofino/hiking/_category-1","l":"Explore the best trails in Tofino and nearby Pacific Rim National Park. Find easy rainforest walks, beach trails, ocean viewpoints, family-friendly paths, and hiking safety.","b":31,"p":8},{"c":"restaurants","n":"Restaurants","h":"guides/tofino/restaurants/_category-1","l":"Discover the best restaurants in Tofino, from seafood and tacos to fine dining, coffee shops, local bakeries, and slow food experiences. Find where to eat for breakfast.","b":84,"p":6},{"c":"kayaking","n":"Kayaking & paddling","h":"guides/tofino/kayaking/_category-1","l":"Kayaking in Tofino is one of the best ways to explore Clayoquot Sound, calm inlets, islands, rainforest, and wildlife. Learn where to kayak, when to go, what to expect, and.","b":132,"p":8}],"faqs":[{"c":"camping","s":"tofino-ucluelet-campgrounds","q":"What is the best campground in Tofino?","a":"Surf Grove is a top choice for Cox Bay surf access. Bella Pacifica is a classic family-friendly beach campground on tinwis/Mackenzie Beach. Crystal Cove is best for RV campers who want a resort-style stay."},{"c":"camping","s":"tofino-ucluelet-campgrounds","q":"What is the best campground in Ucluelet?","a":"Ucluelet Campground is the most convenient option if you want to stay in town. Wya Point is better if you want a quieter beachfront nature stay outside town."},{"c":"camping","s":"tofino-ucluelet-campgrounds","q":"Can you camp on the beach in Tofino?","a":"You should only camp in official campgrounds or designated backcountry sites. Do not camp on public beaches, parking lots, roadsides, or random pullouts."},{"c":"camping","s":"tofino-ucluelet-campgrounds","q":"Do you need reservations for Tofino campgrounds?","a":"Yes, reservations are strongly recommended. Summer sites can book months ahead."},{"c":"surfing","s":"tofino-surfing-faq","q":"What Is a Rip Current?","a":"A rip current is a strong flow of water that moves away from shore. It can pull swimmers and surfers farther out. If you get caught in one, do not fight it. Stay calm. Float, hold your board, and paddle or swim sideways, parallel to the beach. Once you are out of the current, come back toward shore. If you are not sure about the water, do not go in. Ask a surf school or local surf shop for advice."},{"c":"surfing","s":"tofino-surfing-faq","q":"Can beginners surf in Tofino?","a":"Yes. Tofino is one of the best places in Canada for beginner surf lessons. Start with a surf school so you learn the right beach, gear, and safety steps."},{"c":"surfing","s":"tofino-surfing-faq","q":"Can Kids Learn to Surf in Tofino?","a":"Yes, many kids can learn to surf in Tofino. Surf schools often offer family or kid-friendly lessons. The right age depends on the child, the surf school, and the ocean conditions that day. Kids should be comfortable in water and able to listen to safety instructions. A private or family lesson may be best for younger children."},{"c":"surfing","s":"tofino-surfing-faq","q":"Which beach is best for beginner surfing in Tofino?","a":"Chesterman Beach is a popular choice for beginners and lessons. Cox Bay and Long Beach can also be good when conditions are calm."},{"c":"kayaking","s":"tofino-kayaking-faq","q":"Is Tofino Good for Beginner Kayaking?","a":"Yes, Tofino can be great for beginner kayaking, especially with a guide. Many tours use calm, sheltered waters instead of open surf beaches. This makes the trip easier and safer for first-time paddlers. A guide can help you with paddling, steering, tide timing, wildlife rules, and local conditions. Beginners should choose: A guided tour A calm inlet route A tandem kayak if nervous A half-day trip Good weather and."},{"c":"kayaking","s":"tofino-kayaking-faq","q":"Is Kayaking in Tofino Good for Kids?","a":"Yes, kayaking can be good for kids when conditions are calm and the trip is guided. For families, a tandem kayak is often best. A child can sit with an adult, and the guide can choose a shorter route. Family-friendly kayak trips are usually: Shorter Guided In sheltered water Done in good weather Focused on easy paddling and wildlife Ask the tour company about age rules before booking."},{"c":"kayaking","s":"tofino-kayaking-faq","q":"What Is Better: Kayaking or Paddleboarding in Tofino?","a":"Both are fun, but they are different. Kayaking is better for longer trips, wildlife viewing, and cooler weather. You sit lower in the boat, and it is often easier to travel farther. Paddleboarding is better on very calm water. It can be fun on Kennedy Lake, sheltered bays, or calm inlet areas. It is not a good choice for rough water, strong wind, or open surf beaches unless you are experienced. For most first-time."},{"c":"kayaking","s":"tofino-kayaking-faq","q":"Where is the best place to kayak in Tofino?","a":"Clayoquot Sound is the classic kayaking area. Meares Island is also popular because you can combine kayaking with the Big Tree Trail."},{"c":"birding","s":"tofino-birding-faq","q":"What seabirds can you see in Tofino?","a":"You may see gulls, cormorants, common murres, rhinoceros auklets, pigeon guillemots, tufted puffins, shearwaters, sea ducks, loons, grebes, black oystercatchers, and bald eagles."},{"c":"birding","s":"tofino-birding-faq","q":"Can you see puffins in Tofino?","a":"Yes, tufted puffins may be seen near Tofino, especially on summer boat tours near offshore rocks and islands. They are not usually easy to see from town beaches."},{"c":"birding","s":"tofino-birding-faq","q":"What is the most common bird in Tofino?","a":"Gulls, cormorants, bald eagles, and shorebirds are among the easiest coastal birds for visitors to notice. The exact “most common” bird depends on season and habitat."},{"c":"birding","s":"tofino-birding-faq","q":"What are the black birds on the rocks in Tofino?","a":"They may be cormorants, black oystercatchers, or pigeon guillemots. Cormorants have long necks and often hold their wings open. Black oystercatchers have bright orange-red bills. Pigeon guillemots are smaller and may show white wing patches."},{"c":"storm-watching","s":"tofino-storm-watching-faq","q":"Is storm watching in Tofino dangerous?","a":"It can be dangerous if you get too close to the ocean. Watch from a safe distance, avoid wet rocks, and never turn your back on the waves."},{"c":"storm-watching","s":"tofino-storm-watching-faq","q":"What Are King Tides?","a":"King tides are extra high tides. In Tofino, they can happen around the full moon or new moon. During storm season, king tides can make the ocean rise much higher than normal. This can make beach entrances unsafe. It can also make some beach walks impossible. If you are storm watching during a king tide, choose a safe viewpoint instead of walking close to the water."},{"c":"storm-watching","s":"tofino-storm-watching-faq","q":"What Should You Wear for Storm Watching in Tofino?","a":"To enjoy storm watching, dress for rain, wind, and cold air. You do not need fancy clothes, but you do need warm and waterproof layers. Bring or wear: Waterproof rain jacket Waterproof pants Warm sweater or fleece Hat or toque Gloves Warm socks Waterproof boots Extra dry clothes Small backpack Phone in a waterproof case Umbrellas are not very useful in strong wind. A good rain jacket is better."},{"c":"storm-watching","s":"tofino-storm-watching-faq","q":"Can You Walk on the Beach During a Storm?","a":"Sometimes, but not always. A beach walk can be safe during light rain, low tide, and calmer conditions. But during strong storms, high tide, or large waves, it is better to watch from a safe viewpoint. Before walking on the beach, ask: Is the tide coming in? Are waves reaching high up the beach? Are there logs near the water? Is the wind too strong? Is this beach open? Can I get back safely? If you are not sure, do."},{"c":"restaurants","s":"tofino-restaurants-faq","q":"What is the best restaurant in Tofino?","a":"Many visitors consider Wolf in the Fog one of the best restaurants in Tofino because it focuses on local seafood, foraged ingredients, cocktails, and west coast flavor. The Pointe Restaurant is another top choice for fine dining and ocean views."},{"c":"restaurants","s":"tofino-restaurants-faq","q":"Do you need reservations in Tofino?","a":"Yes, reservations are a good idea for dinner, especially in summer, on weekends, and at popular restaurants."},{"c":"restaurants","s":"tofino-restaurants-faq","q":"Is Tofino expensive for food?","a":"Tofino can be expensive because it is remote and popular. You can save money by mixing food trucks, cafes, takeout, and a few special sit-down meals."},{"c":"restaurants","s":"tofino-restaurants-faq","q":"Are there vegetarian options in Tofino?","a":"Yes. Many restaurants and cafes offer vegetarian options. Look at Shed, Tacofino, ROAR, Ombré, Basic Goodness Pizzeria, and local cafes."},{"c":"beaches","s":"tofino-beaches-faq","q":"What is the nicest beach in Tofino?","a":"Many people think Chesterman Beach is the nicest beach in Tofino because it is long, sandy, scenic, and easy to enjoy. Cox Bay and Long Beach are also favorites."},{"c":"beaches","s":"tofino-beaches-faq","q":"What is the best beach in Tofino for surfing?","a":"Cox Bay is one of the best beaches for surfing. Chesterman Beach and Long Beach are also popular surf spots, depending on conditions."},{"c":"beaches","s":"tofino-beaches-faq","q":"What is the best beach in Tofino for families?","a":"Tinwis Beach and Chesterman Beach are good choices for families. tinwis is more sheltered, while Chesterman has lots of space for walking and playing."},{"c":"beaches","s":"tofino-beaches-faq","q":"Can you swim in Tofino?","a":"Yes, but the water is cold and the ocean can be strong. Most people wear wetsuits. There are no lifeguards, so be careful."},{"c":"whale-watching","s":"tofino-whale-watching-faq","q":"What is the best month for whale watching in Tofino?","a":"March to May is one of the best times for gray whales. Summer and early fall can also be great for humpbacks, gray whales, orcas, sea otters, sea lions, and other wildlife."},{"c":"whale-watching","s":"tofino-whale-watching-faq","q":"Can you see whales in Tofino without a tour?","a":"Yes, sometimes whales can be seen from shore. But a guided boat tour gives you a much better chance of seeing whales and learning about them."},{"c":"whale-watching","s":"tofino-whale-watching-faq","q":"What is the best time of day for whale watching?","a":"There is no perfect time every day. Tour operators choose routes based on weather, swell, and recent sightings. Morning trips may have calmer water, but wildlife can be active at different times."},{"c":"whale-watching","s":"tofino-whale-watching-faq","q":"Is a zodiac or covered boat better for whale watching?","a":"A covered boat is better for comfort, families, and cooler days. A zodiac is better for travelers who want a faster, more open-air adventure."},{"c":"hiking","s":"tofino-hiking-faq","q":"What is the best easy trail in Tofino?","a":"The Tonquin Trail is one of the best easy trails in Tofino because it is close to town and includes forest, beaches, and ocean views."},{"c":"hiking","s":"tofino-hiking-faq","q":"What is the best rainforest trail near Tofino?","a":"The Rainforest Trail in Pacific Rim National Park Reserve is one of the best rainforest trails near Tofino. It has boardwalks, huge trees, ferns, moss, and a classic west coast forest feel."},{"c":"hiking","s":"tofino-hiking-faq","q":"Are Tofino trails good for kids?","a":"Yes, many Tofino trails are good for kids. Tonquin Trail, Shorepine Bog Trail, Rainforest Trail, and South Beach Trail are good choices. Keep kids close near stairs, beaches, cliffs, and slippery boardwalks."},{"c":"hiking","s":"tofino-hiking-faq","q":"Can you walk from Tofino to the beach?","a":"Yes. Tonquin Trail is one of the easiest ways to walk from Tofino village to a beach. Some other beaches are easier to reach by car or bike."},{"c":"whale-watching","s":"whale-tails-blows-and-backs","q":"What does it mean when a whale blows?","a":"A blow means the whale has surfaced to breathe. It is often the first sign people see during whale watching."},{"c":"whale-watching","s":"whale-tails-blows-and-backs","q":"What does a whale tail mean?","a":"If a whale lifts its tail fluke before disappearing, it usually means the whale is making a deeper dive."},{"c":"whale-watching","s":"whale-tails-blows-and-backs","q":"Why do whales show their backs?","a":"Whales show their backs when they surface to breathe, travel, or prepare for another dive. This is one of the most common things to see on a whale watching tour."},{"c":"whale-watching","s":"whale-tails-blows-and-backs","q":"Does seeing a fluke mean the whale is leaving?","a":"Not always. A fluke usually means the whale is diving deeper. It may surface again nearby after several minutes, or it may come up farther away."}],"articles":[{"s":"tofino-wildlife-tours","t":"Wildlife Tours in Tofino","e":"Whales, bears, and seabirds: the tours worth booking.","c":"whale-watching","h":"thomas-lipke-M12HGHNVJ2s-unsplash_nttcvc","f":0},{"s":"tofino-restaurants","t":"Where to Eat in Tofino","e":"From fish tacos to tasting menus, the town's essential tables.","c":"restaurants","h":"arc-trips/pillar-connection","f":0},{"s":"pacific-rim-whale-festival-guide","t":"Pacific Rim Whale Festival Guide","e":"The spring festival that marks the gray whale migration through Clayoquot Sound.","c":"events","h":"guides/tofino/events/_category-1","f":0},{"s":"tofino-ucluelet-campgrounds","t":"Tofino & Ucluelet Campgrounds","e":"Where to pitch a tent between the two towns.","c":"camping","h":"james-wheeler-YZfDg2L0lUs-unsplash_ino74q","f":4},{"s":"best-time-to-stay-tofino-ucluelet","t":"Best Time to Stay in Ucluelet or Tofino","e":"Weather, prices, and what to see across the seasons.","c":"when-to-go","h":"guides/tofino/when-to-go/_category-1","f":0},{"s":"tofino-beaches","t":"The Best Beaches in Tofino","e":"Long Beach, Cox Bay, Chesterman: where to find surf, sand, and sunset walks.","c":"beaches","h":"guides/tofino/beaches/_category-1","f":0},{"s":"tofino-surfing","t":"Surfing in Tofino","e":"Canada's surf capital: breaks, seasons, and where to rent a board.","c":"surfing","h":"guides/tofino/surfing/_category-1","f":0},{"s":"tofino-kayaking","t":"Kayaking in Tofino","e":"Paddle Clayoquot Sound past islands, inlets, and old-growth shoreline.","c":"kayaking","h":"condor-wei-TiLEEXohfsY-unsplash_v7ja5f","f":0},{"s":"tofino-storm-watching","t":"Storm Watching in Tofino","e":"Why winter is the dramatic season on the exposed Pacific coast.","c":"storm-watching","h":"guides/tofino/storm-watching/_category-1","f":0},{"s":"tofino-surfing-faq","t":"Surfing FAQs","e":"What Is a Rip Current?","c":"surfing","h":"guides/tofino/surfing/_category-1","f":4},{"s":"tofino-kayaking-faq","t":"Kayaking FAQs","e":"Is Tofino Good for Beginner Kayaking?","c":"kayaking","h":"guides/tofino/kayaking/_category-1","f":4},{"s":"tofino-birding-faq","t":"Birding FAQs","e":"What seabirds can you see in Tofino?","c":"birding","h":"guides/tofino/birding/_category-1","f":4},{"s":"tofino-storm-watching-faq","t":"Storm watching FAQs","e":"Is storm watching in Tofino dangerous?","c":"storm-watching","h":"guides/tofino/storm-watching/_category-1","f":4},{"s":"tofino-restaurants-faq","t":"Restaurants FAQs","e":"What is the best restaurant in Tofino?","c":"restaurants","h":"guides/tofino/restaurants/_category-1","f":4},{"s":"tofino-beaches-faq","t":"Beaches FAQs","e":"What is the nicest beach in Tofino?","c":"beaches","h":"guides/tofino/beaches/_category-1","f":4},{"s":"tofino-whale-watching-faq","t":"Whale watching FAQs","e":"What is the best month for whale watching in Tofino?","c":"whale-watching","h":"guides/tofino/whale-watching/_category-1","f":4},{"s":"tofino-hiking-faq","t":"Hiking FAQs","e":"What is the best easy trail in Tofino?","c":"hiking","h":"guides/tofino/hiking/_category-1","f":4},{"s":"whale-tails-blows-and-backs","t":"Whale Tails, Blows, and Backs","e":"What you're actually seeing on the water.","c":"whale-watching","h":"guides/tofino/whale-watching/_category-1","f":4}],"listings":[{"t":"Cozy Mountain Chalet with Sauna, Fireplace & Trails Nearby","city":"tofino","h":"arcstudio/zczetpngmabknruslfwn","p":320,"rooms":2,"beds":3,"baths":2,"r":4.9,"loc":"Tofino, British Columbia"},{"t":"Historic Old-Town Loft with Stone Walls & River Views","city":"ucluelet","h":"arcstudio/wnrrcrf4lnalgzbjvsz8","p":320,"rooms":2,"beds":3,"baths":2,"r":4.9,"loc":"Ucluelet, British Columbia"},{"t":"Alpine Timber Chalet with Mountain Hot Tub & Stargazing Deck","city":"ucluelet","h":"arc-trips/pillar-connection","p":385,"rooms":2,"beds":3,"baths":2,"r":4.9,"loc":"Ucluelet, British Columbia"},{"t":"Riverside Cabin Retreat with Hot Tub & Forest Views","city":"tofino","h":"arcstudio/mg8epie7gzlpfb1bn7jo","p":420,"rooms":2,"beds":3,"baths":2,"r":4.9,"loc":"Tofino, British Columbia"},{"t":"Coastal Bed-Cliff Cottage with Private Beach & Firepit","city":"tofino","h":"arc-trips/curated-cabin","p":420,"rooms":2,"beds":3,"baths":2,"r":4.9,"loc":"Canmore, Alberta"},{"t":"Modern Lakeside Villa with Rooftop Lounge & Marina Access","city":"ucluelet","h":"arc-trips/founding-key","p":450,"rooms":2,"beds":3,"baths":2,"r":4.9,"loc":"Ucluelet, British Columbia"},{"t":"Lakefront Cottage with Private Dock & Canoes Included","city":"tofino","h":"arcstudio/galleries/dayhike-trail-1","p":500,"rooms":2,"beds":3,"baths":2,"r":4.9,"loc":"Tofino, British Columbia"}]}</script>
 <script>
 const PLAN = JSON.parse(document.getElementById("plan-data").textContent);
-
-/* ── helpers ─────────────────────────────────────────────────────────────── */
-const MON = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-const SHORT = MON.map((m) => m.slice(0,3));
-const DIM = [31,28,31,30,31,30,31,31,30,31,30,31];
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const cld = (id,w,h) => `https://res.cloudinary.com/du9doarye/image/upload/f_auto,q_auto,c_fill,w_${w},h_${h}/${id}`;
-const arrow = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>`;
-/* one or more names already contain the word and, so the serial and is dropped
-   rather than printing "camping and events and festivals" */
-const listOf = (a) => a.length < 2 ? (a[0] || "")
-  : a.some((x) => / and /.test(x)) ? a.join(", ")
-  : a.slice(0,-1).join(", ") + " and " + a[a.length-1];
-/* every name is listed (review 2026-11-13: no "and N more") */
-const listCap = (a) => listOf(a);
-const num = (n) => n.toLocaleString("en-CA");
-
 const CATN = {
   "beaches":"Beaches","surfing":"Surfing","kayaking":"Kayaking","fishing":"Fishing","boating":"Boating",
   "hot-springs":"Hot springs","whale-watching":"Whale watching","birding":"Birding","storm-watching":"Storm watching",
@@ -670,394 +599,20 @@ const CATN = {
   "restaurants":"Restaurants","markets":"Markets","breweries":"Breweries","landmarks":"Landmarks",
   "arts-history":"Arts and history","events":"Events","when-to-go":"When to go","getting-around":"Getting around"
 };
-/* A place resolves to the subject page it belongs to, never to the top of the
-   index. The five subjects without a page of their own land on their section. */
-const CATPAGE = { "beaches":"/destinations/canada/bc/tofino/things-to-do/beaches","hiking":"/destinations/canada/bc/tofino/things-to-do/hiking",
-  "kayaking":"/kayaking/canada/bc/tofino","restaurants":"/destinations/canada/bc/tofino/things-to-do/restaurants",
-  "storm-watching":"/destinations/canada/bc/tofino/things-to-do/storm-watching","whale-watching":"/whale-watching/canada/bc/tofino" };
-/* This is a Tofino page: "at their best" must count Tofino's own subjects
-   (the nine on the things-to-do list), never the sitewide 22-category
-   taxonomy /destinations/canada/bc/tofino/things-to-do and /destinations/canada/bc/tofino are scoped to. */
-const TOFINO_CATS = PLAN.guides.map((g) => g.c);
-const TOFINO_N = TOFINO_CATS.length;
-const inSeasonTofino = (m) => TOFINO_CATS.filter((c) => (PLAN.bestMonths[c] || []).includes(m));
-const CLI = PLAN.climate;
-const MAXMM = Math.max(...CLI.map((x) => x.mm));
-const TOTMM = CLI.reduce((s,x) => s + x.mm, 0);
-
-const seasonFor = (m) => Object.values(PLAN.seasons).find((s) => s.months.includes(m));
-
-function windows(months){
-  const on = new Set(months);
-  if (on.size === 12) return [];
-  const runs = [];
-  for (let m = 1; m <= 12; m++){
-    if (!on.has(m)) continue;
-    const prev = m === 1 ? 12 : m - 1;
-    if (on.has(prev)) continue;
-    let end = m, n = 0;
-    while (on.has(end) && n < 12){ const nx = end === 12 ? 1 : end + 1; if (!on.has(nx)) break; end = nx; n++; }
-    runs.push([m, end]);
-  }
-  return runs;
-}
-const windowText = (months) => {
-  const r = windows(months);
-  if (!r.length) return "all year";
-  return r.map(([a,b]) => a === b ? MON[a-1] : `${SHORT[a-1]} to ${SHORT[b-1]}`).join(", and ");
-};
-/* ── what the corpus can count about itself ──────────────────────────────── */
-const P = PLAN.places;
-const catCount = {};
-P.forEach((p) => catCount[p.c] = (catCount[p.c] || 0) + 1);
-const PCATS = Object.keys(catCount);
-const waterNotes = P.filter((p) => p.k && /tide|current|water|wave|swell|surf|cold|wind|ocean|rip/i.test(p.k)).length;
-const dogPlaces = P.filter((p) => /dog/i.test(JSON.stringify(p)));
-const freePlaces = (catCount.beaches || 0) + (catCount.hiking || 0) + (catCount["storm-watching"] || 0);
-const cheapest = Math.min(...PLAN.listings.map((l) => l.p));
-const placesInSeason = (m) => PCATS.filter((c) => (PLAN.bestMonths[c] || []).includes(m))
-  .reduce((s,c) => s + catCount[c], 0);
-
-/* Two counts on the topic cards are matched out of the guides' own "good for"
-   wording, so the number on the card is a real count of places and not a
-   bucket we invented. The chip row that used to reorder the cards by traveller
-   is gone; these two matchers are all that survived it. */
-const MATCH = {
-  families:/famil|kid|tide pool|sandcastle|beginner|calm|shelter/i,
-  accessible:/easy walking|boardwalk|short walk|short stop|short forest|short hike|quick stop|quick nature|easy outdoor|multi-use path|limited time|easy rainforest|easy coastal/i
-};
-const COUNT = {};
-Object.entries(MATCH).forEach(([k,re]) =>
-  COUNT[k] = P.filter((p) => re.test(p.g.join(" | ")) || re.test(p.b || "")).length);
-
-/* ── the nine planning topics, in one fixed order: the road in, then the bed,
-      then the bag, then the money, then the people you are travelling with.
-      They used to be reorderable by a chip row, which is a control the owner
-      has already removed once elsewhere; the sequence now does that job. ─── */
-const TOPICS = [
-  { t:"Getting there", k:"Arriving", n:40, u:"minutes from Ucluelet",
-    p:`One road in. Highway 4 crosses the island, then north to Tofino or south to Ucluelet.`,
-    href:"/destinations/canada/bc/vancouver-island", go:"Open Vancouver Island" },
-  { t:"Where to stay", k:"Rooms", n:PLAN.town.stays, u:"stays in Tofino",
-    p:`From $${cheapest} a night, and bookable in all twelve months. Ucluelet adds ${PLAN.ucluelet.stays} rooms forty minutes down the same road.`,
-    href:"/not-found?in=tofino", go:"See the stays" },
-  { t:"What to pack", k:"Kit", n:num(TOTMM), u:"mm of rain a year",
-    p:`Waterproofs are not a winter item here. Even July has ${CLI[6].mm} mm across ${CLI[6].days} days.`,
-    href:"#months", go:"See the rain by month" },
-  { t:"What it costs", k:"Budget", n:freePlaces, u:`of ${P.length} places cost nothing`,
-    p:`The beaches, the trails and the storm viewpoints are free to walk into. The spend is the room and the table.`,
-    href:"/search?in=tofino", go:"Price up a stay" },
-  { t:"Where to eat", k:"Eating", n:catCount.restaurants || 0, u:"places to eat",
-    p:`A taco truck, a brewery, a coffee roaster, and a dining room with the Pacific in the window.`,
-    href:"/destinations/canada/bc/tofino/things-to-do/restaurants", go:"Open the restaurants guide" },
-  { t:"With kids", k:"Families", n:COUNT.families, u:"places good for families",
-    p:`Tide pools at Chesterman Beach, calm water at tinwis Beach, and short boardwalk trails that end at sand.`,
-    href:"/destinations/canada/bc/tofino/long-beach", go:"Start at Long Beach" },
-  { t:"Short, level walks", k:"Access", n:COUNT.accessible, u:"short or level walks",
-    p:`Boardwalks at the Rainforest Trail and Shorepine Bog, and the paved path that runs through the park.`,
-    href:"/destinations/canada/bc/tofino/things-to-do/hiking", go:"Open the hiking guide" },
-  { t:"Staying safe", k:"Water", n:waterNotes, u:"places with a water warning",
-    p:`Rip currents, cold water and a tide that covers the sandspit at Chesterman. Check it before you walk out.`,
-    href:"/destinations/canada/bc/tofino/things-to-do/beaches", go:"Read the beach notes" },
-  { t:"With a dog", k:"Dogs", n:dogPlaces.length, u:"places with a dog rule",
-    p:`All three sit inside Pacific Rim National Park Reserve, where the rules change. Check Parks Canada first.`,
-    href:"/destinations/canada/bc/tofino/things-to-do/beaches", go:"Where the rules change" }
-];
-
-/* the Tofino subjects: the nine guides */
-const CTA = {
-  "beaches":{k:"free",t:"Free to visit"}, "hiking":{k:"free",t:"Free to walk"},
-  "surfing":{k:"free",t:"Free to paddle out"}, "birding":{k:"free",t:"Free to visit"},
-  "restaurants":{k:"free",t:"Book direct, not through us"},
-  "storm-watching":{k:"stay",t:"Stays from $" + cheapest},
-  "kayaking":{k:"soon",t:"Coming soon"}, "whale-watching":{k:"soon",t:"Coming soon"},
-  "fishing":{k:"sister",t:"ArcTrips Fishing"},
-  "camping":{k:"free",t:"Book with the campground"}, "events":{k:"free",t:"Free, some ticketed"}
-};
+/* Questions grouped by activity. Ucluelet questions belong on the Ucluelet
+   pages (review 2026-11-25), so this Tofino page leaves them out. */
 const faqByCat = {};
-PLAN.faqs.forEach((f) => (faqByCat[f.c] = faqByCat[f.c] || []).push(f));
-const SUBJECTS = PLAN.guides.map((g) => ({
-  cat:g.c, name:g.n, places:catCount[g.c] || 0, blocks:g.b, photos:g.p,
-  faqs:(faqByCat[g.c] || []).length, months:PLAN.bestMonths[g.c] || [], cta:CTA[g.c]
-}));
-SUBJECTS.forEach((s) => s.name = s.name.replace(/ & /g, " and "));
-const tofinoOn = (m) => SUBJECTS.filter((s) => s.months.includes(m));
-
-/* ── the photographs. Every subject shows the picture its own guide opens on,
-      so a row here and that guide can never show different places. Two are
-      corrected by hand and both are noted:
-        fishing  the guide's own opener is an aerial from a float plane, which
-                 is not fishing, so the row uses the harbour the charters run
-                 from and says so.
-        camping  the article opener is a bare beach; the camping guide's own
-                 opener is a campground, which is what the row is about.
-      Every id below was checked against Cloudinary before it was added. ─── */
-const SUBJPIC = {
-  "beaches":      ["guides/tofino/beaches/_category-1",        "Wet sand and a low sun on a Tofino beach at the end of the day"],
-  "surfing":      ["guides/tofino/surfing/_category-1",        "A surfer riding a line of evening swell off Tofino"],
-  "whale-watching":["guides/tofino/whale-watching/_category-1","A whale fluke lifting above the water in Clayoquot Sound"],
-  "birding":      ["guides/tofino/birding/_category-1",        "A flock of shorebirds packed along the shallows near Tofino"],
-  "storm-watching":["guides/tofino/storm-watching/_category-1","Grey Pacific surf breaking around a rock stack on the Tofino shore"],
-  "hiking":       ["guides/tofino/hiking/_category-1",         "A walker on a rainforest boardwalk above the ferns near Tofino"],
-  "restaurants":  ["guides/tofino/restaurants/_category-1",    "Plates and glasses laid out on a table at a Tofino restaurant"],
-  "kayaking":     ["guides/tofino/kayaking/_category-1",       "Kayakers crossing flat water below a forested ridge in Clayoquot Sound"],
-  "fishing":      ["guides/tofino/kayaking/tofino-harbour-and-sheltered-inlet-waters-1", "Boats tied up at the dock in Tofino harbour, where the charters run from"],
-  "camping":      ["guides/tofino/camping/_category-1",        "A camper parked among the trees at a campground near Tofino"],
-  "events":       ["guides/tofino/events/_category-1",         "A whale blowing beside gulls during the spring migration off Tofino"]
-};
-/* One line per subject, written for a traveller. The corpus lede for several
-   of these is a search-engine sentence ("Discover the best trails in..."),
-   which tells a reader nothing they can act on. Every fact below is on this
-   page already: the places, their "good to know" notes, or the FAQs. */
-const BLURB = {
-  "storm-watching":"Winter swell hits the exposed beaches, and over half the year's rain falls in these four months",
-  "surfing":"Cold water and steady Pacific swell, with lessons at Chesterman and bigger days at Cox Bay",
-  "restaurants":"Fish tacos, a brewery, two coffee roasters, and a dining room with the Pacific in the window",
-  "hiking":"Rainforest boardwalks, beach walks from the village, and one steep climb to the lookout over Cox Bay",
-  "kayaking":"Sheltered inlets and Meares Island for a first paddle, and multi-day routes deeper into Clayoquot Sound",
-  "beaches":"Long open sand at Long Beach and Chesterman, tide pools at low water, and driftwood along every high line",
-  "whale-watching":"Gray whales pass on the spring migration, and humpbacks, orcas and sea lions stay through the summer",
-  "fishing":"Salmon and halibut charters run out of the harbour with guides who know the banks and the tides",
-  "birding":"Gulls, cormorants and oystercatchers along the shore, puffins offshore, and shorebirds in their thousands",
-  "camping":"Sites between the two towns, from surf access at Cox Bay to sheltered beach pitches and RV parks",
-  "events":"The Pacific Rim Whale Festival marks the gray whale migration through Clayoquot Sound each spring"
-};
-/* one month, one photograph: the subject that is genuinely at its best then.
-   Storm watching repeats across the three deep winter months, which is the
-   point rather than an oversight. */
-const MONTHPIC = ["storm-watching","storm-watching","whale-watching","hiking","kayaking","whale-watching",
-  "beaches","fishing","surfing","hiking","birding","storm-watching"];
-/* ── state ───────────────────────────────────────────────────────────────── */
-let month = 2, other = 7;
-
-/* ── static furniture ────────────────────────────────────────────────────── */
-function paintStatic() {
-
-  $("#heroNote").innerHTML =
-    `Busiest in <b>July and August</b>, quietest in <b>January and February</b>. ` +
-    `Rooms from <b>$${cheapest}</b> a night in all twelve months. Ucluelet is forty minutes down the same road.`;
-
-  $("#apick").innerHTML = MON.map((m,i) => `<option value="${i+1}">${m}</option>`).join("");
-  $("#bpick").innerHTML = MON.map((m,i) => `<option value="${i+1}">${m}</option>`).join("");
-}
-
-/* ── the twelve month board. Every month is a row, at full strength, in
-      calendar order, and nothing is dimmed or withheld. The only colour that
-      carries meaning on this page lives in the last cell: six steps up the
-      azure ramp, from three subjects in season to eight. ─────────────────── */
-/* Crowd levels by month, from scripts/town-page/data/_best-time.json (review
-   2026-11-13: lead with visitors and seasonal activities, not the weather). */
-const CROWDS = ["Lowest", "Lowest", "Building", "Low", "Building", "Busy", "Busiest", "Busiest", "Busy", "Building", "Low", "Low"];
-const CROWD_LVL = {Lowest:1, Low:1, Building:2, Busy:3, Busiest:4};
-const ONMIN = Math.min(...MON.map((_,i) => inSeasonTofino(i+1).length));
-const ONMAX = Math.max(...MON.map((_,i) => inSeasonTofino(i+1).length));
-const intensity = (n) => 1 + Math.round((n - ONMIN) / Math.max(1, ONMAX - ONMIN) * 5);
-
-function paintWeather() {
-  $("#wxt").innerHTML = CLI.map((c,i) => `<tr><td>${MON[i]}</td><td>${c.hi}&deg;</td><td>${c.lo}&deg;</td><td>${c.mm}</td><td>${c.days}</td></tr>`).join("");
-}
-
-function paintBoard() {
-  $("#mboard").innerHTML = CLI.map((c,i) => {
-    const m = i + 1, s = seasonFor(m), on = tofinoOn(m);
-    const sel = m === month;
-    return `<button class="mrow" type="button" data-m="${m}" aria-pressed="${sel}" ${sel ? 'data-sel="true"' : ""}
-      aria-label="${MON[i]}, ${esc(s.name)}, crowds ${CROWDS[i].toLowerCase()}, at their best: ${esc(listOf(on.map((x) => x.name.toLowerCase())))}. Put it in the comparison.">
-      <span class="mrow__m"><span class="mrow__n">${MON[i]}</span><span class="mrow__s">${esc(s.name)}</span></span>
-      <span class="mfig"><span class="mfig__k">Crowds</span>
-        <span class="mcrowd"><i aria-hidden="true">${[0,1,2,3].map((k) => `<b${k < CROWD_LVL[CROWDS[i]] ? " data-on" : ""}></b>`).join("")}</i>${esc(CROWDS[i])}</span></span>
-      <span class="mbest"><span class="mfig__k">At their best</span>
-        <span class="mnames">${esc(listOf(on.map((x) => x.name)))}</span></span>
-      <span class="mgo">${sel ? "Comparing" : "Compare"}${arrow}</span>
-    </button>`;
-  }).join("");
-}
-
-/* ── the comparison: same treatment both sides, the trade in numbers ────── */
-function paintCard(side, m, otherM){
-  const c = CLI[m-1], oc = CLI[otherM-1];
-  const s = seasonFor(m);
-  /* Tofino's own eleven subjects, not the twenty-two in the taxonomy: this is
-     a Tofino page, and it should never name skiing or hot springs as on here */
-  const on = tofinoOn(m), off = tofinoOn(otherM).map((x) => x.cat);
-  const only = on.filter((x) => !off.includes(x.cat));
-  const twin = side === "b" && seasonFor(otherM).name === s.name;
-  const dT = Math.abs(c.hi - oc.hi).toFixed(1);
-  const dMm = Math.abs(c.mm - oc.mm);
-
-  const pic = SUBJPIC[MONTHPIC[m-1]], picName = SUBJECTS.find((x) => x.cat === MONTHPIC[m-1]).name;
-  $(`#${side}Img`).src = cld(pic[0], 900, 506);
-  $(`#${side}Img`).alt = pic[1];
-  $(`#${side}Cap`).textContent = `${MON[m-1]} is for ${picName.toLowerCase()}`;
-
-  $(`#${side}Season`).textContent = s.name;
-  $(`#${side}Name`).textContent = MON[m-1];
-  $(`#${side}Claim`).innerHTML = twin
-    ? `Also ${s.name.toLowerCase() .replace("the ","")}, and <b>${dT} degrees ${c.hi >= oc.hi ? "warmer" : "cooler"}, ${dMm} mm ${c.mm <= oc.mm ? "drier" : "wetter"}</b> than ${MON[otherM-1]}.`
-    : esc(s.claim);
-  $(`#${side}Nums`).innerHTML =
-    `<div><dt>Crowds</dt><dd>${esc(CROWDS[m-1])}</dd></div>` +
-    `<div><dt>Average high</dt><dd>${c.hi}&deg;</dd></div>`;
-  $(`#${side}OnCount`).innerHTML =
-    `At their best in ${MON[m-1]}: <b>${esc(listOf(on.map((x) => x.name.toLowerCase())))}</b>.`;
-  $(`#${side}Only`).innerHTML = only.length
-    ? `On here and not in ${MON[otherM-1]}: <b>${esc(listCap(only.map((x) => x.name.toLowerCase() ), 3))}</b>.`
-    : `Everything ${MON[otherM-1]} has, ${MON[m-1]} has too.`;
-}
-
-function paintCompare() {
-  paintCard("a", month, other);
-  paintCard("b", other, month);
-  const a = placesInSeason(month), b = placesInSeason(other);
-  $("#cTitle").textContent = `${MON[month-1]} against ${MON[other-1]}`;
-  $("#sum").innerHTML =
-    `${MON[month-1]} is ${CROWDS[month-1].toLowerCase()} for visitors, ${MON[other-1]} is ${CROWDS[other-1].toLowerCase()}. ` +
-    `Both months are bookable, and the road in is the same one.`;
-  $("#live").textContent = `Comparing ${MON[month-1]} with ${MON[other-1]}.`;
-}
-
-/* ── what the coast is doing in the chosen month. This replaces two things:
-      an eleven-row table of a hundred and thirty-two four-pixel month blocks,
-      and a separate rail of six places. One list, a photograph on every row,
-      in season first, with the booking path each subject actually has. ─── */
-function paintBest() {
-  const rows = SUBJECTS.slice() .sort((x,y) => {
-    const X = x.months.includes(month), Y = y.months.includes(month);
-    if (X !== Y) return X ? -1 : 1;
-    if (X) return x.months.length - y.months.length || y.places - x.places;
-    return y.places - x.places;
-  });
-  const on = rows.filter((s) => s.months.includes(month)).length;
-
-  $("#bestTitle").textContent = `At their best in ${MON[month-1]}`;
-  $("#bestSub").textContent =
-    `${on} of the nine things Tofino is good at are in season in ${MON[month-1]}. ` +
-    `The rest are underneath, with the months they come into their own.`;
-
-  let sep = false, i = 0;
-  $("#blist").innerHTML = rows.map((s) => {
-    const live = s.months.includes(month);
-    let head = "";
-    if (!live && !sep){ sep = true; head = `<p class="bsep">Better in another month</p>`; }
-    const pic = SUBJPIC[s.cat];
-    const href = CATPAGE[s.cat] || `/destinations/canada/bc/tofino/things-to-do#${s.cat}`;
-    const when = live ? `In season in ${MON[month-1]}` : `Best ${windowText(s.months)}`;
-    let book;
-    if (s.cta.k === "soon") book = `<span class="bpill">Coming soon</span> Stays from <b>$${cheapest}</b> a night`;
-    else if (s.cta.k === "sister") book = `<span class="bpill bpill--sister">ArcTrips Fishing</span> takes the bookings`;
-    else if (s.cta.k === "stay") book = `<span class="bpill bpill--go">Book a stay</span> from <b>$${cheapest}</b> a night`;
-    else book = esc(s.cta.t);
-    const blurb = BLURB[s.cat];
-    return head + `<a class="bitem${live ? "" : " bitem--off"}" href="${href}" style="--i:${i++}">
-      <div class="bitem__m"><img src="${cld(pic[0],320,240)}" alt="${esc(pic[1])}" loading="lazy"></div>
-      <div>
-        <span class="bwhen">${esc(when)}</span>
-        <h3>${esc(s.name)}</h3>
-        <p>${esc(blurb)}.</p>
-        <div class="bfoot">${s.places ? `<b>${s.places}</b> places &middot; ` : ""}${book}</div>
-      </div>
-    </a>`;
-  }).join("");
-}
-
-/* ── the nine topics, numbered, in one order ─────────────────────────────── */
-function paintTopics() {
-  $("#tgrid").innerHTML = TOPICS.map((t,i) =>
-    `<a class="topic" href="${t.href}" style="--i:${i}">
-      <span class="topic__k"><b>${String(i+1).padStart(2,"0")}</b> ${esc(t.k)}</span>
-      <h3>${esc(t.t)}</h3>
-      <p class="topic__n tnum">${t.n}<small>${esc(t.u)}</small></p>
-      <p>${t.p}</p>
-      <span class="topic__go">${esc(t.go)}${arrow}</span>
-    </a>`).join("");
-}
-
-/* ── the questions. One column, every one collapsed, native details so it
-      works from the keyboard with no script at all. ─────────────────────── */
-function paintQuestions() {
-  const cats = Object.keys(faqByCat).sort((a,b) => faqByCat[b].length - faqByCat[a].length);
-  $("#qlist").innerHTML = cats.map((c) => {
-    const rows = faqByCat[c];
-    return `<div class="qgroup">
-      <h3>${esc(CATN[c] || c)}</h3>
-      ${rows.map((f) => `<details class="qi"><summary>${esc(f.q.replace(/\s+$/,""))}</summary><p>${esc(f.a)}</p></details>`).join("")}
-    </div>`;
-  }).join("");
-}
-
-/* ── the stays module, from the real listing rows ────────────────────────── */
-function paintStays() {
-  const rows = PLAN.listings.slice() .sort((a,b) => a.p - b.p || a.t.localeCompare(b.t));
-  const tof = rows.filter((l) => l.city === "tofino");
-  const feat = tof[0];
-  const where = (l) => l.city === "tofino" ? "Tofino" : "Ucluelet";
-  /* the listing rows carry shuffled hero ids, a charter photo on a chalet, so
-     the feature takes lodging photography from the same Cloudinary library */
-  const FEATIMG = ["arc-trips/curated-cabin", "A timber cabin standing alone above a forested shoreline"];
-  $("#stayFeat").innerHTML =
-    `<div class="stay__m"><img src="${cld(FEATIMG[0],1100,830)}" alt="${esc(FEATIMG[1])}"></div>
-     <h3>${esc(feat.t)}</h3>
-     <p class="stay__p tnum">$${feat.p} <span>a night, CAD</span></p>
-     <p class="dest__meta tnum">${feat.rooms} bedrooms &middot; ${feat.beds} beds &middot; ${feat.r} rated &middot; ${where(feat)}</p>`;
-
-  $("#stayTable tbody").innerHTML = rows.slice(1,7).map((l) =>
-    `<tr>
-      <td><div class="l__t">${esc(l.t)}</div>
-        <div class="l__w tnum">${where(l)} &middot; ${l.rooms} bedrooms &middot; ${l.r} rated</div></td>
-      <td class="l__p">$${l.p}<span>a night</span></td>
-    </tr>`).join("");
-
-  const hi = Math.max(...rows.map((l) => l.p));
-  $("#stayLine").innerHTML =
-    `The same rooms are bookable in all twelve months above, from $${cheapest} to $${hi} a night.`;
-  $("#stayNote").innerHTML =
-    `Prices in CAD, before taxes and fees.`;
-}
-
-/* ── wire up ─────────────────────────────────────────────────────────────── */
-function setMonth(m){
-  if (m === other) other = month;
-  month = m;
-  $("#apick").value = String(month);
-  $("#bpick").value = String(other);
-  paintBoard() ; paintCompare() ; paintBest() ;
-}
-
-paintStatic(); paintWeather(); paintTopics() ; paintBoard() ; paintQuestions() ; paintStays() ;
-$("#apick").value = String(month);
-$("#bpick").value = String(other);
-paintCompare() ; paintBest() ;
-
-$("#mboard").addEventListener("click", (e) => {
-  const b = e.target.closest(".mrow"); if (!b) return;
-  setMonth(Number(b.dataset.m));
-  document.getElementById("compare").scrollIntoView({ behavior:"smooth", block:"start" });
-});
-$("#apick").addEventListener("change", (e) => setMonth(Number(e.target.value)));
-$("#bpick").addEventListener("change", (e) => {
-  const v = Number(e.target.value);
-  other = v === month ? (month === 2 ? 7 : 2) : v;
-  $("#bpick").value = String(other);
-  paintCompare();
-});
+PLAN.faqs.filter((f) => !/ucluelet/i.test(f.q)).forEach((f) => (faqByCat[f.c] = faqByCat[f.c] || []).push(f));
+const cats = Object.keys(faqByCat).sort((a,b) => faqByCat[b].length - faqByCat[a].length);
+$("#qlist").innerHTML = cats.map((c) => `<div class="qgroup">
+  <h3>${esc(CATN[c] || c)}</h3>
+  ${faqByCat[c].map((f) => `<details class="qi"><summary>${esc(f.q.replace(/\s+$/,""))}</summary><p>${esc(f.a)}</p></details>`).join("")}
+</div>`).join("");
 addEventListener("keydown", (e) => {
   if (e.key === "/" && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)){
-    e.preventDefault() ; $(".search input").focus() ;
+    e.preventDefault(); $(".search input").focus();
   }
 });
-
-/* the reading-progress hairline and the current in-page section */
-const secs = [...document.querySelectorAll("#jumprow a")].map((a) => ({ a, el: document.querySelector(a.getAttribute("href")) }));
-function onScroll() {
-  const h = document.documentElement;
-  const p = h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight);
-  $("#jumpbar").style.width = (p * 100).toFixed(2) + "%";
-  let cur = null;
-  secs.forEach((s) => { if (s.el && s.el.getBoundingClientRect() .top <= 200) cur = s; });
-  secs.forEach((s) => s.a === (cur && cur.a) ? s.a.setAttribute("aria-current","true") : s.a.removeAttribute("aria-current"));
-}
-addEventListener("scroll", onScroll, { passive:true });
-onScroll();
 </script>
 <script src="/prototype/_nav.js"></script>
 </body>

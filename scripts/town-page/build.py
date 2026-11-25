@@ -19,6 +19,8 @@ DATA = os.path.join(HERE, 'data')
 OUT = os.path.join(ROOT, 'design', 'prototype')
 ORIGIN = 'https://arctrips-destination-pages.vercel.app'
 BC = '/destinations/canada/bc'
+# Stays pages verified live for these slugs only; the rest fall back to the stays index.
+NO_STAY_PAGE = {'nanoose', 'shawnigan-lake'}
 ITIN = '/travel-guides/canada/bc/itineraries'
 
 # The reviewer: feature only the popular, commonly recommended places. A town
@@ -36,8 +38,24 @@ ISLAND = {'tofino', 'ucluelet', 'victoria', 'sooke', 'sidney', 'shawnigan-lake',
           'parksville', 'campbell-river'}
 
 
+# US English in rendered copy (owner, 2026-11-25). Capitalised forms are left alone
+# because they are proper names (Inner Harbour, Cultural Centre, Chemainus Theatre).
+US = {'harbour': 'harbor', 'harbours': 'harbors', 'harbourfront': 'harborfront', 'centre': 'center', 'centres': 'centers',
+      'colour': 'color', 'colours': 'colors', 'colourful': 'colorful', 'favourite': 'favorite', 'favourites': 'favorites',
+      'grey': 'gray', 'jewellery': 'jewelry', 'kilometre': 'kilometer', 'kilometres': 'kilometers', 'metre': 'meter',
+      'metres': 'meters', 'litre': 'liter', 'litres': 'liters', 'labour': 'labor', 'licence': 'license', 'licences': 'licenses',
+      'neighbourhood': 'neighborhood', 'neighbourhoods': 'neighborhoods', 'behaviour': 'behavior', 'parlour': 'parlor',
+      'theatre': 'theater', 'theatres': 'theaters', 'traveller': 'traveler', 'travellers': 'travelers',
+      'organiser': 'organizer', 'organisers': 'organizers', 'neighbour': 'neighbor', 'neighbours': 'neighbors'}
+US_RE = re.compile(r'(?<![\w/])(' + '|'.join(US) + r')(?!\w)')
+
+
+def us(s):
+    return US_RE.sub(lambda m: US[m.group(1)], s)
+
+
 def e(s):
-    return html.escape(s or '', quote=True)
+    return html.escape(us(s or ''), quote=True)
 
 
 def clean(s):
@@ -83,6 +101,42 @@ def itinerary_groups():
     return out
 
 
+LEAD = re.compile(r"^(Ride|Walk Across|Explore|See|Visit|Relax at|Paddle on|Drive|Go|Try|Cross-Country Ski at)\s+(the\s+)?", re.I)
+
+
+def short_name(n):
+    """Caption for a place: no parenthetical, no leading verb (Ride the Sea to Sky Gondola -> Sea to Sky Gondola)."""
+    n = re.sub(r'\s*\([^)]*\)', '', n).strip()
+    m = LEAD.match(n)
+    if m and len(n) > m.end():
+        n = n[m.end():]
+        n = n[0].upper() + n[1:]
+    return n
+
+
+def hero_plates(d):
+    """The town's hero photo as the large plate, then up to two photos of its places, one per tab first.
+    Returns [(src, alt, caption)]; fewer than three when the town has fewer usable photos."""
+    h = d['hero']
+    plates = [(h['img'], h['alt'], h.get('caption') or d['name'])]
+    seen = {h['img']}
+    names = {re.sub(r'^the\s+', '', plates[0][2].lower())}
+    per_tab = [[p for p in t['places'][:TOP_PER_ACTIVITY] if p.get('img')] for t in d['tabs']]
+    order = [t[0] for t in per_tab if t] + [p for t in per_tab for p in t[1:]]
+    for limit in (36, 999):
+        for p in order:
+            if len(plates) == 3:
+                break
+            cap = short_name(p['name'])
+            key = re.sub(r'^the\s+', '', cap.lower())
+            if p['img'] in seen or len(cap) > limit or key in names:
+                continue
+            seen.add(p['img'])
+            names.add(key)
+            plates.append((p['img'], p.get('alt') or p['name'], cap))
+    return plates
+
+
 CSS = open(os.path.join(HERE, 'town.css')).read()
 JS = open(os.path.join(HERE, 'town.js')).read()
 
@@ -98,6 +152,7 @@ def render(d, itins):
         sep = '<span class="sep lvl-deep" aria-hidden="true">/</span>' if deep else '<span class="sep" aria-hidden="true">/</span>'
         crumb_html += f'<a{deep} href="{h}">{e(l)}</a>{sep}'
     crumb_html += f'<span aria-current="page">{e(name)}</span>'
+    stay_url = 'https://arctrips.com/stays' if slug in NO_STAY_PAGE else f'https://arctrips.com/stays/canada/bc/{slug}'
     groups = itins.get(slug, [])
     links = [('#top', 'Overview', True), ('#why', 'Why go', False), ('#when', 'When to go', False), ('#do', 'Things to do', False)]
     if groups:
@@ -105,7 +160,10 @@ def render(d, itins):
     links_html = '\n'.join(f'    <li><a href="{h}"{" aria-current=\"page\"" if c else ""}>{l}</a></li>' for h, l, c in links)
 
     hero = d['hero']
-    region_label = 'Vancouver Island, British Columbia' if island else 'British Columbia'
+    plates = hero_plates(d)
+    plates_html = ''.join(
+        f'<figure class="tplate tp{i + 1}"><img src="{e(src)}" alt="{e(alt)}"{"" if i == 0 else " loading=\"lazy\""}>'
+        f'<figcaption>{e(cap)}</figcaption></figure>' for i, (src, alt, cap) in enumerate(plates))
 
     # why go
     facts = ''.join(f'<div><dt>{e(f["k"])}</dt><dd>{e(clean(f["v"]))}</dd></div>' for f in d['why']['facts'])
@@ -133,19 +191,19 @@ def render(d, itins):
     for i, t in enumerate(d['tabs']):
         tid = re.sub(r'[^a-z0-9]+', '-', t['id'].lower()).strip('-')
         cards = []
-        for p in t['places'][:TOP_PER_ACTIVITY]:
-            note = f'<p class="pl__n"><b>Good to know.</b> {e(clean(p["note"]))}</p>' if p.get('note') else ''
-            body = f'<div class="pl__b"><h3>{e(p["name"])}</h3><p>{e(clean(p["text"]))}</p>{note}</div>'
+        for n, p in enumerate(t['places'][:TOP_PER_ACTIVITY], 1):
+            note = f'<p class="tpl__note"><b>Good to know.</b> {e(clean(p["note"]))}</p>' if p.get('note') else ''
+            body = f'<div class="tpl__b"><span class="tpl__k tnum">{n:02d}</span><h3>{e(p["name"])}</h3><p>{e(clean(p["text"]))}</p>{note}</div>'
             if p.get('img'):
-                cards.append(f'<article class="hc"><figure class="hc__m"><img loading="lazy" src="{e(p["img"])}" alt="{e(p.get("alt") or p["name"])}"></figure>{body}</article>')
+                cards.append(f'<article class="tpl"><figure class="tpl__m"><img loading="lazy" src="{e(p["img"])}" alt="{e(p.get("alt") or p["name"])}"></figure>{body}</article>')
             else:
-                cards.append(f'<article class="hc hc--t">{body}</article>')
+                cards.append(f'<article class="tpl tpl--t">{body}</article>')
         qs = ''.join(f'<details class="hq"><summary>{e(clean(q["q"]))}</summary><div class="hq__a"><p>{e(clean(q["a"]))}</p></div></details>' for q in t.get('faqs', []))
-        qblock = f'<div class="hqs"><h4>Questions about {e(t["label"].lower())} in {e(name)}</h4>{qs}</div>' if qs else ''
+        qblock = f'<div class="hqs"><h4>Frequently asked questions</h4>{qs}</div>' if qs else ''
         intro = f'<p class="hpanel__p">{e(clean(t["intro"]))}</p>' if t.get('intro') else ''
         panels.append(f'<div class="hpanel" role="tabpanel" id="panel-{tid}" aria-labelledby="tab-{tid}" data-g="{tid}"{"" if i == 0 else " hidden"}>'
                       f'<h3 class="hpanel__h">{e(t["label"])} in {e(name)}</h3>{intro}'
-                      f'<div class="hgrid">{"".join(cards)}</div>{qblock}</div>')
+                      f'<div class="tpls">{"".join(cards)}</div>{qblock}</div>')
         tabs.append(f'<button type="button" role="tab" id="tab-{tid}" aria-controls="panel-{tid}" aria-selected="{"true" if i == 0 else "false"}" tabindex="{0 if i == 0 else -1}" data-g="{tid}">{e(t["label"])}</button>')
 
     # itineraries, from the itineraries page
@@ -164,12 +222,14 @@ def render(d, itins):
     planning = ''
     if d.get('planning'):
         qs = ''.join(f'<details class="hq"><summary>{e(clean(q["q"]))}</summary><div class="hq__a"><p>{e(clean(q["a"]))}</p></div></details>' for q in d['planning'])
-        planning = f'<div class="hqs hqs--plan"><h4>Before you go</h4>{qs}</div>'
+        planning = f'<div class="hqs hqs--plan"><h4>Frequently asked questions</h4>{qs}</div>'
 
     nearby = ''.join(f'<li><a href="{BC}/{n}">{e(NAMES.get(n, n))}</a></li>' for n in d.get('nearby', []) if n in NAMES and n != slug)
 
+    nearby_html = (f'<section class="hnear"><div class="wrap roster"><h2>Nearby</h2><ul>{nearby}</ul></div></section>' if nearby else '')
+
     page = f'''<!doctype html>
-<html lang="en-CA">
+<html lang="en-US">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -192,7 +252,7 @@ def render(d, itins):
 <a class="skip" href="#main">Skip to content</a>
 <nav class="top"><div class="wrap nav-in">
   <a class="brand" href="/"><img class="brand__mark" src="/prototype/brand/arctrips-mark-azure.svg" alt="" width="45" height="20"><span>ArcTrips</span></a>
-  <ul class="nav-links"><li><a href="/" aria-current="true">Destinations</a></li><li><a href="/search?in={slug}">Guides</a></li></ul>
+  <ul class="nav-links"><li><a href="/destinations" aria-current="page">Destinations</a></li><li><a href="/travel-guides">Guides</a></li></ul>
   <form class="search" role="search" action="/search" method="get">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
     <label class="vh" for="q">Search {e(name)}</label>
@@ -207,17 +267,16 @@ def render(d, itins):
 </div></div><!-- /placebar -->
 <main id="main">
 
-<header class="hero thero2"><div class="wrap hero-grid">
+<header class="thero"><div class="wrap thero-grid">
   <div>
-    <span class="label">{e(region_label)}</span>
-    <h1 style="margin-top:16px">{e(name)}</h1>
+    <h1>{e(name)}</h1>
     <p class="lede">{e(clean(hero["standfirst"]))}</p>
     <div class="hero-cta">
-      <a class="btn btn--ghost" href="#do">What to do here</a>
       <a class="btn btn--ghost" href="#when">When to go</a>
+      <a class="btn btn--ghost" href="#do">Things to do</a>
     </div>
   </div>
-  <figure class="uphoto"><img src="{e(hero["img"])}" alt="{e(hero["alt"])}"></figure>
+  <div class="tcol tcol--{len(plates)}">{plates_html}</div>
 </div></header>
 
 <section class="sec--why" id="why"><div class="wrap why">
@@ -244,7 +303,7 @@ def render(d, itins):
 <section class="hdo" id="do"><div class="wrap">
   <div class="head"><div><span class="label label--n">Things to do</span>
     <h2 style="margin-top:11px">What to do in {e(name)}</h2>
-    <p>The places people come for, one activity at a time. Each tab ends with the questions people ask about it.</p></div></div>
+    <p>The places people come for, one activity at a time.</p></div></div>
   <div class="acts" role="tablist" aria-label="Activities in {e(name)}">{"".join(tabs)}</div>
   {"".join(panels)}
   {planning}
@@ -253,15 +312,12 @@ def render(d, itins):
 <section class="hstay"><div class="wrap stayband">
   <div><h2>Where to stay in {e(name)}</h2>
     <p>Search what is open in {e(name)} for your dates.</p></div>
-  <div class="stay__go"><a class="btn btn--primary" href="/search?in={slug}">Find a stay in {e(name)}</a></div>
+  <div class="stay__go"><a class="btn btn--primary" href="{stay_url}">Find a stay in {e(name)}</a></div>
 </div></section>
 
-<section class="hnear"><div class="wrap roster">
-  <h2>Nearby</h2>
-  <ul>{nearby}<li><a href="{f"{BC}/vancouver-island" if island else "/"}">{"All of Vancouver Island" if island else "All of British Columbia"}</a></li></ul>
-</div></section>
+{nearby_html}
 </main>
-<footer class="f"><div class="wrap fbase">&copy; 2026 Arc Trips. Prices in CAD, before taxes and fees.</div></footer>
+<footer class="f"><div class="wrap fbase">&copy; 2026 ArcTrips</div></footer>
 <script>
 {JS}
 </script>
